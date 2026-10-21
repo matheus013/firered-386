@@ -7,11 +7,18 @@ from pathlib import Path
 import hashlib
 import json
 import subprocess
+import argparse
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'output/tests/checklist'
 OUT.mkdir(parents=True, exist_ok=True)
 results = []
+parser = argparse.ArgumentParser()
+parser.add_argument('--version', default='v0.3.1-dev')
+args = parser.parse_args()
+if not re.fullmatch(r'v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?', args.version):
+    parser.error('Invalid version')
 
 
 def run(name, action):
@@ -28,16 +35,17 @@ def command(args):
 
 
 def package():
-    folder = ROOT / 'output/release/v0.3.0-dev'
+    folder = ROOT / 'output/release' / args.version
+    prefix = 'firered-386-' + args.version
     rom = (ROOT / 'output/firered-386-dev.gba').read_bytes()
-    assert rom == (folder / 'firered-386-v0.3.0-dev.gba').read_bytes()
+    assert rom == (folder / (prefix + '.gba')).read_bytes()
     for line in (folder / 'SHA256SUMS.txt').read_text().splitlines():
         digest, name = line.split(maxsplit=1)
         assert hashlib.sha256((folder / name.strip()).read_bytes()).hexdigest() == digest, name
     base = (ROOT / 'output/baseline.gba').read_bytes()
     assert hashlib.sha1(base).hexdigest() == '41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc'
     data = bytearray(base)
-    patch = (folder / 'firered-386-v0.3.0-dev.ips').read_bytes()
+    patch = (folder / (prefix + '.ips')).read_bytes()
     assert patch[:5] == b'PATCH'
     cursor = 5
     while patch[cursor:cursor + 3] != b'EOF':
@@ -56,7 +64,7 @@ def package():
         data[offset:offset + size] = block
     assert cursor + 3 == len(patch)
     assert bytes(data) == rom
-    assert (folder / 'firered-386-v0.3.0-dev-source.patch').read_bytes() == (ROOT / 'patches/current.patch').read_bytes()
+    assert (folder / (prefix + '-source.patch')).read_bytes() == (ROOT / 'patches/current.patch').read_bytes()
     return 'All manifest hashes match; clean USA 1.0 + IPS equals the production ROM; source patch matches.'
 
 
@@ -81,15 +89,22 @@ def cache_sources():
     return f'{len(files)} source files match the cache used to derive the disposable fixtures.'
 
 
+def clean_rebuild():
+    folder = Path((ROOT / 'output/release-check-build-path.txt').read_text().strip())
+    assert (folder / 'pokefirered.gba').read_bytes() == (ROOT / 'output/firered-386-dev.gba').read_bytes()
+    return 'Fresh build from pinned base plus cumulative source patch equals production ROM.'
+
+
 for script in ['balance_trainers.py', 'balance_encounters.py', 'generate_guides.py']:
     run(script, lambda script=script: command(['python3', 'scripts/' + script, '--check']))
 run('doubles_ai_native', ai)
 run('production_boot_900_frames', boot)
 run('release_integrity_ips', package)
 run('fixture_cache_sources_match', cache_sources)
+run('clean_source_rebuild_matches', clean_rebuild)
 run('source_patch_applicable', lambda: command(['git', '-C', 'game', 'apply', '--check', '--cached', '../patches/current.patch']))
 run('source_whitespace', lambda: command(['git', '-C', 'game', '-c', 'core.autocrlf=false', 'diff', '--check']))
-report = {'rom_sha256': hashlib.sha256((ROOT / 'output/firered-386-dev.gba').read_bytes()).hexdigest(), 'checks': results}
+report = {'version': args.version, 'rom_sha256': hashlib.sha256((ROOT / 'output/firered-386-dev.gba').read_bytes()).hexdigest(), 'checks': results}
 (OUT / 'release_audit.json').write_text(json.dumps(report, indent=2) + '\n')
 if any(row['status'] == 'failed' for row in results):
     raise SystemExit(1)

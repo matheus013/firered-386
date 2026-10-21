@@ -4,11 +4,11 @@ Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em du
 
 Guias: [onde capturar cada uma das 386 espécies](SPECIES_LOCATIONS.md) · [times dos desafios em sequência](#times-dos-desafios-em-sequência) · [encontros por rota, níveis e probabilidades](ENCOUNTERS.md) · [catálogo de todos os treinadores](TRAINER_REVIEW.md).
 
-**Auditoria de testes (21/10/2026):** as sete suítes existentes passaram, mas cinco dos 18 novos casos falharam, revelando três problemas ainda abertos: IVs compactados, leitura do status dos errantes em cenário dirigido e teto de nível na creche. Consulte o [checklist, reproduções e pendências manuais](TEST_CHECKLIST.md). A ROM v0.3.0-dev ainda não foi homologada por uma campanha completa.
+**Validação v0.3.1-dev:** corrigidos os três bugs da auditoria (IVs, status dos errantes e teto da creche) e o consumo indevido de cota pelo Marowak fantasma. Passaram 23 casos de captura, com cotas nos 124 mapas de encontros, 28 casos de Pokémon/creche e sete suítes de regressão. Veja o [checklist e pendências manuais](TEST_CHECKLIST.md) e os [testes de captura](CAPTURE_TEST_RESULTS.md).
 
 ## Download
 
-Versão atual: **[v0.3.0-dev](https://github.com/matheus013/firered-386/releases/tag/v0.3.0-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.3.0-dev/firered-386-v0.3.0-dev.gba). Inclui as 386 espécies distribuídas e a correção das lojas. Veja o [histórico de versões](CHANGELOG.md) e o [relatório dos 46 testes de lojas](SHOP_TEST_RESULTS.md).
+Versão atual: **[v0.3.1-dev](https://github.com/matheus013/firered-386/releases/tag/v0.3.1-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.3.1-dev/firered-386-v0.3.1-dev.gba). Inclui as 386 espécies, a correção das lojas e as correções de captura/IVs/errantes/creche. Veja o [histórico de versões](CHANGELOG.md) e o [relatório dos 46 testes de lojas](SHOP_TEST_RESULTS.md).
 
 Baixe o **`.gba`** em [Releases](https://github.com/matheus013/firered-386/releases) e abra em um emulador de GBA. Também estão disponíveis um patch `.ips`, o patch de fontes e checksums SHA-256.
 
@@ -467,7 +467,7 @@ Ainda não há validação de campanha completa, Torre inteira ou trocas no VBA 
 
 Para repetir os testes após compilar, instale também `libmgba-dev` e `mgba-sdl` no Ubuntu/WSL:
 
-O [checklist de testes](TEST_CHECKLIST.md) reúne fontes da pesquisa, escopo de cada aprovação, resultados estruturados e roteiro manual. `python3 scripts/run_regression.py` repete as sete suítes abaixo. `python3 scripts/test_community_cases.py` executa os 18 novos casos e **retorna código 1 enquanto as cinco falhas conhecidas persistirem**. A auditoria de integridade do pacote está em `scripts/audit_release.py` e exige os assets locais da v0.3.0-dev.
+O [checklist de testes](TEST_CHECKLIST.md) reúne fontes da pesquisa, escopo de cada aprovação, resultados estruturados e roteiro manual. `python3 scripts/run_regression.py` repete as sete suítes abaixo. `python3 scripts/test_community_cases.py` executa 28 casos de Pokémon/creche; `python3 scripts/test_capture_rules.py` executa 23 casos de captura. Todos passaram na v0.3.1-dev. A auditoria de integridade está em `scripts/audit_release.py` e exige os assets locais da versão selecionada (padrão v0.3.1-dev).
 
 ```bash
 python3 scripts/balance_trainers.py --check

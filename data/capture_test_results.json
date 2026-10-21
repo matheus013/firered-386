@@ -1,0 +1,108 @@
+{
+  "rom_sha256": "d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8",
+  "cases": [
+    {
+      "id": "before_oak_balls",
+      "status": "passed"
+    },
+    {
+      "id": "first_eligible_consumes",
+      "status": "passed"
+    },
+    {
+      "id": "multiple_balls_same_battle",
+      "status": "passed"
+    },
+    {
+      "id": "flee_loses_attempt",
+      "status": "passed"
+    },
+    {
+      "id": "ko_loses_attempt",
+      "status": "passed"
+    },
+    {
+      "id": "different_route_independent",
+      "status": "passed"
+    },
+    {
+      "id": "return_route_still_used",
+      "status": "passed"
+    },
+    {
+      "id": "duplicate_skips_without_consuming",
+      "status": "passed"
+    },
+    {
+      "id": "nonduplicate_after_duplicate",
+      "status": "passed"
+    },
+    {
+      "id": "exact_species_not_family",
+      "status": "passed"
+    },
+    {
+      "id": "shiny_has_no_exception",
+      "status": "passed"
+    },
+    {
+      "id": "trainer_does_not_consume",
+      "status": "passed"
+    },
+    {
+      "id": "link_does_not_consume",
+      "status": "passed"
+    },
+    {
+      "id": "tutorial_does_not_consume",
+      "status": "passed"
+    },
+    {
+      "id": "cave_floors_share",
+      "status": "passed"
+    },
+    {
+      "id": "safari_sectors_share_ball_block",
+      "status": "passed"
+    },
+    {
+      "id": "static_same_section_blocked",
+      "status": "passed"
+    },
+    {
+      "id": "unidentified_ghost_does_not_consume",
+      "status": "passed"
+    },
+    {
+      "id": "revealed_marowak_does_not_consume",
+      "status": "passed"
+    },
+    {
+      "id": "native_catch_then_next_ball_blocked",
+      "status": "passed"
+    },
+    {
+      "id": "normal_unrestricted",
+      "status": "passed"
+    },
+    {
+      "id": "fresh_instance_quota_persistence",
+      "status": "passed"
+    },
+    {
+      "id": "all_compiled_wild_maps_first_only",
+      "status": "passed"
+    }
+  ],
+  "save_bytes": 131072,
+  "fresh_instances": 2,
+  "observed": [
+    1,
+    1,
+    10,
+    0,
+    1,
+    0,
+    124
+  ]
+}

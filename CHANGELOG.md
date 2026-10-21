@@ -1,5 +1,14 @@
 # Histórico de versões
 
+## v0.3.1-dev — 21/10/2026
+
+- Corrigidos os quatro bytes dos IVs compactados, incluindo reconstrução dos lendários errantes.
+- Corrigida a leitura do status dos errantes, sem incluir os três campos vizinhos.
+- Creches das ilhas e Route 5 respeitam o teto de EXP/nível nos dois modos, com previsão e cobrança coerentes.
+- O Marowak fantasma revelado não consome mais a oportunidade de captura da Torre; continua impossível capturá-lo.
+- Validados 23 casos de captura, cotas nos 124 mapas de encontros, 28 casos de Pokémon/creche e sete suítes de regressão. Nova compilação limpa do patch reproduziu a ROM.
+- [Checklist atualizado](TEST_CHECKLIST.md), [captura](CAPTURE_TEST_RESULTS.md) e [auditoria anterior preservada](TEST_AUDIT_V0_3_0.md). Campanha completa e VBA Link permanecem pendentes.
+
 ## Auditoria de testes — 21/10/2026 (sem nova ROM)
 
 - Pesquisa de falhas documentadas por autores de hacks e pelo pret; [checklist de testes](TEST_CHECKLIST.md) com fontes, critérios, reproduções e roteiro manual.

@@ -17,6 +17,7 @@ result=subprocess.run([str(runner),str(test/'pokefirered.gba'),str(out/'native')
 (out/'emulator.log').write_text(result.stdout+result.stderr);assert result.returncode==0,(result.stdout,result.stderr[-2000:])
 native=json.loads(result.stdout)
 names=['national_dex_api','kadabra_37','machoke_37','graveler_37','haunter_37','everstone','sentret_furret_national','thunder_stone','shiny_boundaries','shiny_256_of_65536','packed_ivs_32bit','roamer_ivs','roamer_status_width','daycare_cap_normal','daycare_cap_hardcore','nature_pc_identity','full_pc_no_overwrite','last_pc_slot']
+names+=['packed_ivs_varied','roamer_valid_statuses_preserved','daycare_preview_cost_normal','daycare_preview_cost_hardcore','route5_daycare_normal','route5_daycare_hardcore','daycare_preview_after_badge','overlevel_keeps_level_no_exp','small_exp_below_cap','postleague_training_unrestricted']
 cases=[{'id':name,'status':'passed' if native['passed']&(1<<i) else 'failed'} for i,name in enumerate(names)]
 assert all((native['passed']|native['failed'])&(1<<i) for i in range(len(names)))
 report={'rom_sha256':hashlib.sha256((root/'output/firered-386-dev.gba').read_bytes()).hexdigest(),'cases':cases,'observed':dict(zip(['shiny_count','packed_ivs','roamer_ivs','roamer_status','daycare_level_normal','daycare_level_hardcore'],native['observed']))}

@@ -47143,6 +47143,45 @@ index 176027b..a6492ae 100644
                }
              ]
            }
+diff --git a/src/daycare.c b/src/daycare.c
+index efa5a95..64bf27f 100644
+--- a/src/daycare.c
++++ b/src/daycare.c
+@@ -5,6 +5,7 @@
+ #include "constants/items.h"
+ #include "mail_data.h"
+ #include "pokemon_storage_system.h"
++#include "nuzlocke.h"
+ #include "event_data.h"
+ #include "random.h"
+ #include "constants/moves.h"
+@@ -518,6 +519,7 @@ static u16 TakeSelectedPokemonFromDaycare(struct DaycareMon *daycareMon)
+     if (GetMonData(&pokemon, MON_DATA_LEVEL) != MAX_LEVEL)
+     {
+         experience = GetMonData(&pokemon, MON_DATA_EXP) + daycareMon->steps;
++        experience = Nuzlocke_ClampTrainingExperience(&pokemon, experience);
+         SetMonData(&pokemon, MON_DATA_EXP, &experience);
+         ApplyDaycareExperience(&pokemon);
+     }
+@@ -550,11 +552,14 @@ u16 TakePokemonFromDaycare(void)
+ 
+ static u8 GetLevelAfterDaycareSteps(struct BoxPokemon *mon, u32 steps)
+ {
+-    struct BoxPokemon tempMon = *mon;
++    struct Pokemon tempMon;
++    u32 experience;
+ 
+-    u32 experience = GetBoxMonData(mon, MON_DATA_EXP) + steps;
+-    SetBoxMonData(&tempMon, MON_DATA_EXP,  &experience);
+-    return GetLevelFromBoxMonExp(&tempMon);
++    BoxMonToMon(mon, &tempMon);
++    experience = GetMonData(&tempMon, MON_DATA_EXP) + steps;
++    experience = Nuzlocke_ClampTrainingExperience(&tempMon, experience);
++    SetMonData(&tempMon, MON_DATA_EXP, &experience);
++    return GetLevelFromBoxMonExp(&tempMon.box);
+ }
+ 
+ static u8 GetNumLevelsGainedFromSteps(struct DaycareMon *daycareMon)
 diff --git a/src/field_poison.c b/src/field_poison.c
 index d44e32b..80a02c8 100644
 --- a/src/field_poison.c
@@ -47462,7 +47501,7 @@ index 7f3a881..c0f46cf 100644
      else
          noEffect = TRUE;
 diff --git a/src/pokemon.c b/src/pokemon.c
-index 66a5c3d..d430f0f 100644
+index 66a5c3d..8752cc2 100644
 --- a/src/pokemon.c
 +++ b/src/pokemon.c
 @@ -1,6 +1,7 @@
@@ -47501,13 +47540,13 @@ index 66a5c3d..d430f0f 100644
 +            mon->hp = 0;
 +        else
 +            SET16(mon->hp);
-+        break;
+         break;
 +    case MON_DATA_EXP:
 +    {
 +        u32 experience = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
 +        experience = Nuzlocke_ClampExperience(mon, experience);
 +        SetBoxMonData(&mon->box, field, &experience);
-         break;
++        break;
 +    }
      case MON_DATA_MAX_HP:
          SET16(mon->maxHP);
@@ -47522,7 +47561,19 @@ index 66a5c3d..d430f0f 100644
      case MON_DATA_FRIENDSHIP:
          SET8(substruct0->friendship);
          break;
-@@ -4014,6 +4031,9 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
+@@ -3654,11 +3671,7 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
+         break;
+     case MON_DATA_IVS:
+     {
+-#ifdef BUGFIX
+         u32 ivs = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
+-#else
+-        u32 ivs = *data; // Bug: Only the HP IV and the lower 3 bits of the Attack IV are read. The rest become 0.
+-#endif
+         substruct3->hpIV = ivs & MAX_IV_MASK;
+         substruct3->attackIV = (ivs >> 5) & MAX_IV_MASK;
+         substruct3->defenseIV = (ivs >> 10) & MAX_IV_MASK;
+@@ -4014,6 +4027,9 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
      u8 val;
      u32 evDelta;
  
@@ -47532,7 +47583,7 @@ index 66a5c3d..d430f0f 100644
      // Get item hold effect
      heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
      if (heldItem == ITEM_ENIGMA_BERRY)
-@@ -4542,6 +4562,9 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
+@@ -4542,6 +4558,9 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
      u8 curEffect;
      u32 curMoveId;
  
@@ -47542,7 +47593,7 @@ index 66a5c3d..d430f0f 100644
      // Get item hold effect
      heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
      if (heldItem == ITEM_ENIGMA_BERRY)
-@@ -5014,6 +5037,9 @@ const u8 *Battle_PrintStatBoosterEffectMessage(u16 itemId)
+@@ -5014,6 +5033,9 @@ const u8 *Battle_PrintStatBoosterEffectMessage(u16 itemId)
  
  u8 GetNature(struct Pokemon *mon)
  {
@@ -47552,6 +47603,26 @@ index 66a5c3d..d430f0f 100644
      return GetMonData(mon, MON_DATA_PERSONALITY, NULL) % NUM_NATURES;
  }
  
+diff --git a/src/roamer.c b/src/roamer.c
+index b3f2623..1713ca7 100644
+--- a/src/roamer.c
++++ b/src/roamer.c
+@@ -209,14 +209,9 @@ void CreateRoamerMonInstance(void)
+     struct Pokemon *mon = &gEnemyParty[0];
+     ZeroEnemyPartyMons();
+     CreateMonWithIVsPersonality(mon, ROAMER->species, ROAMER->level, ROAMER->ivs, ROAMER->personality);
+-// The roamer's status field is u8, but SetMonData expects status to be u32, so will set the roamer's status
+-// using the status field and the following 3 bytes (cool, beauty, and cute).
+-#ifdef BUGFIX
++    // SetMonData reads a u32; do not include adjacent contest-condition bytes.
+     status = ROAMER->status;
+     SetMonData(mon, MON_DATA_STATUS, &status);
+-#else
+-    SetMonData(mon, MON_DATA_STATUS, &ROAMER->status);
+-#endif
+     SetMonData(mon, MON_DATA_HP, &ROAMER->hp);
+     SetMonData(mon, MON_DATA_COOL, &ROAMER->cool);
+     SetMonData(mon, MON_DATA_BEAUTY, &ROAMER->beauty);
 diff --git a/src/shop.c b/src/shop.c
 index 3d6b1cd..f6ce517 100644
 --- a/src/shop.c
@@ -51629,7 +51700,7 @@ index fa358c0..68226ee 100644
      else
      {
 diff --git a/data/scripts/training_coach.inc b/data/scripts/training_coach.inc
-new file mode 100644
+new file mode 100755
 index 0000000..e8136bf
 --- /dev/null
 +++ b/data/scripts/training_coach.inc
@@ -51659,7 +51730,7 @@ index 0000000..e8136bf
 +	.string "No Normal, volte apos a Liga.\n"
 +	.string "No Hardcore, treino desde o inicio.$"
 diff --git a/include/doubles_ai.h b/include/doubles_ai.h
-new file mode 100644
+new file mode 100755
 index 0000000..4ba2708
 --- /dev/null
 +++ b/include/doubles_ai.h
@@ -51693,7 +51764,7 @@ index 0000000..4ba2708
 +
 +#endif
 diff --git a/include/elite_four.h b/include/elite_four.h
-new file mode 100644
+new file mode 100755
 index 0000000..e3e22c2
 --- /dev/null
 +++ b/include/elite_four.h
@@ -51709,11 +51780,11 @@ index 0000000..e3e22c2
 +
 +#endif
 diff --git a/include/nuzlocke.h b/include/nuzlocke.h
-new file mode 100644
-index 0000000..dc4ea97
+new file mode 100755
+index 0000000..4e7a9bb
 --- /dev/null
 +++ b/include/nuzlocke.h
-@@ -0,0 +1,25 @@
+@@ -0,0 +1,26 @@
 +#ifndef GUARD_NUZLOCKE_H
 +#define GUARD_NUZLOCKE_H
 +
@@ -51735,12 +51806,13 @@ index 0000000..dc4ea97
 +u8 Nuzlocke_GetLevelCap(void);
 +bool8 Nuzlocke_IsOverCap(struct Pokemon *mon);
 +u32 Nuzlocke_ClampExperience(struct Pokemon *mon, u32 experience);
++u32 Nuzlocke_ClampTrainingExperience(struct Pokemon *mon, u32 experience);
 +u16 Nuzlocke_LimitExpGain(struct Pokemon *mon, u32 gain);
 +void CB2_NuzlockeGameOver(void);
 +
 +#endif
 diff --git a/include/training.h b/include/training.h
-new file mode 100644
+new file mode 100755
 index 0000000..69788e4
 --- /dev/null
 +++ b/include/training.h
@@ -51761,7 +51833,7 @@ index 0000000..69788e4
 +u16 Training_CopyShopStock(const u16 *source, u16 *dest);
 +#endif
 diff --git a/src/data/elite_four_sets.h b/src/data/elite_four_sets.h
-new file mode 100644
+new file mode 100755
 index 0000000..1ddcf88
 --- /dev/null
 +++ b/src/data/elite_four_sets.h
@@ -51854,7 +51926,7 @@ index 0000000..1ddcf88
 +    },
 +};
 diff --git a/src/data/legendary_encounters.h b/src/data/legendary_encounters.h
-new file mode 100644
+new file mode 100755
 index 0000000..8e8bead
 --- /dev/null
 +++ b/src/data/legendary_encounters.h
@@ -51891,7 +51963,7 @@ index 0000000..8e8bead
 +    }
 +}
 diff --git a/src/data/training_centers.h b/src/data/training_centers.h
-new file mode 100644
+new file mode 100755
 index 0000000..b41d2ed
 --- /dev/null
 +++ b/src/data/training_centers.h
@@ -51919,7 +51991,7 @@ index 0000000..b41d2ed
 +    MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F,
 +};
 diff --git a/src/doubles_ai.c b/src/doubles_ai.c
-new file mode 100644
+new file mode 100755
 index 0000000..ac7b9de
 --- /dev/null
 +++ b/src/doubles_ai.c
@@ -51967,7 +52039,7 @@ index 0000000..ac7b9de
 +    return score;
 +}
 diff --git a/src/elite_four.c b/src/elite_four.c
-new file mode 100644
+new file mode 100755
 index 0000000..d934ab0
 --- /dev/null
 +++ b/src/elite_four.c
@@ -52054,11 +52126,11 @@ index 0000000..d934ab0
 +    CalculateMonStats(mon);
 +}
 diff --git a/src/nuzlocke.c b/src/nuzlocke.c
-new file mode 100644
-index 0000000..c9dc598
+new file mode 100755
+index 0000000..495074d
 --- /dev/null
 +++ b/src/nuzlocke.c
-@@ -0,0 +1,180 @@
+@@ -0,0 +1,187 @@
 +#include "global.h"
 +#include "nuzlocke.h"
 +#include "pokemon.h"
@@ -52124,7 +52196,8 @@ index 0000000..c9dc598
 +    u16 species;
 +    sCanCatch = TRUE;
 +    if (!Nuzlocke_IsActive() || IsPracticeBattle() || (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-+        || IS_BATTLE_TYPE_GHOST_WITHOUT_SCOPE(gBattleTypeFlags))
++        // Both unidentified ghosts and the revealed Marowak reject all balls.
++        || (gBattleTypeFlags & BATTLE_TYPE_GHOST))
 +        return;
 +
 +    sCanCatch = FALSE;
@@ -52215,11 +52288,17 @@ index 0000000..c9dc598
 +
 +u32 Nuzlocke_ClampExperience(struct Pokemon *mon, u32 experience)
 +{
++    // Generic creation/stat code also handles enemies and received over-level mons.
++    if (!IsPartyMon(mon))
++        return experience;
++    return Nuzlocke_ClampTrainingExperience(mon, experience);
++}
++
++u32 Nuzlocke_ClampTrainingExperience(struct Pokemon *mon, u32 experience)
++{
 +    u16 species;
 +    u8 cap;
 +    u32 limit, current;
-+    if (!IsPartyMon(mon))
-+        return experience;
 +    current = GetMonData(mon, MON_DATA_EXP);
 +    if (Nuzlocke_IsDead(mon))
 +        return current;
@@ -52240,7 +52319,7 @@ index 0000000..c9dc598
 +    return Nuzlocke_ClampExperience(mon, current + gain) - current;
 +}
 diff --git a/src/nuzlocke_screen.c b/src/nuzlocke_screen.c
-new file mode 100644
+new file mode 100755
 index 0000000..7daf36b
 --- /dev/null
 +++ b/src/nuzlocke_screen.c
@@ -52296,7 +52375,7 @@ index 0000000..7daf36b
 +    }
 +}
 diff --git a/src/training.c b/src/training.c
-new file mode 100644
+new file mode 100755
 index 0000000..625e776
 --- /dev/null
 +++ b/src/training.c
@@ -52449,7 +52528,7 @@ index 0000000..625e776
 +    return count;
 +}
 diff --git a/src/training_screen.c b/src/training_screen.c
-new file mode 100644
+new file mode 100755
 index 0000000..f003e2f
 --- /dev/null
 +++ b/src/training_screen.c

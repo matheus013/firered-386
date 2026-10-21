@@ -1,9 +1,9 @@
 {
   "date": "2026-10-21",
-  "version": "v0.3.0-dev",
-  "rom_sha256": "d7a31095b588898a05ee3912a9285ac441b054536e459ffc26a1ad677c3c82c1",
-  "overall_status": "failed_known_defects",
-  "scope": "Production ROM boot and integrity; disposable instrumented ROMs for gameplay fixtures; no full campaign or VBA Link validation.",
+  "version": "v0.3.1-dev",
+  "rom_sha256": "d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8",
+  "overall_status": "automated_checks_passed_manual_campaign_pending",
+  "scope": "Production ROM boot/integrity and clean source-patch rebuild; disposable instrumented gameplay fixtures; full campaign and VBA Link pending.",
   "release_checks": [
     {
       "id": "balance_trainers.py",
@@ -41,6 +41,11 @@
       "detail": "9871 source files match the cache used to derive the disposable fixtures."
     },
     {
+      "id": "clean_source_rebuild_matches",
+      "status": "passed",
+      "detail": "Fresh build from pinned base plus cumulative source patch equals production ROM."
+    },
+    {
       "id": "source_patch_applicable",
       "status": "passed",
       "detail": ""
@@ -56,49 +61,49 @@
       "suite": "test_elite_four.py",
       "status": "passed",
       "exit_code": 0,
-      "seconds": 192.8,
+      "seconds": 219.8,
       "log": "output/tests/checklist/test_elite_four.py.log"
     },
     {
       "suite": "test_encounters.py",
       "status": "passed",
       "exit_code": 0,
-      "seconds": 12.5,
+      "seconds": 14.9,
       "log": "output/tests/checklist/test_encounters.py.log"
     },
     {
       "suite": "test_hardcore.py",
       "status": "passed",
       "exit_code": 0,
-      "seconds": 17.7,
+      "seconds": 13.0,
       "log": "output/tests/checklist/test_hardcore.py.log"
     },
     {
       "suite": "test_shops.py",
       "status": "passed",
       "exit_code": 0,
-      "seconds": 83.3,
+      "seconds": 98.8,
       "log": "output/tests/checklist/test_shops.py.log"
     },
     {
       "suite": "test_trainer_battles.py",
       "status": "passed",
       "exit_code": 0,
-      "seconds": 11.2,
+      "seconds": 13.7,
       "log": "output/tests/checklist/test_trainer_battles.py.log"
     },
     {
       "suite": "test_training.py",
       "status": "passed",
       "exit_code": 0,
-      "seconds": 11.4,
+      "seconds": 5.9,
       "log": "output/tests/checklist/test_training.py.log"
     },
     {
       "suite": "test_training_ui.py",
       "status": "passed",
       "exit_code": 0,
-      "seconds": 17.8,
+      "seconds": 12.6,
       "log": "output/tests/checklist/test_training_ui.py.log"
     }
   ],
@@ -145,23 +150,23 @@
     },
     {
       "id": "packed_ivs_32bit",
-      "status": "failed"
+      "status": "passed"
     },
     {
       "id": "roamer_ivs",
-      "status": "failed"
+      "status": "passed"
     },
     {
       "id": "roamer_status_width",
-      "status": "failed"
+      "status": "passed"
     },
     {
       "id": "daycare_cap_normal",
-      "status": "failed"
+      "status": "passed"
     },
     {
       "id": "daycare_cap_hardcore",
-      "status": "failed"
+      "status": "passed"
     },
     {
       "id": "nature_pc_identity",
@@ -174,45 +179,174 @@
     {
       "id": "last_pc_slot",
       "status": "passed"
+    },
+    {
+      "id": "packed_ivs_varied",
+      "status": "passed"
+    },
+    {
+      "id": "roamer_valid_statuses_preserved",
+      "status": "passed"
+    },
+    {
+      "id": "daycare_preview_cost_normal",
+      "status": "passed"
+    },
+    {
+      "id": "daycare_preview_cost_hardcore",
+      "status": "passed"
+    },
+    {
+      "id": "route5_daycare_normal",
+      "status": "passed"
+    },
+    {
+      "id": "route5_daycare_hardcore",
+      "status": "passed"
+    },
+    {
+      "id": "daycare_preview_after_badge",
+      "status": "passed"
+    },
+    {
+      "id": "overlevel_keeps_level_no_exp",
+      "status": "passed"
+    },
+    {
+      "id": "small_exp_below_cap",
+      "status": "passed"
+    },
+    {
+      "id": "postleague_training_unrestricted",
+      "status": "passed"
     }
   ],
   "observed": {
     "shiny_count": 256,
-    "packed_ivs": 255,
-    "roamer_ivs": 255,
-    "roamer_status": 67240192,
-    "daycare_level_normal": 38,
-    "daycare_level_hardcore": 38
+    "packed_ivs": 1073741823,
+    "roamer_ivs": 1073741823,
+    "roamer_status": 0,
+    "daycare_level_normal": 18,
+    "daycare_level_hardcore": 18
   },
-  "open_bugs": [
+  "capture_cases": [
+    {
+      "id": "before_oak_balls",
+      "status": "passed"
+    },
+    {
+      "id": "first_eligible_consumes",
+      "status": "passed"
+    },
+    {
+      "id": "multiple_balls_same_battle",
+      "status": "passed"
+    },
+    {
+      "id": "flee_loses_attempt",
+      "status": "passed"
+    },
+    {
+      "id": "ko_loses_attempt",
+      "status": "passed"
+    },
+    {
+      "id": "different_route_independent",
+      "status": "passed"
+    },
+    {
+      "id": "return_route_still_used",
+      "status": "passed"
+    },
+    {
+      "id": "duplicate_skips_without_consuming",
+      "status": "passed"
+    },
+    {
+      "id": "nonduplicate_after_duplicate",
+      "status": "passed"
+    },
+    {
+      "id": "exact_species_not_family",
+      "status": "passed"
+    },
+    {
+      "id": "shiny_has_no_exception",
+      "status": "passed"
+    },
+    {
+      "id": "trainer_does_not_consume",
+      "status": "passed"
+    },
+    {
+      "id": "link_does_not_consume",
+      "status": "passed"
+    },
+    {
+      "id": "tutorial_does_not_consume",
+      "status": "passed"
+    },
+    {
+      "id": "cave_floors_share",
+      "status": "passed"
+    },
+    {
+      "id": "safari_sectors_share_ball_block",
+      "status": "passed"
+    },
+    {
+      "id": "static_same_section_blocked",
+      "status": "passed"
+    },
+    {
+      "id": "unidentified_ghost_does_not_consume",
+      "status": "passed"
+    },
+    {
+      "id": "revealed_marowak_does_not_consume",
+      "status": "passed"
+    },
+    {
+      "id": "native_catch_then_next_ball_blocked",
+      "status": "passed"
+    },
+    {
+      "id": "normal_unrestricted",
+      "status": "passed"
+    },
+    {
+      "id": "fresh_instance_quota_persistence",
+      "status": "passed"
+    },
+    {
+      "id": "all_compiled_wild_maps_first_only",
+      "status": "passed"
+    }
+  ],
+  "capture_maps_checked": 124,
+  "capture_save_bytes": 131072,
+  "capture_fresh_instances": 2,
+  "fixed_bugs": [
     {
       "id": "BUG-001",
-      "cases": [
-        "packed_ivs_32bit",
-        "roamer_ivs"
-      ],
-      "expected": 1073741823,
-      "actual": 255
+      "resolution": "Read all four packed IV bytes",
+      "observed": 1073741823
     },
     {
       "id": "BUG-002",
-      "cases": [
-        "roamer_status_width"
-      ],
-      "expected": 0,
-      "actual": 67240192,
-      "condition": "Nonzero adjacent condition bytes deliberately supplied; not proof of ordinary-play occurrence."
+      "resolution": "Widen roamer status to u32 before setter",
+      "observed": 0
     },
     {
       "id": "BUG-003",
-      "cases": [
-        "daycare_cap_normal",
-        "daycare_cap_hardcore"
-      ],
-      "expected_max_level": 18,
-      "actual_level": 38,
-      "simulated_steps": 50000
+      "resolution": "Clamp explicit daycare training and match level preview/fees, including Route 5",
+      "observed_level": 18
+    },
+    {
+      "id": "BUG-004",
+      "resolution": "Exclude uncatchable ghosts, including revealed Marowak, from wild encounter quota"
     }
   ],
-  "manual_checklist": "TEST_CHECKLIST.md"
+  "manual_checklist": "TEST_CHECKLIST.md",
+  "previous_audit": "data/test_audit_v0.3.0.json"
 }

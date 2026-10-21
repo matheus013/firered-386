@@ -163,7 +163,7 @@ Fonte: https://github.com/pret/pokefirered
 - Restrição de itens da mochila aplicada aos dois lados nas batalhas importantes, preservando itens equipados e captura de selvagens.
 - Compilação e teste em emulador.
 
-## Estado atual — v0.3.0-dev
+## Estado atual — v0.3.1-dev
 
 - 386 espécies com captura direta, níveis e raridades por etapa, incluindo os 21 lendários/míticos em encontros aleatórios pós-Liga. Cobertura em [SPECIES_LOCATIONS.md](SPECIES_LOCATIONS.md) e [ENCOUNTERS.md](ENCOUNTERS.md).
 - 636 equipes regulares e 60 elencos internos da Torre revisados para duplas; laboratório preservado em simples. E4 com adaptações de campeões e Campeão com treinamento definido.
@@ -176,3 +176,5 @@ Fonte: https://github.com/pret/pokefirered
 Ainda pendentes: engine moderna (separação físico/especial, Fada, atributos e golpes), demais evoluções sem troca, HMs sem ocupar golpes, novas revanches de líderes, catálogo completo pós-Liga em Celadon, troca de habilidade, Alphas/raids e outras melhorias listadas no [README](README.md). Os encontros aleatórios já oferecem captura alternativa dos lendários; reset dos eventos fixos é uma melhoria separada.
 
 Os testes de dados, menus, batalhas e save não substituem a validação da campanha inteira, Torre completa ou VBA Link. As etapas anteriores estão no [CHANGELOG](CHANGELOG.md).
+
+Correções da v0.3.1-dev: IVs compactados e status dos errantes, teto/previsão/cobrança das creches e cota preservada ao enfrentar o Marowak fantasma. [Captura validada](CAPTURE_TEST_RESULTS.md) e [checklist atualizado](TEST_CHECKLIST.md); saves mantêm seu layout.

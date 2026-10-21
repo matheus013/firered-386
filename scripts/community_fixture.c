@@ -14,6 +14,9 @@
 #include "constants/maps.h"
 extern void CreateRoamerMonInstance(void);
 extern u32 CommunityCountShinies(void);
+extern u16 TakePokemonFromRoute5Daycare(void);
+extern u8 GetNumLevelsGainedForRoute5DaycareMon(void);
+extern void GetCostToWithdrawRoute5DaycareMon(void);
 EWRAM_DATA u32 gCommunityDone=0,gCommunityPassed=0,gCommunityFailed=0;
 EWRAM_DATA u32 gCommunityObserved[6]={0};
 #define RECORD(bit, condition) do {if(condition)gCommunityPassed|=1u<<(bit);else gCommunityFailed|=1u<<(bit);}while(0)
@@ -23,6 +26,8 @@ static void CommunityBoot(void)
     static const u8 name[] = _("TEST");
     static const u16 from[4]={SPECIES_KADABRA,SPECIES_MACHOKE,SPECIES_GRAVELER,SPECIES_HAUNTER};
     static const u16 to[4]={SPECIES_ALAKAZAM,SPECIES_MACHAMP,SPECIES_GOLEM,SPECIES_GENGAR};
+    static const u32 variedIvs[]={0,1,0x12345678,0x15555555,0x2AAAAAAA,0x3FFFFFFF};
+    static const u8 statuses[]={0,1,7,8,16,32,64,128};
     struct Pokemon mon, restored;
     struct BoxPokemon box;
     u32 packed=0x3FFFFFFF, personality;
@@ -66,6 +71,23 @@ static void CommunityBoot(void)
     RECORD(11,gCommunityObserved[2]==packed);
     gCommunityObserved[3]=GetMonData(&gEnemyParty[0],MON_DATA_STATUS);
     RECORD(12,gCommunityObserved[3]==0);
+    good=TRUE;
+    for(i=0;i<ARRAY_COUNT(variedIvs);i++){
+        CreateMonWithIVsPersonality(&mon,SPECIES_RAIKOU,50,variedIvs[i],1234);
+        good=good&&GetMonData(&mon,MON_DATA_IVS)==variedIvs[i]&&!GetMonData(&mon,MON_DATA_SANITY_IS_BAD_EGG);
+    }
+    RECORD(18,good);
+    good=TRUE;
+    for(i=0;i<ARRAY_COUNT(statuses);i++){
+        gSaveBlock1Ptr->roamer.status=statuses[i];
+        CreateRoamerMonInstance();
+        good=good&&GetMonData(&gEnemyParty[0],MON_DATA_STATUS)==statuses[i]
+            &&GetMonData(&gEnemyParty[0],MON_DATA_HP)==20
+            &&GetMonData(&gEnemyParty[0],MON_DATA_COOL)==1
+            &&GetMonData(&gEnemyParty[0],MON_DATA_BEAUTY)==2
+            &&GetMonData(&gEnemyParty[0],MON_DATA_CUTE)==4;
+    }
+    RECORD(19,good);
     // An EXP cap should also be checked in temporary mons used on daycare withdrawal.
     for(b=0;b<2;b++){
         Nuzlocke_ChooseMode(b?GAME_MODE_HARDCORE:GAME_MODE_NORMAL);
@@ -73,11 +95,40 @@ static void CommunityBoot(void)
         CreateMon(&mon,SPECIES_PIDGEY,5,15,TRUE,5678,OT_ID_PLAYER_ID,0);
         gSaveBlock1Ptr->daycare.mons[0].mon=mon.box;
         gSaveBlock1Ptr->daycare.mons[0].steps=50000;gSpecialVar_0x8004=0;
+        good=GetNumLevelsGainedFromDaycare()==13;
+        GetDaycareCost();
+        RECORD(20+b,good&&gSpecialVar_0x8005==1400);
         TakePokemonFromDaycare();level=0;
         for(i=0;i<PARTY_SIZE;i++) if(GetMonData(&gPlayerParty[i],MON_DATA_SPECIES)==SPECIES_PIDGEY) level=GetMonData(&gPlayerParty[i],MON_DATA_LEVEL);
         gCommunityObserved[4+b]=level;
         RECORD(13+b,level&&level<=Nuzlocke_GetLevelCap());
+        ZeroPlayerPartyMons();
+        CreateMon(&gPlayerParty[0],SPECIES_BULBASAUR,5,15,FALSE,0,OT_ID_PLAYER_ID,0);CalculatePlayerPartyCount();
+        gSaveBlock1Ptr->route5DayCareMon.mon=mon.box;
+        gSaveBlock1Ptr->route5DayCareMon.steps=50000;
+        good=GetNumLevelsGainedForRoute5DaycareMon()==13;
+        GetCostToWithdrawRoute5DaycareMon();
+        good=good&&gSpecialVar_0x8005==1400;
+        TakePokemonFromRoute5Daycare();
+        RECORD(22+b,good&&GetMonData(&gPlayerParty[1],MON_DATA_LEVEL)==18);
     }
+    // Steps are valued against the cap at withdrawal; existing over-level mons keep their level.
+    Nuzlocke_ChooseMode(GAME_MODE_NORMAL);
+    CreateMon(&mon,SPECIES_PIDGEY,5,15,TRUE,5678,OT_ID_PLAYER_ID,0);
+    gSaveBlock1Ptr->daycare.mons[0].mon=mon.box;
+    gSaveBlock1Ptr->daycare.mons[0].steps=50000;
+    FlagSet(FLAG_BADGE01_GET);
+    RECORD(24,GetNumLevelsGainedFromDaycare()==23);
+    FlagClear(FLAG_BADGE01_GET);
+    CreateMon(&mon,SPECIES_PIDGEY,25,15,TRUE,5678,OT_ID_PLAYER_ID,0);
+    packed=GetMonData(&mon,MON_DATA_EXP);
+    RECORD(25,Nuzlocke_ClampTrainingExperience(&mon,packed+50000)==packed);
+    CreateMon(&mon,SPECIES_PIDGEY,5,15,TRUE,5678,OT_ID_PLAYER_ID,0);
+    packed=GetMonData(&mon,MON_DATA_EXP);
+    RECORD(26,Nuzlocke_ClampTrainingExperience(&mon,packed+1)==packed+1);
+    FlagSet(FLAG_SYS_GAME_CLEAR);
+    RECORD(27,Nuzlocke_ClampTrainingExperience(&mon,packed+50000)==packed+50000);
+    FlagClear(FLAG_SYS_GAME_CLEAR);
     Nuzlocke_ChooseMode(GAME_MODE_HARDCORE);
     CreateMon(&mon,SPECIES_BULBASAUR,5,31,TRUE,0,OT_ID_PRESET,0);
     personality=GetMonData(&mon,MON_DATA_PERSONALITY);
