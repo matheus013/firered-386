@@ -7,7 +7,7 @@ compiler_ref=da598c1d918402c42c0c0d7128ba14567f3175e9
 prepare_checkout() {
     local directory=$1 url=$2 revision=$3
     if [[ ! -e "$directory" ]]; then
-        git clone "$url" "$directory"
+        git clone --config core.autocrlf=false "$url" "$directory"
         git -C "$directory" checkout --detach "$revision"
     fi
     if [[ $(git -C "$directory" rev-parse HEAD) != "$revision" ]]; then

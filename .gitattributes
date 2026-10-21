@@ -1,4 +1,4 @@
 * text=auto
 *.sh text eol=lf
-*.patch -text
+*.patch -text -whitespace
 *.png binary

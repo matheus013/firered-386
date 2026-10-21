@@ -42,4 +42,3 @@ else
     cp "$source_dir/pokefirered.gba" "$project_dir/output/firered-386-dev.gba"
 fi
 printf 'Build completed: %s\n' "$mode"
-
