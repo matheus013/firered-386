@@ -1,0 +1,12 @@
+game/
+tools/
+output/
+.build/
+emulator/
+__pycache__/
+*.pyc
+*.sav
+*.sa1
+*.sa2
+*.sgm
+*.gba

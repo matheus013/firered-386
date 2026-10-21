@@ -1,0 +1,217 @@
+diff --git a/data/maps/PalletTown_ProfessorOaksLab/scripts.inc b/data/maps/PalletTown_ProfessorOaksLab/scripts.inc
+index 90adf86..0e00b4f 100644
+--- a/data/maps/PalletTown_ProfessorOaksLab/scripts.inc
++++ b/data/maps/PalletTown_ProfessorOaksLab/scripts.inc
+@@ -655,6 +655,10 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
+ 	call EventScript_RestorePrevTextColor
+ 	setflag FLAG_SYS_POKEDEX_GET
+ 	special SetUnlockedPokedexFlags
++	special EnableNationalPokedex
++	setflag FLAG_EXP_SHARE_UNLOCKED
++	clearflag FLAG_EXP_SHARE_DISABLED
++	giveitem ITEM_EXP_SHARE
+ 	setvar VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 1
+ 	msgbox PalletTown_ProfessorOaksLab_Text_OakCatchMonsForDataTakeThese
+ 	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls, ITEM_POKE_BALL, 5
+diff --git a/include/constants/flags.h b/include/constants/flags.h
+index d800adf..0dd2a3a 100644
+--- a/include/constants/flags.h
++++ b/include/constants/flags.h
+@@ -45,6 +45,8 @@
+ 
+ #define FLAG_0x020               0x020
+ #define FLAG_0x021               0x021
++#define FLAG_EXP_SHARE_UNLOCKED  FLAG_0x020
++#define FLAG_EXP_SHARE_DISABLED  FLAG_0x021
+ #define FLAG_0x022               0x022
+ #define FLAG_0x023               0x023
+ #define FLAG_0x024               0x024
+diff --git a/include/constants/pokemon.h b/include/constants/pokemon.h
+index 21c6787..4fd1b4e 100644
+--- a/include/constants/pokemon.h
++++ b/include/constants/pokemon.h
+@@ -182,7 +182,7 @@
+ #define MAX_STAT_STAGE    12
+ 
+ // Shiny odds
+-#define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
++#define SHINY_ODDS 256 // Actual probability is SHINY_ODDS/65536: 1/256
+ 
+ #define MAX_LEVEL 100
+ 
+diff --git a/include/item_use.h b/include/item_use.h
+index 77aed78..561e19b 100644
+--- a/include/item_use.h
++++ b/include/item_use.h
+@@ -8,6 +8,7 @@ void ItemUse_SetQuestLogEvent(u8, struct Pokemon *, u16, u16);
+ 
+ void FieldUseFunc_Mail(u8 taskId);
+ void FieldUseFunc_Bike(u8 taskId);
++void FieldUseFunc_ExpShare(u8 taskId);
+ void FieldUseFunc_Rod(u8 taskId);
+ void FieldUseFunc_CoinCase(u8 taskId);
+ void FieldUseFunc_PowderJar(u8 taskId);
+diff --git a/src/battle_script_commands.c b/src/battle_script_commands.c
+index 67f90a3..a9aece0 100644
+--- a/src/battle_script_commands.c
++++ b/src/battle_script_commands.c
+@@ -3118,6 +3118,7 @@ static void Cmd_getexp(void)
+     s32 sentIn;
+     s32 viaExpShare = 0;
+     u16 *exp = &gBattleStruct->expValue;
++    bool32 globalExpShare = FlagGet(FLAG_EXP_SHARE_UNLOCKED) && !FlagGet(FLAG_EXP_SHARE_DISABLED);
+ 
+     gBattlerFainted = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
+     sentIn = gSentPokesToOpponent[(gBattlerFainted & 2) >> 1];
+@@ -3165,7 +3166,15 @@ static void Cmd_getexp(void)
+ 
+             calculatedExp = gSpeciesInfo[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
+ 
+-            if (viaExpShare) // at least one mon is getting exp via exp share
++            if (globalExpShare)
++            {
++                // Every participant earns full EXP.; every eligible reserve earns half.
++                *exp = calculatedExp ? calculatedExp : 1;
++                gExpShareExp = calculatedExp / 2;
++                if (gExpShareExp == 0)
++                    gExpShareExp = 1;
++            }
++            else if (viaExpShare) // at least one mon is getting exp via exp share
+             {
+                 *exp = SAFE_DIV(calculatedExp / 2, viaSentIn);
+                 if (*exp == 0)
+@@ -3198,7 +3207,10 @@ static void Cmd_getexp(void)
+             else
+                 holdEffect = ItemId_GetHoldEffect(item);
+ 
+-            if (holdEffect != HOLD_EFFECT_EXP_SHARE && !(gBattleStruct->sentInPokes & 1))
++            if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES) == SPECIES_NONE
++             || GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_IS_EGG)
++             || GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HP) == 0
++             || (!globalExpShare && holdEffect != HOLD_EFFECT_EXP_SHARE && !(gBattleStruct->sentInPokes & 1)))
+             {
+                 *(&gBattleStruct->sentInPokes) >>= 1;
+                 gBattleScripting.getexpState = 5;
+@@ -3227,7 +3239,9 @@ static void Cmd_getexp(void)
+                     else
+                         gBattleMoveDamage = 0;
+ 
+-                    if (holdEffect == HOLD_EFFECT_EXP_SHARE)
++                    if (globalExpShare && !(gBattleStruct->sentInPokes & 1))
++                        gBattleMoveDamage = gExpShareExp;
++                    else if (!globalExpShare && holdEffect == HOLD_EFFECT_EXP_SHARE)
+                         gBattleMoveDamage += gExpShareExp;
+                     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
+                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+diff --git a/src/data/items.json b/src/data/items.json
+index 0a87abb..fc89a5a 100644
+--- a/src/data/items.json
++++ b/src/data/items.json
+@@ -2915,15 +2915,15 @@
+     {
+       "english": "EXP. SHARE",
+       "itemId": "ITEM_EXP_SHARE",
+-      "price": 3000,
+-      "holdEffect": "HOLD_EFFECT_EXP_SHARE",
++      "price": 0,
++      "holdEffect": "HOLD_EFFECT_NONE",
+       "holdEffectParam": 0,
+-      "description_english": "An item to be held by a POKéMON.\\nThe holder gets a share of EXP.\\npoints without having to battle.",
+-      "importance": 0,
++      "description_english": "Shares EXP. with the whole team.\\nParticipants earn full EXP.;\\nothers earn half. Use to toggle.",
++      "importance": 1,
+       "registrability": 0,
+-      "pocket": "POCKET_ITEMS",
++      "pocket": "POCKET_KEY_ITEMS",
+       "type": "ITEM_TYPE_BAG_MENU",
+-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
++      "fieldUseFunc": "FieldUseFunc_ExpShare",
+       "battleUsage": 0,
+       "battleUseFunc": "NULL",
+       "secondaryId": 0
+diff --git a/src/data/pokemon/evolution.h b/src/data/pokemon/evolution.h
+index c9b0cf7..a74ef73 100644
+--- a/src/data/pokemon/evolution.h
++++ b/src/data/pokemon/evolution.h
+@@ -40,14 +40,14 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
+     [SPECIES_POLIWHIRL]  = {{EVO_ITEM, ITEM_WATER_STONE, SPECIES_POLIWRATH},
+                             {EVO_TRADE_ITEM, ITEM_KINGS_ROCK, SPECIES_POLITOED}},
+     [SPECIES_ABRA]       = {{EVO_LEVEL, 16, SPECIES_KADABRA}},
+-    [SPECIES_KADABRA]    = {{EVO_TRADE, 0, SPECIES_ALAKAZAM}},
++    [SPECIES_KADABRA]    = {{EVO_LEVEL, 37, SPECIES_ALAKAZAM}},
+     [SPECIES_MACHOP]     = {{EVO_LEVEL, 28, SPECIES_MACHOKE}},
+-    [SPECIES_MACHOKE]    = {{EVO_TRADE, 0, SPECIES_MACHAMP}},
++    [SPECIES_MACHOKE]    = {{EVO_LEVEL, 37, SPECIES_MACHAMP}},
+     [SPECIES_BELLSPROUT] = {{EVO_LEVEL, 21, SPECIES_WEEPINBELL}},
+     [SPECIES_WEEPINBELL] = {{EVO_ITEM, ITEM_LEAF_STONE, SPECIES_VICTREEBEL}},
+     [SPECIES_TENTACOOL]  = {{EVO_LEVEL, 30, SPECIES_TENTACRUEL}},
+     [SPECIES_GEODUDE]    = {{EVO_LEVEL, 25, SPECIES_GRAVELER}},
+-    [SPECIES_GRAVELER]   = {{EVO_TRADE, 0, SPECIES_GOLEM}},
++    [SPECIES_GRAVELER]   = {{EVO_LEVEL, 37, SPECIES_GOLEM}},
+     [SPECIES_PONYTA]     = {{EVO_LEVEL, 40, SPECIES_RAPIDASH}},
+     [SPECIES_SLOWPOKE]   = {{EVO_LEVEL, 37, SPECIES_SLOWBRO},
+                             {EVO_TRADE_ITEM, ITEM_KINGS_ROCK, SPECIES_SLOWKING}},
+@@ -57,7 +57,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
+     [SPECIES_GRIMER]     = {{EVO_LEVEL, 38, SPECIES_MUK}},
+     [SPECIES_SHELLDER]   = {{EVO_ITEM, ITEM_WATER_STONE, SPECIES_CLOYSTER}},
+     [SPECIES_GASTLY]     = {{EVO_LEVEL, 25, SPECIES_HAUNTER}},
+-    [SPECIES_HAUNTER]    = {{EVO_TRADE, 0, SPECIES_GENGAR}},
++    [SPECIES_HAUNTER]    = {{EVO_LEVEL, 37, SPECIES_GENGAR}},
+     [SPECIES_ONIX]       = {{EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_STEELIX}},
+     [SPECIES_DROWZEE]    = {{EVO_LEVEL, 26, SPECIES_HYPNO}},
+     [SPECIES_KRABBY]     = {{EVO_LEVEL, 28, SPECIES_KINGLER}},
+diff --git a/src/item_use.c b/src/item_use.c
+index 954f482..39c41d8 100644
+--- a/src/item_use.c
++++ b/src/item_use.c
+@@ -242,6 +242,31 @@ void FieldUseFunc_Mail(u8 taskId)
+     ItemMenu_StartFadeToExitCallback(taskId);
+ }
+ 
++void FieldUseFunc_ExpShare(u8 taskId)
++{
++    static const u8 sText_On[] = _("EXP. SHARE is now ON.\nYour whole team can gain EXP.");
++    static const u8 sText_Off[] = _("EXP. SHARE is now OFF.\nOnly participants gain EXP.");
++    const u8 *message;
++
++    if (!FlagGet(FLAG_EXP_SHARE_UNLOCKED))
++    {
++        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
++        return;
++    }
++
++    if (FlagGet(FLAG_EXP_SHARE_DISABLED))
++    {
++        FlagClear(FLAG_EXP_SHARE_DISABLED);
++        message = sText_On;
++    }
++    else
++    {
++        FlagSet(FLAG_EXP_SHARE_DISABLED);
++        message = sText_Off;
++    }
++    DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_NORMAL, message);
++}
++
+ static void CB2_CheckMail(void)
+ {
+     struct Mail mail;
+diff --git a/src/party_menu.c b/src/party_menu.c
+index 7f3a881..162dd91 100644
+--- a/src/party_menu.c
++++ b/src/party_menu.c
+@@ -4804,13 +4804,11 @@ static void Task_LearnedMove(u8 taskId)
+ {
+     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+     s16 *data = gPartyMenu.data;
+-    u16 item = gSpecialVar_ItemId;
+ 
+     if (learnMoveMethod == LEARN_VIA_TMHM)
+     {
+         AdjustFriendship(mon, FRIENDSHIP_EVENT_LEARN_TMHM);
+-        if (item < ITEM_HM01)
+-            RemoveBagItem(item, 1);
++        // TMs and HMs are reusable in this hack.
+     }
+     GetMonNickname(mon, gStringVar1);
+     StringCopy(gStringVar2, gMoveNames[learnMoveId]);
