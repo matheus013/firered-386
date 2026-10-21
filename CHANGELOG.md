@@ -1,5 +1,11 @@
 # Histórico de versões
 
+## Validação assistida de campanha — 21/10/2026 (sem nova ROM)
+
+- 114 checkpoints aprovados: eventos da história, líderes, Liga e revanche completas até créditos, Sevii, Mewtwo, opcionais, quatro circuitos da Torre e três confrontos do rival.
+- Mapas/warps auditados e estados finais confirmados em Flash saves de teste; o save final voltou ao campo em outra instância.
+- Os testes fornecem equipes, cura e deslocamentos e iniciam scripts diretamente. Não homologam uma campanha normal ou Hardcore sem assistência. [Relatório e limites](CAMPAIGN_TEST_RESULTS.md).
+
 ## v0.3.1-dev — 21/10/2026
 
 - Corrigidos os quatro bytes dos IVs compactados, incluindo reconstrução dos lendários errantes.

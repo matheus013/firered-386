@@ -1,0 +1,62 @@
+PASS checkpoint=0 native script/battle/reward frames=655
+STATE checkpoint=0 0 0 0 0 0 0 0 0 0 0 0
+PASS checkpoint=1 native script/battle/reward frames=3568
+STATE checkpoint=1 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=2 native script/battle/reward frames=4375
+STATE checkpoint=2 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=3 native script/battle/reward frames=5775
+STATE checkpoint=3 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=4 native script/battle/reward frames=6800
+STATE checkpoint=4 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=5 native script/battle/reward frames=8144
+STATE checkpoint=5 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=6 native script/battle/reward frames=8912
+STATE checkpoint=6 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=7 native script/battle/reward frames=9584
+STATE checkpoint=7 0 0 1 0 0 0 0 0 0 0 0
+PASS fresh-instance reload at checkpoint=7
+PASS checkpoint=8 native script/battle/reward frames=10384
+STATE checkpoint=8 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=9 native script/battle/reward frames=13136
+STATE checkpoint=9 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=10 native script/battle/reward frames=13648
+STATE checkpoint=10 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=11 native script/battle/reward frames=17424
+STATE checkpoint=11 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=12 native script/battle/reward frames=23211
+STATE checkpoint=12 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=13 native script/battle/reward frames=27198
+STATE checkpoint=13 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=14 native script/battle/reward frames=27712
+STATE checkpoint=14 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=15 native script/battle/reward frames=29808
+STATE checkpoint=15 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=16 native script/battle/reward frames=33920
+STATE checkpoint=16 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=17 native script/battle/reward frames=37794
+STATE checkpoint=17 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=18 native script/battle/reward frames=42018
+STATE checkpoint=18 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=19 native script/battle/reward frames=42772
+STATE checkpoint=19 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=20 native script/battle/reward frames=43744
+STATE checkpoint=20 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=21 native script/battle/reward frames=44864
+STATE checkpoint=21 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=22 native script/battle/reward frames=45376
+STATE checkpoint=22 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=23 native script/battle/reward frames=46400
+STATE checkpoint=23 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=24 native script/battle/reward frames=47072
+STATE checkpoint=24 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=25 native script/battle/reward frames=47872
+STATE checkpoint=25 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=26 native script/battle/reward frames=48560
+STATE checkpoint=26 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=27 native script/battle/reward frames=54558
+STATE checkpoint=27 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=28 native script/battle/reward frames=55616
+STATE checkpoint=28 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=29 native script/battle/reward frames=56224
+STATE checkpoint=29 0 0 1 0 0 0 0 0 0 0 0
+PASS assisted campaign integration frames=56468 save_bytes=131072 loaded=1

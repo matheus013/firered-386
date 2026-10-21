@@ -448,6 +448,8 @@ Resultado: `output/firered-386-dev.gba`. `bash scripts/build.sh baseline` compil
 
 ## Verificação e limitações
 
+[Relatório de campanha e pós-jogo](CAMPAIGN_TEST_RESULTS.md): execução assistida no Normal, com limites e evidências no save. Não certifica uma partida normal ou Hardcore sem assistência.
+
 Verificações realizadas em 20 e 21/10/2026:
 
 - Base original com `make compare`: checksum confirmado. Hack compilada e inicializada no mGBA.
@@ -463,7 +465,7 @@ A versão v0.2.0-dev também verifica os ajustes de atributos, bloqueios por mod
 
 v0.3.0-dev: auditoria de cobertura e limites da distribuição, criação real dos 2.053 slots ativos na ROM de teste (386 espécies distintas), trava dos 21 lendários antes da Liga e entrada em batalha selvagem com Mew no mGBA.
 
-Ainda não há validação de campanha completa, Torre inteira ou trocas no VBA Link. Podem existir problemas de balanceamento/compatibilidade. O resultado continua sendo uma ROM de GBA para emuladores.
+Os [testes assistidos de campanha e pós-jogo](CAMPAIGN_TEST_RESULTS.md) aprovaram 114 checkpoints, incluindo lutas concluídas, dois Halls da Fama, Celio, Mewtwo, opcionais e os quatro cursos da Torre com oito andares/prêmio. Foram usados warps, scripts iniciados diretamente e equipes fornecidas; **campanha normal sem assistência, tentativa Hardcore completa e trocas no VBA Link continuam sem homologação**. Podem existir problemas de balanceamento/compatibilidade. O resultado continua sendo uma ROM de GBA para emuladores.
 
 Para repetir os testes após compilar, instale também `libmgba-dev` e `mgba-sdl` no Ubuntu/WSL:
 

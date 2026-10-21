@@ -178,3 +178,5 @@ Ainda pendentes: engine moderna (separação físico/especial, Fada, atributos e
 Os testes de dados, menus, batalhas e save não substituem a validação da campanha inteira, Torre completa ou VBA Link. As etapas anteriores estão no [CHANGELOG](CHANGELOG.md).
 
 Correções da v0.3.1-dev: IVs compactados e status dos errantes, teto/previsão/cobrança das creches e cota preservada ao enfrentar o Marowak fantasma. [Captura validada](CAPTURE_TEST_RESULTS.md) e [checklist atualizado](TEST_CHECKLIST.md); saves mantêm seu layout.
+
+Validação adicional: [114 checkpoints assistidos de campanha/pós-jogo](CAMPAIGN_TEST_RESULTS.md), incluindo os quatro cursos da Torre e saves finais. A caminhada, ordem legítima de acesso, recursos e dificuldade de uma partida normal/Hardcore permanecem sem homologação.

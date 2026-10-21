@@ -11,6 +11,10 @@ ROM de referência, SHA-256: `d880845011b29532abf333cc082da02b20eee97cf9f7767fe5
 
 Resultados em [data/test_audit.json](data/test_audit.json); detalhes de captura em [CAPTURE_TEST_RESULTS.md](CAPTURE_TEST_RESULTS.md). O histórico reprovado da v0.3.0-dev foi preservado em [TEST_AUDIT_V0_3_0.md](TEST_AUDIT_V0_3_0.md).
 
+## Campanha e pós-jogo — integração assistida
+
+Passaram 114 checkpoints: 30 eventos de história, 81 na sequência de líderes/Liga/Sevii/opcionais/Torre e três confrontos adicionais do rival. Dois Halls da Fama, rede de Celio, Mewtwo, Tanoby e os quatro cursos da Torre foram confirmados no save. A execução usou equipes fornecidas, warps e scripts iniciados diretamente; **as tarefas manuais abaixo continuam pendentes para homologar uma partida normal/Hardcore**. [Método, resultados e limitações](CAMPAIGN_TEST_RESULTS.md).
+
 ## Correções verificadas nesta versão
 
 | Defeito | Antes (v0.3.0-dev) | Depois (v0.3.1-dev) |
@@ -177,6 +181,7 @@ No Ubuntu/WSL, após setup e compilação da base e da hack:
 python3 scripts/test_capture_rules.py
 python3 scripts/test_community_cases.py
 python3 scripts/run_regression.py
+python3 scripts/run_campaign_validation.py
 bash scripts/verify_source_build.sh
 python3 scripts/audit_release.py --version v0.3.1-dev
 ```

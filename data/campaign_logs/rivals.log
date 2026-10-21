@@ -1,0 +1,7 @@
+PASS checkpoint=0 native script/battle/reward frames=4509
+STATE checkpoint=0 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=1 native script/battle/reward frames=11411
+STATE checkpoint=1 0 0 1 0 0 0 0 0 0 0 0
+PASS checkpoint=2 native script/battle/reward frames=19677
+STATE checkpoint=2 0 0 1 0 0 0 0 0 0 0 0
+PASS assisted campaign integration frames=19921 save_bytes=131072 loaded=0

@@ -1,0 +1,2003 @@
+{
+  "rom_sha256": "d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8",
+  "status": "assisted_integration_passed",
+  "normal_play_clear_certified": false,
+  "hardcore_campaign_clear_certified": false,
+  "pokedex_386_required": false,
+  "story_checkpoints": 30,
+  "campaign_postgame_checkpoints": 81,
+  "rival_checkpoints": 3,
+  "scope": "Normal mode; teleported routes, direct field-script starts, supplied level-100 teams, supplied Master Balls/Lemonade, automatic battle choices and healing; native opponents/damage/outcomes/reward scripts/HOF/credits/Flash saves.",
+  "reports": {
+    "story": {
+      "rom_sha256": "d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8",
+      "fixture_sha256": "b3645edeb49ba66aafc6d88258a331bf6c48043bb44d2576e01e5b4732a7c02e",
+      "scenario": "story",
+      "scope": "Normal mode assisted integration, teleported travel, directly invoked native scripts and supplied artificial level-100 teams; not a normal-play or Hardcore campaign clear",
+      "exit_code": 0,
+      "log": "output/tests/campaign-story/emulator.log",
+      "cases": [
+        {
+          "name": "Oak-Parcel-pickup",
+          "map": "MAP_VIRIDIAN_CITY_MART",
+          "x": 5,
+          "y": 8,
+          "local_id": 1,
+          "script": null,
+          "flag": "0",
+          "item": "ITEM_OAKS_PARCEL",
+          "status": "passed"
+        },
+        {
+          "name": "ProfOak",
+          "map": "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+          "x": 6,
+          "y": 4,
+          "local_id": 4,
+          "script": "PalletTown_ProfessorOaksLab_EventScript_ProfOak",
+          "flag": "FLAG_EXP_SHARE_UNLOCKED",
+          "var": "VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+          "value": 6,
+          "item": "ITEM_POKE_BALL",
+          "status": "passed"
+        },
+        {
+          "name": "Bill",
+          "map": "MAP_ROUTE25_SEA_COTTAGE",
+          "x": 10,
+          "y": 7,
+          "local_id": 2,
+          "script": "Route25_SeaCottage_EventScript_Bill",
+          "flag": "FLAG_TEMP_2",
+          "status": "passed"
+        },
+        {
+          "name": "Computer",
+          "map": "MAP_ROUTE25_SEA_COTTAGE",
+          "x": 5,
+          "y": 5,
+          "local_id": 1,
+          "script": "Route25_SeaCottage_EventScript_Computer",
+          "flag": "FLAG_HELPED_BILL_IN_SEA_COTTAGE",
+          "reuseMap": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Bill",
+          "map": "MAP_ROUTE25_SEA_COTTAGE",
+          "x": 7,
+          "y": 6,
+          "local_id": 1,
+          "script": "Route25_SeaCottage_EventScript_Bill",
+          "flag": "FLAG_GOT_SS_TICKET",
+          "item": "ITEM_SS_TICKET",
+          "reuseMap": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Captain",
+          "map": "MAP_SSANNE_CAPTAINS_OFFICE",
+          "x": 5,
+          "y": 5,
+          "local_id": 1,
+          "script": "SSAnne_CaptainsOffice_EventScript_Captain",
+          "flag": "FLAG_GOT_HM01",
+          "item": "ITEM_HM01",
+          "status": "passed"
+        },
+        {
+          "name": "Woman",
+          "map": "MAP_ROUTE16_HOUSE",
+          "x": 4,
+          "y": 3,
+          "local_id": 1,
+          "script": "Route16_House_EventScript_Woman",
+          "flag": "FLAG_GOT_HM02",
+          "item": "ITEM_HM02",
+          "status": "passed"
+        },
+        {
+          "name": "TeaWoman",
+          "map": "MAP_CELADON_CITY_CONDOMINIUMS_1F",
+          "x": 2,
+          "y": 10,
+          "local_id": 4,
+          "script": "CeladonCity_Condominiums_1F_EventScript_TeaWoman",
+          "flag": "FLAG_GOT_TEA",
+          "item": "ITEM_TEA",
+          "status": "passed"
+        },
+        {
+          "name": "GuardTriggerMid",
+          "map": "MAP_ROUTE7_EAST_ENTRANCE",
+          "x": 9,
+          "y": 3,
+          "local_id": 1,
+          "script": "Route7_EastEntrance_EventScript_GuardTriggerMid",
+          "flag": "0",
+          "var": "VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES",
+          "value": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Grunt1",
+          "map": "MAP_ROCKET_HIDEOUT_B4F",
+          "x": 4,
+          "y": 3,
+          "local_id": 3,
+          "script": "RocketHideout_B4F_EventScript_Grunt1",
+          "flag": "0",
+          "trainer": "TRAINER_TEAM_ROCKET_GRUNT_18",
+          "status": "passed"
+        },
+        {
+          "name": "LiftKey",
+          "map": "MAP_ROCKET_HIDEOUT_B4F",
+          "x": 3,
+          "y": 3,
+          "local_id": 4,
+          "script": "RocketHideout_B4F_EventScript_LiftKey",
+          "flag": "FLAG_CAN_USE_ROCKET_HIDEOUT_LIFT",
+          "item": "ITEM_LIFT_KEY",
+          "status": "passed"
+        },
+        {
+          "name": "Grunt2",
+          "map": "MAP_ROCKET_HIDEOUT_B4F",
+          "x": 16,
+          "y": 15,
+          "local_id": 6,
+          "script": "RocketHideout_B4F_EventScript_Grunt2",
+          "flag": "0",
+          "trainer": "TRAINER_TEAM_ROCKET_GRUNT_16",
+          "status": "passed"
+        },
+        {
+          "name": "Grunt3",
+          "map": "MAP_ROCKET_HIDEOUT_B4F",
+          "x": 19,
+          "y": 15,
+          "local_id": 5,
+          "script": "RocketHideout_B4F_EventScript_Grunt3",
+          "flag": "0",
+          "trainer": "TRAINER_TEAM_ROCKET_GRUNT_17",
+          "status": "passed"
+        },
+        {
+          "name": "Giovanni",
+          "map": "MAP_ROCKET_HIDEOUT_B4F",
+          "x": 19,
+          "y": 5,
+          "local_id": 1,
+          "script": "RocketHideout_B4F_EventScript_Giovanni",
+          "flag": "FLAG_HIDE_CELADON_ROCKETS",
+          "status": "passed"
+        },
+        {
+          "name": "SilphScope",
+          "map": "MAP_ROCKET_HIDEOUT_B4F",
+          "x": 20,
+          "y": 6,
+          "local_id": 2,
+          "script": "RocketHideout_B4F_EventScript_SilphScope",
+          "flag": "0",
+          "item": "ITEM_SILPH_SCOPE",
+          "status": "passed"
+        },
+        {
+          "name": "MarowakGhost",
+          "map": "MAP_POKEMON_TOWER_6F",
+          "x": 10,
+          "y": 15,
+          "local_id": 1,
+          "script": "PokemonTower_6F_EventScript_MarowakGhost",
+          "flag": "0",
+          "var": "VAR_MAP_SCENE_POKEMON_TOWER_6F",
+          "value": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Grunt1",
+          "map": "MAP_POKEMON_TOWER_7F",
+          "x": 9,
+          "y": 11,
+          "local_id": 2,
+          "script": "PokemonTower_7F_EventScript_Grunt1",
+          "flag": "0",
+          "status": "passed"
+        },
+        {
+          "name": "Grunt2",
+          "map": "MAP_POKEMON_TOWER_7F",
+          "x": 13,
+          "y": 9,
+          "local_id": 3,
+          "script": "PokemonTower_7F_EventScript_Grunt2",
+          "flag": "0",
+          "status": "passed"
+        },
+        {
+          "name": "Grunt3",
+          "map": "MAP_POKEMON_TOWER_7F",
+          "x": 9,
+          "y": 7,
+          "local_id": 4,
+          "script": "PokemonTower_7F_EventScript_Grunt3",
+          "flag": "0",
+          "status": "passed"
+        },
+        {
+          "name": "MrFuji",
+          "map": "MAP_POKEMON_TOWER_7F",
+          "x": 11,
+          "y": 5,
+          "local_id": 1,
+          "script": "PokemonTower_7F_EventScript_MrFuji",
+          "flag": "FLAG_RESCUED_MR_FUJI",
+          "status": "passed"
+        },
+        {
+          "name": "MrFuji",
+          "map": "MAP_LAVENDER_TOWN_VOLUNTEER_POKEMON_HOUSE",
+          "x": 3,
+          "y": 4,
+          "local_id": 1,
+          "script": "LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji",
+          "flag": "FLAG_GOT_POKE_FLUTE",
+          "item": "ITEM_POKE_FLUTE",
+          "status": "passed"
+        },
+        {
+          "name": "Attendant",
+          "map": "MAP_SAFARI_ZONE_SECRET_HOUSE",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "SafariZone_SecretHouse_EventScript_Attendant",
+          "flag": "FLAG_GOT_HM03",
+          "item": "ITEM_HM03",
+          "status": "passed"
+        },
+        {
+          "name": "ITEM_GOLD_TEETH",
+          "map": "MAP_SAFARI_ZONE_WEST",
+          "x": 28,
+          "y": 15,
+          "local_id": 1,
+          "script": "SafariZone_West_EventScript_ItemGoldTeeth",
+          "flag": "0",
+          "item": "ITEM_GOLD_TEETH",
+          "status": "passed"
+        },
+        {
+          "name": "Warden",
+          "map": "MAP_FUCHSIA_CITY_WARDENS_HOUSE",
+          "x": 3,
+          "y": 6,
+          "local_id": 1,
+          "script": "FuchsiaCity_WardensHouse_EventScript_Warden",
+          "flag": "FLAG_GOT_HM04",
+          "item": "ITEM_HM04",
+          "status": "passed"
+        },
+        {
+          "name": "ITEM_HM07",
+          "map": "MAP_FOUR_ISLAND_ICEFALL_CAVE_1F",
+          "x": 12,
+          "y": 17,
+          "local_id": 2,
+          "script": "FourIsland_IcefallCave_1F_EventScript_ItemHM07",
+          "flag": "0",
+          "item": "ITEM_HM07",
+          "status": "passed"
+        },
+        {
+          "name": "RockSmashMan",
+          "map": "MAP_ONE_ISLAND_KINDLE_ROAD_EMBER_SPA",
+          "x": 10,
+          "y": 6,
+          "local_id": 5,
+          "script": "OneIsland_KindleRoad_EmberSpa_EventScript_RockSmashMan",
+          "flag": "FLAG_GOT_HM06",
+          "item": "ITEM_HM06",
+          "status": "passed"
+        },
+        {
+          "name": "ITEM_CARD_KEY",
+          "map": "MAP_SILPH_CO_5F",
+          "x": 22,
+          "y": 22,
+          "local_id": 8,
+          "script": "SilphCo_5F_EventScript_ItemCardKey",
+          "flag": "0",
+          "item": "ITEM_CARD_KEY",
+          "status": "passed"
+        },
+        {
+          "name": "BattleGiovanni",
+          "map": "MAP_SILPH_CO_11F",
+          "x": 6,
+          "y": 9,
+          "local_id": 1,
+          "script": "SilphCo_11F_EventScript_BattleGiovanni",
+          "flag": "FLAG_HIDE_SAFFRON_ROCKETS",
+          "status": "passed"
+        },
+        {
+          "name": "President",
+          "map": "MAP_SILPH_CO_11F",
+          "x": 9,
+          "y": 10,
+          "local_id": 1,
+          "script": "SilphCo_11F_EventScript_President",
+          "flag": "0",
+          "item": "ITEM_MASTER_BALL",
+          "status": "passed"
+        },
+        {
+          "name": "ITEM_SECRET_KEY",
+          "map": "MAP_POKEMON_MANSION_B1F",
+          "x": 5,
+          "y": 8,
+          "local_id": 6,
+          "script": "PokemonMansion_B1F_EventScript_ItemSecretKey",
+          "flag": "0",
+          "item": "ITEM_SECRET_KEY",
+          "status": "passed"
+        }
+      ]
+    },
+    "campaign": {
+      "rom_sha256": "d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8",
+      "fixture_sha256": "fbe753163d9db193fb61a6165f31f608066f20d52faf2404755c1f8c609d02c7",
+      "scenario": "campaign",
+      "scope": "Normal mode assisted integration, teleported travel, directly invoked native scripts and supplied artificial level-100 teams; not a normal-play or Hardcore campaign clear",
+      "exit_code": 0,
+      "log": "output/tests/campaign/emulator.log",
+      "cases": [
+        {
+          "name": "Brock",
+          "map": "MAP_PEWTER_CITY_GYM",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "PewterCity_Gym_EventScript_Brock",
+          "flag": "FLAG_BADGE01_GET",
+          "status": "passed"
+        },
+        {
+          "name": "Misty",
+          "map": "MAP_CERULEAN_CITY_GYM",
+          "x": 8,
+          "y": 7,
+          "local_id": 3,
+          "script": "CeruleanCity_Gym_EventScript_Misty",
+          "flag": "FLAG_BADGE02_GET",
+          "status": "passed"
+        },
+        {
+          "name": "LtSurge",
+          "map": "MAP_VERMILION_CITY_GYM",
+          "x": 5,
+          "y": 3,
+          "local_id": 1,
+          "script": "VermilionCity_Gym_EventScript_LtSurge",
+          "flag": "FLAG_BADGE03_GET",
+          "status": "passed"
+        },
+        {
+          "name": "Erika",
+          "map": "MAP_CELADON_CITY_GYM",
+          "x": 6,
+          "y": 5,
+          "local_id": 7,
+          "script": "CeladonCity_Gym_EventScript_Erika",
+          "flag": "FLAG_BADGE04_GET",
+          "status": "passed"
+        },
+        {
+          "name": "Koga",
+          "map": "MAP_FUCHSIA_CITY_GYM",
+          "x": 7,
+          "y": 14,
+          "local_id": 7,
+          "script": "FuchsiaCity_Gym_EventScript_Koga",
+          "flag": "FLAG_BADGE05_GET",
+          "status": "passed"
+        },
+        {
+          "name": "Sabrina",
+          "map": "MAP_SAFFRON_CITY_GYM",
+          "x": 14,
+          "y": 12,
+          "local_id": 7,
+          "script": "SaffronCity_Gym_EventScript_Sabrina",
+          "flag": "FLAG_BADGE06_GET",
+          "status": "passed"
+        },
+        {
+          "name": "Blaine",
+          "map": "MAP_CINNABAR_ISLAND_GYM",
+          "x": 5,
+          "y": 5,
+          "local_id": 8,
+          "script": "CinnabarIsland_Gym_EventScript_Blaine",
+          "flag": "FLAG_BADGE07_GET",
+          "status": "passed"
+        },
+        {
+          "name": "Giovanni",
+          "map": "MAP_VIRIDIAN_CITY_GYM",
+          "x": 2,
+          "y": 3,
+          "local_id": 8,
+          "script": "ViridianCity_Gym_EventScript_Giovanni",
+          "flag": "FLAG_BADGE08_GET",
+          "status": "passed"
+        },
+        {
+          "name": "Lorelei",
+          "map": "MAP_POKEMON_LEAGUE_LORELEIS_ROOM",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "PokemonLeague_LoreleisRoom_EventScript_Lorelei",
+          "flag": "FLAG_DEFEATED_LORELEI",
+          "status": "passed"
+        },
+        {
+          "name": "Bruno",
+          "map": "MAP_POKEMON_LEAGUE_BRUNOS_ROOM",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "PokemonLeague_BrunosRoom_EventScript_Bruno",
+          "flag": "FLAG_DEFEATED_BRUNO",
+          "status": "passed"
+        },
+        {
+          "name": "Agatha",
+          "map": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "PokemonLeague_AgathasRoom_EventScript_Agatha",
+          "flag": "FLAG_DEFEATED_AGATHA",
+          "status": "passed"
+        },
+        {
+          "name": "Lance",
+          "map": "MAP_POKEMON_LEAGUE_LANCES_ROOM",
+          "x": 6,
+          "y": 9,
+          "local_id": 1,
+          "script": "PokemonLeague_LancesRoom_EventScript_Lance",
+          "flag": "FLAG_DEFEATED_LANCE",
+          "status": "passed"
+        },
+        {
+          "name": "Champion-HallOfFame-Credits",
+          "map": "MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM",
+          "x": 6,
+          "y": 19,
+          "local_id": 1,
+          "script": null,
+          "flag": "FLAG_SYS_GAME_CLEAR",
+          "credits": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Sevii-introduction",
+          "map": "MAP_ONE_ISLAND_POKEMON_CENTER_1F",
+          "x": 8,
+          "y": 9,
+          "local_id": 1,
+          "script": null,
+          "flag": "FLAG_SYS_SEVII_MAP_123",
+          "item": "ITEM_TRI_PASS",
+          "var": "VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F",
+          "value": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Lostelle",
+          "map": "MAP_THREE_ISLAND_BERRY_FOREST",
+          "x": 4,
+          "y": 9,
+          "local_id": 1,
+          "script": "ThreeIsland_BerryForest_EventScript_Lostelle",
+          "flag": "FLAG_RESCUED_LOSTELLE",
+          "supply": "ITEM_MASTER_BALL",
+          "status": "passed"
+        },
+        {
+          "name": "LostellesDaddy",
+          "map": "MAP_TWO_ISLAND_JOYFUL_GAME_CORNER",
+          "x": 5,
+          "y": 6,
+          "local_id": 1,
+          "script": "TwoIsland_JoyfulGameCorner_EventScript_LostellesDaddy",
+          "flag": "FLAG_GOT_MOON_STONE_FROM_JOYFUL_GAME_CORNER",
+          "status": "passed"
+        },
+        {
+          "name": "LeaveOneIslandTriggerBottom",
+          "map": "MAP_ONE_ISLAND_POKEMON_CENTER_1F",
+          "x": 13,
+          "y": 9,
+          "local_id": 1,
+          "script": "OneIsland_PokemonCenter_1F_EventScript_LeaveOneIslandTriggerBottom",
+          "flag": "0",
+          "var": "VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F",
+          "value": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Celio",
+          "map": "MAP_ONE_ISLAND_POKEMON_CENTER_1F",
+          "x": 15,
+          "y": 7,
+          "local_id": 3,
+          "script": "OneIsland_PokemonCenter_1F_EventScript_Celio",
+          "flag": "0",
+          "var": "VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F",
+          "value": 4,
+          "status": "passed"
+        },
+        {
+          "name": "Ruby",
+          "map": "MAP_MT_EMBER_RUBY_PATH_B5F",
+          "x": 7,
+          "y": 8,
+          "local_id": 1,
+          "script": "MtEmber_RubyPath_B5F_EventScript_Ruby",
+          "flag": "FLAG_GOT_RUBY",
+          "item": "ITEM_RUBY",
+          "status": "passed"
+        },
+        {
+          "name": "Celio",
+          "map": "MAP_ONE_ISLAND_POKEMON_CENTER_1F",
+          "x": 15,
+          "y": 7,
+          "local_id": 3,
+          "script": "OneIsland_PokemonCenter_1F_EventScript_Celio",
+          "flag": "FLAG_SYS_SEVII_MAP_4567",
+          "item": "ITEM_RAINBOW_PASS",
+          "status": "passed"
+        },
+        {
+          "name": "LoreleiRocketsScene",
+          "map": "MAP_FOUR_ISLAND_ICEFALL_CAVE_BACK",
+          "x": 7,
+          "y": 13,
+          "local_id": 1,
+          "script": "FourIsland_IcefallCave_Back_EventScript_LoreleiRocketsScene",
+          "flag": "FLAG_HIDE_RUIN_VALLEY_SCIENTIST",
+          "status": "passed"
+        },
+        {
+          "name": "Sapphire",
+          "map": "MAP_SIX_ISLAND_DOTTED_HOLE_SAPPHIRE_ROOM",
+          "x": 7,
+          "y": 8,
+          "local_id": 1,
+          "script": "SixIsland_DottedHole_SapphireRoom_EventScript_Sapphire",
+          "flag": "FLAG_LEARNED_YES_NAH_CHANSEY",
+          "status": "passed"
+        },
+        {
+          "name": "Admin1",
+          "map": "MAP_FIVE_ISLAND_ROCKET_WAREHOUSE",
+          "x": 27,
+          "y": 17,
+          "local_id": 3,
+          "script": "FiveIsland_RocketWarehouse_EventScript_Admin1",
+          "flag": "0",
+          "trainer": "TRAINER_TEAM_ROCKET_ADMIN",
+          "status": "passed"
+        },
+        {
+          "name": "Admin2",
+          "map": "MAP_FIVE_ISLAND_ROCKET_WAREHOUSE",
+          "x": 25,
+          "y": 12,
+          "local_id": 4,
+          "script": "FiveIsland_RocketWarehouse_EventScript_Admin2",
+          "flag": "0",
+          "trainer": "TRAINER_TEAM_ROCKET_ADMIN_2",
+          "status": "passed"
+        },
+        {
+          "name": "Gideon",
+          "map": "MAP_FIVE_ISLAND_ROCKET_WAREHOUSE",
+          "x": 27,
+          "y": 5,
+          "local_id": 6,
+          "script": "FiveIsland_RocketWarehouse_EventScript_Gideon",
+          "flag": "FLAG_RECOVERED_SAPPHIRE",
+          "item": "ITEM_SAPPHIRE",
+          "status": "passed"
+        },
+        {
+          "name": "Celio",
+          "map": "MAP_ONE_ISLAND_POKEMON_CENTER_1F",
+          "x": 15,
+          "y": 7,
+          "local_id": 3,
+          "script": "OneIsland_PokemonCenter_1F_EventScript_Celio",
+          "flag": "FLAG_SYS_CAN_LINK_WITH_RS",
+          "status": "passed"
+        },
+        {
+          "name": "Lorelei",
+          "map": "MAP_POKEMON_LEAGUE_LORELEIS_ROOM",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "PokemonLeague_LoreleisRoom_EventScript_Lorelei",
+          "flag": "FLAG_DEFEATED_LORELEI",
+          "status": "passed"
+        },
+        {
+          "name": "Bruno",
+          "map": "MAP_POKEMON_LEAGUE_BRUNOS_ROOM",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "PokemonLeague_BrunosRoom_EventScript_Bruno",
+          "flag": "FLAG_DEFEATED_BRUNO",
+          "status": "passed"
+        },
+        {
+          "name": "Agatha",
+          "map": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "PokemonLeague_AgathasRoom_EventScript_Agatha",
+          "flag": "FLAG_DEFEATED_AGATHA",
+          "status": "passed"
+        },
+        {
+          "name": "Lance",
+          "map": "MAP_POKEMON_LEAGUE_LANCES_ROOM",
+          "x": 6,
+          "y": 9,
+          "local_id": 1,
+          "script": "PokemonLeague_LancesRoom_EventScript_Lance",
+          "flag": "FLAG_DEFEATED_LANCE",
+          "status": "passed"
+        },
+        {
+          "name": "Rematch-Champion-HallOfFame-Credits",
+          "map": "MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM",
+          "x": 6,
+          "y": 19,
+          "local_id": 1,
+          "script": null,
+          "flag": "FLAG_SYS_GAME_CLEAR",
+          "credits": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Mewtwo",
+          "map": "MAP_CERULEAN_CAVE_B1F",
+          "x": 7,
+          "y": 13,
+          "local_id": 3,
+          "script": "CeruleanCave_B1F_EventScript_Mewtwo",
+          "flag": "FLAG_FOUGHT_MEWTWO",
+          "supply": "ITEM_MASTER_BALL",
+          "status": "passed"
+        },
+        {
+          "name": "Selphy-rescue",
+          "map": "MAP_FIVE_ISLAND_LOST_CAVE_ROOM10",
+          "x": 5,
+          "y": 7,
+          "local_id": 1,
+          "script": null,
+          "flag": "FLAG_HIDE_LOST_CAVE_SELPHY",
+          "trainer": "TRAINER_LADY_SELPHY",
+          "status": "passed"
+        },
+        {
+          "name": "Memorial",
+          "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
+          "x": 4,
+          "y": 46,
+          "local_id": 1,
+          "script": "FiveIsland_MemorialPillar_EventScript_Memorial",
+          "flag": "FLAG_GOT_TM42_AT_MEMORIAL_PILLAR",
+          "supply": "ITEM_LEMONADE",
+          "status": "passed"
+        },
+        {
+          "name": "Switch1",
+          "map": "MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY",
+          "x": 7,
+          "y": 10,
+          "local_id": 1,
+          "script": "SevenIsland_SevaultCanyon_TanobyKey_EventScript_Switch1",
+          "flag": "0",
+          "var": "VAR_TEMP_1",
+          "value": 100,
+          "reuseMap": 0,
+          "status": "passed"
+        },
+        {
+          "name": "Switch2",
+          "map": "MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY",
+          "x": 7,
+          "y": 10,
+          "local_id": 1,
+          "script": "SevenIsland_SevaultCanyon_TanobyKey_EventScript_Switch2",
+          "flag": "0",
+          "var": "VAR_TEMP_2",
+          "value": 100,
+          "reuseMap": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Switch3",
+          "map": "MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY",
+          "x": 7,
+          "y": 10,
+          "local_id": 1,
+          "script": "SevenIsland_SevaultCanyon_TanobyKey_EventScript_Switch3",
+          "flag": "0",
+          "var": "VAR_TEMP_3",
+          "value": 100,
+          "reuseMap": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Switch4",
+          "map": "MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY",
+          "x": 7,
+          "y": 10,
+          "local_id": 1,
+          "script": "SevenIsland_SevaultCanyon_TanobyKey_EventScript_Switch4",
+          "flag": "0",
+          "var": "VAR_TEMP_4",
+          "value": 100,
+          "reuseMap": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Switch5",
+          "map": "MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY",
+          "x": 7,
+          "y": 10,
+          "local_id": 1,
+          "script": "SevenIsland_SevaultCanyon_TanobyKey_EventScript_Switch5",
+          "flag": "0",
+          "var": "VAR_TEMP_5",
+          "value": 100,
+          "reuseMap": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Switch6",
+          "map": "MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY",
+          "x": 7,
+          "y": 10,
+          "local_id": 1,
+          "script": "SevenIsland_SevaultCanyon_TanobyKey_EventScript_Switch6",
+          "flag": "0",
+          "var": "VAR_TEMP_6",
+          "value": 100,
+          "reuseMap": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Switch7",
+          "map": "MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY",
+          "x": 7,
+          "y": 10,
+          "local_id": 1,
+          "script": "SevenIsland_SevaultCanyon_TanobyKey_EventScript_Switch7",
+          "flag": "FLAG_SYS_UNLOCKED_TANOBY_RUINS",
+          "var": "VAR_TEMP_7",
+          "value": 100,
+          "reuseMap": 1,
+          "status": "passed"
+        },
+        {
+          "name": "BeginChallenge",
+          "map": "MAP_TRAINER_TOWER_LOBBY",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "TrainerTower_Lobby_EventScript_BeginChallenge",
+          "flag": "0",
+          "towerStart": 1,
+          "towerExpected": 1,
+          "var": "VAR_MAP_SCENE_TRAINER_TOWER",
+          "value": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-0-floor-1",
+          "map": "MAP_TRAINER_TOWER_1F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 1,
+          "towerExpected": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-0-floor-2",
+          "map": "MAP_TRAINER_TOWER_2F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 2,
+          "towerExpected": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-0-floor-3",
+          "map": "MAP_TRAINER_TOWER_3F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 3,
+          "towerExpected": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-0-floor-4",
+          "map": "MAP_TRAINER_TOWER_4F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 4,
+          "towerExpected": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-0-floor-5",
+          "map": "MAP_TRAINER_TOWER_5F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 5,
+          "towerExpected": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-0-floor-6",
+          "map": "MAP_TRAINER_TOWER_6F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 6,
+          "towerExpected": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-0-floor-7",
+          "map": "MAP_TRAINER_TOWER_7F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 7,
+          "towerExpected": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-0-floor-8",
+          "map": "MAP_TRAINER_TOWER_8F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 8,
+          "towerExpected": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Owner",
+          "map": "MAP_TRAINER_TOWER_ROOF",
+          "x": 9,
+          "y": 8,
+          "local_id": 1,
+          "script": "TrainerTower_Roof_EventScript_Owner",
+          "flag": "0",
+          "towerPrize": 1,
+          "towerExpected": 1,
+          "status": "passed"
+        },
+        {
+          "name": "BeginChallenge",
+          "map": "MAP_TRAINER_TOWER_LOBBY",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "TrainerTower_Lobby_EventScript_BeginChallenge",
+          "flag": "0",
+          "towerStart": 2,
+          "towerExpected": 2,
+          "var": "VAR_MAP_SCENE_TRAINER_TOWER",
+          "value": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-1-floor-1",
+          "map": "MAP_TRAINER_TOWER_1F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 1,
+          "towerExpected": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-1-floor-2",
+          "map": "MAP_TRAINER_TOWER_2F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 2,
+          "towerExpected": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-1-floor-3",
+          "map": "MAP_TRAINER_TOWER_3F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 3,
+          "towerExpected": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-1-floor-4",
+          "map": "MAP_TRAINER_TOWER_4F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 4,
+          "towerExpected": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-1-floor-5",
+          "map": "MAP_TRAINER_TOWER_5F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 5,
+          "towerExpected": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-1-floor-6",
+          "map": "MAP_TRAINER_TOWER_6F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 6,
+          "towerExpected": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-1-floor-7",
+          "map": "MAP_TRAINER_TOWER_7F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 7,
+          "towerExpected": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-1-floor-8",
+          "map": "MAP_TRAINER_TOWER_8F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 8,
+          "towerExpected": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Owner",
+          "map": "MAP_TRAINER_TOWER_ROOF",
+          "x": 9,
+          "y": 8,
+          "local_id": 1,
+          "script": "TrainerTower_Roof_EventScript_Owner",
+          "flag": "0",
+          "towerPrize": 1,
+          "towerExpected": 2,
+          "status": "passed"
+        },
+        {
+          "name": "BeginChallenge",
+          "map": "MAP_TRAINER_TOWER_LOBBY",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "TrainerTower_Lobby_EventScript_BeginChallenge",
+          "flag": "0",
+          "towerStart": 3,
+          "towerExpected": 3,
+          "var": "VAR_MAP_SCENE_TRAINER_TOWER",
+          "value": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-2-floor-1",
+          "map": "MAP_TRAINER_TOWER_1F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 1,
+          "towerExpected": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-2-floor-2",
+          "map": "MAP_TRAINER_TOWER_2F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 2,
+          "towerExpected": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-2-floor-3",
+          "map": "MAP_TRAINER_TOWER_3F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 3,
+          "towerExpected": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-2-floor-4",
+          "map": "MAP_TRAINER_TOWER_4F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 4,
+          "towerExpected": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-2-floor-5",
+          "map": "MAP_TRAINER_TOWER_5F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 5,
+          "towerExpected": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-2-floor-6",
+          "map": "MAP_TRAINER_TOWER_6F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 6,
+          "towerExpected": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-2-floor-7",
+          "map": "MAP_TRAINER_TOWER_7F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 7,
+          "towerExpected": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-2-floor-8",
+          "map": "MAP_TRAINER_TOWER_8F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 8,
+          "towerExpected": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Owner",
+          "map": "MAP_TRAINER_TOWER_ROOF",
+          "x": 9,
+          "y": 8,
+          "local_id": 1,
+          "script": "TrainerTower_Roof_EventScript_Owner",
+          "flag": "0",
+          "towerPrize": 1,
+          "towerExpected": 3,
+          "status": "passed"
+        },
+        {
+          "name": "BeginChallenge",
+          "map": "MAP_TRAINER_TOWER_LOBBY",
+          "x": 6,
+          "y": 6,
+          "local_id": 1,
+          "script": "TrainerTower_Lobby_EventScript_BeginChallenge",
+          "flag": "0",
+          "towerStart": 4,
+          "towerExpected": 4,
+          "var": "VAR_MAP_SCENE_TRAINER_TOWER",
+          "value": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-3-floor-1",
+          "map": "MAP_TRAINER_TOWER_1F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 1,
+          "towerExpected": 4,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-3-floor-2",
+          "map": "MAP_TRAINER_TOWER_2F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 2,
+          "towerExpected": 4,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-3-floor-3",
+          "map": "MAP_TRAINER_TOWER_3F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 3,
+          "towerExpected": 4,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-3-floor-4",
+          "map": "MAP_TRAINER_TOWER_4F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 4,
+          "towerExpected": 4,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-3-floor-5",
+          "map": "MAP_TRAINER_TOWER_5F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 5,
+          "towerExpected": 4,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-3-floor-6",
+          "map": "MAP_TRAINER_TOWER_6F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 6,
+          "towerExpected": 4,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-3-floor-7",
+          "map": "MAP_TRAINER_TOWER_7F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 7,
+          "towerExpected": 4,
+          "status": "passed"
+        },
+        {
+          "name": "Tower-3-floor-8",
+          "map": "MAP_TRAINER_TOWER_8F",
+          "x": 9,
+          "y": 13,
+          "local_id": 1,
+          "script": "TrainerTower_EventScript_TriggerBattle",
+          "flag": "0",
+          "towerFloor": 8,
+          "towerExpected": 4,
+          "status": "passed"
+        },
+        {
+          "name": "Owner",
+          "map": "MAP_TRAINER_TOWER_ROOF",
+          "x": 9,
+          "y": 8,
+          "local_id": 1,
+          "script": "TrainerTower_Roof_EventScript_Owner",
+          "flag": "0",
+          "towerPrize": 1,
+          "towerExpected": 4,
+          "status": "passed"
+        }
+      ]
+    },
+    "rivals": {
+      "rom_sha256": "d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8",
+      "fixture_sha256": "e4f12592d1c2688a016e3f0af75d5895c2836d1571cc4d8cf9286274d199a068",
+      "scenario": "rivals",
+      "scope": "Normal mode assisted integration, teleported travel, directly invoked native scripts and supplied artificial level-100 teams; not a normal-play or Hardcore campaign clear",
+      "exit_code": 0,
+      "log": "output/tests/campaign-rivals/emulator.log",
+      "cases": [
+        {
+          "name": "RivalTriggerMid",
+          "map": "MAP_SSANNE_2F_CORRIDOR",
+          "x": 36,
+          "y": 5,
+          "local_id": 1,
+          "script": "SSAnne_2F_Corridor_EventScript_RivalTriggerMid",
+          "flag": "0",
+          "var": "VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR",
+          "value": 1,
+          "status": "passed"
+        },
+        {
+          "name": "RivalTriggerBottom",
+          "map": "MAP_SILPH_CO_7F",
+          "x": 5,
+          "y": 6,
+          "local_id": 1,
+          "script": "SilphCo_7F_EventScript_RivalTriggerBottom",
+          "flag": "0",
+          "var": "VAR_MAP_SCENE_SILPH_CO_7F",
+          "value": 1,
+          "status": "passed"
+        },
+        {
+          "name": "LateRivalTriggerMid",
+          "map": "MAP_ROUTE22",
+          "x": 21,
+          "y": 8,
+          "local_id": 1,
+          "script": "Route22_EventScript_LateRivalTriggerMid",
+          "flag": "0",
+          "var": "VAR_MAP_SCENE_ROUTE22",
+          "value": 4,
+          "status": "passed"
+        }
+      ]
+    },
+    "access": {
+      "rom_sha256": "d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8",
+      "scope": "static geometry/warp/item/gate checks; conditional reachability and puzzle solutions are not proved",
+      "checks": [
+        {
+          "id": "map_geometry_connections_events_preserved",
+          "status": "passed",
+          "detail": {
+            "maps": 425,
+            "changes": []
+          }
+        },
+        {
+          "id": "layout_blocks_preserved",
+          "status": "passed",
+          "detail": {
+            "files": 732,
+            "changes": []
+          }
+        },
+        {
+          "id": "warp_targets_and_bounds",
+          "status": "passed",
+          "detail": {
+            "warps": 1294,
+            "errors": []
+          }
+        },
+        {
+          "id": "added_npcs_do_not_occupy_warps_or_existing_npcs",
+          "status": "passed",
+          "detail": {
+            "added_npcs": [
+              {
+                "map": "MAP_CELADON_CITY_POKEMON_CENTER_1F",
+                "x": 4,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_CERULEAN_CITY_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_CINNABAR_ISLAND_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_FIVE_ISLAND_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_FOUR_ISLAND_POKEMON_CENTER_1F",
+                "x": 4,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_FUCHSIA_CITY_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+                "x": 4,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_LAVENDER_TOWN_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_ONE_ISLAND_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_PEWTER_CITY_POKEMON_CENTER_1F",
+                "x": 4,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_ROUTE10_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_ROUTE4_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_SAFFRON_CITY_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_SEVEN_ISLAND_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_SIX_ISLAND_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_THREE_ISLAND_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_VERMILION_CITY_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              },
+              {
+                "map": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F",
+                "x": 10,
+                "y": 6,
+                "script": "EventScript_TrainingCoach",
+                "on_warp": false,
+                "overlaps_object": false,
+                "collision": 0
+              }
+            ]
+          }
+        },
+        {
+          "id": "center_floor_connectivity_after_added_npcs",
+          "status": "passed",
+          "detail": [
+            {
+              "map": "MAP_CELADON_CITY_POKEMON_CENTER_1F",
+              "reachable_before": 83,
+              "reachable_after": 82,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_CERULEAN_CITY_POKEMON_CENTER_1F",
+              "reachable_before": 82,
+              "reachable_after": 81,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_CINNABAR_ISLAND_POKEMON_CENTER_1F",
+              "reachable_before": 82,
+              "reachable_after": 81,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_FIVE_ISLAND_POKEMON_CENTER_1F",
+              "reachable_before": 84,
+              "reachable_after": 83,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_FOUR_ISLAND_POKEMON_CENTER_1F",
+              "reachable_before": 83,
+              "reachable_after": 82,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_FUCHSIA_CITY_POKEMON_CENTER_1F",
+              "reachable_before": 83,
+              "reachable_after": 82,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+              "reachable_before": 205,
+              "reachable_after": 204,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_LAVENDER_TOWN_POKEMON_CENTER_1F",
+              "reachable_before": 82,
+              "reachable_after": 81,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_ONE_ISLAND_POKEMON_CENTER_1F",
+              "reachable_before": 101,
+              "reachable_after": 100,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_PEWTER_CITY_POKEMON_CENTER_1F",
+              "reachable_before": 80,
+              "reachable_after": 79,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_ROUTE10_POKEMON_CENTER_1F",
+              "reachable_before": 82,
+              "reachable_after": 81,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_ROUTE4_POKEMON_CENTER_1F",
+              "reachable_before": 82,
+              "reachable_after": 81,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_SAFFRON_CITY_POKEMON_CENTER_1F",
+              "reachable_before": 83,
+              "reachable_after": 82,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_SEVEN_ISLAND_POKEMON_CENTER_1F",
+              "reachable_before": 83,
+              "reachable_after": 82,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_SIX_ISLAND_POKEMON_CENTER_1F",
+              "reachable_before": 83,
+              "reachable_after": 82,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_THREE_ISLAND_POKEMON_CENTER_1F",
+              "reachable_before": 83,
+              "reachable_after": 82,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
+              "reachable_before": 84,
+              "reachable_after": 83,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_VERMILION_CITY_POKEMON_CENTER_1F",
+              "reachable_before": 82,
+              "reachable_after": 81,
+              "lost_tiles_beyond_new_npc": []
+            },
+            {
+              "map": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F",
+              "reachable_before": 83,
+              "reachable_after": 82,
+              "lost_tiles_beyond_new_npc": []
+            }
+          ]
+        },
+        {
+          "id": "celio_league_gate_precedes_national_dex_check",
+          "status": "passed",
+          "detail": "Static ordering, not a UI traversal."
+        },
+        {
+          "id": "celio_sapphire_unlocks_rematch_and_cave",
+          "status": "passed",
+          "detail": "Reward script contains both unlocks; native scenario checks final state separately."
+        },
+        {
+          "id": "rematch_uses_celio_completion_flag",
+          "status": "passed",
+          "detail": "First HOF alone does not select the competitive rematch."
+        },
+        {
+          "id": "critical_items_have_award_scripts",
+          "status": "passed",
+          "detail": [
+            {
+              "item": "ITEM_HM01",
+              "award_sources": [
+                {
+                  "map": "SSAnne_CaptainsOffice",
+                  "command": "giveitem_msg SSAnne_CaptainsOffice_Text_ObtainedHM01FromCaptain, ITEM_HM01, 1, MUS_OBTAIN_KEY_ITEM"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_HM02",
+              "award_sources": [
+                {
+                  "map": "Route16_House",
+                  "command": "giveitem_msg Route16_House_Text_ReceivedHM02FromGirl, ITEM_HM02"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_HM03",
+              "award_sources": [
+                {
+                  "map": "SafariZone_SecretHouse",
+                  "command": "giveitem_msg SafariZone_SecretHouse_Text_ReceivedHM03FromAttendant, ITEM_HM03"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_HM04",
+              "award_sources": [
+                {
+                  "map": "FuchsiaCity_WardensHouse",
+                  "command": "giveitem_msg FuchsiaCity_WardensHouse_Text_ReceivedHM04FromWarden, ITEM_HM04"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_HM05",
+              "award_sources": [
+                {
+                  "map": "Route2_EastBuilding",
+                  "command": "giveitem_msg Route2_EastBuilding_Text_ReceivedHM05FromAide, ITEM_HM05"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_HM06",
+              "award_sources": [
+                {
+                  "map": "OneIsland_KindleRoad_EmberSpa",
+                  "command": "giveitem ITEM_HM06"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_HM07",
+              "award_sources": [
+                {
+                  "map": "scripts",
+                  "command": "finditem ITEM_HM07"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_SS_TICKET",
+              "award_sources": [
+                {
+                  "map": "Route25_SeaCottage",
+                  "command": "giveitem_msg Route25_SeaCottage_Text_ReceivedSSTicketFromBill, ITEM_SS_TICKET, 1, MUS_OBTAIN_KEY_ITEM"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_POKE_FLUTE",
+              "award_sources": [
+                {
+                  "map": "LavenderTown_VolunteerPokemonHouse",
+                  "command": "giveitem_msg LavenderTown_VolunteerPokemonHouse_Text_ReceivedPokeFluteFromMrFuji, ITEM_POKE_FLUTE, 1, MUS_OBTAIN_KEY_ITEM"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_SILPH_SCOPE",
+              "award_sources": [
+                {
+                  "map": "RocketHideout_B4F",
+                  "command": "giveitem ITEM_SILPH_SCOPE"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_CARD_KEY",
+              "award_sources": [
+                {
+                  "map": "scripts",
+                  "command": "finditem ITEM_CARD_KEY"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_LIFT_KEY",
+              "award_sources": [
+                {
+                  "map": "RocketHideout_B4F",
+                  "command": "giveitem ITEM_LIFT_KEY"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_SECRET_KEY",
+              "award_sources": [
+                {
+                  "map": "scripts",
+                  "command": "finditem ITEM_SECRET_KEY"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_GOLD_TEETH",
+              "award_sources": [
+                {
+                  "map": "scripts",
+                  "command": "finditem ITEM_GOLD_TEETH"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_TEA",
+              "award_sources": [
+                {
+                  "map": "CeladonCity_Condominiums_1F",
+                  "command": "giveitem ITEM_TEA"
+                }
+              ]
+            },
+            {
+              "item": "ITEM_RAINBOW_PASS",
+              "award_sources": [
+                {
+                  "map": "OneIsland_PokemonCenter_1F",
+                  "command": "additem ITEM_RAINBOW_PASS"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "save": {
+      "rom_sha256": "d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8",
+      "status": "passed",
+      "first_league": {
+        "save_counter": 43,
+        "valid_banks": 2,
+        "badges": 255,
+        "game_clear": true,
+        "network_complete": false,
+        "cerulean_cave_unlocked": false,
+        "tanoby_unlocked": false,
+        "hof_entries": 1,
+        "trainer_battles": 22,
+        "captures": 0,
+        "mewtwo_caught": false,
+        "tower": [
+          {
+            "challenge": 0,
+            "floors": 0,
+            "prize": false,
+            "time_checked": false
+          },
+          {
+            "challenge": 1,
+            "floors": 0,
+            "prize": false,
+            "time_checked": false
+          },
+          {
+            "challenge": 2,
+            "floors": 0,
+            "prize": false,
+            "time_checked": false
+          },
+          {
+            "challenge": 3,
+            "floors": 0,
+            "prize": false,
+            "time_checked": false
+          }
+        ],
+        "pc_mons_with_valid_checksums": 0,
+        "rocket_story_trainers_defeated": {
+          "366": true,
+          "367": true,
+          "368": true,
+          "369": true,
+          "370": true,
+          "371": true
+        }
+      },
+      "final_postgame": {
+        "save_counter": 111,
+        "valid_banks": 2,
+        "badges": 255,
+        "game_clear": true,
+        "network_complete": true,
+        "cerulean_cave_unlocked": true,
+        "tanoby_unlocked": true,
+        "hof_entries": 2,
+        "trainer_battles": 32,
+        "captures": 2,
+        "mewtwo_caught": true,
+        "tower": [
+          {
+            "challenge": 0,
+            "floors": 8,
+            "prize": true,
+            "time_checked": true
+          },
+          {
+            "challenge": 1,
+            "floors": 8,
+            "prize": true,
+            "time_checked": true
+          },
+          {
+            "challenge": 2,
+            "floors": 8,
+            "prize": true,
+            "time_checked": true
+          },
+          {
+            "challenge": 3,
+            "floors": 8,
+            "prize": true,
+            "time_checked": true
+          }
+        ],
+        "pc_mons_with_valid_checksums": 2,
+        "rocket_story_trainers_defeated": {
+          "366": true,
+          "367": true,
+          "368": true,
+          "369": true,
+          "370": true,
+          "371": true
+        }
+      },
+      "story": {
+        "save_counter": 30,
+        "valid_banks": 2,
+        "badges": 0,
+        "game_clear": false,
+        "network_complete": false,
+        "cerulean_cave_unlocked": false,
+        "tanoby_unlocked": false,
+        "hof_entries": 0,
+        "trainer_battles": 8,
+        "captures": 0,
+        "mewtwo_caught": false,
+        "tower": [
+          {
+            "challenge": 0,
+            "floors": 0,
+            "prize": false,
+            "time_checked": false
+          },
+          {
+            "challenge": 1,
+            "floors": 0,
+            "prize": false,
+            "time_checked": false
+          },
+          {
+            "challenge": 2,
+            "floors": 0,
+            "prize": false,
+            "time_checked": false
+          },
+          {
+            "challenge": 3,
+            "floors": 0,
+            "prize": false,
+            "time_checked": false
+          }
+        ],
+        "pc_mons_with_valid_checksums": 0,
+        "rocket_story_trainers_defeated": {
+          "366": true,
+          "367": true,
+          "368": true,
+          "369": true,
+          "370": true,
+          "371": true
+        }
+      },
+      "story_items_verified": [
+        "ITEM_SS_TICKET",
+        "ITEM_POKE_FLUTE",
+        "ITEM_SILPH_SCOPE",
+        "ITEM_LIFT_KEY",
+        "ITEM_CARD_KEY",
+        "ITEM_SECRET_KEY",
+        "ITEM_MASTER_BALL",
+        "ITEM_HM01",
+        "ITEM_HM02",
+        "ITEM_HM03",
+        "ITEM_HM04",
+        "ITEM_HM06",
+        "ITEM_HM07"
+      ],
+      "test_snapshots_checked": 111,
+      "scope": "only test-created saves; sector checksums and selected persisted milestones; no user save migration claim"
+    }
+  }
+}
