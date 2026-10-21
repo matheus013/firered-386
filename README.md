@@ -4,6 +4,8 @@ Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em du
 
 Guias: [onde capturar cada uma das 386 espécies](SPECIES_LOCATIONS.md) · [times dos desafios em sequência](#times-dos-desafios-em-sequência) · [encontros por rota, níveis e probabilidades](ENCOUNTERS.md) · [catálogo de todos os treinadores](TRAINER_REVIEW.md).
 
+**Auditoria de testes (21/10/2026):** as sete suítes existentes passaram, mas cinco dos 18 novos casos falharam, revelando três problemas ainda abertos: IVs compactados, leitura do status dos errantes em cenário dirigido e teto de nível na creche. Consulte o [checklist, reproduções e pendências manuais](TEST_CHECKLIST.md). A ROM v0.3.0-dev ainda não foi homologada por uma campanha completa.
+
 ## Download
 
 Versão atual: **[v0.3.0-dev](https://github.com/matheus013/firered-386/releases/tag/v0.3.0-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.3.0-dev/firered-386-v0.3.0-dev.gba). Inclui as 386 espécies distribuídas e a correção das lojas. Veja o [histórico de versões](CHANGELOG.md) e o [relatório dos 46 testes de lojas](SHOP_TEST_RESULTS.md).
@@ -12,7 +14,7 @@ Baixe o **`.gba`** em [Releases](https://github.com/matheus013/firered-386/relea
 
 O IPS exige uma ROM limpa de **FireRed USA 1.0**, SHA-1 `41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc`. O `.gba` já compilado dispensa aplicar patches. Para escolher Hardcore, use **NEW GAME**. Saves anteriores à introdução dos modos são tratados como Normal; a escolha já gravada em um Hardcore é preservada. Faça backup do seu save antes de experimentar outra versão.
 
-Para continuar uma partida, preserve uma cópia do `.sav` e use o mesmo nome-base para ROM e save, por exemplo `firered-386.gba` e `firered-386.sav`. Saves de versões anteriores mantêm o modo escolhido e o progresso; os novos encontros passam a valer ao jogar com a ROM atualizada.
+Para continuar uma partida, preserve uma cópia do `.sav` e use o mesmo nome-base para ROM e save, por exemplo `firered-386.gba` e `firered-386.sav`. O layout do save foi preservado e os testes de gravação/recarga passaram; a migração de saves reais de cada versão anterior ainda precisa ser validada. Os novos encontros passam a valer ao jogar com a ROM atualizada.
 
 O jogo continua majoritariamente em inglês. A tela de seleção de modos está em português, sem acentos na interface do GBA.
 
@@ -464,6 +466,8 @@ v0.3.0-dev: auditoria de cobertura e limites da distribuição, criação real d
 Ainda não há validação de campanha completa, Torre inteira ou trocas no VBA Link. Podem existir problemas de balanceamento/compatibilidade. O resultado continua sendo uma ROM de GBA para emuladores.
 
 Para repetir os testes após compilar, instale também `libmgba-dev` e `mgba-sdl` no Ubuntu/WSL:
+
+O [checklist de testes](TEST_CHECKLIST.md) reúne fontes da pesquisa, escopo de cada aprovação, resultados estruturados e roteiro manual. `python3 scripts/run_regression.py` repete as sete suítes abaixo. `python3 scripts/test_community_cases.py` executa os 18 novos casos e **retorna código 1 enquanto as cinco falhas conhecidas persistirem**. A auditoria de integridade do pacote está em `scripts/audit_release.py` e exige os assets locais da v0.3.0-dev.
 
 ```bash
 python3 scripts/balance_trainers.py --check

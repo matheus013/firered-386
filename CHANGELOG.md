@@ -1,5 +1,12 @@
 # Histórico de versões
 
+## Auditoria de testes — 21/10/2026 (sem nova ROM)
+
+- Pesquisa de falhas documentadas por autores de hacks e pelo pret; [checklist de testes](TEST_CHECKLIST.md) com fontes, critérios, reproduções e roteiro manual.
+- Sete suítes existentes repetidas e aprovadas, incluindo 46 casos de lojas e 14 variantes da Liga.
+- Novos testes nativos: 13 de 18 aprovados. Cinco reprovações identificam três defeitos abertos na v0.3.0-dev: truncamento de IVs compactados, leitura larga do status dos errantes em cenário dirigido e creche acima do teto nos dois modos.
+- Adicionados runners e [resumo estruturado](data/test_audit.json). O `.gba` publicado permanece o mesmo; esta entrada não anuncia correção dos defeitos encontrados.
+
 ## v0.3.0-dev — 21/10/2026
 
 - Distribuição das 386 espécies com captura selvagem direta no modo Normal, sem depender de inicial, troca, reprodução ou ticket.
