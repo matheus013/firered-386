@@ -52,7 +52,11 @@
 - Exp. Share global: liberação na entrega do Parcel, regra de distribuição e opção de ativar/desativar confirmadas.
 - Não acrescentar outras melhorias sem definir o escopo com o usuário.
 
-## Proposta de distribuição — ainda ajustável
+## Distribuição implementada — v0.3.0-dev
+
+As 386 espécies têm captura direta, sem trocas, reprodução ou escolha exclusiva. Parâmetros e cobertura em data/encounter_distribution.json; roteiro por espécie em SPECIES_LOCATIONS.md. Lendários/míticos têm um slot de 1% cada em áreas avançadas e trava de vitória na Liga; encontros fixos antigos permanecem. Celio passa a exigir vitória na Liga para iniciar a Ruby, preservando a progressão apesar da Nacional cedo. A coleção completa é possível no Normal; cotas Hardcore continuam limitando capturas. As diretrizes abaixo orientam ajustes posteriores.
+
+## Diretrizes de distribuição
 
 - Início: variedade de tipos e espécies básicas para formar uma equipe de seis antes do primeiro ginásio; avaliar habilidades e golpes além dos atributos base.
 - Meio da campanha: ampliar opções de composição e disponibilizar espécies mais fortes gradualmente.
@@ -74,7 +78,7 @@
 - Rare Candy por ₽1 em lojas comuns somente no Hardcore; revenda por ₽0.
 - Cada um dos 19 Centros admite três curas pela enfermeira por partida, com contador individual salvo e aviso. Normal mantém preço/estoque e curas sem essa restrição.
 - Camas e cura por PC não são limitadas por esse contador. Não há autosave ou proteção contra recarga de um estado anterior.
-- Curva implementada: ginásios 18/28/36/44/52/60/68/76; Liga 80/83/86/89/92; revanche inteira no 100. Teto de EXP nos dois modos. Encontros selvagens ainda aguardam revisão.
+- Curva implementada: ginásios 18/28/36/44/52/60/68/76; Liga 80/83/86/89/92; revanche inteira no 100. Teto de EXP nos dois modos. Encontros selvagens recalibrados em v0.3.0-dev: 386 capturas diretas no Normal, com 21 lendários/míticos aleatórios de pós-jogo e preservação da cota Hardcore.
 
 ## Referência moderna e regras pendentes
 

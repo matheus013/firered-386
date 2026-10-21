@@ -145,13 +145,14 @@ def encounters_guide():
     routes = sorted((row for row in rows if row['map'].startswith('MAP_ROUTE')), key=lambda r: natural(maps[r['map']]))
     others = sorted((row for row in rows if not row['map'].startswith('MAP_ROUTE')), key=lambda r: natural(maps[r['map']]))
     out = ['# Encontros por rota e área — FireRed 386', '',
-           'Guia dos dados atuais da hack, extraído dos fontes que geraram v0.2.0-dev. As 386 espécies ainda não foram distribuídas; esta lista descreve o que existe hoje, sem antecipar encontros planejados. Válido para Normal e Hardcore; neste último, a cota por seção e a cláusula de duplicatas continuam valendo.', '',
+           'Guia dos encontros de v0.3.0-dev: as 386 espécies estão distribuídas e podem ser capturadas diretamente no modo Normal, sem troca, reprodução ou tickets de evento. Veja também o [índice das 386 espécies](SPECIES_LOCATIONS.md). No Hardcore, os mesmos encontros existem, mas a cota por seção limita as capturas da tentativa; não é possível prometer a coleção completa sob essa regra.', '',
            '## Como ler as probabilidades', '',
            '- **Chance** é a participação da espécie na tabela, condicionada a ocorrer um encontro pelo método indicado. Não é chance por passo, por lançamento de vara ou de captura.',
            '- Grama/caverna, Surf, Rock Smash, Old Rod, Good Rod e Super Rod têm tabelas separadas. Cada uma soma 100%; slots repetidos da mesma espécie foram somados.',
            '- A coluna **Níveis por slot** informa a faixa e seu peso dentro da tabela. Uma faixa como `3–5 (20%)` significa que esse slot pesa 20%; o nível é sorteado na faixa. Slots sobrepostos não significam distribuição uniforme entre todos os níveis da espécie.',
            '- Repel, taxa da área, deslocamento, itens/habilidades e estado do jogo afetam se a batalha ocorre. As porcentagens abaixo são os pesos nominais dos slots do jogo; não incluem o pequeno viés do sorteio por módulo do gerador aleatório.',
            '- Em Pokémon Tower, o Silph Scope é necessário para identificar/capturar os fantasmas comuns. Nas câmaras Tanoby, é necessário resolver Tanoby Key; as formas de Unown são discriminadas.',
+           '- Os 21 lendários e míticos têm novos encontros aleatórios de 1% em áreas de pós-jogo, com trava pela primeira vitória na Liga. Encontros fixos originais continuam existindo; lendários derrotados em eventos também podem ser procurados nos novos encontros aleatórios.',
            '- Roamer, batalhas fixas e eventos aparecem em seções próprias. Tabelas alternativas de Altering Cave estão separadas das acessíveis normalmente. Tabelas de terra sem terreno de encontro no layout recebem aviso explícito; a presença de dados não cria grama onde ela não existe.', '',
            'Os caminhos `game/...` citados abaixo são fontes locais reconstruídos por `scripts/setup.sh`, não arquivos versionados diretamente neste repositório. As alterações da hack estão em [patches/current.patch](patches/current.patch).', '',
            '## Índice por rota', '']
@@ -180,7 +181,9 @@ def encounters_guide():
             out.extend(['', f"### {row['base_label']}", ''])
         out.extend([f"Fonte: tabela `{row['base_label']}` de `game/src/data/wild_encounters.json`; mapa `{folder}`.", ''])
         if row['map'] == 'MAP_SIX_ISLAND_ALTERING_CAVE' and not alternate:
-            out.extend(['Conjunto 0, disponível normalmente: Zubat. Outros conjuntos constam somente no apêndice de tabelas alternativas.', ''])
+            out.extend(['Conjunto 0 redesenhado para esta hack, com Deoxys raro após a Liga. Os conjuntos alternativos originais constam somente no apêndice.', ''])
+        if row['map'] == 'MAP_SSANNE_EXTERIOR':
+            out.extend(['**Tabelas originais de acesso limitado:** a S.S. Anne parte antes da obtenção normal de Surf e das varas avançadas. Estes dados foram preservados, mas não contam como prova de captura das 386 espécies. Todas elas têm opções em áreas permanentes.', ''])
         for field, title in methods:
             if field not in row:
                 continue
@@ -214,7 +217,7 @@ def encounters_guide():
                 out.append('')
     for row in routes + others:
         render(row)
-    out.extend(['## Encontros fixos e eventos', '', 'A espécie é fixa (100% ao acionar o evento disponível); isso não garante captura. As flags de história, itens e derrotas anteriores continuam necessárias. A nova chance para lendários derrotados ainda está pendente.', '', '| Local | Pokémon | Nível | Condição / disponibilidade |', '|---|---|---:|---|'])
+    out.extend(['## Encontros fixos e eventos', '', 'A espécie é fixa (100% ao acionar o evento disponível); isso não garante captura. As flags de história, itens e derrotas anteriores continuam necessárias. Eventos fixos derrotados não foram resetados; os novos encontros aleatórios oferecem outra forma de capturar todos os lendários, repetível no Normal e sujeita à cota de área no Hardcore.', '', '| Local | Pokémon | Nível | Condição / disponibilidade |', '|---|---|---:|---|'])
     static_count = 0
     for path in sorted((GAME/'data/maps').glob('*/scripts.inc')):
         for match in re.finditer(r'\b(setwildbattle|seteventmon)\s+SPECIES_(\w+),\s*(\d+)', read(path)):
@@ -247,11 +250,11 @@ def encounters_guide():
                 '| Celadon — Game Corner | Porygon | 26 | 9.999 moedas |', '',
                 'Trocas por NPC, com nível igual ao Pokémon entregue: Route 2 House, Abra → Mr. Mime; Cerulean House 3, Poliwhirl → Jynx; Underground Path North Entrance, Nidoran♂ → Nidoran♀; Vermilion House 2, Spearow → Farfetch’d; Route 11 East Entrance 2F, Nidorino → Nidorina; Route 18 East Entrance 2F, Golduck → Lickitung; Cinnabar Lab Lounge, Raichu → Electrode e Venonat → Tangela; Cinnabar Lab Experiment Room, Ponyta → Seel. Fonte: `game/src/data/ingame_trades.h` e scripts dos mapas.', '',
                 '## Altering Cave — tabelas alternativas inativas', '',
-                'O jogo usa o conjunto 0 (Zubat) por padrão. Os oito conjuntos abaixo existem na base e dependem de `VAR_ALTERING_CAVE_WILD_SET`; não foi implementado evento normal para selecioná-los. Sua presença nos fontes **não significa que essas espécies estejam obtíveis aqui nesta release**. Estas tabelas não se somam à tabela de Zubat.', ''])
+                'O jogo usa o conjunto 0 redesenhado por padrão. Os oito conjuntos abaixo foram preservados da base e dependem de `VAR_ALTERING_CAVE_WILD_SET`; não foi implementado evento normal para selecioná-los. Essas espécies também foram distribuídas em áreas acessíveis, sem depender destas tabelas. Os conjuntos alternativos não se somam à tabela principal.', ''])
     for row in inactive:
         render(row, alternate=True)
     out.extend(['## Cobertura e atualização', '', f'{len(rows)} mapas com tabelas comuns de FireRed, {len(routes)} entradas de rotas (Route 21 separada em Norte/Sul), {len(inactive)} tabelas alternativas de Altering Cave e {static_count} ocorrências fixas/eventos catalogadas. As tabelas de LeafGreen não entram neste guia. Áreas sem tabela aleatória não recebem encontros inventados.', '',
-                'Gerar novamente após mudar treinadores ou encontros: `python3 scripts/generate_guides.py`. Conferir sem escrever: `python3 scripts/generate_guides.py --check`. O gerador valida soma de 100% por método, número de slots, separação das varas, formas de Unown e duplicação somente em Altering Cave. Não altera a ROM.'])
+                'Distribuição reproduzível: `python3 scripts/balance_encounters.py --check`, com cobertura por espécie em `data/encounter_distribution.json`. Gerar novamente os guias: `python3 scripts/generate_guides.py`. Conferir sem escrever: `python3 scripts/generate_guides.py --check`. O gerador valida soma de 100% por método, número de slots, separação das varas, formas de Unown e duplicação somente em Altering Cave. Não altera a ROM.'])
     return '\n'.join(out) + '\n', len(rows), method_count
 
 
@@ -268,7 +271,24 @@ def main():
     else:
         readme = readme.replace('## Todas as mudanças implementadas', section+'\n\n## Todas as mudanças implementadas', 1)
     encounters, count, methods = encounters_guide()
-    for path, content in ((ROOT/'README.md', readme), (ROOT/'ENCOUNTERS.md', encounters)):
+    distribution = json.loads(read(ROOT/'data/encounter_distribution.json'))
+    maps={json.loads(read(p))['id']:p.parent.name for p in (GAME/'data/maps').glob('*/map.json')}
+    index=['# Onde capturar as 386 espécies — v0.3.0-dev','','Uma opção de captura direta por espécie, escolhida entre as áreas de menor etapa de acesso da distribuição. Todas as opções são independentes de inicial, troca, reprodução ou ticket. Mais locais e faixas de níveis estão no [guia de encontros](ENCOUNTERS.md).','',
+           'A coluna de chance soma os slots da espécie no mesmo método, antes dos modificadores de encontro. No Hardcore, a regra de captura por seção pode impedir a coleção completa. Lendários/míticos aleatórios exigem a primeira vitória na Liga; eventos fixos originais conservam seus requisitos.','',
+           '| Nº Nacional | Pokémon | Um local de captura | Método | Níveis | Chance |','|---:|---|---|---|---:|---:|']
+    for row in distribution['species']:
+        grouped={}
+        for e in row['encounters']:
+            method={'land_mons':'Grama / caverna','water_mons':'Surf','rock_smash_mons':'Rock Smash'}.get(e['field'])
+            if method is None:method='Old Rod' if e['index']<2 else 'Good Rod' if e['index']<5 else 'Super Rod'
+            key=(e['map'],method)
+            if key not in grouped:grouped[key]={'weight':0,'levels':set(),'stage':e['stage']}
+            grouped[key]['weight']+=e['weight'];grouped[key]['levels'].update(range(e['min_level'],e['max_level']+1))
+        (map_id,method),e=min(grouped.items(),key=lambda item:(item[1]['stage'],-item[1]['weight'],item[0]))
+        folder=maps[map_id]
+        index.append(f"| {row['national_dex']:03d} | {pretty(row['species'])} | [{area_name(folder)}](ENCOUNTERS.md#{slug(folder)}) | {method} | {range_text(e['levels'])} | {e['weight']}% |")
+    species_index='\n'.join(index)+'\n'
+    for path, content in ((ROOT/'README.md', readme), (ROOT/'ENCOUNTERS.md', encounters), (ROOT/'SPECIES_LOCATIONS.md',species_index)):
         if args.check:
             assert read(path) == content, f'Out of date: {path.name}'
         else:

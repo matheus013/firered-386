@@ -1,8 +1,8 @@
 # FireRed 386
 
-Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em duplas e melhorias de qualidade de vida. **Versão de desenvolvimento, ainda incompleta.** O nome 386 representa a meta do projeto: a distribuição de todas as espécies ainda está pendente.
+Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em duplas e melhorias de qualidade de vida. **Versão de desenvolvimento, ainda incompleta.** As 386 espécies já estão distribuídas em encontros capturáveis; as demais melhorias pendentes estão listadas abaixo.
 
-Guias: [times dos desafios em sequência](#times-dos-desafios-em-sequência) · [encontros por rota, níveis e probabilidades](ENCOUNTERS.md) · [catálogo de todos os treinadores](TRAINER_REVIEW.md).
+Guias: [onde capturar cada uma das 386 espécies](SPECIES_LOCATIONS.md) · [times dos desafios em sequência](#times-dos-desafios-em-sequência) · [encontros por rota, níveis e probabilidades](ENCOUNTERS.md) · [catálogo de todos os treinadores](TRAINER_REVIEW.md).
 
 ## Download
 
@@ -369,7 +369,27 @@ Salvar pelo menu persiste o estado. **Não há autosave nem proteção contra re
 - Ovos, Pokémon perdidos e, no Hardcore, acima do teto não podem ser editados. Ajustes recalculam atributos sem recuperar HP ou reviver; reduzir o HP máximo pode reduzir o HP atual.
 - O contador dos Centros é salvo junto da partida. Ao carregar um Hardcore anterior a esta versão, os contadores começam em zero. Não há autosave ou proteção contra recarregar um save anterior.
 
-A geometria e a história permanecem preservadas; foram acrescentados os NPCs. Encontros selvagens e sua distribuição ainda não foram recalibrados. Os níveis maiores, sozinhos, não comprovam equilíbrio da campanha completa. Detalhes e limites: [PROGRESSION.md](PROGRESSION.md).
+A geometria e a história permanecem preservadas; foram acrescentados os NPCs. Os encontros foram recalibrados em v0.3.0-dev, conforme a seção seguinte. Os níveis maiores, sozinhos, não comprovam equilíbrio da campanha completa. Detalhes e limites: [PROGRESSION.md](PROGRESSION.md).
+
+### Distribuição das 386 espécies (v0.3.0-dev)
+
+- **386/386 espécies com captura selvagem direta**, no mesmo save Normal, sem depender de inicial, troca, reprodução ou ticket de evento. Isso inclui as evoluções cujos métodos originais ainda exigem troca/item.
+- Encontros de grama/cavernas, Surf, pesca por vara e Rock Smash ajustados em áreas existentes. Chance por espécie, níveis e pesos dos slots estão em [ENCOUNTERS.md](ENCOUNTERS.md); uma opção direta por espécie está em [SPECIES_LOCATIONS.md](SPECIES_LOCATIONS.md).
+- Início com fauna básica: Route 1 inclui Pidgey, Rattata, Sentret, Zigzagoon, Taillow e Poochyena; Viridian Forest mantém insetos e Pikachu. Não há lendários nem espécies com atributos elevados nos encontros iniciais.
+- Nove iniciais capturáveis a partir da etapa de Misty, em slots de até 5%. Espécies fortes e evoluções avançadas entram nas etapas posteriores; pseudo-lendários só no fim da campanha, em slots de 1%.
+- **Todos os 21 lendários e míticos** têm novos encontros aleatórios de **1%** nas áreas de pós-jogo, níveis 85–95. A geração exige a primeira vitória na Liga; cada espécie tem um local definido. Concluir a rede de Celio e os acessos normais das ilhas/caverna continua necessário onde aplicável.
+- Os encontros fixos originais, inclusive Articuno, Zapdos e Moltres antes da Liga, mantêm suas condições. Seus eventos não foram resetados; os novos encontros aleatórios fornecem outra oportunidade de captura, repetível no Normal.
+- Celio agora exige a primeira vitória na Liga para iniciar a busca da Ruby: a Pokédex Nacional antecipada não libera por si só o pós-jogo. Tabelas alternativas inativas de Altering Cave não contam como prova de disponibilidade; seu conjunto padrão foi redesenhado, incluindo Deoxys raro.
+- Mew e Deoxys gerados nesses encontros recebem a marca interna necessária para obedecer às regras normais de batalha.
+- No Hardcore, as mesmas espécies podem aparecer, mas **uma captura por seção continua valendo**. A coleção completa de 386 é uma possibilidade do Normal, não uma promessa sob as cotas do Nuzlocke.
+
+A cobertura é reproduzível em `data/encounter_distribution.json`. O gerador exclui grama inexistente de Route 21 South, conjuntos alternativos inativos e tabelas temporárias da S.S. Anne como prova de disponibilidade, e preserva a lógica de formas de Unown nas câmaras Tanoby. Disponibilidade nos dados não substitui testar uma campanha completa.
+
+### Correção de travamento nas lojas (v0.3.0-dev)
+
+Corrigida a referência inválida de estoque ao voltar de compra/venda e sair da loja. O Rare Candy extra do Hardcore permanece disponível por ₽1 e não depende de memória temporária do mapa. O balcão de TMs também mostra esse item sem tentar tratá-lo como TM.
+
+**23 catálogos, nos dois modos: 46 casos aprovados no mGBA**, com compra, venda, cancelamento, saída por B/SEE YA, reabertura e conferência de estoque/heap. Escopo e resultados por catálogo em [SHOP_TEST_RESULTS.md](SHOP_TEST_RESULTS.md).
 
 ### Correções e save
 
@@ -382,7 +402,6 @@ A geometria e a história permanecem preservadas; foram acrescentados os NPCs. E
 
 Estas funcionalidades **não estão disponíveis nesta release**:
 
-- Todas as 386 espécies, incluindo lendários e míticos, obtíveis em um único save; distribuição nos mapas conforme raridade, poder e progresso, sem desequilibrar o início.
 - Demais evoluções sem troca, incluindo as que exigem item.
 - Separação físico/especial por golpe, mantendo categoria de status própria.
 - Tipo Fada, tabela de efetividade e tipos correspondentes atualizados.
@@ -390,7 +409,7 @@ Estas funcionalidades **não estão disponíveis nesta release**:
 - Novos golpes comuns dessa referência, com efeitos, animações, descrições e aprendizado compatíveis.
 - HMs fora de batalha sem ocupar golpes, preservando exigências de insígnias e história.
 - Novas revanches contra líderes, com seis integrantes e equipes competitivas de duplas coerentes com seus tipos; revisão da Elite Four após a futura modernização da engine; as adaptações competitivas da geração III já estão implementadas.
-- Nova oportunidade de capturar lendários derrotados.
+- Reaparecimento do encontro fixo original após derrota; os encontros aleatórios já oferecem captura alternativa de todos os lendários.
 - Exibição do teto atual no menu; o teto de EXP já está ativo nos dois modos.
 - Todos os itens utilizáveis/equipáveis compráveis em Celadon após a primeira vitória na Liga; catálogo, preços e exceções de itens-chave ainda serão definidos.
 - Troca entre habilidades disponíveis; natureza, EVs e IVs já podem ser ajustados pelo NPC dos Centros.
@@ -436,12 +455,18 @@ Verificações realizadas em 20 e 21/10/2026:
 
 A versão v0.2.0-dev também verifica os ajustes de atributos, bloqueios por modo, estoque/preço do Rare Candy, contadores independentes de três curas e recarga em nova instância. A interação real com o cientista valida edição, cancelamento, confirmação, saída e reabertura; a enfermeira cura três vezes e recusa a quarta sem recuperar HP. As 14 variantes de E4/Campeão tiveram seus seis integrantes auditados em memória e avançaram quatro a seis turnos. A recompilação do patch sobre fontes limpas gerou ROM idêntica.
 
+v0.3.0-dev: auditoria de cobertura e limites da distribuição, criação real dos 2.053 slots ativos na ROM de teste (386 espécies distintas), trava dos 21 lendários antes da Liga e entrada em batalha selvagem com Mew no mGBA.
+
 Ainda não há validação de campanha completa, Torre inteira ou trocas no VBA Link. Podem existir problemas de balanceamento/compatibilidade. O resultado continua sendo uma ROM de GBA para emuladores.
 
 Para repetir os testes após compilar, instale também `libmgba-dev` e `mgba-sdl` no Ubuntu/WSL:
 
 ```bash
 python3 scripts/balance_trainers.py --check
+python3 scripts/balance_encounters.py --check
+python3 scripts/generate_guides.py --check
+python3 scripts/test_encounters.py
+python3 scripts/test_shops.py
 python3 scripts/test_trainer_battles.py
 python3 scripts/test_elite_four.py
 python3 scripts/test_hardcore.py

@@ -1,0 +1,282 @@
+{
+  "cases": [
+    {
+      "catalog": "CeladonCity_DepartmentStore_2F_Items",
+      "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "CeladonCity_DepartmentStore_2F_Items",
+      "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "CeladonCity_DepartmentStore_2F_TMs",
+      "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "CeladonCity_DepartmentStore_2F_TMs",
+      "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "CeladonCity_DepartmentStore_4F_Items",
+      "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "CeladonCity_DepartmentStore_4F_Items",
+      "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "CeladonCity_DepartmentStore_5F_XItems",
+      "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "CeladonCity_DepartmentStore_5F_XItems",
+      "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "CeladonCity_DepartmentStore_5F_Vitamins",
+      "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "CeladonCity_DepartmentStore_5F_Vitamins",
+      "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "CeruleanCity_Mart_Items",
+      "map": "MAP_CERULEAN_CITY_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "CeruleanCity_Mart_Items",
+      "map": "MAP_CERULEAN_CITY_MART",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "CinnabarIsland_Mart_Items",
+      "map": "MAP_CINNABAR_ISLAND_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "CinnabarIsland_Mart_Items",
+      "map": "MAP_CINNABAR_ISLAND_MART",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "FourIsland_Mart_Items",
+      "map": "MAP_FOUR_ISLAND_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "FourIsland_Mart_Items",
+      "map": "MAP_FOUR_ISLAND_MART",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "FuchsiaCity_Mart_Items",
+      "map": "MAP_FUCHSIA_CITY_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "FuchsiaCity_Mart_Items",
+      "map": "MAP_FUCHSIA_CITY_MART",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "IndigoPlateau_PokemonCenter_1F_Items",
+      "map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "IndigoPlateau_PokemonCenter_1F_Items",
+      "map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "LavenderTown_Mart_Items",
+      "map": "MAP_LAVENDER_TOWN_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "LavenderTown_Mart_Items",
+      "map": "MAP_LAVENDER_TOWN_MART",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "PewterCity_Mart_Items",
+      "map": "MAP_PEWTER_CITY_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "PewterCity_Mart_Items",
+      "map": "MAP_PEWTER_CITY_MART",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "SaffronCity_Mart_Items",
+      "map": "MAP_SAFFRON_CITY_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "SaffronCity_Mart_Items",
+      "map": "MAP_SAFFRON_CITY_MART",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "SevenIsland_Mart_Items",
+      "map": "MAP_SEVEN_ISLAND_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "SevenIsland_Mart_Items",
+      "map": "MAP_SEVEN_ISLAND_MART",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "SixIsland_Mart_Items",
+      "map": "MAP_SIX_ISLAND_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "SixIsland_Mart_Items",
+      "map": "MAP_SIX_ISLAND_MART",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "ThreeIsland_Mart_Items",
+      "map": "MAP_THREE_ISLAND_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "ThreeIsland_Mart_Items",
+      "map": "MAP_THREE_ISLAND_MART",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "TrainerTower_Lobby_Mart_Items",
+      "map": "MAP_TRAINER_TOWER_LOBBY",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "TrainerTower_Lobby_Mart_Items",
+      "map": "MAP_TRAINER_TOWER_LOBBY",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "TwoIsland_Items_ShopInitial",
+      "map": "MAP_TWO_ISLAND",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "TwoIsland_Items_ShopInitial",
+      "map": "MAP_TWO_ISLAND",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "TwoIsland_Items_ShopExpanded1",
+      "map": "MAP_TWO_ISLAND",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "TwoIsland_Items_ShopExpanded1",
+      "map": "MAP_TWO_ISLAND",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "TwoIsland_Items_ShopExpanded2",
+      "map": "MAP_TWO_ISLAND",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "TwoIsland_Items_ShopExpanded2",
+      "map": "MAP_TWO_ISLAND",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "TwoIsland_Items_ShopExpanded3",
+      "map": "MAP_TWO_ISLAND",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "TwoIsland_Items_ShopExpanded3",
+      "map": "MAP_TWO_ISLAND",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "VermilionCity_Mart_Items",
+      "map": "MAP_VERMILION_CITY_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "VermilionCity_Mart_Items",
+      "map": "MAP_VERMILION_CITY_MART",
+      "mode": "Hardcore",
+      "passed": true
+    },
+    {
+      "catalog": "ViridianCity_Mart_Items",
+      "map": "MAP_VIRIDIAN_CITY_MART",
+      "mode": "Normal",
+      "passed": true
+    },
+    {
+      "catalog": "ViridianCity_Mart_Items",
+      "map": "MAP_VIRIDIAN_CITY_MART",
+      "mode": "Hardcore",
+      "passed": true
+    }
+  ],
+  "count": 46,
+  "flow": "cancel; buy; sell; quit B/SEE YA; reopen; Hardcore Candy=1; exact stock; heap integrity and script resume"
+}
