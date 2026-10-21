@@ -2,6 +2,8 @@
 
 Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em duplas e melhorias de qualidade de vida. **Versão de desenvolvimento, ainda incompleta.** O nome 386 representa a meta do projeto: a distribuição de todas as espécies ainda está pendente.
 
+Guias: [times dos desafios em sequência](#times-dos-desafios-em-sequência) · [encontros por rota, níveis e probabilidades](ENCOUNTERS.md) · [catálogo de todos os treinadores](TRAINER_REVIEW.md).
+
 ## Download
 
 Baixe o **`.gba`** em [Releases](https://github.com/matheus013/firered-386/releases) e abra em um emulador de GBA. Também estão disponíveis um patch `.ips`, o patch de fontes e checksums SHA-256.
@@ -9,6 +11,261 @@ Baixe o **`.gba`** em [Releases](https://github.com/matheus013/firered-386/relea
 O IPS exige uma ROM limpa de **FireRed USA 1.0**, SHA-1 `41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc`. O `.gba` já compilado dispensa aplicar patches. Para escolher Hardcore, use **NEW GAME**. Saves anteriores à introdução dos modos são tratados como Normal; a escolha já gravada em um Hardcore é preservada. Faça backup do seu save antes de experimentar outra versão.
 
 O jogo continua majoritariamente em inglês. A tela de seleção de modos está em português, sem acentos na interface do GBA.
+
+<!-- GENERATED CHALLENGE TEAMS START -->
+## Times dos desafios em sequência
+
+Roteiro sugerido dos desafios principais e opcionais de destaque da versão atual. A exploração permite mudar algumas ordens; os tetos continuam seguindo a sequência de insígnias. Os demais treinadores e a Torre estão em [TRAINER_REVIEW.md](TRAINER_REVIEW.md).
+
+Cada equipe aparece na ordem do elenco: nas duplas, os dois primeiros abrem a luta. No rival e no Campeão, **a variante indica o inicial do rival**, não o seu: você escolhe Bulbasaur → rival Charmander; Charmander → rival Squirtle; Squirtle → rival Bulbasaur. Não existe equipe única comum às três variantes.
+
+Os detalhes de golpes, itens e treinamento de cada adversário estão no catálogo completo; abaixo, espécies e níveis extraídos dos mesmos dados usados na ROM.
+
+### 01. Rival — laboratório de Oak
+
+Primeira luta, simples; nível 5.
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Squirtle | Squirtle **5** |
+| Bulbasaur | Bulbasaur **5** |
+| Charmander | Charmander **5** |
+
+### 02. Rival — Route 22, primeira visita
+
+Opcional, antes de Brock.
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Squirtle | Squirtle **14** → Pidgey **14** |
+| Bulbasaur | Bulbasaur **14** → Pidgey **14** |
+| Charmander | Charmander **14** → Pidgey **14** |
+
+### 03. Brock — Pewter Gym
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Onix **16** → Geodude **16** → Rhyhorn **16** → Omanyte **16** → Kabuto **17** → Nosepass **18** |
+
+### 04. Rival — Cerulean City
+
+Pode ocorrer antes ou depois de Misty.
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Squirtle | Kadabra **24** → Pidgeotto **25** → Raticate **23** → Wartortle **26** |
+| Bulbasaur | Kadabra **24** → Pidgeotto **25** → Raticate **23** → Ivysaur **26** |
+| Charmander | Kadabra **24** → Pidgeotto **25** → Raticate **23** → Charmeleon **26** |
+
+### 05. Misty — Cerulean Gym
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Staryu **26** → Psyduck **26** → Horsea **26** → Poliwhirl **26** → Goldeen **27** → Starmie **28** |
+
+### 06. Rival — S.S. Anne
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Squirtle | Kadabra **32** → Raticate **30** → Pidgeotto **33** → Wartortle **34** |
+| Bulbasaur | Kadabra **32** → Raticate **30** → Pidgeotto **33** → Venusaur **34** |
+| Charmander | Kadabra **32** → Raticate **30** → Pidgeotto **33** → Charmeleon **34** |
+
+### 07. Lt. Surge — Vermilion Gym
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Manectric **35** → Magneton **34** → Ampharos **34** → Lanturn **34** → Electrode **34** → Raichu **36** |
+
+### 08. Erika — Celadon Gym
+
+A ordem entre este ginásio e o esconderijo Rocket pode variar.
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Parasect **42** → Victreebel **42** → Bellossom **42** → Tangela **42** → Exeggutor **43** → Vileplume **44** |
+
+### 09. Giovanni — Rocket Hideout
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Kangaskhan **44** → Rhyhorn **39** → Onix **40** |
+
+### 10. Rival — Pokémon Tower
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Squirtle | Alakazam **43** → Arcanine **46** → Exeggutor **45** → Pidgeot **48** → Blastoise **48** |
+| Bulbasaur | Alakazam **43** → Gyarados **46** → Arcanine **45** → Pidgeot **48** → Venusaur **48** |
+| Charmander | Exeggutor **46** → Pidgeot **48** → Gyarados **45** → Alakazam **43** → Charizard **48** |
+
+### 11. Koga — Fuchsia Gym
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Ariados **50** → Crobat **50** → Muk **50** → Tentacruel **50** → Venomoth **51** → Weezing **52** |
+
+### 12. Koichi — Fighting Dojo de Saffron
+
+Opcional; pode ser visitado antes de Koga. O nível acompanha a etapa de Saffron.
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Hitmonchan **54** → Hitmonlee **54** |
+
+### 13. Rival — Silph Co.
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Squirtle | Alakazam **53** → Arcanine **56** → Exeggutor **53** → Pidgeot **55** → Blastoise **58** |
+| Bulbasaur | Alakazam **53** → Gyarados **56** → Arcanine **53** → Pidgeot **55** → Venusaur **58** |
+| Charmander | Exeggutor **56** → Pidgeot **55** → Gyarados **53** → Alakazam **53** → Charizard **58** |
+
+### 14. Giovanni — Silph Co.
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Nidoking **54** → Kangaskhan **53** → Rhydon **54** → Nidoqueen **58** |
+
+### 15. Sabrina — Saffron Gym
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Hypno **58** → Espeon **58** → Mr. Mime **58** → Slowbro **58** → Girafarig **59** → Alakazam **60** |
+
+### 16. Blaine — Cinnabar Gym
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Magmar **66** → Rapidash **66** → Ninetales **66** → Camerupt **66** → Flareon **67** → Arcanine **68** |
+
+### 17. Biker Goon — Three Island, primeira luta
+
+Visita às ilhas após Blaine; a sequência dos Bikers pode ser deixada para depois.
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Muk **68** → Weezing **68** |
+
+### 18. Biker Goon — Three Island, segunda luta
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Arbok **68** → Weezing **68** |
+
+### 19. Biker Goon — Three Island, terceira luta
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Muk **68** → Weezing **68** |
+
+### 20. Paxton — líder dos Bikers de Three Island
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Muk **68** → Weezing **68** |
+
+### 21. Giovanni — Viridian Gym
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Donphan **75** → Sandslash **74** → Nidoqueen **74** → Nidoking **74** → Dugtrio **74** → Rhydon **76** |
+
+### 22. Rival — Route 22, antes da Liga
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Squirtle | Rhydon **73** → Pidgeot **73** → Arcanine **73** → Exeggutor **73** → Alakazam **73** → Blastoise **78** |
+| Bulbasaur | Rhydon **73** → Pidgeot **73** → Gyarados **73** → Arcanine **73** → Alakazam **73** → Venusaur **78** |
+| Charmander | Rhydon **73** → Pidgeot **73** → Exeggutor **73** → Gyarados **73** → Alakazam **73** → Charizard **78** |
+
+### 23. Lorelei — primeira Liga
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Hitmontop **78** → Cloyster **78** → Piloswine **78** → Jynx **78** → Tyranitar **79** → Lapras **80** |
+
+### 24. Bruno — primeira Liga
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Hariyama **81** → Kyogre **81** → Ludicolo **81** → Slowbro **81** → Groudon **82** → Machamp **83** |
+
+### 25. Agatha — primeira Liga
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Mawile **84** → Gengar **84** → Dusclops **84** → Misdreavus **84** → Tyranitar **85** → Lanturn **86** |
+
+### 26. Lance — primeira Liga
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Hitmontop **87** → Kyogre **87** → Gengar **87** → Claydol **87** → Raichu **88** → Rayquaza **89** |
+
+### 27. Campeão — primeira Liga
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Squirtle | Rhydon **88** → Alakazam **87** → Pidgeot **88** → Arcanine **88** → Exeggutor **90** → Blastoise **92** |
+| Bulbasaur | Rhydon **88** → Alakazam **87** → Pidgeot **88** → Gyarados **88** → Arcanine **90** → Venusaur **92** |
+| Charmander | Rhydon **88** → Alakazam **87** → Pidgeot **88** → Exeggutor **88** → Gyarados **90** → Charizard **92** |
+
+### 28. Administradora Rocket — Rocket Warehouse
+
+Pós-jogo: etapa de recuperação da Sapphire.
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Muk **86** → Arbok **86** → Vileplume **86** |
+
+### 29. Administrador Rocket — Rocket Warehouse
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Weezing **86** → Golbat **86** → Houndoom **86** |
+
+### 30. Gideon — Rocket Warehouse
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Magneton **86** → Electrode **86** → Electrode **86** → Magneton **86** → Porygon **86** |
+
+### 31. Lorelei — revanche
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Hitmontop **100** → Cloyster **100** → Piloswine **100** → Jynx **100** → Tyranitar **100** → Lapras **100** |
+
+### 32. Bruno — revanche
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Hariyama **100** → Kyogre **100** → Ludicolo **100** → Slowbro **100** → Groudon **100** → Machamp **100** |
+
+### 33. Agatha — revanche
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Mawile **100** → Gengar **100** → Dusclops **100** → Misdreavus **100** → Tyranitar **100** → Lanturn **100** |
+
+### 34. Lance — revanche
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Equipe | Hitmontop **100** → Kyogre **100** → Gengar **100** → Claydol **100** → Raichu **100** → Rayquaza **100** |
+
+### 35. Campeão — revanche
+
+| Variante | Time em ordem de entrada |
+|---|---|
+| Squirtle | Tyranitar **100** → Alakazam **100** → Heracross **100** → Arcanine **100** → Exeggutor **100** → Blastoise **100** |
+| Bulbasaur | Tyranitar **100** → Alakazam **100** → Heracross **100** → Gyarados **100** → Arcanine **100** → Venusaur **100** |
+| Charmander | Heracross **100** → Alakazam **100** → Tyranitar **100** → Exeggutor **100** → Gyarados **100** → Charizard **100** |
+
+As novas revanches de líderes ainda não foram implementadas; por isso, não há times de revanche de ginásio inventados neste roteiro. Para planejar capturas, consulte [ENCOUNTERS.md](ENCOUNTERS.md).
+
+<!-- GENERATED CHALLENGE TEAMS END -->
 
 ## Todas as mudanças implementadas
 

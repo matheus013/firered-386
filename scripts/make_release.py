@@ -48,7 +48,7 @@ prefix = 'firered-386-' + args.version
 (out / f'{prefix}.ips').write_bytes(patch)
 shutil.copyfile(root / 'patches/current.patch', out / f'{prefix}-source.patch')
 readme = (root / 'README.md').read_text(encoding='utf-8-sig')
-for document in ('PROGRESSION.md', 'DESIGN.md', 'HARDCORE.md', 'E4_CHAMPIONS.md', 'TRAINER_REVIEW.md', 'data/trainer_balance.json'):
+for document in ('ENCOUNTERS.md', 'PROGRESSION.md', 'DESIGN.md', 'HARDCORE.md', 'E4_CHAMPIONS.md', 'TRAINER_REVIEW.md', 'data/trainer_balance.json'):
     readme = readme.replace('](' + document + ')', '](https://github.com/matheus013/firered-386/blob/' + args.version + '/' + document + ')')
 (out / 'LEIA-ME.md').write_text(readme, encoding='utf-8')
 files = sorted(p for p in out.iterdir() if p.name != 'SHA256SUMS.txt' and p.is_file())
