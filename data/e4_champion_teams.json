@@ -1,0 +1,602 @@
+{
+  "version": 1,
+  "status": "adapted_gen3",
+  "ev_order": [
+    "hp",
+    "attack",
+    "defense",
+    "speed",
+    "sp_attack",
+    "sp_defense"
+  ],
+  "teams": {
+    "EliteFourLorelei": {
+      "champion": "Abram Burrows",
+      "year": 2012,
+      "division": "Junior",
+      "theme": "ICE",
+      "caps": [
+        54,
+        66
+      ],
+      "original": [
+        "CLOYSTER",
+        "HITMONTOP",
+        "LANDORUS",
+        "THUNDURUS",
+        "TYRANITAR",
+        "VOLCARONA"
+      ],
+      "strategy": "Helping Hand + Surf/Ice Beam na abertura; quatro tipos Gelo, sono e controle de velocidade; Tyranitar como alternativa de pressão por areia",
+      "team": [
+        {
+          "species": "HITMONTOP",
+          "role": "Suporte Intimidate/Helping Hand para Cloyster e os atacantes especiais",
+          "moves": [
+            "HELPING_HAND",
+            "BRICK_BREAK",
+            "ROCK_SLIDE",
+            "DETECT"
+          ],
+          "nature": "CAREFUL",
+          "ability": "INTIMIDATE",
+          "evs": [
+            252,
+            4,
+            0,
+            0,
+            0,
+            252
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "CLOYSTER",
+          "role": "Atacante Água/Gelo com Surf que atinge apenas os adversários nesta engine",
+          "moves": [
+            "SURF",
+            "ICE_BEAM",
+            "TOXIC",
+            "PROTECT"
+          ],
+          "nature": "MODEST",
+          "ability": "SHELL_ARMOR",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "PILOSWINE",
+          "role": "Substitui Landorus: cobertura Terra, imunidade elétrica e Mud Shot para reduzir velocidade",
+          "moves": [
+            "MUD_SHOT",
+            "ROCK_SLIDE",
+            "ICE_BEAM",
+            "PROTECT"
+          ],
+          "nature": "BRAVE",
+          "ability": "OBLIVIOUS",
+          "evs": [
+            252,
+            188,
+            0,
+            0,
+            68,
+            0
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "JYNX",
+          "role": "Substitui Volcarona: atacante especial, cobertura Psíquica e Lovely Kiss",
+          "moves": [
+            "ICE_BEAM",
+            "PSYCHIC",
+            "LOVELY_KISS",
+            "PROTECT"
+          ],
+          "nature": "TIMID",
+          "ability": "OBLIVIOUS",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "item": "LUM_BERRY"
+        },
+        {
+          "species": "TYRANITAR",
+          "role": "Referência original preservada; areia é alternativa para pressionar o fim da luta, com custo de dano residual nos parceiros",
+          "moves": [
+            "ROCK_SLIDE",
+            "CRUNCH",
+            "BRICK_BREAK",
+            "PROTECT"
+          ],
+          "nature": "ADAMANT",
+          "ability": "SAND_STREAM",
+          "evs": [
+            252,
+            252,
+            0,
+            0,
+            0,
+            4
+          ],
+          "item": "SITRUS_BERRY"
+        },
+        {
+          "species": "LAPRAS",
+          "role": "Substitui Thundurus: cobertura elétrica e Água/Gelo, resistente especial",
+          "moves": [
+            "SURF",
+            "ICE_BEAM",
+            "THUNDERBOLT",
+            "PROTECT"
+          ],
+          "nature": "MODEST",
+          "ability": "WATER_ABSORB",
+          "evs": [
+            252,
+            0,
+            0,
+            0,
+            252,
+            4
+          ],
+          "item": "LEFTOVERS"
+        }
+      ]
+    },
+    "EliteFourBruno": {
+      "champion": "Ray Rizzo",
+      "year": 2010,
+      "division": "Senior",
+      "theme": "FIGHTING",
+      "caps": [
+        56,
+        68
+      ],
+      "original": [
+        "CRESSELIA",
+        "DIALGA",
+        "GROUDON",
+        "HARIYAMA",
+        "KYOGRE",
+        "LUDICOLO"
+      ],
+      "strategy": "Hariyama + Kyogre na abertura com Fake Out; Ludicolo aproveita chuva, Slowbro paralisa; Groudon oferece modo de sol e cobertura separado, sem Trick Room",
+      "team": [
+        {
+          "species": "HARIYAMA",
+          "role": "Fake Out protege a abertura de Kyogre; cobertura física e resistência a Fogo/Gelo",
+          "moves": [
+            "FAKE_OUT",
+            "BRICK_BREAK",
+            "ROCK_SLIDE",
+            "PROTECT"
+          ],
+          "nature": "ADAMANT",
+          "ability": "THICK_FAT",
+          "evs": [
+            252,
+            252,
+            0,
+            0,
+            0,
+            4
+          ],
+          "item": "SITRUS_BERRY"
+        },
+        {
+          "species": "KYOGRE",
+          "role": "Chuva automática e pressão especial com Surf; Thunder só recebe precisão de chuva quando o clima está ativo",
+          "moves": [
+            "SURF",
+            "ICE_BEAM",
+            "THUNDER",
+            "PROTECT"
+          ],
+          "nature": "MODEST",
+          "ability": "DRIZZLE",
+          "evs": [
+            252,
+            0,
+            0,
+            0,
+            252,
+            4
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "LUDICOLO",
+          "role": "Swift Swim aproveita a chuva; Giga Drain cobre adversários de Água",
+          "moves": [
+            "SURF",
+            "GIGA_DRAIN",
+            "ICE_BEAM",
+            "PROTECT"
+          ],
+          "nature": "MODEST",
+          "ability": "SWIFT_SWIM",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "SLOWBRO",
+          "role": "Substitui Cresselia: suporte Psíquico resistente e Thunder Wave em lugar de Trick Room",
+          "moves": [
+            "PSYCHIC",
+            "SURF",
+            "THUNDER_WAVE",
+            "PROTECT"
+          ],
+          "nature": "BOLD",
+          "ability": "OWN_TEMPO",
+          "evs": [
+            252,
+            0,
+            252,
+            0,
+            4,
+            0
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "GROUDON",
+          "role": "Alternativa ao modo de chuva: Drought, Mud Shot seguro para o aliado e cobertura de Fogo/Pedra",
+          "moves": [
+            "MUD_SHOT",
+            "ROCK_SLIDE",
+            "FLAMETHROWER",
+            "PROTECT"
+          ],
+          "nature": "NAUGHTY",
+          "ability": "DROUGHT",
+          "evs": [
+            252,
+            188,
+            0,
+            0,
+            68,
+            0
+          ],
+          "item": "LUM_BERRY"
+        },
+        {
+          "species": "MACHAMP",
+          "role": "Substitui Dialga: reforça o tipo Lutador, cobre Normais/Pedra/Aço e pune status com Guts",
+          "moves": [
+            "BRICK_BREAK",
+            "ROCK_SLIDE",
+            "BODY_SLAM",
+            "PROTECT"
+          ],
+          "nature": "ADAMANT",
+          "ability": "GUTS",
+          "evs": [
+            252,
+            252,
+            0,
+            0,
+            0,
+            4
+          ],
+          "item": "LEFTOVERS"
+        }
+      ]
+    },
+    "EliteFourAgatha": {
+      "champion": "Nikolai Zielinski",
+      "year": 2014,
+      "division": "Senior",
+      "theme": "GHOST",
+      "caps": [
+        58,
+        70
+      ],
+      "original": [
+        "GARCHOMP",
+        "GENGAR",
+        "HYDREIGON",
+        "MAWILE",
+        "ROTOM",
+        "TYRANITAR"
+      ],
+      "strategy": "Mawile + Gengar: Intimidate e Fake Tears apoiam dano especial; três Fantasmas, queimadura/paralisia, cobertura elétrica/água e Tyranitar como alternativa de areia",
+      "team": [
+        {
+          "species": "MAWILE",
+          "role": "Intimidate protege o grupo; Fake Tears abre espaço para ataques especiais do parceiro",
+          "moves": [
+            "FAKE_TEARS",
+            "BRICK_BREAK",
+            "ROCK_SLIDE",
+            "PROTECT"
+          ],
+          "nature": "CAREFUL",
+          "ability": "INTIMIDATE",
+          "evs": [
+            252,
+            4,
+            0,
+            0,
+            0,
+            252
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "GENGAR",
+          "role": "Atacante especial com Levitate e queimadura; sem depender de Mega ou de Shadow Ball físico",
+          "moves": [
+            "THUNDERBOLT",
+            "PSYCHIC",
+            "WILL_O_WISP",
+            "PROTECT"
+          ],
+          "nature": "TIMID",
+          "ability": "LEVITATE",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "item": "LUM_BERRY"
+        },
+        {
+          "species": "DUSCLOPS",
+          "role": "Substitui Garchomp: Fantasma defensivo, dano fixo e Will-O-Wisp",
+          "moves": [
+            "NIGHT_SHADE",
+            "SHADOW_BALL",
+            "WILL_O_WISP",
+            "PROTECT"
+          ],
+          "nature": "CAREFUL",
+          "ability": "PRESSURE",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "MISDREAVUS",
+          "role": "Substitui Hydreigon: Fantasma com Levitate, Thunder Wave e Pain Split",
+          "moves": [
+            "PSYCHIC",
+            "THUNDERBOLT",
+            "THUNDER_WAVE",
+            "PAIN_SPLIT"
+          ],
+          "nature": "TIMID",
+          "ability": "LEVITATE",
+          "evs": [
+            252,
+            0,
+            0,
+            252,
+            4,
+            0
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "TYRANITAR",
+          "role": "Pressão física e resistência especial; areia causa dano residual também nos parceiros não imunes",
+          "moves": [
+            "ROCK_SLIDE",
+            "CRUNCH",
+            "TAUNT",
+            "PROTECT"
+          ],
+          "nature": "ADAMANT",
+          "ability": "SAND_STREAM",
+          "evs": [
+            252,
+            252,
+            0,
+            0,
+            0,
+            4
+          ],
+          "item": "SITRUS_BERRY"
+        },
+        {
+          "species": "LANTURN",
+          "role": "Substitui Rotom-Wash: Água/Elétrico, Volt Absorb e cobertura contra Água/Voador/Terra",
+          "moves": [
+            "SURF",
+            "THUNDERBOLT",
+            "ICE_BEAM",
+            "PROTECT"
+          ],
+          "nature": "MODEST",
+          "ability": "VOLT_ABSORB",
+          "evs": [
+            252,
+            0,
+            0,
+            0,
+            252,
+            4
+          ],
+          "item": "LEFTOVERS"
+        }
+      ]
+    },
+    "EliteFourLance": {
+      "champion": "Wolfe Glick",
+      "year": 2016,
+      "division": "Masters",
+      "theme": "DRAGON",
+      "caps": [
+        60,
+        72
+      ],
+      "original": [
+        "BRONZONG",
+        "GENGAR",
+        "HITMONTOP",
+        "KYOGRE",
+        "RAICHU",
+        "RAYQUAZA"
+      ],
+      "strategy": "Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralisa; Rayquaza fecha com dano misto e Air Lock, que também suspende a chuva aliada",
+      "team": [
+        {
+          "species": "HITMONTOP",
+          "role": "Intimidate e Helping Hand apoiam Kyogre; sem Fake Out ou Wide Guard indisponíveis para ele nesta base",
+          "moves": [
+            "HELPING_HAND",
+            "BRICK_BREAK",
+            "ROCK_SLIDE",
+            "DETECT"
+          ],
+          "nature": "CAREFUL",
+          "ability": "INTIMIDATE",
+          "evs": [
+            252,
+            4,
+            0,
+            0,
+            0,
+            252
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "KYOGRE",
+          "role": "Pressão de chuva com Surf, Ice Beam e Thunder; sem Reversão Primal",
+          "moves": [
+            "SURF",
+            "ICE_BEAM",
+            "THUNDER",
+            "PROTECT"
+          ],
+          "nature": "MODEST",
+          "ability": "DRIZZLE",
+          "evs": [
+            252,
+            0,
+            0,
+            0,
+            252,
+            4
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "GENGAR",
+          "role": "Atacante especial e Will-O-Wisp com Levitate; sem Mega/Shadow Tag",
+          "moves": [
+            "THUNDERBOLT",
+            "PSYCHIC",
+            "WILL_O_WISP",
+            "PROTECT"
+          ],
+          "nature": "TIMID",
+          "ability": "LEVITATE",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "item": "LUM_BERRY"
+        },
+        {
+          "species": "CLAYDOL",
+          "role": "Substitui Bronzong: Psíquico com Levitate e duas telas; sem Trick Room",
+          "moves": [
+            "REFLECT",
+            "LIGHT_SCREEN",
+            "PSYCHIC",
+            "PROTECT"
+          ],
+          "nature": "CALM",
+          "ability": "LEVITATE",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "item": "LEFTOVERS"
+        },
+        {
+          "species": "RAICHU",
+          "role": "Thunder Wave e Light Screen, com cobertura elétrica; Static, não Lightning Rod moderno",
+          "moves": [
+            "THUNDERBOLT",
+            "THUNDER_WAVE",
+            "LIGHT_SCREEN",
+            "PROTECT"
+          ],
+          "nature": "TIMID",
+          "ability": "STATIC",
+          "evs": [
+            252,
+            0,
+            0,
+            252,
+            4,
+            0
+          ],
+          "item": "SITRUS_BERRY"
+        },
+        {
+          "species": "RAYQUAZA",
+          "role": "Finalizador Dragão misto: Dragon Claw é especial na geração III; Air Lock suspende efeitos de todos os climas",
+          "moves": [
+            "DRAGON_CLAW",
+            "FLAMETHROWER",
+            "ROCK_SLIDE",
+            "PROTECT"
+          ],
+          "nature": "HASTY",
+          "ability": "AIR_LOCK",
+          "evs": [
+            0,
+            52,
+            0,
+            252,
+            204,
+            0
+          ],
+          "item": "LUM_BERRY"
+        }
+      ]
+    }
+  }
+}

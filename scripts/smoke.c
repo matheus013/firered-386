@@ -63,7 +63,7 @@ int main(int argc, char **argv)
         if (battle) {
             uint32_t callback = core->busRead32(core, strtoul(argv[5], NULL, 0));
             if ((callback & ~1u) == (strtoul(argv[6], NULL, 0) & ~1u)) ready = 1;
-            core->setKeys(core, !ready && frame % 30 == 0 ? 1 : 0);
+            core->setKeys(core, ((!ready || argc >= 12) && frame % 30 == 0) ? 1 : 0);
         } else {
             core->setKeys(core, frame > 300 && frame % 90 == 0 ? (1u << 3) : 0);
         }
@@ -74,6 +74,12 @@ int main(int argc, char **argv)
     for (unsigned i = 1; i < width * height; ++i)
         if (pixels[i] != pixels[0]) { varied = 1; break; }
     int success = frames >= limit && varied && (!battle || ready) && WriteImage(argv[2], pixels, width, height);
+    if (battle && argc >= 12) {
+        unsigned audit = core->busRead32(core, strtoul(argv[10], NULL, 0));
+        unsigned turns = core->busRead8(core, strtoul(argv[11], NULL, 0));
+        printf("party_audit=%u turns=%u\n", audit, turns);
+        success = success && audit == 1 && turns >= 2;
+    }
     printf("frames=%u dimensions=%ux%u nonuniform_image=%d result=%s\n",
            frames, width, height, varied, success ? "PASS" : "FAIL");
     if (battle) {

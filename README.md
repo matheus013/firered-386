@@ -16,14 +16,31 @@ O jogo continua majoritariamente em inglês. A tela de seleção de modos está 
 
 - Batalhas regulares de treinadores convertidas para duplas. A primeira luta contra o rival no laboratório permanece simples, nas três opções de inicial.
 - **636 equipes regulares** revisadas, incluindo rivais posteriores, líderes, Elite Four, Campeão e revanches já existentes na base.
-- Equipes de dois a seis integrantes; **líderes e Elite Four com seis Pokémon**, respeitando a especialidade de tipo quando aplicável.
+- Equipes de dois a seis integrantes; **líderes e Elite Four com seis Pokémon**. Líderes mantêm seu tipo; a E4 combina integrantes temáticos e parceiros dos times campeões.
 - Suporte de abertura, cobertura, parceiros complementares, controle de velocidade, telas e clima em equipes compatíveis.
 - Itens equipados e IVs progressivos. Os níveis dos treinadores regulares foram preservados nesta etapa; a dificuldade vem principalmente das equipes e duplas.
 - Elencos gerados evitam golpes que atinjam aliados, golpes de nocaute em um acerto e acúmulo de evasão. Clima é evitado em equipes que possam ter Cloud Nine ou Air Lock.
 - **60 elencos internos da Torre de Treinadores** revisados para duplas; segundo Pokémon adicionado aos adversários do modo Knockout. Níveis continuam acompanhando a equipe do jogador; EVs, IVs e naturezas originais da Torre foram preservados. Dados externos de e-Reader não foram revisados.
 - Com apenas um Pokémon apto, o jogador enfrenta dois adversários com o segundo espaço vazio, sem duplicação ou exigência de um segundo integrante.
 
-As equipes atuais usam golpes, tipos e regras de **geração III**. EVs/naturezas competitivos dos treinadores regulares e a calibração da campanha inteira continuam pendentes. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](TRAINER_REVIEW.md), com dados em [data/trainer_balance.json](data/trainer_balance.json).
+As equipes atuais usam golpes, tipos e regras de **geração III**. Os treinadores regulares fora da E4 ainda não têm EVs/naturezas competitivos específicos; a calibração da campanha inteira continua pendente. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](TRAINER_REVIEW.md), com dados em [data/trainer_balance.json](data/trainer_balance.json).
+
+### Elite Four inspirada em campeões oficiais (v0.1.1-dev)
+
+| Membro | Referência mundial | Seis Pokémon na hack |
+|---|---|---|
+| Lorelei | Abram Burrows, Junior 2012 | Hitmontop, Cloyster, Piloswine, Jynx, Tyranitar, Lapras |
+| Bruno | Ray Rizzo, Senior 2010 | Hariyama, Kyogre, Ludicolo, Slowbro, Groudon, Machamp |
+| Agatha | Nikolai Zielinski, Senior 2014 | Mawile, Gengar, Dusclops, Misdreavus, Tyranitar, Lanturn |
+| Lance | Wolfe Glick, Masters 2016 | Hitmontop, Kyogre, Gengar, Claydol, Raichu, Rayquaza |
+
+- Aplicado à primeira Liga e às revanches: oito elencos com seis integrantes. Os maiores níveis continuam 54/56/58/60 e 66/68/70/72 nas revanches.
+- Naturezas e habilidades fixas, IVs 31 e EVs distribuídos por função, efetivamente aplicados na criação dos adversários.
+- Helping Hand, Intimidate, Fake Out de Hariyama, telas, sono, queimadura/paralisia e cobertura respeitam os recursos disponíveis na geração III.
+- Espécies históricas disponíveis preservadas; as ausentes foram substituídas por parceiros das 386 espécies. As equipes são mistas e não exigem que todos compartilhem o tipo do membro.
+- **São adaptações dos campeões**, sem Mega Evolução, Reversão Primal ou Trick Room. As interações de clima exigem cuidado: Groudon substitui a chuva, Rayquaza suspende seus efeitos e a areia de Tyranitar também atinge parceiros não imunes.
+
+Estratégias, substituições e fontes: [E4_CHAMPIONS.md](E4_CHAMPIONS.md). Sets completos, EVs, naturezas e habilidades: [TRAINER_REVIEW.md](TRAINER_REVIEW.md).
 
 ### Decisões dos NPCs
 
@@ -88,7 +105,7 @@ Estas funcionalidades **não estão disponíveis nesta release**:
 - Atributos base, dados de golpes e learnsets de uma geração recente, cuja referência exata ainda será definida.
 - Novos golpes comuns dessa referência, com efeitos, animações, descrições e aprendizado compatíveis.
 - HMs fora de batalha sem ocupar golpes, preservando exigências de insígnias e história.
-- Novas revanches contra líderes, com seis integrantes e equipes competitivas de duplas coerentes com seus tipos; revisão competitiva final da Elite Four.
+- Novas revanches contra líderes, com seis integrantes e equipes competitivas de duplas coerentes com seus tipos; revisão da Elite Four após a futura modernização da engine; as adaptações competitivas da geração III já estão implementadas.
 - Nova oportunidade de capturar lendários derrotados.
 - Teto de nível também no modo Normal e exibição do teto atual no menu.
 - Todos os itens utilizáveis/equipáveis compráveis em Celadon após a primeira vitória na Liga; catálogo, preços e exceções de itens-chave ainda serão definidos.
@@ -132,6 +149,7 @@ Verificações realizadas em 20 e 21/10/2026:
 - Hardcore: captura, duplicatas, shinies, presentes, perdas, cura/PC, limites, Normal, estrutura do save e gravação/recarga em nova instância.
 - Seleção dos modos, cancelamento, confirmação, tela de fim e derrota real de um contra dois.
 - Patch de fontes conferido contra a base original e alterações sem erros de whitespace.
+- v0.1.1-dev: oito lutas da E4 executadas no mGBA, com auditoria dos seis adversários criados (espécies, níveis, golpes, itens, naturezas, habilidades, EVs e IVs) e avanço de três a cinco turnos por teste. As três fixtures de batalha comuns e as regras/save do Hardcore passaram novamente.
 
 Ainda não há validação de campanha completa, Torre inteira ou trocas no VBA Link. Podem existir problemas de balanceamento/compatibilidade. O resultado continua sendo uma ROM de GBA para emuladores.
 
@@ -140,6 +158,7 @@ Para repetir os testes após compilar, instale também `libmgba-dev` e `mgba-sdl
 ```bash
 python3 scripts/balance_trainers.py --check
 python3 scripts/test_trainer_battles.py
+python3 scripts/test_elite_four.py
 python3 scripts/test_hardcore.py
 ```
 

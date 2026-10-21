@@ -1,0 +1,106 @@
+{
+  "status": "historical_reference_inventory",
+  "checked": "2026-10-21",
+  "teams": [
+    {
+      "member": "Lorelei",
+      "champion": "Abram Burrows",
+      "year": 2012,
+      "division": "Junior",
+      "anchor": "CLOYSTER",
+      "team": [
+        "CLOYSTER",
+        "HITMONTOP",
+        "LANDORUS",
+        "THUNDURUS",
+        "TYRANITAR",
+        "VOLCARONA"
+      ],
+      "present_species": [
+        "CLOYSTER",
+        "HITMONTOP",
+        "TYRANITAR"
+      ],
+      "missing_species": [
+        "LANDORUS",
+        "THUNDURUS",
+        "VOLCARONA"
+      ]
+    },
+    {
+      "member": "Bruno",
+      "champion": "Ray Rizzo",
+      "year": 2010,
+      "division": "Senior",
+      "anchor": "HARIYAMA",
+      "team": [
+        "CRESSELIA",
+        "DIALGA",
+        "GROUDON",
+        "HARIYAMA",
+        "KYOGRE",
+        "LUDICOLO"
+      ],
+      "present_species": [
+        "GROUDON",
+        "HARIYAMA",
+        "KYOGRE",
+        "LUDICOLO"
+      ],
+      "missing_species": [
+        "CRESSELIA",
+        "DIALGA"
+      ]
+    },
+    {
+      "member": "Agatha",
+      "champion": "Nikolai Zielinski",
+      "year": 2014,
+      "division": "Senior",
+      "anchor": "GENGAR",
+      "team": [
+        "GARCHOMP",
+        "GENGAR",
+        "HYDREIGON",
+        "MAWILE",
+        "ROTOM",
+        "TYRANITAR"
+      ],
+      "present_species": [
+        "GENGAR",
+        "MAWILE",
+        "TYRANITAR"
+      ],
+      "missing_species": [
+        "GARCHOMP",
+        "HYDREIGON",
+        "ROTOM"
+      ]
+    },
+    {
+      "member": "Lance",
+      "champion": "Wolfe Glick",
+      "year": 2016,
+      "division": "Masters",
+      "anchor": "RAYQUAZA",
+      "team": [
+        "BRONZONG",
+        "GENGAR",
+        "HITMONTOP",
+        "KYOGRE",
+        "RAICHU",
+        "RAYQUAZA"
+      ],
+      "present_species": [
+        "GENGAR",
+        "HITMONTOP",
+        "KYOGRE",
+        "RAICHU",
+        "RAYQUAZA"
+      ],
+      "missing_species": [
+        "BRONZONG"
+      ]
+    }
+  ]
+}

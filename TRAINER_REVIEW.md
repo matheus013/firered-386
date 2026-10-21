@@ -2,15 +2,15 @@
 
 636 equipes regulares revisadas; três variantes da primeira luta preservadas em singles. Também revisados 60 elencos internos da Torre de Treinadores.
 
-Base de golpes, tipos e regras: motor atual de geração III. Necessário revisar após a migração moderna. As equipes regulares abaixo não têm EVs/naturezas competitivos configurados nem comprovam decisões perfeitas da IA. Dados externos de e-Reader não fazem parte desta revisão. Na Torre, a seleção de golpes usa nível 50 como referência, e os adversários continuam escalando ao nível da equipe do jogador; os EVs, IVs e naturezas originais foram preservados.
+Base de geração III. A Elite Four usa adaptações de equipes campeãs, com naturezas, habilidades fixas, IVs 31 e EVs definidos; os demais treinadores regulares continuam sem treinamento competitivo específico. Dados de e-Reader não revisados. A Torre preserva seus EVs/IVs/naturezas originais.
 
 ## Critérios
 
 - Duas a seis criaturas; líderes e Elite Four com seis.
 - Suporte na abertura quando disponível, golpes legais por nível/TM e cobertura de tipos.
 - Sem ataques que atinjam o aliado, OHKO ou spam de evasão.
-- Níveis regulares preservados; berries e IVs progressivos, sem lendários adicionados.
-- Líderes e Elite Four respeitam seu tipo de especialidade.
+- Níveis regulares preservados; berries e IVs progressivos, com lendários das referências históricas na Elite Four.
+- Líderes mantêm especialidade; Elite Four combina integrantes temáticos com parceiros dos times campeões.
 
 ## TRAINER_YOUNGSTER_BEN
 
@@ -3091,55 +3091,107 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 ## TRAINER_ELITE_FOUR_LORELEI
 
-HAIL: suporte de abertura + pressão e cobertura do parceiro.
+Helping Hand + Surf/Ice Beam na abertura; quatro tipos Gelo, sono e controle de velocidade; Tyranitar como alternativa de pressão por areia.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PILOSWINE | 52 | LUM_BERRY | ICE_BEAM, HAIL, STRENGTH, PROTECT |
-| CLOYSTER | 52 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, BLIZZARD |
-| JYNX | 52 | SITRUS_BERRY | ICE_BEAM, PSYCHIC, PROTECT, BLIZZARD |
-| DEWGONG | 52 | LEFTOVERS | ICE_BEAM, WATERFALL, PROTECT, BLIZZARD |
-| GLALIE | 53 | SITRUS_BERRY | ICE_BEAM, CRUNCH, PROTECT, BLIZZARD |
-| LAPRAS | 54 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, BLIZZARD |
+| HITMONTOP | 52 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
+| CLOYSTER | 52 | LEFTOVERS | SURF, ICE_BEAM, TOXIC, PROTECT |
+| PILOSWINE | 52 | LEFTOVERS | MUD_SHOT, ROCK_SLIDE, ICE_BEAM, PROTECT |
+| JYNX | 52 | LUM_BERRY | ICE_BEAM, PSYCHIC, LOVELY_KISS, PROTECT |
+| TYRANITAR | 53 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, BRICK_BREAK, PROTECT |
+| LAPRAS | 54 | LEFTOVERS | SURF, ICE_BEAM, THUNDERBOLT, PROTECT |
+
+Abram Burrows — Worlds 2012 Junior (adaptação)
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| HITMONTOP | CAREFUL | INTIMIDATE | 252 / 4 / 0 / 0 / 0 / 252 | Suporte Intimidate/Helping Hand para Cloyster e os atacantes especiais |
+| CLOYSTER | MODEST | SHELL_ARMOR | 252 / 0 / 4 / 0 / 252 / 0 | Atacante Água/Gelo com Surf que atinge apenas os adversários nesta engine |
+| PILOSWINE | BRAVE | OBLIVIOUS | 252 / 188 / 0 / 0 / 68 / 0 | Substitui Landorus: cobertura Terra, imunidade elétrica e Mud Shot para reduzir velocidade |
+| JYNX | TIMID | OBLIVIOUS | 4 / 0 / 0 / 252 / 252 / 0 | Substitui Volcarona: atacante especial, cobertura Psíquica e Lovely Kiss |
+| TYRANITAR | ADAMANT | SAND_STREAM | 252 / 252 / 0 / 0 / 0 / 4 | Referência original preservada; areia é alternativa para pressionar o fim da luta, com custo de dano residual nos parceiros |
+| LAPRAS | MODEST | WATER_ABSORB | 252 / 0 / 0 / 0 / 252 / 4 | Substitui Thundurus: cobertura elétrica e Água/Gelo, resistente especial |
 
 ## TRAINER_ELITE_FOUR_BRUNO
 
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+Hariyama + Kyogre na abertura com Fake Out; Ludicolo aproveita chuva, Slowbro paralisa; Groudon oferece modo de sol e cobertura separado, sem Trick Room.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHAMP | 56 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONCHAN | 54 | SITRUS_BERRY | SKY_UPPERCUT, STRENGTH, PROTECT, DETECT |
-| HARIYAMA | 54 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, FAKE_OUT |
-| HERACROSS | 54 | LEFTOVERS | MEGAHORN, BRICK_BREAK, PROTECT, STRENGTH |
-| HITMONLEE | 55 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
-| HITMONTOP | 54 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, DETECT |
+| HARIYAMA | 54 | SITRUS_BERRY | FAKE_OUT, BRICK_BREAK, ROCK_SLIDE, PROTECT |
+| KYOGRE | 54 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
+| LUDICOLO | 54 | LEFTOVERS | SURF, GIGA_DRAIN, ICE_BEAM, PROTECT |
+| SLOWBRO | 54 | LEFTOVERS | PSYCHIC, SURF, THUNDER_WAVE, PROTECT |
+| GROUDON | 55 | LUM_BERRY | MUD_SHOT, ROCK_SLIDE, FLAMETHROWER, PROTECT |
+| MACHAMP | 56 | LEFTOVERS | BRICK_BREAK, ROCK_SLIDE, BODY_SLAM, PROTECT |
+
+Ray Rizzo — Worlds 2010 Senior (adaptação)
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| HARIYAMA | ADAMANT | THICK_FAT | 252 / 252 / 0 / 0 / 0 / 4 | Fake Out protege a abertura de Kyogre; cobertura física e resistência a Fogo/Gelo |
+| KYOGRE | MODEST | DRIZZLE | 252 / 0 / 0 / 0 / 252 / 4 | Chuva automática e pressão especial com Surf; Thunder só recebe precisão de chuva quando o clima está ativo |
+| LUDICOLO | MODEST | SWIFT_SWIM | 4 / 0 / 0 / 252 / 252 / 0 | Swift Swim aproveita a chuva; Giga Drain cobre adversários de Água |
+| SLOWBRO | BOLD | OWN_TEMPO | 252 / 0 / 252 / 0 / 4 / 0 | Substitui Cresselia: suporte Psíquico resistente e Thunder Wave em lugar de Trick Room |
+| GROUDON | NAUGHTY | DROUGHT | 252 / 188 / 0 / 0 / 68 / 0 | Alternativa ao modo de chuva: Drought, Mud Shot seguro para o aliado e cobertura de Fogo/Pedra |
+| MACHAMP | ADAMANT | GUTS | 252 / 252 / 0 / 0 / 0 / 4 | Substitui Dialga: reforça o tipo Lutador, cobre Normais/Pedra/Aço e pune status com Guts |
 
 ## TRAINER_ELITE_FOUR_AGATHA
 
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+Mawile + Gengar: Intimidate e Fake Tears apoiam dano especial; três Fantasmas, queimadura/paralisia, cobertura elétrica/água e Tyranitar como alternativa de areia.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SABLEYE | 57 | LUM_BERRY | SHADOW_BALL, ROCK_TOMB, FAINT_ATTACK, PROTECT |
-| MISDREAVUS | 56 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
-| DUSCLOPS | 56 | SITRUS_BERRY | SHADOW_BALL, ICE_BEAM, PROTECT, SHADOW_PUNCH |
-| BANETTE | 56 | LEFTOVERS | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
-| GENGAR | 56 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
-| HAUNTER | 58 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
+| MAWILE | 56 | LEFTOVERS | FAKE_TEARS, BRICK_BREAK, ROCK_SLIDE, PROTECT |
+| GENGAR | 56 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| DUSCLOPS | 56 | LEFTOVERS | NIGHT_SHADE, SHADOW_BALL, WILL_O_WISP, PROTECT |
+| MISDREAVUS | 56 | LEFTOVERS | PSYCHIC, THUNDERBOLT, THUNDER_WAVE, PAIN_SPLIT |
+| TYRANITAR | 57 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, TAUNT, PROTECT |
+| LANTURN | 58 | LEFTOVERS | SURF, THUNDERBOLT, ICE_BEAM, PROTECT |
+
+Nikolai Zielinski — Worlds 2014 Senior (adaptação)
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| MAWILE | CAREFUL | INTIMIDATE | 252 / 4 / 0 / 0 / 0 / 252 | Intimidate protege o grupo; Fake Tears abre espaço para ataques especiais do parceiro |
+| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial com Levitate e queimadura; sem depender de Mega ou de Shadow Ball físico |
+| DUSCLOPS | CAREFUL | PRESSURE | 252 / 0 / 128 / 0 / 0 / 128 | Substitui Garchomp: Fantasma defensivo, dano fixo e Will-O-Wisp |
+| MISDREAVUS | TIMID | LEVITATE | 252 / 0 / 0 / 252 / 4 / 0 | Substitui Hydreigon: Fantasma com Levitate, Thunder Wave e Pain Split |
+| TYRANITAR | ADAMANT | SAND_STREAM | 252 / 252 / 0 / 0 / 0 / 4 | Pressão física e resistência especial; areia causa dano residual também nos parceiros não imunes |
+| LANTURN | MODEST | VOLT_ABSORB | 252 / 0 / 0 / 0 / 252 / 4 | Substitui Rotom-Wash: Água/Elétrico, Volt Absorb e cobertura contra Água/Voador/Terra |
 
 ## TRAINER_ELITE_FOUR_LANCE
 
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralisa; Rayquaza fecha com dano misto e Air Lock, que também suspende a chuva aliada.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| DRAGONITE | 60 | LUM_BERRY | DRAGON_CLAW, THUNDER_WAVE, AERIAL_ACE, PROTECT |
-| KINGDRA | 58 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
-| FLYGON | 58 | SITRUS_BERRY | DRAGON_CLAW, FIRE_BLAST, PROTECT, FLAMETHROWER |
-| ALTARIA | 58 | LEFTOVERS | DRAGON_CLAW, FIRE_BLAST, PROTECT, FLAMETHROWER |
-| SALAMENCE | 59 | SITRUS_BERRY | DRAGON_CLAW, FIRE_BLAST, PROTECT, AERIAL_ACE |
-| DRAGONAIR | 58 | SITRUS_BERRY | OUTRAGE, FIRE_BLAST, PROTECT, FLAMETHROWER |
+| HITMONTOP | 58 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
+| KYOGRE | 58 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
+| GENGAR | 58 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| CLAYDOL | 58 | LEFTOVERS | REFLECT, LIGHT_SCREEN, PSYCHIC, PROTECT |
+| RAICHU | 59 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, LIGHT_SCREEN, PROTECT |
+| RAYQUAZA | 60 | LUM_BERRY | DRAGON_CLAW, FLAMETHROWER, ROCK_SLIDE, PROTECT |
+
+Wolfe Glick — Worlds 2016 Masters (adaptação)
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| HITMONTOP | CAREFUL | INTIMIDATE | 252 / 4 / 0 / 0 / 0 / 252 | Intimidate e Helping Hand apoiam Kyogre; sem Fake Out ou Wide Guard indisponíveis para ele nesta base |
+| KYOGRE | MODEST | DRIZZLE | 252 / 0 / 0 / 0 / 252 / 4 | Pressão de chuva com Surf, Ice Beam e Thunder; sem Reversão Primal |
+| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial e Will-O-Wisp com Levitate; sem Mega/Shadow Tag |
+| CLAYDOL | CALM | LEVITATE | 252 / 0 / 128 / 0 / 0 / 128 | Substitui Bronzong: Psíquico com Levitate e duas telas; sem Trick Room |
+| RAICHU | TIMID | STATIC | 252 / 0 / 0 / 252 / 4 / 0 | Thunder Wave e Light Screen, com cobertura elétrica; Static, não Lightning Rod moderno |
+| RAYQUAZA | HASTY | AIR_LOCK | 0 / 52 / 0 / 252 / 204 / 0 | Finalizador Dragão misto: Dragon Claw é especial na geração III; Air Lock suspende efeitos de todos os climas |
 
 ## TRAINER_LEADER_BROCK
 
@@ -6139,55 +6191,107 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 ## TRAINER_ELITE_FOUR_LORELEI_2
 
-HAIL: suporte de abertura + pressão e cobertura do parceiro.
+Helping Hand + Surf/Ice Beam na abertura; quatro tipos Gelo, sono e controle de velocidade; Tyranitar como alternativa de pressão por areia.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| LAPRAS | 66 | LUM_BERRY | HYDRO_PUMP, HAIL, ICE_BEAM, PROTECT |
-| CLOYSTER | 64 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, BLIZZARD |
-| JYNX | 64 | SITRUS_BERRY | ICE_BEAM, PSYCHIC, PROTECT, BLIZZARD |
-| PILOSWINE | 64 | LEFTOVERS | ICE_BEAM, STRENGTH, PROTECT, BLIZZARD |
-| GLALIE | 65 | SITRUS_BERRY | ICE_BEAM, CRUNCH, PROTECT, BLIZZARD |
-| DEWGONG | 64 | SITRUS_BERRY | ICE_BEAM, WATERFALL, PROTECT, BLIZZARD |
+| HITMONTOP | 64 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
+| CLOYSTER | 64 | LEFTOVERS | SURF, ICE_BEAM, TOXIC, PROTECT |
+| PILOSWINE | 64 | LEFTOVERS | MUD_SHOT, ROCK_SLIDE, ICE_BEAM, PROTECT |
+| JYNX | 64 | LUM_BERRY | ICE_BEAM, PSYCHIC, LOVELY_KISS, PROTECT |
+| TYRANITAR | 65 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, BRICK_BREAK, PROTECT |
+| LAPRAS | 66 | LEFTOVERS | SURF, ICE_BEAM, THUNDERBOLT, PROTECT |
+
+Abram Burrows — Worlds 2012 Junior (adaptação)
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| HITMONTOP | CAREFUL | INTIMIDATE | 252 / 4 / 0 / 0 / 0 / 252 | Suporte Intimidate/Helping Hand para Cloyster e os atacantes especiais |
+| CLOYSTER | MODEST | SHELL_ARMOR | 252 / 0 / 4 / 0 / 252 / 0 | Atacante Água/Gelo com Surf que atinge apenas os adversários nesta engine |
+| PILOSWINE | BRAVE | OBLIVIOUS | 252 / 188 / 0 / 0 / 68 / 0 | Substitui Landorus: cobertura Terra, imunidade elétrica e Mud Shot para reduzir velocidade |
+| JYNX | TIMID | OBLIVIOUS | 4 / 0 / 0 / 252 / 252 / 0 | Substitui Volcarona: atacante especial, cobertura Psíquica e Lovely Kiss |
+| TYRANITAR | ADAMANT | SAND_STREAM | 252 / 252 / 0 / 0 / 0 / 4 | Referência original preservada; areia é alternativa para pressionar o fim da luta, com custo de dano residual nos parceiros |
+| LAPRAS | MODEST | WATER_ABSORB | 252 / 0 / 0 / 0 / 252 / 4 | Substitui Thundurus: cobertura elétrica e Água/Gelo, resistente especial |
 
 ## TRAINER_ELITE_FOUR_BRUNO_2
 
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+Hariyama + Kyogre na abertura com Fake Out; Ludicolo aproveita chuva, Slowbro paralisa; Groudon oferece modo de sol e cobertura separado, sem Trick Room.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHAMP | 68 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONCHAN | 66 | SITRUS_BERRY | SKY_UPPERCUT, STRENGTH, PROTECT, DETECT |
-| HARIYAMA | 66 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, FAKE_OUT |
-| HERACROSS | 66 | LEFTOVERS | MEGAHORN, BRICK_BREAK, PROTECT, STRENGTH |
-| HITMONLEE | 67 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
-| HITMONTOP | 66 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, DETECT |
+| HARIYAMA | 66 | SITRUS_BERRY | FAKE_OUT, BRICK_BREAK, ROCK_SLIDE, PROTECT |
+| KYOGRE | 66 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
+| LUDICOLO | 66 | LEFTOVERS | SURF, GIGA_DRAIN, ICE_BEAM, PROTECT |
+| SLOWBRO | 66 | LEFTOVERS | PSYCHIC, SURF, THUNDER_WAVE, PROTECT |
+| GROUDON | 67 | LUM_BERRY | MUD_SHOT, ROCK_SLIDE, FLAMETHROWER, PROTECT |
+| MACHAMP | 68 | LEFTOVERS | BRICK_BREAK, ROCK_SLIDE, BODY_SLAM, PROTECT |
+
+Ray Rizzo — Worlds 2010 Senior (adaptação)
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| HARIYAMA | ADAMANT | THICK_FAT | 252 / 252 / 0 / 0 / 0 / 4 | Fake Out protege a abertura de Kyogre; cobertura física e resistência a Fogo/Gelo |
+| KYOGRE | MODEST | DRIZZLE | 252 / 0 / 0 / 0 / 252 / 4 | Chuva automática e pressão especial com Surf; Thunder só recebe precisão de chuva quando o clima está ativo |
+| LUDICOLO | MODEST | SWIFT_SWIM | 4 / 0 / 0 / 252 / 252 / 0 | Swift Swim aproveita a chuva; Giga Drain cobre adversários de Água |
+| SLOWBRO | BOLD | OWN_TEMPO | 252 / 0 / 252 / 0 / 4 / 0 | Substitui Cresselia: suporte Psíquico resistente e Thunder Wave em lugar de Trick Room |
+| GROUDON | NAUGHTY | DROUGHT | 252 / 188 / 0 / 0 / 68 / 0 | Alternativa ao modo de chuva: Drought, Mud Shot seguro para o aliado e cobertura de Fogo/Pedra |
+| MACHAMP | ADAMANT | GUTS | 252 / 252 / 0 / 0 / 0 / 4 | Substitui Dialga: reforça o tipo Lutador, cobre Normais/Pedra/Aço e pune status com Guts |
 
 ## TRAINER_ELITE_FOUR_AGATHA_2
 
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+Mawile + Gengar: Intimidate e Fake Tears apoiam dano especial; três Fantasmas, queimadura/paralisia, cobertura elétrica/água e Tyranitar como alternativa de areia.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| DUSCLOPS | 68 | LUM_BERRY | SHADOW_BALL, ROCK_TOMB, ICE_BEAM, PROTECT |
-| MISDREAVUS | 68 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
-| GENGAR | 68 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
-| BANETTE | 68 | LEFTOVERS | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
-| SABLEYE | 69 | SITRUS_BERRY | SHADOW_BALL, FAINT_ATTACK, PROTECT, DETECT |
-| HAUNTER | 70 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
+| MAWILE | 68 | LEFTOVERS | FAKE_TEARS, BRICK_BREAK, ROCK_SLIDE, PROTECT |
+| GENGAR | 68 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| DUSCLOPS | 68 | LEFTOVERS | NIGHT_SHADE, SHADOW_BALL, WILL_O_WISP, PROTECT |
+| MISDREAVUS | 68 | LEFTOVERS | PSYCHIC, THUNDERBOLT, THUNDER_WAVE, PAIN_SPLIT |
+| TYRANITAR | 69 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, TAUNT, PROTECT |
+| LANTURN | 70 | LEFTOVERS | SURF, THUNDERBOLT, ICE_BEAM, PROTECT |
+
+Nikolai Zielinski — Worlds 2014 Senior (adaptação)
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| MAWILE | CAREFUL | INTIMIDATE | 252 / 4 / 0 / 0 / 0 / 252 | Intimidate protege o grupo; Fake Tears abre espaço para ataques especiais do parceiro |
+| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial com Levitate e queimadura; sem depender de Mega ou de Shadow Ball físico |
+| DUSCLOPS | CAREFUL | PRESSURE | 252 / 0 / 128 / 0 / 0 / 128 | Substitui Garchomp: Fantasma defensivo, dano fixo e Will-O-Wisp |
+| MISDREAVUS | TIMID | LEVITATE | 252 / 0 / 0 / 252 / 4 / 0 | Substitui Hydreigon: Fantasma com Levitate, Thunder Wave e Pain Split |
+| TYRANITAR | ADAMANT | SAND_STREAM | 252 / 252 / 0 / 0 / 0 / 4 | Pressão física e resistência especial; areia causa dano residual também nos parceiros não imunes |
+| LANTURN | MODEST | VOLT_ABSORB | 252 / 0 / 0 / 0 / 252 / 4 | Substitui Rotom-Wash: Água/Elétrico, Volt Absorb e cobertura contra Água/Voador/Terra |
 
 ## TRAINER_ELITE_FOUR_LANCE_2
 
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralisa; Rayquaza fecha com dano misto e Air Lock, que também suspende a chuva aliada.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| DRAGONITE | 72 | LUM_BERRY | OUTRAGE, THUNDER_WAVE, AERIAL_ACE, PROTECT |
-| FLYGON | 70 | SITRUS_BERRY | DRAGON_CLAW, FIRE_BLAST, PROTECT, FLAMETHROWER |
-| ALTARIA | 70 | SITRUS_BERRY | DRAGON_CLAW, FIRE_BLAST, PROTECT, FLAMETHROWER |
-| SALAMENCE | 70 | LEFTOVERS | DRAGON_CLAW, FIRE_BLAST, PROTECT, AERIAL_ACE |
-| DRAGONAIR | 71 | SITRUS_BERRY | OUTRAGE, FIRE_BLAST, PROTECT, FLAMETHROWER |
-| KINGDRA | 70 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| HITMONTOP | 70 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
+| KYOGRE | 70 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
+| GENGAR | 70 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| CLAYDOL | 70 | LEFTOVERS | REFLECT, LIGHT_SCREEN, PSYCHIC, PROTECT |
+| RAICHU | 71 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, LIGHT_SCREEN, PROTECT |
+| RAYQUAZA | 72 | LUM_BERRY | DRAGON_CLAW, FLAMETHROWER, ROCK_SLIDE, PROTECT |
+
+Wolfe Glick — Worlds 2016 Masters (adaptação)
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| HITMONTOP | CAREFUL | INTIMIDATE | 252 / 4 / 0 / 0 / 0 / 252 | Intimidate e Helping Hand apoiam Kyogre; sem Fake Out ou Wide Guard indisponíveis para ele nesta base |
+| KYOGRE | MODEST | DRIZZLE | 252 / 0 / 0 / 0 / 252 / 4 | Pressão de chuva com Surf, Ice Beam e Thunder; sem Reversão Primal |
+| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial e Will-O-Wisp com Levitate; sem Mega/Shadow Tag |
+| CLAYDOL | CALM | LEVITATE | 252 / 0 / 128 / 0 / 0 / 128 | Substitui Bronzong: Psíquico com Levitate e duas telas; sem Trick Room |
+| RAICHU | TIMID | STATIC | 252 / 0 / 0 / 252 / 4 / 0 | Thunder Wave e Light Screen, com cobertura elétrica; Static, não Lightning Rod moderno |
+| RAYQUAZA | HASTY | AIR_LOCK | 0 / 52 / 0 / 252 / 204 / 0 | Finalizador Dragão misto: Dragon Claw é especial na geração III; Air Lock suspende efeitos de todos os climas |
 
 ## TRAINER_CHAMPION_REMATCH_SQUIRTLE
 

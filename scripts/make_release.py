@@ -2,9 +2,16 @@
 from pathlib import Path
 import hashlib
 import shutil
+import argparse
+import re
 
 root = Path(__file__).resolve().parents[1]
-out = root / 'output' / 'release'
+parser = argparse.ArgumentParser()
+parser.add_argument('--version', default='v0.1.1-dev')
+args = parser.parse_args()
+if not re.fullmatch(r'v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?', args.version):
+    parser.error('Invalid version')
+out = root / 'output' / 'release' / args.version
 out.mkdir(parents=True, exist_ok=True)
 baseline = (root / 'output/baseline.gba').read_bytes()
 modified = (root / 'output/firered-386-dev.gba').read_bytes()
@@ -36,11 +43,14 @@ while patch[cursor:cursor + 3] != b'EOF':
     restored[offset:offset + length] = patch[cursor + 5:cursor + 5 + length]
     cursor += 5 + length
 assert bytes(restored) == modified, 'IPS reconstruction failed'
-prefix = 'firered-386-v0.1.0-dev'
+prefix = 'firered-386-' + args.version
 (out / f'{prefix}.gba').write_bytes(modified)
 (out / f'{prefix}.ips').write_bytes(patch)
 shutil.copyfile(root / 'patches/current.patch', out / f'{prefix}-source.patch')
-shutil.copyfile(root / 'README.md', out / 'LEIA-ME.md')
+readme = (root / 'README.md').read_text(encoding='utf-8-sig')
+for document in ('DESIGN.md', 'HARDCORE.md', 'E4_CHAMPIONS.md', 'TRAINER_REVIEW.md', 'data/trainer_balance.json'):
+    readme = readme.replace('](' + document + ')', '](https://github.com/matheus013/firered-386/blob/' + args.version + '/' + document + ')')
+(out / 'LEIA-ME.md').write_text(readme, encoding='utf-8')
 files = sorted(p for p in out.iterdir() if p.name != 'SHA256SUMS.txt' and p.is_file())
 (out / 'SHA256SUMS.txt').write_text(''.join(
     f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n' for p in files), encoding='utf-8')

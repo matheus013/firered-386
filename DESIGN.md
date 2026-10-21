@@ -78,6 +78,10 @@
 - Definir limites para Liga e pós-jogo e tratamento de capturas acima do teto.
 - Definir gatilho de reaparecimento de lendários derrotados e regras de revanche dos líderes.
 
+## Elite Four: adaptação de campeões implementada
+
+O usuário aprovou completar as equipes campeãs com substitutos coerentes entre as 386 espécies. Foram implementadas as quatro adaptações de E4_CHAMPIONS.md, na Liga e nas revanches, com seis integrantes, naturezas, habilidades, EVs e IVs definidos. As composições são mistas: preservam os integrantes disponíveis dos campeões e reforçam o tema nas substituições. Não exigem monotipo nem reproduzem mecânicas excluídas. As diretrizes abaixo continuam orientando a revisão após a modernização da engine.
+
 ## Diretrizes para Elite Four e revanches pós-jogo
 
 - Montar equipes com funções complementares: controle de velocidade, suporte, pressão ofensiva, cobertura e respostas às fraquezas do tipo de especialidade.
