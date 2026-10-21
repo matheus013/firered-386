@@ -1,5 +1,7 @@
 # Checklist de testes — FireRed 386
 
+> **Registro histórico da v0.3.0-dev.** Os três defeitos abaixo foram corrigidos na v0.3.1-dev. Resultados atuais e pendências estão em [TEST_CHECKLIST.md](TEST_CHECKLIST.md). As reprovações foram preservadas para documentar a descoberta.
+
 Auditoria de **21/10/2026**, versão **v0.3.0-dev**. Resultado: **há falhas abertas; versão não homologada para campanha completa**.
 
 ROM de referência, SHA-256: `d7a31095b588898a05ee3912a9285ac441b054536e459ffc26a1ad677c3c82c1`.

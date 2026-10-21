@@ -1,6 +1,8 @@
-# Regressão de lojas — v0.3.0-dev
+# Regressão de lojas — validada em v0.3.1-dev
 
 Verificada em 21/10/2026, com ROMs descartáveis na biblioteca do mGBA. Nenhum save do usuário foi aberto ou modificado.
+
+A correção foi introduzida na v0.3.0-dev. Os mesmos 46 casos passaram novamente na v0.3.1-dev, conforme o [checklist atual](TEST_CHECKLIST.md) e o [resumo estruturado](data/test_audit.json).
 
 ## Falha e correção
 

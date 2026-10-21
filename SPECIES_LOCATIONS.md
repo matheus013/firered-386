@@ -1,6 +1,6 @@
-# Onde capturar as 386 espécies — v0.3.0-dev
+# Onde capturar as 386 espécies — v0.3.1-dev
 
-Uma opção de captura direta por espécie, escolhida entre as áreas de menor etapa de acesso da distribuição. Todas as opções são independentes de inicial, troca, reprodução ou ticket. Mais locais e faixas de níveis estão no [guia de encontros](ENCOUNTERS.md).
+Distribuição introduzida na v0.3.0-dev e mantida na v0.3.1-dev. Uma opção de captura direta por espécie, escolhida entre as áreas de menor etapa de acesso da distribuição. Todas as opções são independentes de inicial, troca, reprodução ou ticket. Mais locais e faixas de níveis estão no [guia de encontros](ENCOUNTERS.md).
 
 A coluna de chance soma os slots da espécie no mesmo método, antes dos modificadores de encontro. No Hardcore, a regra de captura por seção pode impedir a coleção completa. Lendários/míticos aleatórios exigem a primeira vitória na Liga; eventos fixos originais conservam seus requisitos.
 

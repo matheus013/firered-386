@@ -1,4 +1,4 @@
-# Progressão e treinamento — estado em v0.3.0-dev
+# Progressão e treinamento — estado em v0.3.1-dev
 
 A curva dos treinadores foi elevada por etapa, preservando história, caminhos e primeira luta no laboratório. Os parâmetros reproduzíveis ficam em `data/progression_curve.json`; as equipes completas em TRAINER_REVIEW.md e data/trainer_balance.json.
 
@@ -12,7 +12,9 @@ A curva dos treinadores foi elevada por etapa, preservando história, caminhos e
 
 Rotas e áreas têm faixas de níveis para evitar saltos indevidos em treinadores reutilizados. Rivais e Giovanni da história têm limites próprios. Evoluções por nível foram atualizadas segundo o novo nível; evoluções por pedra adequadas entram nas equipes avançadas. Líderes usam seis integrantes e especialidade preservada. A E4 mantém suas adaptações de campeões, e o Campeão recebe IVs 31, natureza/habilidade fixas e EVs por função. A Torre usa seu escalonamento original, sem adotar estes níveis fixos.
 
-EXP e Rare Candy respeitam o teto nos dois modos. Após os ginásios, o teto acompanha cada membro da Liga ainda não vencido e chega a 100 após o Hall da Fama. No Normal, Pokémon adquiridos acima do teto continuam utilizáveis, sem ganhar EXP até o progresso alcançá-los. No Hardcore, continuam indisponíveis enquanto acima do teto, sem que isso os marque como perdidos.
+EXP, Rare Candy e treinamento na creche respeitam o teto nos dois modos. Após os ginásios, o teto acompanha cada membro da Liga ainda não vencido e chega a 100 após o Hall da Fama. No Normal, Pokémon adquiridos acima do teto continuam utilizáveis, sem ganhar EXP até o progresso alcançá-los. No Hardcore, continuam indisponíveis enquanto acima do teto, sem que isso os marque como perdidos.
+
+A v0.3.1-dev corrige a retirada nas creches das ilhas e Route 5, incluindo a previsão de níveis e o preço cobrado. O teto usado é o vigente ao consultar ou retirar: passos continuam acumulados durante o depósito; na retirada, a EXP acima do teto é descartada. A suíte valida os dois modos, a previsão após ganhar uma insígnia e a preservação do nível de Pokémon recebidos acima do teto. [Resultados e limites](TEST_CHECKLIST.md).
 
 ## Cientista dos Centros
 
