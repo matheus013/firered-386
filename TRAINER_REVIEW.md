@@ -2,14 +2,14 @@
 
 636 equipes regulares revisadas; três variantes da primeira luta preservadas em singles. Também revisados 60 elencos internos da Torre de Treinadores.
 
-Base de geração III. A Elite Four usa adaptações de equipes campeãs, com naturezas, habilidades fixas, IVs 31 e EVs definidos; os demais treinadores regulares continuam sem treinamento competitivo específico. Dados de e-Reader não revisados. A Torre preserva seus EVs/IVs/naturezas originais.
+Base de geração III. A Elite Four usa adaptações de equipes campeãs, com naturezas, habilidades fixas, IVs 31 e EVs definidos; o Campeão também tem naturezas, habilidades, IVs 31 e EVs por função. Os demais treinadores regulares continuam sem EVs específicos. Dados de e-Reader não revisados. A Torre preserva seus EVs/IVs/naturezas originais.
 
 ## Critérios
 
 - Duas a seis criaturas; líderes e Elite Four com seis.
 - Suporte na abertura quando disponível, golpes legais por nível/TM e cobertura de tipos.
 - Sem ataques que atinjam o aliado, OHKO ou spam de evasão.
-- Níveis regulares preservados; berries e IVs progressivos, com lendários das referências históricas na Elite Four.
+- Níveis recalibrados por etapa da campanha; berries e IVs progressivos, com lendários das referências históricas na Elite Four.
 - Líderes mantêm especialidade; Elite Four combina integrantes temáticos com parceiros dos times campeões.
 
 ## TRAINER_YOUNGSTER_BEN
@@ -18,8 +18,8 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATTATA | 11 | ORAN_BERRY | QUICK_ATTACK, TAIL_WHIP, TACKLE |
-| EKANS | 11 | ORAN_BERRY | POISON_STING, WRAP, LEER |
+| RATTATA | 14 | ORAN_BERRY | QUICK_ATTACK, TAIL_WHIP, TACKLE |
+| EKANS | 14 | ORAN_BERRY | POISON_STING, BITE, WRAP, LEER |
 
 ## TRAINER_YOUNGSTER_CALVIN
 
@@ -27,8 +27,8 @@ LEER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SPEAROW | 14 | ORAN_BERRY | PECK, LEER, FURY_ATTACK, GROWL |
-| PIDGEY | 14 | ORAN_BERRY | GUST, QUICK_ATTACK, TACKLE |
+| SPEAROW | 18 | ORAN_BERRY | FACADE, LEER, AERIAL_ACE, SECRET_POWER |
+| PIDGEOTTO | 18 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
 
 ## TRAINER_YOUNGSTER_JOSH
 
@@ -36,9 +36,9 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATTATA | 10 | ORAN_BERRY | QUICK_ATTACK, TAIL_WHIP, TACKLE |
-| RATTATA | 10 | ORAN_BERRY | QUICK_ATTACK, TACKLE, TAIL_WHIP |
-| ZUBAT | 10 | ORAN_BERRY | ASTONISH, LEECH_LIFE |
+| RATICATE | 20 | SITRUS_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
+| RATICATE | 20 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
+| ZUBAT | 20 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, FACADE, SECRET_POWER |
 
 ## TRAINER_YOUNGSTER_TIMMY
 
@@ -46,8 +46,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SANDSHREW | 14 | ORAN_BERRY | ROCK_TOMB, SCRATCH |
-| EKANS | 14 | ORAN_BERRY | POISON_STING, BITE, WRAP, LEER |
+| SANDSHREW | 18 | ORAN_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, FACADE |
+| EKANS | 18 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
 
 ## TRAINER_YOUNGSTER_JOEY
 
@@ -55,8 +55,8 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATTATA | 15 | ORAN_BERRY | QUICK_ATTACK, TAIL_WHIP, TACKLE |
-| SPEAROW | 15 | ORAN_BERRY | PECK, FURY_ATTACK, LEER, GROWL |
+| RATTATA | 19 | ORAN_BERRY | HYPER_FANG, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
+| SPEAROW | 19 | ORAN_BERRY | FACADE, AERIAL_ACE, SECRET_POWER, STEEL_WING |
 
 ## TRAINER_YOUNGSTER_DAN
 
@@ -64,8 +64,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| JIGGLYPUFF | 17 | ORAN_BERRY | STRENGTH, REFLECT, SHADOW_BALL, FACADE |
-| SLOWPOKE | 17 | ORAN_BERRY | WATER_PULSE, SHADOW_BALL, STRENGTH, FACADE |
+| JIGGLYPUFF | 22 | SITRUS_BERRY | STRENGTH, REFLECT, SHADOW_BALL, FACADE |
+| SLOWPOKE | 22 | SITRUS_BERRY | WATER_PULSE, SHADOW_BALL, STRENGTH, FACADE |
 
 ## TRAINER_YOUNGSTER_CHAD
 
@@ -73,17 +73,17 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SANDSHREW | 14 | ORAN_BERRY | ROCK_TOMB, SCRATCH |
-| EKANS | 14 | ORAN_BERRY | POISON_STING, BITE, WRAP, LEER |
+| SANDSHREW | 18 | ORAN_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, FACADE |
+| EKANS | 18 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
 
 ## TRAINER_YOUNGSTER_TYLER
 
-LEER: suporte de abertura + pressão e cobertura do parceiro.
+HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_M | 21 | SITRUS_BERRY | POISON_STING, LEER, STRENGTH, FACADE |
-| PIDGEOTTO | 21 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
+| NIDORINO | 29 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
+| PIDGEOTTO | 29 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_YOUNGSTER_EDDIE
 
@@ -91,8 +91,8 @@ SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ODDISH | 21 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| EKANS | 21 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
+| GLOOM | 28 | SITRUS_BERRY | SLUDGE_BOMB, SLEEP_POWDER, GIGA_DRAIN, PROTECT |
+| ARBOK | 28 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
 
 ## TRAINER_YOUNGSTER_DILLON
 
@@ -100,8 +100,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SANDSHREW | 19 | ORAN_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, FACADE |
-| ZUBAT | 19 | ORAN_BERRY | AERIAL_ACE, SHADOW_BALL, FACADE, SECRET_POWER |
+| SANDSLASH | 25 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
+| GOLBAT | 25 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, WING_ATTACK |
 
 ## TRAINER_YOUNGSTER_YASU
 
@@ -109,9 +109,9 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATTATA | 17 | ORAN_BERRY | HYPER_FANG, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
-| RATTATA | 17 | ORAN_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
-| RATICATE | 17 | ORAN_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
+| RATICATE | 22 | SITRUS_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
+| RATICATE | 22 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
+| RATICATE | 22 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
 
 ## TRAINER_YOUNGSTER_DAVE
 
@@ -119,8 +119,8 @@ LEER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORINO | 18 | ORAN_BERRY | POISON_STING, LEER, STRENGTH, FACADE |
-| NIDORAN_M | 18 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
+| NIDORINO | 23 | SITRUS_BERRY | POISON_STING, LEER, STRENGTH, FACADE |
+| NIDORINO | 23 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
 
 ## TRAINER_YOUNGSTER_BEN_2
 
@@ -128,8 +128,8 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATTATA | 17 | ORAN_BERRY | HYPER_FANG, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
-| EKANS | 17 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
+| RATICATE | 22 | SITRUS_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
+| ARBOK | 22 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
 
 ## TRAINER_BUG_CATCHER_RICK
 
@@ -137,8 +137,8 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| WEEDLE | 6 | ORAN_BERRY | POISON_STING, STRING_SHOT |
-| CATERPIE | 6 | ORAN_BERRY | TACKLE, STRING_SHOT |
+| WEEDLE | 10 | ORAN_BERRY | POISON_STING, STRING_SHOT |
+| CATERPIE | 10 | ORAN_BERRY | TACKLE, STRING_SHOT |
 
 ## TRAINER_BUG_CATCHER_DOUG
 
@@ -146,9 +146,9 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| WEEDLE | 7 | ORAN_BERRY | POISON_STING, STRING_SHOT |
-| WEEDLE | 7 | ORAN_BERRY | POISON_STING, STRING_SHOT |
-| WEEDLE | 7 | ORAN_BERRY | POISON_STING, STRING_SHOT |
+| WEEDLE | 10 | ORAN_BERRY | POISON_STING, STRING_SHOT |
+| BEEDRILL | 10 | ORAN_BERRY | FURY_ATTACK |
+| WEEDLE | 10 | ORAN_BERRY | POISON_STING, STRING_SHOT |
 
 ## TRAINER_BUG_CATCHER_SAMMY
 
@@ -156,8 +156,8 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| WEEDLE | 9 | ORAN_BERRY | POISON_STING, STRING_SHOT |
-| VENONAT | 9 | ORAN_BERRY | TACKLE, SUPERSONIC |
+| WEEDLE | 12 | ORAN_BERRY | POISON_STING, STRING_SHOT |
+| VENONAT | 12 | ORAN_BERRY | TACKLE, SUPERSONIC |
 
 ## TRAINER_BUG_CATCHER_COLTON
 
@@ -165,9 +165,9 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CATERPIE | 10 | ORAN_BERRY | TACKLE, STRING_SHOT |
-| WEEDLE | 10 | ORAN_BERRY | POISON_STING, STRING_SHOT |
-| CATERPIE | 10 | ORAN_BERRY | TACKLE, STRING_SHOT |
+| CATERPIE | 13 | ORAN_BERRY | TACKLE, STRING_SHOT |
+| WEEDLE | 13 | ORAN_BERRY | POISON_STING, STRING_SHOT |
+| CATERPIE | 13 | ORAN_BERRY | TACKLE, STRING_SHOT |
 
 ## TRAINER_BUG_CATCHER_GREG
 
@@ -175,10 +175,10 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CATERPIE | 9 | ORAN_BERRY | TACKLE, STRING_SHOT |
-| WEEDLE | 9 | ORAN_BERRY | POISON_STING, STRING_SHOT |
-| CATERPIE | 9 | ORAN_BERRY | TACKLE, STRING_SHOT |
-| WEEDLE | 9 | ORAN_BERRY | POISON_STING, STRING_SHOT |
+| CATERPIE | 12 | ORAN_BERRY | TACKLE, STRING_SHOT |
+| BEEDRILL | 12 | ORAN_BERRY | FURY_ATTACK |
+| WEEDLE | 12 | ORAN_BERRY | POISON_STING, STRING_SHOT |
+| BUTTERFREE | 12 | ORAN_BERRY | CONFUSION |
 
 ## TRAINER_BUG_CATCHER_JAMES
 
@@ -186,8 +186,8 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CATERPIE | 11 | ORAN_BERRY | TACKLE, STRING_SHOT |
-| BUTTERFREE | 11 | ORAN_BERRY | CONFUSION |
+| CATERPIE | 14 | ORAN_BERRY | TACKLE, STRING_SHOT |
+| BUTTERFREE | 14 | ORAN_BERRY | CONFUSION, STUN_SPORE, POISON_POWDER |
 
 ## TRAINER_BUG_CATCHER_KENT
 
@@ -195,8 +195,8 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| WEEDLE | 11 | ORAN_BERRY | POISON_STING, STRING_SHOT |
-| BEEDRILL | 11 | ORAN_BERRY | FURY_ATTACK |
+| WEEDLE | 20 | SITRUS_BERRY | POISON_STING, STRING_SHOT |
+| BEEDRILL | 20 | SITRUS_BERRY | TWINEEDLE, BRICK_BREAK, FACADE, SECRET_POWER |
 
 ## TRAINER_BUG_CATCHER_ROBBY
 
@@ -204,9 +204,9 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CATERPIE | 10 | ORAN_BERRY | TACKLE, STRING_SHOT |
-| BUTTERFREE | 10 | ORAN_BERRY | CONFUSION |
-| CATERPIE | 10 | ORAN_BERRY | TACKLE, STRING_SHOT |
+| CATERPIE | 20 | SITRUS_BERRY | TACKLE, STRING_SHOT |
+| BUTTERFREE | 20 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, GIGA_DRAIN, FACADE |
+| CATERPIE | 20 | SITRUS_BERRY | TACKLE, STRING_SHOT |
 
 ## TRAINER_BUG_CATCHER_CALE
 
@@ -214,10 +214,10 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| WEEDLE | 10 | ORAN_BERRY | POISON_STING, STRING_SHOT |
-| CATERPIE | 10 | ORAN_BERRY | TACKLE, STRING_SHOT |
-| BUTTERFREE | 10 | ORAN_BERRY | CONFUSION |
-| BEEDRILL | 10 | ORAN_BERRY | FURY_ATTACK |
+| WEEDLE | 13 | ORAN_BERRY | POISON_STING, STRING_SHOT |
+| CATERPIE | 13 | ORAN_BERRY | TACKLE, STRING_SHOT |
+| BUTTERFREE | 13 | ORAN_BERRY | CONFUSION, POISON_POWDER |
+| BEEDRILL | 13 | ORAN_BERRY | FURY_ATTACK |
 
 ## TRAINER_BUG_CATCHER_KEIGO
 
@@ -225,9 +225,9 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CATERPIE | 16 | ORAN_BERRY | TACKLE, STRING_SHOT |
-| WEEDLE | 16 | ORAN_BERRY | POISON_STING, STRING_SHOT |
-| WEEDLE | 16 | ORAN_BERRY | POISON_STING, STRING_SHOT |
+| CATERPIE | 20 | SITRUS_BERRY | TACKLE, STRING_SHOT |
+| WEEDLE | 20 | SITRUS_BERRY | POISON_STING, STRING_SHOT |
+| WEEDLE | 20 | SITRUS_BERRY | POISON_STING, STRING_SHOT |
 
 ## TRAINER_BUG_CATCHER_ELIJAH
 
@@ -235,8 +235,8 @@ SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| BUTTERFREE | 20 | SITRUS_BERRY | AERIAL_ACE, SLEEP_POWDER, SHADOW_BALL, GIGA_DRAIN |
-| BEEDRILL | 20 | SITRUS_BERRY | TWINEEDLE, BRICK_BREAK, FACADE, SECRET_POWER |
+| BUTTERFREE | 26 | SITRUS_BERRY | AERIAL_ACE, SLEEP_POWDER, SHADOW_BALL, PROTECT |
+| BEEDRILL | 26 | SITRUS_BERRY | TWINEEDLE, BRICK_BREAK, PROTECT, FACADE |
 
 ## TRAINER_BUG_CATCHER_2
 
@@ -244,9 +244,9 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CATERPIE | 18 | ORAN_BERRY | TACKLE, STRING_SHOT |
-| BUTTERFREE | 18 | ORAN_BERRY | AERIAL_ACE, SHADOW_BALL, GIGA_DRAIN, FACADE |
-| VENONAT | 18 | ORAN_BERRY | FACADE, GIGA_DRAIN, SECRET_POWER, CONFUSION |
+| CATERPIE | 23 | SITRUS_BERRY | TACKLE, STRING_SHOT |
+| BUTTERFREE | 23 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, GIGA_DRAIN, FACADE |
+| VENONAT | 23 | SITRUS_BERRY | FACADE, GIGA_DRAIN, SECRET_POWER, CONFUSION |
 
 ## TRAINER_BUG_CATCHER_BRENT
 
@@ -254,8 +254,8 @@ SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| BUTTERFREE | 19 | ORAN_BERRY | AERIAL_ACE, SLEEP_POWDER, SHADOW_BALL, GIGA_DRAIN |
-| BEEDRILL | 19 | ORAN_BERRY | BRICK_BREAK, FACADE, SECRET_POWER, AERIAL_ACE |
+| BUTTERFREE | 25 | SITRUS_BERRY | AERIAL_ACE, SLEEP_POWDER, SHADOW_BALL, PROTECT |
+| BEEDRILL | 25 | SITRUS_BERRY | TWINEEDLE, BRICK_BREAK, PROTECT, FACADE |
 
 ## TRAINER_BUG_CATCHER_CONNER
 
@@ -263,9 +263,9 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| WEEDLE | 20 | SITRUS_BERRY | POISON_STING, STRING_SHOT |
-| CATERPIE | 20 | SITRUS_BERRY | TACKLE, STRING_SHOT |
-| VENONAT | 20 | SITRUS_BERRY | FACADE, GIGA_DRAIN, SECRET_POWER, CONFUSION |
+| WEEDLE | 26 | SITRUS_BERRY | POISON_STING, STRING_SHOT |
+| CATERPIE | 26 | SITRUS_BERRY | TACKLE, STRING_SHOT |
+| VENONAT | 26 | SITRUS_BERRY | LEECH_LIFE, FACADE, PROTECT, SECRET_POWER |
 
 ## TRAINER_LASS_JANICE
 
@@ -273,8 +273,8 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 9 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, SCRATCH, GROWL |
-| PIDGEY | 9 | ORAN_BERRY | GUST, TACKLE |
+| NIDORAN_F | 12 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, SCRATCH, DOUBLE_KICK |
+| PIDGEY | 12 | ORAN_BERRY | GUST, TACKLE |
 
 ## TRAINER_LASS_SALLY
 
@@ -282,17 +282,17 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 10 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, SCRATCH, GROWL |
-| RATTATA | 10 | ORAN_BERRY | QUICK_ATTACK, TACKLE, TAIL_WHIP |
+| NIDORAN_F | 13 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, SCRATCH, DOUBLE_KICK |
+| RATTATA | 13 | ORAN_BERRY | QUICK_ATTACK, TACKLE, TAIL_WHIP |
 
 ## TRAINER_LASS_ROBIN
 
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 14 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, SCRATCH, DOUBLE_KICK |
-| JIGGLYPUFF | 14 | ORAN_BERRY | POUND, WATER_PULSE |
+| JIGGLYPUFF | 18 | ORAN_BERRY | STRENGTH, REFLECT, SHADOW_BALL, FACADE |
+| PIDGEOTTO | 18 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
 
 ## TRAINER_LASS_CRISSY
 
@@ -300,27 +300,27 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PARAS | 31 | SITRUS_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
-| PARAS | 31 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
-| PARASECT | 31 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
+| PARASECT | 44 | SITRUS_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
+| PARASECT | 44 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
+| PARASECT | 44 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
 
 ## TRAINER_LASS_MIRIAM
 
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 11 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, SCRATCH, GROWL |
-| ODDISH | 11 | ORAN_BERRY | ABSORB, BULLET_SEED |
+| ODDISH | 20 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
+| BELLSPROUT | 20 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, VINE_WHIP |
 
 ## TRAINER_LASS_IRIS
 
-GROWL: suporte de abertura + pressão e cobertura do parceiro.
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CLEFAIRY | 14 | ORAN_BERRY | POUND, GROWL, WATER_PULSE, DOUBLE_SLAP |
-| ODDISH | 14 | ORAN_BERRY | ABSORB, BULLET_SEED, POISON_POWDER |
+| CLEFAIRY | 20 | SITRUS_BERRY | STRENGTH, REFLECT, SHADOW_BALL, FACADE |
+| ODDISH | 20 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
 
 ## TRAINER_LASS_RELI
 
@@ -328,18 +328,18 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 16 | ORAN_BERRY | STRENGTH, TAIL_WHIP, AERIAL_ACE, FACADE |
-| NIDORAN_M | 16 | ORAN_BERRY | STRENGTH, SHOCK_WAVE, FACADE, SECRET_POWER |
+| NIDORINA | 20 | SITRUS_BERRY | POISON_STING, TAIL_WHIP, STRENGTH, FACADE |
+| NIDORINO | 20 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
 
 ## TRAINER_LASS_ALI
 
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 12 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, SCRATCH, DOUBLE_KICK |
-| ODDISH | 12 | ORAN_BERRY | ABSORB, BULLET_SEED |
-| PIDGEY | 12 | ORAN_BERRY | GUST, TACKLE |
+| BELLSPROUT | 15 | ORAN_BERRY | VINE_WHIP, SLEEP_POWDER, WRAP, BULLET_SEED |
+| ODDISH | 15 | ORAN_BERRY | ABSORB, BULLET_SEED, POISON_POWDER |
+| PIDGEY | 15 | ORAN_BERRY | GUST, QUICK_ATTACK, TACKLE |
 
 ## TRAINER_LASS_2
 
@@ -347,253 +347,10 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 15 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, SCRATCH, DOUBLE_KICK |
-| NIDORAN_M | 15 | ORAN_BERRY | WATER_PULSE, PECK, DOUBLE_KICK, LEER |
+| NIDORINA | 19 | ORAN_BERRY | POISON_STING, TAIL_WHIP, STRENGTH, FACADE |
+| NIDORINO | 19 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
 
 ## TRAINER_LASS_HALEY
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| NIDORAN_F | 13 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, SCRATCH, DOUBLE_KICK |
-| PIDGEY | 13 | ORAN_BERRY | GUST, QUICK_ATTACK, TACKLE |
-| ODDISH | 13 | ORAN_BERRY | ABSORB, BULLET_SEED |
-
-## TRAINER_LASS_ANN
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| NIDORAN_F | 18 | ORAN_BERRY | POISON_STING, TAIL_WHIP, STRENGTH, FACADE |
-| PIDGEY | 18 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-
-## TRAINER_LASS_DAWN
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 18 | ORAN_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, QUICK_ATTACK |
-| RATTATA | 18 | ORAN_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
-
-## TRAINER_LASS_PAIGE
-
-HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| NIDORAN_F | 23 | SITRUS_BERRY | POISON_STING, HELPING_HAND, STRENGTH, FACADE |
-| NIDORINA | 23 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
-
-## TRAINER_LASS_ANDREA
-
-GROWL: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MEOWTH | 24 | SITRUS_BERRY | FACADE, GROWL, SHADOW_BALL, SECRET_POWER |
-| MEOWTH | 24 | SITRUS_BERRY | FACADE, SHADOW_BALL, SECRET_POWER, CUT |
-| MEOWTH | 24 | SITRUS_BERRY | FACADE, SHADOW_BALL, SECRET_POWER, CUT |
-
-## TRAINER_LASS_MEGAN
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 19 | ORAN_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, QUICK_ATTACK |
-| RATTATA | 19 | ORAN_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
-| NIDORAN_M | 19 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
-| MEOWTH | 19 | ORAN_BERRY | FACADE, SHADOW_BALL, SECRET_POWER, CUT |
-| PIDGEY | 19 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-
-## TRAINER_LASS_JULIA
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CLEFAIRY | 22 | SITRUS_BERRY | STRENGTH, REFLECT, SHADOW_BALL, FACADE |
-| CLEFAIRY | 22 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, FACADE, SECRET_POWER |
-
-## TRAINER_LASS_KAY
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| BELLSPROUT | 23 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| WEEPINBELL | 23 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, VINE_WHIP |
-
-## TRAINER_LASS_LISA
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GLOOM | 23 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| ODDISH | 23 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, ACID |
-
-## TRAINER_SAILOR_EDMOND
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOP | 18 | ORAN_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
-| SHELLDER | 18 | ORAN_BERRY | WATER_PULSE, FACADE, SECRET_POWER, TACKLE |
-
-## TRAINER_SAILOR_TREVOR
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOP | 17 | ORAN_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
-| TENTACOOL | 17 | ORAN_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_SAILOR_LEONARD
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| NIDORAN_F | 21 | SITRUS_BERRY | POISON_STING, TAIL_WHIP, STRENGTH, FACADE |
-| SHELLDER | 21 | SITRUS_BERRY | WATER_PULSE, FACADE, SECRET_POWER, TACKLE |
-
-## TRAINER_SAILOR_DUNCAN
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HORSEA | 17 | ORAN_BERRY | WATERFALL, LEER, FACADE, WATER_PULSE |
-| SHELLDER | 17 | ORAN_BERRY | WATER_PULSE, FACADE, SECRET_POWER, TACKLE |
-| TENTACOOL | 17 | ORAN_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_SAILOR_HUEY
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| STARYU | 18 | ORAN_BERRY | WATERFALL, REFLECT, FACADE, WATER_PULSE |
-| TENTACOOL | 18 | ORAN_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_SAILOR_DYLAN
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HORSEA | 17 | ORAN_BERRY | WATERFALL, LEER, FACADE, WATER_PULSE |
-| HORSEA | 17 | ORAN_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-| HORSEA | 17 | ORAN_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_SAILOR_PHILLIP
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOP | 20 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
-| NIDORAN_F | 20 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
-
-## TRAINER_SAILOR_DWAYNE
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 21 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, QUICK_ATTACK |
-| PIKACHU | 21 | SITRUS_BERRY | SHOCK_WAVE, STRENGTH, QUICK_ATTACK, BRICK_BREAK |
-
-## TRAINER_CAMPER_LIAM
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GEODUDE | 10 | ORAN_BERRY | ROCK_TOMB, TACKLE |
-| SANDSHREW | 11 | ORAN_BERRY | ROCK_TOMB, SCRATCH |
-
-## TRAINER_CAMPER_SHANE
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RATTATA | 14 | ORAN_BERRY | QUICK_ATTACK, TAIL_WHIP, TACKLE |
-| EKANS | 14 | ORAN_BERRY | POISON_STING, BITE, WRAP, LEER |
-
-## TRAINER_CAMPER_ETHAN
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MANKEY | 18 | ORAN_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
-| ODDISH | 18 | ORAN_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
-
-## TRAINER_CAMPER_RICKY
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ODDISH | 20 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| SQUIRTLE | 20 | SITRUS_BERRY | WATERFALL, STRENGTH, WATER_PULSE, BRICK_BREAK |
-
-## TRAINER_CAMPER_JEFF
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RATICATE | 16 | ORAN_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
-| SPEAROW | 16 | ORAN_BERRY | FACADE, AERIAL_ACE, SECRET_POWER, STEEL_WING |
-
-## TRAINER_CAMPER_CHRIS
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GROWLITHE | 21 | SITRUS_BERRY | EMBER, LEER, STRENGTH, FACADE |
-| CHARMANDER | 21 | SITRUS_BERRY | EMBER, DRAGON_CLAW, STRENGTH, BRICK_BREAK |
-
-## TRAINER_CAMPER_DREW
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SANDSHREW | 19 | ORAN_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, FACADE |
-| SANDSHREW | 19 | ORAN_BERRY | STRENGTH, BRICK_BREAK, FACADE, SECRET_POWER |
-| EKANS | 19 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
-| RATTATA | 19 | ORAN_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
-
-## TRAINER_PICNICKER_DIANA
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ODDISH | 19 | ORAN_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| GOLDEEN | 19 | ORAN_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_PICNICKER_NANCY
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 16 | ORAN_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, QUICK_ATTACK |
-| RATTATA | 16 | ORAN_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
-
-## TRAINER_PICNICKER_ISABELLE
 
 STUN_SPORE: suporte de abertura + pressão e cobertura do parceiro.
 
@@ -601,7 +358,250 @@ STUN_SPORE: suporte de abertura + pressão e cobertura do parceiro.
 |---|---:|---|---|
 | ODDISH | 16 | ORAN_BERRY | GIGA_DRAIN, STUN_SPORE, FACADE, SECRET_POWER |
 | PIDGEY | 16 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-| PIDGEY | 16 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
+| ODDISH | 16 | ORAN_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
+
+## TRAINER_LASS_ANN
+
+HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NIDORINA | 29 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
+| PIDGEOTTO | 29 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_LASS_DAWN
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIKACHU | 29 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
+| RATICATE | 29 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_LASS_PAIGE
+
+HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NIDORINA | 32 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
+| NIDORINA | 32 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
+
+## TRAINER_LASS_ANDREA
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PERSIAN | 34 | SITRUS_BERRY | FACADE, TOXIC, THUNDERBOLT, PROTECT |
+| PERSIAN | 34 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+| PERSIAN | 34 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+
+## TRAINER_LASS_MEGAN
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIKACHU | 25 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, PROTECT |
+| RATICATE | 25 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| NIDORINO | 25 | SITRUS_BERRY | POISON_STING, STRENGTH, PROTECT, FACADE |
+| MEOWTH | 25 | SITRUS_BERRY | FACADE, SHADOW_BALL, PROTECT, SECRET_POWER |
+| PIDGEOTTO | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_LASS_JULIA
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CLEFAIRY | 30 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
+| CLEFAIRY | 30 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, ICE_BEAM |
+
+## TRAINER_LASS_KAY
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WEEPINBELL | 39 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| WEEPINBELL | 39 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
+
+## TRAINER_LASS_LISA
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GLOOM | 39 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| GLOOM | 39 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, MOONLIGHT |
+
+## TRAINER_SAILOR_EDMOND
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHOKE | 29 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
+| SHELLDER | 29 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
+
+## TRAINER_SAILOR_TREVOR
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHOKE | 29 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
+| TENTACOOL | 29 | SITRUS_BERRY | SLUDGE_BOMB, WATERFALL, PROTECT, BUBBLE_BEAM |
+
+## TRAINER_SAILOR_LEONARD
+
+HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NIDORINA | 29 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
+| SHELLDER | 29 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
+
+## TRAINER_SAILOR_DUNCAN
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HORSEA | 29 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SHELLDER | 29 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
+| TENTACOOL | 29 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+
+## TRAINER_SAILOR_HUEY
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| TENTACOOL | 29 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
+| STARYU | 29 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, RECOVER |
+
+## TRAINER_SAILOR_DYLAN
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HORSEA | 29 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| HORSEA | 29 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| HORSEA | 29 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SAILOR_PHILLIP
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHOKE | 29 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
+| NIDORINA | 29 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
+
+## TRAINER_SAILOR_DWAYNE
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIKACHU | 28 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
+| PIKACHU | 28 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+
+## TRAINER_CAMPER_LIAM
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GEODUDE | 13 | ORAN_BERRY | ROCK_THROW, ROCK_TOMB, TACKLE |
+| SANDSHREW | 14 | ORAN_BERRY | ROCK_TOMB, SCRATCH |
+
+## TRAINER_CAMPER_SHANE
+
+TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RATTATA | 18 | ORAN_BERRY | HYPER_FANG, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
+| EKANS | 18 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
+
+## TRAINER_CAMPER_ETHAN
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MANKEY | 23 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
+| GLOOM | 23 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
+
+## TRAINER_CAMPER_RICKY
+
+SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GLOOM | 26 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, PROTECT |
+| WARTORTLE | 26 | SITRUS_BERRY | WATERFALL, STRENGTH, PROTECT, WATER_PULSE |
+
+## TRAINER_CAMPER_JEFF
+
+TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RATICATE | 20 | SITRUS_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
+| FEAROW | 20 | SITRUS_BERRY | FACADE, AERIAL_ACE, SECRET_POWER, STEEL_WING |
+
+## TRAINER_CAMPER_CHRIS
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GROWLITHE | 28 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
+| CHARMELEON | 28 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, EMBER |
+
+## TRAINER_CAMPER_DREW
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SANDSLASH | 25 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
+| SANDSLASH | 25 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, PROTECT, FACADE |
+| ARBOK | 25 | SITRUS_BERRY | POISON_STING, STRENGTH, PROTECT, FACADE |
+| RATICATE | 25 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_PICNICKER_DIANA
+
+SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GLOOM | 25 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, PROTECT |
+| GOLDEEN | 25 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
+
+## TRAINER_PICNICKER_NANCY
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIKACHU | 20 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, QUICK_ATTACK |
+| RATICATE | 20 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
+
+## TRAINER_PICNICKER_ISABELLE
+
+SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ODDISH | 20 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
+| PIDGEOTTO | 20 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
+| PIDGEOTTO | 20 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
 
 ## TRAINER_PICNICKER_KELSEY
 
@@ -609,8 +609,8 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 15 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, SCRATCH, DOUBLE_KICK |
-| NIDORAN_M | 15 | ORAN_BERRY | WATER_PULSE, PECK, DOUBLE_KICK, LEER |
+| NIDORINA | 19 | ORAN_BERRY | POISON_STING, TAIL_WHIP, STRENGTH, FACADE |
+| NIDORINO | 19 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
 
 ## TRAINER_PICNICKER_ALICIA
 
@@ -618,10 +618,10 @@ SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| BELLSPROUT | 18 | ORAN_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| ODDISH | 18 | ORAN_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
-| ODDISH | 18 | ORAN_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
-| BELLSPROUT | 18 | ORAN_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, VINE_WHIP |
+| WEEPINBELL | 23 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
+| GLOOM | 23 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
+| GLOOM | 23 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
+| WEEPINBELL | 23 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, VINE_WHIP |
 
 ## TRAINER_PICNICKER_CAITLIN
 
@@ -629,8 +629,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| JIGGLYPUFF | 23 | SITRUS_BERRY | STRENGTH, REFLECT, SHADOW_BALL, FACADE |
-| MEOWTH | 23 | SITRUS_BERRY | FACADE, SHADOW_BALL, SECRET_POWER, CUT |
+| JIGGLYPUFF | 32 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
+| PERSIAN | 32 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
 
 ## TRAINER_PICNICKER_HEIDI
 
@@ -638,17 +638,17 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PIKACHU | 20 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, QUICK_ATTACK |
-| CLEFAIRY | 20 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, FACADE, SECRET_POWER |
+| PIKACHU | 26 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, PROTECT |
+| CLEFAIRY | 26 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FACADE |
 
 ## TRAINER_PICNICKER_CAROL
 
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| JIGGLYPUFF | 21 | SITRUS_BERRY | STRENGTH, REFLECT, SHADOW_BALL, FACADE |
-| PIDGEY | 21 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
+| ODDISH | 28 | SITRUS_BERRY | SLUDGE_BOMB, SLEEP_POWDER, GIGA_DRAIN, PROTECT |
+| PIDGEOTTO | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_PICNICKER_SOFIA
 
@@ -656,27 +656,27 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| JIGGLYPUFF | 21 | SITRUS_BERRY | STRENGTH, REFLECT, SHADOW_BALL, FACADE |
-| PIDGEY | 21 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-| MEOWTH | 21 | SITRUS_BERRY | FACADE, SHADOW_BALL, SECRET_POWER, CUT |
+| JIGGLYPUFF | 35 | SITRUS_BERRY | BODY_SLAM, REFLECT, FLAMETHROWER, PROTECT |
+| PIDGEOTTO | 35 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PERSIAN | 35 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
 
 ## TRAINER_PICNICKER_MARTHA
 
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ODDISH | 22 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| BULBASAUR | 22 | SITRUS_BERRY | GIGA_DRAIN, STRENGTH, RAZOR_LEAF, FACADE |
+| GLOOM | 35 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| VENUSAUR | 35 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
 
 ## TRAINER_PICNICKER_TINA
 
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| IVYSAUR | 24 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, STRENGTH, RAZOR_LEAF |
-| BULBASAUR | 24 | SITRUS_BERRY | GIGA_DRAIN, STRENGTH, RAZOR_LEAF, FACADE |
+| VENUSAUR | 39 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| VENUSAUR | 39 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
 
 ## TRAINER_PICNICKER_HANNAH
 
@@ -684,11 +684,11 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PIKACHU | 24 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, QUICK_ATTACK |
-| MEOWTH | 24 | SITRUS_BERRY | FACADE, SHADOW_BALL, SECRET_POWER, CUT |
-| RATTATA | 24 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
-| PIDGEY | 24 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-| MEOWTH | 24 | SITRUS_BERRY | FACADE, SHADOW_BALL, SECRET_POWER, CUT |
+| PIKACHU | 34 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
+| PERSIAN | 34 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+| RATICATE | 34 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| PIDGEOTTO | 34 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PERSIAN | 34 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
 
 ## TRAINER_POKEMANIAC_MARK
 
@@ -696,8 +696,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYHORN | 29 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, IRON_TAIL, PROTECT |
-| LICKITUNG | 29 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, FACADE |
+| RHYDON | 42 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, BRICK_BREAK, PROTECT |
+| LICKITUNG | 42 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, FACADE |
 
 ## TRAINER_POKEMANIAC_HERMAN
 
@@ -705,18 +705,18 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CUBONE | 20 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, STRENGTH, BRICK_BREAK |
-| SLOWPOKE | 20 | SITRUS_BERRY | WATER_PULSE, SHADOW_BALL, STRENGTH, FACADE |
+| CUBONE | 26 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, STRENGTH, PROTECT |
+| SLOWPOKE | 26 | SITRUS_BERRY | WATER_PULSE, SHADOW_BALL, PROTECT, STRENGTH |
 
 ## TRAINER_POKEMANIAC_COOPER
 
-GROWL: suporte de abertura + pressão e cobertura do parceiro.
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SLOWPOKE | 20 | SITRUS_BERRY | WATER_PULSE, GROWL, SHADOW_BALL, STRENGTH |
-| SLOWPOKE | 20 | SITRUS_BERRY | WATER_PULSE, SHADOW_BALL, STRENGTH, FACADE |
-| SLOWPOKE | 20 | SITRUS_BERRY | WATER_PULSE, SHADOW_BALL, STRENGTH, FACADE |
+| SLOWPOKE | 35 | SITRUS_BERRY | PSYCHIC, RAIN_DANCE, WATER_PULSE, PROTECT |
+| SLOWPOKE | 35 | SITRUS_BERRY | PSYCHIC, WATER_PULSE, PROTECT, SHADOW_BALL |
+| SLOWPOKE | 35 | SITRUS_BERRY | PSYCHIC, WATER_PULSE, PROTECT, SHADOW_BALL |
 
 ## TRAINER_POKEMANIAC_STEVE
 
@@ -724,8 +724,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CUBONE | 22 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, STRENGTH, BRICK_BREAK |
-| CHARMANDER | 22 | SITRUS_BERRY | EMBER, DRAGON_CLAW, STRENGTH, BRICK_BREAK |
+| MAROWAK | 35 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, STRENGTH, PROTECT |
+| CHARMELEON | 35 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, STRENGTH |
 
 ## TRAINER_POKEMANIAC_WINSTON
 
@@ -733,8 +733,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| JIGGLYPUFF | 25 | SITRUS_BERRY | STRENGTH, REFLECT, SHADOW_BALL, PROTECT |
-| SLOWPOKE | 25 | SITRUS_BERRY | WATER_PULSE, SHADOW_BALL, PROTECT, STRENGTH |
+| JIGGLYPUFF | 35 | SITRUS_BERRY | BODY_SLAM, REFLECT, FLAMETHROWER, PROTECT |
+| SLOWPOKE | 35 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, STRENGTH |
 
 ## TRAINER_POKEMANIAC_DAWSON
 
@@ -742,9 +742,9 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| LICKITUNG | 40 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| LAPRAS | 40 | SITRUS_BERRY | ICE_BEAM, WATERFALL, PROTECT, THUNDERBOLT |
-| CHARMELEON | 40 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, STRENGTH |
+| LICKITUNG | 76 | LUM_BERRY | STRENGTH, ROCK_TOMB, FIRE_BLAST, PROTECT |
+| LAPRAS | 76 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, BLIZZARD |
+| CHARIZARD | 76 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
 
 ## TRAINER_POKEMANIAC_ASHTON
 
@@ -752,17 +752,17 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CUBONE | 23 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, STRENGTH, BRICK_BREAK |
-| SLOWPOKE | 23 | SITRUS_BERRY | WATER_PULSE, SHADOW_BALL, STRENGTH, FACADE |
+| MAROWAK | 35 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, STRENGTH, PROTECT |
+| SLOWPOKE | 35 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, STRENGTH |
 
 ## TRAINER_SUPER_NERD_JOVAN
 
-SCREECH: suporte de abertura + pressão e cobertura do parceiro.
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| VOLTORB | 11 | ORAN_BERRY | TACKLE, SCREECH |
-| MAGNEMITE | 11 | ORAN_BERRY | THUNDER_SHOCK, TACKLE, SUPERSONIC |
+| MAGNEMITE | 20 | SITRUS_BERRY | SHOCK_WAVE, REFLECT, FACADE, THUNDER_SHOCK |
+| VOLTORB | 20 | SITRUS_BERRY | SHOCK_WAVE, FACADE, SECRET_POWER, THIEF |
 
 ## TRAINER_SUPER_NERD_MIGUEL
 
@@ -770,1598 +770,11 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GRIMER | 12 | ORAN_BERRY | POUND, ROCK_TOMB |
-| VOLTORB | 12 | ORAN_BERRY | TACKLE, SCREECH |
-| KOFFING | 12 | ORAN_BERRY | SMOG, TACKLE |
+| GRIMER | 20 | SITRUS_BERRY | SLUDGE, ROCK_TOMB, FACADE, SECRET_POWER |
+| VOLTORB | 20 | SITRUS_BERRY | SHOCK_WAVE, FACADE, SECRET_POWER, THIEF |
+| KOFFING | 20 | SITRUS_BERRY | SMOG, SHADOW_BALL, FACADE, SECRET_POWER |
 
 ## TRAINER_SUPER_NERD_AIDAN
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNEMITE | 20 | SITRUS_BERRY | SHOCK_WAVE, REFLECT, FACADE, THUNDER_SHOCK |
-| KOFFING | 20 | SITRUS_BERRY | SMOG, SHADOW_BALL, FACADE, SECRET_POWER |
-| VOLTORB | 20 | SITRUS_BERRY | SHOCK_WAVE, FACADE, SECRET_POWER, THIEF |
-| VOLTORB | 20 | SITRUS_BERRY | SHOCK_WAVE, FACADE, SECRET_POWER, THIEF |
-
-## TRAINER_SUPER_NERD_GLENN
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MUK | 22 | SITRUS_BERRY | SLUDGE, ROCK_TOMB, STRENGTH, BRICK_BREAK |
-| GRIMER | 22 | SITRUS_BERRY | SLUDGE, FACADE, SECRET_POWER, GIGA_DRAIN |
-| GRIMER | 22 | SITRUS_BERRY | SLUDGE, FACADE, SECRET_POWER, GIGA_DRAIN |
-
-## TRAINER_SUPER_NERD_LESLIE
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ODDISH | 26 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, PROTECT |
-| KOFFING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-
-## TRAINER_SUPER_NERD_1
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNEMITE | 22 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, FACADE, THUNDER_SHOCK |
-| KOFFING | 22 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, FACADE, SECRET_POWER |
-| WEEZING | 22 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, FACADE, SECRET_POWER |
-
-## TRAINER_SUPER_NERD_2
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNEMITE | 20 | SITRUS_BERRY | SHOCK_WAVE, REFLECT, FACADE, THUNDER_SHOCK |
-| MAGNEMITE | 20 | SITRUS_BERRY | SHOCK_WAVE, FACADE, THUNDER_SHOCK, SECRET_POWER |
-| KOFFING | 20 | SITRUS_BERRY | SMOG, SHADOW_BALL, FACADE, SECRET_POWER |
-| MAGNEMITE | 20 | SITRUS_BERRY | SHOCK_WAVE, FACADE, THUNDER_SHOCK, SECRET_POWER |
-
-## TRAINER_SUPER_NERD_3
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNEMITE | 24 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, FACADE, THUNDER_SHOCK |
-| VOLTORB | 24 | SITRUS_BERRY | SPARK, FACADE, SHOCK_WAVE, SECRET_POWER |
-
-## TRAINER_SUPER_NERD_ERIK
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| VULPIX | 36 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, IRON_TAIL, PROTECT |
-| VULPIX | 36 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
-| NINETALES | 36 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
-
-## TRAINER_SUPER_NERD_AVERY
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| VULPIX | 34 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, IRON_TAIL, PROTECT |
-| CHARMANDER | 34 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, EMBER |
-| PONYTA | 34 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, QUICK_ATTACK |
-| GROWLITHE | 34 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, FLAME_WHEEL |
-
-## TRAINER_SUPER_NERD_DEREK
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RAPIDASH | 41 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
-| ODDISH | 41 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, MOONLIGHT |
-
-## TRAINER_SUPER_NERD_ZAC
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| VULPIX | 37 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, IRON_TAIL, PROTECT |
-| GROWLITHE | 37 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, FLAME_WHEEL |
-
-## TRAINER_HIKER_MARCOS
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GEODUDE | 10 | ORAN_BERRY | ROCK_TOMB, TACKLE |
-| GEODUDE | 10 | ORAN_BERRY | ROCK_TOMB, TACKLE |
-| ONIX | 10 | ORAN_BERRY | ROCK_TOMB, TACKLE, BIND, SCREECH |
-
-## TRAINER_HIKER_FRANKLIN
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOP | 15 | ORAN_BERRY | KARATE_CHOP, ROCK_TOMB, LOW_KICK, LEER |
-| GEODUDE | 15 | ORAN_BERRY | ROCK_THROW, TACKLE, ROCK_TOMB |
-
-## TRAINER_HIKER_NOB
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GEODUDE | 13 | ORAN_BERRY | ROCK_THROW, ROCK_TOMB, TACKLE |
-| GEODUDE | 13 | ORAN_BERRY | ROCK_THROW, TACKLE, ROCK_TOMB |
-| MACHOP | 13 | ORAN_BERRY | KARATE_CHOP, ROCK_TOMB, LOW_KICK, LEER |
-| GEODUDE | 13 | ORAN_BERRY | ROCK_THROW, TACKLE, ROCK_TOMB |
-
-## TRAINER_HIKER_WAYNE
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ONIX | 17 | ORAN_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, FACADE |
-| MACHOP | 17 | ORAN_BERRY | BRICK_BREAK, STRENGTH, KARATE_CHOP, FACADE |
-
-## TRAINER_HIKER_ALAN
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GEODUDE | 21 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, BRICK_BREAK |
-| ONIX | 21 | SITRUS_BERRY | ROCK_THROW, STRENGTH, FACADE, SECRET_POWER |
-
-## TRAINER_HIKER_BRICE
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOP | 20 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
-| GEODUDE | 20 | SITRUS_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
-| GEODUDE | 20 | SITRUS_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
-
-## TRAINER_HIKER_CLARK
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GEODUDE | 21 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, BRICK_BREAK |
-| ONIX | 21 | SITRUS_BERRY | ROCK_THROW, STRENGTH, FACADE, SECRET_POWER |
-
-## TRAINER_HIKER_TRENT
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ONIX | 19 | ORAN_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, FACADE |
-| GRAVELER | 19 | ORAN_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
-
-## TRAINER_HIKER_DUDLEY
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRAVELER | 21 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, BRICK_BREAK |
-| GEODUDE | 21 | SITRUS_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
-| GEODUDE | 21 | SITRUS_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
-
-## TRAINER_HIKER_ALLEN
-
-SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ONIX | 25 | SITRUS_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
-| GEODUDE | 25 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
-
-## TRAINER_HIKER_ERIC
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ONIX | 20 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, FACADE |
-| MACHOP | 20 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, KARATE_CHOP, FACADE |
-
-## TRAINER_HIKER_LENNY
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GEODUDE | 19 | ORAN_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, BRICK_BREAK |
-| MACHOP | 19 | ORAN_BERRY | BRICK_BREAK, STRENGTH, KARATE_CHOP, FACADE |
-| GEODUDE | 19 | ORAN_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
-| GEODUDE | 19 | ORAN_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
-
-## TRAINER_HIKER_OLIVER
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ONIX | 20 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, FACADE |
-| ONIX | 20 | SITRUS_BERRY | ROCK_THROW, STRENGTH, FACADE, SECRET_POWER |
-| GEODUDE | 20 | SITRUS_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
-
-## TRAINER_HIKER_LUCAS
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GEODUDE | 21 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, BRICK_BREAK |
-| GRAVELER | 21 | SITRUS_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
-
-## TRAINER_BIKER_JARED
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRIMER | 28 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| KOFFING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-| KOFFING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-
-## TRAINER_BIKER_MALIK
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRIMER | 29 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| KOFFING | 29 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-
-## TRAINER_BIKER_ERNEST
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRIMER | 25 | SITRUS_BERRY | SLUDGE, ROCK_TOMB, FACADE, PROTECT |
-| KOFFING | 25 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| WEEZING | 25 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| KOFFING | 25 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| KOFFING | 25 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-
-## TRAINER_BIKER_ALEX
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRIMER | 28 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| KOFFING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-| WEEZING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-
-## TRAINER_BIKER_LAO
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRIMER | 29 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| KOFFING | 29 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-
-## TRAINER_BIKER_HIDEO
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| WEEZING | 33 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, FLAMETHROWER, PROTECT |
-| KOFFING | 33 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-
-## TRAINER_BIKER_RUBEN
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRIMER | 28 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| KOFFING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-| WEEZING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-
-## TRAINER_BIKER_BILLY
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRIMER | 33 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| MUK | 33 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
-
-## TRAINER_BIKER_NIKOLAS
-
-LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| VOLTORB | 29 | SITRUS_BERRY | THUNDERBOLT, LIGHT_SCREEN, FACADE, PROTECT |
-| VOLTORB | 29 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
-
-## TRAINER_BIKER_JAXON
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MUK | 29 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
-| WEEZING | 29 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-
-## TRAINER_BIKER_WILLIAM
-
-SCREECH: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GOLBAT | 25 | SITRUS_BERRY | AERIAL_ACE, SCREECH, SHADOW_BALL, PROTECT |
-| WEEZING | 25 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| KOFFING | 25 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| KOFFING | 25 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| KOFFING | 25 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-
-## TRAINER_BIKER_LUKAS
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRIMER | 26 | SITRUS_BERRY | SLUDGE, ROCK_TOMB, FACADE, PROTECT |
-| KOFFING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| KOFFING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| KOFFING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-
-## TRAINER_BIKER_ISAAC
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRIMER | 28 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| GRIMER | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-| KOFFING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-
-## TRAINER_BIKER_GERALD
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MUK | 29 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
-| KOFFING | 29 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-
-## TRAINER_BURGLAR_1
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| VULPIX | 29 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, IRON_TAIL, PROTECT |
-| GROWLITHE | 29 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, EMBER |
-
-## TRAINER_BURGLAR_2
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PONYTA | 33 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
-| GROWLITHE | 33 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, FLAME_WHEEL |
-
-## TRAINER_BURGLAR_3
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CHARMANDER | 28 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, DRAGON_CLAW, PROTECT |
-| VULPIX | 28 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
-| PONYTA | 28 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BURGLAR_QUINN
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GROWLITHE | 36 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
-| VULPIX | 36 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
-| NINETALES | 36 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BURGLAR_RAMON
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PONYTA | 41 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
-| GROWLITHE | 41 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, FLAME_WHEEL |
-
-## TRAINER_BURGLAR_DUSTY
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GROWLITHE | 37 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
-| VULPIX | 37 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BURGLAR_ARNIE
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CHARMANDER | 34 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, DRAGON_CLAW, PROTECT |
-| CHARMELEON | 34 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, EMBER |
-
-## TRAINER_BURGLAR_4
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CHARMANDER | 34 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, DRAGON_CLAW, PROTECT |
-| CHARMELEON | 34 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, EMBER |
-
-## TRAINER_BURGLAR_SIMON
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| WEEZING | 38 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, FLAMETHROWER, PROTECT |
-| NINETALES | 38 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BURGLAR_LEWIS
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PONYTA | 34 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
-| GROWLITHE | 34 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, FLAME_WHEEL |
-
-## TRAINER_ENGINEER_BAILY
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNEMITE | 21 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, FACADE, THUNDER_SHOCK |
-| VOLTORB | 21 | SITRUS_BERRY | SPARK, FACADE, SHOCK_WAVE, SECRET_POWER |
-
-## TRAINER_ENGINEER_BRAXTON
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNEMITE | 21 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, FACADE, THUNDER_SHOCK |
-| PIKACHU | 21 | SITRUS_BERRY | SHOCK_WAVE, STRENGTH, QUICK_ATTACK, BRICK_BREAK |
-
-## TRAINER_ENGINEER_BERNIE
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNEMITE | 18 | ORAN_BERRY | SHOCK_WAVE, REFLECT, FACADE, THUNDER_SHOCK |
-| MAGNEMITE | 18 | ORAN_BERRY | SHOCK_WAVE, FACADE, THUNDER_SHOCK, SECRET_POWER |
-| MAGNETON | 18 | ORAN_BERRY | SHOCK_WAVE, FACADE, THUNDER_SHOCK, SECRET_POWER |
-
-## TRAINER_FISHERMAN_DALE
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GOLDEEN | 17 | ORAN_BERRY | WATERFALL, TAIL_WHIP, FACADE, WATER_PULSE |
-| TENTACOOL | 17 | ORAN_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-| GOLDEEN | 17 | ORAN_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_FISHERMAN_BARNY
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| STARYU | 17 | ORAN_BERRY | WATERFALL, REFLECT, FACADE, WATER_PULSE |
-| TENTACOOL | 17 | ORAN_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-| SHELLDER | 17 | ORAN_BERRY | WATER_PULSE, FACADE, SECRET_POWER, TACKLE |
-
-## TRAINER_FISHERMAN_NED
-
-HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| POLIWAG | 22 | SITRUS_BERRY | WATERFALL, HYPNOSIS, FACADE, WATER_PULSE |
-| GOLDEEN | 22 | SITRUS_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-| GOLDEEN | 22 | SITRUS_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_FISHERMAN_CHIP
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GOLDEEN | 24 | SITRUS_BERRY | WATERFALL, TAIL_WHIP, FACADE, WATER_PULSE |
-| TENTACOOL | 24 | SITRUS_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_FISHERMAN_HANK
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GOLDEEN | 27 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, FACADE, PROTECT |
-| TENTACOOL | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, BUBBLE_BEAM |
-
-## TRAINER_FISHERMAN_ELLIOT
-
-HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| POLIWAG | 21 | SITRUS_BERRY | WATERFALL, HYPNOSIS, FACADE, WATER_PULSE |
-| SHELLDER | 21 | SITRUS_BERRY | WATER_PULSE, FACADE, SECRET_POWER, TACKLE |
-| GOLDEEN | 21 | SITRUS_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-| HORSEA | 21 | SITRUS_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_FISHERMAN_RONALD
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SEAKING | 28 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| GOLDEEN | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| SEAKING | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| SEAKING | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_FISHERMAN_CLAUDE
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SHELLDER | 31 | SITRUS_BERRY | WATER_PULSE, RAIN_DANCE, ICE_BEAM, PROTECT |
-| CLOYSTER | 31 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, AURORA_BEAM |
-
-## TRAINER_FISHERMAN_WADE
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GOLDEEN | 27 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, FACADE, PROTECT |
-| POLIWAG | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-| GOLDEEN | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-| POLIWAG | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-| GOLDEEN | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-| GYARADOS | 27 | SITRUS_BERRY | WATERFALL, STRENGTH, PROTECT, WATER_PULSE |
-
-## TRAINER_FISHERMAN_NOLAN
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GOLDEEN | 33 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| SEAKING | 33 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_FISHERMAN_ANDREW
-
-HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| POLIWAG | 24 | SITRUS_BERRY | WATERFALL, HYPNOSIS, FACADE, WATER_PULSE |
-| GOLDEEN | 24 | SITRUS_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_SWIMMER_MALE_LUIS
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HORSEA | 16 | ORAN_BERRY | WATERFALL, LEER, FACADE, WATER_PULSE |
-| SHELLDER | 16 | ORAN_BERRY | WATER_PULSE, FACADE, SECRET_POWER, TACKLE |
-
-## TRAINER_SWIMMER_MALE_RICHARD
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| TENTACOOL | 30 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
-| SHELLDER | 30 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
-
-## TRAINER_SWIMMER_MALE_REECE
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| STARYU | 29 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| HORSEA | 29 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| GOLDEEN | 29 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_MALE_MATTHEW
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| POLIWAG | 30 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| POLIWHIRL | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_MALE_DOUGLAS
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GOLDEEN | 27 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, FACADE, PROTECT |
-| TENTACOOL | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, BUBBLE_BEAM |
-| TENTACOOL | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, BUBBLE_BEAM |
-| HORSEA | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_MALE_DAVID
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GOLDEEN | 29 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| SHELLDER | 29 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
-| SEAKING | 29 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_MALE_TONY
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HORSEA | 30 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| HORSEA | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_MALE_AXLE
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| TENTACRUEL | 27 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, FACADE, PROTECT |
-| TENTACOOL | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, BUBBLE_BEAM |
-| STARYU | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, RECOVER |
-| HORSEA | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-| TENTACOOL | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, BUBBLE_BEAM |
-
-## TRAINER_SWIMMER_MALE_BARRY
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SHELLDER | 31 | SITRUS_BERRY | WATER_PULSE, RAIN_DANCE, ICE_BEAM, PROTECT |
-| CLOYSTER | 31 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, AURORA_BEAM |
-
-## TRAINER_SWIMMER_MALE_DEAN
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| STARYU | 35 | SITRUS_BERRY | WATERFALL, REFLECT, ICE_BEAM, PROTECT |
-| PSYDUCK | 35 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_MALE_DARRIN
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HORSEA | 28 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| HORSEA | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| SEADRA | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| HORSEA | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_MALE_SPENCER
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SEADRA | 33 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| TENTACRUEL | 33 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
-
-## TRAINER_SWIMMER_MALE_JACK
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| STARMIE | 37 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
-| POLIWHIRL | 37 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_MALE_JEROME
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| STARYU | 33 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| WARTORTLE | 33 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_MALE_ROLAND
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| POLIWHIRL | 32 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| TENTACOOL | 32 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
-| SEADRA | 32 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_CUE_BALL_KOJI
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOP | 28 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MANKEY | 28 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, IRON_TAIL |
-| MACHOP | 28 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, REVENGE |
-
-## TRAINER_CUE_BALL_LUKE
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MANKEY | 29 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOP | 29 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, REVENGE |
-
-## TRAINER_CUE_BALL_CAMRON
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MANKEY | 29 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOP | 29 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, REVENGE |
-
-## TRAINER_CUE_BALL_RAUL
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MANKEY | 29 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| PRIMEAPE | 29 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, IRON_TAIL |
-
-## TRAINER_CUE_BALL_ISAIAH
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHAMP | 29 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOP | 29 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, REVENGE |
-
-## TRAINER_CUE_BALL_ZEEK
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOKE | 33 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MANKEY | 33 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-
-## TRAINER_CUE_BALL_JAMAL
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOP | 26 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MANKEY | 26 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, KARATE_CHOP |
-| MACHAMP | 26 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, REVENGE |
-| MANKEY | 26 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, KARATE_CHOP |
-
-## TRAINER_CUE_BALL_COREY
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PRIMEAPE | 29 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 29 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, REVENGE |
-
-## TRAINER_CUE_BALL_CHASE
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| TENTACOOL | 31 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
-| TENTACOOL | 31 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
-| TENTACRUEL | 31 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
-
-## TRAINER_GAMER_HUGO
-
-HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| POLIWAG | 18 | ORAN_BERRY | WATERFALL, HYPNOSIS, FACADE, WATER_PULSE |
-| HORSEA | 18 | ORAN_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_GAMER_JASPER
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| BELLSPROUT | 18 | ORAN_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| ODDISH | 18 | ORAN_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
-
-## TRAINER_GAMER_DIRK
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNEMITE | 18 | ORAN_BERRY | SHOCK_WAVE, REFLECT, FACADE, THUNDER_SHOCK |
-| VOLTORB | 18 | ORAN_BERRY | SHOCK_WAVE, FACADE, SECRET_POWER, THIEF |
-
-## TRAINER_GAMER_DARIAN
-
-WILL_O_WISP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| VULPIX | 18 | ORAN_BERRY | EMBER, WILL_O_WISP, FACADE, QUICK_ATTACK |
-| GROWLITHE | 18 | ORAN_BERRY | EMBER, STRENGTH, FACADE, SECRET_POWER |
-
-## TRAINER_GAMER_STAN
-
-HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| POLIWHIRL | 22 | SITRUS_BERRY | WATERFALL, HYPNOSIS, STRENGTH, WATER_PULSE |
-| POLIWAG | 22 | SITRUS_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-| POLIWAG | 22 | SITRUS_BERRY | WATERFALL, FACADE, WATER_PULSE, SECRET_POWER |
-
-## TRAINER_GAMER_RICH
-
-WILL_O_WISP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| VULPIX | 24 | SITRUS_BERRY | EMBER, WILL_O_WISP, FACADE, QUICK_ATTACK |
-| GROWLITHE | 24 | SITRUS_BERRY | EMBER, STRENGTH, FACADE, SECRET_POWER |
-
-## TRAINER_BEAUTY_BRIDGET
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| BELLSPROUT | 21 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| BELLSPROUT | 21 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, VINE_WHIP |
-| ODDISH | 21 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
-| ODDISH | 21 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
-
-## TRAINER_BEAUTY_TAMIA
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| BELLSPROUT | 24 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| BELLSPROUT | 24 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, ACID |
-
-## TRAINER_BEAUTY_LORI
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| EXEGGCUTE | 24 | SITRUS_BERRY | GIGA_DRAIN, REFLECT, CONFUSION, STRENGTH |
-| BELLSPROUT | 24 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, ACID |
-
-## TRAINER_BEAUTY_LOLA
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 27 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, PROTECT |
-| RATTATA | 27 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| RATTATA | 27 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BEAUTY_SHEILA
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CLEFAIRY | 29 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
-| MEOWTH | 29 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-
-## TRAINER_SWIMMER_FEMALE_TIFFANY
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SEAKING | 35 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| POLIWHIRL | 35 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_FEMALE_NORA
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SHELLDER | 30 | SITRUS_BERRY | WATER_PULSE, RAIN_DANCE, ICE_BEAM, PROTECT |
-| SHELLDER | 30 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
-| CLOYSTER | 30 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, AURORA_BEAM |
-
-## TRAINER_SWIMMER_FEMALE_MELISSA
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SEAKING | 31 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| POLIWAG | 31 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_BEAUTY_GRACE
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| WIGGLYTUFF | 29 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
-| PIDGEOTTO | 29 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BEAUTY_OLIVIA
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| BULBASAUR | 29 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| IVYSAUR | 29 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
-
-## TRAINER_BEAUTY_LAUREN
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| WEEPINBELL | 33 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| BELLSPROUT | 33 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
-| WEEPINBELL | 33 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
-
-## TRAINER_SWIMMER_FEMALE_ANYA
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SEAKING | 27 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, FACADE, PROTECT |
-| GOLDEEN | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-| POLIWAG | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-| GOLDEEN | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-| POLIWAG | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_FEMALE_ALICE
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GOLDEEN | 30 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| SEAKING | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_SWIMMER_FEMALE_CONNIE
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| STARYU | 29 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| STARYU | 29 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, RECOVER |
-| STARYU | 29 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, RECOVER |
-
-## TRAINER_SWIMMER_FEMALE_SHIRLEY
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SEADRA | 30 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| HORSEA | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| SEADRA | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_PSYCHIC_JOHAN
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MR_MIME | 31 | SITRUS_BERRY | PSYCHIC, REFLECT, THUNDERBOLT, PROTECT |
-| SLOWPOKE | 31 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, STRENGTH |
-| KADABRA | 31 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| KADABRA | 31 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-
-## TRAINER_PSYCHIC_TYRON
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MR_MIME | 34 | SITRUS_BERRY | PSYCHIC, REFLECT, THUNDERBOLT, PROTECT |
-| KADABRA | 34 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-
-## TRAINER_PSYCHIC_CAMERON
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SLOWPOKE | 33 | SITRUS_BERRY | PSYCHIC, RAIN_DANCE, WATER_PULSE, PROTECT |
-| SLOWPOKE | 33 | SITRUS_BERRY | PSYCHIC, WATER_PULSE, PROTECT, SHADOW_BALL |
-| SLOWBRO | 33 | SITRUS_BERRY | PSYCHIC, WATER_PULSE, PROTECT, ICE_BEAM |
-
-## TRAINER_PSYCHIC_PRESTON
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SLOWPOKE | 38 | SITRUS_BERRY | PSYCHIC, RAIN_DANCE, WATER_PULSE, PROTECT |
-| SLOWBRO | 38 | SITRUS_BERRY | PSYCHIC, WATER_PULSE, PROTECT, ICE_BEAM |
-
-## TRAINER_ROCKER_RANDALL
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNEMITE | 20 | SITRUS_BERRY | SHOCK_WAVE, REFLECT, FACADE, THUNDER_SHOCK |
-| VOLTORB | 20 | SITRUS_BERRY | SHOCK_WAVE, FACADE, SECRET_POWER, THIEF |
-| VOLTORB | 20 | SITRUS_BERRY | SHOCK_WAVE, FACADE, SECRET_POWER, THIEF |
-
-## TRAINER_ROCKER_LUCA
-
-LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| VOLTORB | 29 | SITRUS_BERRY | THUNDERBOLT, LIGHT_SCREEN, FACADE, PROTECT |
-| ELECTRODE | 29 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
-
-## TRAINER_JUGGLER_DALTON
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| KADABRA | 29 | SITRUS_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
-| MR_MIME | 29 | SITRUS_BERRY | PSYCHIC, THUNDERBOLT, PROTECT, PSYBEAM |
-
-## TRAINER_JUGGLER_NELSON
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| DROWZEE | 41 | SITRUS_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
-| HYPNO | 41 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
-| KADABRA | 41 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| KADABRA | 41 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-
-## TRAINER_JUGGLER_KIRK
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| DROWZEE | 31 | SITRUS_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
-| DROWZEE | 31 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
-| KADABRA | 31 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| DROWZEE | 31 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
-
-## TRAINER_JUGGLER_SHAWN
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| DROWZEE | 34 | SITRUS_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
-| HYPNO | 34 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
-
-## TRAINER_JUGGLER_GREGORY
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MR_MIME | 48 | LUM_BERRY | PSYCHIC, REFLECT, THUNDERBOLT, PROTECT |
-| NIDORAN_F | 48 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-
-## TRAINER_JUGGLER_EDWARD
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MR_MIME | 48 | LUM_BERRY | PSYCHIC, REFLECT, THUNDERBOLT, PROTECT |
-| VOLTORB | 46 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
-| ELECTRODE | 47 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
-| VOLTORB | 46 | LEFTOVERS | THUNDERBOLT, FACADE, PROTECT, THUNDER |
-
-## TRAINER_JUGGLER_KAYDEN
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HYPNO | 38 | SITRUS_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
-| ODDISH | 38 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, MOONLIGHT |
-
-## TRAINER_JUGGLER_NATE
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| KADABRA | 34 | SITRUS_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
-| DROWZEE | 34 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
-
-## TRAINER_TAMER_PHIL
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SANDSLASH | 34 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
-| ARBOK | 34 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
-
-## TRAINER_TAMER_EDGAR
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SANDSLASH | 33 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
-| ARBOK | 33 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
-| ARBOK | 33 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
-
-## TRAINER_TAMER_JASON
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RHYHORN | 43 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, IRON_TAIL, PROTECT |
-| ODDISH | 43 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, MOONLIGHT |
-
-## TRAINER_TAMER_COLE
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| TAUROS | 39 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, IRON_TAIL, PROTECT |
-| ARBOK | 39 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
-
-## TRAINER_TAMER_VINCENT
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GOLDUCK | 44 | SITRUS_BERRY | WATERFALL, TOXIC, ICE_BEAM, PROTECT |
-| PERSIAN | 44 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-
-## TRAINER_TAMER_JOHN
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| TAUROS | 42 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, IRON_TAIL, PROTECT |
-| PRIMEAPE | 42 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-| ARBOK | 42 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
-| RHYHORN | 42 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, PROTECT, IRON_TAIL |
-
-## TRAINER_BIRD_KEEPER_SEBASTIAN
-
-GROWL: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| DODUO | 29 | SITRUS_BERRY | TRI_ATTACK, GROWL, AERIAL_ACE, PROTECT |
-| PIDGEY | 29 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BIRD_KEEPER_PERRY
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SPEAROW | 25 | SITRUS_BERRY | FACADE, LEER, AERIAL_ACE, PROTECT |
-| PIDGEY | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PIDGEY | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| SPEAROW | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-| SPEAROW | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_ROBERT
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SPEAROW | 26 | SITRUS_BERRY | FACADE, LEER, AERIAL_ACE, PROTECT |
-| PIDGEOTTO | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PIDGEY | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| FEAROW | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_DONALD
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| NATU | 33 | SITRUS_BERRY | PSYCHIC, REFLECT, AERIAL_ACE, PROTECT |
-| FARFETCHD | 33 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_BENNY
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SPEAROW | 29 | SITRUS_BERRY | FACADE, LEER, AERIAL_ACE, PROTECT |
-| FEAROW | 29 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_EDWIN
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FARFETCHD | 26 | SITRUS_BERRY | FACADE, LEER, AERIAL_ACE, PROTECT |
-| PIDGEOTTO | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| DODUO | 26 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
-| PIDGEY | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BIRD_KEEPER_CHESTER
-
-GROWL: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| DODUO | 28 | SITRUS_BERRY | TRI_ATTACK, GROWL, AERIAL_ACE, PROTECT |
-| DODRIO | 28 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
-| DODUO | 28 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
-
-## TRAINER_BIRD_KEEPER_WILTON
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SPEAROW | 29 | SITRUS_BERRY | FACADE, LEER, AERIAL_ACE, PROTECT |
-| FEAROW | 29 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_RAMIRO
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| NATU | 34 | SITRUS_BERRY | PSYCHIC, REFLECT, AERIAL_ACE, PROTECT |
-| DODRIO | 34 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
-
-## TRAINER_BIRD_KEEPER_JACOB
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SPEAROW | 26 | SITRUS_BERRY | FACADE, LEER, AERIAL_ACE, PROTECT |
-| SPEAROW | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-| FEAROW | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-| SPEAROW | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_ROGER
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FEAROW | 30 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
-| FEAROW | 30 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-| PIDGEOTTO | 30 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BIRD_KEEPER_REED
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIDGEOTTO | 39 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
-| PIDGEOTTO | 39 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PIDGEY | 39 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PIDGEOTTO | 39 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BIRD_KEEPER_KEITH
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FARFETCHD | 39 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
-| FEAROW | 39 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_CARTER
-
-GROWL: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| DODUO | 28 | SITRUS_BERRY | TRI_ATTACK, GROWL, AERIAL_ACE, PROTECT |
-| PIDGEY | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PIDGEOTTO | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BIRD_KEEPER_MITCH
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FEAROW | 26 | SITRUS_BERRY | FACADE, LEER, AERIAL_ACE, PROTECT |
-| SPEAROW | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-| PIDGEY | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PIDGEY | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BIRD_KEEPER_BECK
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FEAROW | 29 | SITRUS_BERRY | FACADE, LEER, AERIAL_ACE, PROTECT |
-| PIDGEOTTO | 29 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BIRD_KEEPER_MARLON
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FEAROW | 28 | SITRUS_BERRY | FACADE, LEER, AERIAL_ACE, PROTECT |
-| DODUO | 28 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
-| SPEAROW | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_BLACK_BELT_KOICHI
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HITMONCHAN | 37 | SITRUS_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONLEE | 37 | SITRUS_BERRY | HI_JUMP_KICK, STRENGTH, PROTECT, BRICK_BREAK |
-
-## TRAINER_BLACK_BELT_MIKE
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MANKEY | 31 | SITRUS_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MANKEY | 31 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-| PRIMEAPE | 31 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, IRON_TAIL |
-
-## TRAINER_BLACK_BELT_HIDEKI
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOKE | 32 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOP | 32 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
-
-## TRAINER_BLACK_BELT_AARON
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PRIMEAPE | 36 | SITRUS_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MAKUHITA | 36 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, FAKE_OUT |
-
-## TRAINER_BLACK_BELT_HITOSHI
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PRIMEAPE | 31 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MANKEY | 31 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-| MACHOP | 31 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
-
-## TRAINER_BLACK_BELT_ATSUSHI
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOKE | 40 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOP | 40 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-
-## TRAINER_BLACK_BELT_KIYO
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MANKEY | 43 | SITRUS_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 43 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
-
-## TRAINER_BLACK_BELT_TAKASHI
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOKE | 38 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOP | 38 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
-| MACHOKE | 38 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
-
-## TRAINER_BLACK_BELT_DAISUKE
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOKE | 43 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOP | 43 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-| MACHOKE | 43 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
-
-## TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SQUIRTLE | 9 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, TACKLE, BUBBLE |
-| PIDGEY | 9 | ORAN_BERRY | GUST, TACKLE |
-
-## TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR
-
-LEECH_SEED: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| BULBASAUR | 9 | ORAN_BERRY | BULLET_SEED, LEECH_SEED, TACKLE, GROWL |
-| PIDGEY | 9 | ORAN_BERRY | GUST, TACKLE |
-
-## TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER
-
-GROWL: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CHARMANDER | 9 | ORAN_BERRY | EMBER, GROWL, SCRATCH |
-| PIDGEY | 9 | ORAN_BERRY | GUST, TACKLE |
-
-## TRAINER_RIVAL_CERULEAN_SQUIRTLE
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ABRA | 16 | ORAN_BERRY | SHOCK_WAVE, REFLECT, SHADOW_BALL, THIEF |
-| PIDGEOTTO | 17 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-| RATTATA | 15 | ORAN_BERRY | QUICK_ATTACK, TACKLE, TAIL_WHIP |
-| SQUIRTLE | 18 | ORAN_BERRY | WATERFALL, STRENGTH, WATER_PULSE, BRICK_BREAK |
-
-## TRAINER_RIVAL_CERULEAN_BULBASAUR
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ABRA | 16 | ORAN_BERRY | SHOCK_WAVE, REFLECT, SHADOW_BALL, THIEF |
-| PIDGEOTTO | 17 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-| RATTATA | 15 | ORAN_BERRY | QUICK_ATTACK, TACKLE, TAIL_WHIP |
-| BULBASAUR | 18 | ORAN_BERRY | GIGA_DRAIN, STRENGTH, FACADE, SECRET_POWER |
-
-## TRAINER_RIVAL_CERULEAN_CHARMANDER
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ABRA | 16 | ORAN_BERRY | SHOCK_WAVE, REFLECT, SHADOW_BALL, THIEF |
-| PIDGEOTTO | 17 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-| RATTATA | 15 | ORAN_BERRY | QUICK_ATTACK, TACKLE, TAIL_WHIP |
-| CHARMANDER | 18 | ORAN_BERRY | EMBER, DRAGON_CLAW, STRENGTH, BRICK_BREAK |
-
-## TRAINER_SCIENTIST_TED
-
-LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ELECTRODE | 29 | SITRUS_BERRY | THUNDERBOLT, LIGHT_SCREEN, FACADE, PROTECT |
-| WEEZING | 29 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-
-## TRAINER_SCIENTIST_CONNOR
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRIMER | 26 | SITRUS_BERRY | SLUDGE, ROCK_TOMB, FACADE, PROTECT |
-| WEEZING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| KOFFING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| WEEZING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-
-## TRAINER_SCIENTIST_JERRY
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNEMITE | 28 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
-| VOLTORB | 28 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
-| MAGNETON | 28 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
-
-## TRAINER_SCIENTIST_JOSE
-
-LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ELECTRODE | 29 | SITRUS_BERRY | THUNDERBOLT, LIGHT_SCREEN, FACADE, PROTECT |
-| WEEZING | 29 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-
-## TRAINER_SCIENTIST_RODNEY
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNETON | 33 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
-| ELECTRODE | 33 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
-
-## TRAINER_SCIENTIST_BEAU
 
 THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
@@ -2369,8 +782,1595 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 |---|---:|---|---|
 | MAGNEMITE | 26 | SITRUS_BERRY | SPARK, THUNDER_WAVE, FACADE, PROTECT |
 | KOFFING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| WEEZING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| MAGNETON | 26 | SITRUS_BERRY | SPARK, FACADE, PROTECT, SHOCK_WAVE |
+| VOLTORB | 26 | SITRUS_BERRY | SPARK, FACADE, PROTECT, SHOCK_WAVE |
+| VOLTORB | 26 | SITRUS_BERRY | SPARK, FACADE, PROTECT, SHOCK_WAVE |
+
+## TRAINER_SUPER_NERD_GLENN
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 30 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| GRIMER | 30 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| GRIMER | 30 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_SUPER_NERD_LESLIE
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIDGEOT | 37 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| WEEZING | 37 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_SUPER_NERD_1
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNETON | 30 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
+| KOFFING | 30 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 30 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_SUPER_NERD_2
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNEMITE | 26 | SITRUS_BERRY | SPARK, THUNDER_WAVE, FACADE, PROTECT |
+| MAGNEMITE | 26 | SITRUS_BERRY | SPARK, FACADE, PROTECT, SHOCK_WAVE |
+| KOFFING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
+| MAGNEMITE | 26 | SITRUS_BERRY | SPARK, FACADE, PROTECT, SHOCK_WAVE |
+
+## TRAINER_SUPER_NERD_3
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNETON | 34 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
+| ELECTRODE | 34 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+
+## TRAINER_SUPER_NERD_ERIK
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NINETALES | 61 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, IRON_TAIL, PROTECT |
+| NINETALES | 61 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
+| NINETALES | 61 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_SUPER_NERD_AVERY
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NINETALES | 61 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, IRON_TAIL, PROTECT |
+| CHARIZARD | 61 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+| RAPIDASH | 61 | SITRUS_BERRY | FIRE_BLAST, STRENGTH, PROTECT, QUICK_ATTACK |
+| ARCANINE | 61 | LEFTOVERS | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+
+## TRAINER_SUPER_NERD_DEREK
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RAPIDASH | 61 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, STRENGTH, PROTECT |
+| VILEPLUME | 61 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+
+## TRAINER_SUPER_NERD_ZAC
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NINETALES | 61 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, IRON_TAIL, PROTECT |
+| ARCANINE | 61 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+
+## TRAINER_HIKER_MARCOS
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GEODUDE | 20 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, BRICK_BREAK |
+| GEODUDE | 20 | SITRUS_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
+| ONIX | 20 | SITRUS_BERRY | ROCK_THROW, STRENGTH, FACADE, SECRET_POWER |
+
+## TRAINER_HIKER_FRANKLIN
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHOP | 19 | ORAN_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
+| GEODUDE | 19 | ORAN_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
+
+## TRAINER_HIKER_NOB
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GEODUDE | 16 | ORAN_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, BRICK_BREAK |
+| GEODUDE | 16 | ORAN_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
+| MACHOP | 16 | ORAN_BERRY | BRICK_BREAK, STRENGTH, KARATE_CHOP, FACADE |
+| GEODUDE | 16 | ORAN_BERRY | ROCK_THROW, STRENGTH, BRICK_BREAK, FACADE |
+
+## TRAINER_HIKER_WAYNE
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ONIX | 22 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, FACADE |
+| MACHOP | 22 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, KARATE_CHOP, FACADE |
+
+## TRAINER_HIKER_ALAN
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GRAVELER | 28 | SITRUS_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
+| ONIX | 28 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, IRON_TAIL |
+
+## TRAINER_HIKER_BRICE
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHOP | 26 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
+| GRAVELER | 26 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+| GRAVELER | 26 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_HIKER_CLARK
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GRAVELER | 28 | SITRUS_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
+| ONIX | 28 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, IRON_TAIL |
+
+## TRAINER_HIKER_TRENT
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ONIX | 25 | SITRUS_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
+| GRAVELER | 25 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_HIKER_DUDLEY
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GRAVELER | 35 | SITRUS_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
+| GRAVELER | 35 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+| GRAVELER | 35 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_HIKER_ALLEN
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ONIX | 35 | SITRUS_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
+| GRAVELER | 35 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_HIKER_ERIC
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ONIX | 35 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHOKE | 35 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
+
+## TRAINER_HIKER_LENNY
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GRAVELER | 35 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHOKE | 35 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
+| GRAVELER | 35 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+| GRAVELER | 35 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_HIKER_OLIVER
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ONIX | 35 | SITRUS_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
+| ONIX | 35 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, IRON_TAIL |
+| GRAVELER | 35 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_HIKER_LUCAS
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GRAVELER | 35 | SITRUS_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
+| GRAVELER | 35 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_BIKER_JARED
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, FLAMETHROWER, PROTECT |
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_MALIK
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 42 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 42 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_ERNEST
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GRIMER | 35 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
+| WEEZING | 35 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 35 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 35 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 35 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_ALEX
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 40 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_LAO
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 42 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 42 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_HIDEO
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WEEZING | 47 | LUM_BERRY | SLUDGE_BOMB, TOXIC, FIRE_BLAST, PROTECT |
+| WEEZING | 47 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_RUBEN
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, FLAMETHROWER, PROTECT |
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_BILLY
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 47 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| MUK | 47 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_NIKOLAS
+
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ELECTRODE | 42 | SITRUS_BERRY | THUNDERBOLT, LIGHT_SCREEN, FACADE, PROTECT |
+| ELECTRODE | 42 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+
+## TRAINER_BIKER_JAXON
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 42 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 42 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_WILLIAM
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WEEZING | 35 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, FLAMETHROWER, PROTECT |
+| WEEZING | 35 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 35 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 35 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 35 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_LUKAS
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GRIMER | 37 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
+| WEEZING | 37 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 37 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 37 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_ISAAC
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 40 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| MUK | 40 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_BIKER_GERALD
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 42 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 42 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+
+## TRAINER_BURGLAR_1
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NINETALES | 42 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, IRON_TAIL, PROTECT |
+| ARCANINE | 42 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, EMBER |
+
+## TRAINER_BURGLAR_2
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RAPIDASH | 47 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, STRENGTH, PROTECT |
+| ARCANINE | 47 | SITRUS_BERRY | FIRE_BLAST, STRENGTH, PROTECT, FLAMETHROWER |
+
+## TRAINER_BURGLAR_3
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CHARIZARD | 40 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, DRAGON_CLAW, PROTECT |
+| VULPIX | 40 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
+| RAPIDASH | 40 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BURGLAR_QUINN
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ARCANINE | 61 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, EXTREME_SPEED, PROTECT |
+| NINETALES | 61 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
+| NINETALES | 61 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BURGLAR_RAMON
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RAPIDASH | 61 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, STRENGTH, PROTECT |
+| ARCANINE | 61 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+
+## TRAINER_BURGLAR_DUSTY
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ARCANINE | 61 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, EXTREME_SPEED, PROTECT |
+| NINETALES | 61 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BURGLAR_ARNIE
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CHARIZARD | 61 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, DRAGON_CLAW, PROTECT |
+| CHARIZARD | 61 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+
+## TRAINER_BURGLAR_4
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CHARIZARD | 47 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, DRAGON_CLAW, PROTECT |
+| CHARIZARD | 47 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+
+## TRAINER_BURGLAR_SIMON
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WEEZING | 61 | LUM_BERRY | SLUDGE_BOMB, TOXIC, FIRE_BLAST, PROTECT |
+| NINETALES | 61 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BURGLAR_LEWIS
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RAPIDASH | 61 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, STRENGTH, PROTECT |
+| ARCANINE | 61 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+
+## TRAINER_ENGINEER_BAILY
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNEMITE | 28 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
+| VOLTORB | 28 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+
+## TRAINER_ENGINEER_BRAXTON
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNEMITE | 28 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
+| PIKACHU | 28 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+
+## TRAINER_ENGINEER_BERNIE
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNEMITE | 23 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, FACADE, THUNDER_SHOCK |
+| MAGNEMITE | 23 | SITRUS_BERRY | SHOCK_WAVE, FACADE, THUNDER_SHOCK, SECRET_POWER |
+| MAGNETON | 23 | SITRUS_BERRY | SHOCK_WAVE, FACADE, THUNDER_SHOCK, SECRET_POWER |
+
+## TRAINER_FISHERMAN_DALE
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GOLDEEN | 29 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| TENTACOOL | 29 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+| GOLDEEN | 29 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_FISHERMAN_BARNY
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SHELLDER | 29 | SITRUS_BERRY | WATER_PULSE, RAIN_DANCE, ICE_BEAM, PROTECT |
+| STARYU | 29 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, RECOVER |
+| TENTACOOL | 29 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+
+## TRAINER_FISHERMAN_NED
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| POLIWHIRL | 30 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| GOLDEEN | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| GOLDEEN | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_FISHERMAN_CHIP
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 34 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| TENTACRUEL | 34 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+
+## TRAINER_FISHERMAN_HANK
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 38 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| TENTACRUEL | 38 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+
+## TRAINER_FISHERMAN_ELLIOT
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HORSEA | 28 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SHELLDER | 28 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
+| GOLDEEN | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWHIRL | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_FISHERMAN_RONALD
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 40 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEAKING | 40 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 40 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 40 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_FISHERMAN_CLAUDE
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SHELLDER | 44 | SITRUS_BERRY | WATER_PULSE, RAIN_DANCE, ICE_BEAM, PROTECT |
+| CLOYSTER | 44 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, AURORA_BEAM |
+
+## TRAINER_FISHERMAN_WADE
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 38 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| POLIWHIRL | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWHIRL | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| GYARADOS | 38 | SITRUS_BERRY | WATERFALL, THRASH, PROTECT, WATER_PULSE |
+
+## TRAINER_FISHERMAN_NOLAN
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 47 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEAKING | 47 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_FISHERMAN_ANDREW
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GYARADOS | 34 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, THRASH, PROTECT |
+| SEAKING | 34 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_MALE_LUIS
+
+LEER: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HORSEA | 23 | SITRUS_BERRY | WATERFALL, LEER, FACADE, WATER_PULSE |
+| SHELLDER | 23 | SITRUS_BERRY | WATER_PULSE, FACADE, SECRET_POWER, AURORA_BEAM |
+
+## TRAINER_SWIMMER_MALE_RICHARD
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| TENTACRUEL | 43 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
+| SHELLDER | 43 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
+
+## TRAINER_SWIMMER_MALE_REECE
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| STARMIE | 42 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
+| SEADRA | 42 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 42 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_MALE_MATTHEW
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| POLIWHIRL | 43 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| POLIWHIRL | 43 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_MALE_DOUGLAS
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 38 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| TENTACRUEL | 38 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+| TENTACRUEL | 38 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+| SEADRA | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_MALE_DAVID
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 42 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SHELLDER | 42 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
+| SEAKING | 42 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_MALE_TONY
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEADRA | 43 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEADRA | 43 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_MALE_AXLE
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| TENTACRUEL | 38 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
+| TENTACRUEL | 38 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+| STARYU | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, RECOVER |
+| SEADRA | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| TENTACRUEL | 38 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+
+## TRAINER_SWIMMER_MALE_BARRY
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SHELLDER | 44 | SITRUS_BERRY | WATER_PULSE, RAIN_DANCE, ICE_BEAM, PROTECT |
+| CLOYSTER | 44 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, AURORA_BEAM |
+
+## TRAINER_SWIMMER_MALE_DEAN
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| STARMIE | 48 | LUM_BERRY | PSYCHIC, REFLECT, WATERFALL, PROTECT |
+| GOLDUCK | 48 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_MALE_DARRIN
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEADRA | 40 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEADRA | 40 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEADRA | 40 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEADRA | 40 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_MALE_SPENCER
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEADRA | 47 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| TENTACRUEL | 47 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+
+## TRAINER_SWIMMER_MALE_JACK
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| STARMIE | 50 | LUM_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
+| POLIWHIRL | 50 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_MALE_JEROME
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| STARMIE | 47 | LUM_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
+| BLASTOISE | 47 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_MALE_ROLAND
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| POLIWHIRL | 45 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| TENTACRUEL | 45 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+| SEADRA | 45 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_CUE_BALL_KOJI
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHAMP | 40 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
+| PRIMEAPE | 40 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 40 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
+
+## TRAINER_CUE_BALL_LUKE
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PRIMEAPE | 42 | SITRUS_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 42 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
+
+## TRAINER_CUE_BALL_CAMRON
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PRIMEAPE | 42 | SITRUS_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 42 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
+
+## TRAINER_CUE_BALL_RAUL
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PRIMEAPE | 42 | SITRUS_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| PRIMEAPE | 42 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_CUE_BALL_ISAIAH
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHAMP | 42 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 42 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
+
+## TRAINER_CUE_BALL_ZEEK
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHAMP | 47 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| PRIMEAPE | 47 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_CUE_BALL_JAMAL
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHAMP | 37 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
+| PRIMEAPE | 37 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 37 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
+| PRIMEAPE | 37 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_CUE_BALL_COREY
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PRIMEAPE | 42 | SITRUS_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 42 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
+
+## TRAINER_CUE_BALL_CHASE
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| TENTACRUEL | 44 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
+| TENTACRUEL | 44 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+| TENTACRUEL | 44 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+
+## TRAINER_GAMER_HUGO
+
+HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| POLIWAG | 23 | SITRUS_BERRY | WATERFALL, HYPNOSIS, FACADE, WATER_PULSE |
+| HORSEA | 23 | SITRUS_BERRY | WATERFALL, FACADE, WATER_PULSE, WATER_GUN |
+
+## TRAINER_GAMER_JASPER
+
+SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WEEPINBELL | 23 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
+| GLOOM | 23 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
+
+## TRAINER_GAMER_DIRK
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNEMITE | 23 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, FACADE, THUNDER_SHOCK |
+| VOLTORB | 23 | SITRUS_BERRY | SPARK, FACADE, SHOCK_WAVE, SECRET_POWER |
+
+## TRAINER_GAMER_DARIAN
+
+WILL_O_WISP: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| VULPIX | 23 | SITRUS_BERRY | EMBER, WILL_O_WISP, FACADE, QUICK_ATTACK |
+| GROWLITHE | 23 | SITRUS_BERRY | EMBER, STRENGTH, FACADE, SECRET_POWER |
+
+## TRAINER_GAMER_STAN
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| POLIWHIRL | 30 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| POLIWHIRL | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWHIRL | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_GAMER_RICH
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| VULPIX | 34 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, IRON_TAIL, PROTECT |
+| GROWLITHE | 34 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, FLAME_WHEEL |
+
+## TRAINER_BEAUTY_BRIDGET
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WEEPINBELL | 39 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| WEEPINBELL | 39 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
+| GLOOM | 39 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, MOONLIGHT |
+| GLOOM | 39 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, MOONLIGHT |
+
+## TRAINER_BEAUTY_TAMIA
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WEEPINBELL | 39 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| WEEPINBELL | 39 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
+
+## TRAINER_BEAUTY_LORI
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WEEPINBELL | 39 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| EXEGGCUTE | 39 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+
+## TRAINER_BEAUTY_LOLA
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIKACHU | 38 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
+| RATICATE | 38 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 38 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BEAUTY_SHEILA
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CLEFABLE | 42 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
+| PERSIAN | 42 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+
+## TRAINER_SWIMMER_FEMALE_TIFFANY
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 48 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| POLIWHIRL | 48 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_FEMALE_NORA
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SHELLDER | 43 | SITRUS_BERRY | WATER_PULSE, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SHELLDER | 43 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
+| CLOYSTER | 43 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, AURORA_BEAM |
+
+## TRAINER_SWIMMER_FEMALE_MELISSA
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 44 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| POLIWHIRL | 44 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_BEAUTY_GRACE
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WIGGLYTUFF | 42 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
+| PIDGEOT | 42 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BEAUTY_OLIVIA
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| VENUSAUR | 42 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| VENUSAUR | 42 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
+
+## TRAINER_BEAUTY_LAUREN
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| VICTREEBEL | 47 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, SPIT_UP, PROTECT |
+| VICTREEBEL | 47 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
+| VICTREEBEL | 47 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
+
+## TRAINER_SWIMMER_FEMALE_ANYA
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 38 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEAKING | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWHIRL | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWHIRL | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_FEMALE_ALICE
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 43 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEAKING | 43 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_FEMALE_CONNIE
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| STARMIE | 42 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
+| STARMIE | 42 | SITRUS_BERRY | WATERFALL, PSYCHIC, PROTECT, RECOVER |
+| STARMIE | 42 | SITRUS_BERRY | WATERFALL, PSYCHIC, PROTECT, RECOVER |
+
+## TRAINER_SWIMMER_FEMALE_SHIRLEY
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEADRA | 43 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEADRA | 43 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEADRA | 43 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_PSYCHIC_JOHAN
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MR_MIME | 54 | LUM_BERRY | PSYCHIC, REFLECT, THUNDERBOLT, PROTECT |
+| SLOWBRO | 54 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
+| ALAKAZAM | 54 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| ALAKAZAM | 54 | LEFTOVERS | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+
+## TRAINER_PSYCHIC_TYRON
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MR_MIME | 54 | LUM_BERRY | PSYCHIC, REFLECT, THUNDERBOLT, PROTECT |
+| ALAKAZAM | 54 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+
+## TRAINER_PSYCHIC_CAMERON
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SLOWBRO | 54 | LUM_BERRY | PSYCHIC, RAIN_DANCE, WATER_PULSE, PROTECT |
+| SLOWBRO | 54 | SITRUS_BERRY | PSYCHIC, WATER_PULSE, PROTECT, ICE_BEAM |
+| SLOWBRO | 54 | SITRUS_BERRY | PSYCHIC, WATER_PULSE, PROTECT, ICE_BEAM |
+
+## TRAINER_PSYCHIC_PRESTON
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SLOWBRO | 54 | LUM_BERRY | PSYCHIC, RAIN_DANCE, WATER_PULSE, PROTECT |
+| SLOWBRO | 54 | SITRUS_BERRY | PSYCHIC, WATER_PULSE, PROTECT, ICE_BEAM |
+
+## TRAINER_ROCKER_RANDALL
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNEMITE | 26 | SITRUS_BERRY | SPARK, THUNDER_WAVE, FACADE, PROTECT |
+| VOLTORB | 26 | SITRUS_BERRY | SPARK, FACADE, PROTECT, SHOCK_WAVE |
+| VOLTORB | 26 | SITRUS_BERRY | SPARK, FACADE, PROTECT, SHOCK_WAVE |
+
+## TRAINER_ROCKER_LUCA
+
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ELECTRODE | 42 | SITRUS_BERRY | THUNDERBOLT, LIGHT_SCREEN, FACADE, PROTECT |
+| ELECTRODE | 42 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+
+## TRAINER_JUGGLER_DALTON
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ALAKAZAM | 54 | LUM_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
+| MR_MIME | 54 | SITRUS_BERRY | PSYCHIC, THUNDERBOLT, PROTECT, PSYBEAM |
+
+## TRAINER_JUGGLER_NELSON
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HYPNO | 76 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| HYPNO | 76 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+| ALAKAZAM | 76 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| ALAKAZAM | 76 | LEFTOVERS | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+
+## TRAINER_JUGGLER_KIRK
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HYPNO | 46 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| HYPNO | 46 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+| ALAKAZAM | 46 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| HYPNO | 46 | LEFTOVERS | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+
+## TRAINER_JUGGLER_SHAWN
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HYPNO | 47 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| HYPNO | 47 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+
+## TRAINER_JUGGLER_GREGORY
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NIDOQUEEN | 76 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, SUPERPOWER, PROTECT |
+| MR_MIME | 76 | SITRUS_BERRY | PSYCHIC, THUNDERBOLT, PROTECT, PSYBEAM |
+
+## TRAINER_JUGGLER_EDWARD
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MR_MIME | 69 | LUM_BERRY | PSYCHIC, REFLECT, THUNDERBOLT, PROTECT |
+| ELECTRODE | 64 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+| ELECTRODE | 67 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+| ELECTRODE | 64 | LEFTOVERS | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+
+## TRAINER_JUGGLER_KAYDEN
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HYPNO | 51 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| VILEPLUME | 51 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+
+## TRAINER_JUGGLER_NATE
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ALAKAZAM | 47 | LUM_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
+| HYPNO | 47 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+
+## TRAINER_TAMER_PHIL
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SANDSLASH | 47 | LUM_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
+| ARBOK | 47 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+
+## TRAINER_TAMER_EDGAR
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SANDSLASH | 47 | LUM_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
+| ARBOK | 47 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+| ARBOK | 47 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+
+## TRAINER_TAMER_JASON
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RHYDON | 72 | LUM_BERRY | ROCK_TOMB, MEGAHORN, STRENGTH, PROTECT |
+| VILEPLUME | 72 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+
+## TRAINER_TAMER_COLE
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| TAUROS | 72 | LUM_BERRY | THRASH, ROCK_TOMB, IRON_TAIL, PROTECT |
+| ARBOK | 72 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+
+## TRAINER_TAMER_VINCENT
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GOLDUCK | 76 | LUM_BERRY | HYDRO_PUMP, TOXIC, ICE_BEAM, PROTECT |
+| PERSIAN | 76 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+
+## TRAINER_TAMER_JOHN
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| TAUROS | 56 | LUM_BERRY | THRASH, ROCK_TOMB, IRON_TAIL, PROTECT |
+| PRIMEAPE | 56 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| ARBOK | 56 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+| RHYDON | 56 | LEFTOVERS | ROCK_TOMB, STRENGTH, PROTECT, TAKE_DOWN |
+
+## TRAINER_BIRD_KEEPER_SEBASTIAN
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIDGEOT | 42 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| PIDGEOT | 42 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BIRD_KEEPER_PERRY
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 35 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| PIDGEOTTO | 35 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOTTO | 35 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| FEAROW | 35 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+| FEAROW | 35 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_ROBERT
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIDGEOT | 37 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| PIDGEOT | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| FEAROW | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+| FEAROW | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_DONALD
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| XATU | 47 | LUM_BERRY | PSYCHIC, REFLECT, AERIAL_ACE, PROTECT |
+| FARFETCHD | 47 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_BENNY
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 42 | SITRUS_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| FEAROW | 42 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_EDWIN
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIDGEOT | 37 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| FARFETCHD | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+| DODRIO | 37 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
+| PIDGEOT | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BIRD_KEEPER_CHESTER
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| DODRIO | 40 | SITRUS_BERRY | TRI_ATTACK, TOXIC, AERIAL_ACE, PROTECT |
+| DODRIO | 40 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
+| DODRIO | 40 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
+
+## TRAINER_BIRD_KEEPER_WILTON
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 42 | SITRUS_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| FEAROW | 42 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_RAMIRO
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| XATU | 47 | LUM_BERRY | PSYCHIC, REFLECT, AERIAL_ACE, PROTECT |
+| DODRIO | 47 | SITRUS_BERRY | DRILL_PECK, TRI_ATTACK, PROTECT, FACADE |
+
+## TRAINER_BIRD_KEEPER_JACOB
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 37 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| FEAROW | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+| FEAROW | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+| FEAROW | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_ROGER
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 43 | SITRUS_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| FEAROW | 43 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| PIDGEOT | 43 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BIRD_KEEPER_REED
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIDGEOT | 52 | LUM_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| PIDGEOT | 52 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 52 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 52 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BIRD_KEEPER_KEITH
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FARFETCHD | 52 | LUM_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| FEAROW | 52 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_CARTER
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| DODRIO | 40 | SITRUS_BERRY | TRI_ATTACK, TOXIC, AERIAL_ACE, PROTECT |
+| PIDGEOT | 40 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 40 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BIRD_KEEPER_MITCH
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 37 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| PIDGEOT | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| FEAROW | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_BECK
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 42 | SITRUS_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| PIDGEOT | 42 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BIRD_KEEPER_MARLON
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 40 | SITRUS_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| DODRIO | 40 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
+| FEAROW | 40 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+
+## TRAINER_BLACK_BELT_KOICHI
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HITMONCHAN | 54 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
+| HITMONLEE | 54 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
+
+## TRAINER_BLACK_BELT_MIKE
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PRIMEAPE | 54 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| PRIMEAPE | 54 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| PRIMEAPE | 54 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_BLACK_BELT_HIDEKI
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHAMP | 54 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 54 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_BLACK_BELT_AARON
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PRIMEAPE | 54 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| HARIYAMA | 54 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, FAKE_OUT |
+
+## TRAINER_BLACK_BELT_HITOSHI
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PRIMEAPE | 54 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| PRIMEAPE | 54 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 54 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_BLACK_BELT_ATSUSHI
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHAMP | 72 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 72 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_BLACK_BELT_KIYO
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PRIMEAPE | 72 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, THRASH, PROTECT |
+| MACHAMP | 72 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_BLACK_BELT_TAKASHI
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHAMP | 72 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 72 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 72 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_BLACK_BELT_DAISUKE
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHAMP | 76 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 76 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 76 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE
+
+TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SQUIRTLE | 14 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, TACKLE, WATER_GUN |
+| PIDGEY | 14 | ORAN_BERRY | GUST, QUICK_ATTACK, TACKLE |
+
+## TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR
+
+LEECH_SEED: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| BULBASAUR | 14 | ORAN_BERRY | VINE_WHIP, LEECH_SEED, TACKLE, BULLET_SEED |
+| PIDGEY | 14 | ORAN_BERRY | GUST, QUICK_ATTACK, TACKLE |
+
+## TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER
+
+GROWL: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CHARMANDER | 14 | ORAN_BERRY | EMBER, GROWL, METAL_CLAW, SCRATCH |
+| PIDGEY | 14 | ORAN_BERRY | GUST, QUICK_ATTACK, TACKLE |
+
+## TRAINER_RIVAL_CERULEAN_SQUIRTLE
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| KADABRA | 24 | SITRUS_BERRY | PSYBEAM, REFLECT, SHOCK_WAVE, CONFUSION |
+| PIDGEOTTO | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| RATICATE | 23 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
+| WARTORTLE | 26 | SITRUS_BERRY | WATERFALL, STRENGTH, PROTECT, WATER_PULSE |
+
+## TRAINER_RIVAL_CERULEAN_BULBASAUR
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| KADABRA | 24 | SITRUS_BERRY | PSYBEAM, REFLECT, SHOCK_WAVE, CONFUSION |
+| PIDGEOTTO | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| RATICATE | 23 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
+| IVYSAUR | 26 | SITRUS_BERRY | GIGA_DRAIN, STRENGTH, PROTECT, RAZOR_LEAF |
+
+## TRAINER_RIVAL_CERULEAN_CHARMANDER
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| KADABRA | 24 | SITRUS_BERRY | PSYBEAM, REFLECT, SHOCK_WAVE, CONFUSION |
+| PIDGEOTTO | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| RATICATE | 23 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
+| CHARMELEON | 26 | SITRUS_BERRY | EMBER, DRAGON_CLAW, PROTECT, STRENGTH |
+
+## TRAINER_SCIENTIST_TED
+
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ELECTRODE | 61 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, FACADE, PROTECT |
+| WEEZING | 61 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+
+## TRAINER_SCIENTIST_CONNOR
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 54 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| WEEZING | 54 | LEFTOVERS | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+
+## TRAINER_SCIENTIST_JERRY
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNETON | 54 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, TRI_ATTACK, PROTECT |
+| ELECTRODE | 54 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+| MAGNETON | 54 | SITRUS_BERRY | THUNDERBOLT, TRI_ATTACK, PROTECT, THUNDER |
+
+## TRAINER_SCIENTIST_JOSE
+
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ELECTRODE | 54 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, FACADE, PROTECT |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+
+## TRAINER_SCIENTIST_RODNEY
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNETON | 54 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, TRI_ATTACK, PROTECT |
+| ELECTRODE | 54 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+
+## TRAINER_SCIENTIST_BEAU
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNETON | 54 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, TRI_ATTACK, PROTECT |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| MAGNETON | 54 | LEFTOVERS | THUNDERBOLT, TRI_ATTACK, PROTECT, THUNDER |
 
 ## TRAINER_SCIENTIST_TAYLOR
 
@@ -2378,11 +2378,11 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAGNETON | 25 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, FACADE, PROTECT |
-| KOFFING | 25 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| VOLTORB | 25 | SITRUS_BERRY | SPARK, FACADE, PROTECT, SHOCK_WAVE |
-| MAGNEMITE | 25 | SITRUS_BERRY | SHOCK_WAVE, FACADE, PROTECT, THUNDER_SHOCK |
-| KOFFING | 25 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
+| MAGNETON | 54 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, TRI_ATTACK, PROTECT |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| ELECTRODE | 54 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+| MAGNETON | 54 | LEFTOVERS | THUNDERBOLT, TRI_ATTACK, PROTECT, THUNDER |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## TRAINER_SCIENTIST_JOSHUA
 
@@ -2390,8 +2390,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MUK | 29 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
-| ELECTRODE | 29 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+| MUK | 54 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| ELECTRODE | 54 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
 
 ## TRAINER_SCIENTIST_PARKER
 
@@ -2399,8 +2399,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GRIMER | 29 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| ELECTRODE | 29 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+| MUK | 54 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| ELECTRODE | 54 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
 
 ## TRAINER_SCIENTIST_ED
 
@@ -2408,9 +2408,9 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAGNETON | 28 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
-| KOFFING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-| VOLTORB | 28 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+| MAGNETON | 54 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, TRI_ATTACK, PROTECT |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| ELECTRODE | 54 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
 
 ## TRAINER_SCIENTIST_TRAVIS
 
@@ -2418,8 +2418,8 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAGNEMITE | 29 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
-| KOFFING | 29 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| MAGNETON | 54 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, TRI_ATTACK, PROTECT |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## TRAINER_SCIENTIST_BRAYDON
 
@@ -2427,9 +2427,9 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAGNETON | 33 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
-| MAGNEMITE | 33 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
-| VOLTORB | 33 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+| MAGNETON | 61 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, TRI_ATTACK, PROTECT |
+| MAGNETON | 61 | SITRUS_BERRY | THUNDERBOLT, TRI_ATTACK, PROTECT, THUNDER |
+| ELECTRODE | 61 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
 
 ## TRAINER_SCIENTIST_IVAN
 
@@ -2437,8 +2437,8 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAGNEMITE | 34 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
-| ELECTRODE | 34 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+| MAGNETON | 61 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, TRI_ATTACK, PROTECT |
+| ELECTRODE | 61 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
 
 ## TRAINER_BOSS_GIOVANNI
 
@@ -2446,9 +2446,9 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| KANGASKHAN | 29 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, SHADOW_BALL, PROTECT |
-| RHYHORN | 24 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, FACADE, SECRET_POWER |
-| ONIX | 25 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, FACADE |
+| KANGASKHAN | 44 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, SHADOW_BALL, PROTECT |
+| RHYHORN | 39 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, PROTECT, IRON_TAIL |
+| ONIX | 40 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, IRON_TAIL |
 
 ## TRAINER_BOSS_GIOVANNI_2
 
@@ -2456,10 +2456,10 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYHORN | 37 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, IRON_TAIL, PROTECT |
-| KANGASKHAN | 35 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FAKE_OUT |
-| NIDORINO | 37 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-| NIDOQUEEN | 41 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, ICE_BEAM |
+| NIDOKING | 54 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, MEGAHORN, PROTECT |
+| KANGASKHAN | 53 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FAKE_OUT |
+| RHYDON | 54 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, PROTECT, TAKE_DOWN |
+| NIDOQUEEN | 58 | LEFTOVERS | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
 
 ## TRAINER_LEADER_GIOVANNI
 
@@ -2467,69 +2467,14 @@ SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYHORN | 49 | LUM_BERRY | ROCK_TOMB, SANDSTORM, STRENGTH, PROTECT |
-| SANDSLASH | 48 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, PROTECT, IRON_TAIL |
-| NIDOQUEEN | 48 | SITRUS_BERRY | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
-| NIDOKING | 48 | LEFTOVERS | SLUDGE_BOMB, MEGAHORN, PROTECT, FIRE_BLAST |
-| DUGTRIO | 48 | SITRUS_BERRY | MUD_SLAP, SLUDGE_BOMB, PROTECT, TRI_ATTACK |
-| RHYDON | 50 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, PROTECT, TAKE_DOWN |
+| DONPHAN | 75 | LUM_BERRY | STRENGTH, SANDSTORM, IRON_TAIL, PROTECT |
+| SANDSLASH | 74 | SITRUS_BERRY | SAND_TOMB, STRENGTH, PROTECT, BRICK_BREAK |
+| NIDOQUEEN | 74 | SITRUS_BERRY | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
+| NIDOKING | 74 | LEFTOVERS | SLUDGE_BOMB, MEGAHORN, PROTECT, FIRE_BLAST |
+| DUGTRIO | 74 | SITRUS_BERRY | MUD_SLAP, SLUDGE_BOMB, PROTECT, TRI_ATTACK |
+| RHYDON | 76 | SITRUS_BERRY | ROCK_TOMB, MEGAHORN, PROTECT, STRENGTH |
 
 ## TRAINER_TEAM_ROCKET_GRUNT
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RATTATA | 13 | ORAN_BERRY | QUICK_ATTACK, TAIL_WHIP, TACKLE |
-| ZUBAT | 13 | ORAN_BERRY | ASTONISH, LEECH_LIFE, SUPERSONIC |
-
-## TRAINER_TEAM_ROCKET_GRUNT_2
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SANDSHREW | 11 | ORAN_BERRY | ROCK_TOMB, SCRATCH |
-| RATTATA | 11 | ORAN_BERRY | QUICK_ATTACK, TACKLE, TAIL_WHIP |
-| ZUBAT | 11 | ORAN_BERRY | ASTONISH, LEECH_LIFE, SUPERSONIC |
-
-## TRAINER_TEAM_ROCKET_GRUNT_3
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| EKANS | 11 | ORAN_BERRY | POISON_STING, LEER, WRAP |
-| ZUBAT | 11 | ORAN_BERRY | ASTONISH, LEECH_LIFE, SUPERSONIC |
-
-## TRAINER_TEAM_ROCKET_GRUNT_4
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SANDSHREW | 13 | ORAN_BERRY | ROCK_TOMB, SCRATCH |
-| RATTATA | 13 | ORAN_BERRY | QUICK_ATTACK, TACKLE, TAIL_WHIP |
-
-## TRAINER_TEAM_ROCKET_GRUNT_5
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOP | 17 | ORAN_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
-| DROWZEE | 17 | ORAN_BERRY | CONFUSION, SHADOW_BALL, BRICK_BREAK, FACADE |
-
-## TRAINER_TEAM_ROCKET_GRUNT_6
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| EKANS | 15 | ORAN_BERRY | POISON_STING, LEER, BITE, WRAP |
-| ZUBAT | 15 | ORAN_BERRY | ASTONISH, LEECH_LIFE, SUPERSONIC |
-
-## TRAINER_TEAM_ROCKET_GRUNT_7
 
 TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
@@ -2538,23 +2483,78 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 | RATICATE | 20 | SITRUS_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
 | ZUBAT | 20 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, FACADE, SECRET_POWER |
 
+## TRAINER_TEAM_ROCKET_GRUNT_2
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SANDSHREW | 20 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, FACADE |
+| RATICATE | 20 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
+| ZUBAT | 20 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, FACADE, SECRET_POWER |
+
+## TRAINER_TEAM_ROCKET_GRUNT_3
+
+LEER: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| EKANS | 20 | SITRUS_BERRY | POISON_STING, LEER, STRENGTH, FACADE |
+| ZUBAT | 20 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, FACADE, SECRET_POWER |
+
+## TRAINER_TEAM_ROCKET_GRUNT_4
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SANDSHREW | 20 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, FACADE |
+| RATICATE | 20 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
+
+## TRAINER_TEAM_ROCKET_GRUNT_5
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHOP | 22 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
+| DROWZEE | 22 | SITRUS_BERRY | CONFUSION, SHADOW_BALL, BRICK_BREAK, FACADE |
+
+## TRAINER_TEAM_ROCKET_GRUNT_6
+
+SCREECH: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GOLBAT | 23 | SITRUS_BERRY | AERIAL_ACE, SCREECH, SHADOW_BALL, WING_ATTACK |
+| ARBOK | 23 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
+
+## TRAINER_TEAM_ROCKET_GRUNT_7
+
+SCREECH: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GOLBAT | 26 | SITRUS_BERRY | AERIAL_ACE, SCREECH, SHADOW_BALL, PROTECT |
+| RATICATE | 26 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+
 ## TRAINER_TEAM_ROCKET_GRUNT_8
 
 ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOP | 21 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
-| DROWZEE | 21 | SITRUS_BERRY | CONFUSION, SHADOW_BALL, BRICK_BREAK, FACADE |
+| MACHAMP | 39 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
+| HYPNO | 39 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_9
 
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATICATE | 21 | SITRUS_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
-| RATICATE | 21 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
+| RATICATE | 39 | SITRUS_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| RATICATE | 39 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_10
 
@@ -2562,20 +2562,20 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GRIMER | 20 | SITRUS_BERRY | SLUDGE, ROCK_TOMB, FACADE, SECRET_POWER |
-| KOFFING | 20 | SITRUS_BERRY | SMOG, SHADOW_BALL, FACADE, SECRET_POWER |
-| KOFFING | 20 | SITRUS_BERRY | SMOG, SHADOW_BALL, FACADE, SECRET_POWER |
+| MUK | 39 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 39 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 39 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_11
 
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATTATA | 19 | ORAN_BERRY | HYPER_FANG, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
-| RATICATE | 19 | ORAN_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
-| RATICATE | 19 | ORAN_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
-| RATTATA | 19 | ORAN_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
+| RATICATE | 39 | SITRUS_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| RATICATE | 39 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 39 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 39 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_12
 
@@ -2583,8 +2583,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GRIMER | 22 | SITRUS_BERRY | SLUDGE, ROCK_TOMB, FACADE, SECRET_POWER |
-| KOFFING | 22 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, FACADE, SECRET_POWER |
+| MUK | 39 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 39 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_13
 
@@ -2592,11 +2592,11 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GRIMER | 17 | ORAN_BERRY | SLUDGE, ROCK_TOMB, FACADE, SECRET_POWER |
-| KOFFING | 17 | ORAN_BERRY | SMOG, SHADOW_BALL, FACADE, SECRET_POWER |
-| ZUBAT | 17 | ORAN_BERRY | AERIAL_ACE, SHADOW_BALL, FACADE, SECRET_POWER |
-| ZUBAT | 17 | ORAN_BERRY | AERIAL_ACE, SHADOW_BALL, FACADE, SECRET_POWER |
-| RATICATE | 17 | ORAN_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
+| MUK | 39 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 39 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| GOLBAT | 39 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| GOLBAT | 39 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| RATICATE | 39 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_14
 
@@ -2604,9 +2604,9 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| DROWZEE | 20 | SITRUS_BERRY | CONFUSION, REFLECT, SHADOW_BALL, BRICK_BREAK |
-| RATICATE | 20 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
-| RATTATA | 20 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
+| HYPNO | 39 | SITRUS_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| RATICATE | 39 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 39 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_15
 
@@ -2614,8 +2614,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOP | 21 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
-| MACHOP | 21 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, KARATE_CHOP, FACADE |
+| MACHAMP | 39 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 39 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_16
 
@@ -2623,9 +2623,9 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SANDSHREW | 23 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, FACADE |
-| EKANS | 23 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
-| SANDSLASH | 23 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, FACADE, SECRET_POWER |
+| SANDSLASH | 39 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
+| ARBOK | 39 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
+| SANDSLASH | 39 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, PROTECT, IRON_TAIL |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_17
 
@@ -2633,28 +2633,28 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SANDSHREW | 23 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, FACADE |
-| EKANS | 23 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
-| ARBOK | 23 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
+| SANDSLASH | 39 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
+| ARBOK | 39 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
+| ARBOK | 39 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_18
 
-SUPERSONIC: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ZUBAT | 21 | SITRUS_BERRY | AERIAL_ACE, SUPERSONIC, SHADOW_BALL, WING_ATTACK |
-| KOFFING | 21 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, FACADE, SECRET_POWER |
+| GOLBAT | 39 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, AERIAL_ACE, PROTECT |
+| WEEZING | 39 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_19
 
-SCREECH: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GOLBAT | 25 | SITRUS_BERRY | AERIAL_ACE, SCREECH, SHADOW_BALL, PROTECT |
-| ZUBAT | 25 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, WING_ATTACK |
-| ZUBAT | 25 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, WING_ATTACK |
+| GOLBAT | 44 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, AERIAL_ACE, PROTECT |
+| GOLBAT | 44 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| GOLBAT | 44 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_20
 
@@ -2662,19 +2662,19 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| DROWZEE | 26 | SITRUS_BERRY | CONFUSION, REFLECT, SHADOW_BALL, PROTECT |
-| KOFFING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
+| HYPNO | 44 | SITRUS_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| WEEZING | 44 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_21
 
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATTATA | 23 | SITRUS_BERRY | HYPER_FANG, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
-| ZUBAT | 23 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, WING_ATTACK, FACADE |
-| RATICATE | 23 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
-| ZUBAT | 23 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, WING_ATTACK, FACADE |
+| RATICATE | 44 | SITRUS_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| RATICATE | 44 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| GOLBAT | 44 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| GOLBAT | 44 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_22
 
@@ -2682,8 +2682,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| DROWZEE | 26 | SITRUS_BERRY | CONFUSION, REFLECT, SHADOW_BALL, PROTECT |
-| KOFFING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
+| HYPNO | 37 | SITRUS_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| WEEZING | 37 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_23
 
@@ -2691,20 +2691,20 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CUBONE | 29 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| ZUBAT | 29 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| MAROWAK | 54 | LUM_BERRY | BONE_CLUB, ROCK_TOMB, THRASH, PROTECT |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_24
 
-SCREECH: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GOLBAT | 25 | SITRUS_BERRY | AERIAL_ACE, SCREECH, SHADOW_BALL, PROTECT |
-| ZUBAT | 25 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, WING_ATTACK |
-| ZUBAT | 25 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, WING_ATTACK |
-| RATICATE | 25 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| ZUBAT | 25 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, WING_ATTACK |
+| GOLBAT | 54 | LUM_BERRY | SLUDGE_BOMB, TOXIC, AERIAL_ACE, PROTECT |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| RATICATE | 54 | LEFTOVERS | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_25
 
@@ -2712,9 +2712,9 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HYPNO | 28 | SITRUS_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
-| RATICATE | 28 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| RATICATE | 28 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| HYPNO | 54 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| RATICATE | 54 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 54 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_26
 
@@ -2722,8 +2722,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOP | 29 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| DROWZEE | 29 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+| MACHAMP | 54 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| HYPNO | 54 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_27
 
@@ -2731,9 +2731,9 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CUBONE | 28 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| ZUBAT | 28 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
-| EKANS | 28 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
+| MAROWAK | 54 | LUM_BERRY | BONE_CLUB, ROCK_TOMB, THRASH, PROTECT |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| ARBOK | 54 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_28
 
@@ -2741,8 +2741,8 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GOLBAT | 33 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, AERIAL_ACE, PROTECT |
-| ARBOK | 33 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
+| GOLBAT | 54 | LUM_BERRY | SLUDGE_BOMB, TOXIC, AERIAL_ACE, PROTECT |
+| ARBOK | 54 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_29
 
@@ -2750,8 +2750,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HYPNO | 33 | SITRUS_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
-| KOFFING | 33 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| HYPNO | 54 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_30
 
@@ -2759,29 +2759,29 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOP | 29 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 29 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, REVENGE |
+| MACHAMP | 54 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 54 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_31
 
-SCREECH: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GOLBAT | 28 | SITRUS_BERRY | SLUDGE_BOMB, SCREECH, AERIAL_ACE, PROTECT |
-| ZUBAT | 28 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
-| ZUBAT | 28 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| GOLBAT | 54 | LUM_BERRY | SLUDGE_BOMB, TOXIC, AERIAL_ACE, PROTECT |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_32
 
-SCREECH: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GOLBAT | 26 | SITRUS_BERRY | AERIAL_ACE, SCREECH, SHADOW_BALL, PROTECT |
-| ARBOK | 26 | SITRUS_BERRY | POISON_STING, STRENGTH, PROTECT, FACADE |
-| KOFFING | 26 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, PROTECT, FACADE |
-| RATICATE | 26 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 54 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| ARBOK | 54 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| GOLBAT | 54 | LEFTOVERS | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_33
 
@@ -2789,8 +2789,8 @@ SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CUBONE | 29 | SITRUS_BERRY | BONE_CLUB, SANDSTORM, FLAMETHROWER, PROTECT |
-| CUBONE | 29 | SITRUS_BERRY | BONE_CLUB, FLAMETHROWER, PROTECT, ICE_BEAM |
+| MAROWAK | 54 | LUM_BERRY | BONE_CLUB, SANDSTORM, THRASH, PROTECT |
+| MAROWAK | 54 | SITRUS_BERRY | BONE_CLUB, THRASH, PROTECT, FIRE_BLAST |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_34
 
@@ -2798,29 +2798,29 @@ SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SANDSHREW | 29 | SITRUS_BERRY | STRENGTH, SANDSTORM, BRICK_BREAK, PROTECT |
-| SANDSLASH | 29 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, PROTECT, IRON_TAIL |
+| SANDSLASH | 54 | LUM_BERRY | SAND_TOMB, SANDSTORM, STRENGTH, PROTECT |
+| SANDSLASH | 54 | SITRUS_BERRY | SAND_TOMB, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_35
 
-SCREECH: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GOLBAT | 26 | SITRUS_BERRY | AERIAL_ACE, SCREECH, SHADOW_BALL, PROTECT |
-| ZUBAT | 26 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, WING_ATTACK |
-| RATICATE | 26 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| RATTATA | 26 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 54 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| RATICATE | 54 | LEFTOVERS | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_36
 
-SCREECH: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GOLBAT | 28 | SITRUS_BERRY | SLUDGE_BOMB, SCREECH, AERIAL_ACE, PROTECT |
-| WEEZING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-| KOFFING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 54 | LUM_BERRY | SLUDGE_BOMB, TOXIC, FIRE_BLAST, PROTECT |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_37
 
@@ -2828,9 +2828,9 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOP | 28 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| GRIMER | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-| DROWZEE | 28 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+| MACHAMP | 54 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MUK | 54 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
+| HYPNO | 54 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_38
 
@@ -2838,9 +2838,9 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HYPNO | 28 | SITRUS_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
-| DROWZEE | 28 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
-| GOLBAT | 28 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| HYPNO | 54 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| HYPNO | 54 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_39
 
@@ -2848,20 +2848,20 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOKE | 33 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| KOFFING | 33 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| MACHAMP | 54 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 54 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_40
 
-SCREECH: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| EKANS | 25 | SITRUS_BERRY | POISON_STING, SCREECH, STRENGTH, PROTECT |
-| RATTATA | 25 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| ZUBAT | 25 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, WING_ATTACK |
-| RATTATA | 25 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| RATTATA | 25 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 54 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| RATICATE | 54 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| GOLBAT | 54 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| RATICATE | 54 | LEFTOVERS | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| ARBOK | 54 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_41
 
@@ -2869,21 +2869,21 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAROWAK | 32 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, STRENGTH, PROTECT |
-| DROWZEE | 32 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
-| CUBONE | 32 | SITRUS_BERRY | BONE_CLUB, FLAMETHROWER, PROTECT, ICE_BEAM |
+| MAROWAK | 54 | LUM_BERRY | BONE_CLUB, ROCK_TOMB, THRASH, PROTECT |
+| HYPNO | 54 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+| MAROWAK | 54 | SITRUS_BERRY | BONE_CLUB, THRASH, PROTECT, FIRE_BLAST |
 
 ## TRAINER_COOLTRAINER_SAMUEL
 
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDOKING | 39 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| SANDSLASH | 37 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, PROTECT, IRON_TAIL |
-| RHYHORN | 38 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, PROTECT, IRON_TAIL |
-| NIDORINO | 39 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-| SANDSLASH | 37 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, PROTECT, IRON_TAIL |
+| RHYDON | 72 | LUM_BERRY | ROCK_TOMB, SANDSTORM, MEGAHORN, PROTECT |
+| SANDSLASH | 72 | SITRUS_BERRY | SAND_TOMB, STRENGTH, PROTECT, BRICK_BREAK |
+| SANDSLASH | 72 | SITRUS_BERRY | SAND_TOMB, STRENGTH, PROTECT, BRICK_BREAK |
+| NIDOKING | 72 | LEFTOVERS | SLUDGE_BOMB, MEGAHORN, PROTECT, FIRE_BLAST |
+| NIDOKING | 72 | SITRUS_BERRY | SLUDGE_BOMB, MEGAHORN, PROTECT, FIRE_BLAST |
 
 ## TRAINER_COOLTRAINER_GEORGE
 
@@ -2891,11 +2891,11 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SANDSLASH | 42 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
-| EXEGGUTOR | 42 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
-| CLOYSTER | 42 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, AURORA_BEAM |
-| ELECTRODE | 42 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
-| ARCANINE | 42 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, IRON_TAIL |
+| SANDSLASH | 76 | LUM_BERRY | SAND_TOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| EXEGGUTOR | 76 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+| CLOYSTER | 76 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, BLIZZARD |
+| ELECTRODE | 76 | LEFTOVERS | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+| ARCANINE | 76 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
 
 ## TRAINER_COOLTRAINER_COLBY
 
@@ -2903,11 +2903,11 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| TENTACRUEL | 42 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
-| POLIWHIRL | 42 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| KINGLER | 41 | SITRUS_BERRY | WATER_PULSE, STRENGTH, PROTECT, FACADE |
-| SEADRA | 42 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| BLASTOISE | 43 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| TENTACRUEL | 76 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
+| POLIWHIRL | 76 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| KINGLER | 76 | SITRUS_BERRY | CRABHAMMER, STRENGTH, PROTECT, WATER_PULSE |
+| SEADRA | 76 | LEFTOVERS | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| BLASTOISE | 76 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
 ## TRAINER_COOLTRAINER_PAUL
 
@@ -2915,11 +2915,11 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| KINGLER | 42 | SITRUS_BERRY | WATER_PULSE, ROCK_TOMB, STRENGTH, PROTECT |
-| SHELLDER | 42 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
-| SLOWPOKE | 42 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, STRENGTH |
-| STARMIE | 42 | SITRUS_BERRY | PSYCHIC, WATERFALL, PROTECT, RECOVER |
-| GOLDUCK | 42 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| KINGLER | 56 | LUM_BERRY | WATER_PULSE, ROCK_TOMB, STRENGTH, PROTECT |
+| SHELLDER | 56 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, BLIZZARD |
+| SLOWBRO | 56 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
+| STARMIE | 56 | LEFTOVERS | PSYCHIC, WATERFALL, PROTECT, RECOVER |
+| GOLDUCK | 56 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_COOLTRAINER_ROLANDO
 
@@ -2927,11 +2927,11 @@ SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| IVYSAUR | 42 | SITRUS_BERRY | SLUDGE_BOMB, SLEEP_POWDER, GIGA_DRAIN, PROTECT |
-| RATICATE | 42 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| WARTORTLE | 42 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| CHARMELEON | 42 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, STRENGTH |
-| CHARIZARD | 42 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, HEAT_WAVE |
+| VENUSAUR | 76 | LUM_BERRY | SLUDGE_BOMB, SLEEP_POWDER, GIGA_DRAIN, PROTECT |
+| RATICATE | 76 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| BLASTOISE | 76 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| CHARIZARD | 76 | LEFTOVERS | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+| CHARIZARD | 76 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
 
 ## TRAINER_COOLTRAINER_GILBERT
 
@@ -2939,11 +2939,11 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| LICKITUNG | 42 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| FEAROW | 42 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
-| PERSIAN | 42 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-| PIDGEOTTO | 42 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| TAUROS | 42 | SITRUS_BERRY | STRENGTH, IRON_TAIL, PROTECT, FACADE |
+| LICKITUNG | 56 | LUM_BERRY | STRENGTH, ROCK_TOMB, FIRE_BLAST, PROTECT |
+| FEAROW | 56 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| PERSIAN | 56 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+| PIDGEOT | 56 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| TAUROS | 56 | SITRUS_BERRY | THRASH, IRON_TAIL, PROTECT, STRENGTH |
 
 ## TRAINER_COOLTRAINER_OWEN
 
@@ -2951,11 +2951,11 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYHORN | 42 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, IRON_TAIL, PROTECT |
-| NIDORINA | 42 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-| RATICATE | 42 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| SANDSLASH | 42 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, PROTECT, IRON_TAIL |
-| NIDORINO | 42 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
+| RHYDON | 56 | LUM_BERRY | ROCK_TOMB, STRENGTH, BRICK_BREAK, PROTECT |
+| NIDOQUEEN | 56 | SITRUS_BERRY | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
+| RATICATE | 56 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| SANDSLASH | 56 | LEFTOVERS | SAND_TOMB, STRENGTH, PROTECT, BRICK_BREAK |
+| NIDOKING | 56 | SITRUS_BERRY | SLUDGE_BOMB, MEGAHORN, PROTECT, FIRE_BLAST |
 
 ## TRAINER_COOLTRAINER_BERKE
 
@@ -2963,11 +2963,11 @@ ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEEL | 42 | SITRUS_BERRY | WATERFALL, ICY_WIND, TAKE_DOWN, PROTECT |
-| GRAVELER | 42 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
-| KINGLER | 42 | SITRUS_BERRY | WATER_PULSE, STRENGTH, PROTECT, FACADE |
-| ONIX | 42 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, IRON_TAIL |
-| CLOYSTER | 42 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, AURORA_BEAM |
+| DEWGONG | 56 | LUM_BERRY | ICE_BEAM, ICY_WIND, WATERFALL, PROTECT |
+| GOLEM | 56 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+| KINGLER | 56 | SITRUS_BERRY | WATER_PULSE, STRENGTH, PROTECT, FACADE |
+| ONIX | 56 | LEFTOVERS | ROCK_THROW, DOUBLE_EDGE, PROTECT, STRENGTH |
+| CLOYSTER | 56 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, BLIZZARD |
 
 ## TRAINER_COOLTRAINER_YUJI
 
@@ -2975,35 +2975,35 @@ SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAROWAK | 38 | SITRUS_BERRY | BONE_CLUB, SANDSTORM, STRENGTH, PROTECT |
-| GRAVELER | 38 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
-| ONIX | 38 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, IRON_TAIL |
-| GRAVELER | 38 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
-| SANDSLASH | 38 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, PROTECT, IRON_TAIL |
+| MAROWAK | 72 | LUM_BERRY | BONE_CLUB, SANDSTORM, DOUBLE_EDGE, PROTECT |
+| GOLEM | 72 | SITRUS_BERRY | ROCK_THROW, DOUBLE_EDGE, PROTECT, STRENGTH |
+| ONIX | 72 | SITRUS_BERRY | ROCK_THROW, DOUBLE_EDGE, PROTECT, STRENGTH |
+| GOLEM | 72 | LEFTOVERS | ROCK_THROW, DOUBLE_EDGE, PROTECT, STRENGTH |
+| SANDSLASH | 72 | SITRUS_BERRY | SAND_TOMB, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_COOLTRAINER_WARREN
 
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAROWAK | 37 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, STRENGTH, PROTECT |
-| MAROWAK | 37 | SITRUS_BERRY | BONE_CLUB, STRENGTH, PROTECT, FLAMETHROWER |
-| RHYHORN | 38 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, PROTECT, IRON_TAIL |
-| NIDORINA | 39 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-| NIDOQUEEN | 39 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, ICE_BEAM |
+| NIDOQUEEN | 72 | LUM_BERRY | SLUDGE_BOMB, SANDSTORM, SUPERPOWER, PROTECT |
+| MAROWAK | 72 | SITRUS_BERRY | BONE_CLUB, DOUBLE_EDGE, PROTECT, THRASH |
+| RHYDON | 72 | SITRUS_BERRY | ROCK_TOMB, MEGAHORN, PROTECT, STRENGTH |
+| NIDOQUEEN | 72 | LEFTOVERS | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
+| MAROWAK | 72 | SITRUS_BERRY | BONE_CLUB, DOUBLE_EDGE, PROTECT, THRASH |
 
 ## TRAINER_COOLTRAINER_MARY
 
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ODDISH | 22 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| BELLSPROUT | 22 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, VINE_WHIP |
-| WEEPINBELL | 22 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, VINE_WHIP |
-| GLOOM | 22 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, CUT |
-| IVYSAUR | 22 | SITRUS_BERRY | GIGA_DRAIN, STRENGTH, RAZOR_LEAF, FACADE |
+| GLOOM | 39 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| WEEPINBELL | 39 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
+| WEEPINBELL | 39 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
+| GLOOM | 39 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, MOONLIGHT |
+| VENUSAUR | 39 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
 
 ## TRAINER_COOLTRAINER_CAROLINE
 
@@ -3011,11 +3011,11 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PARASECT | 42 | SITRUS_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
-| WEEPINBELL | 42 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
-| VICTREEBEL | 42 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
-| PARAS | 42 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
-| BELLSPROUT | 42 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
+| PARASECT | 76 | LUM_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
+| VICTREEBEL | 76 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
+| VICTREEBEL | 76 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
+| PARASECT | 76 | LEFTOVERS | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
+| VICTREEBEL | 76 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
 
 ## TRAINER_COOLTRAINER_ALEXA
 
@@ -3023,11 +3023,11 @@ ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| DEWGONG | 42 | SITRUS_BERRY | ICE_BEAM, ICY_WIND, WATERFALL, PROTECT |
-| JIGGLYPUFF | 42 | SITRUS_BERRY | BODY_SLAM, FLAMETHROWER, PROTECT, STRENGTH |
-| PERSIAN | 42 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-| CLEFAIRY | 42 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, MOONLIGHT |
-| CHANSEY | 42 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, SOFT_BOILED |
+| DEWGONG | 76 | LUM_BERRY | ICE_BEAM, ICY_WIND, WATERFALL, PROTECT |
+| WIGGLYTUFF | 76 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, FACADE |
+| PERSIAN | 76 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+| CLEFABLE | 76 | LEFTOVERS | STRENGTH, FIRE_BLAST, PROTECT, FACADE |
+| CHANSEY | 76 | SITRUS_BERRY | DOUBLE_EDGE, FIRE_BLAST, PROTECT, SOFT_BOILED |
 
 ## TRAINER_COOLTRAINER_SHANNON
 
@@ -3035,23 +3035,23 @@ SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| VENONAT | 42 | SITRUS_BERRY | SLUDGE_BOMB, SLEEP_POWDER, PSYCHIC, PROTECT |
-| BUTTERFREE | 42 | SITRUS_BERRY | AERIAL_ACE, PSYCHIC, PROTECT, PSYBEAM |
-| PARASECT | 42 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
-| BEEDRILL | 42 | SITRUS_BERRY | SLUDGE_BOMB, BRICK_BREAK, PROTECT, FACADE |
-| VENOMOTH | 42 | SITRUS_BERRY | SLUDGE_BOMB, PSYCHIC, PROTECT, SILVER_WIND |
+| VENOMOTH | 56 | LUM_BERRY | SLUDGE_BOMB, SLEEP_POWDER, PSYCHIC, PROTECT |
+| BUTTERFREE | 56 | SITRUS_BERRY | AERIAL_ACE, PSYCHIC, PROTECT, SILVER_WIND |
+| PARASECT | 56 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
+| BEEDRILL | 56 | LEFTOVERS | SLUDGE_BOMB, BRICK_BREAK, PROTECT, FACADE |
+| VENOMOTH | 56 | SITRUS_BERRY | SLUDGE_BOMB, PSYCHIC, PROTECT, SILVER_WIND |
 
 ## TRAINER_COOLTRAINER_NAOMI
 
-WILL_O_WISP: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| VULPIX | 42 | SITRUS_BERRY | FLAMETHROWER, WILL_O_WISP, IRON_TAIL, PROTECT |
-| PONYTA | 42 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, QUICK_ATTACK |
-| RAPIDASH | 42 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, QUICK_ATTACK |
-| PERSIAN | 42 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-| NINETALES | 42 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
+| RAPIDASH | 76 | LUM_BERRY | FIRE_BLAST, TOXIC, STRENGTH, PROTECT |
+| RAPIDASH | 76 | SITRUS_BERRY | FIRE_BLAST, STRENGTH, PROTECT, QUICK_ATTACK |
+| PERSIAN | 76 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+| NINETALES | 76 | LEFTOVERS | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
+| NINETALES | 76 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_COOLTRAINER_BROOKE
 
@@ -3059,35 +3059,35 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| TANGELA | 42 | SITRUS_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
-| GLOOM | 42 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, MOONLIGHT |
-| VILEPLUME | 42 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
-| IVYSAUR | 42 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
-| VENUSAUR | 42 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
+| TANGELA | 56 | LUM_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
+| VILEPLUME | 56 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+| VILEPLUME | 56 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+| VENUSAUR | 56 | LEFTOVERS | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, SYNTHESIS |
+| VENUSAUR | 56 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, SYNTHESIS |
 
 ## TRAINER_COOLTRAINER_AUSTINA
 
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDOKING | 42 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| NIDORINA | 42 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-| NIDOQUEEN | 42 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, ICE_BEAM |
-| NIDORINO | 42 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-| RHYHORN | 42 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, PROTECT, IRON_TAIL |
+| NIDOQUEEN | 56 | LUM_BERRY | SLUDGE_BOMB, SANDSTORM, SUPERPOWER, PROTECT |
+| RHYDON | 56 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, PROTECT, TAKE_DOWN |
+| NIDOQUEEN | 56 | SITRUS_BERRY | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
+| NIDOKING | 56 | LEFTOVERS | SLUDGE_BOMB, MEGAHORN, PROTECT, FIRE_BLAST |
+| NIDOKING | 56 | SITRUS_BERRY | SLUDGE_BOMB, MEGAHORN, PROTECT, FIRE_BLAST |
 
 ## TRAINER_COOLTRAINER_JULIE
 
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PIKACHU | 42 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
-| NINETALES | 42 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
-| RAPIDASH | 42 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, QUICK_ATTACK |
-| PERSIAN | 42 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-| RAICHU | 42 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+| RAICHU | 56 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, STRENGTH, PROTECT |
+| NINETALES | 56 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
+| RAPIDASH | 56 | SITRUS_BERRY | FIRE_BLAST, STRENGTH, PROTECT, QUICK_ATTACK |
+| RAICHU | 56 | LEFTOVERS | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+| PERSIAN | 56 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
 
 ## TRAINER_ELITE_FOUR_LORELEI
 
@@ -3095,12 +3095,12 @@ Helping Hand + Surf/Ice Beam na abertura; quatro tipos Gelo, sono e controle de 
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HITMONTOP | 52 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
-| CLOYSTER | 52 | LEFTOVERS | SURF, ICE_BEAM, TOXIC, PROTECT |
-| PILOSWINE | 52 | LEFTOVERS | MUD_SHOT, ROCK_SLIDE, ICE_BEAM, PROTECT |
-| JYNX | 52 | LUM_BERRY | ICE_BEAM, PSYCHIC, LOVELY_KISS, PROTECT |
-| TYRANITAR | 53 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, BRICK_BREAK, PROTECT |
-| LAPRAS | 54 | LEFTOVERS | SURF, ICE_BEAM, THUNDERBOLT, PROTECT |
+| HITMONTOP | 78 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
+| CLOYSTER | 78 | LEFTOVERS | SURF, ICE_BEAM, TOXIC, PROTECT |
+| PILOSWINE | 78 | LEFTOVERS | MUD_SHOT, ROCK_SLIDE, ICE_BEAM, PROTECT |
+| JYNX | 78 | LUM_BERRY | ICE_BEAM, PSYCHIC, LOVELY_KISS, PROTECT |
+| TYRANITAR | 79 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, BRICK_BREAK, PROTECT |
+| LAPRAS | 80 | LEFTOVERS | SURF, ICE_BEAM, THUNDERBOLT, PROTECT |
 
 Abram Burrows — Worlds 2012 Junior (adaptação)
 
@@ -3121,12 +3121,12 @@ Hariyama + Kyogre na abertura com Fake Out; Ludicolo aproveita chuva, Slowbro pa
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HARIYAMA | 54 | SITRUS_BERRY | FAKE_OUT, BRICK_BREAK, ROCK_SLIDE, PROTECT |
-| KYOGRE | 54 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
-| LUDICOLO | 54 | LEFTOVERS | SURF, GIGA_DRAIN, ICE_BEAM, PROTECT |
-| SLOWBRO | 54 | LEFTOVERS | PSYCHIC, SURF, THUNDER_WAVE, PROTECT |
-| GROUDON | 55 | LUM_BERRY | MUD_SHOT, ROCK_SLIDE, FLAMETHROWER, PROTECT |
-| MACHAMP | 56 | LEFTOVERS | BRICK_BREAK, ROCK_SLIDE, BODY_SLAM, PROTECT |
+| HARIYAMA | 81 | SITRUS_BERRY | FAKE_OUT, BRICK_BREAK, ROCK_SLIDE, PROTECT |
+| KYOGRE | 81 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
+| LUDICOLO | 81 | LEFTOVERS | SURF, GIGA_DRAIN, ICE_BEAM, PROTECT |
+| SLOWBRO | 81 | LEFTOVERS | PSYCHIC, SURF, THUNDER_WAVE, PROTECT |
+| GROUDON | 82 | LUM_BERRY | MUD_SHOT, ROCK_SLIDE, FLAMETHROWER, PROTECT |
+| MACHAMP | 83 | LEFTOVERS | BRICK_BREAK, ROCK_SLIDE, BODY_SLAM, PROTECT |
 
 Ray Rizzo — Worlds 2010 Senior (adaptação)
 
@@ -3147,12 +3147,12 @@ Mawile + Gengar: Intimidate e Fake Tears apoiam dano especial; três Fantasmas, 
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAWILE | 56 | LEFTOVERS | FAKE_TEARS, BRICK_BREAK, ROCK_SLIDE, PROTECT |
-| GENGAR | 56 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
-| DUSCLOPS | 56 | LEFTOVERS | NIGHT_SHADE, SHADOW_BALL, WILL_O_WISP, PROTECT |
-| MISDREAVUS | 56 | LEFTOVERS | PSYCHIC, THUNDERBOLT, THUNDER_WAVE, PAIN_SPLIT |
-| TYRANITAR | 57 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, TAUNT, PROTECT |
-| LANTURN | 58 | LEFTOVERS | SURF, THUNDERBOLT, ICE_BEAM, PROTECT |
+| MAWILE | 84 | LEFTOVERS | FAKE_TEARS, BRICK_BREAK, ROCK_SLIDE, PROTECT |
+| GENGAR | 84 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| DUSCLOPS | 84 | LEFTOVERS | NIGHT_SHADE, SHADOW_BALL, WILL_O_WISP, PROTECT |
+| MISDREAVUS | 84 | LEFTOVERS | PSYCHIC, THUNDERBOLT, THUNDER_WAVE, PAIN_SPLIT |
+| TYRANITAR | 85 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, TAUNT, PROTECT |
+| LANTURN | 86 | LEFTOVERS | SURF, THUNDERBOLT, ICE_BEAM, PROTECT |
 
 Nikolai Zielinski — Worlds 2014 Senior (adaptação)
 
@@ -3173,12 +3173,12 @@ Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralis
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HITMONTOP | 58 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
-| KYOGRE | 58 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
-| GENGAR | 58 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
-| CLAYDOL | 58 | LEFTOVERS | REFLECT, LIGHT_SCREEN, PSYCHIC, PROTECT |
-| RAICHU | 59 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, LIGHT_SCREEN, PROTECT |
-| RAYQUAZA | 60 | LUM_BERRY | DRAGON_CLAW, FLAMETHROWER, ROCK_SLIDE, PROTECT |
+| HITMONTOP | 87 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
+| KYOGRE | 87 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
+| GENGAR | 87 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| CLAYDOL | 87 | LEFTOVERS | REFLECT, LIGHT_SCREEN, PSYCHIC, PROTECT |
+| RAICHU | 88 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, LIGHT_SCREEN, PROTECT |
+| RAYQUAZA | 89 | LUM_BERRY | DRAGON_CLAW, FLAMETHROWER, ROCK_SLIDE, PROTECT |
 
 Wolfe Glick — Worlds 2016 Masters (adaptação)
 
@@ -3199,12 +3199,12 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ONIX | 12 | ORAN_BERRY | ROCK_THROW, ROCK_TOMB, TACKLE, BIND |
-| GEODUDE | 12 | ORAN_BERRY | ROCK_THROW, TACKLE, ROCK_TOMB |
-| RHYHORN | 12 | ORAN_BERRY | ROCK_TOMB, TAIL_WHIP |
-| OMANYTE | 12 | ORAN_BERRY | WATER_PULSE, ROCK_TOMB, CONSTRICT |
-| KABUTO | 13 | ORAN_BERRY | WATER_PULSE, ROCK_TOMB, SCRATCH, ABSORB |
-| NOSEPASS | 14 | ORAN_BERRY | ROCK_THROW, TACKLE, ROCK_TOMB |
+| ONIX | 16 | ORAN_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, PROTECT |
+| GEODUDE | 16 | ORAN_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+| RHYHORN | 16 | ORAN_BERRY | ROCK_TOMB, STRENGTH, PROTECT, FACADE |
+| OMANYTE | 16 | ORAN_BERRY | WATERFALL, BITE, PROTECT, WATER_PULSE |
+| KABUTO | 17 | ORAN_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
+| NOSEPASS | 18 | ORAN_BERRY | ROCK_THROW, STRENGTH, PROTECT, FACADE |
 
 ## TRAINER_LEADER_MISTY
 
@@ -3212,12 +3212,12 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| STARYU | 19 | ORAN_BERRY | WATERFALL, REFLECT, FACADE, PROTECT |
-| PSYDUCK | 19 | ORAN_BERRY | WATERFALL, STRENGTH, PROTECT, WATER_PULSE |
-| HORSEA | 19 | ORAN_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-| POLIWAG | 19 | ORAN_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-| GOLDEEN | 20 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
-| STARMIE | 21 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, RECOVER |
+| STARYU | 26 | SITRUS_BERRY | WATERFALL, REFLECT, FACADE, PROTECT |
+| PSYDUCK | 26 | SITRUS_BERRY | WATERFALL, STRENGTH, PROTECT, WATER_PULSE |
+| HORSEA | 26 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
+| POLIWHIRL | 26 | SITRUS_BERRY | WATERFALL, STRENGTH, PROTECT, WATER_PULSE |
+| GOLDEEN | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
+| STARMIE | 28 | SITRUS_BERRY | PSYCHIC, WATERFALL, PROTECT, RECOVER |
 
 ## TRAINER_LEADER_LT_SURGE
 
@@ -3225,12 +3225,12 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ELECTRIKE | 23 | SITRUS_BERRY | SPARK, THUNDER_WAVE, STRENGTH, PROTECT |
-| MAGNEMITE | 22 | SITRUS_BERRY | SHOCK_WAVE, FACADE, PROTECT, THUNDER_SHOCK |
-| PIKACHU | 22 | SITRUS_BERRY | SHOCK_WAVE, STRENGTH, PROTECT, QUICK_ATTACK |
-| CHINCHOU | 22 | SITRUS_BERRY | WATERFALL, SHOCK_WAVE, PROTECT, WATER_PULSE |
-| VOLTORB | 22 | SITRUS_BERRY | SPARK, FACADE, PROTECT, SHOCK_WAVE |
-| RAICHU | 24 | SITRUS_BERRY | SHOCK_WAVE, STRENGTH, PROTECT, QUICK_ATTACK |
+| MANECTRIC | 35 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
+| MAGNETON | 34 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+| AMPHAROS | 34 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, THUNDER_PUNCH |
+| LANTURN | 34 | SITRUS_BERRY | THUNDERBOLT, WATERFALL, PROTECT, SPARK |
+| ELECTRODE | 34 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+| RAICHU | 36 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_LEADER_ERIKA
 
@@ -3238,12 +3238,12 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PARASECT | 27 | SITRUS_BERRY | GIGA_DRAIN, SUNNY_DAY, FACADE, PROTECT |
-| WEEPINBELL | 27 | SITRUS_BERRY | GIGA_DRAIN, FACADE, PROTECT, SECRET_POWER |
-| GLOOM | 27 | SITRUS_BERRY | GIGA_DRAIN, FACADE, PROTECT, SECRET_POWER |
-| TANGELA | 27 | SITRUS_BERRY | GIGA_DRAIN, FACADE, PROTECT, SECRET_POWER |
-| EXEGGCUTE | 28 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
-| VILEPLUME | 29 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
+| PARASECT | 42 | SITRUS_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
+| VICTREEBEL | 42 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
+| BELLOSSOM | 42 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, MAGICAL_LEAF |
+| TANGELA | 42 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, MEGA_DRAIN |
+| EXEGGUTOR | 43 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+| VILEPLUME | 44 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
 
 ## TRAINER_LEADER_KOGA
 
@@ -3251,12 +3251,12 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ARIADOS | 41 | SITRUS_BERRY | SLUDGE_BOMB, STRING_SHOT, PSYCHIC, PROTECT |
-| GOLBAT | 41 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
-| MUK | 41 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
-| KOFFING | 41 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-| VENOMOTH | 42 | SITRUS_BERRY | SLUDGE_BOMB, PSYCHIC, PROTECT, SILVER_WIND |
-| WEEZING | 43 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| ARIADOS | 50 | LUM_BERRY | SLUDGE_BOMB, STRING_SHOT, PSYCHIC, PROTECT |
+| CROBAT | 50 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| MUK | 50 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
+| TENTACRUEL | 50 | LEFTOVERS | SLUDGE_BOMB, WATERFALL, PROTECT, BUBBLE_BEAM |
+| VENOMOTH | 51 | SITRUS_BERRY | SLUDGE_BOMB, PSYCHIC, PROTECT, SILVER_WIND |
+| WEEZING | 52 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## TRAINER_LEADER_BLAINE
 
@@ -3264,12 +3264,12 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAGMAR | 45 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, PSYCHIC, PROTECT |
-| RAPIDASH | 45 | SITRUS_BERRY | FIRE_BLAST, STRENGTH, PROTECT, QUICK_ATTACK |
-| NINETALES | 45 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
-| CAMERUPT | 45 | LEFTOVERS | FIRE_BLAST, STRENGTH, PROTECT, FLAMETHROWER |
-| FLAREON | 46 | SITRUS_BERRY | FIRE_BLAST, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| ARCANINE | 47 | SITRUS_BERRY | FIRE_BLAST, STRENGTH, PROTECT, FLAMETHROWER |
+| MAGMAR | 66 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, PSYCHIC, PROTECT |
+| RAPIDASH | 66 | SITRUS_BERRY | FIRE_BLAST, STRENGTH, PROTECT, QUICK_ATTACK |
+| NINETALES | 66 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
+| CAMERUPT | 66 | LEFTOVERS | FIRE_BLAST, STRENGTH, PROTECT, FLAMETHROWER |
+| FLAREON | 67 | SITRUS_BERRY | FIRE_BLAST, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| ARCANINE | 68 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
 
 ## TRAINER_LEADER_SABRINA
 
@@ -3277,30 +3277,30 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HYPNO | 41 | SITRUS_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
-| KADABRA | 41 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| MR_MIME | 41 | SITRUS_BERRY | PSYCHIC, THUNDERBOLT, PROTECT, PSYBEAM |
-| SLOWBRO | 41 | SITRUS_BERRY | PSYCHIC, FLAMETHROWER, PROTECT, ICE_BEAM |
-| GIRAFARIG | 42 | SITRUS_BERRY | PSYCHIC, STRENGTH, PROTECT, FACADE |
-| ALAKAZAM | 43 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| HYPNO | 58 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| ESPEON | 58 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| MR_MIME | 58 | SITRUS_BERRY | PSYCHIC, THUNDERBOLT, PROTECT, PSYBEAM |
+| SLOWBRO | 58 | LEFTOVERS | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
+| GIRAFARIG | 59 | SITRUS_BERRY | PSYCHIC, STRENGTH, PROTECT, FACADE |
+| ALAKAZAM | 60 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
 
 ## TRAINER_GENTLEMAN_THOMAS
 
-LEER: suporte de abertura + pressão e cobertura do parceiro.
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GROWLITHE | 18 | ORAN_BERRY | EMBER, LEER, STRENGTH, FACADE |
-| GROWLITHE | 18 | ORAN_BERRY | EMBER, STRENGTH, FACADE, SECRET_POWER |
+| GROWLITHE | 29 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
+| GROWLITHE | 29 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, EMBER |
 
 ## TRAINER_GENTLEMAN_ARTHUR
 
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 19 | ORAN_BERRY | POISON_STING, TAIL_WHIP, STRENGTH, FACADE |
-| NIDORAN_M | 19 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
+| NIDORINO | 29 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
+| NIDORINA | 29 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
 
 ## TRAINER_GENTLEMAN_TUCKER
 
@@ -3308,8 +3308,8 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PIKACHU | 23 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, QUICK_ATTACK |
-| JIGGLYPUFF | 23 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, FACADE, SECRET_POWER |
+| PIKACHU | 32 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
+| JIGGLYPUFF | 32 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, FACADE |
 
 ## TRAINER_GENTLEMAN_NORTON
 
@@ -3317,8 +3317,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| JIGGLYPUFF | 48 | LUM_BERRY | HYPER_VOICE, REFLECT, FIRE_BLAST, PROTECT |
-| PERSIAN | 48 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+| WIGGLYTUFF | 69 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
+| PERSIAN | 69 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
 
 ## TRAINER_GENTLEMAN_WALTER
 
@@ -3326,8 +3326,8 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PONYTA | 17 | ORAN_BERRY | EMBER, TAIL_WHIP, STRENGTH, QUICK_ATTACK |
-| GROWLITHE | 17 | ORAN_BERRY | EMBER, STRENGTH, FACADE, SECRET_POWER |
+| PONYTA | 22 | SITRUS_BERRY | EMBER, TAIL_WHIP, STRENGTH, QUICK_ATTACK |
+| GROWLITHE | 22 | SITRUS_BERRY | EMBER, STRENGTH, FACADE, SECRET_POWER |
 
 ## TRAINER_RIVAL_SS_ANNE_SQUIRTLE
 
@@ -3335,10 +3335,10 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| KADABRA | 18 | ORAN_BERRY | CONFUSION, REFLECT, SHOCK_WAVE, SHADOW_BALL |
-| RATICATE | 16 | ORAN_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
-| PIDGEOTTO | 19 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-| WARTORTLE | 20 | SITRUS_BERRY | WATERFALL, STRENGTH, WATER_PULSE, BRICK_BREAK |
+| KADABRA | 32 | SITRUS_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
+| RATICATE | 30 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| PIDGEOTTO | 33 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| WARTORTLE | 34 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_RIVAL_SS_ANNE_BULBASAUR
 
@@ -3346,10 +3346,10 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| KADABRA | 18 | ORAN_BERRY | CONFUSION, REFLECT, SHOCK_WAVE, SHADOW_BALL |
-| RATICATE | 16 | ORAN_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
-| PIDGEOTTO | 19 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-| IVYSAUR | 20 | SITRUS_BERRY | GIGA_DRAIN, STRENGTH, FACADE, SECRET_POWER |
+| KADABRA | 32 | SITRUS_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
+| RATICATE | 30 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| PIDGEOTTO | 33 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| VENUSAUR | 34 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
 
 ## TRAINER_RIVAL_SS_ANNE_CHARMANDER
 
@@ -3357,10 +3357,10 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| KADABRA | 18 | ORAN_BERRY | CONFUSION, REFLECT, SHOCK_WAVE, SHADOW_BALL |
-| RATICATE | 16 | ORAN_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
-| PIDGEOTTO | 19 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-| CHARMELEON | 20 | SITRUS_BERRY | EMBER, DRAGON_CLAW, STRENGTH, BRICK_BREAK |
+| KADABRA | 32 | SITRUS_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
+| RATICATE | 30 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| PIDGEOTTO | 33 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| CHARMELEON | 34 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, STRENGTH |
 
 ## TRAINER_RIVAL_POKEMON_TOWER_SQUIRTLE
 
@@ -3368,11 +3368,11 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| KADABRA | 20 | SITRUS_BERRY | CONFUSION, REFLECT, SHOCK_WAVE, SHADOW_BALL |
-| GROWLITHE | 23 | SITRUS_BERRY | EMBER, STRENGTH, FACADE, SECRET_POWER |
-| EXEGGCUTE | 22 | SITRUS_BERRY | GIGA_DRAIN, CONFUSION, STRENGTH, FACADE |
-| PIDGEOTTO | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| WARTORTLE | 25 | SITRUS_BERRY | WATERFALL, STRENGTH, PROTECT, WATER_PULSE |
+| ALAKAZAM | 43 | SITRUS_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
+| ARCANINE | 46 | SITRUS_BERRY | FIRE_BLAST, STRENGTH, PROTECT, FLAMETHROWER |
+| EXEGGUTOR | 45 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+| PIDGEOT | 48 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| BLASTOISE | 48 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_RIVAL_POKEMON_TOWER_BULBASAUR
 
@@ -3380,11 +3380,11 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| KADABRA | 20 | SITRUS_BERRY | CONFUSION, REFLECT, SHOCK_WAVE, SHADOW_BALL |
-| GYARADOS | 23 | SITRUS_BERRY | WATERFALL, STRENGTH, FACADE, SECRET_POWER |
-| GROWLITHE | 22 | SITRUS_BERRY | EMBER, STRENGTH, FACADE, SECRET_POWER |
-| PIDGEOTTO | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| IVYSAUR | 25 | SITRUS_BERRY | GIGA_DRAIN, STRENGTH, PROTECT, RAZOR_LEAF |
+| ALAKAZAM | 43 | SITRUS_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
+| GYARADOS | 46 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| ARCANINE | 45 | SITRUS_BERRY | FIRE_BLAST, STRENGTH, PROTECT, FLAMETHROWER |
+| PIDGEOT | 48 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| VENUSAUR | 48 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
 
 ## TRAINER_RIVAL_POKEMON_TOWER_CHARMANDER
 
@@ -3392,11 +3392,11 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| EXEGGCUTE | 23 | SITRUS_BERRY | GIGA_DRAIN, REFLECT, CONFUSION, STRENGTH |
-| PIDGEOTTO | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| GYARADOS | 22 | SITRUS_BERRY | WATERFALL, STRENGTH, FACADE, SECRET_POWER |
-| KADABRA | 20 | SITRUS_BERRY | CONFUSION, SHOCK_WAVE, SHADOW_BALL, FACADE |
-| CHARMELEON | 25 | SITRUS_BERRY | EMBER, DRAGON_CLAW, PROTECT, STRENGTH |
+| EXEGGUTOR | 46 | LUM_BERRY | PSYCHIC, REFLECT, GIGA_DRAIN, PROTECT |
+| PIDGEOT | 48 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| GYARADOS | 45 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| ALAKAZAM | 43 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| CHARIZARD | 48 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
 
 ## TRAINER_RIVAL_SILPH_SQUIRTLE
 
@@ -3404,11 +3404,11 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ALAKAZAM | 35 | SITRUS_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
-| GROWLITHE | 38 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, FLAME_WHEEL |
-| EXEGGCUTE | 35 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
-| PIDGEOT | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| BLASTOISE | 40 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| ALAKAZAM | 53 | LUM_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
+| ARCANINE | 56 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+| EXEGGUTOR | 53 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+| PIDGEOT | 55 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| BLASTOISE | 58 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_RIVAL_SILPH_BULBASAUR
 
@@ -3416,11 +3416,11 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ALAKAZAM | 35 | SITRUS_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
-| GYARADOS | 38 | SITRUS_BERRY | WATERFALL, THRASH, PROTECT, STRENGTH |
-| GROWLITHE | 35 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, FLAME_WHEEL |
-| PIDGEOT | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| VENUSAUR | 40 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
+| ALAKAZAM | 53 | LUM_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
+| GYARADOS | 56 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| ARCANINE | 53 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+| PIDGEOT | 55 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| VENUSAUR | 58 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, SYNTHESIS |
 
 ## TRAINER_RIVAL_SILPH_CHARMANDER
 
@@ -3428,11 +3428,11 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| EXEGGCUTE | 38 | SITRUS_BERRY | PSYCHIC, REFLECT, GIGA_DRAIN, PROTECT |
-| PIDGEOT | 37 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| GYARADOS | 35 | SITRUS_BERRY | WATERFALL, THRASH, PROTECT, STRENGTH |
-| ALAKAZAM | 35 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| CHARIZARD | 40 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, HEAT_WAVE |
+| EXEGGUTOR | 56 | LUM_BERRY | PSYCHIC, REFLECT, GIGA_DRAIN, PROTECT |
+| PIDGEOT | 55 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| GYARADOS | 53 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| ALAKAZAM | 53 | LEFTOVERS | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| CHARIZARD | 58 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
 
 ## TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE
 
@@ -3440,12 +3440,12 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYHORN | 45 | LUM_BERRY | ROCK_TOMB, STRENGTH, IRON_TAIL, PROTECT |
-| PIDGEOT | 47 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| GROWLITHE | 45 | SITRUS_BERRY | FIRE_BLAST, STRENGTH, PROTECT, FLAMETHROWER |
-| EXEGGCUTE | 45 | LEFTOVERS | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
-| ALAKAZAM | 47 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| BLASTOISE | 53 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| RHYDON | 73 | LUM_BERRY | ROCK_TOMB, MEGAHORN, STRENGTH, PROTECT |
+| PIDGEOT | 73 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| ARCANINE | 73 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+| EXEGGUTOR | 73 | LEFTOVERS | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+| ALAKAZAM | 73 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| BLASTOISE | 78 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
 ## TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR
 
@@ -3453,12 +3453,12 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYHORN | 45 | LUM_BERRY | ROCK_TOMB, STRENGTH, IRON_TAIL, PROTECT |
-| PIDGEOT | 47 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| GYARADOS | 45 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
-| GROWLITHE | 45 | LEFTOVERS | FIRE_BLAST, STRENGTH, PROTECT, FLAMETHROWER |
-| ALAKAZAM | 47 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| VENUSAUR | 53 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, SYNTHESIS |
+| RHYDON | 73 | LUM_BERRY | ROCK_TOMB, MEGAHORN, STRENGTH, PROTECT |
+| PIDGEOT | 73 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| GYARADOS | 73 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| ARCANINE | 73 | LEFTOVERS | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+| ALAKAZAM | 73 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| VENUSAUR | 78 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, SYNTHESIS |
 
 ## TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER
 
@@ -3466,12 +3466,12 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYHORN | 45 | LUM_BERRY | ROCK_TOMB, STRENGTH, IRON_TAIL, PROTECT |
-| PIDGEOT | 47 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| EXEGGCUTE | 45 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
-| GYARADOS | 45 | LEFTOVERS | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
-| ALAKAZAM | 47 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| CHARIZARD | 53 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+| RHYDON | 73 | LUM_BERRY | ROCK_TOMB, MEGAHORN, STRENGTH, PROTECT |
+| PIDGEOT | 73 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| EXEGGUTOR | 73 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+| GYARADOS | 73 | LEFTOVERS | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| ALAKAZAM | 73 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| CHARIZARD | 78 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
 
 ## TRAINER_CHAMPION_FIRST_SQUIRTLE
 
@@ -3479,12 +3479,25 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYDON | 59 | LUM_BERRY | ROCK_TOMB, STRENGTH, BRICK_BREAK, PROTECT |
-| ALAKAZAM | 57 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| PIDGEOT | 59 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| ARCANINE | 59 | LEFTOVERS | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
-| EXEGGUTOR | 61 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
-| BLASTOISE | 63 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| RHYDON | 88 | LUM_BERRY | ROCK_TOMB, MEGAHORN, STRENGTH, PROTECT |
+| ALAKAZAM | 87 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| PIDGEOT | 88 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| ARCANINE | 88 | LEFTOVERS | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+| EXEGGUTOR | 90 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+| BLASTOISE | 92 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+
+Campeão: treinamento por função.
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| RHYDON | ADAMANT | LIGHTNING_ROD | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| ALAKAZAM | MODEST | SYNCHRONIZE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| PIDGEOT | ADAMANT | KEEN_EYE | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| ARCANINE | MODEST | INTIMIDATE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| EXEGGUTOR | MODEST | CHLOROPHYLL | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| BLASTOISE | MODEST | TORRENT | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
 
 ## TRAINER_CHAMPION_FIRST_BULBASAUR
 
@@ -3492,12 +3505,25 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYDON | 59 | LUM_BERRY | ROCK_TOMB, STRENGTH, BRICK_BREAK, PROTECT |
-| ALAKAZAM | 57 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| PIDGEOT | 59 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| GYARADOS | 59 | LEFTOVERS | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
-| ARCANINE | 61 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
-| VENUSAUR | 63 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, SYNTHESIS |
+| RHYDON | 88 | LUM_BERRY | ROCK_TOMB, MEGAHORN, STRENGTH, PROTECT |
+| ALAKAZAM | 87 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| PIDGEOT | 88 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| GYARADOS | 88 | LEFTOVERS | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| ARCANINE | 90 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+| VENUSAUR | 92 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, SYNTHESIS |
+
+Campeão: treinamento por função.
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| RHYDON | ADAMANT | LIGHTNING_ROD | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| ALAKAZAM | MODEST | SYNCHRONIZE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| PIDGEOT | ADAMANT | KEEN_EYE | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| GYARADOS | MODEST | INTIMIDATE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| ARCANINE | MODEST | INTIMIDATE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| VENUSAUR | ADAMANT | OVERGROW | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
 
 ## TRAINER_CHAMPION_FIRST_CHARMANDER
 
@@ -3505,12 +3531,25 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYDON | 59 | LUM_BERRY | ROCK_TOMB, STRENGTH, BRICK_BREAK, PROTECT |
-| ALAKAZAM | 57 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| PIDGEOT | 59 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| EXEGGUTOR | 59 | LEFTOVERS | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
-| GYARADOS | 61 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
-| CHARIZARD | 63 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+| RHYDON | 88 | LUM_BERRY | ROCK_TOMB, MEGAHORN, STRENGTH, PROTECT |
+| ALAKAZAM | 87 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| PIDGEOT | 88 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| EXEGGUTOR | 88 | LEFTOVERS | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+| GYARADOS | 90 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| CHARIZARD | 92 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+
+Campeão: treinamento por função.
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| RHYDON | ADAMANT | LIGHTNING_ROD | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| ALAKAZAM | MODEST | SYNCHRONIZE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| PIDGEOT | ADAMANT | KEEN_EYE | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| EXEGGUTOR | MODEST | CHLOROPHYLL | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| GYARADOS | MODEST | INTIMIDATE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| CHARIZARD | MODEST | BLAZE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
 
 ## TRAINER_CHANNELER_PATRICIA
 
@@ -3518,8 +3557,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 22 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| MISDREAVUS | 22 | SITRUS_BERRY | SHADOW_BALL, SHOCK_WAVE, FACADE, SECRET_POWER |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| MISDREAVUS | 44 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_CARLY
 
@@ -3527,8 +3566,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 24 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| MISDREAVUS | 24 | SITRUS_BERRY | SHADOW_BALL, SHOCK_WAVE, FACADE, SECRET_POWER |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| MISDREAVUS | 44 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_HOPE
 
@@ -3536,17 +3575,17 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 23 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| SHUPPET | 23 | SITRUS_BERRY | SHADOW_BALL, FACADE, SECRET_POWER, SHOCK_WAVE |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| BANETTE | 44 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_PAULA
 
-HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 24 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| DUSKULL | 24 | SITRUS_BERRY | SHADOW_BALL, FACADE, SECRET_POWER, ASTONISH |
+| DUSCLOPS | 44 | SITRUS_BERRY | SHADOW_BALL, ROCK_TOMB, ICE_BEAM, PROTECT |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_LAUREL
 
@@ -3554,17 +3593,17 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 23 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| GASTLY | 23 | SITRUS_BERRY | SHADOW_BALL, GIGA_DRAIN, FACADE, SECRET_POWER |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_JODY
 
-HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 22 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| DUSKULL | 22 | SITRUS_BERRY | SHADOW_BALL, FACADE, SECRET_POWER, ASTONISH |
+| DUSCLOPS | 44 | SITRUS_BERRY | SHADOW_BALL, ROCK_TOMB, ICE_BEAM, PROTECT |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_TAMMY
 
@@ -3572,17 +3611,17 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HAUNTER | 23 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| MISDREAVUS | 23 | SITRUS_BERRY | SHADOW_BALL, SHOCK_WAVE, FACADE, SECRET_POWER |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| MISDREAVUS | 44 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_RUTH
 
-HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 22 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| DUSKULL | 22 | SITRUS_BERRY | SHADOW_BALL, FACADE, SECRET_POWER, ASTONISH |
+| DUSCLOPS | 44 | SITRUS_BERRY | SHADOW_BALL, ROCK_TOMB, ICE_BEAM, PROTECT |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_KARINA
 
@@ -3590,8 +3629,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 24 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| MISDREAVUS | 24 | SITRUS_BERRY | SHADOW_BALL, SHOCK_WAVE, FACADE, SECRET_POWER |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| MISDREAVUS | 44 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_JANAE
 
@@ -3599,8 +3638,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 22 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| MISDREAVUS | 22 | SITRUS_BERRY | SHADOW_BALL, SHOCK_WAVE, FACADE, SECRET_POWER |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| MISDREAVUS | 44 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_ANGELICA
 
@@ -3608,9 +3647,9 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 22 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| GASTLY | 22 | SITRUS_BERRY | SHADOW_BALL, GIGA_DRAIN, FACADE, SECRET_POWER |
-| GASTLY | 22 | SITRUS_BERRY | SHADOW_BALL, GIGA_DRAIN, FACADE, SECRET_POWER |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_EMILIA
 
@@ -3618,8 +3657,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 24 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| MISDREAVUS | 24 | SITRUS_BERRY | SHADOW_BALL, SHOCK_WAVE, FACADE, SECRET_POWER |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| MISDREAVUS | 44 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_JENNIFER
 
@@ -3627,8 +3666,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 24 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| MISDREAVUS | 24 | SITRUS_BERRY | SHADOW_BALL, SHOCK_WAVE, FACADE, SECRET_POWER |
+| GENGAR | 44 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| MISDREAVUS | 44 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_1
 
@@ -3636,8 +3675,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HAUNTER | 23 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| GASTLY | 23 | SITRUS_BERRY | SHADOW_BALL, GIGA_DRAIN, FACADE, SECRET_POWER |
+| HAUNTER | 32 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| HAUNTER | 32 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_2
 
@@ -3645,8 +3684,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 24 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| MISDREAVUS | 24 | SITRUS_BERRY | SHADOW_BALL, SHOCK_WAVE, FACADE, SECRET_POWER |
+| HAUNTER | 34 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| MISDREAVUS | 34 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_3
 
@@ -3654,8 +3693,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 22 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| DUSKULL | 22 | SITRUS_BERRY | SHADOW_BALL, FACADE, SECRET_POWER, ASTONISH |
+| HAUNTER | 30 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| DUSKULL | 30 | SITRUS_BERRY | SHADOW_BALL, ICE_BEAM, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_4
 
@@ -3663,8 +3702,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 24 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| SHUPPET | 24 | SITRUS_BERRY | SHADOW_BALL, FACADE, SECRET_POWER, SHOCK_WAVE |
+| HAUNTER | 34 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| SHUPPET | 34 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_5
 
@@ -3672,8 +3711,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HAUNTER | 22 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| DUSKULL | 22 | SITRUS_BERRY | SHADOW_BALL, FACADE, SECRET_POWER, ASTONISH |
+| HAUNTER | 30 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| DUSKULL | 30 | SITRUS_BERRY | SHADOW_BALL, ICE_BEAM, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_6
 
@@ -3681,9 +3720,9 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 22 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| GASTLY | 22 | SITRUS_BERRY | SHADOW_BALL, GIGA_DRAIN, FACADE, SECRET_POWER |
-| GASTLY | 22 | SITRUS_BERRY | SHADOW_BALL, GIGA_DRAIN, FACADE, SECRET_POWER |
+| HAUNTER | 30 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| HAUNTER | 30 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
+| HAUNTER | 30 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_7
 
@@ -3691,8 +3730,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 24 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| DUSKULL | 24 | SITRUS_BERRY | SHADOW_BALL, FACADE, SECRET_POWER, ASTONISH |
+| HAUNTER | 34 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| DUSKULL | 34 | SITRUS_BERRY | SHADOW_BALL, ICE_BEAM, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_8
 
@@ -3700,8 +3739,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 24 | SITRUS_BERRY | SHADOW_BALL, HYPNOSIS, GIGA_DRAIN, FACADE |
-| SHUPPET | 24 | SITRUS_BERRY | SHADOW_BALL, FACADE, SECRET_POWER, SHOCK_WAVE |
+| HAUNTER | 34 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| SHUPPET | 34 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_AMANDA
 
@@ -3709,8 +3748,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GASTLY | 34 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
-| HAUNTER | 34 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
+| GENGAR | 54 | LUM_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| GENGAR | 54 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_STACY
 
@@ -3718,8 +3757,8 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HAUNTER | 38 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
-| SHUPPET | 38 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
+| GENGAR | 54 | LUM_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| BANETTE | 54 | SITRUS_BERRY | SHADOW_BALL, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_CHANNELER_TASHA
 
@@ -3727,9 +3766,9 @@ HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HAUNTER | 33 | SITRUS_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
-| GASTLY | 33 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
-| GASTLY | 33 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
+| GENGAR | 54 | LUM_BERRY | SLUDGE_BOMB, HYPNOSIS, THUNDERBOLT, PROTECT |
+| GENGAR | 54 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
+| GENGAR | 54 | SITRUS_BERRY | SLUDGE_BOMB, THUNDERBOLT, PROTECT, PSYCHIC |
 
 ## TRAINER_HIKER_JEREMY
 
@@ -3737,8 +3776,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOP | 20 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, KARATE_CHOP |
-| ONIX | 20 | SITRUS_BERRY | ROCK_THROW, STRENGTH, FACADE, SECRET_POWER |
+| MACHOP | 26 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
+| ONIX | 26 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, FACADE |
 
 ## TRAINER_PICNICKER_ALMA
 
@@ -3746,9 +3785,9 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| POLIWAG | 28 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| GOLDEEN | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| HORSEA | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWHIRL | 40 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEAKING | 40 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEADRA | 40 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_PICNICKER_SUSIE
 
@@ -3756,11 +3795,11 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PIKACHU | 24 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, QUICK_ATTACK |
-| MEOWTH | 24 | SITRUS_BERRY | FACADE, SHADOW_BALL, SECRET_POWER, CUT |
-| RATTATA | 24 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
-| PIDGEY | 24 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-| MEOWTH | 24 | SITRUS_BERRY | FACADE, SHADOW_BALL, SECRET_POWER, CUT |
+| PIKACHU | 34 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
+| PERSIAN | 34 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+| RATICATE | 34 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| PIDGEOTTO | 34 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PERSIAN | 34 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
 
 ## TRAINER_PICNICKER_VALERIE
 
@@ -3768,29 +3807,29 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| POLIWAG | 30 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| POLIWAG | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWHIRL | 43 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| POLIWHIRL | 43 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_PICNICKER_GWEN
 
-GROWL: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MEOWTH | 27 | SITRUS_BERRY | FACADE, GROWL, SHADOW_BALL, PROTECT |
-| PIDGEY | 27 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PIDGEY | 27 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PIDGEOTTO | 27 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 38 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| PERSIAN | 38 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+| PIDGEOT | 38 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 38 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_BIKER_VIRGIL
 
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GRIMER | 28 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| KOFFING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
-| WEEZING | 28 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, FLAMETHROWER, PROTECT |
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| WEEZING | 40 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
 
 ## TRAINER_CAMPER_FLINT
 
@@ -3798,8 +3837,8 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATTATA | 14 | ORAN_BERRY | QUICK_ATTACK, TAIL_WHIP, TACKLE |
-| EKANS | 14 | ORAN_BERRY | POISON_STING, BITE, WRAP, LEER |
+| RATTATA | 18 | ORAN_BERRY | HYPER_FANG, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
+| EKANS | 18 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
 
 ## TRAINER_PICNICKER_MISSY
 
@@ -3807,8 +3846,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEAKING | 31 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| GOLDEEN | 31 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 44 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEAKING | 44 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_PICNICKER_IRENE
 
@@ -3816,9 +3855,9 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEEL | 30 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| HORSEA | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| TENTACOOL | 30 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
+| DEWGONG | 43 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEADRA | 43 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| TENTACRUEL | 43 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
 
 ## TRAINER_PICNICKER_DANA
 
@@ -3826,9 +3865,9 @@ SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ODDISH | 20 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| MEOWTH | 20 | SITRUS_BERRY | FACADE, SHADOW_BALL, SECRET_POWER, CUT |
-| PIDGEY | 20 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
+| GLOOM | 35 | SITRUS_BERRY | SLUDGE_BOMB, SLEEP_POWDER, GIGA_DRAIN, PROTECT |
+| PERSIAN | 35 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+| PIDGEOTTO | 35 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_PICNICKER_ARIANA
 
@@ -3836,10 +3875,10 @@ SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| BELLSPROUT | 19 | ORAN_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| RATTATA | 19 | ORAN_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
-| RATTATA | 19 | ORAN_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
-| PIDGEY | 19 | ORAN_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
+| WEEPINBELL | 35 | SITRUS_BERRY | SLUDGE_BOMB, SLEEP_POWDER, GIGA_DRAIN, PROTECT |
+| RATICATE | 35 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 35 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| PIDGEOTTO | 35 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_PICNICKER_LEAH
 
@@ -3847,17 +3886,17 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CLEFAIRY | 22 | SITRUS_BERRY | STRENGTH, REFLECT, SHADOW_BALL, FACADE |
-| BELLSPROUT | 22 | SITRUS_BERRY | GIGA_DRAIN, FACADE, SECRET_POWER, VINE_WHIP |
+| CLEFAIRY | 35 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
+| WEEPINBELL | 35 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
 
 ## TRAINER_CAMPER_JUSTIN
 
-HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_M | 29 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
-| NIDORINO | 29 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
+| NIDOKING | 42 | SITRUS_BERRY | SLUDGE_BOMB, SANDSTORM, FLAMETHROWER, PROTECT |
+| NIDOKING | 42 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, ICE_BEAM |
 
 ## TRAINER_PICNICKER_YAZMIN
 
@@ -3865,9 +3904,9 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| TANGELA | 29 | SITRUS_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
-| ODDISH | 29 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
-| BELLSPROUT | 29 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
+| TANGELA | 42 | SITRUS_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
+| VILEPLUME | 42 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
+| VICTREEBEL | 42 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
 
 ## TRAINER_PICNICKER_KINDRA
 
@@ -3875,18 +3914,18 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ODDISH | 28 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| ODDISH | 28 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
-| GLOOM | 28 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
+| GLOOM | 40 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| GLOOM | 40 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, MOONLIGHT |
+| GLOOM | 40 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, MOONLIGHT |
 
 ## TRAINER_PICNICKER_BECKY
 
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PIKACHU | 29 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
-| RAICHU | 29 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+| RAICHU | 42 | SITRUS_BERRY | THUNDERBOLT, LIGHT_SCREEN, STRENGTH, PROTECT |
+| RAICHU | 42 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_PICNICKER_CELIA
 
@@ -3894,8 +3933,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CLEFAIRY | 33 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
-| PIDGEOTTO | 33 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| CLEFABLE | 47 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
+| PIDGEOT | 47 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_GENTLEMAN_BROOKS
 
@@ -3903,17 +3942,17 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PIKACHU | 23 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, QUICK_ATTACK |
-| JIGGLYPUFF | 23 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, FACADE, SECRET_POWER |
+| PIKACHU | 32 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
+| JIGGLYPUFF | 32 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, FACADE |
 
 ## TRAINER_GENTLEMAN_LAMAR
 
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PONYTA | 17 | ORAN_BERRY | EMBER, TAIL_WHIP, STRENGTH, QUICK_ATTACK |
-| GROWLITHE | 17 | ORAN_BERRY | EMBER, STRENGTH, FACADE, SECRET_POWER |
+| PONYTA | 29 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
+| GROWLITHE | 29 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, EMBER |
 
 ## TRAINER_TWINS_ELI_ANNE
 
@@ -3921,8 +3960,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CLEFAIRY | 22 | SITRUS_BERRY | STRENGTH, REFLECT, SHADOW_BALL, FACADE |
-| JIGGLYPUFF | 22 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, FACADE, SECRET_POWER |
+| CLEFAIRY | 30 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
+| JIGGLYPUFF | 30 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, FACADE |
 
 ## TRAINER_COOL_COUPLE_RAY_TYRA
 
@@ -3930,8 +3969,8 @@ SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDOKING | 45 | LUM_BERRY | SLUDGE_BOMB, SANDSTORM, MEGAHORN, PROTECT |
-| NIDOQUEEN | 45 | SITRUS_BERRY | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
+| NIDOKING | 76 | LUM_BERRY | SLUDGE_BOMB, SANDSTORM, MEGAHORN, PROTECT |
+| NIDOQUEEN | 76 | SITRUS_BERRY | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
 
 ## TRAINER_YOUNG_COUPLE_GIA_JES
 
@@ -3939,17 +3978,17 @@ HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 24 | SITRUS_BERRY | POISON_STING, HELPING_HAND, STRENGTH, FACADE |
-| NIDORAN_M | 24 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
+| NIDORINA | 34 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
+| NIDORINO | 34 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
 
 ## TRAINER_TWINS_KIRI_JAN
 
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SQUIRTLE | 29 | SITRUS_BERRY | WATERFALL, TAIL_WHIP, ICE_BEAM, PROTECT |
-| CHARMANDER | 29 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, STRENGTH |
+| BLASTOISE | 42 | SITRUS_BERRY | WATERFALL, TOXIC, ICE_BEAM, PROTECT |
+| CHARIZARD | 42 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, HEAT_WAVE |
 
 ## TRAINER_CRUSH_KIN_RON_MYA
 
@@ -3957,8 +3996,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HITMONCHAN | 29 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONLEE | 29 | SITRUS_BERRY | HI_JUMP_KICK, STRENGTH, PROTECT, BRICK_BREAK |
+| HITMONCHAN | 42 | SITRUS_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
+| HITMONLEE | 42 | SITRUS_BERRY | HI_JUMP_KICK, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_YOUNG_COUPLE_LEA_JED
 
@@ -3966,8 +4005,8 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NINETALES | 29 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, IRON_TAIL, PROTECT |
-| RAPIDASH | 29 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, QUICK_ATTACK |
+| NINETALES | 42 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, IRON_TAIL, PROTECT |
+| RAPIDASH | 42 | SITRUS_BERRY | FLAMETHROWER, STRENGTH, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_SIS_AND_BRO_LIA_LUC
 
@@ -3975,8 +4014,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEAKING | 30 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| GOLDEEN | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 43 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEAKING | 43 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_SIS_AND_BRO_LIL_IAN
 
@@ -3984,17 +4023,17 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| STARMIE | 33 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
-| SEADRA | 33 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| STARMIE | 47 | LUM_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
+| SEADRA | 47 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_YOUNGSTER_BEN_3
 
-SCREECH: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| EKANS | 28 | SITRUS_BERRY | SLUDGE_BOMB, SCREECH, STRENGTH, PROTECT |
-| RATICATE | 28 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 40 | SITRUS_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| ARBOK | 40 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
 
 ## TRAINER_YOUNGSTER_BEN_4
 
@@ -4002,8 +4041,8 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATICATE | 48 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
-| ARBOK | 48 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+| RATICATE | 69 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| ARBOK | 69 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
 
 ## TRAINER_YOUNGSTER_CHAD_2
 
@@ -4011,17 +4050,17 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SANDSHREW | 20 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, FACADE |
-| EKANS | 20 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
+| SANDSLASH | 26 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
+| ARBOK | 26 | SITRUS_BERRY | POISON_STING, STRENGTH, PROTECT, FACADE |
 
 ## TRAINER_LASS_RELI_2
 
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 20 | SITRUS_BERRY | POISON_STING, TAIL_WHIP, STRENGTH, FACADE |
-| PIDGEY | 20 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
+| NIDORINA | 26 | SITRUS_BERRY | POISON_STING, HELPING_HAND, STRENGTH, PROTECT |
+| PIDGEOTTO | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_LASS_RELI_3
 
@@ -4029,28 +4068,28 @@ HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORINA | 28 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
-| PIDGEOTTO | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| NIDORINA | 40 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
+| PIDGEOT | 40 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_YOUNGSTER_TIMMY_2
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RATICATE | 19 | ORAN_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
-| EKANS | 19 | ORAN_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
-| ZUBAT | 19 | ORAN_BERRY | AERIAL_ACE, SHADOW_BALL, FACADE, SECRET_POWER |
-
-## TRAINER_YOUNGSTER_TIMMY_3
 
 SCREECH: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| EKANS | 27 | SITRUS_BERRY | POISON_STING, SCREECH, STRENGTH, PROTECT |
-| RATICATE | 27 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| GOLBAT | 27 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, WING_ATTACK |
+| GOLBAT | 25 | SITRUS_BERRY | AERIAL_ACE, SCREECH, SHADOW_BALL, PROTECT |
+| ARBOK | 25 | SITRUS_BERRY | POISON_STING, STRENGTH, PROTECT, FACADE |
+| RATICATE | 25 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_YOUNGSTER_TIMMY_3
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RATICATE | 38 | SITRUS_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| ARBOK | 38 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
+| GOLBAT | 38 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
 
 ## TRAINER_YOUNGSTER_TIMMY_4
 
@@ -4058,9 +4097,9 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATICATE | 52 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
-| ARBOK | 52 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
-| GOLBAT | 52 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| RATICATE | 76 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| ARBOK | 76 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+| GOLBAT | 76 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
 
 ## TRAINER_YOUNGSTER_CHAD_3
 
@@ -4068,8 +4107,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SANDSHREW | 28 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
-| ARBOK | 28 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
+| SANDSLASH | 40 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
+| ARBOK | 40 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
 
 ## TRAINER_LASS_JANICE_2
 
@@ -4077,17 +4116,17 @@ SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ODDISH | 20 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| PIDGEOTTO | 20 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
+| ODDISH | 26 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, PROTECT |
+| PIDGEOTTO | 26 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_LASS_JANICE_3
 
-HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORAN_F | 28 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
-| PIDGEOTTO | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 40 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| PIDGEOT | 40 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_YOUNGSTER_CHAD_4
 
@@ -4095,8 +4134,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SANDSLASH | 48 | LUM_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
-| ARBOK | 48 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+| SANDSLASH | 69 | LUM_BERRY | SAND_TOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| ARBOK | 69 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
 
 ## TRAINER_HIKER_FRANKLIN_2
 
@@ -4104,8 +4143,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOKE | 25 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| GRAVELER | 25 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHOKE | 35 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
+| GRAVELER | 35 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_42
 
@@ -4113,8 +4152,8 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HOUNDOUR | 49 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, CRUNCH, PROTECT |
-| HOUNDOUR | 49 | SITRUS_BERRY | FIRE_BLAST, CRUNCH, PROTECT, FLAMETHROWER |
+| HOUNDOOM | 86 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, CRUNCH, PROTECT |
+| HOUNDOOM | 86 | SITRUS_BERRY | FIRE_BLAST, CRUNCH, PROTECT, FLAMETHROWER |
 
 ## TRAINER_PSYCHIC_JACLYN
 
@@ -4122,9 +4161,9 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| KADABRA | 49 | LUM_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
-| SLOWBRO | 48 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
-| NATU | 48 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
+| ALAKAZAM | 71 | LUM_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
+| SLOWBRO | 69 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
+| XATU | 69 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
 
 ## TRAINER_CRUSH_GIRL_SHARON
 
@@ -4132,8 +4171,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MANKEY | 37 | SITRUS_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| PRIMEAPE | 37 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| PRIMEAPE | 50 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| PRIMEAPE | 50 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TUBER_AMIRA
 
@@ -4141,19 +4180,19 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| POLIWAG | 34 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| POLIWHIRL | 35 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| POLIWAG | 34 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWHIRL | 47 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| POLIWHIRL | 48 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWHIRL | 47 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_PKMN_BREEDER_ALIZE
 
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PIKACHU | 48 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
-| CLEFAIRY | 48 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, MOONLIGHT |
-| MARILL | 48 | SITRUS_BERRY | HYDRO_PUMP, DOUBLE_EDGE, PROTECT, WATERFALL |
+| CLEFABLE | 69 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
+| RAICHU | 69 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+| AZUMARILL | 69 | SITRUS_BERRY | HYDRO_PUMP, DOUBLE_EDGE, PROTECT, WATERFALL |
 
 ## TRAINER_PKMN_RANGER_NICOLAS
 
@@ -4161,8 +4200,8 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| WEEPINBELL | 51 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| VICTREEBEL | 51 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
+| VICTREEBEL | 75 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, SPIT_UP, PROTECT |
+| VICTREEBEL | 75 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
 
 ## TRAINER_PKMN_RANGER_MADELINE
 
@@ -4170,8 +4209,8 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| VILEPLUME | 51 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, PETAL_DANCE, PROTECT |
-| GLOOM | 51 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, MOONLIGHT |
+| VILEPLUME | 75 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, PETAL_DANCE, PROTECT |
+| VILEPLUME | 75 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
 
 ## TRAINER_AROMA_LADY_NIKKI
 
@@ -4179,8 +4218,8 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| BELLSPROUT | 37 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| WEEPINBELL | 37 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, FACADE |
+| VICTREEBEL | 50 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, SPIT_UP, PROTECT |
+| VICTREEBEL | 50 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
 
 ## TRAINER_RUIN_MANIAC_STANLY
 
@@ -4188,9 +4227,9 @@ SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ONIX | 48 | LUM_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
-| GRAVELER | 48 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
-| GRAVELER | 48 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
+| ONIX | 69 | LUM_BERRY | ROCK_THROW, SANDSTORM, DOUBLE_EDGE, PROTECT |
+| GOLEM | 69 | SITRUS_BERRY | ROCK_THROW, DOUBLE_EDGE, PROTECT, STRENGTH |
+| GOLEM | 69 | SITRUS_BERRY | ROCK_THROW, DOUBLE_EDGE, PROTECT, STRENGTH |
 
 ## TRAINER_LADY_JACKI
 
@@ -4198,8 +4237,8 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HOPPIP | 48 | LUM_BERRY | AERIAL_ACE, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| SKIPLOOM | 50 | SITRUS_BERRY | AERIAL_ACE, GIGA_DRAIN, PROTECT, SYNTHESIS |
+| JUMPLUFF | 69 | LUM_BERRY | AERIAL_ACE, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| JUMPLUFF | 74 | SITRUS_BERRY | AERIAL_ACE, GIGA_DRAIN, PROTECT, SYNTHESIS |
 
 ## TRAINER_PAINTER_DAISY
 
@@ -4207,8 +4246,8 @@ ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SMEARGLE | 50 | LUM_BERRY | FAKE_OUT, ICY_WIND, SEISMIC_TOSS, PROTECT |
-| JIGGLYPUFF | 50 | SITRUS_BERRY | DOUBLE_EDGE, FIRE_BLAST, PROTECT, HYPER_VOICE |
+| SMEARGLE | 74 | LUM_BERRY | FAKE_OUT, ICY_WIND, SEISMIC_TOSS, PROTECT |
+| WIGGLYTUFF | 74 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, FACADE |
 
 ## TRAINER_BIKER_GOON
 
@@ -4216,8 +4255,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GRIMER | 37 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| KOFFING | 37 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| MUK | 68 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 68 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## TRAINER_BIKER_GOON_2
 
@@ -4225,8 +4264,8 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ARBOK | 38 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, STRENGTH, PROTECT |
-| KOFFING | 38 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| ARBOK | 68 | LUM_BERRY | SLUDGE_BOMB, TOXIC, SPIT_UP, PROTECT |
+| WEEZING | 68 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## TRAINER_BIKER_GOON_3
 
@@ -4234,8 +4273,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GRIMER | 38 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
-| WEEZING | 38 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| MUK | 68 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 68 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## TRAINER_BUG_CATCHER_ANTHONY
 
@@ -4243,8 +4282,8 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CATERPIE | 8 | ORAN_BERRY | TACKLE, STRING_SHOT |
-| CATERPIE | 7 | ORAN_BERRY | TACKLE, STRING_SHOT |
+| CATERPIE | 10 | ORAN_BERRY | TACKLE, STRING_SHOT |
+| CATERPIE | 10 | ORAN_BERRY | TACKLE, STRING_SHOT |
 
 ## TRAINER_BUG_CATCHER_CHARLIE
 
@@ -4252,9 +4291,9 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CATERPIE | 7 | ORAN_BERRY | TACKLE, STRING_SHOT |
-| CATERPIE | 7 | ORAN_BERRY | TACKLE, STRING_SHOT |
-| CATERPIE | 7 | ORAN_BERRY | TACKLE, STRING_SHOT |
+| CATERPIE | 10 | ORAN_BERRY | TACKLE, STRING_SHOT |
+| BUTTERFREE | 10 | ORAN_BERRY | CONFUSION |
+| BUTTERFREE | 10 | ORAN_BERRY | CONFUSION |
 
 ## TRAINER_TWINS_ELI_ANNE_2
 
@@ -4262,8 +4301,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CLEFAIRY | 28 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
-| JIGGLYPUFF | 28 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, FACADE |
+| CLEFAIRY | 40 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
+| JIGGLYPUFF | 40 | SITRUS_BERRY | BODY_SLAM, FLAMETHROWER, PROTECT, STRENGTH |
 
 ## TRAINER_YOUNGSTER_JOHNSON
 
@@ -4271,9 +4310,9 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| EKANS | 33 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, STRENGTH, PROTECT |
-| EKANS | 33 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, IRON_TAIL |
-| RATICATE | 34 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| ARBOK | 61 | LUM_BERRY | SLUDGE_BOMB, TOXIC, SPIT_UP, PROTECT |
+| ARBOK | 61 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+| RATICATE | 61 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_BIKER_RICARDO
 
@@ -4281,9 +4320,9 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GRIMER | 23 | SITRUS_BERRY | SLUDGE, ROCK_TOMB, FACADE, SECRET_POWER |
-| KOFFING | 22 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, FACADE, SECRET_POWER |
-| KOFFING | 22 | SITRUS_BERRY | SLUDGE, SHADOW_BALL, FACADE, SECRET_POWER |
+| GRIMER | 32 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
+| KOFFING | 30 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| KOFFING | 30 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
 
 ## TRAINER_BIKER_JAREN
 
@@ -4291,8 +4330,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GRIMER | 24 | SITRUS_BERRY | SLUDGE, ROCK_TOMB, FACADE, SECRET_POWER |
-| GRIMER | 24 | SITRUS_BERRY | SLUDGE, FACADE, SECRET_POWER, GIGA_DRAIN |
+| GRIMER | 34 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, FLAMETHROWER, PROTECT |
+| GRIMER | 34 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_43
 
@@ -4300,8 +4339,8 @@ SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CUBONE | 37 | SITRUS_BERRY | BONE_CLUB, SANDSTORM, THRASH, PROTECT |
-| MAROWAK | 37 | SITRUS_BERRY | BONE_CLUB, STRENGTH, PROTECT, FLAMETHROWER |
+| MAROWAK | 68 | LUM_BERRY | BONE_CLUB, SANDSTORM, DOUBLE_EDGE, PROTECT |
+| MAROWAK | 68 | SITRUS_BERRY | BONE_CLUB, DOUBLE_EDGE, PROTECT, THRASH |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_44
 
@@ -4309,10 +4348,10 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SANDSHREW | 35 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
-| RATICATE | 35 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| RATTATA | 35 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| SANDSLASH | 35 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, PROTECT, IRON_TAIL |
+| SANDSLASH | 68 | LUM_BERRY | SAND_TOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| RATICATE | 68 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 68 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| SANDSLASH | 68 | LEFTOVERS | SAND_TOMB, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_45
 
@@ -4320,9 +4359,9 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GOLBAT | 38 | SITRUS_BERRY | SLUDGE_BOMB, TOXIC, AERIAL_ACE, PROTECT |
-| ZUBAT | 38 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
-| ZUBAT | 38 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| GOLBAT | 86 | LUM_BERRY | SLUDGE_BOMB, TOXIC, AERIAL_ACE, PROTECT |
+| GOLBAT | 86 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| GOLBAT | 86 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_46
 
@@ -4330,9 +4369,9 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MUK | 48 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
-| GOLBAT | 48 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
-| RATICATE | 48 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| MUK | 86 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| GOLBAT | 86 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| RATICATE | 86 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_47
 
@@ -4340,9 +4379,9 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOP | 48 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOP | 48 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-| MACHOKE | 48 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 86 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 86 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 86 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TEAM_ROCKET_GRUNT_48
 
@@ -4350,8 +4389,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HYPNO | 49 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
-| HYPNO | 49 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+| HYPNO | 86 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| HYPNO | 86 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TEAM_ROCKET_ADMIN
 
@@ -4359,9 +4398,9 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MUK | 52 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
-| ARBOK | 53 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
-| VILEPLUME | 54 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+| MUK | 86 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| ARBOK | 86 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+| VILEPLUME | 86 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
 
 ## TRAINER_TEAM_ROCKET_ADMIN_2
 
@@ -4369,9 +4408,9 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| WEEZING | 54 | LUM_BERRY | SLUDGE_BOMB, TOXIC, FIRE_BLAST, PROTECT |
-| GOLBAT | 53 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
-| HOUNDOOM | 55 | SITRUS_BERRY | FIRE_BLAST, BITE, PROTECT, FLAMETHROWER |
+| WEEZING | 86 | LUM_BERRY | SLUDGE_BOMB, TOXIC, FIRE_BLAST, PROTECT |
+| GOLBAT | 86 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
+| HOUNDOOM | 86 | SITRUS_BERRY | FIRE_BLAST, CRUNCH, PROTECT, FLAMETHROWER |
 
 ## TRAINER_SCIENTIST_GIDEON
 
@@ -4379,11 +4418,11 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAGNEMITE | 46 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
-| ELECTRODE | 46 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
-| VOLTORB | 46 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
-| MAGNETON | 46 | LEFTOVERS | THUNDERBOLT, TRI_ATTACK, PROTECT, THUNDER |
-| PORYGON | 46 | SITRUS_BERRY | TRI_ATTACK, ICE_BEAM, PROTECT, RECOVER |
+| MAGNETON | 86 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, TRI_ATTACK, PROTECT |
+| ELECTRODE | 86 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+| ELECTRODE | 86 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+| MAGNETON | 86 | LEFTOVERS | THUNDERBOLT, TRI_ATTACK, PROTECT, THUNDER |
+| PORYGON | 86 | SITRUS_BERRY | TRI_ATTACK, ICE_BEAM, PROTECT, RECOVER |
 
 ## TRAINER_SWIMMER_FEMALE_AMARA
 
@@ -4391,9 +4430,9 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| DEWGONG | 36 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| SEEL | 36 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| SEEL | 36 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| DEWGONG | 49 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| DEWGONG | 49 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| DEWGONG | 49 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_SWIMMER_FEMALE_MARIA
 
@@ -4401,8 +4440,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEADRA | 37 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| SEADRA | 37 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEADRA | 50 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEADRA | 50 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_SWIMMER_FEMALE_ABIGAIL
 
@@ -4410,9 +4449,9 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GOLDUCK | 37 | SITRUS_BERRY | WATERFALL, TOXIC, ICE_BEAM, PROTECT |
-| PSYDUCK | 36 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| PSYDUCK | 35 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| GOLDUCK | 50 | LUM_BERRY | WATERFALL, TOXIC, ICE_BEAM, PROTECT |
+| GOLDUCK | 49 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| GOLDUCK | 48 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_SWIMMER_MALE_FINN
 
@@ -4420,8 +4459,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| STARMIE | 38 | SITRUS_BERRY | PSYCHIC, REFLECT, WATERFALL, PROTECT |
-| PSYDUCK | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| STARMIE | 51 | LUM_BERRY | PSYCHIC, REFLECT, WATERFALL, PROTECT |
+| GOLDUCK | 51 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_SWIMMER_MALE_GARRETT
 
@@ -4429,9 +4468,9 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| WARTORTLE | 38 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| CLOYSTER | 35 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, AURORA_BEAM |
-| SHELLDER | 35 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, FACADE |
+| BLASTOISE | 51 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| CLOYSTER | 48 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, BLIZZARD |
+| SHELLDER | 48 | SITRUS_BERRY | WATER_PULSE, ICE_BEAM, PROTECT, BLIZZARD |
 
 ## TRAINER_FISHERMAN_TOMMY
 
@@ -4439,1170 +4478,13 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEAKING | 35 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| GOLDEEN | 33 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| SEAKING | 35 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| SEAKING | 35 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| GOLDEEN | 33 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 48 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEAKING | 47 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 48 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 48 | LEFTOVERS | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 47 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
 ## TRAINER_CRUSH_GIRL_TANYA
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HITMONCHAN | 38 | SITRUS_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONLEE | 38 | SITRUS_BERRY | HI_JUMP_KICK, STRENGTH, PROTECT, BRICK_BREAK |
-
-## TRAINER_BLACK_BELT_SHEA
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOP | 38 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 38 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
-
-## TRAINER_BLACK_BELT_HUGH
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOP | 37 | SITRUS_BERRY | BRICK_BREAK, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 37 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
-
-## TRAINER_CAMPER_BRYCE
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SANDSLASH | 36 | SITRUS_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
-| RATICATE | 36 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| NIDORINO | 36 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-
-## TRAINER_PICNICKER_CLAIRE
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 35 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
-| MEOWTH | 35 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-| MEOWTH | 35 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-| CLEFAIRY | 35 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, ICE_BEAM |
-
-## TRAINER_CRUSH_KIN_MIK_KIA
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PRIMEAPE | 39 | SITRUS_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 39 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
-
-## TRAINER_AROMA_LADY_VIOLET
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| BULBASAUR | 36 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| IVYSAUR | 36 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
-| IVYSAUR | 36 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
-
-## TRAINER_TUBER_ALEXIS
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| STARYU | 34 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| STARYU | 34 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, RECOVER |
-| KRABBY | 34 | SITRUS_BERRY | WATER_PULSE, STRENGTH, PROTECT, FACADE |
-| KRABBY | 34 | SITRUS_BERRY | WATER_PULSE, STRENGTH, PROTECT, FACADE |
-
-## TRAINER_TWINS_JOY_MEG
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CLEFAIRY | 37 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
-| CLEFAIRY | 37 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, MOONLIGHT |
-
-## TRAINER_SWIMMER_FEMALE_TISHA
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| KINGLER | 38 | SITRUS_BERRY | WATER_PULSE, ROCK_TOMB, STRENGTH, PROTECT |
-| PSYDUCK | 38 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_PAINTER_CELINA
-
-ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SMEARGLE | 50 | LUM_BERRY | FAKE_OUT, ICY_WIND, SEISMIC_TOSS, PROTECT |
-| ODDISH | 50 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, MOONLIGHT |
-
-## TRAINER_PAINTER_RAYNA
-
-ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SMEARGLE | 50 | LUM_BERRY | FAKE_OUT, ICY_WIND, SEISMIC_TOSS, PROTECT |
-| ODDISH | 50 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, MOONLIGHT |
-
-## TRAINER_LADY_GILLIAN
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAREEP | 48 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, IRON_TAIL, PROTECT |
-| MAREEP | 47 | SITRUS_BERRY | THUNDERBOLT, IRON_TAIL, PROTECT, THUNDER |
-| FLAAFFY | 49 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, THUNDER |
-
-## TRAINER_YOUNGSTER_DESTIN
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RATICATE | 48 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
-| PIDGEOTTO | 48 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_SWIMMER_MALE_TOBY
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| POLIWHIRL | 48 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| TENTACOOL | 48 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
-| TENTACRUEL | 48 | SITRUS_BERRY | WATERFALL, SLUDGE_BOMB, PROTECT, BUBBLE_BEAM |
-
-## TRAINER_TEAM_ROCKET_GRUNT_49
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MUK | 48 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
-| GRIMER | 48 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
-| RATTATA | 48 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-
-## TRAINER_TEAM_ROCKET_GRUNT_50
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| KOFFING | 49 | LUM_BERRY | SLUDGE_BOMB, TOXIC, FIRE_BLAST, PROTECT |
-| WEEZING | 49 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
-
-## TRAINER_TEAM_ROCKET_GRUNT_51
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GLOOM | 48 | LUM_BERRY | SLUDGE_BOMB, SLEEP_POWDER, PETAL_DANCE, PROTECT |
-| EKANS | 48 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
-| GLOOM | 48 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, MOONLIGHT |
-
-## TRAINER_BIRD_KEEPER_MILO
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIDGEY | 47 | LUM_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
-| PIDGEOTTO | 49 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BIRD_KEEPER_CHAZ
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SPEAROW | 47 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
-| FEAROW | 49 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_HAROLD
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HOOTHOOT | 47 | LUM_BERRY | TAKE_DOWN, REFLECT, PSYCHIC, PROTECT |
-| NOCTOWL | 49 | SITRUS_BERRY | TAKE_DOWN, PSYCHIC, PROTECT, FACADE |
-
-## TRAINER_FISHERMAN_TYLOR
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| QWILFISH | 49 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
-| QWILFISH | 49 | SITRUS_BERRY | HYDRO_PUMP, SLUDGE_BOMB, PROTECT, WATERFALL |
-
-## TRAINER_SWIMMER_MALE_MYMO
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| WARTORTLE | 49 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| KINGLER | 49 | SITRUS_BERRY | WATER_PULSE, STRENGTH, PROTECT, FACADE |
-
-## TRAINER_SWIMMER_FEMALE_NICOLE
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PSYDUCK | 50 | LUM_BERRY | HYDRO_PUMP, TOXIC, ICE_BEAM, PROTECT |
-| MARILL | 50 | SITRUS_BERRY | HYDRO_PUMP, DOUBLE_EDGE, PROTECT, WATERFALL |
-
-## TRAINER_SIS_AND_BRO_AVA_GEB
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| POLIWHIRL | 50 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| STARMIE | 50 | SITRUS_BERRY | WATERFALL, PSYCHIC, PROTECT, RECOVER |
-
-## TRAINER_AROMA_LADY_ROSE
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SUNKERN | 49 | LUM_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
-| SUNFLORA | 49 | SITRUS_BERRY | PETAL_DANCE, SLUDGE_BOMB, PROTECT, GIGA_DRAIN |
-
-## TRAINER_SWIMMER_MALE_SAMIR
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| TENTACRUEL | 50 | LUM_BERRY | WATERFALL, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
-| GYARADOS | 50 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
-
-## TRAINER_SWIMMER_FEMALE_DENISE
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CHINCHOU | 49 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, THUNDER, PROTECT |
-| LANTURN | 49 | SITRUS_BERRY | THUNDER, WATERFALL, PROTECT, THUNDERBOLT |
-
-## TRAINER_TWINS_MIU_MIA
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 50 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
-| PIKACHU | 50 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
-
-## TRAINER_HIKER_EARL
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ONIX | 49 | LUM_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 49 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-
-## TRAINER_RUIN_MANIAC_FOSTER
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GOLEM | 50 | LUM_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, PROTECT |
-| NIDORAN_F | 50 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-
-## TRAINER_RUIN_MANIAC_LARRY
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MACHOKE | 49 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 49 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-
-## TRAINER_HIKER_DARYL
-
-SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SANDSHREW | 50 | LUM_BERRY | SAND_TOMB, SANDSTORM, STRENGTH, PROTECT |
-| SUDOWOODO | 50 | SITRUS_BERRY | ROCK_SLIDE, STRENGTH, PROTECT, BRICK_BREAK |
-
-## TRAINER_POKEMANIAC_HECTOR
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RHYHORN | 49 | LUM_BERRY | ROCK_TOMB, STRENGTH, IRON_TAIL, PROTECT |
-| KANGASKHAN | 49 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FAKE_OUT |
-
-## TRAINER_PSYCHIC_DARIO
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| EXEGGCUTE | 52 | LUM_BERRY | PSYCHIC, REFLECT, GIGA_DRAIN, PROTECT |
-| GIRAFARIG | 52 | SITRUS_BERRY | PSYCHIC, STRENGTH, PROTECT, FACADE |
-
-## TRAINER_PSYCHIC_RODETTE
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HYPNO | 50 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
-| DROWZEE | 48 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
-| NATU | 48 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
-
-## TRAINER_AROMA_LADY_MIAH
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| BELLOSSOM | 50 | LUM_BERRY | PETAL_DANCE, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
-| BELLOSSOM | 50 | SITRUS_BERRY | PETAL_DANCE, SLUDGE_BOMB, PROTECT, GIGA_DRAIN |
-
-## TRAINER_YOUNG_COUPLE_EVE_JON
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PSYDUCK | 50 | LUM_BERRY | HYDRO_PUMP, TOXIC, ICE_BEAM, PROTECT |
-| GOLDUCK | 50 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_JUGGLER_MASON
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PINECO | 47 | LUM_BERRY | STRENGTH, REFLECT, GIGA_DRAIN, PROTECT |
-| PINECO | 47 | SITRUS_BERRY | STRENGTH, GIGA_DRAIN, PROTECT, TAKE_DOWN |
-| VOLTORB | 47 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
-| VOLTORB | 47 | LEFTOVERS | THUNDERBOLT, FACADE, PROTECT, THUNDER |
-
-## TRAINER_CRUSH_GIRL_CYNDY
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PRIMEAPE | 48 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONTOP | 48 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, DETECT |
-| MACHOKE | 48 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-
-## TRAINER_CRUSH_GIRL_JOCELYN
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HITMONCHAN | 38 | SITRUS_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONCHAN | 38 | SITRUS_BERRY | SKY_UPPERCUT, STRENGTH, PROTECT, MACH_PUNCH |
-
-## TRAINER_TAMER_EVAN
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| LICKITUNG | 48 | LUM_BERRY | STRENGTH, ROCK_TOMB, FIRE_BLAST, PROTECT |
-| SANDSLASH | 48 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, PROTECT, IRON_TAIL |
-| URSARING | 49 | SITRUS_BERRY | THRASH, BRICK_BREAK, PROTECT, STRENGTH |
-
-## TRAINER_POKEMANIAC_MARK_2
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RHYHORN | 33 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, IRON_TAIL, PROTECT |
-| LICKITUNG | 33 | SITRUS_BERRY | STRENGTH, FLAMETHROWER, PROTECT, FACADE |
-
-## TRAINER_PKMN_RANGER_LOGAN
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| EXEGGUTOR | 40 | SITRUS_BERRY | PSYCHIC, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| EXEGGCUTE | 37 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
-
-## TRAINER_PKMN_RANGER_JACKSON
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| EXEGGCUTE | 49 | LUM_BERRY | PSYCHIC, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| TANGELA | 49 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, MEGA_DRAIN |
-| EXEGGUTOR | 49 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
-
-## TRAINER_PKMN_RANGER_BETH
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| BELLSPROUT | 38 | SITRUS_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| GLOOM | 38 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, MOONLIGHT |
-| GLOOM | 38 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, MOONLIGHT |
-
-## TRAINER_PKMN_RANGER_KATELYN
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CHANSEY | 52 | LUM_BERRY | STRENGTH, ROCK_TOMB, FIRE_BLAST, PROTECT |
-| PIDGEOT | 52 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_COOLTRAINER_LEROY
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RHYDON | 47 | LUM_BERRY | ROCK_TOMB, STRENGTH, BRICK_BREAK, PROTECT |
-| SLOWBRO | 48 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
-| KANGASKHAN | 47 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FAKE_OUT |
-| MACHOKE | 48 | LEFTOVERS | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-| URSARING | 50 | SITRUS_BERRY | THRASH, BRICK_BREAK, PROTECT, STRENGTH |
-
-## TRAINER_COOLTRAINER_MICHELLE
-
-ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| DEWGONG | 47 | LUM_BERRY | ICE_BEAM, ICY_WIND, WATERFALL, PROTECT |
-| PERSIAN | 47 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-| NINETALES | 48 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
-| RAPIDASH | 48 | LEFTOVERS | FIRE_BLAST, STRENGTH, PROTECT, QUICK_ATTACK |
-| GIRAFARIG | 50 | SITRUS_BERRY | PSYCHIC, STRENGTH, PROTECT, FACADE |
-
-## TRAINER_COOL_COUPLE_LEX_NYA
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| TAUROS | 52 | LUM_BERRY | THRASH, ROCK_TOMB, IRON_TAIL, PROTECT |
-| MILTANK | 52 | SITRUS_BERRY | BODY_SLAM, SHADOW_BALL, PROTECT, MILK_DRINK |
-
-## TRAINER_RUIN_MANIAC_BRANDON
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ONIX | 50 | LUM_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, PROTECT |
-| JIGGLYPUFF | 50 | SITRUS_BERRY | DOUBLE_EDGE, FIRE_BLAST, PROTECT, HYPER_VOICE |
-
-## TRAINER_RUIN_MANIAC_BENJAMIN
-
-SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GEODUDE | 48 | LUM_BERRY | ROCK_THROW, SANDSTORM, DOUBLE_EDGE, PROTECT |
-| GRAVELER | 48 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
-| GRAVELER | 48 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
-
-## TRAINER_PAINTER_EDNA
-
-ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SMEARGLE | 50 | LUM_BERRY | FAKE_OUT, ICY_WIND, SEISMIC_TOSS, PROTECT |
-| ODDISH | 50 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, MOONLIGHT |
-
-## TRAINER_GENTLEMAN_CLIFFORD
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAROWAK | 49 | LUM_BERRY | BONE_CLUB, ROCK_TOMB, THRASH, PROTECT |
-| GOLDUCK | 49 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_LADY_SELPHY
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PERSIAN | 49 | LUM_BERRY | FACADE, TOXIC, THUNDERBOLT, PROTECT |
-| PERSIAN | 49 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-
-## TRAINER_RUIN_MANIAC_LAWSON
-
-SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ONIX | 47 | LUM_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
-| GRAVELER | 48 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, BRICK_BREAK |
-| MAROWAK | 49 | SITRUS_BERRY | BONE_CLUB, THRASH, PROTECT, FIRE_BLAST |
-
-## TRAINER_PSYCHIC_LAURA
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| NATU | 48 | LUM_BERRY | PSYCHIC, REFLECT, AERIAL_ACE, PROTECT |
-| NATU | 48 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
-| XATU | 49 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
-
-## TRAINER_PKMN_BREEDER_BETHANY
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CHANSEY | 50 | LUM_BERRY | STRENGTH, ROCK_TOMB, FIRE_BLAST, PROTECT |
-| PIDGEOT | 50 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_PKMN_BREEDER_ALLISON
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CLEFAIRY | 48 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
-| CLEFAIRY | 48 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, MOONLIGHT |
-| CLEFABLE | 48 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, FACADE |
-
-## TRAINER_BUG_CATCHER_GARRET
-
-STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SPINARAK | 49 | LUM_BERRY | SLUDGE_BOMB, STRING_SHOT, PSYCHIC, PROTECT |
-| HERACROSS | 49 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, TAKE_DOWN |
-
-## TRAINER_BUG_CATCHER_JONAH
-
-HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| YANMA | 45 | LUM_BERRY | AERIAL_ACE, HYPNOSIS, PSYCHIC, PROTECT |
-| BEEDRILL | 45 | SITRUS_BERRY | SLUDGE_BOMB, BRICK_BREAK, PROTECT, FACADE |
-| YANMA | 46 | SITRUS_BERRY | AERIAL_ACE, PSYCHIC, PROTECT, DETECT |
-| BEEDRILL | 47 | LEFTOVERS | SLUDGE_BOMB, BRICK_BREAK, PROTECT, FACADE |
-
-## TRAINER_BUG_CATCHER_VANCE
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| VENOMOTH | 48 | LUM_BERRY | SLUDGE_BOMB, SLEEP_POWDER, PSYCHIC, PROTECT |
-| VENONAT | 48 | SITRUS_BERRY | SLUDGE_BOMB, PSYCHIC, PROTECT, FACADE |
-
-## TRAINER_YOUNGSTER_NASH
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| VICTREEBEL | 49 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, SPIT_UP, PROTECT |
-| WEEPINBELL | 47 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
-| WEEPINBELL | 47 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
-
-## TRAINER_YOUNGSTER_CORDELL
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FARFETCHD | 48 | LUM_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
-| FARFETCHD | 48 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_LASS_DALIA
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HOPPIP | 46 | LUM_BERRY | AERIAL_ACE, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| HOPPIP | 47 | SITRUS_BERRY | AERIAL_ACE, GIGA_DRAIN, PROTECT, SYNTHESIS |
-| SKIPLOOM | 47 | SITRUS_BERRY | AERIAL_ACE, GIGA_DRAIN, PROTECT, SYNTHESIS |
-| SKIPLOOM | 48 | LEFTOVERS | AERIAL_ACE, GIGA_DRAIN, PROTECT, SYNTHESIS |
-
-## TRAINER_LASS_JOANA
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ODDISH | 49 | LUM_BERRY | SLUDGE_BOMB, SLEEP_POWDER, PETAL_DANCE, PROTECT |
-| SNUBBULL | 49 | SITRUS_BERRY | STRENGTH, SLUDGE_BOMB, PROTECT, TAKE_DOWN |
-
-## TRAINER_CAMPER_RILEY
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PINSIR | 49 | LUM_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
-| HERACROSS | 50 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, TAKE_DOWN |
-
-## TRAINER_PICNICKER_MARCY
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PARAS | 48 | LUM_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
-| PARAS | 48 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
-| PARASECT | 49 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
-
-## TRAINER_RUIN_MANIAC_LAYTON
-
-SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SANDSLASH | 48 | LUM_BERRY | STRENGTH, SANDSTORM, BRICK_BREAK, PROTECT |
-| ONIX | 48 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, IRON_TAIL |
-| SANDSLASH | 48 | SITRUS_BERRY | STRENGTH, BRICK_BREAK, PROTECT, IRON_TAIL |
-
-## TRAINER_PICNICKER_KELSEY_2
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| NIDORAN_F | 21 | SITRUS_BERRY | POISON_STING, TAIL_WHIP, STRENGTH, FACADE |
-| NIDORAN_M | 21 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
-
-## TRAINER_PICNICKER_KELSEY_3
-
-HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| NIDORINA | 29 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
-| NIDORINO | 29 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-
-## TRAINER_PICNICKER_KELSEY_4
-
-HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| NIDORINO | 49 | LUM_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
-| NIDORINA | 49 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-
-## TRAINER_CAMPER_RICKY_2
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| JIGGLYPUFF | 22 | SITRUS_BERRY | STRENGTH, REFLECT, SHADOW_BALL, FACADE |
-| SQUIRTLE | 22 | SITRUS_BERRY | WATERFALL, STRENGTH, WATER_PULSE, BRICK_BREAK |
-
-## TRAINER_CAMPER_RICKY_3
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIDGEOTTO | 30 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
-| WARTORTLE | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_CAMPER_RICKY_4
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ODDISH | 55 | LUM_BERRY | SLUDGE_BOMB, SLEEP_POWDER, PETAL_DANCE, PROTECT |
-| WARTORTLE | 55 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
-
-## TRAINER_CAMPER_JEFF_2
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RATICATE | 21 | SITRUS_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
-| SPEAROW | 21 | SITRUS_BERRY | FACADE, AERIAL_ACE, SECRET_POWER, STEEL_WING |
-
-## TRAINER_CAMPER_JEFF_3
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RATICATE | 29 | SITRUS_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, PROTECT |
-| FEAROW | 29 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_CAMPER_JEFF_4
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FEAROW | 54 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
-| RATICATE | 54 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-
-## TRAINER_PICNICKER_ISABELLE_2
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ODDISH | 18 | ORAN_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
-| PIDGEOTTO | 21 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-| PIDGEOTTO | 21 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-
-## TRAINER_PICNICKER_ISABELLE_3
-
-HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| NIDORAN_F | 26 | SITRUS_BERRY | POISON_STING, HELPING_HAND, STRENGTH, PROTECT |
-| PIDGEOTTO | 29 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PIDGEOTTO | 29 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_PICNICKER_ISABELLE_4
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIDGEOTTO | 47 | LUM_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
-| PIDGEOTTO | 47 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PIDGEOT | 50 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_YOUNGSTER_YASU_2
-
-TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RATICATE | 22 | SITRUS_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, QUICK_ATTACK |
-| RATTATA | 22 | SITRUS_BERRY | HYPER_FANG, SHADOW_BALL, QUICK_ATTACK, FACADE |
-| RATICATE | 22 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
-
-## TRAINER_YOUNGSTER_YASU_3
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RATICATE | 47 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
-| RATICATE | 47 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| RATICATE | 47 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-
-## TRAINER_ENGINEER_BERNIE_2
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAGNETON | 28 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
-| MAGNETON | 28 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
-| MAGNETON | 28 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
-
-## TRAINER_GAMER_DARIAN_2
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GROWLITHE | 29 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
-| VULPIX | 29 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
-
-## TRAINER_CAMPER_CHRIS_2
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GROWLITHE | 24 | SITRUS_BERRY | EMBER, LEER, STRENGTH, FACADE |
-| CHARMANDER | 24 | SITRUS_BERRY | EMBER, DRAGON_CLAW, STRENGTH, BRICK_BREAK |
-
-## TRAINER_CAMPER_CHRIS_3
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GROWLITHE | 29 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
-| CHARMELEON | 29 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, EMBER |
-
-## TRAINER_CAMPER_CHRIS_4
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ARCANINE | 54 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, EXTREME_SPEED, PROTECT |
-| CHARMELEON | 54 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
-
-## TRAINER_PICNICKER_ALICIA_2
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| JIGGLYPUFF | 25 | SITRUS_BERRY | STRENGTH, REFLECT, SHADOW_BALL, PROTECT |
-| MEOWTH | 25 | SITRUS_BERRY | FACADE, SHADOW_BALL, PROTECT, SECRET_POWER |
-
-## TRAINER_PICNICKER_ALICIA_3
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| JIGGLYPUFF | 30 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
-| PERSIAN | 30 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-
-## TRAINER_PICNICKER_ALICIA_4
-
-SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ODDISH | 55 | LUM_BERRY | SLUDGE_BOMB, SLEEP_POWDER, PETAL_DANCE, PROTECT |
-| PERSIAN | 55 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
-
-## TRAINER_HIKER_JEREMY_2
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ONIX | 28 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 30 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, REVENGE |
-
-## TRAINER_POKEMANIAC_MARK_3
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| LICKITUNG | 54 | LUM_BERRY | STRENGTH, ROCK_TOMB, FIRE_BLAST, PROTECT |
-| RHYDON | 54 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, PROTECT, TAKE_DOWN |
-
-## TRAINER_POKEMANIAC_HERMAN_2
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAROWAK | 29 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, STRENGTH, PROTECT |
-| SLOWBRO | 29 | SITRUS_BERRY | PSYCHIC, FLAMETHROWER, PROTECT, ICE_BEAM |
-
-## TRAINER_POKEMANIAC_HERMAN_3
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MAROWAK | 54 | LUM_BERRY | BONE_CLUB, ROCK_TOMB, THRASH, PROTECT |
-| SLOWBRO | 54 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
-
-## TRAINER_HIKER_TRENT_2
-
-SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GRAVELER | 31 | SITRUS_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
-| ONIX | 31 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, IRON_TAIL |
-
-## TRAINER_LASS_MEGAN_2
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 22 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, QUICK_ATTACK |
-| RATICATE | 22 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
-| NIDORAN_M | 23 | SITRUS_BERRY | POISON_STING, STRENGTH, FACADE, SECRET_POWER |
-| MEOWTH | 21 | SITRUS_BERRY | FACADE, SHADOW_BALL, SECRET_POWER, CUT |
-| PIDGEOTTO | 22 | SITRUS_BERRY | FACADE, AERIAL_ACE, QUICK_ATTACK, SECRET_POWER |
-
-## TRAINER_LASS_MEGAN_3
-
-LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RAICHU | 48 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, STRENGTH, PROTECT |
-| RATICATE | 47 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| NIDORINO | 47 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
-| PERSIAN | 47 | LEFTOVERS | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-| PIDGEOT | 46 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_SUPER_NERD_GLENN_2
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MUK | 28 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
-| MUK | 28 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
-| MUK | 28 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
-
-## TRAINER_GAMER_RICH_2
-
-SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| GROWLITHE | 30 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
-| VULPIX | 30 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BIKER_JAREN_2
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MUK | 30 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
-| MUK | 28 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
-
-## TRAINER_FISHERMAN_ELLIOT_2
-
-RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| SEAKING | 28 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| CLOYSTER | 28 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, AURORA_BEAM |
-| POLIWHIRL | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| SEADRA | 28 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-
-## TRAINER_ROCKER_LUCA_2
-
-LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| ELECTRODE | 33 | SITRUS_BERRY | THUNDERBOLT, LIGHT_SCREEN, FACADE, PROTECT |
-| ELECTRODE | 33 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
-
-## TRAINER_BEAUTY_SHEILA_2
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| CLEFAIRY | 49 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
-| PERSIAN | 49 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_ROBERT_2
-
-LEER: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FEAROW | 28 | SITRUS_BERRY | FACADE, LEER, AERIAL_ACE, PROTECT |
-| PIDGEOTTO | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| FEAROW | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-| PIDGEOTTO | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BIRD_KEEPER_ROBERT_3
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FEAROW | 47 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
-| PIDGEOT | 47 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| FEAROW | 47 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
-| PIDGEOT | 47 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_PICNICKER_SUSIE_2
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 27 | SITRUS_BERRY | SHOCK_WAVE, THUNDER_WAVE, STRENGTH, PROTECT |
-| MEOWTH | 27 | SITRUS_BERRY | FACADE, SHADOW_BALL, PROTECT, SECRET_POWER |
-| RATICATE | 27 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| PIDGEOTTO | 27 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| MEOWTH | 27 | SITRUS_BERRY | FACADE, SHADOW_BALL, PROTECT, SECRET_POWER |
-
-## TRAINER_PICNICKER_SUSIE_3
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 47 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
-| PERSIAN | 47 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-| RATICATE | 47 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| PIDGEOTTO | 47 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PERSIAN | 47 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-
-## TRAINER_PICNICKER_SUSIE_4
-
-LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RAICHU | 52 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, STRENGTH, PROTECT |
-| PERSIAN | 52 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-| RATICATE | 52 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
-| PIDGEOT | 52 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-| PERSIAN | 52 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-
-## TRAINER_BIKER_LUKAS_2
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| MUK | 47 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
-| KOFFING | 47 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
-| KOFFING | 47 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
-| WEEZING | 47 | LEFTOVERS | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
-
-## TRAINER_BIRD_KEEPER_BENNY_2
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FEAROW | 32 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
-| FEAROW | 32 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_BENNY_3
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| FEAROW | 49 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
-| FEAROW | 49 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_MARLON_2
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| DODUO | 30 | SITRUS_BERRY | TRI_ATTACK, TOXIC, AERIAL_ACE, PROTECT |
-| FEAROW | 30 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-| FEAROW | 30 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-
-## TRAINER_BIRD_KEEPER_MARLON_3
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| DODRIO | 48 | LUM_BERRY | DRILL_PECK, TOXIC, TRI_ATTACK, PROTECT |
-| FEAROW | 48 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
-| FEAROW | 48 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
-
-## TRAINER_BEAUTY_GRACE_2
-
-REFLECT: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| WIGGLYTUFF | 49 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
-| PIDGEOT | 49 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
-
-## TRAINER_BIRD_KEEPER_CHESTER_2
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| DODUO | 30 | SITRUS_BERRY | TRI_ATTACK, TOXIC, AERIAL_ACE, PROTECT |
-| DODRIO | 30 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
-| DODRIO | 30 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
-
-## TRAINER_BIRD_KEEPER_CHESTER_3
-
-TOXIC: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| DODRIO | 48 | LUM_BERRY | DRILL_PECK, TOXIC, TRI_ATTACK, PROTECT |
-| DODRIO | 48 | SITRUS_BERRY | DRILL_PECK, TRI_ATTACK, PROTECT, FACADE |
-| DODRIO | 48 | SITRUS_BERRY | DRILL_PECK, TRI_ATTACK, PROTECT, FACADE |
-
-## TRAINER_PICNICKER_BECKY_2
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 32 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
-| RAICHU | 32 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
-
-## TRAINER_PICNICKER_BECKY_3
-
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| PIKACHU | 49 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
-| RAICHU | 49 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
-
-## TRAINER_PICNICKER_BECKY_4
-
-LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| RAICHU | 54 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, STRENGTH, PROTECT |
-| RAICHU | 54 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
-
-## TRAINER_CRUSH_KIN_RON_MYA_2
-
-ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
-
-| Pokémon | Nível | Item | Golpes |
-|---|---:|---|---|
-| HITMONCHAN | 33 | SITRUS_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONLEE | 33 | SITRUS_BERRY | HI_JUMP_KICK, STRENGTH, PROTECT, BRICK_BREAK |
-
-## TRAINER_CRUSH_KIN_RON_MYA_3
 
 ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
@@ -5611,14 +4493,1171 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 | HITMONCHAN | 51 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
 | HITMONLEE | 51 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
 
+## TRAINER_BLACK_BELT_SHEA
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHAMP | 51 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 51 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_BLACK_BELT_HUGH
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHAMP | 50 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 50 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_CAMPER_BRYCE
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SANDSLASH | 49 | LUM_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
+| RATICATE | 49 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| NIDOKING | 49 | SITRUS_BERRY | SLUDGE_BOMB, MEGAHORN, PROTECT, FIRE_BLAST |
+
+## TRAINER_PICNICKER_CLAIRE
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CLEFABLE | 48 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
+| PERSIAN | 48 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+| RAICHU | 48 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+| PERSIAN | 48 | LEFTOVERS | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+
+## TRAINER_CRUSH_KIN_MIK_KIA
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PRIMEAPE | 52 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 52 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_AROMA_LADY_VIOLET
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| VENUSAUR | 49 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| VENUSAUR | 49 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
+| VENUSAUR | 49 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
+
+## TRAINER_TUBER_ALEXIS
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| STARMIE | 47 | LUM_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
+| STARMIE | 47 | SITRUS_BERRY | WATERFALL, PSYCHIC, PROTECT, RECOVER |
+| KINGLER | 47 | SITRUS_BERRY | WATER_PULSE, STRENGTH, PROTECT, FACADE |
+| KINGLER | 47 | LEFTOVERS | WATER_PULSE, STRENGTH, PROTECT, FACADE |
+
+## TRAINER_TWINS_JOY_MEG
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CLEFABLE | 50 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
+| CLEFABLE | 50 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, FACADE |
+
+## TRAINER_SWIMMER_FEMALE_TISHA
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| KINGLER | 51 | LUM_BERRY | WATER_PULSE, ROCK_TOMB, STRENGTH, PROTECT |
+| GOLDUCK | 51 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_PAINTER_CELINA
+
+ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SMEARGLE | 74 | LUM_BERRY | FAKE_OUT, ICY_WIND, SEISMIC_TOSS, PROTECT |
+| VILEPLUME | 74 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+
+## TRAINER_PAINTER_RAYNA
+
+ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SMEARGLE | 74 | LUM_BERRY | FAKE_OUT, ICY_WIND, SEISMIC_TOSS, PROTECT |
+| VILEPLUME | 74 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+
+## TRAINER_LADY_GILLIAN
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| AMPHAROS | 69 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
+| AMPHAROS | 67 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, THUNDER |
+| AMPHAROS | 71 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, THUNDER |
+
+## TRAINER_YOUNGSTER_DESTIN
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RATICATE | 69 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| PIDGEOT | 69 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_SWIMMER_MALE_TOBY
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| POLIWHIRL | 69 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, ICE_BEAM, PROTECT |
+| TENTACRUEL | 69 | SITRUS_BERRY | HYDRO_PUMP, SLUDGE_BOMB, PROTECT, WATERFALL |
+| TENTACRUEL | 69 | SITRUS_BERRY | HYDRO_PUMP, SLUDGE_BOMB, PROTECT, WATERFALL |
+
+## TRAINER_TEAM_ROCKET_GRUNT_49
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 86 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| MUK | 86 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
+| RATICATE | 86 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_TEAM_ROCKET_GRUNT_50
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WEEZING | 86 | LUM_BERRY | SLUDGE_BOMB, TOXIC, FIRE_BLAST, PROTECT |
+| WEEZING | 86 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+
+## TRAINER_TEAM_ROCKET_GRUNT_51
+
+STUN_SPORE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| VILEPLUME | 86 | LUM_BERRY | SLUDGE_BOMB, STUN_SPORE, PETAL_DANCE, PROTECT |
+| ARBOK | 86 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
+| VILEPLUME | 86 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+
+## TRAINER_BIRD_KEEPER_MILO
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIDGEOT | 67 | LUM_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| PIDGEOT | 71 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BIRD_KEEPER_CHAZ
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 67 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| FEAROW | 71 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_HAROLD
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NOCTOWL | 67 | LUM_BERRY | TAKE_DOWN, REFLECT, PSYCHIC, PROTECT |
+| NOCTOWL | 71 | SITRUS_BERRY | TAKE_DOWN, PSYCHIC, PROTECT, FACADE |
+
+## TRAINER_FISHERMAN_TYLOR
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| QWILFISH | 71 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
+| QWILFISH | 71 | SITRUS_BERRY | HYDRO_PUMP, SLUDGE_BOMB, PROTECT, WATERFALL |
+
+## TRAINER_SWIMMER_MALE_MYMO
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| BLASTOISE | 71 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, ICE_BEAM, PROTECT |
+| KINGLER | 71 | SITRUS_BERRY | CRABHAMMER, STRENGTH, PROTECT, WATER_PULSE |
+
+## TRAINER_SWIMMER_FEMALE_NICOLE
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GOLDUCK | 74 | LUM_BERRY | HYDRO_PUMP, TOXIC, ICE_BEAM, PROTECT |
+| AZUMARILL | 74 | SITRUS_BERRY | HYDRO_PUMP, DOUBLE_EDGE, PROTECT, WATERFALL |
+
+## TRAINER_SIS_AND_BRO_AVA_GEB
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| POLIWHIRL | 74 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, ICE_BEAM, PROTECT |
+| STARMIE | 74 | SITRUS_BERRY | WATERFALL, PSYCHIC, PROTECT, RECOVER |
+
+## TRAINER_AROMA_LADY_ROSE
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SUNKERN | 71 | LUM_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
+| SUNFLORA | 71 | SITRUS_BERRY | PETAL_DANCE, SLUDGE_BOMB, PROTECT, GIGA_DRAIN |
+
+## TRAINER_SWIMMER_MALE_SAMIR
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| TENTACRUEL | 74 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
+| GYARADOS | 74 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+
+## TRAINER_SWIMMER_FEMALE_DENISE
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| LANTURN | 71 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, THUNDER, PROTECT |
+| LANTURN | 71 | SITRUS_BERRY | HYDRO_PUMP, THUNDER, PROTECT, WATERFALL |
+
+## TRAINER_TWINS_MIU_MIA
+
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RAICHU | 74 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, STRENGTH, PROTECT |
+| RAICHU | 74 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+
+## TRAINER_HIKER_EARL
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ONIX | 71 | LUM_BERRY | ROCK_THROW, ROCK_TOMB, DOUBLE_EDGE, PROTECT |
+| MACHAMP | 71 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_RUIN_MANIAC_FOSTER
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NIDOQUEEN | 74 | LUM_BERRY | SLUDGE_BOMB, SANDSTORM, SUPERPOWER, PROTECT |
+| GOLEM | 74 | SITRUS_BERRY | ROCK_THROW, DOUBLE_EDGE, PROTECT, STRENGTH |
+
+## TRAINER_RUIN_MANIAC_LARRY
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MACHAMP | 71 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 71 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_HIKER_DARYL
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SANDSLASH | 74 | LUM_BERRY | SAND_TOMB, SANDSTORM, STRENGTH, PROTECT |
+| SUDOWOODO | 74 | SITRUS_BERRY | ROCK_SLIDE, DOUBLE_EDGE, PROTECT, STRENGTH |
+
+## TRAINER_POKEMANIAC_HECTOR
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RHYDON | 71 | LUM_BERRY | ROCK_TOMB, MEGAHORN, STRENGTH, PROTECT |
+| KANGASKHAN | 71 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FAKE_OUT |
+
+## TRAINER_PSYCHIC_DARIO
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| EXEGGUTOR | 76 | LUM_BERRY | PSYCHIC, REFLECT, GIGA_DRAIN, PROTECT |
+| GIRAFARIG | 76 | SITRUS_BERRY | PSYCHIC, STRENGTH, PROTECT, FACADE |
+
+## TRAINER_PSYCHIC_RODETTE
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HYPNO | 74 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| HYPNO | 69 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+| XATU | 69 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
+
+## TRAINER_AROMA_LADY_MIAH
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| BELLOSSOM | 74 | LUM_BERRY | PETAL_DANCE, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
+| BELLOSSOM | 74 | SITRUS_BERRY | PETAL_DANCE, SLUDGE_BOMB, PROTECT, GIGA_DRAIN |
+
+## TRAINER_YOUNG_COUPLE_EVE_JON
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GOLDUCK | 74 | LUM_BERRY | HYDRO_PUMP, TOXIC, ICE_BEAM, PROTECT |
+| GOLDUCK | 74 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+
+## TRAINER_JUGGLER_MASON
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FORRETRESS | 67 | LUM_BERRY | DOUBLE_EDGE, REFLECT, GIGA_DRAIN, PROTECT |
+| FORRETRESS | 67 | SITRUS_BERRY | DOUBLE_EDGE, GIGA_DRAIN, PROTECT, STRENGTH |
+| ELECTRODE | 67 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+| ELECTRODE | 67 | LEFTOVERS | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+
+## TRAINER_CRUSH_GIRL_CYNDY
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PRIMEAPE | 69 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, THRASH, PROTECT |
+| HITMONTOP | 69 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, DETECT |
+| MACHAMP | 69 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_CRUSH_GIRL_JOCELYN
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HITMONCHAN | 68 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
+| HITMONCHAN | 68 | SITRUS_BERRY | SKY_UPPERCUT, STRENGTH, PROTECT, DETECT |
+
+## TRAINER_TAMER_EVAN
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| LICKITUNG | 69 | LUM_BERRY | STRENGTH, ROCK_TOMB, FIRE_BLAST, PROTECT |
+| SANDSLASH | 69 | SITRUS_BERRY | SAND_TOMB, STRENGTH, PROTECT, BRICK_BREAK |
+| URSARING | 71 | SITRUS_BERRY | THRASH, BRICK_BREAK, PROTECT, STRENGTH |
+
+## TRAINER_POKEMANIAC_MARK_2
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RHYDON | 47 | LUM_BERRY | ROCK_TOMB, STRENGTH, BRICK_BREAK, PROTECT |
+| LICKITUNG | 47 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, FACADE |
+
+## TRAINER_PKMN_RANGER_LOGAN
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| EXEGGUTOR | 68 | LUM_BERRY | PSYCHIC, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| EXEGGUTOR | 68 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+
+## TRAINER_PKMN_RANGER_JACKSON
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| EXEGGUTOR | 71 | LUM_BERRY | PSYCHIC, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| TANGELA | 71 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, MEGA_DRAIN |
+| EXEGGUTOR | 71 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+
+## TRAINER_PKMN_RANGER_BETH
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| VICTREEBEL | 68 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, SPIT_UP, PROTECT |
+| VILEPLUME | 68 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+| VILEPLUME | 68 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+
+## TRAINER_PKMN_RANGER_KATELYN
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CHANSEY | 76 | LUM_BERRY | DOUBLE_EDGE, ROCK_TOMB, FIRE_BLAST, PROTECT |
+| PIDGEOT | 76 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_COOLTRAINER_LEROY
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RHYDON | 67 | LUM_BERRY | ROCK_TOMB, MEGAHORN, STRENGTH, PROTECT |
+| SLOWBRO | 69 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
+| KANGASKHAN | 67 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FAKE_OUT |
+| MACHAMP | 69 | LEFTOVERS | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| URSARING | 74 | SITRUS_BERRY | THRASH, BRICK_BREAK, PROTECT, STRENGTH |
+
+## TRAINER_COOLTRAINER_MICHELLE
+
+ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| DEWGONG | 67 | LUM_BERRY | ICE_BEAM, ICY_WIND, WATERFALL, PROTECT |
+| PERSIAN | 67 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+| NINETALES | 69 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
+| RAPIDASH | 69 | LEFTOVERS | FIRE_BLAST, STRENGTH, PROTECT, QUICK_ATTACK |
+| GIRAFARIG | 74 | SITRUS_BERRY | PSYCHIC, STRENGTH, PROTECT, FACADE |
+
+## TRAINER_COOL_COUPLE_LEX_NYA
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| TAUROS | 76 | LUM_BERRY | THRASH, ROCK_TOMB, IRON_TAIL, PROTECT |
+| MILTANK | 76 | SITRUS_BERRY | BODY_SLAM, SHADOW_BALL, PROTECT, MILK_DRINK |
+
+## TRAINER_RUIN_MANIAC_BRANDON
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ONIX | 74 | LUM_BERRY | ROCK_THROW, ROCK_TOMB, DOUBLE_EDGE, PROTECT |
+| WIGGLYTUFF | 74 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, FACADE |
+
+## TRAINER_RUIN_MANIAC_BENJAMIN
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GOLEM | 69 | LUM_BERRY | ROCK_THROW, SANDSTORM, DOUBLE_EDGE, PROTECT |
+| GOLEM | 69 | SITRUS_BERRY | ROCK_THROW, DOUBLE_EDGE, PROTECT, STRENGTH |
+| GOLEM | 69 | SITRUS_BERRY | ROCK_THROW, DOUBLE_EDGE, PROTECT, STRENGTH |
+
+## TRAINER_PAINTER_EDNA
+
+ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SMEARGLE | 74 | LUM_BERRY | FAKE_OUT, ICY_WIND, SEISMIC_TOSS, PROTECT |
+| VILEPLUME | 74 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+
+## TRAINER_GENTLEMAN_CLIFFORD
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAROWAK | 71 | LUM_BERRY | BONE_CLUB, ROCK_TOMB, DOUBLE_EDGE, PROTECT |
+| GOLDUCK | 71 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+
+## TRAINER_LADY_SELPHY
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PERSIAN | 86 | LUM_BERRY | FACADE, TOXIC, THUNDERBOLT, PROTECT |
+| PERSIAN | 86 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+
+## TRAINER_RUIN_MANIAC_LAWSON
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ONIX | 86 | LUM_BERRY | ROCK_THROW, SANDSTORM, DOUBLE_EDGE, PROTECT |
+| GOLEM | 86 | SITRUS_BERRY | ROCK_THROW, DOUBLE_EDGE, PROTECT, STRENGTH |
+| MAROWAK | 86 | SITRUS_BERRY | BONE_CLUB, DOUBLE_EDGE, PROTECT, THRASH |
+
+## TRAINER_PSYCHIC_LAURA
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| XATU | 86 | LUM_BERRY | PSYCHIC, REFLECT, AERIAL_ACE, PROTECT |
+| XATU | 86 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
+| XATU | 86 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
+
+## TRAINER_PKMN_BREEDER_BETHANY
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CHANSEY | 86 | LUM_BERRY | DOUBLE_EDGE, ROCK_TOMB, FIRE_BLAST, PROTECT |
+| PIDGEOT | 86 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_PKMN_BREEDER_ALLISON
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CLEFABLE | 86 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
+| CLEFABLE | 86 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, FACADE |
+| CLEFABLE | 86 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, FACADE |
+
+## TRAINER_BUG_CATCHER_GARRET
+
+STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ARIADOS | 86 | LUM_BERRY | SLUDGE_BOMB, STRING_SHOT, PSYCHIC, PROTECT |
+| HERACROSS | 86 | SITRUS_BERRY | MEGAHORN, BRICK_BREAK, PROTECT, STRENGTH |
+
+## TRAINER_BUG_CATCHER_JONAH
+
+HYPNOSIS: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| YANMA | 86 | LUM_BERRY | AERIAL_ACE, HYPNOSIS, PSYCHIC, PROTECT |
+| BEEDRILL | 86 | SITRUS_BERRY | SLUDGE_BOMB, BRICK_BREAK, PROTECT, FACADE |
+| YANMA | 86 | SITRUS_BERRY | AERIAL_ACE, PSYCHIC, PROTECT, DETECT |
+| BEEDRILL | 86 | LEFTOVERS | SLUDGE_BOMB, BRICK_BREAK, PROTECT, FACADE |
+
+## TRAINER_BUG_CATCHER_VANCE
+
+SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| VENOMOTH | 86 | LUM_BERRY | SLUDGE_BOMB, SLEEP_POWDER, PSYCHIC, PROTECT |
+| VENOMOTH | 86 | SITRUS_BERRY | SLUDGE_BOMB, PSYCHIC, PROTECT, SILVER_WIND |
+
+## TRAINER_YOUNGSTER_NASH
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| VICTREEBEL | 86 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, SPIT_UP, PROTECT |
+| VICTREEBEL | 86 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
+| VICTREEBEL | 86 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
+
+## TRAINER_YOUNGSTER_CORDELL
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FARFETCHD | 86 | LUM_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| FARFETCHD | 86 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+
+## TRAINER_LASS_DALIA
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| JUMPLUFF | 86 | LUM_BERRY | AERIAL_ACE, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| JUMPLUFF | 86 | SITRUS_BERRY | AERIAL_ACE, GIGA_DRAIN, PROTECT, SYNTHESIS |
+| JUMPLUFF | 86 | SITRUS_BERRY | AERIAL_ACE, GIGA_DRAIN, PROTECT, SYNTHESIS |
+| JUMPLUFF | 86 | LEFTOVERS | AERIAL_ACE, GIGA_DRAIN, PROTECT, SYNTHESIS |
+
+## TRAINER_LASS_JOANA
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GRANBULL | 86 | LUM_BERRY | STRENGTH, ROCK_TOMB, SLUDGE_BOMB, PROTECT |
+| VILEPLUME | 86 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+
+## TRAINER_CAMPER_RILEY
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PINSIR | 86 | LUM_BERRY | STRENGTH, ROCK_TOMB, BRICK_BREAK, PROTECT |
+| HERACROSS | 86 | SITRUS_BERRY | MEGAHORN, BRICK_BREAK, PROTECT, STRENGTH |
+
+## TRAINER_PICNICKER_MARCY
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PARASECT | 86 | LUM_BERRY | GIGA_DRAIN, SUNNY_DAY, SLUDGE_BOMB, PROTECT |
+| PARASECT | 86 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
+| PARASECT | 86 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, FACADE |
+
+## TRAINER_RUIN_MANIAC_LAYTON
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SANDSLASH | 86 | LUM_BERRY | SAND_TOMB, SANDSTORM, STRENGTH, PROTECT |
+| ONIX | 86 | SITRUS_BERRY | ROCK_THROW, DOUBLE_EDGE, PROTECT, STRENGTH |
+| SANDSLASH | 86 | SITRUS_BERRY | SAND_TOMB, STRENGTH, PROTECT, BRICK_BREAK |
+
+## TRAINER_PICNICKER_KELSEY_2
+
+HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NIDORINA | 28 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
+| NIDORINO | 28 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
+
+## TRAINER_PICNICKER_KELSEY_3
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NIDOQUEEN | 42 | SITRUS_BERRY | SLUDGE_BOMB, SANDSTORM, FLAMETHROWER, PROTECT |
+| NIDOKING | 42 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, ICE_BEAM |
+
+## TRAINER_PICNICKER_KELSEY_4
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NIDOKING | 71 | LUM_BERRY | SLUDGE_BOMB, SANDSTORM, MEGAHORN, PROTECT |
+| NIDOQUEEN | 71 | SITRUS_BERRY | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
+
+## TRAINER_CAMPER_RICKY_2
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| JIGGLYPUFF | 30 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
+| WARTORTLE | 30 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_CAMPER_RICKY_3
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIDGEOT | 43 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| BLASTOISE | 43 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_CAMPER_RICKY_4
+
+STUN_SPORE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| VILEPLUME | 79 | LUM_BERRY | SLUDGE_BOMB, STUN_SPORE, PETAL_DANCE, PROTECT |
+| BLASTOISE | 79 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+
+## TRAINER_CAMPER_JEFF_2
+
+TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RATICATE | 28 | SITRUS_BERRY | STRENGTH, TAIL_WHIP, SHADOW_BALL, PROTECT |
+| FEAROW | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+
+## TRAINER_CAMPER_JEFF_3
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RATICATE | 42 | SITRUS_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| FEAROW | 42 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+
+## TRAINER_CAMPER_JEFF_4
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 78 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| RATICATE | 78 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_PICNICKER_ISABELLE_2
+
+SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ODDISH | 23 | SITRUS_BERRY | GIGA_DRAIN, SLEEP_POWDER, FACADE, SECRET_POWER |
+| PIDGEOTTO | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOTTO | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_PICNICKER_ISABELLE_3
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIDGEOT | 37 | SITRUS_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| PIDGEOT | 42 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 42 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_PICNICKER_ISABELLE_4
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIDGEOT | 67 | LUM_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| PIDGEOT | 67 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 74 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_YOUNGSTER_YASU_2
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RATICATE | 30 | SITRUS_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| RATICATE | 30 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 30 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_YOUNGSTER_YASU_3
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RATICATE | 67 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| RATICATE | 67 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| RATICATE | 67 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_ENGINEER_BERNIE_2
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAGNETON | 40 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, FACADE, PROTECT |
+| MAGNETON | 40 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+| MAGNETON | 40 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
+
+## TRAINER_GAMER_DARIAN_2
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ARCANINE | 42 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
+| NINETALES | 42 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_CAMPER_CHRIS_2
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GROWLITHE | 34 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
+| CHARMELEON | 34 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, EMBER |
+
+## TRAINER_CAMPER_CHRIS_3
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ARCANINE | 42 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
+| CHARIZARD | 42 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, HEAT_WAVE |
+
+## TRAINER_CAMPER_CHRIS_4
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ARCANINE | 78 | LUM_BERRY | FIRE_BLAST, SUNNY_DAY, EXTREME_SPEED, PROTECT |
+| CHARIZARD | 78 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+
+## TRAINER_PICNICKER_ALICIA_2
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| JIGGLYPUFF | 35 | SITRUS_BERRY | BODY_SLAM, REFLECT, FLAMETHROWER, PROTECT |
+| PERSIAN | 35 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+
+## TRAINER_PICNICKER_ALICIA_3
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WIGGLYTUFF | 43 | SITRUS_BERRY | STRENGTH, REFLECT, FLAMETHROWER, PROTECT |
+| PERSIAN | 43 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+
+## TRAINER_PICNICKER_ALICIA_4
+
+STUN_SPORE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| VILEPLUME | 79 | LUM_BERRY | SLUDGE_BOMB, STUN_SPORE, PETAL_DANCE, PROTECT |
+| PERSIAN | 79 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+
+## TRAINER_HIKER_JEREMY_2
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ONIX | 40 | SITRUS_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 43 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, VITAL_THROW |
+
+## TRAINER_POKEMANIAC_MARK_3
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| LICKITUNG | 78 | LUM_BERRY | STRENGTH, ROCK_TOMB, FIRE_BLAST, PROTECT |
+| RHYDON | 78 | SITRUS_BERRY | ROCK_TOMB, MEGAHORN, PROTECT, STRENGTH |
+
+## TRAINER_POKEMANIAC_HERMAN_2
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAROWAK | 42 | SITRUS_BERRY | BONE_CLUB, ROCK_TOMB, STRENGTH, PROTECT |
+| SLOWBRO | 42 | SITRUS_BERRY | PSYCHIC, FLAMETHROWER, PROTECT, ICE_BEAM |
+
+## TRAINER_POKEMANIAC_HERMAN_3
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MAROWAK | 78 | LUM_BERRY | BONE_CLUB, ROCK_TOMB, DOUBLE_EDGE, PROTECT |
+| SLOWBRO | 78 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
+
+## TRAINER_HIKER_TRENT_2
+
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| GOLEM | 44 | SITRUS_BERRY | ROCK_THROW, SANDSTORM, STRENGTH, PROTECT |
+| ONIX | 44 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, IRON_TAIL |
+
+## TRAINER_LASS_MEGAN_2
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIKACHU | 30 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
+| RATICATE | 30 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| NIDORINO | 32 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
+| PERSIAN | 28 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+| PIDGEOTTO | 30 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_LASS_MEGAN_3
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| NIDOKING | 67 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, MEGAHORN, PROTECT |
+| RATICATE | 67 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 64 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PERSIAN | 67 | LEFTOVERS | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+| RAICHU | 69 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+
+## TRAINER_SUPER_NERD_GLENN_2
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 40 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| MUK | 40 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
+| MUK | 40 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
+
+## TRAINER_GAMER_RICH_2
+
+SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ARCANINE | 43 | SITRUS_BERRY | FLAMETHROWER, SUNNY_DAY, STRENGTH, PROTECT |
+| NINETALES | 43 | SITRUS_BERRY | FLAMETHROWER, IRON_TAIL, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BIKER_JAREN_2
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 43 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| MUK | 40 | SITRUS_BERRY | SLUDGE_BOMB, STRENGTH, PROTECT, SLUDGE |
+
+## TRAINER_FISHERMAN_ELLIOT_2
+
+RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| SEAKING | 40 | SITRUS_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| CLOYSTER | 40 | SITRUS_BERRY | ICE_BEAM, WATER_PULSE, PROTECT, AURORA_BEAM |
+| POLIWHIRL | 40 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEADRA | 40 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+## TRAINER_ROCKER_LUCA_2
+
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| ELECTRODE | 47 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, FACADE, PROTECT |
+| ELECTRODE | 47 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+
+## TRAINER_BEAUTY_SHEILA_2
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| CLEFABLE | 71 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
+| PERSIAN | 71 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+
+## TRAINER_BIRD_KEEPER_ROBERT_2
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 40 | SITRUS_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| PIDGEOT | 40 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| FEAROW | 40 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| PIDGEOT | 40 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BIRD_KEEPER_ROBERT_3
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 67 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| PIDGEOT | 67 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| FEAROW | 67 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| PIDGEOT | 67 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_PICNICKER_SUSIE_2
+
+THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| PIKACHU | 38 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
+| PERSIAN | 38 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+| RATICATE | 38 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 38 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PERSIAN | 38 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
+
+## TRAINER_PICNICKER_SUSIE_3
+
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RAICHU | 67 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, STRENGTH, PROTECT |
+| PERSIAN | 67 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+| RATICATE | 67 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 67 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PERSIAN | 67 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+
+## TRAINER_PICNICKER_SUSIE_4
+
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RAICHU | 76 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, STRENGTH, PROTECT |
+| PERSIAN | 76 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+| RATICATE | 76 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 76 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PERSIAN | 76 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+
+## TRAINER_BIKER_LUKAS_2
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| MUK | 67 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 67 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| WEEZING | 67 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| WEEZING | 67 | LEFTOVERS | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+
+## TRAINER_BIRD_KEEPER_BENNY_2
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 45 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| FEAROW | 45 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_BENNY_3
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| FEAROW | 71 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| FEAROW | 71 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_MARLON_2
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| DODRIO | 43 | SITRUS_BERRY | TRI_ATTACK, TOXIC, AERIAL_ACE, PROTECT |
+| FEAROW | 43 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| FEAROW | 43 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+
+## TRAINER_BIRD_KEEPER_MARLON_3
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| DODRIO | 69 | LUM_BERRY | DRILL_PECK, TOXIC, TRI_ATTACK, PROTECT |
+| FEAROW | 69 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| FEAROW | 69 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+
+## TRAINER_BEAUTY_GRACE_2
+
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| WIGGLYTUFF | 71 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
+| PIDGEOT | 71 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+
+## TRAINER_BIRD_KEEPER_CHESTER_2
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| DODRIO | 43 | SITRUS_BERRY | TRI_ATTACK, TOXIC, AERIAL_ACE, PROTECT |
+| DODRIO | 43 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
+| DODRIO | 43 | SITRUS_BERRY | TRI_ATTACK, AERIAL_ACE, PROTECT, FACADE |
+
+## TRAINER_BIRD_KEEPER_CHESTER_3
+
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| DODRIO | 69 | LUM_BERRY | DRILL_PECK, TOXIC, TRI_ATTACK, PROTECT |
+| DODRIO | 69 | SITRUS_BERRY | DRILL_PECK, TRI_ATTACK, PROTECT, FACADE |
+| DODRIO | 69 | SITRUS_BERRY | DRILL_PECK, TRI_ATTACK, PROTECT, FACADE |
+
+## TRAINER_PICNICKER_BECKY_2
+
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RAICHU | 45 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, STRENGTH, PROTECT |
+| RAICHU | 45 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+
+## TRAINER_PICNICKER_BECKY_3
+
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RAICHU | 71 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, STRENGTH, PROTECT |
+| RAICHU | 71 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+
+## TRAINER_PICNICKER_BECKY_4
+
+LIGHT_SCREEN: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| RAICHU | 78 | LUM_BERRY | THUNDERBOLT, LIGHT_SCREEN, STRENGTH, PROTECT |
+| RAICHU | 78 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+
+## TRAINER_CRUSH_KIN_RON_MYA_2
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HITMONCHAN | 47 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
+| HITMONLEE | 47 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
+
+## TRAINER_CRUSH_KIN_RON_MYA_3
+
+ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
+
+| Pokémon | Nível | Item | Golpes |
+|---|---:|---|---|
+| HITMONCHAN | 75 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
+| HITMONLEE | 75 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
+
 ## TRAINER_CRUSH_KIN_RON_MYA_4
 
 ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HITMONCHAN | 56 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONLEE | 56 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
+| HITMONCHAN | 80 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
+| HITMONLEE | 80 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
 
 ## TRAINER_BIKER_RUBEN_2
 
@@ -5626,9 +5665,9 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| WEEZING | 48 | LUM_BERRY | SLUDGE_BOMB, TOXIC, FIRE_BLAST, PROTECT |
-| WEEZING | 48 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
-| WEEZING | 48 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| WEEZING | 69 | LUM_BERRY | SLUDGE_BOMB, TOXIC, FIRE_BLAST, PROTECT |
+| WEEZING | 69 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| WEEZING | 69 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## TRAINER_CUE_BALL_CAMRON_2
 
@@ -5636,8 +5675,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOKE | 49 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| PRIMEAPE | 49 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 71 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| PRIMEAPE | 71 | SITRUS_BERRY | CROSS_CHOP, THRASH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_BIKER_JAXON_2
 
@@ -5645,8 +5684,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MUK | 49 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
-| WEEZING | 49 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+| MUK | 71 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 71 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## TRAINER_CUE_BALL_ISAIAH_2
 
@@ -5654,8 +5693,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOKE | 49 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHAMP | 49 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 71 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 71 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_CUE_BALL_COREY_2
 
@@ -5663,19 +5702,19 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PRIMEAPE | 49 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHAMP | 49 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| PRIMEAPE | 71 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, THRASH, PROTECT |
+| MACHAMP | 71 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_BIRD_KEEPER_JACOB_2
 
-LEER: suporte de abertura + pressão e cobertura do parceiro.
+TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| FEAROW | 28 | SITRUS_BERRY | FACADE, LEER, AERIAL_ACE, PROTECT |
-| SPEAROW | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-| FEAROW | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
-| SPEAROW | 28 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, SECRET_POWER |
+| FEAROW | 40 | SITRUS_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| FEAROW | 40 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| FEAROW | 40 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| FEAROW | 40 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
 
 ## TRAINER_BIRD_KEEPER_JACOB_3
 
@@ -5683,10 +5722,10 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| FEAROW | 47 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
-| FEAROW | 47 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
-| FEAROW | 47 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
-| FEAROW | 47 | LEFTOVERS | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| FEAROW | 67 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| FEAROW | 67 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| FEAROW | 67 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| FEAROW | 67 | LEFTOVERS | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
 
 ## TRAINER_SWIMMER_FEMALE_ALICE_2
 
@@ -5694,8 +5733,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEAKING | 49 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| SEAKING | 49 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 71 | LUM_BERRY | WATERFALL, RAIN_DANCE, MEGAHORN, PROTECT |
+| SEAKING | 71 | SITRUS_BERRY | WATERFALL, MEGAHORN, PROTECT, WATER_PULSE |
 
 ## TRAINER_SWIMMER_MALE_DARRIN_2
 
@@ -5703,10 +5742,10 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEADRA | 52 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, ICE_BEAM, PROTECT |
-| SEADRA | 52 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
-| SEADRA | 52 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
-| SEADRA | 52 | LEFTOVERS | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| SEADRA | 76 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEADRA | 76 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| SEADRA | 76 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| SEADRA | 76 | LEFTOVERS | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
 ## TRAINER_PICNICKER_MISSY_2
 
@@ -5714,8 +5753,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEAKING | 49 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| SEAKING | 49 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 71 | LUM_BERRY | WATERFALL, RAIN_DANCE, MEGAHORN, PROTECT |
+| SEAKING | 71 | SITRUS_BERRY | WATERFALL, MEGAHORN, PROTECT, WATER_PULSE |
 
 ## TRAINER_PICNICKER_MISSY_3
 
@@ -5723,8 +5762,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEAKING | 54 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| SEAKING | 54 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 78 | LUM_BERRY | WATERFALL, RAIN_DANCE, MEGAHORN, PROTECT |
+| SEAKING | 78 | SITRUS_BERRY | WATERFALL, MEGAHORN, PROTECT, WATER_PULSE |
 
 ## TRAINER_FISHERMAN_WADE_2
 
@@ -5732,12 +5771,12 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| GOLDEEN | 47 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| POLIWAG | 47 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
-| GOLDEEN | 47 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| POLIWAG | 47 | LEFTOVERS | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
-| GOLDEEN | 47 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| GYARADOS | 47 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| SEAKING | 67 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
+| POLIWHIRL | 67 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| SEAKING | 67 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWHIRL | 67 | LEFTOVERS | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| SEAKING | 67 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| GYARADOS | 67 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
 
 ## TRAINER_SWIMMER_MALE_JACK_2
 
@@ -5745,8 +5784,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| STARMIE | 50 | LUM_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
-| SEADRA | 50 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| STARMIE | 74 | LUM_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
+| SEADRA | 74 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
 ## TRAINER_SIS_AND_BRO_LIL_IAN_2
 
@@ -5754,8 +5793,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| STARMIE | 50 | LUM_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
-| SEADRA | 50 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| STARMIE | 74 | LUM_BERRY | WATERFALL, RAIN_DANCE, PSYCHIC, PROTECT |
+| SEADRA | 74 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
 ## TRAINER_SIS_AND_BRO_LIL_IAN_3
 
@@ -5763,8 +5802,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEADRA | 55 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, ICE_BEAM, PROTECT |
-| STARMIE | 55 | SITRUS_BERRY | WATERFALL, PSYCHIC, PROTECT, RECOVER |
+| SEADRA | 79 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, ICE_BEAM, PROTECT |
+| STARMIE | 79 | SITRUS_BERRY | WATERFALL, PSYCHIC, PROTECT, RECOVER |
 
 ## TRAINER_SWIMMER_MALE_FINN_2
 
@@ -5772,8 +5811,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| STARMIE | 50 | LUM_BERRY | PSYCHIC, REFLECT, WATERFALL, PROTECT |
-| PSYDUCK | 50 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| STARMIE | 74 | LUM_BERRY | PSYCHIC, REFLECT, WATERFALL, PROTECT |
+| GOLDUCK | 74 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
 ## TRAINER_CRUSH_GIRL_SHARON_2
 
@@ -5781,8 +5820,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MANKEY | 50 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, THRASH, PROTECT |
-| PRIMEAPE | 50 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| PRIMEAPE | 74 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, THRASH, PROTECT |
+| PRIMEAPE | 74 | SITRUS_BERRY | CROSS_CHOP, THRASH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_CRUSH_GIRL_SHARON_3
 
@@ -5790,8 +5829,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PRIMEAPE | 55 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| PRIMEAPE | 55 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| PRIMEAPE | 79 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, THRASH, PROTECT |
+| PRIMEAPE | 79 | SITRUS_BERRY | CROSS_CHOP, THRASH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_CRUSH_GIRL_TANYA_2
 
@@ -5799,8 +5838,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HITMONCHAN | 50 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONLEE | 50 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
+| HITMONCHAN | 74 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
+| HITMONLEE | 74 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
 
 ## TRAINER_CRUSH_GIRL_TANYA_3
 
@@ -5808,8 +5847,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HITMONCHAN | 55 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONLEE | 55 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
+| HITMONCHAN | 79 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
+| HITMONLEE | 79 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
 
 ## TRAINER_BLACK_BELT_SHEA_2
 
@@ -5817,8 +5856,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOKE | 50 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 50 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 74 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 74 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_BLACK_BELT_SHEA_3
 
@@ -5826,8 +5865,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHAMP | 55 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 55 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 79 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 79 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_BLACK_BELT_HUGH_2
 
@@ -5835,8 +5874,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOKE | 50 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 50 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 74 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 74 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_BLACK_BELT_HUGH_3
 
@@ -5844,8 +5883,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHAMP | 55 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 55 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 79 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 79 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_CRUSH_KIN_MIK_KIA_2
 
@@ -5853,8 +5892,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOKE | 51 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| PRIMEAPE | 51 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 75 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| PRIMEAPE | 75 | SITRUS_BERRY | CROSS_CHOP, THRASH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_CRUSH_KIN_MIK_KIA_3
 
@@ -5862,8 +5901,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHAMP | 56 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| PRIMEAPE | 56 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 80 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| PRIMEAPE | 80 | SITRUS_BERRY | CROSS_CHOP, THRASH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TUBER_AMIRA_2
 
@@ -5871,9 +5910,9 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| POLIWHIRL | 47 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| POLIWHIRL | 47 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
-| POLIWHIRL | 47 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWHIRL | 67 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, ICE_BEAM, PROTECT |
+| POLIWHIRL | 67 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| POLIWHIRL | 67 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
 ## TRAINER_TWINS_JOY_MEG_2
 
@@ -5881,8 +5920,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CLEFAIRY | 49 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
-| CLEFAIRY | 49 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, MOONLIGHT |
+| CLEFABLE | 71 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
+| CLEFABLE | 71 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, FACADE |
 
 ## TRAINER_PAINTER_RAYNA_2
 
@@ -5890,8 +5929,8 @@ ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SMEARGLE | 54 | LUM_BERRY | FAKE_OUT, ICY_WIND, SEISMIC_TOSS, PROTECT |
-| PIDGEOT | 54 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| SMEARGLE | 78 | LUM_BERRY | FAKE_OUT, ICY_WIND, SEISMIC_TOSS, PROTECT |
+| PIDGEOT | 78 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_YOUNGSTER_DESTIN_2
 
@@ -5899,27 +5938,27 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RATICATE | 53 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
-| PIDGEOT | 53 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| RATICATE | 77 | LUM_BERRY | STRENGTH, TOXIC, SHADOW_BALL, PROTECT |
+| PIDGEOT | 77 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_PKMN_BREEDER_ALIZE_2
 
-THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
+REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PIKACHU | 53 | LUM_BERRY | THUNDERBOLT, THUNDER_WAVE, STRENGTH, PROTECT |
-| CLEFAIRY | 53 | SITRUS_BERRY | STRENGTH, FIRE_BLAST, PROTECT, MOONLIGHT |
-| MARILL | 53 | SITRUS_BERRY | HYDRO_PUMP, DOUBLE_EDGE, PROTECT, WATERFALL |
+| CLEFABLE | 77 | LUM_BERRY | STRENGTH, REFLECT, FIRE_BLAST, PROTECT |
+| RAICHU | 77 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
+| AZUMARILL | 77 | SITRUS_BERRY | HYDRO_PUMP, DOUBLE_EDGE, PROTECT, WATERFALL |
 
 ## TRAINER_YOUNG_COUPLE_GIA_JES_2
 
-HELPING_HAND: suporte de abertura + pressão e cobertura do parceiro.
+SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDORINO | 30 | SITRUS_BERRY | SLUDGE_BOMB, HELPING_HAND, ICE_BEAM, PROTECT |
-| NIDORINA | 30 | SITRUS_BERRY | SLUDGE_BOMB, ICE_BEAM, PROTECT, THUNDERBOLT |
+| NIDOKING | 43 | SITRUS_BERRY | SLUDGE_BOMB, SANDSTORM, FLAMETHROWER, PROTECT |
+| NIDOQUEEN | 43 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, ICE_BEAM |
 
 ## TRAINER_YOUNG_COUPLE_GIA_JES_3
 
@@ -5927,8 +5966,8 @@ SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NIDOKING | 55 | LUM_BERRY | SLUDGE_BOMB, SANDSTORM, MEGAHORN, PROTECT |
-| NIDOQUEEN | 55 | SITRUS_BERRY | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
+| NIDOKING | 79 | LUM_BERRY | SLUDGE_BOMB, SANDSTORM, MEGAHORN, PROTECT |
+| NIDOQUEEN | 79 | SITRUS_BERRY | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
 
 ## TRAINER_BIRD_KEEPER_MILO_2
 
@@ -5936,8 +5975,8 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PIDGEOT | 55 | LUM_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
-| PIDGEOTTO | 53 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
+| PIDGEOT | 79 | LUM_BERRY | FACADE, TOXIC, AERIAL_ACE, PROTECT |
+| PIDGEOT | 77 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 
 ## TRAINER_BIRD_KEEPER_CHAZ_2
 
@@ -5945,8 +5984,8 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| FEAROW | 55 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
-| FEAROW | 53 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
+| FEAROW | 79 | LUM_BERRY | DRILL_PECK, TOXIC, FACADE, PROTECT |
+| FEAROW | 77 | SITRUS_BERRY | DRILL_PECK, FACADE, PROTECT, SECRET_POWER |
 
 ## TRAINER_BIRD_KEEPER_HAROLD_2
 
@@ -5954,8 +5993,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| NOCTOWL | 55 | LUM_BERRY | TAKE_DOWN, REFLECT, PSYCHIC, PROTECT |
-| NOCTOWL | 53 | SITRUS_BERRY | TAKE_DOWN, PSYCHIC, PROTECT, FACADE |
+| NOCTOWL | 79 | LUM_BERRY | TAKE_DOWN, REFLECT, PSYCHIC, PROTECT |
+| NOCTOWL | 77 | SITRUS_BERRY | TAKE_DOWN, PSYCHIC, PROTECT, FACADE |
 
 ## TRAINER_SWIMMER_FEMALE_NICOLE_2
 
@@ -5963,8 +6002,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MARILL | 54 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, DOUBLE_EDGE, PROTECT |
-| SEADRA | 54 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| AZUMARILL | 78 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, DOUBLE_EDGE, PROTECT |
+| SEADRA | 78 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
 ## TRAINER_PSYCHIC_JACLYN_2
 
@@ -5972,9 +6011,9 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| KADABRA | 54 | LUM_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
-| SLOWBRO | 52 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
-| NATU | 52 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
+| ALAKAZAM | 78 | LUM_BERRY | PSYCHIC, REFLECT, SHOCK_WAVE, PROTECT |
+| SLOWBRO | 76 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
+| XATU | 76 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
 
 ## TRAINER_SWIMMER_MALE_SAMIR_2
 
@@ -5982,8 +6021,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| TENTACRUEL | 55 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
-| GYARADOS | 55 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| TENTACRUEL | 79 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, SLUDGE_BOMB, PROTECT |
+| GYARADOS | 79 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
 
 ## TRAINER_HIKER_EARL_2
 
@@ -5991,8 +6030,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| ONIX | 54 | LUM_BERRY | ROCK_THROW, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHAMP | 54 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| ONIX | 78 | LUM_BERRY | ROCK_THROW, ROCK_TOMB, DOUBLE_EDGE, PROTECT |
+| MACHAMP | 78 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_RUIN_MANIAC_LARRY_2
 
@@ -6000,8 +6039,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MACHOKE | 54 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| MACHOKE | 54 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| MACHAMP | 78 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
+| MACHAMP | 78 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_POKEMANIAC_HECTOR_2
 
@@ -6009,8 +6048,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYDON | 55 | LUM_BERRY | ROCK_TOMB, STRENGTH, BRICK_BREAK, PROTECT |
-| KANGASKHAN | 55 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FAKE_OUT |
+| RHYDON | 79 | LUM_BERRY | ROCK_TOMB, MEGAHORN, STRENGTH, PROTECT |
+| KANGASKHAN | 79 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FAKE_OUT |
 
 ## TRAINER_PSYCHIC_DARIO_2
 
@@ -6018,8 +6057,8 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| EXEGGCUTE | 56 | LUM_BERRY | PSYCHIC, REFLECT, GIGA_DRAIN, PROTECT |
-| GIRAFARIG | 56 | SITRUS_BERRY | PSYCHIC, STRENGTH, PROTECT, FACADE |
+| EXEGGUTOR | 80 | LUM_BERRY | PSYCHIC, REFLECT, GIGA_DRAIN, PROTECT |
+| GIRAFARIG | 80 | SITRUS_BERRY | PSYCHIC, STRENGTH, PROTECT, FACADE |
 
 ## TRAINER_PSYCHIC_RODETTE_2
 
@@ -6027,9 +6066,9 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HYPNO | 53 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
-| NATU | 53 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
-| HYPNO | 53 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
+| HYPNO | 77 | LUM_BERRY | PSYCHIC, REFLECT, SHADOW_BALL, PROTECT |
+| XATU | 77 | SITRUS_BERRY | PSYCHIC, AERIAL_ACE, PROTECT, SHADOW_BALL |
+| HYPNO | 77 | SITRUS_BERRY | PSYCHIC, SHADOW_BALL, PROTECT, BRICK_BREAK |
 
 ## TRAINER_JUGGLER_MASON_2
 
@@ -6037,10 +6076,10 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PINECO | 52 | LUM_BERRY | DOUBLE_EDGE, REFLECT, GIGA_DRAIN, PROTECT |
-| PINECO | 52 | SITRUS_BERRY | DOUBLE_EDGE, GIGA_DRAIN, PROTECT, STRENGTH |
-| ELECTRODE | 52 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
-| ELECTRODE | 52 | LEFTOVERS | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+| FORRETRESS | 76 | LUM_BERRY | DOUBLE_EDGE, REFLECT, GIGA_DRAIN, PROTECT |
+| FORRETRESS | 76 | SITRUS_BERRY | DOUBLE_EDGE, GIGA_DRAIN, PROTECT, STRENGTH |
+| ELECTRODE | 76 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
+| ELECTRODE | 76 | LEFTOVERS | THUNDERBOLT, FACADE, PROTECT, THUNDER |
 
 ## TRAINER_PKMN_RANGER_NICOLAS_2
 
@@ -6048,8 +6087,8 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| VICTREEBEL | 55 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, SPIT_UP, PROTECT |
-| VICTREEBEL | 55 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
+| VICTREEBEL | 79 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, SPIT_UP, PROTECT |
+| VICTREEBEL | 79 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, GIGA_DRAIN |
 
 ## TRAINER_PKMN_RANGER_MADELINE_2
 
@@ -6057,8 +6096,8 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| VILEPLUME | 55 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, PETAL_DANCE, PROTECT |
-| VILEPLUME | 55 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+| VILEPLUME | 79 | LUM_BERRY | SLUDGE_BOMB, SUNNY_DAY, PETAL_DANCE, PROTECT |
+| VILEPLUME | 79 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
 
 ## TRAINER_CRUSH_GIRL_CYNDY_2
 
@@ -6066,9 +6105,9 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| PRIMEAPE | 54 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, STRENGTH, PROTECT |
-| HITMONTOP | 54 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, DETECT |
-| MACHAMP | 54 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| PRIMEAPE | 78 | LUM_BERRY | CROSS_CHOP, ROCK_TOMB, THRASH, PROTECT |
+| HITMONTOP | 78 | SITRUS_BERRY | BRICK_BREAK, STRENGTH, PROTECT, DETECT |
+| MACHAMP | 78 | SITRUS_BERRY | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
 
 ## TRAINER_TAMER_EVAN_2
 
@@ -6076,9 +6115,9 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| LICKITUNG | 52 | LUM_BERRY | STRENGTH, ROCK_TOMB, FIRE_BLAST, PROTECT |
-| SANDSLASH | 52 | SITRUS_BERRY | SAND_TOMB, STRENGTH, PROTECT, BRICK_BREAK |
-| URSARING | 55 | SITRUS_BERRY | THRASH, BRICK_BREAK, PROTECT, STRENGTH |
+| LICKITUNG | 76 | LUM_BERRY | STRENGTH, ROCK_TOMB, FIRE_BLAST, PROTECT |
+| SANDSLASH | 76 | SITRUS_BERRY | SAND_TOMB, STRENGTH, PROTECT, BRICK_BREAK |
+| URSARING | 79 | SITRUS_BERRY | THRASH, BRICK_BREAK, PROTECT, STRENGTH |
 
 ## TRAINER_PKMN_RANGER_JACKSON_2
 
@@ -6086,9 +6125,9 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| EXEGGUTOR | 54 | LUM_BERRY | PSYCHIC, SUNNY_DAY, GIGA_DRAIN, PROTECT |
-| TANGELA | 53 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, MEGA_DRAIN |
-| EXEGGUTOR | 55 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+| EXEGGUTOR | 78 | LUM_BERRY | PSYCHIC, SUNNY_DAY, GIGA_DRAIN, PROTECT |
+| TANGELA | 77 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, MEGA_DRAIN |
+| EXEGGUTOR | 79 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
 
 ## TRAINER_PKMN_RANGER_KATELYN_2
 
@@ -6096,8 +6135,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| CHANSEY | 56 | LUM_BERRY | STRENGTH, ROCK_TOMB, FIRE_BLAST, PROTECT |
-| ODDISH | 56 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, MOONLIGHT |
+| CHANSEY | 80 | LUM_BERRY | DOUBLE_EDGE, ROCK_TOMB, FIRE_BLAST, PROTECT |
+| VILEPLUME | 80 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
 
 ## TRAINER_COOLTRAINER_LEROY_2
 
@@ -6105,11 +6144,11 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| RHYDON | 52 | LUM_BERRY | ROCK_TOMB, STRENGTH, BRICK_BREAK, PROTECT |
-| SLOWBRO | 54 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
-| KANGASKHAN | 52 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FAKE_OUT |
-| MACHAMP | 52 | LEFTOVERS | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
-| URSARING | 55 | SITRUS_BERRY | THRASH, BRICK_BREAK, PROTECT, STRENGTH |
+| RHYDON | 76 | LUM_BERRY | ROCK_TOMB, MEGAHORN, STRENGTH, PROTECT |
+| SLOWBRO | 78 | SITRUS_BERRY | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
+| KANGASKHAN | 76 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FAKE_OUT |
+| MACHAMP | 76 | LEFTOVERS | CROSS_CHOP, STRENGTH, PROTECT, BRICK_BREAK |
+| URSARING | 79 | SITRUS_BERRY | THRASH, BRICK_BREAK, PROTECT, STRENGTH |
 
 ## TRAINER_COOLTRAINER_MICHELLE_2
 
@@ -6117,11 +6156,11 @@ ICY_WIND: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| DEWGONG | 53 | LUM_BERRY | ICE_BEAM, ICY_WIND, WATERFALL, PROTECT |
-| PERSIAN | 53 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, SECRET_POWER |
-| NINETALES | 54 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
-| RAPIDASH | 54 | LEFTOVERS | FIRE_BLAST, STRENGTH, PROTECT, QUICK_ATTACK |
-| GIRAFARIG | 56 | SITRUS_BERRY | PSYCHIC, STRENGTH, PROTECT, FACADE |
+| DEWGONG | 77 | LUM_BERRY | ICE_BEAM, ICY_WIND, WATERFALL, PROTECT |
+| PERSIAN | 77 | SITRUS_BERRY | FACADE, THUNDERBOLT, PROTECT, FAKE_OUT |
+| NINETALES | 78 | SITRUS_BERRY | FIRE_BLAST, IRON_TAIL, PROTECT, QUICK_ATTACK |
+| RAPIDASH | 78 | LEFTOVERS | FIRE_BLAST, STRENGTH, PROTECT, QUICK_ATTACK |
+| GIRAFARIG | 80 | SITRUS_BERRY | PSYCHIC, STRENGTH, PROTECT, FACADE |
 
 ## TRAINER_COOL_COUPLE_LEX_NYA_2
 
@@ -6129,8 +6168,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| TAUROS | 57 | LUM_BERRY | THRASH, ROCK_TOMB, IRON_TAIL, PROTECT |
-| MILTANK | 57 | SITRUS_BERRY | BODY_SLAM, SHADOW_BALL, PROTECT, MILK_DRINK |
+| TAUROS | 82 | LUM_BERRY | THRASH, ROCK_TOMB, IRON_TAIL, PROTECT |
+| MILTANK | 82 | SITRUS_BERRY | BODY_SLAM, SHADOW_BALL, PROTECT, MILK_DRINK |
 
 ## TRAINER_BUG_CATCHER_COLTON_2
 
@@ -6138,9 +6177,9 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| WEEDLE | 19 | ORAN_BERRY | POISON_STING, STRING_SHOT |
-| BUTTERFREE | 19 | ORAN_BERRY | AERIAL_ACE, SHADOW_BALL, GIGA_DRAIN, FACADE |
-| BUTTERFREE | 19 | ORAN_BERRY | AERIAL_ACE, SHADOW_BALL, GIGA_DRAIN, FACADE |
+| WEEDLE | 25 | SITRUS_BERRY | POISON_STING, STRING_SHOT |
+| BUTTERFREE | 25 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, GIGA_DRAIN |
+| BUTTERFREE | 25 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, GIGA_DRAIN |
 
 ## TRAINER_BUG_CATCHER_COLTON_3
 
@@ -6148,9 +6187,9 @@ SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| BUTTERFREE | 27 | SITRUS_BERRY | AERIAL_ACE, SLEEP_POWDER, SHADOW_BALL, PROTECT |
-| BEEDRILL | 27 | SITRUS_BERRY | TWINEEDLE, BRICK_BREAK, PROTECT, FACADE |
-| BUTTERFREE | 27 | SITRUS_BERRY | AERIAL_ACE, SHADOW_BALL, PROTECT, GIGA_DRAIN |
+| BUTTERFREE | 38 | SITRUS_BERRY | AERIAL_ACE, SLEEP_POWDER, PSYCHIC, PROTECT |
+| BEEDRILL | 38 | SITRUS_BERRY | SLUDGE_BOMB, BRICK_BREAK, PROTECT, FACADE |
+| BUTTERFREE | 38 | SITRUS_BERRY | AERIAL_ACE, PSYCHIC, PROTECT, PSYBEAM |
 
 ## TRAINER_BUG_CATCHER_COLTON_4
 
@@ -6158,9 +6197,9 @@ SLEEP_POWDER: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| BUTTERFREE | 51 | LUM_BERRY | AERIAL_ACE, SLEEP_POWDER, PSYCHIC, PROTECT |
-| BEEDRILL | 54 | SITRUS_BERRY | SLUDGE_BOMB, BRICK_BREAK, PROTECT, FACADE |
-| BUTTERFREE | 51 | SITRUS_BERRY | AERIAL_ACE, PSYCHIC, PROTECT, SILVER_WIND |
+| BUTTERFREE | 75 | LUM_BERRY | AERIAL_ACE, SLEEP_POWDER, PSYCHIC, PROTECT |
+| BEEDRILL | 78 | SITRUS_BERRY | SLUDGE_BOMB, BRICK_BREAK, PROTECT, FACADE |
+| BUTTERFREE | 75 | SITRUS_BERRY | AERIAL_ACE, PSYCHIC, PROTECT, SILVER_WIND |
 
 ## TRAINER_SWIMMER_MALE_MATTHEW_2
 
@@ -6168,8 +6207,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| POLIWRATH | 49 | LUM_BERRY | WATERFALL, RAIN_DANCE, BRICK_BREAK, PROTECT |
-| POLIWHIRL | 49 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| POLIWRATH | 71 | LUM_BERRY | WATERFALL, RAIN_DANCE, BRICK_BREAK, PROTECT |
+| POLIWHIRL | 71 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
 ## TRAINER_SWIMMER_MALE_TONY_2
 
@@ -6177,8 +6216,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEADRA | 49 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| SEADRA | 49 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEADRA | 71 | LUM_BERRY | HYDRO_PUMP, RAIN_DANCE, ICE_BEAM, PROTECT |
+| SEADRA | 71 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
 ## TRAINER_SWIMMER_FEMALE_MELISSA_2
 
@@ -6186,8 +6225,8 @@ RAIN_DANCE: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| SEAKING | 49 | LUM_BERRY | WATERFALL, RAIN_DANCE, ICE_BEAM, PROTECT |
-| POLIWHIRL | 49 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+| SEAKING | 71 | LUM_BERRY | WATERFALL, RAIN_DANCE, MEGAHORN, PROTECT |
+| POLIWHIRL | 71 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
 ## TRAINER_ELITE_FOUR_LORELEI_2
 
@@ -6195,12 +6234,12 @@ Helping Hand + Surf/Ice Beam na abertura; quatro tipos Gelo, sono e controle de 
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HITMONTOP | 64 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
-| CLOYSTER | 64 | LEFTOVERS | SURF, ICE_BEAM, TOXIC, PROTECT |
-| PILOSWINE | 64 | LEFTOVERS | MUD_SHOT, ROCK_SLIDE, ICE_BEAM, PROTECT |
-| JYNX | 64 | LUM_BERRY | ICE_BEAM, PSYCHIC, LOVELY_KISS, PROTECT |
-| TYRANITAR | 65 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, BRICK_BREAK, PROTECT |
-| LAPRAS | 66 | LEFTOVERS | SURF, ICE_BEAM, THUNDERBOLT, PROTECT |
+| HITMONTOP | 100 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
+| CLOYSTER | 100 | LEFTOVERS | SURF, ICE_BEAM, TOXIC, PROTECT |
+| PILOSWINE | 100 | LEFTOVERS | MUD_SHOT, ROCK_SLIDE, ICE_BEAM, PROTECT |
+| JYNX | 100 | LUM_BERRY | ICE_BEAM, PSYCHIC, LOVELY_KISS, PROTECT |
+| TYRANITAR | 100 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, BRICK_BREAK, PROTECT |
+| LAPRAS | 100 | LEFTOVERS | SURF, ICE_BEAM, THUNDERBOLT, PROTECT |
 
 Abram Burrows — Worlds 2012 Junior (adaptação)
 
@@ -6221,12 +6260,12 @@ Hariyama + Kyogre na abertura com Fake Out; Ludicolo aproveita chuva, Slowbro pa
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HARIYAMA | 66 | SITRUS_BERRY | FAKE_OUT, BRICK_BREAK, ROCK_SLIDE, PROTECT |
-| KYOGRE | 66 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
-| LUDICOLO | 66 | LEFTOVERS | SURF, GIGA_DRAIN, ICE_BEAM, PROTECT |
-| SLOWBRO | 66 | LEFTOVERS | PSYCHIC, SURF, THUNDER_WAVE, PROTECT |
-| GROUDON | 67 | LUM_BERRY | MUD_SHOT, ROCK_SLIDE, FLAMETHROWER, PROTECT |
-| MACHAMP | 68 | LEFTOVERS | BRICK_BREAK, ROCK_SLIDE, BODY_SLAM, PROTECT |
+| HARIYAMA | 100 | SITRUS_BERRY | FAKE_OUT, BRICK_BREAK, ROCK_SLIDE, PROTECT |
+| KYOGRE | 100 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
+| LUDICOLO | 100 | LEFTOVERS | SURF, GIGA_DRAIN, ICE_BEAM, PROTECT |
+| SLOWBRO | 100 | LEFTOVERS | PSYCHIC, SURF, THUNDER_WAVE, PROTECT |
+| GROUDON | 100 | LUM_BERRY | MUD_SHOT, ROCK_SLIDE, FLAMETHROWER, PROTECT |
+| MACHAMP | 100 | LEFTOVERS | BRICK_BREAK, ROCK_SLIDE, BODY_SLAM, PROTECT |
 
 Ray Rizzo — Worlds 2010 Senior (adaptação)
 
@@ -6247,12 +6286,12 @@ Mawile + Gengar: Intimidate e Fake Tears apoiam dano especial; três Fantasmas, 
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MAWILE | 68 | LEFTOVERS | FAKE_TEARS, BRICK_BREAK, ROCK_SLIDE, PROTECT |
-| GENGAR | 68 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
-| DUSCLOPS | 68 | LEFTOVERS | NIGHT_SHADE, SHADOW_BALL, WILL_O_WISP, PROTECT |
-| MISDREAVUS | 68 | LEFTOVERS | PSYCHIC, THUNDERBOLT, THUNDER_WAVE, PAIN_SPLIT |
-| TYRANITAR | 69 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, TAUNT, PROTECT |
-| LANTURN | 70 | LEFTOVERS | SURF, THUNDERBOLT, ICE_BEAM, PROTECT |
+| MAWILE | 100 | LEFTOVERS | FAKE_TEARS, BRICK_BREAK, ROCK_SLIDE, PROTECT |
+| GENGAR | 100 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| DUSCLOPS | 100 | LEFTOVERS | NIGHT_SHADE, SHADOW_BALL, WILL_O_WISP, PROTECT |
+| MISDREAVUS | 100 | LEFTOVERS | PSYCHIC, THUNDERBOLT, THUNDER_WAVE, PAIN_SPLIT |
+| TYRANITAR | 100 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, TAUNT, PROTECT |
+| LANTURN | 100 | LEFTOVERS | SURF, THUNDERBOLT, ICE_BEAM, PROTECT |
 
 Nikolai Zielinski — Worlds 2014 Senior (adaptação)
 
@@ -6273,12 +6312,12 @@ Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralis
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HITMONTOP | 70 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
-| KYOGRE | 70 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
-| GENGAR | 70 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
-| CLAYDOL | 70 | LEFTOVERS | REFLECT, LIGHT_SCREEN, PSYCHIC, PROTECT |
-| RAICHU | 71 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, LIGHT_SCREEN, PROTECT |
-| RAYQUAZA | 72 | LUM_BERRY | DRAGON_CLAW, FLAMETHROWER, ROCK_SLIDE, PROTECT |
+| HITMONTOP | 100 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
+| KYOGRE | 100 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
+| GENGAR | 100 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| CLAYDOL | 100 | LEFTOVERS | REFLECT, LIGHT_SCREEN, PSYCHIC, PROTECT |
+| RAICHU | 100 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, LIGHT_SCREEN, PROTECT |
+| RAYQUAZA | 100 | LUM_BERRY | DRAGON_CLAW, FLAMETHROWER, ROCK_SLIDE, PROTECT |
 
 Wolfe Glick — Worlds 2016 Masters (adaptação)
 
@@ -6299,12 +6338,25 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| TYRANITAR | 72 | LUM_BERRY | ROCK_SLIDE, ROCK_TOMB, CRUNCH, PROTECT |
-| ALAKAZAM | 73 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| HERACROSS | 72 | SITRUS_BERRY | MEGAHORN, BRICK_BREAK, PROTECT, STRENGTH |
-| ARCANINE | 73 | LEFTOVERS | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
-| EXEGGUTOR | 73 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
-| BLASTOISE | 75 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+| TYRANITAR | 100 | LUM_BERRY | ROCK_SLIDE, ROCK_TOMB, CRUNCH, PROTECT |
+| ALAKAZAM | 100 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| HERACROSS | 100 | SITRUS_BERRY | MEGAHORN, BRICK_BREAK, PROTECT, STRENGTH |
+| ARCANINE | 100 | LEFTOVERS | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+| EXEGGUTOR | 100 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+| BLASTOISE | 100 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
+
+Campeão: treinamento por função.
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| TYRANITAR | ADAMANT | SAND_STREAM | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| ALAKAZAM | MODEST | SYNCHRONIZE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| HERACROSS | ADAMANT | GUTS | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| ARCANINE | MODEST | INTIMIDATE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| EXEGGUTOR | MODEST | CHLOROPHYLL | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| BLASTOISE | MODEST | TORRENT | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
 
 ## TRAINER_CHAMPION_REMATCH_BULBASAUR
 
@@ -6312,12 +6364,25 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| TYRANITAR | 72 | LUM_BERRY | ROCK_SLIDE, ROCK_TOMB, CRUNCH, PROTECT |
-| ALAKAZAM | 73 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| HERACROSS | 72 | SITRUS_BERRY | MEGAHORN, BRICK_BREAK, PROTECT, STRENGTH |
-| GYARADOS | 73 | LEFTOVERS | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
-| ARCANINE | 73 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
-| VENUSAUR | 75 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, SYNTHESIS |
+| TYRANITAR | 100 | LUM_BERRY | ROCK_SLIDE, ROCK_TOMB, CRUNCH, PROTECT |
+| ALAKAZAM | 100 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| HERACROSS | 100 | SITRUS_BERRY | MEGAHORN, BRICK_BREAK, PROTECT, STRENGTH |
+| GYARADOS | 100 | LEFTOVERS | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| ARCANINE | 100 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
+| VENUSAUR | 100 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, SYNTHESIS |
+
+Campeão: treinamento por função.
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| TYRANITAR | ADAMANT | SAND_STREAM | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| ALAKAZAM | MODEST | SYNCHRONIZE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| HERACROSS | ADAMANT | GUTS | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| GYARADOS | MODEST | INTIMIDATE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| ARCANINE | MODEST | INTIMIDATE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| VENUSAUR | ADAMANT | OVERGROW | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
 
 ## TRAINER_CHAMPION_REMATCH_CHARMANDER
 
@@ -6325,12 +6390,25 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| HERACROSS | 72 | LUM_BERRY | MEGAHORN, ROCK_TOMB, BRICK_BREAK, PROTECT |
-| ALAKAZAM | 73 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
-| TYRANITAR | 72 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, PROTECT, THRASH |
-| EXEGGUTOR | 73 | LEFTOVERS | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
-| GYARADOS | 73 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
-| CHARIZARD | 75 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+| HERACROSS | 100 | LUM_BERRY | MEGAHORN, ROCK_TOMB, BRICK_BREAK, PROTECT |
+| ALAKAZAM | 100 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+| TYRANITAR | 100 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, PROTECT, THRASH |
+| EXEGGUTOR | 100 | LEFTOVERS | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
+| GYARADOS | 100 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
+| CHARIZARD | 100 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+
+Campeão: treinamento por função.
+
+IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | Habilidade | EVs | Função |
+|---|---|---|---|---|
+| HERACROSS | ADAMANT | GUTS | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| ALAKAZAM | MODEST | SYNCHRONIZE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| TYRANITAR | ADAMANT | SAND_STREAM | 4 / 252 / 0 / 252 / 0 / 0 | Finalizador com treinamento competitivo |
+| EXEGGUTOR | MODEST | CHLOROPHYLL | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| GYARADOS | MODEST | INTIMIDATE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
+| CHARIZARD | MODEST | BLAZE | 4 / 0 / 0 / 252 / 252 / 0 | Finalizador com treinamento competitivo |
 
 ## TRAINER_CUE_BALL_PAXTON
 
@@ -6338,8 +6416,8 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
-| MUK | 39 | SITRUS_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
-| WEEZING | 39 | SITRUS_BERRY | SLUDGE_BOMB, FLAMETHROWER, PROTECT, SLUDGE |
+| MUK | 68 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
+| WEEZING | 68 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
 ## Torre: sTrainerTowerFloor_Single_4 / COLE
 

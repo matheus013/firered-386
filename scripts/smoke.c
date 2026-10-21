@@ -1,11 +1,21 @@
 // Headless boot check using the installed mGBA library. Does not validate gameplay.
 #include <mgba/flags.h>
 #include <mgba/core/core.h>
+#include <mgba/core/log.h>
 #include <png.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+static void SmokeLog(struct mLogger *logger, int category, enum mLogLevel level, const char *format, va_list args)
+{
+    (void)logger; (void)category; (void)level;
+    if (strstr(format, "Illegal opcode") || strstr(format, "Jumped to invalid")) {
+        vfprintf(stderr, format, args);
+        exit(13);
+    }
+}
 
 static int WriteImage(const char *path, const color_t *pixels, unsigned width, unsigned height)
 {
@@ -43,6 +53,8 @@ static int WriteImage(const char *path, const color_t *pixels, unsigned width, u
 
 int main(int argc, char **argv)
 {
+    static struct mLogger logger = {.log = SmokeLog};
+    mLogSetDefaultLogger(&logger);
     if (argc < 3) { fprintf(stderr, "Usage: smoke ROM screenshot.png [frames [battle mainFuncAddr readyFuncAddr flagsAddr absentAddr countAddr]]\n"); return 2; }
     unsigned limit = argc > 3 ? strtoul(argv[3], NULL, 0) : 900;
     int battle = argc >= 10 && strcmp(argv[4], "battle") == 0;

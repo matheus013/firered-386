@@ -1,4 +1,4 @@
-"""Run all eight E4 battles in disposable ROMs; audit actual NPCs and play turns."""
+"""Audit actual E4/Champion parties and play turns in disposable ROMs."""
 from pathlib import Path
 import json
 import re
@@ -16,7 +16,8 @@ shutil.copytree(source, fixture, dirs_exist_ok=True)
 (OUT / 'build-path.txt').write_text(str(fixture) + '\n')
 runner = fixture / 'elite-four-smoke'
 subprocess.run(['gcc', '-O2', '-Wall', '-Wextra', str(ROOT/'scripts/smoke.c'), '-o', str(runner), '-lmgba', '-lpng'], check=True)
-configs = json.loads((ROOT / 'data/e4_champion_teams.json').read_text())['teams']
+teams = json.loads((ROOT / 'data/trainer_balance.json').read_text())['teams']
+configs = {name: config for name, config in teams.items() if name.startswith(('sParty_EliteFour', 'sParty_Champion'))}
 main_source = (ROOT / 'game/src/main.c').read_text()
 battle_source = (ROOT / 'game/src/battle_main.c').read_text()
 boot = r'''
@@ -40,8 +41,12 @@ static void EliteTestBoot(void)
     gSaveBlock2Ptr->optionsTextSpeed = 2;
     gSaveBlock2Ptr->optionsBattleSceneOff = TRUE;
     gMapHeader = *Overworld_GetMapHeaderByGroupAndId(MAP_GROUP(MAP_ROUTE1), MAP_NUM(MAP_ROUTE1));
-    for (i = 0; i < PARTY_SIZE; i++)
+    for (i = 0; i < PARTY_SIZE; i++) {
         CreateMon(&gPlayerParty[i], SPECIES_SNORLAX, 100, 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
+        // Keep this automation fixture alive through level-100 doubles;
+        // the test audits NPC construction/turn execution, not win probability.
+        gPlayerParty[i].hp = gPlayerParty[i].maxHP = 2000;
+    }
     CalculatePlayerPartyCount();
     gTrainerBattleOpponent_A = TEST_TRAINER;
     gBattleTypeFlags = BATTLE_TYPE_TRAINER;
@@ -50,17 +55,15 @@ static void EliteTestBoot(void)
 }
 '''
 for key, config in configs.items():
-    member = key.removeprefix('EliteFour').upper()
-    for rematch in (False, True):
-        trainer = 'TRAINER_ELITE_FOUR_' + member + ('_2' if rematch else '')
-        label = member.lower() + ('-rematch' if rematch else '-league')
+    for _ in (0,):
+        trainer = config['id']
+        label = key.removeprefix('sParty_').lower()
         # Independent expectations from the source config; no calls to the
         # production training helper in the audit. Check actual decrypted mons.
         checks = ['EWRAM_DATA volatile u32 gEliteFixtureResult = 0;', 'static void AuditEliteParty(struct Pokemon *party) {', 'gEliteFixtureResult = 2;']
         for slot, mon in enumerate(config['team']):
             prefix = f'&party[{slot}]'
-            cap = config['caps'][int(rematch)]
-            level = cap - (2 if slot < 4 else 1 if slot == 4 else 0)
+            level = mon['level']
             for field, val in [('SPECIES', 'SPECIES_'+mon['species']), ('LEVEL', str(level)), ('HELD_ITEM', 'ITEM_'+mon['item'])]:
                 checks.append(f'if (GetMonData({prefix}, MON_DATA_{field}) != {val}) return;')
             checks += [f'if (GetNature({prefix}) != NATURE_{mon["nature"]}) return;', f'if (GetMonAbility({prefix}) != ABILITY_{mon["ability"]}) return;']
@@ -87,10 +90,10 @@ for key, config in configs.items():
         shutil.copyfile(fixture/'pokefirered.gba', rom)
         addresses = [symbols[s] for s in ('gBattleMainFunc', 'HandleTurnActionSelectionState', 'gBattleTypeFlags', 'gAbsentBattlerFlags', 'gBattlersCount', 'gEliteFixtureResult')]
         addresses.append(symbols['gBattleResults'] + 0x13)
-        args = [str(runner), str(rom), str(OUT/f'{label}.png'), '7200', 'battle'] + [hex(a) for a in addresses]
+        args = [str(runner), str(rom), str(OUT/f'{label}.png'), '18000', 'battle'] + [hex(a) for a in addresses]
         result = subprocess.run(args, capture_output=True, text=True, timeout=90)
         (OUT / f'{label}-emulator.log').write_text(result.stdout + result.stderr)
-        assert result.returncode == 0, (label, result.stdout, result.stderr[-1000:])
+        assert result.returncode == 0, (label, result.stdout[-2000:], result.stderr[-1000:])
         assert re.search(r'battle_ready=1 battle_flags=\d+ absent=0 battlers=4', result.stdout), (label, result.stdout)
         assert 'party_audit=1' in result.stdout
         print(f'PASS {label}: six actual mons audited; ' + result.stdout.split('party_audit=')[1].splitlines()[0], flush=True)

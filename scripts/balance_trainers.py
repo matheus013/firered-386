@@ -1,7 +1,7 @@
 """Build a reviewable doubles pass from the pinned vanilla trainer data.
 
 Uses the CURRENT engine's learnsets/types. Rerun and review after the modern engine
-lands; this is not a claim to have implemented modern moves or competitive EVs.
+lands; modern moves remain pending. E4 and Champion have explicit training.
 """
 import argparse
 import hashlib
@@ -24,18 +24,44 @@ E4 = json.loads((ROOT / "data/e4_champion_teams.json").read_text(encoding="utf-8
 # Match the explicit trainer-to-row mapping in src/elite_four.c, independent of
 # the order in which a JSON editor happens to serialize the source file.
 E4 = {key: E4[key] for key in ("EliteFourLorelei", "EliteFourBruno", "EliteFourAgatha", "EliteFourLance")}
+CURVE = json.loads((ROOT / "data/progression_curve.json").read_text(encoding="utf-8"))
 
-# Keep the gyms' themes and aces. Levels remain at or below the original ace.
+# Keep the gyms' themes and aces; levels come from the progression manifest.
 BOSSES = {
     "LeaderBrock": ("ROCK", 14, "GEODUDE ONIX RHYHORN OMANYTE KABUTO NOSEPASS"),
     "LeaderMisty": ("WATER", 21, "POLIWAG PSYDUCK HORSEA STARYU GOLDEEN STARMIE"),
-    "LeaderLtSurge": ("ELECTRIC", 24, "VOLTORB MAGNEMITE PIKACHU CHINCHOU ELECTRIKE RAICHU"),
-    "LeaderErika": ("GRASS", 29, "TANGELA WEEPINBELL GLOOM PARASECT EXEGGCUTE VILEPLUME"),
-    "LeaderKoga": ("POISON", 43, "KOFFING GOLBAT MUK ARIADOS VENOMOTH WEEZING"),
-    "LeaderSabrina": ("PSYCHIC", 43, "MR_MIME KADABRA HYPNO SLOWBRO GIRAFARIG ALAKAZAM"),
+    "LeaderLtSurge": ("ELECTRIC", 24, "VOLTORB MAGNEMITE FLAAFFY CHINCHOU ELECTRIKE RAICHU"),
+    "LeaderErika": ("GRASS", 29, "TANGELA VICTREEBEL BELLOSSOM PARASECT EXEGGUTOR VILEPLUME"),
+    "LeaderKoga": ("POISON", 43, "TENTACRUEL CROBAT MUK ARIADOS VENOMOTH WEEZING"),
+    "LeaderSabrina": ("PSYCHIC", 43, "MR_MIME ESPEON HYPNO SLOWBRO GIRAFARIG ALAKAZAM"),
     "LeaderBlaine": ("FIRE", 47, "NINETALES RAPIDASH MAGMAR CAMERUPT FLAREON ARCANINE"),
-    "LeaderGiovanni": ("GROUND", 50, "DUGTRIO SANDSLASH NIDOQUEEN NIDOKING RHYHORN RHYDON"),
+    "LeaderGiovanni": ("GROUND", 50, "DUGTRIO SANDSLASH NIDOQUEEN NIDOKING DONPHAN RHYDON"),
 }
+for _key, _cap in CURVE["gym_caps"].items():
+    BOSSES[_key] = (BOSSES[_key][0], _cap, BOSSES[_key][2])
+
+
+def scaled_level(level):
+    anchors = CURVE["level_anchors"]
+    for (a, x), (b, y) in zip(anchors, anchors[1:]):
+        if a <= level <= b:
+            return x + (level - a) * (y - x) // (b - a)
+    return 100
+
+
+def area_levels():
+    bands = {}
+    for folder in (GAME / "data/maps").iterdir():
+        script = folder / "scripts.inc"
+        if not script.exists():
+            continue
+        band = next((b for b in CURVE["area_bands"] if any(folder.name.startswith(p) for p in b["prefixes"])), None)
+        if band:
+            for trainer in re.findall(r"trainerbattle_\w+\s+(TRAINER_\w+)", script.read_text(encoding="utf-8")):
+                # Reused scripts must remain safe at the earliest access point.
+                if trainer not in bands or band["max"] < bands[trainer][1]:
+                    bands[trainer] = (band["min"], band["max"])
+    return bands
 
 # Small companion pools preserve trainer identity when a second member is needed.
 POOLS = {
@@ -236,6 +262,12 @@ def moveset(data, mon, support=None, boss=False, weather=None):
 
 def generate(data, originals, trainers):
     result = {}
+    bands = area_levels()
+    evolution = {}
+    for species, body in re.findall(r"\[SPECIES_(\w+)\]\s*=\s*\{(.*?)(?=\n\s*\[SPECIES_|\n\};)", read("src/data/pokemon/evolution.h"), re.S):
+        match = re.search(r"\{EVO_LEVEL, (\d+), SPECIES_(\w+)\}", body)
+        if match:
+            evolution[species] = (int(match[1]), match[2])
     for party, old_team in originals.items():
         if party in LAB:
             continue
@@ -248,7 +280,7 @@ def generate(data, originals, trainers):
             team = []
             for i, source in enumerate(config["team"]):
                 mon = dict(source)
-                mon.update(level=cap - (2 if i < 4 else 1 if i == 4 else 0), iv=255)
+                mon.update(level=100 if key.endswith("2") else cap - (2 if i < 4 else 1 if i == 4 else 0), iv=255)
                 mon["ability_num"] = data.species[mon["species"]]["ability_slots"].index(mon["ability"])
                 team.append(mon)
             result[party] = {**trainers[party], "theme": config["theme"], "strategy": config["strategy"],
@@ -261,6 +293,16 @@ def generate(data, originals, trainers):
         else:
             theme = None
             team = [dict(m) for m in old_team]
+            cap = next((v for prefix, v in CURVE["rival_caps"].items() if key.startswith(prefix)), CURVE["boss_caps"].get(key))
+            highest = max(m["level"] for m in old_team)
+            for mon in team:
+                level = scaled_level(mon["level"])
+                if cap is not None:
+                    level = 100 if key.startswith("ChampionRematch") else max(cap - 5, cap - (highest - mon["level"]))
+                elif trainers[party]["id"] in bands:
+                    low, high = bands[trainers[party]["id"]]
+                    level = max(low, min(high, level))
+                mon["level"] = level
         # Cocoon-only and splash-only slots cannot contribute to coordinated doubles.
         for i, mon in enumerate(team):
             if mon["species"] in {"METAPOD", "KAKUNA"}:
@@ -269,6 +311,18 @@ def generate(data, originals, trainers):
                 mon["species"] = "GYARADOS" if mon["level"] >= 25 and i == len(team) - 1 else ("POLIWAG" if i % 2 else "GOLDEEN")
         if len(team) < 2:
             team.append(companion(data, trainers[party], team, salt))
+        for mon in team:
+            seen = set()
+            while mon["species"] in evolution and mon["species"] not in seen:
+                seen.add(mon["species"])
+                threshold, target = evolution[mon["species"]]
+                if mon["level"] < threshold:
+                    break
+                mon["species"] = target
+        if min(m["level"] for m in team) >= 42:
+            stones = {"GROWLITHE": "ARCANINE", "VULPIX": "NINETALES", "EXEGGCUTE": "EXEGGUTOR", "GLOOM": "VILEPLUME", "WEEPINBELL": "VICTREEBEL", "STARYU": "STARMIE", "PIKACHU": "RAICHU", "NIDORINO": "NIDOKING", "NIDORINA": "NIDOQUEEN", "CLEFAIRY": "CLEFABLE", "JIGGLYPUFF": "WIGGLYTUFF", "LOMBRE": "LUDICOLO", "NUZLEAF": "SHIFTRY"}
+            for mon in team:
+                mon["species"] = stones.get(mon["species"], mon["species"])
         # Place an actual team-support move on an opening member when legal.
         support_pair = None
         for move in SUPPORT:
@@ -312,6 +366,17 @@ def generate(data, originals, trainers):
             mon["iv"] = max(mon["iv"], 80 if mon["level"] < 16 else 120 if mon["level"] < 30 else 180 if mon["level"] < 50 else 220)
             mon["item"] = "ORAN_BERRY" if mon["level"] < 20 else "SITRUS_BERRY" if mon["level"] < 45 else ("LUM_BERRY" if i == 0 else "LEFTOVERS" if i % 3 == 0 else "SITRUS_BERRY")
         result[party] = {**trainers[party], "theme": theme, "strategy": strategy, "team": team}
+        if key.startswith(("ChampionFirst", "ChampionRematch")):
+            for mon in team:
+                species = data.species[mon["species"]]
+                physical = sum(data.moves[m]["power"] for m in mon["moves"] if m != "NONE" and data.moves[m]["type"] in PHYSICAL_TYPES)
+                special = sum(data.moves[m]["power"] for m in mon["moves"] if m != "NONE" and data.moves[m]["type"] not in PHYSICAL_TYPES)
+                stat = 1 if physical * species["attack"] > special * species["special"] else 4
+                evs = [0] * 6
+                evs[0], evs[stat], evs[3] = 4, 252, 252
+                ability_num = next((i for i, a in enumerate(species["ability_slots"]) if a in {"INTIMIDATE", "GUTS", "SWIFT_SWIM"}), 0)
+                mon.update(iv=255, evs=evs, nature="ADAMANT" if stat == 1 else "MODEST", ability_num=ability_num,
+                           ability=species["ability_slots"][ability_num], role="Finalizador com treinamento competitivo")
     return result
 
 
@@ -403,8 +468,8 @@ def outputs():
         return f"    [{match[1]}] = {{{body}\n    }},"
 
     trainers_text = TRAINER_RE.sub(replace_trainer, trainers_text)
-    report = ["# Revisão dos treinadores para duplas", "", f"{len(results)} equipes regulares revisadas; três variantes da primeira luta preservadas em singles. Também revisados {len(tower)} elencos internos da Torre de Treinadores.", "", "Base de golpes, tipos e regras: motor atual de geração III. Necessário revisar após a migração moderna. As equipes regulares abaixo não têm EVs/naturezas competitivos configurados nem comprovam decisões perfeitas da IA. Dados externos de e-Reader não fazem parte desta revisão. Na Torre, a seleção de golpes usa nível 50 como referência, e os adversários continuam escalando ao nível da equipe do jogador; os EVs, IVs e naturezas originais foram preservados.", "", "## Critérios", "", "- Duas a seis criaturas; líderes e Elite Four com seis.", "- Suporte na abertura quando disponível, golpes legais por nível/TM e cobertura de tipos.", "- Sem ataques que atinjam o aliado, OHKO ou spam de evasão.", "- Níveis regulares preservados; berries e IVs progressivos, sem lendários adicionados.", "- Líderes e Elite Four respeitam seu tipo de especialidade.", ""]
-    report[4] = "Base de geração III. A Elite Four usa adaptações de equipes campeãs, com naturezas, habilidades fixas, IVs 31 e EVs definidos; os demais treinadores regulares continuam sem treinamento competitivo específico. Dados de e-Reader não revisados. A Torre preserva seus EVs/IVs/naturezas originais."
+    report = ["# Revisão dos treinadores para duplas", "", f"{len(results)} equipes regulares revisadas; três variantes da primeira luta preservadas em singles. Também revisados {len(tower)} elencos internos da Torre de Treinadores.", "", "Base de golpes, tipos e regras: motor atual de geração III. Necessário revisar após a migração moderna. As equipes regulares abaixo não têm EVs/naturezas competitivos configurados nem comprovam decisões perfeitas da IA. Dados externos de e-Reader não fazem parte desta revisão. Na Torre, a seleção de golpes usa nível 50 como referência, e os adversários continuam escalando ao nível da equipe do jogador; os EVs, IVs e naturezas originais foram preservados.", "", "## Critérios", "", "- Duas a seis criaturas; líderes e Elite Four com seis.", "- Suporte na abertura quando disponível, golpes legais por nível/TM e cobertura de tipos.", "- Sem ataques que atinjam o aliado, OHKO ou spam de evasão.", "- Níveis recalibrados por etapa da campanha; berries e IVs progressivos, sem lendários adicionados.", "- Líderes e Elite Four respeitam seu tipo de especialidade.", ""]
+    report[4] = "Base de geração III. A Elite Four usa adaptações de equipes campeãs, com naturezas, habilidades fixas, IVs 31 e EVs definidos; o Campeão também tem naturezas, habilidades, IVs 31 e EVs por função. Os demais treinadores regulares continuam sem EVs específicos. Dados de e-Reader não revisados. A Torre preserva seus EVs/IVs/naturezas originais."
     report = [line.replace("sem lendários adicionados.", "com lendários das referências históricas na Elite Four.").replace("Líderes e Elite Four respeitam seu tipo de especialidade.", "Líderes mantêm especialidade; Elite Four combina integrantes temáticos com parceiros dos times campeões.") for line in report]
     no_support = []
     for name, entry in results.items():
@@ -412,8 +477,8 @@ def outputs():
         for m in entry["team"]:
             report.append(f"| {m['species']} | {m['level']} | {m['item']} | {', '.join(x for x in m['moves'] if x != 'NONE')} |")
         report.append("")
-        if "champion" in entry:
-            report.extend([entry["champion"], "", "IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.", "", "| Pokémon | Natureza | Habilidade | EVs | Função |", "|---|---|---|---|---|"])
+        if all("evs" in mon for mon in entry["team"]):
+            report.extend([entry.get("champion", "Campeão: treinamento por função."), "", "IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.", "", "| Pokémon | Natureza | Habilidade | EVs | Função |", "|---|---|---|---|---|"])
             for m in entry["team"]:
                 report.append(f"| {m['species']} | {m['nature']} | {m['ability']} | {' / '.join(map(str, m['evs']))} | {m['role']} |")
             report.append("")
@@ -430,6 +495,20 @@ def outputs():
         for mon in config["team"]:
             slot = data.species[mon["species"]]["ability_slots"].index(mon["ability"])
             training.append("        {SPECIES_%s, NATURE_%s, %d, {%s}}," % (mon["species"], mon["nature"], slot, ", ".join(map(str, mon["evs"]))))
+        training.append("    },")
+    training.append("};")
+    training.append("static const struct EliteFourTraining sChampionTraining[3][PARTY_SIZE] = {")
+    for starter in ("Squirtle", "Bulbasaur", "Charmander"):
+        training.append("    {")
+        for mon in results["sParty_ChampionFirst" + starter]["team"]:
+            training.append("        {SPECIES_%s, NATURE_%s, %d, {%s}}," % (mon["species"], mon["nature"], mon["ability_num"], ", ".join(map(str, mon["evs"]))))
+        training.append("    },")
+    training.append("};")
+    training.append("static const struct EliteFourTraining sChampionRematchTraining[3][PARTY_SIZE] = {")
+    for starter in ("Squirtle", "Bulbasaur", "Charmander"):
+        training.append("    {")
+        for mon in results["sParty_ChampionRematch" + starter]["team"]:
+            training.append("        {SPECIES_%s, NATURE_%s, %d, {%s}}," % (mon["species"], mon["nature"], mon["ability_num"], ", ".join(map(str, mon["evs"]))))
         training.append("    },")
     training.append("};")
     return {GAME / "src/data/elite_four_sets.h": "\n".join(training) + "\n", GAME / "src/data/trainer_parties.h": parties_text, GAME / "src/data/trainers.h": trainers_text,

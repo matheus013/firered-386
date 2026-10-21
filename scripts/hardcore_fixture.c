@@ -52,7 +52,7 @@ static void HardcoreTestBoot(void)
     gSaveBlock2Ptr->challenge.mode = GAME_MODE_HARDCORE;
     CHECK_HC(!Nuzlocke_IsHardcore(), 16); // An old save's unused bytes are not a valid mode.
     Nuzlocke_ChooseMode(GAME_MODE_NORMAL);
-    CHECK_HC(!Nuzlocke_IsHardcore() && Nuzlocke_GetLevelCap() == MAX_LEVEL, 17);
+    CHECK_HC(!Nuzlocke_IsHardcore() && Nuzlocke_GetLevelCap() == 18, 17);
     CHECK_HC(Nuzlocke_CanUseBattleItem(ITEM_POTION), 18);
     Nuzlocke_ChooseMode(GAME_MODE_HARDCORE);
     NewGameInitData(); // The introduction initializes the world after choosing a mode.
@@ -102,25 +102,33 @@ static void HardcoreTestBoot(void)
     CHECK_HC(Nuzlocke_IsDead(&restored) && !GetMonData(&restored, MON_DATA_HP), 35);
     CreateMon(&gPlayerParty[1], SPECIES_CHARMANDER, 5, 15, FALSE, 0, OT_ID_PLAYER_ID, 0);
     gPlayerPartyCount = 2;
-    CHECK_HC(Nuzlocke_GetLevelCap() == 14, 36);
+    CHECK_HC(Nuzlocke_GetLevelCap() == 18, 36);
     experience = 1000000;
     SetMonData(&gPlayerParty[1], MON_DATA_EXP, &experience);
     CalculateMonStats(&gPlayerParty[1]);
-    CHECK_HC(GetMonData(&gPlayerParty[1], MON_DATA_LEVEL) == 14, 37);
+    CHECK_HC(GetMonData(&gPlayerParty[1], MON_DATA_LEVEL) == 18, 37);
     CHECK_HC(Nuzlocke_LimitExpGain(&gPlayerParty[1], 1000) == 0, 38);
     FlagSet(FLAG_BADGE01_GET);
-    CHECK_HC(Nuzlocke_GetLevelCap() == 21 && Nuzlocke_LimitExpGain(&gPlayerParty[1], 1000) > 0, 39);
+    CHECK_HC(Nuzlocke_GetLevelCap() == 28 && Nuzlocke_LimitExpGain(&gPlayerParty[1], 1000) > 0, 39);
     FlagClear(FLAG_BADGE01_GET);
     CreateMon(&gPlayerParty[2], SPECIES_EEVEE, 25, 15, FALSE, 0, OT_ID_PLAYER_ID, 0);
     CHECK_HC(Nuzlocke_IsOverCap(&gPlayerParty[2]) && !GetMonData(&gPlayerParty[2], MON_DATA_HP), 40);
     for (i = 0; i < 8; i++) FlagSet(FLAG_BADGE01_GET + i);
-    CHECK_HC(Nuzlocke_GetLevelCap() == 60 && GetMonData(&gPlayerParty[2], MON_DATA_HP) > 0, 41);
+    CHECK_HC(Nuzlocke_GetLevelCap() == 80 && GetMonData(&gPlayerParty[2], MON_DATA_HP) > 0, 41);
+    FlagSet(FLAG_DEFEATED_LORELEI);
+    CHECK_HC(Nuzlocke_GetLevelCap() == 83, 50);
+    FlagSet(FLAG_DEFEATED_BRUNO);
+    CHECK_HC(Nuzlocke_GetLevelCap() == 86, 51);
+    FlagSet(FLAG_DEFEATED_AGATHA);
+    CHECK_HC(Nuzlocke_GetLevelCap() == 89, 52);
+    FlagSet(FLAG_DEFEATED_LANCE);
+    CHECK_HC(Nuzlocke_GetLevelCap() == 92, 53);
     FlagSet(FLAG_SYS_GAME_CLEAR);
     CHECK_HC(Nuzlocke_GetLevelCap() == MAX_LEVEL, 42);
     FlagClear(FLAG_SYS_GAME_CLEAR);
     for (i = 0; i < 8; i++) FlagClear(FLAG_BADGE01_GET + i);
     Nuzlocke_ChooseMode(GAME_MODE_NORMAL);
-    CHECK_HC(!Nuzlocke_IsDead(&gPlayerParty[0]) && Nuzlocke_GetLevelCap() == MAX_LEVEL, 43);
+    CHECK_HC(!Nuzlocke_IsDead(&gPlayerParty[0]) && Nuzlocke_GetLevelCap() == 18, 43);
     HealPlayerParty();
     CHECK_HC(GetMonData(&gPlayerParty[0], MON_DATA_HP) > 0, 44);
     // A new challenge starts clean; the production selector is only in New Game.

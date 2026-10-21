@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "gym_caps": {
+    "LeaderBrock": 18,
+    "LeaderMisty": 28,
+    "LeaderLtSurge": 36,
+    "LeaderErika": 44,
+    "LeaderKoga": 52,
+    "LeaderSabrina": 60,
+    "LeaderBlaine": 68,
+    "LeaderGiovanni": 76
+  },
+  "level_anchors": [
+    [
+      1,
+      2
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      9,
+      12
+    ],
+    [
+      14,
+      18
+    ],
+    [
+      21,
+      28
+    ],
+    [
+      24,
+      34
+    ],
+    [
+      29,
+      42
+    ],
+    [
+      33,
+      47
+    ],
+    [
+      38,
+      51
+    ],
+    [
+      43,
+      58
+    ],
+    [
+      47,
+      67
+    ],
+    [
+      50,
+      74
+    ],
+    [
+      53,
+      77
+    ],
+    [
+      57,
+      82
+    ],
+    [
+      63,
+      92
+    ],
+    [
+      75,
+      100
+    ],
+    [
+      100,
+      100
+    ]
+  ],
+  "rival_caps": {
+    "RivalRoute22Early": 14,
+    "RivalCerulean": 26,
+    "RivalSsAnne": 34,
+    "RivalPokemonTower": 48,
+    "RivalSilph": 58,
+    "RivalRoute22Late": 78,
+    "ChampionFirst": 92,
+    "ChampionRematch": 100
+  },
+  "boss_caps": {
+    "BossGiovanni": 44,
+    "BossGiovanni2": 58
+  },
+  "area_bands": [
+    {
+      "prefixes": [
+        "ViridianForest",
+        "PewterCity_Gym"
+      ],
+      "min": 10,
+      "max": 16
+    },
+    {
+      "prefixes": [
+        "Route3"
+      ],
+      "min": 17,
+      "max": 23
+    },
+    {
+      "prefixes": [
+        "MtMoon_"
+      ],
+      "min": 20,
+      "max": 25
+    },
+    {
+      "prefixes": [
+        "Route24",
+        "Route25",
+        "CeruleanCity_Gym"
+      ],
+      "min": 23,
+      "max": 27
+    },
+    {
+      "prefixes": [
+        "Route5",
+        "Route6"
+      ],
+      "min": 27,
+      "max": 32
+    },
+    {
+      "prefixes": [
+        "SSAnne_"
+      ],
+      "min": 29,
+      "max": 34
+    },
+    {
+      "prefixes": [
+        "Route9",
+        "Route10",
+        "RockTunnel_",
+        "Route8"
+      ],
+      "min": 35,
+      "max": 41
+    },
+    {
+      "prefixes": [
+        "RocketHideout_",
+        "CeladonCity_Gym"
+      ],
+      "min": 39,
+      "max": 43
+    },
+    {
+      "prefixes": [
+        "PokemonTower_"
+      ],
+      "min": 44,
+      "max": 48
+    },
+    {
+      "prefixes": [
+        "Route12",
+        "Route13",
+        "Route14",
+        "Route15",
+        "Route16",
+        "Route17",
+        "Route18",
+        "FuchsiaCity_Gym"
+      ],
+      "min": 46,
+      "max": 51
+    },
+    {
+      "prefixes": [
+        "SilphCo_",
+        "SaffronCity_Dojo",
+        "SaffronCity_Gym"
+      ],
+      "min": 54,
+      "max": 59
+    },
+    {
+      "prefixes": [
+        "Route19",
+        "Route20",
+        "PokemonMansion_",
+        "CinnabarIsland_Gym"
+      ],
+      "min": 61,
+      "max": 67
+    },
+    {
+      "prefixes": [
+        "Route21",
+        "OneIsland",
+        "TwoIsland",
+        "ThreeIsland",
+        "BondBridge",
+        "BerryForest",
+        "KindleRoad",
+        "MtEmber_",
+        "TreasureBeach"
+      ],
+      "min": 68,
+      "max": 73
+    },
+    {
+      "prefixes": [
+        "ViridianCity_Gym"
+      ],
+      "min": 72,
+      "max": 75
+    },
+    {
+      "prefixes": [
+        "VictoryRoad_"
+      ],
+      "min": 76,
+      "max": 79
+    },
+    {
+      "prefixes": [
+        "FourIsland",
+        "FiveIsland",
+        "SixIsland",
+        "SevenIsland",
+        "IcefallCave_",
+        "RocketWarehouse",
+        "WaterLabyrinth",
+        "ResortGorgeous",
+        "MemorialPillar",
+        "WaterPath",
+        "RuinValley",
+        "PatternBush",
+        "OutcastIsland",
+        "GreenPath",
+        "AlteringCave",
+        "DottedHole",
+        "TrainerTower_",
+        "SevaultCanyon",
+        "CanyonEntrance",
+        "TanobyRuins"
+      ],
+      "min": 86,
+      "max": 96
+    }
+  ]
+}

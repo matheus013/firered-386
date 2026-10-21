@@ -6,10 +6,10 @@ Implementado na versão **v0.1.1-dev**, para a primeira Liga e suas revanches. A
 
 | Membro | Referência mundial | Time na hack | Nível máximo Liga / revanche |
 |---|---|---|---|
-| Lorelei | Abram Burrows, 2012 Junior | HITMONTOP, CLOYSTER, PILOSWINE, JYNX, TYRANITAR, LAPRAS | 54 / 66 |
-| Bruno | Ray Rizzo, 2010 Senior | HARIYAMA, KYOGRE, LUDICOLO, SLOWBRO, GROUDON, MACHAMP | 56 / 68 |
-| Agatha | Nikolai Zielinski, 2014 Senior | MAWILE, GENGAR, DUSCLOPS, MISDREAVUS, TYRANITAR, LANTURN | 58 / 70 |
-| Lance | Wolfe Glick, 2016 Masters | HITMONTOP, KYOGRE, GENGAR, CLAYDOL, RAICHU, RAYQUAZA | 60 / 72 |
+| Lorelei | Abram Burrows, 2012 Junior | HITMONTOP, CLOYSTER, PILOSWINE, JYNX, TYRANITAR, LAPRAS | 80 / 100 |
+| Bruno | Ray Rizzo, 2010 Senior | HARIYAMA, KYOGRE, LUDICOLO, SLOWBRO, GROUDON, MACHAMP | 83 / 100 |
+| Agatha | Nikolai Zielinski, 2014 Senior | MAWILE, GENGAR, DUSCLOPS, MISDREAVUS, TYRANITAR, LANTURN | 86 / 100 |
+| Lance | Wolfe Glick, 2016 Masters | HITMONTOP, KYOGRE, GENGAR, CLAYDOL, RAICHU, RAYQUAZA | 89 / 100 |
 
 ## Estratégias e substituições
 
@@ -75,9 +75,9 @@ Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralis
 
 ## Implementação e limites
 
-- Seis integrantes em duplas nos oito elencos. Os tetos da primeira Liga e das revanches foram preservados; o limite Hardcore da Liga continua em 60.
+- Seis integrantes em duplas nos oito elencos. Na primeira Liga, os maiores níveis são 80/83/86/89, seguidos pelo Campeão no 92. O teto de EXP avança a cada membro vencido, nos dois modos. Na revanche, todos os integrantes da E4 e do Campeão estão no 100.
 - IVs 31, naturezas fixas, EVs até 252 por atributo e 510 no total, e habilidade escolhida entre as existentes na espécie. Os valores exatos estão em TRAINER_REVIEW.md e data/e4_champion_teams.json.
-- As naturezas e habilidades são aplicadas na criação efetiva da equipe inimiga; os atributos são recalculados após os EVs. O comportamento dos demais treinadores e o formato de save não mudam.
+- As naturezas e habilidades são aplicadas na criação efetiva da equipe inimiga; os atributos são recalculados após os EVs. O Campeão também recebe treinamento competitivo; os demais treinadores usam IVs progressivos, sem EVs específicos. O formato do save preserva seu tamanho.
 - Golpes validados por nível, TM/HM, tutor de FireRed ou herança/evolução/ovos descritos nos arquivos da própria base. Helping Hand de Hitmontop vem de Tyrogue; Mud Shot de Piloswine vem de Swinub; Will-O-Wisp de Gengar vem de Gastly.
 - Surf atinge somente os adversários nesta engine de geração III. Os elencos não usam ataques que atinjam o parceiro.
 - Categorias de dano ainda seguem o tipo: Shadow Ball é físico e Dragon Claw é especial. Os sets foram escolhidos levando isso em conta.
@@ -88,7 +88,7 @@ Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralis
 
 ## Reproduzir e verificar
 
-`python3 scripts/balance_trainers.py --check` valida geração e legalidade dos dados. Após compilar, `python3 scripts/test_elite_four.py` executa as oito lutas em ROMs descartáveis no mGBA, confere os seis Pokémon efetivamente criados (espécies, níveis, golpes, itens, IVs, EVs, naturezas e habilidades), chegada à seleção de ação e avanço de turnos. Logs e capturas ficam em output/tests/elite-four/. Não é um teste de campanha completa.
+`python3 scripts/balance_trainers.py --check` valida geração e legalidade dos dados. Após compilar, `python3 scripts/test_elite_four.py` executa as oito lutas da E4 e as seis variantes do Campeão em ROMs descartáveis no mGBA, confere os seis Pokémon efetivamente criados (espécies, níveis, golpes, itens, IVs, EVs, naturezas e habilidades), chegada à seleção de ação e avanço de turnos. Logs e capturas ficam em output/tests/elite-four/. Não é um teste de campanha completa.
 
 ## Fontes históricas
 

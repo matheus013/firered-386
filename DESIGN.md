@@ -60,14 +60,21 @@
 - Lendários e míticos: propor encontros fixos em locais existentes, condicionados a insígnias ou eventos já concluídos; raridade baixa sozinha não impede captura precoce.
 - Auditar as 386 espécies individualmente por encontro, presente, fóssil, reprodução ou evolução; resolver escolhas exclusivas e acesso a iniciais, itens e áreas.
 
-## Interface de treinamento e lojas — detalhes pendentes
+## Interface de treinamento e lojas — implementação parcial
 
-- A interface de EVs substitui a necessidade de farm; o momento de liberação ainda deve ser definido. Não restringir automaticamente ao pós-jogo após o pedido específico de treino via interface.
-- Definir se EVs de batalha continuam ativos e como interagem com a distribuição manual, para evitar alterações involuntárias na equipe preparada.
+- Implementado: cientista nos 19 Centros, com natureza/EVs/IVs gratuitos desde o início no Hardcore e após a Liga no Normal. Ajustes não curam nem revivem; EVs ganhos em batalha continuam ativos.
+- Implementado: EVs até 252 por atributo/510 total e IVs até 31, com edição, cancelamento e confirmação. Troca de habilidade permanece pendente.
 - Definir acesso e custos de ajuste de natureza e habilidade e quais habilidades são suportadas pela referência da engine.
 - Propor o uso da loja de departamentos existente em Celadon, organizado por categorias, sem alterar a geometria dos mapas.
 - Catalogar todos os itens da base escolhida, incluindo itens novos; definir preços, itens especiais, tratamento de itens-chave e capacidade da mochila. A compra de Master Ball e Rare Candy não foi excluída do pedido.
 - Definir quais batalhas contam como importantes para a restrição da mochila, incluindo no mínimo líderes, Elite Four, Campeão e suas revanches.
+
+## Rare Candy e curas — regra Hardcore implementada
+
+- Rare Candy por ₽1 em lojas comuns somente no Hardcore; revenda por ₽0.
+- Cada um dos 19 Centros admite três curas pela enfermeira por partida, com contador individual salvo e aviso. Normal mantém preço/estoque e curas sem essa restrição.
+- Camas e cura por PC não são limitadas por esse contador. Não há autosave ou proteção contra recarga de um estado anterior.
+- Curva implementada: ginásios 18/28/36/44/52/60/68/76; Liga 80/83/86/89/92; revanche inteira no 100. Teto de EXP nos dois modos. Encontros selvagens ainda aguardam revisão.
 
 ## Referência moderna e regras pendentes
 

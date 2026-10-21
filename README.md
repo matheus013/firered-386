@@ -6,7 +6,7 @@ Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em du
 
 Baixe o **`.gba`** em [Releases](https://github.com/matheus013/firered-386/releases) e abra em um emulador de GBA. Também estão disponíveis um patch `.ips`, o patch de fontes e checksums SHA-256.
 
-O IPS exige uma ROM limpa de **FireRed USA 1.0**, SHA-1 `41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc`. O `.gba` já compilado dispensa aplicar patches. Para escolher Hardcore, use **NEW GAME**. Saves existentes são tratados como Normal. Faça backup do seu save antes de experimentar outra versão.
+O IPS exige uma ROM limpa de **FireRed USA 1.0**, SHA-1 `41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc`. O `.gba` já compilado dispensa aplicar patches. Para escolher Hardcore, use **NEW GAME**. Saves anteriores à introdução dos modos são tratados como Normal; a escolha já gravada em um Hardcore é preservada. Faça backup do seu save antes de experimentar outra versão.
 
 O jogo continua majoritariamente em inglês. A tela de seleção de modos está em português, sem acentos na interface do GBA.
 
@@ -18,12 +18,12 @@ O jogo continua majoritariamente em inglês. A tela de seleção de modos está 
 - **636 equipes regulares** revisadas, incluindo rivais posteriores, líderes, Elite Four, Campeão e revanches já existentes na base.
 - Equipes de dois a seis integrantes; **líderes e Elite Four com seis Pokémon**. Líderes mantêm seu tipo; a E4 combina integrantes temáticos e parceiros dos times campeões.
 - Suporte de abertura, cobertura, parceiros complementares, controle de velocidade, telas e clima em equipes compatíveis.
-- Itens equipados e IVs progressivos. Os níveis dos treinadores regulares foram preservados nesta etapa; a dificuldade vem principalmente das equipes e duplas.
+- Itens equipados e IVs progressivos. Níveis elevados por etapa da campanha, evoluções mais avançadas e Campeão com natureza, habilidade, IVs 31 e EVs por função.
 - Elencos gerados evitam golpes que atinjam aliados, golpes de nocaute em um acerto e acúmulo de evasão. Clima é evitado em equipes que possam ter Cloud Nine ou Air Lock.
 - **60 elencos internos da Torre de Treinadores** revisados para duplas; segundo Pokémon adicionado aos adversários do modo Knockout. Níveis continuam acompanhando a equipe do jogador; EVs, IVs e naturezas originais da Torre foram preservados. Dados externos de e-Reader não foram revisados.
 - Com apenas um Pokémon apto, o jogador enfrenta dois adversários com o segundo espaço vazio, sem duplicação ou exigência de um segundo integrante.
 
-As equipes atuais usam golpes, tipos e regras de **geração III**. Os treinadores regulares fora da E4 ainda não têm EVs/naturezas competitivos específicos; a calibração da campanha inteira continua pendente. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](TRAINER_REVIEW.md), com dados em [data/trainer_balance.json](data/trainer_balance.json).
+As equipes atuais usam golpes, tipos e regras de **geração III**. Os treinadores regulares fora da E4 e do Campeão ainda não têm EVs/naturezas competitivos específicos; a calibração da campanha inteira continua pendente. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](TRAINER_REVIEW.md), com dados em [data/trainer_balance.json](data/trainer_balance.json).
 
 ### Elite Four inspirada em campeões oficiais (v0.1.1-dev)
 
@@ -34,7 +34,7 @@ As equipes atuais usam golpes, tipos e regras de **geração III**. Os treinador
 | Agatha | Nikolai Zielinski, Senior 2014 | Mawile, Gengar, Dusclops, Misdreavus, Tyranitar, Lanturn |
 | Lance | Wolfe Glick, Masters 2016 | Hitmontop, Kyogre, Gengar, Claydol, Raichu, Rayquaza |
 
-- Aplicado à primeira Liga e às revanches: oito elencos com seis integrantes. Os maiores níveis continuam 54/56/58/60 e 66/68/70/72 nas revanches.
+- Aplicado à primeira Liga e às revanches: oito elencos com seis integrantes. Os maiores níveis da primeira Liga são 80/83/86/89; o Campeão chega ao 92. Na revanche, todos os seis Pokémon de cada membro e do Campeão ficam no nível 100.
 - Naturezas e habilidades fixas, IVs 31 e EVs distribuídos por função, efetivamente aplicados na criação dos adversários.
 - Helping Hand, Intimidate, Fake Out de Hariyama, telas, sono, queimadura/paralisia e cobertura respeitam os recursos disponíveis na geração III.
 - Espécies históricas disponíveis preservadas; as ausentes foram substituídas por parceiros das 386 espécies. As equipes são mistas e não exigem que todos compartilhem o tipo do membro.
@@ -57,7 +57,7 @@ A revisão melhora a pontuação de ações, mas não garante decisões perfeita
 ### Experiência, itens e evolução
 
 - **Exp. Share global após entregar o Parcel ao Professor Oak**, como item-chave que liga/desliga o efeito, sem ocupar item equipado.
-- Cada participante recebe experiência integral; cada reserva apta recebe metade. Ovos e Pokémon desmaiados não recebem. No Hardcore, também vale o teto de nível.
+- Cada participante recebe experiência integral; cada reserva apta recebe metade. Ovos e Pokémon desmaiados não recebem. Nos dois modos, vale o teto de nível da progressão.
 - **TMs reutilizáveis:** não são consumidas ao ensinar golpes.
 - **Kadabra → Alakazam, Machoke → Machamp, Graveler → Golem e Haunter → Gengar no nível 37**, sem troca. Evoluções por troca com item continuam pendentes.
 - **Pokédex Nacional junto com a Pokédex inicial**, sem antecipar os outros eventos da história.
@@ -66,8 +66,8 @@ A revisão melhora a pontuação de ações, mas não garante decisões perfeita
 ### Normal ou Hardcore Nuzlocke
 
 - Escolha ao criar a partida, com revisão das regras antes da confirmação. B volta e A confirma; a introdução original continua em seguida.
-- Escolha fixa, persistida no save. Saves antigos permanecem em Normal.
-- Normal conserva as melhorias da hack sem aplicar as restrições do Hardcore.
+- Escolha fixa, persistida no save. Saves anteriores à introdução dos modos permanecem em Normal.
+- Normal conserva as melhorias da hack e o teto de EXP/nível, sem aplicar as demais restrições do Hardcore. Pokémon antigos acima do teto continuam utilizáveis no Normal, mas não ganham mais EXP até a progressão alcançá-los.
 
 ### Regras do Hardcore desta versão
 
@@ -79,13 +79,40 @@ A revisão melhora a pontuação de ações, mas não garante decisões perfeita
 6. **Presentes livres:** presentes, ovos, compras de Pokémon e trocas por NPC ficam fora da cota de selvagens, sem limite adicional por cidade. Continuam sujeitos à perda permanente e ao teto de nível.
 7. **Mochila bloqueada em batalha**, exceto Poké Balls em encontros permitidos. Itens equipados e uso fora de batalha continuam disponíveis. Os adversários mantêm seus itens.
 8. **Modo Set fixo**, inclusive na tela de opções.
-9. **Limite de nível:** maior nível do primeiro líder ainda sem insígnia, na ordem dos oito ginásios. Após oito insígnias, usa Lance, atualmente nível 60; após a Liga, 100. EXP e Rare Candy não ultrapassam o teto.
+9. **Limite de nível:** maior nível do primeiro líder ainda sem insígnia, na ordem dos oito ginásios. Após oito insígnias, sobe por membro da Liga: 80 → 83 → 86 → 89 → 92; após a Liga, 100. EXP e Rare Candy não ultrapassam o teto.
 10. **Pokémon acima do teto** mantém o nível, mas fica indisponível até o limite alcançá-lo. Aparece com zero HP disponível nesse período, sem ser marcado como perdido por isso.
-11. **Derrota total** encerra a tentativa atual e mostra a tela de fim, com retorno ao menu para iniciar outra partida.
+11. **Rare Candy por ₽1** nas lojas comuns, adicionado ao estoque somente no Hardcore. Venda rende ₽0, evitando lucro por revenda. Máquinas, prêmios por moedas e lojas de decoração ficam fora desta regra.
+12. **Três curas por Centro Pokémon**, pela enfermeira, durante toda a partida. Cada um dos 19 Centros tem contador próprio; recusar a cura não gasta uso. O aviso mostra os usos restantes e a quarta cura é recusada. Normal mantém curas ilimitadas. Camas e recuperação pelo PC não entram neste contador.
+13. **Derrota total** encerra a tentativa atual e mostra a tela de fim, com retorno ao menu para iniciar outra partida.
 
 Capturas e perdas começam após as primeiras Poké Balls de Oak; limite, Set e restrição de itens valem desde a criação. Demonstrações, link e instalações de batalha ficam fora da marcação de perdas e da cota de captura.
 
 Salvar pelo menu persiste o estado. **Não há autosave nem proteção contra recarregar um save anterior, save states, cheats ou edições externas.** A derrota bloqueia o estado atual em memória; recarregar um save anterior restaura aquele estado. Estas são as cláusulas desta hack, que podem diferir de outras variantes. Detalhes em [HARDCORE.md](HARDCORE.md).
+
+### Nova curva de níveis e treinador dos Centros (v0.2.0-dev)
+
+| Desafio | Maior nível / teto antes da vitória |
+|---|---:|
+| Brock | 18 |
+| Misty | 28 |
+| Lt. Surge | 36 |
+| Erika | 44 |
+| Koga | 52 |
+| Sabrina | 60 |
+| Blaine | 68 |
+| Giovanni | 76 |
+| Lorelei / Bruno / Agatha / Lance | 80 / 83 / 86 / 89 |
+| Campeão | 92 |
+| Revanche da Liga inteira | 100 em todos os integrantes |
+
+- Rotas, rivais, esconderijo, Silph, ginásios, Victory Road e treinadores das ilhas foram recalibrados por etapa. A primeira batalha no laboratório permanece simples e com os níveis originais. A Torre mantém seu escalonamento próprio.
+- **NPC cientista nos 19 Centros Pokémon:** ajustes gratuitos de natureza, EVs e IVs. Hardcore libera desde o início; Normal libera após a primeira vitória na Liga.
+- EVs de 0 a 252 por atributo, soma máxima 510; IVs de 0 a 31. A interface mostra os valores atuais, permite zerar/maximizar, cancelar e confirmar. EVs ganhos em batalha continuam ativos.
+- O ajuste de natureza muda seu efeito e a natureza exibida, preservando personalidade, shiny, gênero e habilidade. Rotinas de preferências de sabor baseadas diretamente na personalidade mantêm a natureza de origem.
+- Ovos, Pokémon perdidos e, no Hardcore, acima do teto não podem ser editados. Ajustes recalculam atributos sem recuperar HP ou reviver; reduzir o HP máximo pode reduzir o HP atual.
+- O contador dos Centros é salvo junto da partida. Ao carregar um Hardcore anterior a esta versão, os contadores começam em zero. Não há autosave ou proteção contra recarregar um save anterior.
+
+A geometria e a história permanecem preservadas; foram acrescentados os NPCs. Encontros selvagens e sua distribuição ainda não foram recalibrados. Os níveis maiores, sozinhos, não comprovam equilíbrio da campanha completa. Detalhes e limites: [PROGRESSION.md](PROGRESSION.md).
 
 ### Correções e save
 
@@ -107,10 +134,9 @@ Estas funcionalidades **não estão disponíveis nesta release**:
 - HMs fora de batalha sem ocupar golpes, preservando exigências de insígnias e história.
 - Novas revanches contra líderes, com seis integrantes e equipes competitivas de duplas coerentes com seus tipos; revisão da Elite Four após a futura modernização da engine; as adaptações competitivas da geração III já estão implementadas.
 - Nova oportunidade de capturar lendários derrotados.
-- Teto de nível também no modo Normal e exibição do teto atual no menu.
+- Exibição do teto atual no menu; o teto de EXP já está ativo nos dois modos.
 - Todos os itens utilizáveis/equipáveis compráveis em Celadon após a primeira vitória na Liga; catálogo, preços e exceções de itens-chave ainda serão definidos.
-- Interface para distribuir/remover EVs sem farm; definir interação com EVs ganhos em batalha.
-- Ajuste do efeito da natureza, troca entre habilidades disponíveis e ajuste de IVs no pós-jogo.
+- Troca entre habilidades disponíveis; natureza, EVs e IVs já podem ser ajustados pelo NPC dos Centros.
 - Exibição clara de IVs, EVs, natureza, habilidade e categoria dos golpes.
 - Lembrete de golpes gratuito e acessível cedo; itens de batalha renováveis.
 - Informações sobre espécies encontradas por área.
@@ -151,6 +177,8 @@ Verificações realizadas em 20 e 21/10/2026:
 - Patch de fontes conferido contra a base original e alterações sem erros de whitespace.
 - v0.1.1-dev: oito lutas da E4 executadas no mGBA, com auditoria dos seis adversários criados (espécies, níveis, golpes, itens, naturezas, habilidades, EVs e IVs) e avanço de três a cinco turnos por teste. As três fixtures de batalha comuns e as regras/save do Hardcore passaram novamente.
 
+A versão v0.2.0-dev também verifica os ajustes de atributos, bloqueios por modo, estoque/preço do Rare Candy, contadores independentes de três curas e recarga em nova instância. A interação real com o cientista valida edição, cancelamento, confirmação, saída e reabertura; a enfermeira cura três vezes e recusa a quarta sem recuperar HP. As 14 variantes de E4/Campeão tiveram seus seis integrantes auditados em memória e avançaram quatro a seis turnos. A recompilação do patch sobre fontes limpas gerou ROM idêntica.
+
 Ainda não há validação de campanha completa, Torre inteira ou trocas no VBA Link. Podem existir problemas de balanceamento/compatibilidade. O resultado continua sendo uma ROM de GBA para emuladores.
 
 Para repetir os testes após compilar, instale também `libmgba-dev` e `mgba-sdl` no Ubuntu/WSL:
@@ -160,6 +188,8 @@ python3 scripts/balance_trainers.py --check
 python3 scripts/test_trainer_battles.py
 python3 scripts/test_elite_four.py
 python3 scripts/test_hardcore.py
+python3 scripts/test_training.py
+python3 scripts/test_training_ui.py
 ```
 
 ## Créditos

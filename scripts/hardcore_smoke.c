@@ -53,6 +53,9 @@ static void Shot(const char *prefix, const char *stage, color_t *pixels)
     snprintf(path, sizeof(path), "%s-%s.png", prefix, stage);
     if (!WriteImage(path, pixels, 240, 160)) exit(20);
 }
+#ifdef TRAINING_UI_FIXTURE
+#define main HardcoreSmokeMain
+#endif
 int main(int argc, char **argv)
 {
     if (argc < 5) return 2;
