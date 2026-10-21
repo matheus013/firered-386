@@ -163,8 +163,16 @@ Fonte: https://github.com/pret/pokefirered
 - Restrição de itens da mochila aplicada aos dois lados nas batalhas importantes, preservando itens equipados e captura de selvagens.
 - Compilação e teste em emulador.
 
-## Estado atual
+## Estado atual — v0.3.0-dev
 
-Etapa de treinadores compilada: 636 equipes regulares e 60 elencos internos da Torre revisados; primeira luta preservada em singles; IA com comparação entre alvos e pontuação de suporte. Auditoria dos dados e testes nativos passaram. Três fixtures no mGBA chegaram à seleção de ação em 1.800 frames cada (laboratório, dupla normal e um contra dois), com inspeção das capturas. O patch cumulativo de fontes também passou por `git apply --check` sobre a base original. Ainda falta validar a campanha e a Torre completas, assim como as regras modernas e os demais sistemas abaixo.
+- 386 espécies com captura direta, níveis e raridades por etapa, incluindo os 21 lendários/míticos em encontros aleatórios pós-Liga. Cobertura em [SPECIES_LOCATIONS.md](SPECIES_LOCATIONS.md) e [ENCOUNTERS.md](ENCOUNTERS.md).
+- 636 equipes regulares e 60 elencos internos da Torre revisados para duplas; laboratório preservado em simples. E4 com adaptações de campeões e Campeão com treinamento definido.
+- Ginásios até 18/28/36/44/52/60/68/76; primeira Liga até 80/83/86/89/92; revanche inteira no 100. Teto de EXP nos dois modos.
+- Normal/Hardcore persistidos no save, EXP global após o Parcel, TMs reutilizáveis, shiny 1/256, Nacional cedo e quatro evoluções por troca simples no nível 37.
+- Cientista nos 19 Centros com natureza/EVs/IVs gratuitos, sempre no Hardcore e após a Liga no Normal. Rare Candy por ₽1 e três curas por enfermeira/Centro exclusivamente no Hardcore.
+- Travamento de saída das lojas corrigido. [23 catálogos × 2 modos aprovados](SHOP_TEST_RESULTS.md).
+- Recompilação do patch sobre fontes limpas reproduziu a ROM entregue. Base e compilador fixados nos commits documentados no README; formato do save preservado.
 
-Base pret/pokefirered obtida em game/, revisão ce6406d8c2eaf46d543c8a2606de0c3cb1951982. Ubuntu/WSL, ferramentas de compilação e mGBA instalados. Base compilada com checksum original confirmado. Alterações iniciais compiladas: TMs reutilizáveis, chance shiny de 1/256, quatro evoluções por troca simples convertidas para nível 37, Pokédex Nacional cedo e Exp. Share global com opção de ligar/desligar após o Parcel. A ROM de desenvolvimento passou por teste de inicialização de 900 frames no mGBA, sem validação de campanha ou dos sistemas em batalha. Evoluções por troca com item e os demais sistemas, incluindo Alphas e raids, continuam pendentes. A ROM gerada ainda não representa o escopo completo. Ver README.md para comandos, artefatos e limites das verificações.
+Ainda pendentes: engine moderna (separação físico/especial, Fada, atributos e golpes), demais evoluções sem troca, HMs sem ocupar golpes, novas revanches de líderes, catálogo completo pós-Liga em Celadon, troca de habilidade, Alphas/raids e outras melhorias listadas no [README](README.md). Os encontros aleatórios já oferecem captura alternativa dos lendários; reset dos eventos fixos é uma melhoria separada.
+
+Os testes de dados, menus, batalhas e save não substituem a validação da campanha inteira, Torre completa ou VBA Link. As etapas anteriores estão no [CHANGELOG](CHANGELOG.md).

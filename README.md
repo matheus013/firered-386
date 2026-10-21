@@ -6,9 +6,13 @@ Guias: [onde capturar cada uma das 386 espécies](SPECIES_LOCATIONS.md) · [time
 
 ## Download
 
+Versão atual: **[v0.3.0-dev](https://github.com/matheus013/firered-386/releases/tag/v0.3.0-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.3.0-dev/firered-386-v0.3.0-dev.gba). Inclui as 386 espécies distribuídas e a correção das lojas. Veja o [histórico de versões](CHANGELOG.md) e o [relatório dos 46 testes de lojas](SHOP_TEST_RESULTS.md).
+
 Baixe o **`.gba`** em [Releases](https://github.com/matheus013/firered-386/releases) e abra em um emulador de GBA. Também estão disponíveis um patch `.ips`, o patch de fontes e checksums SHA-256.
 
 O IPS exige uma ROM limpa de **FireRed USA 1.0**, SHA-1 `41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc`. O `.gba` já compilado dispensa aplicar patches. Para escolher Hardcore, use **NEW GAME**. Saves anteriores à introdução dos modos são tratados como Normal; a escolha já gravada em um Hardcore é preservada. Faça backup do seu save antes de experimentar outra versão.
+
+Para continuar uma partida, preserve uma cópia do `.sav` e use o mesmo nome-base para ROM e save, por exemplo `firered-386.gba` e `firered-386.sav`. Saves de versões anteriores mantêm o modo escolhido e o progresso; os novos encontros passam a valer ao jogar com a ROM atualizada.
 
 O jogo continua majoritariamente em inglês. A tela de seleção de modos está em português, sem acentos na interface do GBA.
 

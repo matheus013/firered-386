@@ -19,6 +19,12 @@
 
 Capturas e mortes começam após as primeiras cinco Poké Balls de Oak; limite, Set e restrição de itens valem desde a criação. A luta inicial continua em singles. Demonstrações, link e instalações de batalha ficam fora da marcação de mortes e da cota de captura. Andares ou setores com a mesma seção do mapa compartilham a oportunidade.
 
+## Encontros e lojas em v0.3.0-dev
+
+As 386 espécies têm encontros diretos, com locais e probabilidades em [ENCOUNTERS.md](ENCOUNTERS.md) e [SPECIES_LOCATIONS.md](SPECIES_LOCATIONS.md). A coleção completa em um save é possível no Normal; no Hardcore, a cota por seção continua limitando as capturas da tentativa. Os novos lendários/míticos aleatórios exigem a primeira vitória na Liga.
+
+A saída das lojas após compra/venda foi corrigida em v0.3.0-dev. Foram aprovados 23 catálogos nos dois modos (46 casos), incluindo compra do Rare Candy por ₽1 no Hardcore. [Escopo e resultados](SHOP_TEST_RESULTS.md).
+
 ## Save e validação
 
 Configurações e 256 bits de áreas ocupam espaço antes reservado no SaveBlock2, sem mudar seu tamanho ou os endereços dos campos posteriores. A perda permanente usa um bit reservado do cabeçalho do Pokémon, preservado no PC. Uma assinatura de versão evita ativação em saves antigos. Os novos contadores de cura usam uma assinatura adicional; Hardcore antigo inicia esses contadores em zero. O tamanho do Pokémon e do save permanece igual.

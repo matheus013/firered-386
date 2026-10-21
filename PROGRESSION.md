@@ -1,4 +1,4 @@
-# Progressão e treinamento — v0.2.0-dev
+# Progressão e treinamento — estado em v0.3.0-dev
 
 A curva dos treinadores foi elevada por etapa, preservando história, caminhos e primeira luta no laboratório. Os parâmetros reproduzíveis ficam em `data/progression_curve.json`; as equipes completas em TRAINER_REVIEW.md e data/trainer_balance.json.
 
