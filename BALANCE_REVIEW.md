@@ -36,13 +36,13 @@ Modelo: entrar no 80, vencer todos os seis adversários de cada um dos quatro me
 | Erratic | 86 | 83 |
 | Fluctuating | 82 | 81 |
 
-O Campeão usa **87–92**. Para os grupos mais comuns, o modelo já favorável deixa o titular no 83 e a reserva no 81–82, com diferença relevante de níveis no confronto final. A EXP global melhora o treinamento anterior, mas não produz os nove a doze níveis esperados durante quatro lutas. O Normal pode compensar com mochila, itens e Candy encontrados; não é uma demonstração de impossibilidade. É um descompasso mensurável da curva.
+O Campeão usa **87–92**. Para os grupos mais comuns, o modelo já favorável deixa o titular no 83 e a reserva no 81–82, com diferença relevante de níveis no confronto final. A EXP global melhora o treinamento anterior, mas não produz os nove a doze níveis esperados durante quatro lutas. O Normal pode compensar com mochila, itens e Candy encontrados ou farmados por Pickup; não é uma demonstração de impossibilidade. É um descompasso mensurável da curva.
 
 O orçamento bruto dessas quatro lutas é de 18.103 / 20.223 / 17.896 / 20.193 EXP por participante fixo, antes dos cortes pelo teto. Uma reserva fixa recebe aproximadamente metade. No modelo, a EXP é processada inimigo a inimigo e limitada ao teto vigente, com os arredondamentos da fórmula atual.
 
 No Hardcore, Candy comprado antes da entrada permite acompanhar cada novo teto entre salas, desde que a equipe sobreviva. **A regra atual penaliza a preparação do Normal de uma maneira que o Hardcore consegue contornar.**
 
-Recomendação prioritária: planejar a Liga como um bloco com teto único de entrada e níveis próximos. Uma faixa a testar seria 88/89/90/91/92, com teto 92 e ajuste correspondente de Victory Road e EXP anterior. Isso preserva o Campeão 92, mas é uma proposta, ainda sem calibração de batalhas. Outra opção é manter os tetos atuais e oferecer treinamento entre membros nos dois modos; depender de dezenas de Candy encontrados não é uma solução consistente para seis Pokémon.
+Recomendação prioritária: planejar a Liga como um bloco com teto único de entrada e níveis próximos. Uma faixa a testar seria 88/89/90/91/92, com teto 92 e ajuste correspondente de Victory Road e EXP anterior. Isso preserva o Campeão 92, mas é uma proposta, ainda sem calibração de batalhas. Outra opção é manter os tetos atuais e oferecer treinamento entre membros nos dois modos; depender de dezenas de Candy encontrados ou de um farm longo de Pickup é um custo de preparação relevante para seis Pokémon.
 
 ## 2. Treinamento completo cedo pesa muito mais no Normal
 
@@ -110,3 +110,9 @@ Ainda não foi avaliada uma amostra de campanhas ou taxas de vitória por sement
 5. Executar campanhas naturais nos dois modos, registrando capturas, derrotas/perdas, curas, dinheiro, PP e níveis por chefe. Repetir chefes com várias equipes/sementes e política de decisões declarada, sem interpretar derrotas da automação como impossibilidade do jogo.
 
 Essas propostas não alteram a ROM da v0.4.0-dev. O diagnóstico identifica desequilíbrios concretos e hipóteses a testar; a viabilidade integral da campanha continua pendente.
+
+## Complemento: combates com equipes disponíveis
+
+[Testes dos 35 desafios e classificação por modo](CHALLENGE_BALANCE_TESTS.md) e [equipes testadas, golpes e origens](CHALLENGE_TEAMS_TESTED.md).
+
+O teste posterior encontrou vitórias nas cinco salas da primeira Liga do Normal com a mesma equipe e recursos mantidos, usando Candy/PP Up previamente farmados por Pickup, TMs e itens. A tabela nativa inclui Rare Candy e PP Up renováveis (aproximadamente 0,5% de cada item por Pokémon elegível por batalha); portanto, não são recursos necessariamente finitos. Esse farm não foi executado. O descompasso de EXP sem Candy permanece, e a compensação exige preparação extensa. Não houve conclusão dos blocos de Liga Hardcore nas coortes testadas; isso não prova impossibilidade. A campanha natural continua pendente.

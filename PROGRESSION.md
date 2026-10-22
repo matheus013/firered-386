@@ -47,3 +47,9 @@ Em v0.3.0-dev, as 386 espécies receberam encontros diretos, com níveis/faixas 
 Os testes usam ROMs descartáveis no mGBA: auditam dados efetivos das equipes, turnos de batalha, regras/recarga do save e a interface de treinamento. As equipes artificiais usadas na automação da Liga têm HP elevado para permitir observar turnos; esse teste não simula uma equipe legal do jogador nem avalia balanceamento competitivo.
 
 A integração assistida da v0.3.1-dev concluiu líderes, duas Ligas e os marcos de pós-jogo, usando equipe e deslocamentos preparados. Isso valida execução/recompensas/save, sem demonstrar a viabilidade da curva com recursos naturais ou de uma tentativa Hardcore completa. [Relatório](CAMPAIGN_TEST_RESULTS.md).
+
+## Testes de equipes e dificuldade
+
+[Testes dos 35 desafios e classificação por modo](CHALLENGE_BALANCE_TESTS.md) e [equipes testadas, golpes e origens](CHALLENGE_TEAMS_TESTED.md).
+
+Combates executados no motor nativo, com preparação reconstruída a partir dos fontes. Incluem blocos consecutivos da Liga; não certificam caminhada, capturas ou campanha natural completa. Randomizer OFF. A ROM não foi alterada.

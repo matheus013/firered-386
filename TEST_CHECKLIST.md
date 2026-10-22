@@ -193,3 +193,9 @@ python3 scripts/audit_release.py --version v0.3.1-dev
 Os comandos retornam código diferente de zero diante de qualquer reprovação. `audit_release.py` exige os assets da versão selecionada em `output/release/v0.3.1-dev/`; não os baixa nem modifica. Os demais testes geram ROMs descartáveis e logs em `output/tests/`, sem abrir o save do jogador. Dependências de compilação/emulação e instruções de setup estão no [README](README.md).
 
 Cada alteração futura exige repetir os testes afetados, registrar o SHA da nova ROM e manter a lista manual pendente até execução real. Aprovação de fixtures não equivale a campanha homologada.
+
+## Testes de equipes e dificuldade
+
+[Testes dos 35 desafios e classificação por modo](CHALLENGE_BALANCE_TESTS.md) e [equipes testadas, golpes e origens](CHALLENGE_TEAMS_TESTED.md).
+
+Combates executados no motor nativo, com preparação reconstruída a partir dos fontes. Incluem blocos consecutivos da Liga; não certificam caminhada, capturas ou campanha natural completa. Randomizer OFF. A ROM não foi alterada.
