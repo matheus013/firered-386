@@ -2,6 +2,8 @@
 
 **Versão atual v0.4.0-dev:** [validação das novas funcionalidades](FEATURE_TEST_RESULTS.md), com proveniência da ROM e limites. Os resultados antigos abaixo mantêm suas versões de referência. Campanha Normal/Hardcore sem assistência e VBA Link ainda pendentes.
 
+[Auditoria de balanceamento Normal/Hardcore](BALANCE_REVIEW.md): dados e modelos de EXP/atributos, com recomendações. Não conta como campanha ou teste de taxa de vitória. Pendentes: ritmo da primeira Liga, preparação do Normal, três iniciais contra Brock, alcance das curas Hardcore e duração das lutas comuns.
+
 Auditoria de **21/10/2026**, versão **v0.3.1-dev**. Todos os testes automatizados desta rodada passaram. Campanha completa e VBA Link continuam pendentes.
 
 ROM de referência, SHA-256: `d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8`.

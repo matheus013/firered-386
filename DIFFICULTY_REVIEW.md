@@ -1,4 +1,4 @@
-> **Auditoria histórica de v0.1.1-dev.** Os níveis e algumas limitações abaixo foram alterados em v0.2.0-dev; consulte [PROGRESSION.md](PROGRESSION.md) para o estado atual da v0.3.1-dev e o [checklist](TEST_CHECKLIST.md) para os testes e pendências.
+> **Auditoria histórica de v0.1.1-dev.** Os níveis e várias limitações abaixo mudaram. Consulte a [avaliação de balanceamento da v0.4.0-dev](BALANCE_REVIEW.md), [PROGRESSION.md](PROGRESSION.md) e o [checklist](TEST_CHECKLIST.md) para o estado atual. Os números históricos não devem ser aplicados à ROM atual.
 
 # Auditoria de dificuldade e progressão — v0.1.1-dev
 

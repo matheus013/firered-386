@@ -1,0 +1,4120 @@
+{
+  "version": "v0.4.0-dev",
+  "rom_sha256": "881869fbaa37abe13becbb071759ff1225984910fdb410d11818e88b56a0990d",
+  "source_sha256": {
+    "data/trainer_balance.json": "8c1894015b862318525d3810c349225fc787aba95cd68899108ea36af0d90aa2",
+    "game/src/data/pokemon/species_info.h": "9c2da1284f7859700b315abda0499334c422f2c6776d576c788fcd1e4050f71e",
+    "game/src/data/wild_encounters.json": "15878ae5e67f921383a21e82e1456d7e4768d9422ee7a798d0a95f06bfed4943",
+    "game/src/elite_four.c": "8c8721d172e29cbcefc8d81544a26cf0b674976bafcdf79685ed55a8dec91941",
+    "game/src/nuzlocke.c": "09fefae63ca14a79cb9aee8faed6501e84ff5e0b2ec75e0838d74d59815d119f",
+    "game/src/training.c": "5945ecb4a8378188406efe164ffb5d9fd551575332e87599c1441b8ba46a1d32",
+    "game/src/battle_script_commands.c": "d9c353ffd588cdc265848fc35e1eb098417510ce693bb1c6a38193607f495780"
+  },
+  "scope": "static source/data audit and explicit EXP/stat models; no campaign or battle win-rate simulation",
+  "bosses": {
+    "sParty_LeaderBrock": {
+      "size": 6,
+      "min_level": 16,
+      "max_level": 18,
+      "mean_bst": 352.5,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "ONIX",
+          "level": 16,
+          "moves": [
+            "ROCK_THROW",
+            "ROCK_TOMB",
+            "STRENGTH",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "GEODUDE",
+          "level": 16,
+          "moves": [
+            "ROCK_THROW",
+            "STRENGTH",
+            "PROTECT",
+            "BRICK_BREAK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "RHYHORN",
+          "level": 16,
+          "moves": [
+            "ROCK_TOMB",
+            "STRENGTH",
+            "PROTECT",
+            "FACADE"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "OMANYTE",
+          "level": 16,
+          "moves": [
+            "WATERFALL",
+            "BITE",
+            "PROTECT",
+            "WATER_PULSE"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "KABUTO",
+          "level": 17,
+          "moves": [
+            "WATERFALL",
+            "FACADE",
+            "PROTECT",
+            "WATER_PULSE"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "NOSEPASS",
+          "level": 18,
+          "moves": [
+            "ROCK_THROW",
+            "STRENGTH",
+            "PROTECT",
+            "FACADE"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        }
+      ]
+    },
+    "sParty_LeaderMisty": {
+      "size": 6,
+      "min_level": 26,
+      "max_level": 28,
+      "mean_bst": 363.3,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "STARYU",
+          "level": 26,
+          "moves": [
+            "WATERFALL",
+            "REFLECT",
+            "FACADE",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "PSYDUCK",
+          "level": 26,
+          "moves": [
+            "WATERFALL",
+            "STRENGTH",
+            "PROTECT",
+            "WATER_PULSE"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "HORSEA",
+          "level": 26,
+          "moves": [
+            "WATERFALL",
+            "FACADE",
+            "PROTECT",
+            "WATER_PULSE"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "POLIWHIRL",
+          "level": 26,
+          "moves": [
+            "WATERFALL",
+            "STRENGTH",
+            "PROTECT",
+            "WATER_PULSE"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "GOLDEEN",
+          "level": 27,
+          "moves": [
+            "WATERFALL",
+            "FACADE",
+            "PROTECT",
+            "WATER_PULSE"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "STARMIE",
+          "level": 28,
+          "moves": [
+            "PSYCHIC",
+            "WATERFALL",
+            "PROTECT",
+            "RECOVER"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        }
+      ]
+    },
+    "sParty_LeaderLtSurge": {
+      "size": 6,
+      "min_level": 34,
+      "max_level": 36,
+      "mean_bst": 475.8,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "MANECTRIC",
+          "level": 35,
+          "moves": [
+            "THUNDERBOLT",
+            "THUNDER_WAVE",
+            "STRENGTH",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "MAGNETON",
+          "level": 34,
+          "moves": [
+            "THUNDERBOLT",
+            "FACADE",
+            "PROTECT",
+            "SPARK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "AMPHAROS",
+          "level": 34,
+          "moves": [
+            "THUNDERBOLT",
+            "STRENGTH",
+            "PROTECT",
+            "THUNDER_PUNCH"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "LANTURN",
+          "level": 34,
+          "moves": [
+            "THUNDERBOLT",
+            "WATERFALL",
+            "PROTECT",
+            "SPARK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "ELECTRODE",
+          "level": 34,
+          "moves": [
+            "THUNDERBOLT",
+            "FACADE",
+            "PROTECT",
+            "SPARK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "RAICHU",
+          "level": 36,
+          "moves": [
+            "THUNDERBOLT",
+            "STRENGTH",
+            "PROTECT",
+            "QUICK_ATTACK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "JOLLY"
+          }
+        }
+      ]
+    },
+    "sParty_LeaderErika": {
+      "size": 6,
+      "min_level": 42,
+      "max_level": 44,
+      "mean_bst": 466.7,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "PARASECT",
+          "level": 42,
+          "moves": [
+            "GIGA_DRAIN",
+            "SUNNY_DAY",
+            "SLUDGE_BOMB",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "VICTREEBEL",
+          "level": 42,
+          "moves": [
+            "SLUDGE_BOMB",
+            "SPIT_UP",
+            "PROTECT",
+            "GIGA_DRAIN"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "BELLOSSOM",
+          "level": 42,
+          "moves": [
+            "GIGA_DRAIN",
+            "SLUDGE_BOMB",
+            "PROTECT",
+            "MAGICAL_LEAF"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "TANGELA",
+          "level": 42,
+          "moves": [
+            "GIGA_DRAIN",
+            "SLUDGE_BOMB",
+            "PROTECT",
+            "MEGA_DRAIN"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "EXEGGUTOR",
+          "level": 43,
+          "moves": [
+            "PSYCHIC",
+            "GIGA_DRAIN",
+            "PROTECT",
+            "SLUDGE_BOMB"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "VILEPLUME",
+          "level": 44,
+          "moves": [
+            "SLUDGE_BOMB",
+            "PETAL_DANCE",
+            "PROTECT",
+            "GIGA_DRAIN"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        }
+      ]
+    },
+    "sParty_LeaderKoga": {
+      "size": 6,
+      "min_level": 50,
+      "max_level": 52,
+      "mean_bst": 480.0,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "ARIADOS",
+          "level": 50,
+          "moves": [
+            "SLUDGE_BOMB",
+            "STRING_SHOT",
+            "PSYCHIC",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "CROBAT",
+          "level": 50,
+          "moves": [
+            "SLUDGE_BOMB",
+            "AERIAL_ACE",
+            "PROTECT",
+            "WING_ATTACK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "JOLLY"
+          }
+        },
+        {
+          "species": "MUK",
+          "level": 50,
+          "moves": [
+            "SLUDGE_BOMB",
+            "STRENGTH",
+            "PROTECT",
+            "SLUDGE"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "TENTACRUEL",
+          "level": 50,
+          "moves": [
+            "SLUDGE_BOMB",
+            "WATERFALL",
+            "PROTECT",
+            "BUBBLE_BEAM"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "VENOMOTH",
+          "level": 51,
+          "moves": [
+            "SLUDGE_BOMB",
+            "PSYCHIC",
+            "PROTECT",
+            "SILVER_WIND"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "JOLLY"
+          }
+        },
+        {
+          "species": "WEEZING",
+          "level": 52,
+          "moves": [
+            "SLUDGE_BOMB",
+            "FIRE_BLAST",
+            "PROTECT",
+            "SLUDGE"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        }
+      ]
+    },
+    "sParty_LeaderSabrina": {
+      "size": 6,
+      "min_level": 58,
+      "max_level": 60,
+      "mean_bst": 483.8,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "HYPNO",
+          "level": 58,
+          "moves": [
+            "PSYCHIC",
+            "REFLECT",
+            "SHADOW_BALL",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "ESPEON",
+          "level": 58,
+          "moves": [
+            "PSYCHIC",
+            "SHADOW_BALL",
+            "PROTECT",
+            "QUICK_ATTACK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "JOLLY"
+          }
+        },
+        {
+          "species": "MR_MIME",
+          "level": 58,
+          "moves": [
+            "PSYCHIC",
+            "THUNDERBOLT",
+            "PROTECT",
+            "PSYBEAM"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "SLOWBRO",
+          "level": 58,
+          "moves": [
+            "PSYCHIC",
+            "FIRE_BLAST",
+            "PROTECT",
+            "FLAMETHROWER"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "GIRAFARIG",
+          "level": 59,
+          "moves": [
+            "PSYCHIC",
+            "STRENGTH",
+            "PROTECT",
+            "FACADE"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "JOLLY"
+          }
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 60,
+          "moves": [
+            "PSYCHIC",
+            "SHOCK_WAVE",
+            "PROTECT",
+            "RECOVER"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        }
+      ]
+    },
+    "sParty_LeaderBlaine": {
+      "size": 6,
+      "min_level": 66,
+      "max_level": 68,
+      "mean_bst": 506.7,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "MAGMAR",
+          "level": 66,
+          "moves": [
+            "FIRE_BLAST",
+            "SUNNY_DAY",
+            "PSYCHIC",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "RAPIDASH",
+          "level": 66,
+          "moves": [
+            "FIRE_BLAST",
+            "STRENGTH",
+            "PROTECT",
+            "QUICK_ATTACK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "JOLLY"
+          }
+        },
+        {
+          "species": "NINETALES",
+          "level": 66,
+          "moves": [
+            "FIRE_BLAST",
+            "IRON_TAIL",
+            "PROTECT",
+            "QUICK_ATTACK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "JOLLY"
+          }
+        },
+        {
+          "species": "CAMERUPT",
+          "level": 66,
+          "moves": [
+            "FIRE_BLAST",
+            "STRENGTH",
+            "PROTECT",
+            "FLAMETHROWER"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "FLAREON",
+          "level": 67,
+          "moves": [
+            "FIRE_BLAST",
+            "SHADOW_BALL",
+            "PROTECT",
+            "QUICK_ATTACK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "ARCANINE",
+          "level": 68,
+          "moves": [
+            "FIRE_BLAST",
+            "EXTREME_SPEED",
+            "PROTECT",
+            "FLAMETHROWER"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        }
+      ]
+    },
+    "sParty_LeaderGiovanni": {
+      "size": 6,
+      "min_level": 74,
+      "max_level": 76,
+      "mean_bst": 471.7,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "DONPHAN",
+          "level": 75,
+          "moves": [
+            "STRENGTH",
+            "SANDSTORM",
+            "IRON_TAIL",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "SANDSLASH",
+          "level": 74,
+          "moves": [
+            "SAND_TOMB",
+            "STRENGTH",
+            "PROTECT",
+            "BRICK_BREAK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "NIDOQUEEN",
+          "level": 74,
+          "moves": [
+            "SLUDGE_BOMB",
+            "SUPERPOWER",
+            "PROTECT",
+            "FIRE_BLAST"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "NIDOKING",
+          "level": 74,
+          "moves": [
+            "SLUDGE_BOMB",
+            "MEGAHORN",
+            "PROTECT",
+            "FIRE_BLAST"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "JOLLY"
+          }
+        },
+        {
+          "species": "DUGTRIO",
+          "level": 74,
+          "moves": [
+            "MUD_SLAP",
+            "SLUDGE_BOMB",
+            "PROTECT",
+            "TRI_ATTACK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "JOLLY"
+          }
+        },
+        {
+          "species": "RHYDON",
+          "level": 76,
+          "moves": [
+            "ROCK_TOMB",
+            "MEGAHORN",
+            "PROTECT",
+            "STRENGTH"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              4,
+              0,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        }
+      ]
+    },
+    "sParty_EliteFourLorelei": {
+      "size": 6,
+      "min_level": 78,
+      "max_level": 80,
+      "mean_bst": 503.3,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "HITMONTOP",
+          "level": 78,
+          "moves": [
+            "HELPING_HAND",
+            "BRICK_BREAK",
+            "ROCK_SLIDE",
+            "DETECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              4,
+              0,
+              0,
+              0,
+              252
+            ],
+            "nature": "CAREFUL"
+          }
+        },
+        {
+          "species": "CLOYSTER",
+          "level": 78,
+          "moves": [
+            "SURF",
+            "ICE_BEAM",
+            "TOXIC",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              4,
+              0,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "PILOSWINE",
+          "level": 78,
+          "moves": [
+            "MUD_SHOT",
+            "ROCK_SLIDE",
+            "ICE_BEAM",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              188,
+              0,
+              0,
+              68,
+              0
+            ],
+            "nature": "BRAVE"
+          }
+        },
+        {
+          "species": "JYNX",
+          "level": 78,
+          "moves": [
+            "ICE_BEAM",
+            "PSYCHIC",
+            "LOVELY_KISS",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "TYRANITAR",
+          "level": 79,
+          "moves": [
+            "ROCK_SLIDE",
+            "CRUNCH",
+            "BRICK_BREAK",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              0,
+              0,
+              0,
+              4
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "LAPRAS",
+          "level": 80,
+          "moves": [
+            "SURF",
+            "ICE_BEAM",
+            "THUNDERBOLT",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              0,
+              0,
+              252,
+              4
+            ],
+            "nature": "MODEST"
+          }
+        }
+      ]
+    },
+    "sParty_EliteFourBruno": {
+      "size": 6,
+      "min_level": 81,
+      "max_level": 83,
+      "mean_bst": 548.2,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "HARIYAMA",
+          "level": 81,
+          "moves": [
+            "FAKE_OUT",
+            "BRICK_BREAK",
+            "ROCK_SLIDE",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              0,
+              0,
+              0,
+              4
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "KYOGRE",
+          "level": 81,
+          "moves": [
+            "SURF",
+            "ICE_BEAM",
+            "THUNDER",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              0,
+              0,
+              252,
+              4
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "LUDICOLO",
+          "level": 81,
+          "moves": [
+            "SURF",
+            "GIGA_DRAIN",
+            "ICE_BEAM",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "SLOWBRO",
+          "level": 81,
+          "moves": [
+            "PSYCHIC",
+            "SURF",
+            "THUNDER_WAVE",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              252,
+              0,
+              4,
+              0
+            ],
+            "nature": "BOLD"
+          }
+        },
+        {
+          "species": "GROUDON",
+          "level": 82,
+          "moves": [
+            "MUD_SHOT",
+            "ROCK_SLIDE",
+            "FLAMETHROWER",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              188,
+              0,
+              0,
+              68,
+              0
+            ],
+            "nature": "NAUGHTY"
+          }
+        },
+        {
+          "species": "MACHAMP",
+          "level": 83,
+          "moves": [
+            "BRICK_BREAK",
+            "ROCK_SLIDE",
+            "BODY_SLAM",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              0,
+              0,
+              0,
+              4
+            ],
+            "nature": "ADAMANT"
+          }
+        }
+      ]
+    },
+    "sParty_EliteFourAgatha": {
+      "size": 6,
+      "min_level": 84,
+      "max_level": 86,
+      "mean_bst": 471.7,
+      "protect_detect": 5,
+      "members": [
+        {
+          "species": "MAWILE",
+          "level": 84,
+          "moves": [
+            "FAKE_TEARS",
+            "BRICK_BREAK",
+            "ROCK_SLIDE",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              4,
+              0,
+              0,
+              0,
+              252
+            ],
+            "nature": "CAREFUL"
+          }
+        },
+        {
+          "species": "GENGAR",
+          "level": 84,
+          "moves": [
+            "THUNDERBOLT",
+            "PSYCHIC",
+            "WILL_O_WISP",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "DUSCLOPS",
+          "level": 84,
+          "moves": [
+            "NIGHT_SHADE",
+            "SHADOW_BALL",
+            "WILL_O_WISP",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              128,
+              0,
+              0,
+              128
+            ],
+            "nature": "CAREFUL"
+          }
+        },
+        {
+          "species": "MISDREAVUS",
+          "level": 84,
+          "moves": [
+            "PSYCHIC",
+            "THUNDERBOLT",
+            "THUNDER_WAVE",
+            "PAIN_SPLIT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              0,
+              252,
+              4,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "TYRANITAR",
+          "level": 85,
+          "moves": [
+            "ROCK_SLIDE",
+            "CRUNCH",
+            "TAUNT",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              252,
+              0,
+              0,
+              0,
+              4
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "LANTURN",
+          "level": 86,
+          "moves": [
+            "SURF",
+            "THUNDERBOLT",
+            "ICE_BEAM",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              0,
+              0,
+              252,
+              4
+            ],
+            "nature": "MODEST"
+          }
+        }
+      ]
+    },
+    "sParty_EliteFourLance": {
+      "size": 6,
+      "min_level": 87,
+      "max_level": 89,
+      "mean_bst": 546.7,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "HITMONTOP",
+          "level": 87,
+          "moves": [
+            "HELPING_HAND",
+            "BRICK_BREAK",
+            "ROCK_SLIDE",
+            "DETECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              4,
+              0,
+              0,
+              0,
+              252
+            ],
+            "nature": "CAREFUL"
+          }
+        },
+        {
+          "species": "KYOGRE",
+          "level": 87,
+          "moves": [
+            "SURF",
+            "ICE_BEAM",
+            "THUNDER",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              0,
+              0,
+              252,
+              4
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "GENGAR",
+          "level": 87,
+          "moves": [
+            "THUNDERBOLT",
+            "PSYCHIC",
+            "WILL_O_WISP",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "CLAYDOL",
+          "level": 87,
+          "moves": [
+            "REFLECT",
+            "LIGHT_SCREEN",
+            "PSYCHIC",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              128,
+              0,
+              0,
+              128
+            ],
+            "nature": "CALM"
+          }
+        },
+        {
+          "species": "RAICHU",
+          "level": 88,
+          "moves": [
+            "THUNDERBOLT",
+            "THUNDER_WAVE",
+            "LIGHT_SCREEN",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              252,
+              0,
+              0,
+              252,
+              4,
+              0
+            ],
+            "nature": "TIMID"
+          }
+        },
+        {
+          "species": "RAYQUAZA",
+          "level": 89,
+          "moves": [
+            "DRAGON_CLAW",
+            "FLAMETHROWER",
+            "ROCK_SLIDE",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              0,
+              52,
+              0,
+              252,
+              204,
+              0
+            ],
+            "nature": "HASTY"
+          }
+        }
+      ]
+    },
+    "sParty_ChampionFirstSquirtle": {
+      "size": 6,
+      "min_level": 87,
+      "max_level": 92,
+      "mean_bst": 508.2,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "RHYDON",
+          "level": 88,
+          "moves": [
+            "ROCK_TOMB",
+            "MEGAHORN",
+            "STRENGTH",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 87,
+          "moves": [
+            "PSYCHIC",
+            "SHOCK_WAVE",
+            "PROTECT",
+            "RECOVER"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "PIDGEOT",
+          "level": 88,
+          "moves": [
+            "FACADE",
+            "AERIAL_ACE",
+            "PROTECT",
+            "QUICK_ATTACK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "ARCANINE",
+          "level": 88,
+          "moves": [
+            "FIRE_BLAST",
+            "EXTREME_SPEED",
+            "PROTECT",
+            "FLAMETHROWER"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "EXEGGUTOR",
+          "level": 90,
+          "moves": [
+            "PSYCHIC",
+            "GIGA_DRAIN",
+            "PROTECT",
+            "SLUDGE_BOMB"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "BLASTOISE",
+          "level": 92,
+          "moves": [
+            "HYDRO_PUMP",
+            "ICE_BEAM",
+            "PROTECT",
+            "WATERFALL"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        }
+      ]
+    },
+    "sParty_ChampionFirstBulbasaur": {
+      "size": 6,
+      "min_level": 87,
+      "max_level": 92,
+      "mean_bst": 510.7,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "RHYDON",
+          "level": 88,
+          "moves": [
+            "ROCK_TOMB",
+            "MEGAHORN",
+            "STRENGTH",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 87,
+          "moves": [
+            "PSYCHIC",
+            "SHOCK_WAVE",
+            "PROTECT",
+            "RECOVER"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "PIDGEOT",
+          "level": 88,
+          "moves": [
+            "FACADE",
+            "AERIAL_ACE",
+            "PROTECT",
+            "QUICK_ATTACK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "GYARADOS",
+          "level": 88,
+          "moves": [
+            "HYDRO_PUMP",
+            "THRASH",
+            "PROTECT",
+            "WATERFALL"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "ARCANINE",
+          "level": 90,
+          "moves": [
+            "FIRE_BLAST",
+            "EXTREME_SPEED",
+            "PROTECT",
+            "FLAMETHROWER"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "VENUSAUR",
+          "level": 92,
+          "moves": [
+            "SLUDGE_BOMB",
+            "GIGA_DRAIN",
+            "PROTECT",
+            "SYNTHESIS"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        }
+      ]
+    },
+    "sParty_ChampionFirstCharmander": {
+      "size": 6,
+      "min_level": 87,
+      "max_level": 92,
+      "mean_bst": 506.3,
+      "protect_detect": 6,
+      "members": [
+        {
+          "species": "RHYDON",
+          "level": 88,
+          "moves": [
+            "ROCK_TOMB",
+            "MEGAHORN",
+            "STRENGTH",
+            "PROTECT"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "ALAKAZAM",
+          "level": 87,
+          "moves": [
+            "PSYCHIC",
+            "SHOCK_WAVE",
+            "PROTECT",
+            "RECOVER"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "PIDGEOT",
+          "level": 88,
+          "moves": [
+            "FACADE",
+            "AERIAL_ACE",
+            "PROTECT",
+            "QUICK_ATTACK"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              252,
+              0,
+              252,
+              0,
+              0
+            ],
+            "nature": "ADAMANT"
+          }
+        },
+        {
+          "species": "EXEGGUTOR",
+          "level": 88,
+          "moves": [
+            "PSYCHIC",
+            "GIGA_DRAIN",
+            "PROTECT",
+            "SLUDGE_BOMB"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "GYARADOS",
+          "level": 90,
+          "moves": [
+            "HYDRO_PUMP",
+            "THRASH",
+            "PROTECT",
+            "WATERFALL"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        },
+        {
+          "species": "CHARIZARD",
+          "level": 92,
+          "moves": [
+            "FIRE_BLAST",
+            "DRAGON_CLAW",
+            "PROTECT",
+            "FLAMETHROWER"
+          ],
+          "training": {
+            "ivs": [
+              31,
+              31,
+              31,
+              31,
+              31,
+              31
+            ],
+            "evs": [
+              4,
+              0,
+              0,
+              252,
+              252,
+              0
+            ],
+            "nature": "MODEST"
+          }
+        }
+      ]
+    }
+  },
+  "early_encounters": {
+    "MAP_VIRIDIAN_FOREST": {
+      "CATERPIE": {
+        "percent": 20,
+        "min": 8,
+        "max": 15
+      },
+      "WEEDLE": {
+        "percent": 20,
+        "min": 8,
+        "max": 15
+      },
+      "WURMPLE": {
+        "percent": 10,
+        "min": 8,
+        "max": 15
+      },
+      "PIKACHU": {
+        "percent": 10,
+        "min": 8,
+        "max": 15
+      },
+      "SHROOMISH": {
+        "percent": 10,
+        "min": 8,
+        "max": 15
+      },
+      "PARAS": {
+        "percent": 10,
+        "min": 8,
+        "max": 15
+      },
+      "METAPOD": {
+        "percent": 5,
+        "min": 8,
+        "max": 15
+      },
+      "KAKUNA": {
+        "percent": 5,
+        "min": 8,
+        "max": 15
+      },
+      "SILCOON": {
+        "percent": 4,
+        "min": 8,
+        "max": 15
+      },
+      "CASCOON": {
+        "percent": 4,
+        "min": 8,
+        "max": 15
+      },
+      "PINECO": {
+        "percent": 1,
+        "min": 8,
+        "max": 15
+      },
+      "SPINARAK": {
+        "percent": 1,
+        "min": 8,
+        "max": 15
+      }
+    },
+    "MAP_ROUTE1": {
+      "PIDGEY": {
+        "percent": 20,
+        "min": 3,
+        "max": 6
+      },
+      "RATTATA": {
+        "percent": 20,
+        "min": 3,
+        "max": 6
+      },
+      "SENTRET": {
+        "percent": 10,
+        "min": 3,
+        "max": 6
+      },
+      "ZIGZAGOON": {
+        "percent": 10,
+        "min": 3,
+        "max": 6
+      },
+      "TAILLOW": {
+        "percent": 10,
+        "min": 3,
+        "max": 6
+      },
+      "POOCHYENA": {
+        "percent": 10,
+        "min": 3,
+        "max": 6
+      },
+      "HOOTHOOT": {
+        "percent": 5,
+        "min": 3,
+        "max": 6
+      },
+      "SPEAROW": {
+        "percent": 5,
+        "min": 3,
+        "max": 6
+      },
+      "SUNKERN": {
+        "percent": 4,
+        "min": 3,
+        "max": 6
+      },
+      "WURMPLE": {
+        "percent": 4,
+        "min": 3,
+        "max": 6
+      },
+      "PICHU": {
+        "percent": 1,
+        "min": 3,
+        "max": 6
+      },
+      "HOPPIP": {
+        "percent": 1,
+        "min": 3,
+        "max": 6
+      }
+    },
+    "MAP_ROUTE2": {
+      "PIDGEY": {
+        "percent": 20,
+        "min": 5,
+        "max": 12
+      },
+      "RATTATA": {
+        "percent": 20,
+        "min": 5,
+        "max": 12
+      },
+      "CATERPIE": {
+        "percent": 10,
+        "min": 5,
+        "max": 12
+      },
+      "WEEDLE": {
+        "percent": 10,
+        "min": 5,
+        "max": 12
+      },
+      "LOTAD": {
+        "percent": 10,
+        "min": 5,
+        "max": 12
+      },
+      "SEEDOT": {
+        "percent": 10,
+        "min": 5,
+        "max": 12
+      },
+      "BELLSPROUT": {
+        "percent": 5,
+        "min": 5,
+        "max": 12
+      },
+      "ODDISH": {
+        "percent": 5,
+        "min": 5,
+        "max": 12
+      },
+      "RALTS": {
+        "percent": 4,
+        "min": 5,
+        "max": 12
+      },
+      "SURSKIT": {
+        "percent": 4,
+        "min": 5,
+        "max": 12
+      },
+      "NIDORAN_F": {
+        "percent": 1,
+        "min": 5,
+        "max": 12
+      },
+      "NIDORAN_M": {
+        "percent": 1,
+        "min": 5,
+        "max": 12
+      }
+    },
+    "MAP_ROUTE22": {
+      "MANKEY": {
+        "percent": 20,
+        "min": 5,
+        "max": 12
+      },
+      "SPEAROW": {
+        "percent": 20,
+        "min": 5,
+        "max": 12
+      },
+      "NIDORAN_M": {
+        "percent": 10,
+        "min": 5,
+        "max": 12
+      },
+      "NIDORAN_F": {
+        "percent": 10,
+        "min": 5,
+        "max": 12
+      },
+      "MARILL": {
+        "percent": 10,
+        "min": 5,
+        "max": 12
+      },
+      "WOOPER": {
+        "percent": 10,
+        "min": 5,
+        "max": 12
+      },
+      "PHANPY": {
+        "percent": 5,
+        "min": 5,
+        "max": 12
+      },
+      "AZURILL": {
+        "percent": 5,
+        "min": 5,
+        "max": 12
+      },
+      "TYROGUE": {
+        "percent": 4,
+        "min": 5,
+        "max": 12
+      },
+      "MAKUHITA": {
+        "percent": 4,
+        "min": 5,
+        "max": 12
+      },
+      "RALTS": {
+        "percent": 1,
+        "min": 5,
+        "max": 12
+      },
+      "TRAPINCH": {
+        "percent": 1,
+        "min": 5,
+        "max": 12
+      }
+    }
+  },
+  "hardcore_pre_brock_max_party": 5,
+  "ideal_catch_type_coverage_percent": {
+    "GRASS": 50.395,
+    "WATER": 32.577,
+    "FIGHTING": 28.35,
+    "GROUND": 16.2
+  },
+  "ideal_catch_model": {
+    "areas": [
+      "MAP_ROUTE1",
+      "MAP_ROUTE22",
+      "MAP_ROUTE2",
+      "MAP_VIRIDIAN_FOREST"
+    ],
+    "assumptions": "all eligible catches succeed, exact-species dupes skipped indefinitely, starter excluded, no fishing or gifts"
+  },
+  "league_exp_models": [
+    {
+      "growth": "FAST",
+      "position": "lead_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 425151
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 82,
+          "xp": 445374
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 82,
+          "after": 83,
+          "xp": 463270
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 83,
+          "after": 84,
+          "xp": 483463
+        }
+      ],
+      "before_champion_level": 84,
+      "champion_max": 92
+    },
+    {
+      "growth": "FAST",
+      "position": "lead_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 425151
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 82,
+          "xp": 445374
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 82,
+          "after": 83,
+          "xp": 463270
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 83,
+          "after": 84,
+          "xp": 483463
+        }
+      ],
+      "before_champion_level": 84,
+      "champion_max": 92
+    },
+    {
+      "growth": "FAST",
+      "position": "reserve_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 418649
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 428758
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 81,
+          "xp": 437705
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 81,
+          "after": 82,
+          "xp": 447798
+        }
+      ],
+      "before_champion_level": 82,
+      "champion_max": 92
+    },
+    {
+      "growth": "FAST",
+      "position": "reserve_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 425151
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 435260
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 82,
+          "xp": 444207
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 82,
+          "after": 82,
+          "xp": 454300
+        }
+      ],
+      "before_champion_level": 82,
+      "champion_max": 92
+    },
+    {
+      "growth": "MEDIUM_FAST",
+      "position": "lead_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 530103
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 550326
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 82,
+          "xp": 568222
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 82,
+          "after": 83,
+          "xp": 588415
+        }
+      ],
+      "before_champion_level": 83,
+      "champion_max": 92
+    },
+    {
+      "growth": "MEDIUM_FAST",
+      "position": "lead_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 531440
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 82,
+          "xp": 551663
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 82,
+          "after": 82,
+          "xp": 569559
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 82,
+          "after": 83,
+          "xp": 589752
+        }
+      ],
+      "before_champion_level": 83,
+      "champion_max": 92
+    },
+    {
+      "growth": "MEDIUM_FAST",
+      "position": "reserve_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 521049
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 80,
+          "xp": 531158
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 80,
+          "after": 81,
+          "xp": 540105
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 81,
+          "after": 81,
+          "xp": 550198
+        }
+      ],
+      "before_champion_level": 81,
+      "champion_max": 92
+    },
+    {
+      "growth": "MEDIUM_FAST",
+      "position": "reserve_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 531440
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 541549
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 81,
+          "xp": 550496
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 81,
+          "after": 82,
+          "xp": 560589
+        }
+      ],
+      "before_champion_level": 82,
+      "champion_max": 92
+    },
+    {
+      "growth": "MEDIUM_SLOW",
+      "position": "lead_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 544363
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 564586
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 82,
+          "xp": 582482
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 82,
+          "after": 83,
+          "xp": 602675
+        }
+      ],
+      "before_champion_level": 83,
+      "champion_max": 92
+    },
+    {
+      "growth": "MEDIUM_SLOW",
+      "position": "lead_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 547273
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 567496
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 82,
+          "xp": 585392
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 82,
+          "after": 83,
+          "xp": 605585
+        }
+      ],
+      "before_champion_level": 83,
+      "champion_max": 92
+    },
+    {
+      "growth": "MEDIUM_SLOW",
+      "position": "reserve_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 535309
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 80,
+          "xp": 545418
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 80,
+          "after": 81,
+          "xp": 554365
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 81,
+          "after": 81,
+          "xp": 564458
+        }
+      ],
+      "before_champion_level": 81,
+      "champion_max": 92
+    },
+    {
+      "growth": "MEDIUM_SLOW",
+      "position": "reserve_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 547273
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 557382
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 81,
+          "xp": 566329
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 81,
+          "after": 82,
+          "xp": 576422
+        }
+      ],
+      "before_champion_level": 82,
+      "champion_max": 92
+    },
+    {
+      "growth": "SLOW",
+      "position": "lead_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 658103
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 678326
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 82,
+          "xp": 696222
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 82,
+          "after": 83,
+          "xp": 716415
+        }
+      ],
+      "before_champion_level": 83,
+      "champion_max": 92
+    },
+    {
+      "growth": "SLOW",
+      "position": "lead_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 664300
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 684523
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 82,
+          "xp": 702419
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 82,
+          "after": 83,
+          "xp": 722612
+        }
+      ],
+      "before_champion_level": 83,
+      "champion_max": 92
+    },
+    {
+      "growth": "SLOW",
+      "position": "reserve_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 649049
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 80,
+          "xp": 659158
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 80,
+          "after": 81,
+          "xp": 668105
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 81,
+          "after": 81,
+          "xp": 678198
+        }
+      ],
+      "before_champion_level": 81,
+      "champion_max": 92
+    },
+    {
+      "growth": "SLOW",
+      "position": "reserve_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 664300
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 674409
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 81,
+          "xp": 683356
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 81,
+          "after": 82,
+          "xp": 693449
+        }
+      ],
+      "before_champion_level": 82,
+      "champion_max": 92
+    },
+    {
+      "growth": "ERRATIC",
+      "position": "lead_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 390076
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 82,
+          "xp": 410299
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 82,
+          "after": 84,
+          "xp": 428195
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 84,
+          "after": 86,
+          "xp": 448388
+        }
+      ],
+      "before_champion_level": 86,
+      "champion_max": 92
+    },
+    {
+      "growth": "ERRATIC",
+      "position": "lead_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 390076
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 82,
+          "xp": 410299
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 82,
+          "after": 84,
+          "xp": 428195
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 84,
+          "after": 86,
+          "xp": 448388
+        }
+      ],
+      "before_champion_level": 86,
+      "champion_max": 92
+    },
+    {
+      "growth": "ERRATIC",
+      "position": "reserve_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 387929
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 398038
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 82,
+          "xp": 406985
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 82,
+          "after": 83,
+          "xp": 417078
+        }
+      ],
+      "before_champion_level": 83,
+      "champion_max": 92
+    },
+    {
+      "growth": "ERRATIC",
+      "position": "reserve_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 390076
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 400185
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 82,
+          "xp": 409132
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 82,
+          "after": 83,
+          "xp": 419225
+        }
+      ],
+      "before_champion_level": 83,
+      "champion_max": 92
+    },
+    {
+      "growth": "FLUCTUATING",
+      "position": "lead_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 755383
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 775606
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 81,
+          "xp": 793502
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 81,
+          "after": 82,
+          "xp": 813695
+        }
+      ],
+      "before_champion_level": 82,
+      "champion_max": 92
+    },
+    {
+      "growth": "FLUCTUATING",
+      "position": "lead_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 765274
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 785497
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 81,
+          "xp": 803393
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 81,
+          "after": 82,
+          "xp": 823586
+        }
+      ],
+      "before_champion_level": 82,
+      "champion_max": 92
+    },
+    {
+      "growth": "FLUCTUATING",
+      "position": "reserve_every_foe",
+      "initial": "level80_bottom",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 746329
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 80,
+          "xp": 756438
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 80,
+          "after": 81,
+          "xp": 765385
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 81,
+          "after": 81,
+          "xp": 775478
+        }
+      ],
+      "before_champion_level": 81,
+      "champion_max": 92
+    },
+    {
+      "growth": "FLUCTUATING",
+      "position": "reserve_every_foe",
+      "initial": "level80_max_bar",
+      "battles": [
+        {
+          "battle": "sParty_EliteFourLorelei",
+          "cap": 80,
+          "before": 80,
+          "after": 80,
+          "xp": 765274
+        },
+        {
+          "battle": "sParty_EliteFourBruno",
+          "cap": 83,
+          "before": 80,
+          "after": 81,
+          "xp": 775383
+        },
+        {
+          "battle": "sParty_EliteFourAgatha",
+          "cap": 86,
+          "before": 81,
+          "after": 81,
+          "xp": 784330
+        },
+        {
+          "battle": "sParty_EliteFourLance",
+          "cap": 89,
+          "before": 81,
+          "after": 81,
+          "xp": 794423
+        }
+      ],
+      "before_champion_level": 81,
+      "champion_max": 92
+    }
+  ],
+  "stat_examples": [
+    {
+      "species": "ONIX",
+      "level": 16,
+      "nature": "ADAMANT",
+      "stats": {
+        "baseHP": {
+          "neutral_iv15_ev0": 39,
+          "enemy_effective": 52,
+          "increase_percent": 33.3
+        },
+        "baseAttack": {
+          "neutral_iv15_ev0": 21,
+          "enemy_effective": 37,
+          "increase_percent": 76.2
+        },
+        "baseDefense": {
+          "neutral_iv15_ev0": 58,
+          "enemy_effective": 61,
+          "increase_percent": 5.2
+        },
+        "baseSpeed": {
+          "neutral_iv15_ev0": 29,
+          "enemy_effective": 32,
+          "increase_percent": 10.3
+        },
+        "baseSpAttack": {
+          "neutral_iv15_ev0": 17,
+          "enemy_effective": 17,
+          "increase_percent": 0.0
+        },
+        "baseSpDefense": {
+          "neutral_iv15_ev0": 21,
+          "enemy_effective": 24,
+          "increase_percent": 14.3
+        }
+      }
+    },
+    {
+      "species": "NOSEPASS",
+      "level": 18,
+      "nature": "ADAMANT",
+      "stats": {
+        "baseHP": {
+          "neutral_iv15_ev0": 41,
+          "enemy_effective": 55,
+          "increase_percent": 34.1
+        },
+        "baseAttack": {
+          "neutral_iv15_ev0": 23,
+          "enemy_effective": 41,
+          "increase_percent": 78.3
+        },
+        "baseDefense": {
+          "neutral_iv15_ev0": 56,
+          "enemy_effective": 59,
+          "increase_percent": 5.4
+        },
+        "baseSpeed": {
+          "neutral_iv15_ev0": 18,
+          "enemy_effective": 21,
+          "increase_percent": 16.7
+        },
+        "baseSpAttack": {
+          "neutral_iv15_ev0": 23,
+          "enemy_effective": 23,
+          "increase_percent": 0.0
+        },
+        "baseSpDefense": {
+          "neutral_iv15_ev0": 40,
+          "enemy_effective": 42,
+          "increase_percent": 5.0
+        }
+      }
+    },
+    {
+      "species": "STARMIE",
+      "level": 28,
+      "nature": "TIMID",
+      "stats": {
+        "baseHP": {
+          "neutral_iv15_ev0": 75,
+          "enemy_effective": 80,
+          "increase_percent": 6.7
+        },
+        "baseAttack": {
+          "neutral_iv15_ev0": 51,
+          "enemy_effective": 49,
+          "increase_percent": -3.9
+        },
+        "baseDefense": {
+          "neutral_iv15_ev0": 56,
+          "enemy_effective": 61,
+          "increase_percent": 8.9
+        },
+        "baseSpeed": {
+          "neutral_iv15_ev0": 73,
+          "enemy_effective": 104,
+          "increase_percent": 42.5
+        },
+        "baseSpAttack": {
+          "neutral_iv15_ev0": 65,
+          "enemy_effective": 87,
+          "increase_percent": 33.8
+        },
+        "baseSpDefense": {
+          "neutral_iv15_ev0": 56,
+          "enemy_effective": 61,
+          "increase_percent": 8.9
+        }
+      }
+    },
+    {
+      "species": "ALAKAZAM",
+      "level": 60,
+      "nature": "TIMID",
+      "stats": {
+        "baseHP": {
+          "neutral_iv15_ev0": 145,
+          "enemy_effective": 155,
+          "increase_percent": 6.9
+        },
+        "baseAttack": {
+          "neutral_iv15_ev0": 74,
+          "enemy_effective": 74,
+          "increase_percent": 0.0
+        },
+        "baseDefense": {
+          "neutral_iv15_ev0": 68,
+          "enemy_effective": 77,
+          "increase_percent": 13.2
+        },
+        "baseSpeed": {
+          "neutral_iv15_ev0": 158,
+          "enemy_effective": 225,
+          "increase_percent": 42.4
+        },
+        "baseSpAttack": {
+          "neutral_iv15_ev0": 176,
+          "enemy_effective": 223,
+          "increase_percent": 26.7
+        },
+        "baseSpDefense": {
+          "neutral_iv15_ev0": 116,
+          "enemy_effective": 125,
+          "increase_percent": 7.8
+        }
+      }
+    }
+  ],
+  "population": {
+    "regular_parties": 636,
+    "mons": 1773,
+    "protect_detect_mons": 1612,
+    "mons_with_runtime_training": 238
+  },
+  "constraints": {
+    "gym_caps": [
+      18,
+      28,
+      36,
+      44,
+      52,
+      60,
+      68,
+      76
+    ],
+    "first_league_caps": [
+      80,
+      83,
+      86,
+      89,
+      92
+    ],
+    "nurse_total_max": 57,
+    "nurse_limit_covers_pc_or_beds": false,
+    "normal_editor_before_league": false,
+    "hardcore_editor_before_league": true,
+    "normal_candy_1_in_shops": false,
+    "hardcore_candy_1_in_shops": true
+  },
+  "league_exp_budget": {
+    "sParty_EliteFourLorelei": {
+      "fixed_participant": 18103,
+      "fixed_reserve": 9049
+    },
+    "sParty_EliteFourBruno": {
+      "fixed_participant": 20223,
+      "fixed_reserve": 10109
+    },
+    "sParty_EliteFourAgatha": {
+      "fixed_participant": 17896,
+      "fixed_reserve": 8947
+    },
+    "sParty_EliteFourLance": {
+      "fixed_participant": 20193,
+      "fixed_reserve": 10093
+    }
+  },
+  "compiled_rom_exp_thresholds": {
+    "status": "passed",
+    "values_checked": 600
+  }
+}

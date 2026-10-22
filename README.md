@@ -4,6 +4,8 @@ Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em du
 
 Guias: [onde capturar cada uma das 386 espécies](SPECIES_LOCATIONS.md) · [times dos desafios em sequência](#times-dos-desafios-em-sequência) · [encontros por rota, níveis e probabilidades](ENCOUNTERS.md) · [catálogo de todos os treinadores](TRAINER_REVIEW.md).
 
+[Avaliação de balanceamento da v0.4.0-dev](BALANCE_REVIEW.md): comparação entre Normal/Hardcore, gargalo de EXP na Liga, preparação dos desafios e restrições de cura. É uma auditoria de dados e modelos; a campanha completa sem assistência continua pendente.
+
 **Validação anterior, v0.3.1-dev:** corrigidos os três bugs da auditoria (IVs, status dos errantes e teto da creche) e o consumo indevido de cota pelo Marowak fantasma. Passaram 23 casos de captura, com cotas nos 124 mapas de encontros, 28 casos de Pokémon/creche e sete suítes de regressão. Veja o [checklist e pendências manuais](TEST_CHECKLIST.md) e os [testes de captura](CAPTURE_TEST_RESULTS.md).
 
 ## Download

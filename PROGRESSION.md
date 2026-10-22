@@ -40,6 +40,8 @@ O contador abrange a enfermeira do Centro. Camas, outros curandeiros e recupera�
 
 ## Limites da calibração
 
+A [avaliação atual dos dois modos](BALANCE_REVIEW.md) identifica um descompasso entre EXP e tetos sucessivos da primeira Liga, treinamento completo dos desafios antes do acesso ao cientista no Normal e recuperação gratuita pelo PC/camas fora do contador Hardcore. São problemas de calibração, apesar dos testes funcionais aprovados. As propostas ainda não foram aplicadas à ROM.
+
 Em v0.3.0-dev, as 386 espécies receberam encontros diretos, com níveis/faixas por etapa e lendários aleatórios travados após a Liga. Consulte ENCOUNTERS.md e SPECIES_LOCATIONS.md. Itens de evolução ainda precisam de revisão, mas a captura direta permite obter suas evoluções. A cota do Hardcore ainda limita a equipe disponível; o rival do laboratório permanece simples e as demais lutas são duplas. Níveis e treinamento maiores aumentam os números dos desafios, mas não medem sozinhos dificuldade estratégica ou chance de vitória. Não foi concluído um teste completo da campanha.
 
 Os testes usam ROMs descartáveis no mGBA: auditam dados efetivos das equipes, turnos de batalha, regras/recarga do save e a interface de treinamento. As equipes artificiais usadas na automação da Liga têm HP elevado para permitir observar turnos; esse teste não simula uma equipe legal do jogador nem avalia balanceamento competitivo.
