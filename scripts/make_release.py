@@ -7,7 +7,7 @@ import re
 
 root = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
-parser.add_argument('--version', default='v0.3.1-dev')
+parser.add_argument('--version', default='v0.4.0-dev')
 args = parser.parse_args()
 if not re.fullmatch(r'v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?', args.version):
     parser.error('Invalid version')
@@ -48,8 +48,9 @@ prefix = 'firered-386-' + args.version
 (out / f'{prefix}.ips').write_bytes(patch)
 shutil.copyfile(root / 'patches/current.patch', out / f'{prefix}-source.patch')
 readme = (root / 'README.md').read_text(encoding='utf-8-sig')
-for document in ('TEST_CHECKLIST.md', 'CAPTURE_TEST_RESULTS.md', 'TEST_AUDIT_V0_3_0.md', 'CHANGELOG.md', 'SHOP_TEST_RESULTS.md', 'SPECIES_LOCATIONS.md', 'ENCOUNTERS.md', 'PROGRESSION.md', 'DESIGN.md', 'HARDCORE.md', 'E4_CHAMPIONS.md', 'TRAINER_REVIEW.md', 'data/trainer_balance.json'):
+for document in ('SETTINGS.md', 'FEATURE_TEST_RESULTS.md', 'TEST_CHECKLIST.md', 'CAPTURE_TEST_RESULTS.md', 'TEST_AUDIT_V0_3_0.md', 'CHANGELOG.md', 'SHOP_TEST_RESULTS.md', 'SPECIES_LOCATIONS.md', 'ENCOUNTERS.md', 'PROGRESSION.md', 'DESIGN.md', 'HARDCORE.md', 'E4_CHAMPIONS.md', 'TRAINER_REVIEW.md', 'data/trainer_balance.json'):
     readme = readme.replace('](' + document + ')', '](https://github.com/matheus013/firered-386/blob/' + args.version + '/' + document + ')')
+readme = re.sub(r'\]\((docs/images/[^)]+)\)', lambda m: '](https://raw.githubusercontent.com/matheus013/firered-386/' + args.version + '/' + m[1] + ')', readme)
 (out / 'LEIA-ME.md').write_text(readme, encoding='utf-8')
 for guide in ('ENCOUNTERS.md', 'SPECIES_LOCATIONS.md'):
     shutil.copyfile(root / guide, out / guide)

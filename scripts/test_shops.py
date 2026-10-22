@@ -1,9 +1,10 @@
 """Exercise every actual Pokemart catalog in Normal/Hardcore via the game UI."""
 from pathlib import Path
-import argparse,json,re,shutil,subprocess,tempfile
+import argparse,hashlib,json,re,shutil,subprocess,tempfile
 root=Path(__file__).resolve().parents[1];game=root/'game'
-out=root/'output/tests/shops';out.mkdir(parents=True,exist_ok=True)
-parser=argparse.ArgumentParser();parser.add_argument('--before-fix',action='store_true');parser.add_argument('--case',type=int);args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--before-fix',action='store_true');parser.add_argument('--case',type=int);parser.add_argument('--language',choices=['en','ptbr'],default='en');args=parser.parse_args()
+out=root/'output/tests'/('shops' if args.language=='en' else 'shops-ptbr');out.mkdir(parents=True,exist_ok=True)
+reference_sha=hashlib.sha256((root/'output/firered-386-dev.gba').read_bytes()).hexdigest()
 source=Path((root/'output/hack-build-path.txt').read_text().strip())
 test=Path(tempfile.mkdtemp(prefix='shop-fixture-',dir=Path.home()/'.cache/firered-386'));shutil.copytree(source,test,dirs_exist_ok=True)
 (out/'build-path.txt').write_text(str(test)+'\n')
@@ -21,6 +22,7 @@ hook='''
 #include "load_save.h"
 #include "overworld.h"
 #include "nuzlocke.h"
+#include "game_settings.h"
 #include "pokemon.h"
 #include "string_util.h"
 #include "event_data.h"
@@ -76,6 +78,7 @@ static void ShopTestPoll(void)
 }
 static void ShopTestBoot(void){SetMainCallback2(ShopTestIdle);}
 '''
+hook=hook.replace('    FlagSet(FLAG_SYS_POKEDEX_GET);','    GameSettings_SetLanguage('+('GAME_LANGUAGE_PTBR' if args.language=='ptbr' else 'GAME_LANGUAGE_EN')+');\n    FlagSet(FLAG_SYS_POKEDEX_GET);')
 main=(game/'src/main.c').read_text().replace('#include "global.h"','#include "global.h"\nstatic void ShopTestPoll(void);')
 main=main.replace('static void InitMainCallbacks(void)\n{',hook+'\nstatic void InitMainCallbacks(void)\n{').replace('SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);','SetMainCallback2(ShopTestBoot);').replace('    ReadKeys();','    ShopTestPoll();\n    ReadKeys();')
 (test/'src/main.c').write_text(main)
@@ -120,5 +123,6 @@ for i in cases:
   print(result.stdout.strip(),catalogs[i]['stock'],flush=True)
   passed.append({'catalog':catalogs[i]['stock'],'map':catalogs[i]['map'],'mode':'Hardcore' if mode else 'Normal','passed':True})
 if args.case is None:
- (out/'results.json').write_text(json.dumps({'cases':passed,'count':len(passed),'flow':'cancel; buy; sell; quit B/SEE YA; reopen; Hardcore Candy=1; exact stock; heap integrity and script resume'},indent=2)+'\n')
+ assert hashlib.sha256((root/'output/firered-386-dev.gba').read_bytes()).hexdigest()==reference_sha,'Production ROM changed during tests'
+ (out/'results.json').write_text(json.dumps({'rom_sha256':reference_sha,'language':args.language,'cases':passed,'count':len(passed),'flow':'cancel; buy; sell; quit B/SEE YA; reopen; Hardcore Candy=1; exact stock; heap integrity and script resume'},indent=2)+'\n')
  print(f'PASS: all {len(catalogs)} shop catalogs, both modes ({len(passed)} cases).')

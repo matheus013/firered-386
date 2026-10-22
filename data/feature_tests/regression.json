@@ -1,0 +1,54 @@
+{
+  "rom_sha256": "881869fbaa37abe13becbb071759ff1225984910fdb410d11818e88b56a0990d",
+  "suites": [
+    {
+      "suite": "test_elite_four.py",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 219.8,
+      "log": "output/tests/checklist/test_elite_four.py.log"
+    },
+    {
+      "suite": "test_encounters.py",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 15.3,
+      "log": "output/tests/checklist/test_encounters.py.log"
+    },
+    {
+      "suite": "test_hardcore.py",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 19.7,
+      "log": "output/tests/checklist/test_hardcore.py.log"
+    },
+    {
+      "suite": "test_shops.py",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 98.5,
+      "log": "output/tests/checklist/test_shops.py.log"
+    },
+    {
+      "suite": "test_trainer_battles.py",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 13.3,
+      "log": "output/tests/checklist/test_trainer_battles.py.log"
+    },
+    {
+      "suite": "test_training.py",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 12.3,
+      "log": "output/tests/checklist/test_training.py.log"
+    },
+    {
+      "suite": "test_training_ui.py",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 20.1,
+      "log": "output/tests/checklist/test_training_ui.py.log"
+    }
+  ]
+}

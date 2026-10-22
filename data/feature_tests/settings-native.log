@@ -1,0 +1,6 @@
+progress frame=10000 phase=1 result=100 trainer=742 randomizer=1
+progress frame=20000 phase=1 result=100 trainer=407 randomizer=1
+progress frame=30000 phase=1 result=100 trainer=714 randomizer=1
+phase=1 result=1 audit=1 386 742 1 241 241 1880 1 104 104 7 3760
+phase=2 result=2 audit=0 0 0 0 0 0 0 0 0 0 0 0
+PASS native settings, all NPC parties, localization and fresh-instance persistence

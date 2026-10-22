@@ -4,11 +4,11 @@ Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em du
 
 Guias: [onde capturar cada uma das 386 espécies](SPECIES_LOCATIONS.md) · [times dos desafios em sequência](#times-dos-desafios-em-sequência) · [encontros por rota, níveis e probabilidades](ENCOUNTERS.md) · [catálogo de todos os treinadores](TRAINER_REVIEW.md).
 
-**Validação v0.3.1-dev:** corrigidos os três bugs da auditoria (IVs, status dos errantes e teto da creche) e o consumo indevido de cota pelo Marowak fantasma. Passaram 23 casos de captura, com cotas nos 124 mapas de encontros, 28 casos de Pokémon/creche e sete suítes de regressão. Veja o [checklist e pendências manuais](TEST_CHECKLIST.md) e os [testes de captura](CAPTURE_TEST_RESULTS.md).
+**Validação anterior, v0.3.1-dev:** corrigidos os três bugs da auditoria (IVs, status dos errantes e teto da creche) e o consumo indevido de cota pelo Marowak fantasma. Passaram 23 casos de captura, com cotas nos 124 mapas de encontros, 28 casos de Pokémon/creche e sete suítes de regressão. Veja o [checklist e pendências manuais](TEST_CHECKLIST.md) e os [testes de captura](CAPTURE_TEST_RESULTS.md).
 
 ## Download
 
-Versão atual: **[v0.3.1-dev](https://github.com/matheus013/firered-386/releases/tag/v0.3.1-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.3.1-dev/firered-386-v0.3.1-dev.gba). Inclui as 386 espécies, a correção das lojas e as correções de captura/IVs/errantes/creche. Veja o [histórico de versões](CHANGELOG.md) e o [relatório dos 46 testes de lojas](SHOP_TEST_RESULTS.md).
+Versão atual: **[v0.4.0-dev](https://github.com/matheus013/firered-386/releases/tag/v0.4.0-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.4.0-dev/firered-386-v0.4.0-dev.gba). Inclui idioma EN/PT-BR nas opções, randomizer opcional, treinamento dos desafios e nova interface do cientista. Veja o [histórico de versões](CHANGELOG.md) e o [relatório dos 46 testes de lojas](SHOP_TEST_RESULTS.md).
 
 Baixe o **`.gba`** em [Releases](https://github.com/matheus013/firered-386/releases) e abra em um emulador de GBA. Também estão disponíveis um patch `.ips`, o patch de fontes e checksums SHA-256.
 
@@ -16,7 +16,15 @@ O IPS exige uma ROM limpa de **FireRed USA 1.0**, SHA-1 `41cb23d8dccc8ebd7c649cd
 
 Para continuar uma partida, preserve uma cópia do `.sav` e use o mesmo nome-base para ROM e save, por exemplo `firered-386.gba` e `firered-386.sav`. O layout do save foi preservado e os testes de gravação/recarga passaram; a migração de saves reais de cada versão anterior ainda precisa ser validada. Os novos encontros passam a valer ao jogar com a ROM atualizada.
 
-O jogo continua majoritariamente em inglês. A tela de seleção de modos está em português, sem acentos na interface do GBA.
+Idioma selecionável em **OPTIONS: ENGLISH / PT-BR**. O português está em beta: 7.771 entradas traduzidas, com 82 revisões manuais; a maior parte veio de tradução automática local e ainda precisa de revisão linguística. Nomes de Pokémon e golpes permanecem em inglês; caracteres sem suporte na fonte são transliterados.
+
+Ao criar o save: **Normal/Hardcore → Randomizer OFF/ON**. O randomizer troca encontros selvagens, iniciais e espécies/golpes dos treinadores, preservando níveis e tamanhos dos elencos; sua semente fica gravada. Encontros roteirizados e presentes permanecem fixos. Os times e locais dos guias representam o randomizer desligado. [Detalhes e limites](SETTINGS.md).
+
+O cientista agora mostra retrato, painéis azuis, barras de EV/IV, saldo de EVs e prévia dos atributos antes da confirmação. Acesso mantido: sempre no Hardcore, após a Liga no Normal.
+
+![Nova tela de edição de EVs](docs/images/training-evs-ptbr.png)
+
+[Validação da v0.4.0-dev](FEATURE_TEST_RESULTS.md): configurações, salvamento, randomizer, desafios, interface e regressões na ROM compilada. A campanha completa sem assistência continua pendente.
 
 <!-- GENERATED CHALLENGE TEAMS START -->
 ## Times dos desafios em sequência
@@ -283,10 +291,10 @@ As novas revanches de líderes ainda não foram implementadas; por isso, não h�
 - Suporte de abertura, cobertura, parceiros complementares, controle de velocidade, telas e clima em equipes compatíveis.
 - Itens equipados e IVs progressivos. Níveis elevados por etapa da campanha, evoluções mais avançadas e Campeão com natureza, habilidade, IVs 31 e EVs por função.
 - Elencos gerados evitam golpes que atinjam aliados, golpes de nocaute em um acerto e acúmulo de evasão. Clima é evitado em equipes que possam ter Cloud Nine ou Air Lock.
-- **60 elencos internos da Torre de Treinadores** revisados para duplas; segundo Pokémon adicionado aos adversários do modo Knockout. Níveis continuam acompanhando a equipe do jogador; EVs, IVs e naturezas originais da Torre foram preservados. Dados externos de e-Reader não foram revisados.
+- **60 elencos internos da Torre de Treinadores** revisados para duplas; segundo Pokémon adicionado aos adversários do modo Knockout. Níveis continuam acompanhando a equipe do jogador; IVs agora são 31 e EVs/natureza seguem a função do Pokémon. Dados externos de e-Reader não foram revisados.
 - Com apenas um Pokémon apto, o jogador enfrenta dois adversários com o segundo espaço vazio, sem duplicação ou exigência de um segundo integrante.
 
-As equipes atuais usam golpes, tipos e regras de **geração III**. Os treinadores regulares fora da E4 e do Campeão ainda não têm EVs/naturezas competitivos específicos; a calibração da campanha inteira continua pendente. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](TRAINER_REVIEW.md), com dados em [data/trainer_balance.json](data/trainer_balance.json).
+As equipes atuais usam golpes, tipos e regras de **geração III**. Líderes, rivais (incluindo o laboratório), chefes Rocket, Koichi, Bikers, E4/Campeão e Torre recebem IVs 31 e EVs treinados. Os demais treinadores preservam sua escala de IVs; a calibração da campanha inteira continua pendente. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](TRAINER_REVIEW.md), com dados em [data/trainer_balance.json](data/trainer_balance.json).
 
 ### Elite Four inspirada em campeões oficiais (v0.1.1-dev)
 
@@ -419,7 +427,7 @@ Estas funcionalidades **não estão disponíveis nesta release**:
 - Exibição do teto atual no menu; o teto de EXP já está ativo nos dois modos.
 - Todos os itens utilizáveis/equipáveis compráveis em Celadon após a primeira vitória na Liga; catálogo, preços e exceções de itens-chave ainda serão definidos.
 - Troca entre habilidades disponíveis; natureza, EVs e IVs já podem ser ajustados pelo NPC dos Centros.
-- Exibição clara de IVs, EVs, natureza, habilidade e categoria dos golpes.
+- Exibição de habilidade e categoria dos golpes; o cientista já mostra IVs, EVs e efeito da natureza.
 - Lembrete de golpes gratuito e acessível cedo; itens de batalha renováveis.
 - Informações sobre espécies encontradas por área.
 - Restrição de mochila dos dois lados em batalhas importantes; atualmente o Hardcore restringe o jogador, enquanto os adversários mantêm seus itens.
@@ -448,6 +456,8 @@ Resultado: `output/firered-386-dev.gba`. `bash scripts/build.sh baseline` compil
 
 ## Verificação e limitações
 
+A versão atual tem [testes de funcionalidades e regressão](FEATURE_TEST_RESULTS.md). O relatório de campanha abaixo é histórico, da v0.3.1-dev, e usa assistência.
+
 [Relatório de campanha e pós-jogo](CAMPAIGN_TEST_RESULTS.md): execução assistida no Normal, com limites e evidências no save. Não certifica uma partida normal ou Hardcore sem assistência.
 
 Verificações realizadas em 20 e 21/10/2026:
@@ -469,7 +479,7 @@ Os [testes assistidos de campanha e pós-jogo](CAMPAIGN_TEST_RESULTS.md) aprovar
 
 Para repetir os testes após compilar, instale também `libmgba-dev` e `mgba-sdl` no Ubuntu/WSL:
 
-O [checklist de testes](TEST_CHECKLIST.md) reúne fontes da pesquisa, escopo de cada aprovação, resultados estruturados e roteiro manual. `python3 scripts/run_regression.py` repete as sete suítes abaixo. `python3 scripts/test_community_cases.py` executa 28 casos de Pokémon/creche; `python3 scripts/test_capture_rules.py` executa 23 casos de captura. Todos passaram na v0.3.1-dev. A auditoria de integridade está em `scripts/audit_release.py` e exige os assets locais da versão selecionada (padrão v0.3.1-dev).
+O [checklist de testes](TEST_CHECKLIST.md) reúne fontes da pesquisa, escopo de cada aprovação, resultados estruturados e roteiro manual. `python3 scripts/run_regression.py` repete as sete suítes abaixo. `python3 scripts/test_community_cases.py` executa 28 casos de Pokémon/creche; `python3 scripts/test_capture_rules.py` executa 23 casos de captura. Todos passaram na v0.3.1-dev. A auditoria de integridade está em `scripts/audit_release.py` e exige os assets locais da versão selecionada (padrão v0.4.0-dev).
 
 ```bash
 python3 scripts/balance_trainers.py --check

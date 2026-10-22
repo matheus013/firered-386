@@ -1,4 +1,4 @@
-# Progressão e treinamento — estado em v0.3.1-dev
+# Progressão e treinamento — estado em v0.4.0-dev
 
 A curva dos treinadores foi elevada por etapa, preservando história, caminhos e primeira luta no laboratório. Os parâmetros reproduzíveis ficam em `data/progression_curve.json`; as equipes completas em TRAINER_REVIEW.md e data/trainer_balance.json.
 
@@ -10,7 +10,7 @@ A curva dos treinadores foi elevada por etapa, preservando história, caminhos e
 | Campeão, primeira Liga | 92 |
 | E4 e Campeão, revanche | Todos os integrantes no 100 |
 
-Rotas e áreas têm faixas de níveis para evitar saltos indevidos em treinadores reutilizados. Rivais e Giovanni da história têm limites próprios. Evoluções por nível foram atualizadas segundo o novo nível; evoluções por pedra adequadas entram nas equipes avançadas. Líderes usam seis integrantes e especialidade preservada. A E4 mantém suas adaptações de campeões, e o Campeão recebe IVs 31, natureza/habilidade fixas e EVs por função. A Torre usa seu escalonamento original, sem adotar estes níveis fixos.
+Rotas e áreas têm faixas de níveis para evitar saltos indevidos em treinadores reutilizados. Rivais e Giovanni da história têm limites próprios. Evoluções por nível foram atualizadas segundo o novo nível; evoluções por pedra adequadas entram nas equipes avançadas. Líderes usam seis integrantes e especialidade preservada. A E4 mantém suas adaptações de campeões, e o Campeão recebe IVs 31, natureza/habilidade fixas e EVs por função. A Torre usa seu escalonamento original, sem adotar estes níveis fixos. Na v0.4.0-dev, todos os desafios nomeados e adversários da Torre recebem IVs 31 e EVs treinados por função; o treino definido da E4/Campeão é preservado com randomizer desligado.
 
 EXP, Rare Candy e treinamento na creche respeitam o teto nos dois modos. Após os ginásios, o teto acompanha cada membro da Liga ainda não vencido e chega a 100 após o Hall da Fama. No Normal, Pokémon adquiridos acima do teto continuam utilizáveis, sem ganhar EXP até o progresso alcançá-los. No Hardcore, continuam indisponíveis enquanto acima do teto, sem que isso os marque como perdidos.
 
@@ -18,7 +18,7 @@ A v0.3.1-dev corrige a retirada nas creches das ilhas e Route 5, incluindo a pre
 
 ## Cientista dos Centros
 
-Os 19 Centros têm um NPC com interface gratuita de natureza, EVs e IVs. No Hardcore, fica disponível desde o começo; no Normal, após a Liga. Não há alteração na geometria dos mapas.
+Os 19 Centros têm um NPC com interface gratuita de natureza, EVs e IVs. No Hardcore, fica disponível desde o começo; no Normal, após a Liga. Não há alteração na geometria dos mapas. A interface usa retrato, painéis coloridos, barras de EV/IV e comparação dos atributos antes de confirmar.
 
 - Natureza: escolher entre 25 efeitos, com bônus/penalidade mostrados.
 - EVs: 0–252 por atributo, máximo de 510 no total; setas ajustam, L zera e R maximiza dentro do saldo.

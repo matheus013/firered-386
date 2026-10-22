@@ -1,0 +1,7 @@
+PASSED test_training.py 12.3 s
+PASSED test_hardcore.py 19.7 s
+PASSED test_training_ui.py 20.1 s
+PASSED test_trainer_battles.py 13.3 s
+PASSED test_encounters.py 15.3 s
+PASSED test_shops.py 98.5 s
+PASSED test_elite_four.py 219.8 s

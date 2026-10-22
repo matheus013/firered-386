@@ -1,0 +1,57 @@
+{
+  "rom_sha256": "881869fbaa37abe13becbb071759ff1225984910fdb410d11818e88b56a0990d",
+  "status": "passed",
+  "jobs": [
+    {
+      "name": "capture",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.5,
+      "log": "output/tests/features/capture.log"
+    },
+    {
+      "name": "community",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.9,
+      "log": "output/tests/features/community.log"
+    },
+    {
+      "name": "editor-ptbr",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 14.1,
+      "log": "output/tests/features/editor-ptbr.log"
+    },
+    {
+      "name": "regression",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 245.6,
+      "log": "output/tests/features/regression.log"
+    },
+    {
+      "name": "settings",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 38.6,
+      "log": "output/tests/features/settings.log"
+    },
+    {
+      "name": "settings-ui",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 11.8,
+      "log": "output/tests/features/settings-ui.log"
+    },
+    {
+      "name": "shops-ptbr",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 95.6,
+      "log": "output/tests/features/shops-ptbr.log"
+    }
+  ],
+  "normal_campaign_clear_certified": false,
+  "hardcore_campaign_clear_certified": false
+}

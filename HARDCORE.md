@@ -1,6 +1,8 @@
 # Normal e Hardcore Nuzlocke
 
-**NEW GAME** oferece Normal e Hardcore Nuzlocke. A primeira confirmação mostra as regras; B volta e A confirma. A introdução original continua depois. A escolha fica no save, sem opção de mudar durante a campanha. Saves antigos são tratados como Normal, com melhorias e teto de EXP/nível, sem as demais restrições do Hardcore.
+**NEW GAME** oferece Normal e Hardcore Nuzlocke. A primeira confirmação mostra as regras; B volta e A confirma. Depois, escolha Randomizer OFF/ON; B retorna à seleção do modo. A introdução original continua depois. A escolha fica no save, sem opção de mudar durante a campanha. Saves antigos são tratados como Normal, com melhorias e teto de EXP/nível, sem as demais restrições do Hardcore.
+
+Idioma EN/PT-BR pode ser alterado nas opções. Saves sem os novos campos iniciam em EN e randomizer desligado, preservando o modo e os contadores existentes. [Configurações](SETTINGS.md).
 
 ## Hardcore implementado
 

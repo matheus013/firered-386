@@ -101,3 +101,6 @@ Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralis
 - [Anúncio histórico do Cloyster de Abram, com referência ao site oficial](https://projectpokemon.org/home/forums/topic/24751-bw-b2w2-event-pok%C3%A9mon-championships-regional-cloyster-us/).
 
 A associação de campeões aos membros da E4 e todas as substituições são decisões de design desta hack, sem endosso dos jogadores citados.
+
+
+Atualização v0.4.0-dev: desafios e Torre recebem IVs 31 e EVs treinados. As equipes temáticas descritas aqui valem com randomizer desligado; ligado, espécies e golpes mudam, e o treinamento é recalculado por função. [Regras](SETTINGS.md).

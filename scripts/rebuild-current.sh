@@ -14,7 +14,9 @@ while IFS= read -r relative; do
         exit 1
     fi
     mkdir -p "$(dirname "$source_dir/$relative")"
-    cp "$project_dir/game/$relative" "$source_dir/$relative"
+    if ! cmp -s "$project_dir/game/$relative" "$source_dir/$relative"; then
+        cp "$project_dir/game/$relative" "$source_dir/$relative"
+    fi
 done < "$project_dir/output/changed-files.txt"
 (cd "$source_dir" && make -j4) > "$project_dir/output/hack-build.log" 2>&1
 cp "$source_dir/pokefirered.gba" "$project_dir/output/firered-386-dev.gba"

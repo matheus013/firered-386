@@ -118,12 +118,13 @@ int main(int argc, char **argv)
         for (int frame = 0; frame < 120; ++frame) core->runFrame(core);
         Shot(argv[2], "menu", pixels);
     } else {
-        if (argc != 10) return 2;
+        if (argc != 11) return 2;
         uint32_t savePtr = strtoul(argv[5], NULL, 0);
         uint32_t choose = strtoul(argv[6], NULL, 0);
         uint32_t review = strtoul(argv[7], NULL, 0);
         uint32_t controls = strtoul(argv[8], NULL, 0);
-        uint32_t mainAddress = strtoul(argv[9], NULL, 0);
+        uint32_t randomizer = strtoul(argv[9], NULL, 0);
+        uint32_t mainAddress = strtoul(argv[10], NULL, 0);
         int hardcore = !strcmp(argv[3], "hardcore");
         int stage = 0, nextInput = 180, completed = 0;
         for (int frame = 0; frame < 1800; ++frame) {
@@ -146,9 +147,13 @@ int main(int argc, char **argv)
                     stage = 5; nextInput = frame + 15;
                 } else if (stage == 6 && TaskExists(core, address, review)) {
                     core->setKeys(core, 1); stage = 7; nextInput = frame + 20;
-                } else if (stage == 7 && TaskExists(core, address, controls)) {
+                } else if (stage == 7 && TaskExists(core, address, randomizer)) {
+                    Shot(argv[2], "randomizer-off", pixels);
+                    core->setKeys(core, 1); stage = 8; nextInput = frame + 20;
+                } else if (stage == 8 && TaskExists(core, address, controls)) {
                     if (core->busRead32(core, save + 0xB20) != 0x31435A4E
-                        || core->busRead8(core, save + 0xB24) != (uint32_t)hardcore) return 10;
+                        || core->busRead8(core, save + 0xB24) != (uint32_t)hardcore
+                        || core->busRead8(core, save + 0xB75)) return 10;
                     Shot(argv[2], "confirmed", pixels); completed = 1; break;
                 }
             }

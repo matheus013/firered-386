@@ -1,9 +1,12 @@
 """Interact with the actual coach from the overworld and edit via buttons."""
 from pathlib import Path
-import shutil, subprocess, tempfile
+import argparse,hashlib,json,shutil,subprocess,tempfile
 root=Path(__file__).resolve().parents[1]
-out=root/'output/tests/training-ui'; out.mkdir(parents=True,exist_ok=True)
+parser=argparse.ArgumentParser();parser.add_argument('--language',choices=['en','ptbr'],default='en');args=parser.parse_args()
+out=root/'output/tests'/('training-ui' if args.language=='en' else 'training-ui-ptbr'); out.mkdir(parents=True,exist_ok=True)
 source=Path((root/'output/hack-build-path.txt').read_text().strip())
+reference_sha=hashlib.sha256((root/'output/firered-386-dev.gba').read_bytes()).hexdigest()
+assert hashlib.sha256((source/'pokefirered.gba').read_bytes()).hexdigest()==reference_sha
 test=Path(tempfile.mkdtemp(prefix='training-ui-',dir=Path.home()/'.cache/firered-386'))
 shutil.copytree(source,test,dirs_exist_ok=True)
 (out/'build-path.txt').write_text(str(test)+'\n')
@@ -45,7 +48,7 @@ static void TrainingUiBoot(void) {
 '''
 (test/'src/main.c').write_text(original.replace('static void InitMainCallbacks(void)\n{',hook+'\nstatic void InitMainCallbacks(void)\n{').replace('SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);','SetMainCallback2(TrainingUiBoot);'))
 # NewGame's existing map-load and field callbacks are used; only its destination changes.
-overworld=(root/'game/src/overworld.c').read_text()
+overworld=(root/'game/src/overworld.c').read_text().replace('#include "global.h"','#include "global.h"\n#include "game_settings.h"')
 overworld=overworld.replace('    NewGameInitData();\n    ResetInitialPlayerAvatarState();','''    NewGameInitData();
     Nuzlocke_ChooseMode(GAME_MODE_HARDCORE);
     CreateMon(&gPlayerParty[0], SPECIES_BULBASAUR, 5, 15, TRUE, 0, OT_ID_PRESET, 0);
@@ -54,6 +57,7 @@ overworld=overworld.replace('    NewGameInitData();\n    ResetInitialPlayerAvata
     WarpIntoMap();
     ResetInitialPlayerAvatarState();''')
 (test/'src/overworld.c').write_text(overworld)
+if args.language=='ptbr':(test/'src/overworld.c').write_text(overworld.replace('    Nuzlocke_ChooseMode(GAME_MODE_HARDCORE);','    Nuzlocke_ChooseMode(GAME_MODE_HARDCORE);\n    GameSettings_SetLanguage(GAME_LANGUAGE_PTBR);'))
 # A task would be cleared by the menu; put assertions in the existing main loop instead.
 main=(test/'src/main.c').read_text().replace('#include "global.h"', '#include "global.h"\nstatic void CheckTrainingUi(u8 task);').replace('    ReadKeys();','    CheckTrainingUi(0);\n    ReadKeys();')
 assert 'CheckTrainingUi(0)' in main
@@ -66,3 +70,5 @@ subprocess.run(['gcc','-O2','-Wall','-Wextra',str(root/'scripts/training_ui_smok
 with (out/'emulator.log').open('w') as log:
  subprocess.run([str(runner),str(test/'pokefirered.gba'),str(out/'coach'),*['0x'+symbols[s] for s in ('sTraining','gPlayerParty','gTrainingUiResult')]],stdout=log,stderr=subprocess.STDOUT,check=True,timeout=90)
 print('PASS: actual coach/editor, cancel/confirm/return; nurse heals three times and refuses fourth without healing.')
+assert hashlib.sha256((root/'output/firered-386-dev.gba').read_bytes()).hexdigest()==reference_sha
+(out/'results.json').write_text(json.dumps({'rom_sha256':reference_sha,'status':'passed','language':args.language,'scope':'disposable fixture: native NPC/editor/nurse interaction by buttons; nature/EV/IV changes, cancellation, exit/reopen and healing limits'},indent=2)+'\n')

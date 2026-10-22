@@ -1,0 +1,47 @@
+PASS catalog=0 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. CeladonCity_DepartmentStore_2F_Items
+PASS catalog=0 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. CeladonCity_DepartmentStore_2F_Items
+PASS catalog=1 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. CeladonCity_DepartmentStore_2F_TMs
+PASS catalog=1 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. CeladonCity_DepartmentStore_2F_TMs
+PASS catalog=2 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. CeladonCity_DepartmentStore_4F_Items
+PASS catalog=2 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. CeladonCity_DepartmentStore_4F_Items
+PASS catalog=3 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. CeladonCity_DepartmentStore_5F_XItems
+PASS catalog=3 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. CeladonCity_DepartmentStore_5F_XItems
+PASS catalog=4 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. CeladonCity_DepartmentStore_5F_Vitamins
+PASS catalog=4 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. CeladonCity_DepartmentStore_5F_Vitamins
+PASS catalog=5 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. CeruleanCity_Mart_Items
+PASS catalog=5 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. CeruleanCity_Mart_Items
+PASS catalog=6 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. CinnabarIsland_Mart_Items
+PASS catalog=6 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. CinnabarIsland_Mart_Items
+PASS catalog=7 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. FourIsland_Mart_Items
+PASS catalog=7 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. FourIsland_Mart_Items
+PASS catalog=8 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. FuchsiaCity_Mart_Items
+PASS catalog=8 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. FuchsiaCity_Mart_Items
+PASS catalog=9 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. IndigoPlateau_PokemonCenter_1F_Items
+PASS catalog=9 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. IndigoPlateau_PokemonCenter_1F_Items
+PASS catalog=10 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. LavenderTown_Mart_Items
+PASS catalog=10 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. LavenderTown_Mart_Items
+PASS catalog=11 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. PewterCity_Mart_Items
+PASS catalog=11 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. PewterCity_Mart_Items
+PASS catalog=12 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. SaffronCity_Mart_Items
+PASS catalog=12 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. SaffronCity_Mart_Items
+PASS catalog=13 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. SevenIsland_Mart_Items
+PASS catalog=13 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. SevenIsland_Mart_Items
+PASS catalog=14 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. SixIsland_Mart_Items
+PASS catalog=14 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. SixIsland_Mart_Items
+PASS catalog=15 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. ThreeIsland_Mart_Items
+PASS catalog=15 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. ThreeIsland_Mart_Items
+PASS catalog=16 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. TrainerTower_Lobby_Mart_Items
+PASS catalog=16 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. TrainerTower_Lobby_Mart_Items
+PASS catalog=17 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. TwoIsland_Items_ShopInitial
+PASS catalog=17 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. TwoIsland_Items_ShopInitial
+PASS catalog=18 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. TwoIsland_Items_ShopExpanded1
+PASS catalog=18 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. TwoIsland_Items_ShopExpanded1
+PASS catalog=19 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. TwoIsland_Items_ShopExpanded2
+PASS catalog=19 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. TwoIsland_Items_ShopExpanded2
+PASS catalog=20 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. TwoIsland_Items_ShopExpanded3
+PASS catalog=20 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. TwoIsland_Items_ShopExpanded3
+PASS catalog=21 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. VermilionCity_Mart_Items
+PASS catalog=21 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. VermilionCity_Mart_Items
+PASS catalog=22 mode=Normal: cancel, buy, sell, B/SEE YA, three open/exit cycles. ViridianCity_Mart_Items
+PASS catalog=22 mode=Hardcore: cancel, buy, sell, B/SEE YA, three open/exit cycles, Candy=1. ViridianCity_Mart_Items
+PASS: all 23 shop catalogs, both modes (46 cases).

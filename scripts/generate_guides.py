@@ -145,7 +145,7 @@ def encounters_guide():
     routes = sorted((row for row in rows if row['map'].startswith('MAP_ROUTE')), key=lambda r: natural(maps[r['map']]))
     others = sorted((row for row in rows if not row['map'].startswith('MAP_ROUTE')), key=lambda r: natural(maps[r['map']]))
     out = ['# Encontros por rota e área — FireRed 386', '',
-           'Guia dos encontros válido para v0.3.1-dev. A distribuição foi introduzida na v0.3.0-dev: as 386 espécies estão distribuídas e podem ser capturadas diretamente no modo Normal, sem troca, reprodução ou tickets de evento. Veja também o [índice das 386 espécies](SPECIES_LOCATIONS.md). No Hardcore, os mesmos encontros existem, mas a cota por seção limita as capturas da tentativa; não é possível prometer a coleção completa sob essa regra.', '',
+           'Guia dos encontros válido para v0.4.0-dev com randomizer desligado. A distribuição foi introduzida na v0.3.0-dev: as 386 espécies estão distribuídas e podem ser capturadas diretamente no modo Normal, sem troca, reprodução ou tickets de evento. Veja também o [índice das 386 espécies](SPECIES_LOCATIONS.md). No Hardcore, os mesmos encontros existem, mas a cota por seção limita as capturas da tentativa; não é possível prometer a coleção completa sob essa regra.', '',
            '## Como ler as probabilidades', '',
            '- **Chance** é a participação da espécie na tabela, condicionada a ocorrer um encontro pelo método indicado. Não é chance por passo, por lançamento de vara ou de captura.',
            '- Grama/caverna, Surf, Rock Smash, Old Rod, Good Rod e Super Rod têm tabelas separadas. Cada uma soma 100%; slots repetidos da mesma espécie foram somados.',
@@ -273,7 +273,7 @@ def main():
     encounters, count, methods = encounters_guide()
     distribution = json.loads(read(ROOT/'data/encounter_distribution.json'))
     maps={json.loads(read(p))['id']:p.parent.name for p in (GAME/'data/maps').glob('*/map.json')}
-    index=['# Onde capturar as 386 espécies — v0.3.1-dev','','Distribuição introduzida na v0.3.0-dev e mantida na v0.3.1-dev. Uma opção de captura direta por espécie, escolhida entre as áreas de menor etapa de acesso da distribuição. Todas as opções são independentes de inicial, troca, reprodução ou ticket. Mais locais e faixas de níveis estão no [guia de encontros](ENCOUNTERS.md).','',
+    index=['# Onde capturar as 386 espécies — v0.4.0-dev','','Distribuição introduzida na v0.3.0-dev e mantida na v0.4.0-dev com randomizer desligado. Uma opção de captura direta por espécie, escolhida entre as áreas de menor etapa de acesso da distribuição. Todas as opções são independentes de inicial, troca, reprodução ou ticket. Mais locais e faixas de níveis estão no [guia de encontros](ENCOUNTERS.md).','',
            'A coluna de chance soma os slots da espécie no mesmo método, antes dos modificadores de encontro. No Hardcore, a regra de captura por seção pode impedir a coleção completa. Lendários/míticos aleatórios exigem a primeira vitória na Liga; eventos fixos originais conservam seus requisitos.','',
            '| Nº Nacional | Pokémon | Um local de captura | Método | Níveis | Chance |','|---:|---|---|---|---:|---:|']
     for row in distribution['species']:

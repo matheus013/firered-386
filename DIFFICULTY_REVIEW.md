@@ -107,3 +107,6 @@ Metas observáveis propostas: chegar perto do teto com batalhas de percurso sem 
 Execute `python scripts/audit_progression.py`. O relatório de dados sai em `output/analysis/progression.json`, incluindo IDs de treinadores e mapas do roteiro ilustrativo. O script usa `data/trainer_balance.json`, a comparação com os dados da revisão-base, encounters e atributos da engine. As regras foram lidas em `game/src/nuzlocke.c`, a EXP em `game/src/battle_script_commands.c` e o uso de itens da IA em `game/src/battle_ai_switch_items.c`.
 
 Esta rodada produziu apenas a análise e seu script; a ROM e as releases não receberam alterações de balanceamento.
+
+
+Atualização v0.4.0-dev: desafios e Torre recebem IVs 31 e EVs treinados. As equipes temáticas descritas aqui valem com randomizer desligado; ligado, espécies e golpes mudam, e o treinamento é recalculado por função. [Regras](SETTINGS.md).

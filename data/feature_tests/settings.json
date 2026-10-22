@@ -1,0 +1,7 @@
+{
+  "rom_sha256": "881869fbaa37abe13becbb071759ff1225984910fdb410d11818e88b56a0990d",
+  "fixture_sha256": "e1dd7dd0fa3eec2ff0e782e307494641316e993aac4f4cac361ca1ed362ccfb0",
+  "status": "passed",
+  "exit_code": 0,
+  "scope": "disposable native fixture; regular and Tower parties in both randomizer states; 386-species permutation, randomized capture quotas, pre-League legendary gate, starters, all localization lookups, native save and fresh-instance reload"
+}

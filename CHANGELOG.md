@@ -1,5 +1,14 @@
 # Histórico de versões
 
+## v0.4.0-dev — 22/10/2026
+
+- Interface do cientista com retrato, painéis, barras, saldo de EVs e comparação de atributos antes de confirmar; edição/cancelamento e restrições por modo preservadas.
+- Idioma EN/PT-BR nas opções, salvo na partida; português em beta, majoritariamente traduzido automaticamente, com 82 revisões manuais.
+- Randomizer opcional após escolher Normal/Hardcore: selvagens, iniciais e treinadores; semente fixa por save, níveis e quantidades preservados.
+- IVs 31 e EVs treinados em líderes, rivais, chefes, E4/Campeão e Torre; adaptação do treino às espécies aleatórias.
+- Novos testes de dados, menus, captura aleatória e persistência; regressão de lojas nos dois idiomas. [Escopo e limites](FEATURE_TEST_RESULTS.md).
+- Campanha completa sem assistência ainda pendente; os 114 checkpoints anteriores pertencem à v0.3.1-dev e usaram assistência.
+
 ## Validação assistida de campanha — 21/10/2026 (sem nova ROM)
 
 - 114 checkpoints aprovados: eventos da história, líderes, Liga e revanche completas até créditos, Sevii, Mewtwo, opcionais, quatro circuitos da Torre e três confrontos do rival.

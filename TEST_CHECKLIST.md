@@ -1,5 +1,7 @@
 # Checklist de testes — FireRed 386
 
+**Versão atual v0.4.0-dev:** [validação das novas funcionalidades](FEATURE_TEST_RESULTS.md), com proveniência da ROM e limites. Os resultados antigos abaixo mantêm suas versões de referência. Campanha Normal/Hardcore sem assistência e VBA Link ainda pendentes.
+
 Auditoria de **21/10/2026**, versão **v0.3.1-dev**. Todos os testes automatizados desta rodada passaram. Campanha completa e VBA Link continuam pendentes.
 
 ROM de referência, SHA-256: `d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8`.

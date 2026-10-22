@@ -14,7 +14,7 @@ static int Has(uint32_t function){return TaskExists(core,tasks,function);}
 static void Fail(const char *stage){fprintf(stderr,"FAIL %s frames=%d money=%u done=%u\n",stage,frames,core->busRead32(core,money),core->busRead32(core,done));Shot(prefix,stage,pixels);exit(1);}
 static void Wait(uint32_t function,const char *stage){for(int i=0;i<1800&&!Has(function);i++)Run(1);if(!Has(function))Fail(stage);Run(40);}
 static void Drive(unsigned key,uint32_t function,const char *stage){for(int i=0;i<180&&!Has(function);i++)Key(key);if(!Has(function))Fail(stage);Run(40);}
-static void ExitShop(uint32_t menu){Drive(2,menu,"return-menu");Key(2);for(int i=0;i<300&&!core->busRead32(core,done);i++)Run(1);if(core->busRead32(core,done)!=1)Fail("quit-shop");}
+static void ExitShop(uint32_t menu){Wait(menu,"return-menu");Key(2);for(int i=0;i<300&&!core->busRead32(core,done);i++)Run(1);if(core->busRead32(core,done)!=1)Fail("quit-shop");}
 int main(int argc,char **argv)
 {
     assert(argc==19);
@@ -31,13 +31,13 @@ int main(int argc,char **argv)
     uint32_t before=core->busRead32(core,money), beforeQty=core->busRead32(core,qty), price=core->busRead32(core,firstprice);
     for(int i=0;i<160&&core->busRead32(core,money)==before;i++)Key(1);
     if(core->busRead32(core,money)!=before-price||core->busRead32(core,qty)!=beforeQty+1)Fail("purchase-accounting");
-    Drive(2,buy,"purchase-back-list");Key(2);Drive(1,shop,"purchase-return-menu");
+    Drive(2,buy,"purchase-back-list");Key(2);Wait(shop,"purchase-return-menu");
     // Enter Sell; Potion was added first to the Items pocket by the fixture.
     Key(1u<<7);Key(1);Wait(bag,"sell-bag");
     before=core->busRead32(core,money);
     for(int i=0;i<160&&core->busRead32(core,money)==before;i++)Key(1);
     if(core->busRead32(core,money)!=before+150)Fail("sale-accounting");
-    Drive(2,bag,"sale-back-bag");Key(2);Drive(1,shop,"sale-return-menu");
+    Drive(2,bag,"sale-back-bag");Key(2);Wait(shop,"sale-return-menu");
     Key(1u<<7);Key(1u<<7);Key(1); // Explicit SEE YA rather than B.
     for(int i=0;i<300&&!core->busRead32(core,done);i++)Run(1);
     if(core->busRead32(core,done)!=1)Fail("quit-after-sale");

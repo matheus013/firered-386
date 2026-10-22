@@ -7,7 +7,7 @@ static struct mCore *ui;
 static uint32_t screen, party;
 static unsigned Page(void);
 static void Frames(int count) { while (count--) ui->runFrame(ui); }
-static void Key(unsigned key) { unsigned before=Page(); ui->setKeys(ui,key); Frames(2); ui->setKeys(ui,0); Frames(15); fprintf(stderr,"key=%u page=%u->%u\n",key,before,Page()); }
+static void Key(unsigned key) { unsigned before=Page(); ui->setKeys(ui,key); Frames(4); ui->setKeys(ui,0); Frames(30); fprintf(stderr,"key=%u page=%u->%u\n",key,before,Page()); }
 static unsigned Page(void) { uint32_t ptr=ui->busRead32(ui,screen); return ptr ? ui->busRead8(ui,ptr) : 255; }
 int main(int argc, char **argv)
 {
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
     ui->reset(ui); Frames(300); Shot(argv[2],"field",pixels);
     Key(1u<<6); // face the coach immediately north of the player
     for (int i=0;i<40 && Page()==255;i++) Key(1);
-    Shot(argv[2],"party",pixels); assert(Page()==0);
+    Frames(60); Shot(argv[2],"party",pixels); assert(Page()==0);
     Key(1); Shot(argv[2],"selected",pixels); assert(Page()==1);
     Key(1); assert(Page()==2);
     Key(1u<<7); Shot(argv[2],"nature",pixels);
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
     Key(2); Key(2); Frames(180); assert(Page()==255);
     Shot(argv[2],"returned",pixels);
     for (int i=0;i<40 && Page()==255;i++) Key(1);
-    assert(Page()==0); Key(2); Frames(180); assert(Page()==255);
+    assert(Page()==0); Frames(60); Key(2); Frames(180); assert(Page()==255);
     // Walk from the coach to the nurse's counter, using the actual map events.
     // First press changes facing; the following three move three tiles.
     for (int i=0;i<4;i++) { ui->setKeys(ui,1u<<5); Frames(8); ui->setKeys(ui,0); Frames(24); }

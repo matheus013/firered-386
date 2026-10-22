@@ -74,7 +74,7 @@ static void HardcoreTestBoot(void)
         addresses = ['gHardcoreTestResult']
         variants = ['rules']
     elif case == 'menu':
-        addresses = ['gTasks', 'gSaveBlock2Ptr', 'Task_ChooseGameMode', 'Task_ConfirmGameMode', 'Task_ControlsGuide_HandleInput', 'gMain']
+        addresses = ['gTasks', 'gSaveBlock2Ptr', 'Task_ChooseGameMode', 'Task_ConfirmGameMode', 'Task_ControlsGuide_HandleInput', 'Task_ChooseRandomizer', 'gMain']
         variants = ['normal', 'hardcore']
     elif case == 'gameover':
         addresses = ['gSaveBlock2Ptr']

@@ -2,7 +2,7 @@
 
 636 equipes regulares revisadas; três variantes da primeira luta preservadas em singles. Também revisados 60 elencos internos da Torre de Treinadores.
 
-Base de geração III. A Elite Four usa adaptações de equipes campeãs, com naturezas, habilidades fixas, IVs 31 e EVs definidos; o Campeão também tem naturezas, habilidades, IVs 31 e EVs por função. Os demais treinadores regulares continuam sem EVs específicos. Dados de e-Reader não revisados. A Torre preserva seus EVs/IVs/naturezas originais.
+Base de geração III. Líderes, rivais (incluindo o laboratório), chefes Rocket, Koichi, sequência dos Bikers, Elite Four e sua revanche, Campeão e Torre recebem IVs 31 e EVs treinados. E4/Campeão mantêm seus spreads definidos; os demais desafios usam função ofensiva/bulk/suporte. Os campos IV/EV das tabelas-base não substituem esse ajuste na criação do adversário. Treinadores comuns mantêm suas regras próprias. Dados externos e-Reader não foram enumerados, mas adversários criados pelo fluxo da Torre também recebem o treino. Times desta página correspondem ao randomizer desligado; ligado, espécies e golpes mudam por save, com novo treino por função.
 
 ## Critérios
 
@@ -2177,6 +2177,13 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 | HITMONCHAN | 54 | LUM_BERRY | SKY_UPPERCUT, ROCK_TOMB, STRENGTH, PROTECT |
 | HITMONLEE | 54 | SITRUS_BERRY | HI_JUMP_KICK, MEGA_KICK, PROTECT, BRICK_BREAK |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| HITMONCHAN | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| HITMONLEE | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+
 ## TRAINER_BLACK_BELT_MIKE
 
 ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
@@ -2262,6 +2269,13 @@ TAIL_WHIP: suporte de abertura + pressão e cobertura do parceiro.
 | SQUIRTLE | 14 | ORAN_BERRY | WATER_PULSE, TAIL_WHIP, TACKLE, WATER_GUN |
 | PIDGEY | 14 | ORAN_BERRY | GUST, QUICK_ATTACK, TACKLE |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| SQUIRTLE | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| PIDGEY | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+
 ## TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR
 
 LEECH_SEED: suporte de abertura + pressão e cobertura do parceiro.
@@ -2271,6 +2285,13 @@ LEECH_SEED: suporte de abertura + pressão e cobertura do parceiro.
 | BULBASAUR | 14 | ORAN_BERRY | VINE_WHIP, LEECH_SEED, TACKLE, BULLET_SEED |
 | PIDGEY | 14 | ORAN_BERRY | GUST, QUICK_ATTACK, TACKLE |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| BULBASAUR | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| PIDGEY | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+
 ## TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER
 
 GROWL: suporte de abertura + pressão e cobertura do parceiro.
@@ -2279,6 +2300,13 @@ GROWL: suporte de abertura + pressão e cobertura do parceiro.
 |---|---:|---|---|
 | CHARMANDER | 14 | ORAN_BERRY | EMBER, GROWL, METAL_CLAW, SCRATCH |
 | PIDGEY | 14 | ORAN_BERRY | GUST, QUICK_ATTACK, TACKLE |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| CHARMANDER | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| PIDGEY | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
 
 ## TRAINER_RIVAL_CERULEAN_SQUIRTLE
 
@@ -2291,6 +2319,15 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | RATICATE | 23 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
 | WARTORTLE | 26 | SITRUS_BERRY | WATERFALL, STRENGTH, PROTECT, WATER_PULSE |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| KADABRA | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| PIDGEOTTO | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| RATICATE | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| WARTORTLE | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+
 ## TRAINER_RIVAL_CERULEAN_BULBASAUR
 
 REFLECT: suporte de abertura + pressão e cobertura do parceiro.
@@ -2302,6 +2339,15 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | RATICATE | 23 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
 | IVYSAUR | 26 | SITRUS_BERRY | GIGA_DRAIN, STRENGTH, PROTECT, RAZOR_LEAF |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| KADABRA | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| PIDGEOTTO | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| RATICATE | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| IVYSAUR | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+
 ## TRAINER_RIVAL_CERULEAN_CHARMANDER
 
 REFLECT: suporte de abertura + pressão e cobertura do parceiro.
@@ -2312,6 +2358,15 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | PIDGEOTTO | 25 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 | RATICATE | 23 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, QUICK_ATTACK, HYPER_FANG |
 | CHARMELEON | 26 | SITRUS_BERRY | EMBER, DRAGON_CLAW, PROTECT, STRENGTH |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| KADABRA | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| PIDGEOTTO | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| RATICATE | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| CHARMELEON | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
 
 ## TRAINER_SCIENTIST_TED
 
@@ -2450,6 +2505,14 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 | RHYHORN | 39 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, PROTECT, IRON_TAIL |
 | ONIX | 40 | SITRUS_BERRY | ROCK_THROW, STRENGTH, PROTECT, IRON_TAIL |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| KANGASKHAN | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| RHYHORN | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| ONIX | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+
 ## TRAINER_BOSS_GIOVANNI_2
 
 ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
@@ -2460,6 +2523,15 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 | KANGASKHAN | 53 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, FAKE_OUT |
 | RHYDON | 54 | SITRUS_BERRY | ROCK_TOMB, STRENGTH, PROTECT, TAKE_DOWN |
 | NIDOQUEEN | 58 | LEFTOVERS | SLUDGE_BOMB, SUPERPOWER, PROTECT, FIRE_BLAST |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| NIDOKING | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| KANGASKHAN | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| RHYDON | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| NIDOQUEEN | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
 
 ## TRAINER_LEADER_GIOVANNI
 
@@ -2473,6 +2545,17 @@ SANDSTORM: suporte de abertura + pressão e cobertura do parceiro.
 | NIDOKING | 74 | LEFTOVERS | SLUDGE_BOMB, MEGAHORN, PROTECT, FIRE_BLAST |
 | DUGTRIO | 74 | SITRUS_BERRY | MUD_SLAP, SLUDGE_BOMB, PROTECT, TRI_ATTACK |
 | RHYDON | 76 | SITRUS_BERRY | ROCK_TOMB, MEGAHORN, PROTECT, STRENGTH |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| DONPHAN | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| SANDSLASH | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| NIDOQUEEN | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| NIDOKING | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| DUGTRIO | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| RHYDON | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
 
 ## TRAINER_TEAM_ROCKET_GRUNT
 
@@ -3206,6 +3289,17 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 | KABUTO | 17 | ORAN_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
 | NOSEPASS | 18 | ORAN_BERRY | ROCK_THROW, STRENGTH, PROTECT, FACADE |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| ONIX | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| GEODUDE | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| RHYHORN | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| OMANYTE | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| KABUTO | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| NOSEPASS | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+
 ## TRAINER_LEADER_MISTY
 
 REFLECT: suporte de abertura + pressão e cobertura do parceiro.
@@ -3218,6 +3312,17 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | POLIWHIRL | 26 | SITRUS_BERRY | WATERFALL, STRENGTH, PROTECT, WATER_PULSE |
 | GOLDEEN | 27 | SITRUS_BERRY | WATERFALL, FACADE, PROTECT, WATER_PULSE |
 | STARMIE | 28 | SITRUS_BERRY | PSYCHIC, WATERFALL, PROTECT, RECOVER |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| STARYU | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| PSYDUCK | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| HORSEA | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| POLIWHIRL | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| GOLDEEN | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| STARMIE | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
 
 ## TRAINER_LEADER_LT_SURGE
 
@@ -3232,6 +3337,17 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 | ELECTRODE | 34 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, SPARK |
 | RAICHU | 36 | SITRUS_BERRY | THUNDERBOLT, STRENGTH, PROTECT, QUICK_ATTACK |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| MANECTRIC | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| MAGNETON | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| AMPHAROS | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| LANTURN | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| ELECTRODE | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| RAICHU | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+
 ## TRAINER_LEADER_ERIKA
 
 SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
@@ -3244,6 +3360,17 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 | TANGELA | 42 | SITRUS_BERRY | GIGA_DRAIN, SLUDGE_BOMB, PROTECT, MEGA_DRAIN |
 | EXEGGUTOR | 43 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
 | VILEPLUME | 44 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| PARASECT | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| VICTREEBEL | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| BELLOSSOM | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| TANGELA | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| EXEGGUTOR | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| VILEPLUME | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
 
 ## TRAINER_LEADER_KOGA
 
@@ -3258,6 +3385,17 @@ STRING_SHOT: suporte de abertura + pressão e cobertura do parceiro.
 | VENOMOTH | 51 | SITRUS_BERRY | SLUDGE_BOMB, PSYCHIC, PROTECT, SILVER_WIND |
 | WEEZING | 52 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| ARIADOS | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| CROBAT | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| MUK | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| TENTACRUEL | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| VENOMOTH | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| WEEZING | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+
 ## TRAINER_LEADER_BLAINE
 
 SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
@@ -3271,6 +3409,17 @@ SUNNY_DAY: suporte de abertura + pressão e cobertura do parceiro.
 | FLAREON | 67 | SITRUS_BERRY | FIRE_BLAST, SHADOW_BALL, PROTECT, QUICK_ATTACK |
 | ARCANINE | 68 | SITRUS_BERRY | FIRE_BLAST, EXTREME_SPEED, PROTECT, FLAMETHROWER |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| MAGMAR | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| RAPIDASH | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| NINETALES | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| CAMERUPT | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| FLAREON | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| ARCANINE | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+
 ## TRAINER_LEADER_SABRINA
 
 REFLECT: suporte de abertura + pressão e cobertura do parceiro.
@@ -3283,6 +3432,17 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | SLOWBRO | 58 | LEFTOVERS | PSYCHIC, FIRE_BLAST, PROTECT, FLAMETHROWER |
 | GIRAFARIG | 59 | SITRUS_BERRY | PSYCHIC, STRENGTH, PROTECT, FACADE |
 | ALAKAZAM | 60 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| HYPNO | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| ESPEON | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| MR_MIME | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| SLOWBRO | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| GIRAFARIG | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| ALAKAZAM | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
 
 ## TRAINER_GENTLEMAN_THOMAS
 
@@ -3340,6 +3500,15 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | PIDGEOTTO | 33 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 | WARTORTLE | 34 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| KADABRA | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| RATICATE | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| PIDGEOTTO | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| WARTORTLE | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+
 ## TRAINER_RIVAL_SS_ANNE_BULBASAUR
 
 REFLECT: suporte de abertura + pressão e cobertura do parceiro.
@@ -3351,6 +3520,15 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | PIDGEOTTO | 33 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 | VENUSAUR | 34 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| KADABRA | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| RATICATE | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| PIDGEOTTO | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| VENUSAUR | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+
 ## TRAINER_RIVAL_SS_ANNE_CHARMANDER
 
 REFLECT: suporte de abertura + pressão e cobertura do parceiro.
@@ -3361,6 +3539,15 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | RATICATE | 30 | SITRUS_BERRY | STRENGTH, SHADOW_BALL, PROTECT, QUICK_ATTACK |
 | PIDGEOTTO | 33 | SITRUS_BERRY | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 | CHARMELEON | 34 | SITRUS_BERRY | FLAMETHROWER, DRAGON_CLAW, PROTECT, STRENGTH |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| KADABRA | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| RATICATE | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| PIDGEOTTO | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| CHARMELEON | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
 
 ## TRAINER_RIVAL_POKEMON_TOWER_SQUIRTLE
 
@@ -3374,6 +3561,16 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | PIDGEOT | 48 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 | BLASTOISE | 48 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| ALAKAZAM | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| ARCANINE | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| EXEGGUTOR | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| PIDGEOT | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| BLASTOISE | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+
 ## TRAINER_RIVAL_POKEMON_TOWER_BULBASAUR
 
 REFLECT: suporte de abertura + pressão e cobertura do parceiro.
@@ -3385,6 +3582,16 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | ARCANINE | 45 | SITRUS_BERRY | FIRE_BLAST, STRENGTH, PROTECT, FLAMETHROWER |
 | PIDGEOT | 48 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 | VENUSAUR | 48 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, RAZOR_LEAF |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| ALAKAZAM | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| GYARADOS | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| ARCANINE | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| PIDGEOT | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| VENUSAUR | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
 
 ## TRAINER_RIVAL_POKEMON_TOWER_CHARMANDER
 
@@ -3398,6 +3605,16 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | ALAKAZAM | 43 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
 | CHARIZARD | 48 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| EXEGGUTOR | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| PIDGEOT | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| GYARADOS | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| ALAKAZAM | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| CHARIZARD | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+
 ## TRAINER_RIVAL_SILPH_SQUIRTLE
 
 REFLECT: suporte de abertura + pressão e cobertura do parceiro.
@@ -3409,6 +3626,16 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | EXEGGUTOR | 53 | SITRUS_BERRY | PSYCHIC, GIGA_DRAIN, PROTECT, SLUDGE_BOMB |
 | PIDGEOT | 55 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 | BLASTOISE | 58 | SITRUS_BERRY | WATERFALL, ICE_BEAM, PROTECT, WATER_PULSE |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| ALAKAZAM | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| ARCANINE | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| EXEGGUTOR | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| PIDGEOT | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| BLASTOISE | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
 
 ## TRAINER_RIVAL_SILPH_BULBASAUR
 
@@ -3422,6 +3649,16 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | PIDGEOT | 55 | LEFTOVERS | FACADE, AERIAL_ACE, PROTECT, QUICK_ATTACK |
 | VENUSAUR | 58 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, SYNTHESIS |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| ALAKAZAM | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| GYARADOS | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| ARCANINE | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| PIDGEOT | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| VENUSAUR | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+
 ## TRAINER_RIVAL_SILPH_CHARMANDER
 
 REFLECT: suporte de abertura + pressão e cobertura do parceiro.
@@ -3433,6 +3670,16 @@ REFLECT: suporte de abertura + pressão e cobertura do parceiro.
 | GYARADOS | 53 | SITRUS_BERRY | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
 | ALAKAZAM | 53 | LEFTOVERS | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
 | CHARIZARD | 58 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| EXEGGUTOR | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| PIDGEOT | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| GYARADOS | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| ALAKAZAM | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| CHARIZARD | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
 
 ## TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE
 
@@ -3447,6 +3694,17 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 | ALAKAZAM | 73 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
 | BLASTOISE | 78 | SITRUS_BERRY | HYDRO_PUMP, ICE_BEAM, PROTECT, WATERFALL |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| RHYDON | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| PIDGEOT | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| ARCANINE | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| EXEGGUTOR | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| ALAKAZAM | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| BLASTOISE | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+
 ## TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR
 
 ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
@@ -3460,6 +3718,17 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 | ALAKAZAM | 73 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
 | VENUSAUR | 78 | SITRUS_BERRY | SLUDGE_BOMB, GIGA_DRAIN, PROTECT, SYNTHESIS |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| RHYDON | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| PIDGEOT | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| GYARADOS | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| ARCANINE | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| ALAKAZAM | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| VENUSAUR | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+
 ## TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER
 
 ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
@@ -3472,6 +3741,17 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 | GYARADOS | 73 | LEFTOVERS | HYDRO_PUMP, THRASH, PROTECT, WATERFALL |
 | ALAKAZAM | 73 | SITRUS_BERRY | PSYCHIC, SHOCK_WAVE, PROTECT, RECOVER |
 | CHARIZARD | 78 | SITRUS_BERRY | FIRE_BLAST, DRAGON_CLAW, PROTECT, FLAMETHROWER |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| RHYDON | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| PIDGEOT | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| EXEGGUTOR | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| GYARADOS | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| ALAKAZAM | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| CHARIZARD | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
 
 ## TRAINER_CHAMPION_FIRST_SQUIRTLE
 
@@ -4258,6 +4538,13 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 | MUK | 68 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
 | WEEZING | 68 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| MUK | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| WEEZING | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+
 ## TRAINER_BIKER_GOON_2
 
 TOXIC: suporte de abertura + pressão e cobertura do parceiro.
@@ -4267,6 +4554,13 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 | ARBOK | 68 | LUM_BERRY | SLUDGE_BOMB, TOXIC, SPIT_UP, PROTECT |
 | WEEZING | 68 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| ARBOK | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| WEEZING | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+
 ## TRAINER_BIKER_GOON_3
 
 ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
@@ -4275,6 +4569,13 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 |---|---:|---|---|
 | MUK | 68 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
 | WEEZING | 68 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| MUK | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| WEEZING | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
 
 ## TRAINER_BUG_CATCHER_ANTHONY
 
@@ -4402,6 +4703,14 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 | ARBOK | 86 | SITRUS_BERRY | SLUDGE_BOMB, SPIT_UP, PROTECT, STRENGTH |
 | VILEPLUME | 86 | SITRUS_BERRY | SLUDGE_BOMB, PETAL_DANCE, PROTECT, GIGA_DRAIN |
 
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| MUK | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| ARBOK | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| VILEPLUME | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+
 ## TRAINER_TEAM_ROCKET_ADMIN_2
 
 TOXIC: suporte de abertura + pressão e cobertura do parceiro.
@@ -4411,6 +4720,14 @@ TOXIC: suporte de abertura + pressão e cobertura do parceiro.
 | WEEZING | 86 | LUM_BERRY | SLUDGE_BOMB, TOXIC, FIRE_BLAST, PROTECT |
 | GOLBAT | 86 | SITRUS_BERRY | SLUDGE_BOMB, AERIAL_ACE, PROTECT, WING_ATTACK |
 | HOUNDOOM | 86 | SITRUS_BERRY | FIRE_BLAST, CRUNCH, PROTECT, FLAMETHROWER |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| WEEZING | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| GOLBAT | JOLLY | 4 / 252 / 0 / 252 / 0 / 0 |
+| HOUNDOOM | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
 
 ## TRAINER_SCIENTIST_GIDEON
 
@@ -4423,6 +4740,16 @@ THUNDER_WAVE: suporte de abertura + pressão e cobertura do parceiro.
 | ELECTRODE | 86 | SITRUS_BERRY | THUNDERBOLT, FACADE, PROTECT, THUNDER |
 | MAGNETON | 86 | LEFTOVERS | THUNDERBOLT, TRI_ATTACK, PROTECT, THUNDER |
 | PORYGON | 86 | SITRUS_BERRY | TRI_ATTACK, ICE_BEAM, PROTECT, RECOVER |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| MAGNETON | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| ELECTRODE | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| ELECTRODE | TIMID | 4 / 0 / 0 / 252 / 252 / 0 |
+| MAGNETON | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
+| PORYGON | MODEST | 252 / 0 / 4 / 0 / 252 / 0 |
 
 ## TRAINER_SWIMMER_FEMALE_AMARA
 
@@ -6418,6 +6745,13 @@ ROCK_TOMB: suporte de abertura + pressão e cobertura do parceiro.
 |---|---:|---|---|
 | MUK | 68 | LUM_BERRY | SLUDGE_BOMB, ROCK_TOMB, STRENGTH, PROTECT |
 | WEEZING | 68 | SITRUS_BERRY | SLUDGE_BOMB, FIRE_BLAST, PROTECT, SLUDGE |
+
+IVs efetivos: 31 em todos os atributos. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
+
+| Pokémon | Natureza | EVs efetivos |
+|---|---|---|
+| MUK | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
+| WEEZING | ADAMANT | 252 / 252 / 4 / 0 / 0 / 0 |
 
 ## Torre: sTrainerTowerFloor_Single_4 / COLE
 

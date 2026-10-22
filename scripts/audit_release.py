@@ -15,7 +15,7 @@ OUT = ROOT / 'output/tests/checklist'
 OUT.mkdir(parents=True, exist_ok=True)
 results = []
 parser = argparse.ArgumentParser()
-parser.add_argument('--version', default='v0.3.1-dev')
+parser.add_argument('--version', default='v0.4.0-dev')
 args = parser.parse_args()
 if not re.fullmatch(r'v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?', args.version):
     parser.error('Invalid version')
