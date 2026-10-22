@@ -45,7 +45,7 @@ def damage(species,level,move,target,targetlevel,iv=15,evs=None,nature='HARDY',t
  if not e or power<=0:return 0
  if power==1:return {'DRAGON_RAGE':40,'SONIC_BOOM':20,'SEISMIC_TOSS':level,'NIGHT_SHADE':level}.get(move,0)
  a=stats(species,level,iv,evs,nature);t=target_training or {};d=stats(target,targetlevel,t.get('ivs',[20])[0],t.get('evs'),t.get('nature','HARDY'))
- attack,defense=(a[1],d[2]) if m['type'] in PHYSICAL_TYPES else (a[4],d[5])
+ attack,defense=(a[1],d[2]) if m['category'] == 'PHYSICAL' else (a[4],d[5])
  return (((2*level//5+2)*power*attack/max(1,defense)/50)+2)*e*(1.5 if m['type'] in DATA.species[species]['types'] else 1)*(m['accuracy'] or 100)/100
 
 def stages():
@@ -151,7 +151,7 @@ class Roster:
     trained=(self.mode==1 and step['stage']>0) or step['post'] or training=='farm'
     known=possible_moves(record,level,path);moves=choose_moves(species,level,enemy,known)
     assert all(m=='NONE' or m in known for m in moves)
-    special=sum(DATA.moves[m]['power'] for m in moves if DATA.moves[m]['type'] not in PHYSICAL_TYPES)>sum(DATA.moves[m]['power'] for m in moves if DATA.moves[m]['type'] in PHYSICAL_TYPES)
+    special=sum(DATA.moves[m]['power'] for m in moves if DATA.moves[m]['category'] != 'PHYSICAL')>sum(DATA.moves[m]['power'] for m in moves if DATA.moves[m]['category'] == 'PHYSICAL')
     evs=[0]*6;nature=record['nature']
     if trained:
      fast=INFO[species]['baseSpeed']>=85;offense=4 if special else 1;evs[offense]=252;evs[3 if fast else 0]=252;evs[0 if fast else 2]=4

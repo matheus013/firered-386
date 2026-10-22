@@ -1,0 +1,426 @@
+{
+  "status": "preview_not_full_gen9",
+  "rom_sha256": "6a68558250a93e23335c75a713c2fdda9f018b2cdca0444d940788603f188354",
+  "campaign_clear_certified": false,
+  "full_gen9_learnsets": false,
+  "new_move_effects_complete": false,
+  "data_reference": "PokeAPI commit 2bf639e5572812a67d2b94903fdcb9d095f5aeb2",
+  "checks": {
+    "native_ai": {
+      "done": 1,
+      "checks": 1046,
+      "failures": 0,
+      "failure_bits": 0,
+      "frames": 1117,
+      "rom_sha256": "6a68558250a93e23335c75a713c2fdda9f018b2cdca0444d940788603f188354"
+    },
+    "category_ui": {
+      "rom_sha256": "6a68558250a93e23335c75a713c2fdda9f018b2cdca0444d940788603f188354",
+      "languages": [
+        "EN",
+        "PTBR"
+      ],
+      "slots_checked": 10,
+      "scope": "native move selection summary UI; screenshots require visual inspection"
+    },
+    "shops": {
+      "rom_sha256": "6a68558250a93e23335c75a713c2fdda9f018b2cdca0444d940788603f188354",
+      "language": "en",
+      "cases": [
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_TMs",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_TMs",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_4F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_4F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_XItems",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_XItems",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_Vitamins",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_Vitamins",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeruleanCity_Mart_Items",
+          "map": "MAP_CERULEAN_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeruleanCity_Mart_Items",
+          "map": "MAP_CERULEAN_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CinnabarIsland_Mart_Items",
+          "map": "MAP_CINNABAR_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CinnabarIsland_Mart_Items",
+          "map": "MAP_CINNABAR_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "FourIsland_Mart_Items",
+          "map": "MAP_FOUR_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "FourIsland_Mart_Items",
+          "map": "MAP_FOUR_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "FuchsiaCity_Mart_Items",
+          "map": "MAP_FUCHSIA_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "FuchsiaCity_Mart_Items",
+          "map": "MAP_FUCHSIA_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "IndigoPlateau_PokemonCenter_1F_Items",
+          "map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "IndigoPlateau_PokemonCenter_1F_Items",
+          "map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "LavenderTown_Mart_Items",
+          "map": "MAP_LAVENDER_TOWN_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "LavenderTown_Mart_Items",
+          "map": "MAP_LAVENDER_TOWN_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "PewterCity_Mart_Items",
+          "map": "MAP_PEWTER_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "PewterCity_Mart_Items",
+          "map": "MAP_PEWTER_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "SaffronCity_Mart_Items",
+          "map": "MAP_SAFFRON_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "SaffronCity_Mart_Items",
+          "map": "MAP_SAFFRON_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "SevenIsland_Mart_Items",
+          "map": "MAP_SEVEN_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "SevenIsland_Mart_Items",
+          "map": "MAP_SEVEN_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "SixIsland_Mart_Items",
+          "map": "MAP_SIX_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "SixIsland_Mart_Items",
+          "map": "MAP_SIX_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "ThreeIsland_Mart_Items",
+          "map": "MAP_THREE_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "ThreeIsland_Mart_Items",
+          "map": "MAP_THREE_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TrainerTower_Lobby_Mart_Items",
+          "map": "MAP_TRAINER_TOWER_LOBBY",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TrainerTower_Lobby_Mart_Items",
+          "map": "MAP_TRAINER_TOWER_LOBBY",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopInitial",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopInitial",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded1",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded1",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded2",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded2",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded3",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded3",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "VermilionCity_Mart_Items",
+          "map": "MAP_VERMILION_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "VermilionCity_Mart_Items",
+          "map": "MAP_VERMILION_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "ViridianCity_Mart_Items",
+          "map": "MAP_VIRIDIAN_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "ViridianCity_Mart_Items",
+          "map": "MAP_VIRIDIAN_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        }
+      ],
+      "count": 46,
+      "flow": "cancel; buy; sell; quit B/SEE YA; reopen; Hardcore Candy=1; exact stock; heap integrity and script resume"
+    },
+    "regression": {
+      "rom_sha256": "6a68558250a93e23335c75a713c2fdda9f018b2cdca0444d940788603f188354",
+      "suites": [
+        {
+          "suite": "test_elite_four.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 261.0,
+          "log": "output/tests/checklist/test_elite_four.py.log"
+        },
+        {
+          "suite": "test_encounters.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 19.3,
+          "log": "output/tests/checklist/test_encounters.py.log"
+        },
+        {
+          "suite": "test_hardcore.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 24.8,
+          "log": "output/tests/checklist/test_hardcore.py.log"
+        },
+        {
+          "suite": "test_shops.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 0,
+          "reused_current_rom": true,
+          "log": "output/tests/shops/results.json"
+        },
+        {
+          "suite": "test_trainer_battles.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 18.2,
+          "log": "output/tests/checklist/test_trainer_battles.py.log"
+        },
+        {
+          "suite": "test_training.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 14.8,
+          "log": "output/tests/checklist/test_training.py.log"
+        },
+        {
+          "suite": "test_training_ui.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 25.0,
+          "log": "output/tests/checklist/test_training_ui.py.log"
+        }
+      ]
+    },
+    "source_patch": {
+      "sha256": "592dd099b6b1d57ee1f96c4fc2aae7a5efd141ebc23ebf1acf8ae2913290dfc8",
+      "fresh_build_matches": true
+    }
+  },
+  "release_audit": {
+    "version": "v0.5.0-preview.1",
+    "rom_sha256": "6a68558250a93e23335c75a713c2fdda9f018b2cdca0444d940788603f188354",
+    "checks": [
+      {
+        "id": "balance_trainers.py",
+        "status": "passed",
+        "detail": "PASS: 636 teams; 3 lab singles; 0 teams without legal support moves"
+      },
+      {
+        "id": "balance_encounters.py",
+        "status": "passed",
+        "detail": "PASS: 386/386 direct wild species; 21 legendary/mythical species in postgame 1% slots; no trade/event dependency."
+      },
+      {
+        "id": "generate_guides.py",
+        "status": "passed",
+        "detail": "PASS: 35 challenges, 124 encounter maps; 327 method tables validated (including inactive alternatives)."
+      },
+      {
+        "id": "doubles_ai_native",
+        "status": "passed",
+        "detail": "PASS: partner support, inactive effects, weather, friendly fire, disabled moves and score bounds"
+      },
+      {
+        "id": "production_boot_900_frames",
+        "status": "passed",
+        "detail": "frames=900 dimensions=240x160 nonuniform_image=1 result=PASS"
+      },
+      {
+        "id": "release_integrity_ips",
+        "status": "passed",
+        "detail": "All manifest hashes match; clean USA 1.0 + IPS equals the production ROM; source patch matches."
+      },
+      {
+        "id": "fixture_cache_sources_match",
+        "status": "passed",
+        "detail": "9877 source files match the cache used to derive the disposable fixtures."
+      },
+      {
+        "id": "clean_source_rebuild_matches",
+        "status": "passed",
+        "detail": "Fresh build from pinned base plus cumulative source patch equals production ROM."
+      },
+      {
+        "id": "source_patch_applicable",
+        "status": "passed",
+        "detail": ""
+      },
+      {
+        "id": "source_whitespace",
+        "status": "passed",
+        "detail": "warning: in the working copy of 'data/maps/CeladonCity_DepartmentStore_2F/scripts.inc', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/CeladonCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/CeruleanCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/CinnabarIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/FiveIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/FourIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/FuchsiaCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/IndigoPlateau_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/LavenderTown_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/OneIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/PewterCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/Route10_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/Route4_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/SaffronCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/SevenIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/SixIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/ThreeIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/TwoIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/VermilionCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/ViridianCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'src/data/battle_moves.h', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'src/data/pokemon/level_up_learnsets.h', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'src/data/pokemon/tmhm_learnsets.h', CRLF will be replaced by LF the next time Git touches it"
+      }
+    ]
+  }
+}

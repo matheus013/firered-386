@@ -81,5 +81,22 @@
   "OAK: Will you choose {STR_VAR_1}\nas your first POKéMON?": "OAK: Quer escolher {STR_VAR_1}\ncomo seu primeiro POKéMON?",
   "I adjust nature, EVs and IVs\nfor free. Choose your Pokemon.": "Ajusto natureza, EVs e IVs\nsem custo. Escolha seu Pokemon.",
   "Normal: return after the League.\nHardcore: training from the start.": "No Normal, volte apos a Liga.\nNo Hardcore, treino desde o inicio.",
-  "HARDCORE NUZLOCKE\n\nCHALLENGE ENDED\nYour team was defeated.\nStart a new game.\n\nA: main menu": "HARDCORE NUZLOCKE\n\nDESAFIO ENCERRADO\nSeu time foi derrotado.\nInicie um novo jogo.\n\nA: menu principal"
+  "HARDCORE NUZLOCKE\n\nCHALLENGE ENDED\nYour team was defeated.\nStart a new game.\n\nA: main menu": "HARDCORE NUZLOCKE\n\nDESAFIO ENCERRADO\nSeu time foi derrotado.\nInicie um novo jogo.\n\nA: menu principal",
+  "STATUS": "STATUS",
+  "KNOWN MOVES": "GOLPES ATUAIS",
+  "The user growls in\na cute way, making\nthe foe lower its\nATTACK stat.": "O usuario rosna de\nforma fofa e faz o\nalvo baixar seu\nATAQUE.",
+  "The user wags its\ntail cutely, making\nthe foe lower its\nDEFENSE stat.": "Balança a cauda para reduzir a DEFESA dos adversários.",
+  "The foe is sprayed\nwith a harsh, hide-\nmelting acid that\nmay lower DEFENSE.": "Ácido que pode reduzir a DEFESA dos alvos.",
+  "A gravity-fed throw\nthat causes damage\nmatching the user's\nlevel.": "O dano causado é igual ao nível do usuário.",
+  "The user creates a\nsturdy wall that\nsharply raises its\nDEFENSE stat.": "Cria uma barreira que aumenta muito a DEFESA do usuário.",
+  "A trap of spikes is\nlaid around the\nfoe's party to hurt\nfoes switching in.": "Espalha espinhos no campo adversário. Fere quem entra pelo chão.",
+  "The foe is charmed\nby the user's cute\nappeals, sharply\ncutting its ATTACK.": "Distrai o alvo e reduz muito seu ATAQUE.",
+  "A shadowy blob is\nhurled at the foe.\nMay also lower the\nfoe's SP. DEF.": "Lança energia sombria. Pode reduzir a DEF. ESP. do alvo.",
+  "The user charges\nup power for use\nlater. It can be\nused three times.": "Acumula energia para Spit Up ou Swallow.",
+  "An attack that is\nboosted if user is\nburned, poisoned,\nor paralyzed.": "Seu poder dobra se o usuário estiver com veneno, paralisia ou queimadura.",
+  "A move that tricks\nthe foe into\ntrading held items\nwith the user.": "Troca o item equipado com o alvo.",
+  "Prevents foes from\nusing any move\nthat is also known\nby the user.": "Bloqueia golpes dos adversários que o usuário também conhece.",
+  "A self-healing move\nthat cures the user\nof a poisoning,\nburn, or paralysis.": "Cura veneno, paralisia ou queimadura do usuário.",
+  "The user hardens\nits body's surface\nto sharply raise its\nDEFENSE stat.": "Aumenta muito a DEFESA do usuário.",
+  "The user bulks up\nits body to boost\nboth its ATTACK and\nDEFENSE stats.": "Eleva o ATAQUE e a DEFESA do usuário."
 }

@@ -1,0 +1,1952 @@
+{
+  "source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2",
+  "max_level_up_moves": 20,
+  "native_move_limit": 354,
+  "tms_absent_from_scarlet_violet": [
+    "TM07_HAIL",
+    "TM10_HIDDEN_POWER",
+    "TM20_SAFEGUARD",
+    "TM21_FRUSTRATION",
+    "TM23_IRON_TAIL",
+    "TM27_RETURN",
+    "TM32_DOUBLE_TEAM",
+    "TM34_SHOCK_WAVE",
+    "TM41_TORMENT",
+    "TM43_SECRET_POWER",
+    "TM45_ATTRACT",
+    "TM47_STEEL_WING",
+    "TM49_SNATCH"
+  ],
+  "species": [
+    {
+      "species": "BULBASAUR",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "IVYSAUR",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "VENUSAUR",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "CHARMANDER",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "CHARMELEON",
+      "version_group": "scarlet-violet",
+      "level_moves": 8
+    },
+    {
+      "species": "CHARIZARD",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "SQUIRTLE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "WARTORTLE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "BLASTOISE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "CATERPIE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 2
+    },
+    {
+      "species": "METAPOD",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 1
+    },
+    {
+      "species": "BUTTERFREE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "WEEDLE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 2
+    },
+    {
+      "species": "KAKUNA",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 1
+    },
+    {
+      "species": "BEEDRILL",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 9
+    },
+    {
+      "species": "PIDGEY",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "PIDGEOTTO",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "PIDGEOT",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "RATTATA",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "RATICATE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "SPEAROW",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "FEAROW",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "EKANS",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "ARBOK",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "PIKACHU",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "RAICHU",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "SANDSHREW",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "SANDSLASH",
+      "version_group": "scarlet-violet",
+      "level_moves": 16
+    },
+    {
+      "species": "NIDORAN_F",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "NIDORINA",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "NIDOQUEEN",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "NIDORAN_M",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "NIDORINO",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "NIDOKING",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "CLEFAIRY",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "CLEFABLE",
+      "version_group": "scarlet-violet",
+      "level_moves": 2
+    },
+    {
+      "species": "VULPIX",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "NINETALES",
+      "version_group": "scarlet-violet",
+      "level_moves": 3
+    },
+    {
+      "species": "JIGGLYPUFF",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "WIGGLYTUFF",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "ZUBAT",
+      "version_group": "legends-arceus",
+      "level_moves": 5
+    },
+    {
+      "species": "GOLBAT",
+      "version_group": "legends-arceus",
+      "level_moves": 5
+    },
+    {
+      "species": "ODDISH",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "GLOOM",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "VILEPLUME",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "PARAS",
+      "version_group": "legends-arceus",
+      "level_moves": 5
+    },
+    {
+      "species": "PARASECT",
+      "version_group": "legends-arceus",
+      "level_moves": 5
+    },
+    {
+      "species": "VENONAT",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "VENOMOTH",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "DIGLETT",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "DUGTRIO",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "MEOWTH",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "PERSIAN",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "PSYDUCK",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "GOLDUCK",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "MANKEY",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "PRIMEAPE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "GROWLITHE",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "ARCANINE",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "POLIWAG",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "POLIWHIRL",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "POLIWRATH",
+      "version_group": "scarlet-violet",
+      "level_moves": 4
+    },
+    {
+      "species": "ABRA",
+      "version_group": "legends-arceus",
+      "level_moves": 1
+    },
+    {
+      "species": "KADABRA",
+      "version_group": "legends-arceus",
+      "level_moves": 6
+    },
+    {
+      "species": "ALAKAZAM",
+      "version_group": "legends-arceus",
+      "level_moves": 6
+    },
+    {
+      "species": "MACHOP",
+      "version_group": "legends-arceus",
+      "level_moves": 5
+    },
+    {
+      "species": "MACHOKE",
+      "version_group": "legends-arceus",
+      "level_moves": 5
+    },
+    {
+      "species": "MACHAMP",
+      "version_group": "legends-arceus",
+      "level_moves": 5
+    },
+    {
+      "species": "BELLSPROUT",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "WEEPINBELL",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "VICTREEBEL",
+      "version_group": "scarlet-violet",
+      "level_moves": 5
+    },
+    {
+      "species": "TENTACOOL",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "TENTACRUEL",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "GEODUDE",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "GRAVELER",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "GOLEM",
+      "version_group": "scarlet-violet",
+      "level_moves": 8
+    },
+    {
+      "species": "PONYTA",
+      "version_group": "legends-arceus",
+      "level_moves": 6
+    },
+    {
+      "species": "RAPIDASH",
+      "version_group": "legends-arceus",
+      "level_moves": 6
+    },
+    {
+      "species": "SLOWPOKE",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "SLOWBRO",
+      "version_group": "scarlet-violet",
+      "level_moves": 16
+    },
+    {
+      "species": "MAGNEMITE",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "MAGNETON",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "FARFETCHD",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 13
+    },
+    {
+      "species": "DODUO",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "DODRIO",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "SEEL",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "DEWGONG",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "GRIMER",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "MUK",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "SHELLDER",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "CLOYSTER",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "GASTLY",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "HAUNTER",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "GENGAR",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "ONIX",
+      "version_group": "legends-arceus",
+      "level_moves": 4
+    },
+    {
+      "species": "DROWZEE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "HYPNO",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "KRABBY",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 13
+    },
+    {
+      "species": "KINGLER",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 13
+    },
+    {
+      "species": "VOLTORB",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "ELECTRODE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "EXEGGCUTE",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "EXEGGUTOR",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "CUBONE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "MAROWAK",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "HITMONLEE",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "HITMONCHAN",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "LICKITUNG",
+      "version_group": "legends-arceus",
+      "level_moves": 4
+    },
+    {
+      "species": "KOFFING",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "WEEZING",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "RHYHORN",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "RHYDON",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "CHANSEY",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "TANGELA",
+      "version_group": "legends-arceus",
+      "level_moves": 5
+    },
+    {
+      "species": "KANGASKHAN",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "HORSEA",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "SEADRA",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "GOLDEEN",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "SEAKING",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "STARYU",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 14
+    },
+    {
+      "species": "STARMIE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 14
+    },
+    {
+      "species": "MR_MIME",
+      "version_group": "legends-arceus",
+      "level_moves": 6
+    },
+    {
+      "species": "SCYTHER",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "JYNX",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 14
+    },
+    {
+      "species": "ELECTABUZZ",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "MAGMAR",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "PINSIR",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "TAUROS",
+      "version_group": "scarlet-violet",
+      "level_moves": 8
+    },
+    {
+      "species": "MAGIKARP",
+      "version_group": "scarlet-violet",
+      "level_moves": 3
+    },
+    {
+      "species": "GYARADOS",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "LAPRAS",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "DITTO",
+      "version_group": "scarlet-violet",
+      "level_moves": 1
+    },
+    {
+      "species": "EEVEE",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "VAPOREON",
+      "version_group": "scarlet-violet",
+      "level_moves": 20
+    },
+    {
+      "species": "JOLTEON",
+      "version_group": "scarlet-violet",
+      "level_moves": 19
+    },
+    {
+      "species": "FLAREON",
+      "version_group": "scarlet-violet",
+      "level_moves": 17
+    },
+    {
+      "species": "PORYGON",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "OMANYTE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "OMASTAR",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 13
+    },
+    {
+      "species": "KABUTO",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "KABUTOPS",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "AERODACTYL",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "SNORLAX",
+      "version_group": "scarlet-violet",
+      "level_moves": 20
+    },
+    {
+      "species": "ARTICUNO",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "ZAPDOS",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "MOLTRES",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "DRATINI",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "DRAGONAIR",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "DRAGONITE",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "MEWTWO",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "MEW",
+      "version_group": "scarlet-violet",
+      "level_moves": 8
+    },
+    {
+      "species": "CHIKORITA",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "BAYLEEF",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "MEGANIUM",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "CYNDAQUIL",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "QUILAVA",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "TYPHLOSION",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "TOTODILE",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "CROCONAW",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "FERALIGATR",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "SENTRET",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "FURRET",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "HOOTHOOT",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "NOCTOWL",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "LEDYBA",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "LEDIAN",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "SPINARAK",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "ARIADOS",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "CROBAT",
+      "version_group": "legends-arceus",
+      "level_moves": 5
+    },
+    {
+      "species": "CHINCHOU",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "LANTURN",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "PICHU",
+      "version_group": "scarlet-violet",
+      "level_moves": 4
+    },
+    {
+      "species": "CLEFFA",
+      "version_group": "scarlet-violet",
+      "level_moves": 6
+    },
+    {
+      "species": "IGGLYBUFF",
+      "version_group": "scarlet-violet",
+      "level_moves": 6
+    },
+    {
+      "species": "TOGEPI",
+      "version_group": "legends-arceus",
+      "level_moves": 3
+    },
+    {
+      "species": "TOGETIC",
+      "version_group": "legends-arceus",
+      "level_moves": 4
+    },
+    {
+      "species": "NATU",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 8
+    },
+    {
+      "species": "XATU",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 8
+    },
+    {
+      "species": "MAREEP",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "FLAAFFY",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "AMPHAROS",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "BELLOSSOM",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "MARILL",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "AZUMARILL",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "SUDOWOODO",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "POLITOED",
+      "version_group": "scarlet-violet",
+      "level_moves": 5
+    },
+    {
+      "species": "HOPPIP",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "SKIPLOOM",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "JUMPLUFF",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "AIPOM",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "SUNKERN",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "SUNFLORA",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "YANMA",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "WOOPER",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "QUAGSIRE",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "ESPEON",
+      "version_group": "scarlet-violet",
+      "level_moves": 19
+    },
+    {
+      "species": "UMBREON",
+      "version_group": "scarlet-violet",
+      "level_moves": 17
+    },
+    {
+      "species": "MURKROW",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "SLOWKING",
+      "version_group": "scarlet-violet",
+      "level_moves": 16
+    },
+    {
+      "species": "MISDREAVUS",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "UNOWN",
+      "version_group": "legends-arceus",
+      "level_moves": 1
+    },
+    {
+      "species": "WOBBUFFET",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 8
+    },
+    {
+      "species": "GIRAFARIG",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "PINECO",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "FORRETRESS",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "DUNSPARCE",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "GLIGAR",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "STEELIX",
+      "version_group": "legends-arceus",
+      "level_moves": 4
+    },
+    {
+      "species": "SNUBBULL",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "GRANBULL",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "QWILFISH",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "SCIZOR",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "SHUCKLE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 7
+    },
+    {
+      "species": "HERACROSS",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "SNEASEL",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "TEDDIURSA",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "URSARING",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "SLUGMA",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "MAGCARGO",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "SWINUB",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "PILOSWINE",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "CORSOLA",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 9
+    },
+    {
+      "species": "REMORAID",
+      "version_group": "legends-arceus",
+      "level_moves": 5
+    },
+    {
+      "species": "OCTILLERY",
+      "version_group": "legends-arceus",
+      "level_moves": 6
+    },
+    {
+      "species": "DELIBIRD",
+      "version_group": "scarlet-violet",
+      "level_moves": 2
+    },
+    {
+      "species": "MANTINE",
+      "version_group": "legends-arceus",
+      "level_moves": 6
+    },
+    {
+      "species": "SKARMORY",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "HOUNDOUR",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "HOUNDOOM",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "KINGDRA",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "PHANPY",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "DONPHAN",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "PORYGON2",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "STANTLER",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "SMEARGLE",
+      "version_group": "scarlet-violet",
+      "level_moves": 1
+    },
+    {
+      "species": "TYROGUE",
+      "version_group": "scarlet-violet",
+      "level_moves": 4
+    },
+    {
+      "species": "HITMONTOP",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "SMOOCHUM",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 13
+    },
+    {
+      "species": "ELEKID",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "MAGBY",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "MILTANK",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "BLISSEY",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "RAIKOU",
+      "version_group": "scarlet-violet",
+      "level_moves": 16
+    },
+    {
+      "species": "ENTEI",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "SUICUNE",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "LARVITAR",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "PUPITAR",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "TYRANITAR",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "LUGIA",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "HO_OH",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "CELEBI",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 9
+    },
+    {
+      "species": "TREECKO",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "GROVYLE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "SCEPTILE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "TORCHIC",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "COMBUSKEN",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "BLAZIKEN",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "MUDKIP",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "MARSHTOMP",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "SWAMPERT",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "POOCHYENA",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "MIGHTYENA",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "ZIGZAGOON",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "LINOONE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 14
+    },
+    {
+      "species": "WURMPLE",
+      "version_group": "legends-arceus",
+      "level_moves": 2
+    },
+    {
+      "species": "SILCOON",
+      "version_group": "legends-arceus",
+      "level_moves": 3
+    },
+    {
+      "species": "BEAUTIFLY",
+      "version_group": "legends-arceus",
+      "level_moves": 6
+    },
+    {
+      "species": "CASCOON",
+      "version_group": "legends-arceus",
+      "level_moves": 3
+    },
+    {
+      "species": "DUSTOX",
+      "version_group": "legends-arceus",
+      "level_moves": 7
+    },
+    {
+      "species": "LOTAD",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "LOMBRE",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "LUDICOLO",
+      "version_group": "scarlet-violet",
+      "level_moves": 3
+    },
+    {
+      "species": "SEEDOT",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "NUZLEAF",
+      "version_group": "scarlet-violet",
+      "level_moves": 17
+    },
+    {
+      "species": "SHIFTRY",
+      "version_group": "scarlet-violet",
+      "level_moves": 3
+    },
+    {
+      "species": "TAILLOW",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "SWELLOW",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "WINGULL",
+      "version_group": "scarlet-violet",
+      "level_moves": 8
+    },
+    {
+      "species": "PELIPPER",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "RALTS",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "KIRLIA",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "GARDEVOIR",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "SURSKIT",
+      "version_group": "scarlet-violet",
+      "level_moves": 8
+    },
+    {
+      "species": "MASQUERAIN",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "SHROOMISH",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "BRELOOM",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "SLAKOTH",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "VIGOROTH",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "SLAKING",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "NINCADA",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "NINJASK",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 18
+    },
+    {
+      "species": "SHEDINJA",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 14
+    },
+    {
+      "species": "WHISMUR",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "LOUDRED",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "EXPLOUD",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 14
+    },
+    {
+      "species": "MAKUHITA",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "HARIYAMA",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "AZURILL",
+      "version_group": "scarlet-violet",
+      "level_moves": 8
+    },
+    {
+      "species": "NOSEPASS",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "SKITTY",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "DELCATTY",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "SABLEYE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "MAWILE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "ARON",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 13
+    },
+    {
+      "species": "LAIRON",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 13
+    },
+    {
+      "species": "AGGRON",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 13
+    },
+    {
+      "species": "MEDITITE",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "MEDICHAM",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "ELECTRIKE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "MANECTRIC",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "PLUSLE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "MINUN",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "VOLBEAT",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "ILLUMISE",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "ROSELIA",
+      "version_group": "legends-arceus",
+      "level_moves": 5
+    },
+    {
+      "species": "GULPIN",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "SWALOT",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "CARVANHA",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "SHARPEDO",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "WAILMER",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 14
+    },
+    {
+      "species": "WAILORD",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 14
+    },
+    {
+      "species": "NUMEL",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "CAMERUPT",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "TORKOAL",
+      "version_group": "scarlet-violet",
+      "level_moves": 14
+    },
+    {
+      "species": "SPOINK",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "GRUMPIG",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "SPINDA",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 10
+    },
+    {
+      "species": "TRAPINCH",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "VIBRAVA",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "FLYGON",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "CACNEA",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "CACTURNE",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "SWABLU",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "ALTARIA",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "ZANGOOSE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "SEVIPER",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "LUNATONE",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "SOLROCK",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "BARBOACH",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "WHISCASH",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "CORPHISH",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "CRAWDAUNT",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "BALTOY",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 13
+    },
+    {
+      "species": "CLAYDOL",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 15
+    },
+    {
+      "species": "LILEEP",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "CRADILY",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 13
+    },
+    {
+      "species": "ANORITH",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 9
+    },
+    {
+      "species": "ARMALDO",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 9
+    },
+    {
+      "species": "FEEBAS",
+      "version_group": "scarlet-violet",
+      "level_moves": 3
+    },
+    {
+      "species": "MILOTIC",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "CASTFORM",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "KECLEON",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 14
+    },
+    {
+      "species": "SHUPPET",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "BANETTE",
+      "version_group": "scarlet-violet",
+      "level_moves": 9
+    },
+    {
+      "species": "DUSKULL",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "DUSCLOPS",
+      "version_group": "scarlet-violet",
+      "level_moves": 15
+    },
+    {
+      "species": "TROPIUS",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "CHIMECHO",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "ABSOL",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "WYNAUT",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 8
+    },
+    {
+      "species": "SNORUNT",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "GLALIE",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "SPHEAL",
+      "version_group": "legends-arceus",
+      "level_moves": 6
+    },
+    {
+      "species": "SEALEO",
+      "version_group": "legends-arceus",
+      "level_moves": 6
+    },
+    {
+      "species": "WALREIN",
+      "version_group": "legends-arceus",
+      "level_moves": 6
+    },
+    {
+      "species": "CLAMPERL",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 3
+    },
+    {
+      "species": "HUNTAIL",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 12
+    },
+    {
+      "species": "GOREBYSS",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 13
+    },
+    {
+      "species": "RELICANTH",
+      "version_group": "brilliant-diamond-shining-pearl",
+      "level_moves": 11
+    },
+    {
+      "species": "LUVDISC",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "BAGON",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "SHELGON",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "SALAMENCE",
+      "version_group": "scarlet-violet",
+      "level_moves": 13
+    },
+    {
+      "species": "BELDUM",
+      "version_group": "scarlet-violet",
+      "level_moves": 1
+    },
+    {
+      "species": "METANG",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "METAGROSS",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "REGIROCK",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "REGICE",
+      "version_group": "scarlet-violet",
+      "level_moves": 12
+    },
+    {
+      "species": "REGISTEEL",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "LATIAS",
+      "version_group": "scarlet-violet",
+      "level_moves": 8
+    },
+    {
+      "species": "LATIOS",
+      "version_group": "scarlet-violet",
+      "level_moves": 8
+    },
+    {
+      "species": "KYOGRE",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "GROUDON",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "RAYQUAZA",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    },
+    {
+      "species": "JIRACHI",
+      "version_group": "scarlet-violet",
+      "level_moves": 10
+    },
+    {
+      "species": "DEOXYS",
+      "version_group": "scarlet-violet",
+      "level_moves": 11
+    }
+  ]
+}

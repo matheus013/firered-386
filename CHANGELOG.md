@@ -1,9 +1,20 @@
 # Histórico de versões
 
+## v0.5.0-preview.1 — 22/10/2026 (migração parcial)
+
+- IA de duplas: desempate de alvo por dano estimado, suporte conforme o plano/limitações do parceiro, duplicação de telas/clima e uso consecutivo de Protect.
+- Oito líderes com sets, habilidades, naturezas e EVs explícitos; ajustes de legalidade após a importação dos learnsets.
+- Categorias modernas por golpe e dados de poder/precisão/PP/prioridade dos 354 golpes existentes; integração em dano, telas, burn, Hustle e treino por função.
+- Todas as 50 TMs existentes à venda em Celadon antes da Liga.
+- Categoria reposicionada para não sobrepor EFFECT; descrições ajustadas à largura do painel, com 14 traduções revisadas.
+- Learnsets por nível da geração IX (Scarlet/Violet; BDSP ou Legends: Arceus quando a espécie não está em SV) para as 386 espécies, só com golpes existentes na ROM. Golpes de evolução entram no nível da evolução. Compatibilidade das TMs pela geração IX; TMs sem equivalente lá (Hail, Hidden Power, Frustration, Return, Secret Power, Snatch, Double Team, Attract, entre outras) mantêm a compatibilidade anterior; HMs só ganham compatibilidade, nunca perdem. Gerado por `scripts/import_learnsets.py`.
+- A geração IX completa e o catálogo expandido de TMs ainda estão pendentes. [Estado e limites](MODERNIZATION.md).
+
 ## v0.4.0-dev — 22/10/2026
 
 - Interface do cientista com retrato, painéis, barras, saldo de EVs e comparação de atributos antes de confirmar; edição/cancelamento e restrições por modo preservadas.
-- Idioma EN/PT-BR nas opções, salvo na partida; português em beta, majoritariamente traduzido automaticamente, com 82 revisões manuais.
+- Idioma EN/PT-BR nas opções, salvo na partida; português em beta, majoritariamente traduzido automaticamente, com 84 revisões manuais.
+- Corrigido o marcador de palavra da tradução automática (`▁`) que aparecia como símbolo no lugar de espaços em cerca de 6.500 textos PT-BR; corrigidos STATUS, o título da tela de golpes e a descrição do Growl.
 - Randomizer opcional após escolher Normal/Hardcore: selvagens, iniciais e treinadores; semente fixa por save, níveis e quantidades preservados.
 - IVs 31 e EVs treinados em líderes, rivais, chefes, E4/Campeão e Torre; adaptação do treino às espécies aleatórias.
 - Novos testes de dados, menus, captura aleatória e persistência; regressão de lojas nos dois idiomas. [Escopo e limites](FEATURE_TEST_RESULTS.md).

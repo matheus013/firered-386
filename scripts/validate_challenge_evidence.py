@@ -1,10 +1,11 @@
 """Check published evidence integrity, native completion and resource/permadeath ledgers."""
 from pathlib import Path
-import gzip,hashlib,json,collections
+import gzip,hashlib,json,collections,argparse
 ROOT=Path(__file__).resolve().parents[1]
 summary=json.loads((ROOT/'data/challenge_balance/summary.json').read_text(encoding='utf-8'))
 assert len(summary['classifications'])==35
-assert summary['rom_sha256']==hashlib.sha256((ROOT/'output/firered-386-dev.gba').read_bytes()).hexdigest()
+parser=argparse.ArgumentParser();parser.add_argument('--reference-rom',type=Path,default=ROOT/'output/firered-386-dev.gba');args=parser.parse_args()
+assert summary['rom_sha256']==hashlib.sha256(args.reference_rom.read_bytes()).hexdigest(), 'Use --reference-rom with the v0.4.0 ROM for this historical evidence.'
 native=0;blocks=0
 def visit(value):
  global native
@@ -40,4 +41,4 @@ for archive in summary['archives']:
     if row['mode']==1:assert used['REVIVE']==0
     if trial['won_block']:assert len(trial['battles'])==5 and all(b['result']['outcome']==1 for b in trial['battles'])
     blocks+=1
-print(f'PASS: 35 classifications, archive hashes, {native} corrected/advanced native battles, {blocks} League block ledgers; production ROM unchanged.')
+print(f'PASS: 35 classifications, archive hashes, {native} corrected/advanced native battles, {blocks} League block ledgers; reference ROM hash matches.')

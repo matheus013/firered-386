@@ -199,3 +199,7 @@ Cada alteração futura exige repetir os testes afetados, registrar o SHA da nov
 [Testes dos 35 desafios e classificação por modo](CHALLENGE_BALANCE_TESTS.md) e [equipes testadas, golpes e origens](CHALLENGE_TEAMS_TESTED.md).
 
 Combates executados no motor nativo, com preparação reconstruída a partir dos fontes. Incluem blocos consecutivos da Liga; não certificam caminhada, capturas ou campanha natural completa. Randomizer OFF. A ROM não foi alterada.
+
+## Desenvolvimento após v0.4.0
+
+[IA, ginásios, golpes e correção da interface](MODERNIZATION.md). `test_ai_move_native.py` verifica decisões/dano e os 48 integrantes dos ginásios; `test_category_ui.py` confere seleção e limites de 708 descrições nos dois idiomas; `test_move_data.py` compara os dados com o snapshot fixo. A migração completa e a nova calibração de campanha continuam pendentes. Os resultados de combate dos 35 desafios pertencem ao SHA antigo, não aos novos times.

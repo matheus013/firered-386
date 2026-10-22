@@ -1,5 +1,7 @@
 # Testes dos 35 desafios — v0.4.0-dev
 
+**Arquivo histórico da ROM v0.4.0-dev.** Não foi recalculado para os novos times, categorias e learnsets da prévia. Veja [a migração atual](MODERNIZATION.md).
+
 ROM de referência SHA-256 `881869fbaa37abe13becbb071759ff1225984910fdb410d11818e88b56a0990d`. Randomizer **OFF**. As batalhas foram encerradas no motor nativo do mGBA, com IA adversária, dano, críticos, PP, EXP, status, itens dos treinadores e derrotas preservados. Não foram usados HP inflado, vitória forçada ou alteração de dano.
 
 **São testes de combate com equipes reconstruídas e disponibilidade conferida nos fontes. Não são uma campanha percorrida, capturas reais ou homologação de todos os saves Hardcore.** Caminhada, sucesso das capturas, tempo de farm e economia não foram executados. As três coortes Hardcore não representam todas as possibilidades de encontro.

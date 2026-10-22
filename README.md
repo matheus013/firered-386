@@ -1,5 +1,7 @@
 # FireRed 386
 
+**Desenvolvimento após v0.4.0:** há revisão da IA/ginásios, categorias por golpe, correção de sobreposição e importação parcial dos learnsets recentes. Estas mudanças ainda não completam a geração IX nem atualizam automaticamente a Release antiga. [Estado exato, testes e pendências](MODERNIZATION.md).
+
 Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em duplas e melhorias de qualidade de vida. **Versão de desenvolvimento, ainda incompleta.** As 386 espécies já estão distribuídas em encontros capturáveis; as demais melhorias pendentes estão listadas abaixo.
 
 Guias: [onde capturar cada uma das 386 espécies](SPECIES_LOCATIONS.md) · [times dos desafios em sequência](#times-dos-desafios-em-sequência) · [encontros por rota, níveis e probabilidades](ENCOUNTERS.md) · [catálogo de todos os treinadores](TRAINER_REVIEW.md).
@@ -10,7 +12,9 @@ Guias: [onde capturar cada uma das 386 espécies](SPECIES_LOCATIONS.md) · [time
 
 ## Download
 
-Versão atual: **[v0.4.0-dev](https://github.com/matheus013/firered-386/releases/tag/v0.4.0-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.4.0-dev/firered-386-v0.4.0-dev.gba). Inclui idioma EN/PT-BR nas opções, randomizer opcional, treinamento dos desafios e nova interface do cientista. Veja o [histórico de versões](CHANGELOG.md) e o [relatório dos 46 testes de lojas](SHOP_TEST_RESULTS.md).
+Prévia atual: **[v0.5.0-preview.1](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.1)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.5.0-preview.1/firered-386-v0.5.0-preview.1.gba). Corrige a sobreposição, revisa IA/ginásios e introduz categorias/dados modernos. **Ainda não contém todos os golpes nem todas as TMs da geração IX.** [Testes e limites](MODERNIZATION.md).
+
+Versão anterior: **[v0.4.0-dev](https://github.com/matheus013/firered-386/releases/tag/v0.4.0-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.4.0-dev/firered-386-v0.4.0-dev.gba). Inclui idioma EN/PT-BR nas opções, randomizer opcional, treinamento dos desafios e nova interface do cientista. Veja o [histórico de versões](CHANGELOG.md) e o [relatório dos 46 testes de lojas](SHOP_TEST_RESULTS.md).
 
 Baixe o **`.gba`** em [Releases](https://github.com/matheus013/firered-386/releases) e abra em um emulador de GBA. Também estão disponíveis um patch `.ips`, o patch de fontes e checksums SHA-256.
 
@@ -18,7 +22,7 @@ O IPS exige uma ROM limpa de **FireRed USA 1.0**, SHA-1 `41cb23d8dccc8ebd7c649cd
 
 Para continuar uma partida, preserve uma cópia do `.sav` e use o mesmo nome-base para ROM e save, por exemplo `firered-386.gba` e `firered-386.sav`. O layout do save foi preservado e os testes de gravação/recarga passaram; a migração de saves reais de cada versão anterior ainda precisa ser validada. Os novos encontros passam a valer ao jogar com a ROM atualizada.
 
-Idioma selecionável em **OPTIONS: ENGLISH / PT-BR**. O português está em beta: 7.771 entradas traduzidas, com 82 revisões manuais; a maior parte veio de tradução automática local e ainda precisa de revisão linguística. Nomes de Pokémon e golpes permanecem em inglês; caracteres sem suporte na fonte são transliterados.
+Idioma selecionável em **OPTIONS: ENGLISH / PT-BR**. O português está em beta: 7.735 entradas traduzidas, com 98 revisões manuais; a maior parte veio de tradução automática local e ainda precisa de revisão linguística. Nomes de Pokémon e golpes permanecem em inglês; caracteres sem suporte na fonte são transliterados.
 
 Ao criar o save: **Normal/Hardcore → Randomizer OFF/ON**. O randomizer troca encontros selvagens, iniciais e espécies/golpes dos treinadores, preservando níveis e tamanhos dos elencos; sua semente fica gravada. Encontros roteirizados e presentes permanecem fixos. Os times e locais dos guias representam o randomizer desligado. [Detalhes e limites](SETTINGS.md).
 
@@ -61,7 +65,7 @@ Opcional, antes de Brock.
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Onix **16** → Geodude **16** → Rhyhorn **16** → Omanyte **16** → Kabuto **17** → Nosepass **18** |
+| Equipe | Nosepass **16** → Omanyte **16** → Geodude **16** → Kabuto **16** → Rhyhorn **17** → Onix **18** |
 
 ### 04. Rival — Cerulean City
 
@@ -71,13 +75,13 @@ Pode ocorrer antes ou depois de Misty.
 |---|---|
 | Squirtle | Kadabra **24** → Pidgeotto **25** → Raticate **23** → Wartortle **26** |
 | Bulbasaur | Kadabra **24** → Pidgeotto **25** → Raticate **23** → Ivysaur **26** |
-| Charmander | Kadabra **24** → Pidgeotto **25** → Raticate **23** → Charmeleon **26** |
+| Charmander | Charmeleon **26** → Kadabra **24** → Raticate **23** → Pidgeotto **25** |
 
 ### 05. Misty — Cerulean Gym
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Staryu **26** → Psyduck **26** → Horsea **26** → Poliwhirl **26** → Goldeen **27** → Starmie **28** |
+| Equipe | Poliwhirl **26** → Lombre **26** → Horsea **26** → Psyduck **26** → Staryu **27** → Starmie **28** |
 
 ### 06. Rival — S.S. Anne
 
@@ -85,13 +89,13 @@ Pode ocorrer antes ou depois de Misty.
 |---|---|
 | Squirtle | Kadabra **32** → Raticate **30** → Pidgeotto **33** → Wartortle **34** |
 | Bulbasaur | Kadabra **32** → Raticate **30** → Pidgeotto **33** → Venusaur **34** |
-| Charmander | Kadabra **32** → Raticate **30** → Pidgeotto **33** → Charmeleon **34** |
+| Charmander | Charmeleon **34** → Raticate **30** → Kadabra **32** → Pidgeotto **33** |
 
 ### 07. Lt. Surge — Vermilion Gym
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Manectric **35** → Magneton **34** → Ampharos **34** → Lanturn **34** → Electrode **34** → Raichu **36** |
+| Equipe | Electrode **34** → Lanturn **34** → Manectric **34** → Electabuzz **34** → Magneton **35** → Raichu **36** |
 
 ### 08. Erika — Celadon Gym
 
@@ -99,7 +103,7 @@ A ordem entre este ginásio e o esconderijo Rocket pode variar.
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Parasect **42** → Victreebel **42** → Bellossom **42** → Tangela **42** → Exeggutor **43** → Vileplume **44** |
+| Equipe | Tangela **42** → Shiftry **42** → Victreebel **42** → Bellossom **42** → Exeggutor **43** → Vileplume **44** |
 
 ### 09. Giovanni — Rocket Hideout
 
@@ -111,15 +115,15 @@ A ordem entre este ginásio e o esconderijo Rocket pode variar.
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Squirtle | Alakazam **43** → Arcanine **46** → Exeggutor **45** → Pidgeot **48** → Blastoise **48** |
+| Squirtle | Blastoise **48** → Arcanine **46** → Exeggutor **45** → Alakazam **43** → Pidgeot **48** |
 | Bulbasaur | Alakazam **43** → Gyarados **46** → Arcanine **45** → Pidgeot **48** → Venusaur **48** |
-| Charmander | Exeggutor **46** → Pidgeot **48** → Gyarados **45** → Alakazam **43** → Charizard **48** |
+| Charmander | Charizard **48** → Exeggutor **46** → Gyarados **45** → Alakazam **43** → Pidgeot **48** |
 
 ### 11. Koga — Fuchsia Gym
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Ariados **50** → Crobat **50** → Muk **50** → Tentacruel **50** → Venomoth **51** → Weezing **52** |
+| Equipe | Nidoqueen **50** → Gengar **50** → Crobat **50** → Tentacruel **50** → Venomoth **51** → Weezing **52** |
 
 ### 12. Koichi — Fighting Dojo de Saffron
 
@@ -133,9 +137,9 @@ Opcional; pode ser visitado antes de Koga. O nível acompanha a etapa de Saffron
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Squirtle | Alakazam **53** → Arcanine **56** → Exeggutor **53** → Pidgeot **55** → Blastoise **58** |
+| Squirtle | Blastoise **58** → Arcanine **56** → Exeggutor **53** → Alakazam **53** → Pidgeot **55** |
 | Bulbasaur | Alakazam **53** → Gyarados **56** → Arcanine **53** → Pidgeot **55** → Venusaur **58** |
-| Charmander | Exeggutor **56** → Pidgeot **55** → Gyarados **53** → Alakazam **53** → Charizard **58** |
+| Charmander | Charizard **58** → Exeggutor **56** → Gyarados **53** → Alakazam **53** → Pidgeot **55** |
 
 ### 14. Giovanni — Silph Co.
 
@@ -147,13 +151,13 @@ Opcional; pode ser visitado antes de Koga. O nível acompanha a etapa de Saffron
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Hypno **58** → Espeon **58** → Mr. Mime **58** → Slowbro **58** → Girafarig **59** → Alakazam **60** |
+| Equipe | Mr. Mime **58** → Espeon **58** → Hypno **58** → Slowbro **58** → Girafarig **59** → Alakazam **60** |
 
 ### 16. Blaine — Cinnabar Gym
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Magmar **66** → Rapidash **66** → Ninetales **66** → Camerupt **66** → Flareon **67** → Arcanine **68** |
+| Equipe | Ninetales **66** → Torkoal **66** → Flareon **66** → Magmar **66** → Rapidash **67** → Arcanine **68** |
 
 ### 17. Biker Goon — Three Island, primeira luta
 
@@ -185,7 +189,7 @@ Visita às ilhas após Blaine; a sequência dos Bikers pode ser deixada para dep
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Donphan **75** → Sandslash **74** → Nidoqueen **74** → Nidoking **74** → Dugtrio **74** → Rhydon **76** |
+| Equipe | Gligar **74** → Donphan **74** → Flygon **74** → Nidoqueen **74** → Marowak **75** → Rhydon **76** |
 
 ### 22. Rival — Route 22, antes da Liga
 
@@ -193,7 +197,7 @@ Visita às ilhas após Blaine; a sequência dos Bikers pode ser deixada para dep
 |---|---|
 | Squirtle | Rhydon **73** → Pidgeot **73** → Arcanine **73** → Exeggutor **73** → Alakazam **73** → Blastoise **78** |
 | Bulbasaur | Rhydon **73** → Pidgeot **73** → Gyarados **73** → Arcanine **73** → Alakazam **73** → Venusaur **78** |
-| Charmander | Rhydon **73** → Pidgeot **73** → Exeggutor **73** → Gyarados **73** → Alakazam **73** → Charizard **78** |
+| Charmander | Charizard **78** → Rhydon **73** → Exeggutor **73** → Gyarados **73** → Alakazam **73** → Pidgeot **73** |
 
 ### 23. Lorelei — primeira Liga
 
@@ -223,9 +227,9 @@ Visita às ilhas após Blaine; a sequência dos Bikers pode ser deixada para dep
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Squirtle | Rhydon **88** → Alakazam **87** → Pidgeot **88** → Arcanine **88** → Exeggutor **90** → Blastoise **92** |
+| Squirtle | Blastoise **92** → Alakazam **87** → Rhydon **88** → Arcanine **88** → Exeggutor **90** → Pidgeot **88** |
 | Bulbasaur | Rhydon **88** → Alakazam **87** → Pidgeot **88** → Gyarados **88** → Arcanine **90** → Venusaur **92** |
-| Charmander | Rhydon **88** → Alakazam **87** → Pidgeot **88** → Exeggutor **88** → Gyarados **90** → Charizard **92** |
+| Charmander | Charizard **92** → Alakazam **87** → Rhydon **88** → Exeggutor **88** → Gyarados **90** → Pidgeot **88** |
 
 ### 28. Administradora Rocket — Rocket Warehouse
 
@@ -233,13 +237,13 @@ Pós-jogo: etapa de recuperação da Sapphire.
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Muk **86** → Arbok **86** → Vileplume **86** |
+| Equipe | Arbok **86** → Muk **86** → Vileplume **86** |
 
 ### 29. Administrador Rocket — Rocket Warehouse
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Weezing **86** → Golbat **86** → Houndoom **86** |
+| Equipe | Golbat **86** → Weezing **86** → Houndoom **86** |
 
 ### 30. Gideon — Rocket Warehouse
 
@@ -275,7 +279,7 @@ Pós-jogo: etapa de recuperação da Sapphire.
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Squirtle | Tyranitar **100** → Alakazam **100** → Heracross **100** → Arcanine **100** → Exeggutor **100** → Blastoise **100** |
+| Squirtle | Blastoise **100** → Alakazam **100** → Tyranitar **100** → Arcanine **100** → Exeggutor **100** → Heracross **100** |
 | Bulbasaur | Tyranitar **100** → Alakazam **100** → Heracross **100** → Gyarados **100** → Arcanine **100** → Venusaur **100** |
 | Charmander | Heracross **100** → Alakazam **100** → Tyranitar **100** → Exeggutor **100** → Gyarados **100** → Charizard **100** |
 
@@ -292,11 +296,11 @@ As novas revanches de líderes ainda não foram implementadas; por isso, não h�
 - Equipes de dois a seis integrantes; **líderes e Elite Four com seis Pokémon**. Líderes mantêm seu tipo; a E4 combina integrantes temáticos e parceiros dos times campeões.
 - Suporte de abertura, cobertura, parceiros complementares, controle de velocidade, telas e clima em equipes compatíveis.
 - Itens equipados e IVs progressivos. Níveis elevados por etapa da campanha, evoluções mais avançadas e Campeão com natureza, habilidade, IVs 31 e EVs por função.
-- Elencos gerados evitam golpes que atinjam aliados, golpes de nocaute em um acerto e acúmulo de evasão. Clima é evitado em equipes que possam ter Cloud Nine ou Air Lock.
+- Elencos genéricos evitam dano ao aliado, nocaute em um acerto e acúmulo de evasão. Koga/Giovanni têm Earthquake com parceiros imunes e cobertura alternativa nos novos times curados. Clima é evitado em equipes que possam ter Cloud Nine ou Air Lock.
 - **60 elencos internos da Torre de Treinadores** revisados para duplas; segundo Pokémon adicionado aos adversários do modo Knockout. Níveis continuam acompanhando a equipe do jogador; IVs agora são 31 e EVs/natureza seguem a função do Pokémon. Dados externos de e-Reader não foram revisados.
 - Com apenas um Pokémon apto, o jogador enfrenta dois adversários com o segundo espaço vazio, sem duplicação ou exigência de um segundo integrante.
 
-As equipes atuais usam golpes, tipos e regras de **geração III**. Líderes, rivais (incluindo o laboratório), chefes Rocket, Koichi, Bikers, E4/Campeão e Torre recebem IVs 31 e EVs treinados. Os demais treinadores preservam sua escala de IVs; a calibração da campanha inteira continua pendente. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](TRAINER_REVIEW.md), com dados em [data/trainer_balance.json](data/trainer_balance.json).
+Os fontes de desenvolvimento usam categorias, poder e precisão modernos, e learnsets recentes limitados aos golpes implementados. Parte dos efeitos e das demais regras permanece na geração III. A Release v0.4.0 anterior conserva suas tabelas originais. Líderes, rivais (incluindo o laboratório), chefes Rocket, Koichi, Bikers, E4/Campeão e Torre recebem IVs 31 e EVs treinados. Os demais treinadores preservam sua escala de IVs; a calibração da campanha inteira continua pendente. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](TRAINER_REVIEW.md), com dados em [data/trainer_balance.json](data/trainer_balance.json).
 
 ### Elite Four inspirada em campeões oficiais (v0.1.1-dev)
 
@@ -317,15 +321,22 @@ Estratégias, substituições e fontes: [E4_CHAMPIONS.md](E4_CHAMPIONS.md). Sets
 
 ### Decisões dos NPCs
 
-- A IA compara os dois adversários como possíveis alvos, aproveitando os scripts existentes.
-- Helping Hand considera a presença de um parceiro apto e capaz de atacar.
-- Telas e clima já ativos recebem penalidade para reduzir ações repetidas sem efeito.
+- A IA compara os dois adversários; no empate de notas, considera dano estimado e precisão. Considera planos já escolhidos pelo próprio parceiro, sem ler a ação enfileirada pelo jogador.
+- Helping Hand considera PP/limitações e ações já escolhidas pelo parceiro. Um aliado que receberá suporte favorece golpes de dano.
+- Telas/clima ativos ou já escolhidos pelo aliado recebem penalidade. Protect/Detect consecutivos são desencorajados.
 - Controle de velocidade e clima recebem pontuação conforme sua utilidade.
 - Golpes contra ambos os adversários recebem incentivo quando os dois estão presentes.
 - Dano ao aliado recebe penalidade quando o parceiro está presente e não é imune.
 - Um golpe desabilitado não volta a ser escolhido apenas por receber bônus de suporte.
 
 A revisão melhora a pontuação de ações, mas não garante decisões perfeitas em todas as situações.
+
+### Golpes e TMs no build de desenvolvimento
+
+- Categoria físico/especial/status aplicada por golpe, com identificação no resumo, batalha e TM Case.
+- Poder, precisão, PP e prioridade importados para os 354 golpes existentes. Efeitos modernos completos continuam pendentes.
+- Todas as 50 TMs existentes são vendidas no segundo andar de Celadon antes da Liga. O catálogo completo de Scarlet/Violet e DLCs ainda falta.
+- Categoria reposicionada na linha EFFECT; descrições medidas e quebradas em linhas para não invadir a lista de golpes.
 
 ### Experiência, itens e evolução
 
@@ -419,9 +430,8 @@ Corrigida a referência inválida de estoque ao voltar de compra/venda e sair da
 Estas funcionalidades **não estão disponíveis nesta release**:
 
 - Demais evoluções sem troca, incluindo as que exigem item.
-- Separação físico/especial por golpe, mantendo categoria de status própria.
 - Tipo Fada, tabela de efetividade e tipos correspondentes atualizados.
-- Atributos base, dados de golpes e learnsets de uma geração recente, cuja referência exata ainda será definida.
+- Atributos base da geração IX. Os learnsets por nível e a compatibilidade das TMs já seguem Scarlet/Violet (ou a versão mais recente da espécie), limitados aos golpes existentes na ROM.
 - Novos golpes comuns dessa referência, com efeitos, animações, descrições e aprendizado compatíveis.
 - HMs fora de batalha sem ocupar golpes, preservando exigências de insígnias e história.
 - Novas revanches contra líderes, com seis integrantes e equipes competitivas de duplas coerentes com seus tipos; revisão da Elite Four após a futura modernização da engine; as adaptações competitivas da geração III já estão implementadas.

@@ -2,7 +2,7 @@
 
 Implementado na versão **v0.1.1-dev**, para a primeira Liga e suas revanches. As equipes mantêm as espécies disponíveis das referências e completam as vagas com Pokémon das gerações I–III. São adaptações, não as equipes históricas exatas.
 
-Estado atual: **v0.3.1-dev**. Os níveis abaixo refletem a curva introduzida na v0.2.0-dev; as 14 variantes de E4/Campeão passaram novamente nos testes de criação das equipes e avanço de turnos. Isso não equivale a uma Liga inteira concluída por um jogador. [Checklist e escopo](TEST_CHECKLIST.md).
+Estado dos fontes: **v0.5.0-preview.1**, em migração parcial. Cloyster usa Spikes no lugar de Toxic para respeitar os learnsets importados. Categorias/poder/precisão foram atualizados; a adaptação integral aos efeitos modernos continua pendente. Os níveis abaixo refletem a curva introduzida na v0.2.0-dev; as 14 variantes de E4/Campeão passaram novamente nos testes de criação das equipes e avanço de turnos. Isso não equivale a uma Liga inteira concluída por um jogador. [Checklist e escopo](TEST_CHECKLIST.md).
 
 ## Equipes implementadas
 

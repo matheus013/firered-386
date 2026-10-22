@@ -1,9 +1,9 @@
 {
   "status": "ptbr_beta_machine_draft_with_reviewed_core_ui",
   "catalog_strings": 9162,
-  "translated_entries": 7771,
-  "reviewed_overrides": 82,
-  "fallback_unchanged": 1391,
+  "translated_entries": 7735,
+  "reviewed_overrides": 98,
+  "fallback_unchanged": 1427,
   "skipped": [],
   "font_policy": "Unsupported accented glyphs are transliterated; original controls and placeholders preserved.",
   "linguistic_review_complete": false

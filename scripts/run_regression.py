@@ -1,14 +1,19 @@
 """Repeat existing regression suites and retain logs/results for the checklist."""
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor,as_completed
-import subprocess,json,hashlib,time
+import subprocess,json,hashlib,time,argparse
 root=Path(__file__).resolve().parents[1]
 out=root/'output/tests/checklist';out.mkdir(parents=True,exist_ok=True)
 reference_sha=hashlib.sha256((root/'output/firered-386-dev.gba').read_bytes()).hexdigest()
+parser=argparse.ArgumentParser();parser.add_argument('--reuse-shops',action='store_true');args=parser.parse_args()
 suites=['test_hardcore.py','test_training.py','test_training_ui.py','test_trainer_battles.py','test_encounters.py','test_shops.py','test_elite_four.py']
 results=[]
 def run(name):
  start=time.monotonic()
+ if name=='test_shops.py' and args.reuse_shops:
+  existing=json.loads((root/'output/tests/shops/results.json').read_text())
+  assert existing['rom_sha256']==reference_sha and existing['count']==46 and all(c['passed'] for c in existing['cases'])
+  return {'suite':name,'status':'passed','exit_code':0,'seconds':0,'reused_current_rom':True,'log':'output/tests/shops/results.json'}
  with (out/(name+'.log')).open('w') as log:
   p=subprocess.run(['python3',str(root/'scripts'/name)],stdout=log,stderr=subprocess.STDOUT)
  return {'suite':name,'status':'passed' if p.returncode==0 else 'failed','exit_code':p.returncode,'seconds':round(time.monotonic()-start,1),'log':'output/tests/checklist/'+name+'.log'}

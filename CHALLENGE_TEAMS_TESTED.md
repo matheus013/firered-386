@@ -1,5 +1,7 @@
 # Equipes e preparação por desafio
 
+**Arquivo histórico da ROM v0.4.0-dev.** Não foi recalculado para os novos times, categorias e learnsets da prévia. Veja [a migração atual](MODERNIZATION.md).
+
 Exemplos efetivamente testados. “Vitória registrada” significa resultado do combate reconstruído, condicionado à preparação descrita; não prova captura/caminhada/economia. Nas sequências, a ordem e os níveis abaixo vêm da memória antes da luta. Pokémon com HP zero no Hardcore já estavam perdidos e não participaram. IVs/EVs: HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp. As probabilidades de origem são pesos de slots, não chances condicionais da tentativa Nuzlocke.
 
 ## 01. Rival — laboratório de Oak

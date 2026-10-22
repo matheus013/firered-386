@@ -25,6 +25,7 @@ E4 = json.loads((ROOT / "data/e4_champion_teams.json").read_text(encoding="utf-8
 # the order in which a JSON editor happens to serialize the source file.
 E4 = {key: E4[key] for key in ("EliteFourLorelei", "EliteFourBruno", "EliteFourAgatha", "EliteFourLance")}
 CURVE = json.loads((ROOT / "data/progression_curve.json").read_text(encoding="utf-8"))
+GYMS = json.loads((ROOT / "data/gym_doubles_teams.json").read_text(encoding="utf-8"))["teams"]
 
 # Keep the gyms' themes and aces; levels come from the progression manifest.
 BOSSES = {
@@ -118,14 +119,14 @@ class Data:
                 self.species[name]["ability_slots"] = re.findall(r"ABILITY_(\w+)", abilities[1]) if abilities else []
         sets = {}
         for name, body in re.findall(r"static const u16 (\w+)\[\] = \{(.*?)\n\};", read("src/data/pokemon/level_up_learnsets.h"), re.S):
-            sets[name] = [(int(lvl), move) for lvl, move in re.findall(r"LEVEL_UP_MOVE\((\d+), MOVE_(\w+)\)", body)]
+            sets[name] = [(int(lvl), move) for lvl, move in re.findall(r"LEVEL_UP_MOVE\(\s*(\d+),\s*MOVE_(\w+)\)", body)]
         self.learn = {name: sets[ptr] for name, ptr in re.findall(r"\[SPECIES_(\w+)\] = (\w+)", read("src/data/pokemon/level_up_learnset_pointers.h"))}
         self.tm = {}
         for name, body in re.findall(r"\[SPECIES_(\w+)\]\s*= TMHM_LEARNSET\((.*?)\),", read("src/data/pokemon/tmhm_learnsets.h"), re.S):
             self.tm[name] = set(re.findall(r"TMHM\((?:TM|HM)\d+_(\w+)\)", body))
         self.moves = {}
         for name, body in re.findall(r"\[MOVE_(\w+)\]\s*=\s*\{(.*?)\n    \}", read("src/data/battle_moves.h"), re.S):
-            self.moves[name] = {"power": int(field(body, "power")), "type": field(body, "type").removeprefix("TYPE_"), "accuracy": int(field(body, "accuracy")), "target": field(body, "target")}
+            self.moves[name] = {"power": int(field(body, "power")), "type": field(body, "type").removeprefix("TYPE_"), "accuracy": int(field(body, "accuracy")), "target": field(body, "target"), "category": field(body, "category").removeprefix("MOVE_CATEGORY_")}
         self.tutor = {s: set(re.findall(r"TUTOR\(MOVE_(\w+)\)", b)) for s, b in re.findall(
             r"\[SPECIES_(\w+)\]\s*=\s*(.*?)(?=\n\s*\[SPECIES_|\n\};)", read("src/data/pokemon/tutor_learnsets.h"), re.S)}
         self.egg = {s: set(re.findall(r"MOVE_(\w+)", b)) for s, b in re.findall(
@@ -166,7 +167,7 @@ class Data:
 
     def attack_score(self, species, move):
         data, info = self.moves[move], self.species[species]
-        stat = info["attack"] if data["type"] in PHYSICAL_TYPES else info["special"]
+        stat = info["attack"] if data["category"] == "PHYSICAL" else info["special"]
         return data["power"] * (data["accuracy"] or 100) / 100 * (1.5 if data["type"] in info["types"] else 1) * (stat + 80) / 160
 
 
@@ -274,6 +275,15 @@ def generate(data, originals, trainers):
             continue
         salt = int(hashlib.sha256(party.encode()).hexdigest()[:8], 16)
         key = party.removeprefix("sParty_")
+        if key in GYMS:
+            config = GYMS[key];cap = CURVE['gym_caps'][key];team = []
+            for i, source in enumerate(config['team']):
+                mon = dict(source)
+                mon.update(level=cap-(2 if i<4 else 1 if i==4 else 0), iv=255)
+                mon['ability_num'] = data.species[mon['species']]['ability_slots'].index(mon['ability'])
+                team.append(mon)
+            result[party] = {**trainers[party], 'theme':config['theme'], 'strategy':config['strategy'], 'curated_gym':True, 'team':team}
+            continue
         elite_key = key.removesuffix("2")
         if elite_key in E4:
             config = E4[elite_key]
@@ -370,8 +380,8 @@ def generate(data, originals, trainers):
         if key.startswith(("ChampionFirst", "ChampionRematch")):
             for mon in team:
                 species = data.species[mon["species"]]
-                physical = sum(data.moves[m]["power"] for m in mon["moves"] if m != "NONE" and data.moves[m]["type"] in PHYSICAL_TYPES)
-                special = sum(data.moves[m]["power"] for m in mon["moves"] if m != "NONE" and data.moves[m]["type"] not in PHYSICAL_TYPES)
+                physical = sum(data.moves[m]["power"] for m in mon["moves"] if m != "NONE" and data.moves[m]["category"] == "PHYSICAL")
+                special = sum(data.moves[m]["power"] for m in mon["moves"] if m != "NONE" and data.moves[m]["category"] != "PHYSICAL")
                 stat = 1 if physical * species["attack"] > special * species["special"] else 4
                 evs = [0] * 6
                 evs[0], evs[stat], evs[3] = 4, 252, 252
@@ -390,14 +400,14 @@ def annotate_challenge_training(data, results):
             if 'evs' in mon:evs,nature=mon['evs'],mon['nature']
             else:
                 species=data.species[mon['species']]
-                physical=sum(data.moves[m]['power'] for m in mon['moves'] if m!='NONE' and data.moves[m]['power']>1 and data.moves[m]['type'] in PHYSICAL_TYPES)
-                special=sum(data.moves[m]['power'] for m in mon['moves'] if m!='NONE' and data.moves[m]['power']>1 and data.moves[m]['type'] not in PHYSICAL_TYPES)
+                physical=sum(data.moves[m]['power'] for m in mon['moves'] if m!='NONE' and data.moves[m]['power']>1 and data.moves[m]['category'] == 'PHYSICAL')
+                special=sum(data.moves[m]['power'] for m in mon['moves'] if m!='NONE' and data.moves[m]['power']>1 and data.moves[m]['category'] != 'PHYSICAL')
                 if 'HIDDEN_POWER' in mon['moves']:
                     move=data.moves['HIDDEN_POWER']
                     if move['power']>1:
-                        if move['type'] in PHYSICAL_TYPES:physical-=move['power']
+                        if move['category'] == 'PHYSICAL':physical-=move['power']
                         else:special-=move['power']
-                    special+=70
+                    special+=60
                 if physical==special==0:
                     evs=[252,0,128,0,0,128];nature='BOLD' if species['defense']<species['spdef'] else 'CALM'
                 else:
@@ -427,9 +437,12 @@ def validate(data, results):
             if len(set(nonempty)) != len(nonempty): errors.append(f"{party}: duplicate move")
             if not nonempty: errors.append(f"{party}: no moves")
             for move in nonempty:
-                legal = data.elite_legal(mon["species"], mon["level"]) if elite else data.legal(mon["species"], mon["level"])
+                legal = data.elite_legal(mon["species"], mon["level"]) if elite or entry.get('curated_gym') else data.legal(mon["species"], mon["level"])
                 if move not in legal: errors.append(f"{party}: illegal {mon['species']}/{move}")
-                if data.moves[move]["target"] == "MOVE_TARGET_FOES_AND_ALLY": errors.append(f"{party}: unsafe friendly fire")
+                if data.moves[move]["target"] == "MOVE_TARGET_FOES_AND_ALLY":
+                    immune = [m for m in team if 'FLYING' in data.species[m['species']]['types'] or m.get('ability')=='LEVITATE']
+                    if not entry.get('curated_gym') or move!='EARTHQUAKE' or len(immune)<2:
+                        errors.append(f"{party}: unsafe friendly fire")
     if errors: raise ValueError("\n".join(errors))
 
 
@@ -497,8 +510,8 @@ def outputs():
         return f"    [{match[1]}] = {{{body}\n    }},"
 
     trainers_text = TRAINER_RE.sub(replace_trainer, trainers_text)
-    report = ["# Revisão dos treinadores para duplas", "", f"{len(results)} equipes regulares revisadas; três variantes da primeira luta preservadas em singles. Também revisados {len(tower)} elencos internos da Torre de Treinadores.", "", "Base de golpes, tipos e regras: motor atual de geração III. Necessário revisar após a migração moderna. As equipes regulares abaixo não têm EVs/naturezas competitivos configurados nem comprovam decisões perfeitas da IA. Dados externos de e-Reader não fazem parte desta revisão. Na Torre, a seleção de golpes usa nível 50 como referência, e os adversários continuam escalando ao nível da equipe do jogador; os EVs, IVs e naturezas originais foram preservados.", "", "## Critérios", "", "- Duas a seis criaturas; líderes e Elite Four com seis.", "- Suporte na abertura quando disponível, golpes legais por nível/TM e cobertura de tipos.", "- Sem ataques que atinjam o aliado, OHKO ou spam de evasão.", "- Níveis recalibrados por etapa da campanha; berries e IVs progressivos, sem lendários adicionados.", "- Líderes e Elite Four respeitam seu tipo de especialidade.", ""]
-    report[4] = "Base de geração III. Líderes, rivais (incluindo o laboratório), chefes Rocket, Koichi, sequência dos Bikers, Elite Four e sua revanche, Campeão e Torre recebem IVs 31 e EVs treinados. E4/Campeão mantêm seus spreads definidos; os demais desafios usam função ofensiva/bulk/suporte. Os campos IV/EV das tabelas-base não substituem esse ajuste na criação do adversário. Treinadores comuns mantêm suas regras próprias. Dados externos e-Reader não foram enumerados, mas adversários criados pelo fluxo da Torre também recebem o treino. Times desta página correspondem ao randomizer desligado; ligado, espécies e golpes mudam por save, com novo treino por função."
+    report = ["# Revisão dos treinadores para duplas", "", f"{len(results)} equipes regulares revisadas; três variantes da primeira luta preservadas em singles. Também revisados {len(tower)} elencos internos da Torre de Treinadores.", "", "Base de golpes, tipos e regras: motor atual de geração III. Necessário revisar após a migração moderna. As equipes regulares abaixo não têm EVs/naturezas competitivos configurados nem comprovam decisões perfeitas da IA. Dados externos de e-Reader não fazem parte desta revisão. Na Torre, a seleção de golpes usa nível 50 como referência, e os adversários continuam escalando ao nível da equipe do jogador; os EVs, IVs e naturezas originais foram preservados.", "", "## Critérios", "", "- Duas a seis criaturas; líderes e Elite Four com seis.", "- Suporte na abertura quando disponível, golpes legais por nível/TM e cobertura de tipos.", "- Sem OHKO ou spam de evasão; Earthquake somente nos ginásios curados com parceiros imunes e cobertura alternativa.", "- Níveis recalibrados por etapa da campanha; berries e IVs progressivos, sem lendários adicionados.", "- Líderes e Elite Four respeitam seu tipo de especialidade.", ""]
+    report[4] = "Motor de FireRed em migração: categorias e dados numéricos modernos; efeitos ainda parcialmente de geração III. Líderes, rivais (incluindo o laboratório), chefes Rocket, Koichi, sequência dos Bikers, Elite Four e sua revanche, Campeão e Torre recebem IVs 31 e EVs treinados. E4/Campeão mantêm seus spreads definidos; os demais desafios usam função ofensiva/bulk/suporte. Os campos IV/EV das tabelas-base não substituem esse ajuste na criação do adversário. Treinadores comuns mantêm suas regras próprias. Dados externos e-Reader não foram enumerados, mas adversários criados pelo fluxo da Torre também recebem o treino. Times desta página correspondem ao randomizer desligado; ligado, espécies e golpes mudam por save, com novo treino por função."
     report = [line.replace("sem lendários adicionados.", "com lendários das referências históricas na Elite Four.").replace("Líderes e Elite Four respeitam seu tipo de especialidade.", "Líderes mantêm especialidade; Elite Four combina integrantes temáticos com parceiros dos times campeões.") for line in report]
     no_support = []
     for name, entry in results.items():
@@ -531,6 +544,13 @@ def outputs():
             training.append("        {SPECIES_%s, NATURE_%s, %d, {%s}}," % (mon["species"], mon["nature"], slot, ", ".join(map(str, mon["evs"]))))
         training.append("    },")
     training.append("};")
+    training.append('static const struct EliteFourTraining sGymTraining[8][PARTY_SIZE] = {')
+    for key in BOSSES:
+        training.append('    {')
+        for mon in results['sParty_'+key]['team']:
+            training.append('        {SPECIES_%s, NATURE_%s, %d, {%s}},' % (mon['species'],mon['nature'],mon['ability_num'],', '.join(map(str,mon['evs']))))
+        training.append('    },')
+    training.append('};')
     training.append("static const struct EliteFourTraining sChampionTraining[3][PARTY_SIZE] = {")
     for starter in ("Squirtle", "Bulbasaur", "Charmander"):
         training.append("    {")

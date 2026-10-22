@@ -1,0 +1,1109 @@
+{
+  "engine": "current-gen3",
+  "teams": {
+    "LeaderBrock": {
+      "theme": "ROCK",
+      "strategy": "Thunder Wave e Rock Tomb controlam velocidade; Omanyte pressiona Ground/Rock e Kabuto cobre Water/Ground com Absorb.",
+      "team": [
+        {
+          "species": "NOSEPASS",
+          "moves": [
+            "THUNDER_WAVE",
+            "ROCK_TOMB",
+            "TACKLE",
+            "PROTECT"
+          ],
+          "ability": "STURDY",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "nature": "CALM",
+          "item": "ORAN_BERRY",
+          "role": "support",
+          "iv": 255
+        },
+        {
+          "species": "OMANYTE",
+          "moves": [
+            "WATER_PULSE",
+            "ROCK_TOMB",
+            "PROTECT",
+            "WITHDRAW"
+          ],
+          "ability": "SHELL_ARMOR",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "ORAN_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "GEODUDE",
+          "moves": [
+            "ROCK_THROW",
+            "ROCK_TOMB",
+            "TACKLE",
+            "DEFENSE_CURL"
+          ],
+          "ability": "ROCK_HEAD",
+          "evs": [
+            252,
+            252,
+            4,
+            0,
+            0,
+            0
+          ],
+          "nature": "ADAMANT",
+          "item": "ORAN_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "KABUTO",
+          "moves": [
+            "ABSORB",
+            "ROCK_TOMB",
+            "SCRATCH",
+            "PROTECT"
+          ],
+          "ability": "BATTLE_ARMOR",
+          "evs": [
+            252,
+            252,
+            4,
+            0,
+            0,
+            0
+          ],
+          "nature": "ADAMANT",
+          "item": "ORAN_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "RHYHORN",
+          "moves": [
+            "ROCK_TOMB",
+            "PROTECT",
+            "HORN_ATTACK",
+            "TAIL_WHIP"
+          ],
+          "ability": "ROCK_HEAD",
+          "evs": [
+            252,
+            252,
+            4,
+            0,
+            0,
+            0
+          ],
+          "nature": "ADAMANT",
+          "item": "ORAN_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "ONIX",
+          "moves": [
+            "ROCK_SLIDE",
+            "ROCK_TOMB",
+            "TACKLE",
+            "PROTECT"
+          ],
+          "ability": "ROCK_HEAD",
+          "evs": [
+            252,
+            252,
+            4,
+            0,
+            0,
+            0
+          ],
+          "nature": "ADAMANT",
+          "item": "ORAN_BERRY",
+          "role": "attack",
+          "iv": 255
+        }
+      ]
+    },
+    "LeaderMisty": {
+      "theme": "WATER",
+      "strategy": "Poliwhirl abre com chuva ou Hypnosis; Fake Out de Lombre protege a preparaÃ§Ã£o e Swift Swim aproveita a chuva.",
+      "team": [
+        {
+          "species": "POLIWHIRL",
+          "moves": [
+            "RAIN_DANCE",
+            "WATER_PULSE",
+            "HYPNOSIS",
+            "PROTECT"
+          ],
+          "ability": "WATER_ABSORB",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "nature": "CALM",
+          "item": "SITRUS_BERRY",
+          "role": "support",
+          "iv": 255
+        },
+        {
+          "species": "LOMBRE",
+          "moves": [
+            "FAKE_OUT",
+            "RAZOR_LEAF",
+            "WATER_PULSE",
+            "PROTECT"
+          ],
+          "ability": "SWIFT_SWIM",
+          "evs": [
+            252,
+            252,
+            4,
+            0,
+            0,
+            0
+          ],
+          "nature": "ADAMANT",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "HORSEA",
+          "moves": [
+            "WATER_PULSE",
+            "ICE_BEAM",
+            "PROTECT",
+            "RAIN_DANCE"
+          ],
+          "ability": "SWIFT_SWIM",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "PSYDUCK",
+          "moves": [
+            "WATER_PULSE",
+            "CONFUSION",
+            "LIGHT_SCREEN",
+            "HYPNOSIS"
+          ],
+          "ability": "DAMP",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "nature": "BOLD",
+          "item": "SITRUS_BERRY",
+          "role": "support",
+          "iv": 255
+        },
+        {
+          "species": "STARYU",
+          "moves": [
+            "WATER_PULSE",
+            "THUNDER_WAVE",
+            "LIGHT_SCREEN",
+            "SWIFT"
+          ],
+          "ability": "NATURAL_CURE",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "STARMIE",
+          "moves": [
+            "WATER_PULSE",
+            "PSYCHIC",
+            "THUNDERBOLT",
+            "RECOVER"
+          ],
+          "ability": "NATURAL_CURE",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        }
+      ]
+    },
+    "LeaderLtSurge": {
+      "theme": "ELECTRIC",
+      "strategy": "Electrode prepara chuva e Lanturn usa Surf/Thunder; Volt Absorb, telas e cobertura reduzem a dependÃªncia de um Ãºnico tipo ofensivo.",
+      "team": [
+        {
+          "species": "ELECTRODE",
+          "moves": [
+            "RAIN_DANCE",
+            "THUNDER",
+            "TAUNT",
+            "LIGHT_SCREEN"
+          ],
+          "ability": "SOUNDPROOF",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "nature": "BOLD",
+          "item": "SITRUS_BERRY",
+          "role": "support",
+          "iv": 255
+        },
+        {
+          "species": "LANTURN",
+          "moves": [
+            "SURF",
+            "THUNDER",
+            "ICE_BEAM",
+            "THUNDER_WAVE"
+          ],
+          "ability": "VOLT_ABSORB",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "MANECTRIC",
+          "moves": [
+            "THUNDERBOLT",
+            "BITE",
+            "ROAR",
+            "PROTECT"
+          ],
+          "ability": "LIGHTNING_ROD",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "ELECTABUZZ",
+          "moves": [
+            "THUNDERBOLT",
+            "PSYCHIC",
+            "LIGHT_SCREEN",
+            "QUICK_ATTACK"
+          ],
+          "ability": "STATIC",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "MAGNETON",
+          "moves": [
+            "THUNDERBOLT",
+            "REFLECT",
+            "THUNDER_WAVE",
+            "PROTECT"
+          ],
+          "ability": "MAGNET_PULL",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "RAICHU",
+          "moves": [
+            "THUNDERBOLT",
+            "BRICK_BREAK",
+            "THUNDER_WAVE",
+            "QUICK_ATTACK"
+          ],
+          "ability": "STATIC",
+          "evs": [
+            4,
+            252,
+            0,
+            252,
+            0,
+            0
+          ],
+          "nature": "JOLLY",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        }
+      ]
+    },
+    "LeaderErika": {
+      "theme": "GRASS",
+      "strategy": "Tangela prepara sol ou paralisia e Shiftry usa Fake Out; Chlorophyll, Solar Beam e recuperaÃ§Ã£o aproveitam o clima.",
+      "team": [
+        {
+          "species": "TANGELA",
+          "moves": [
+            "SUNNY_DAY",
+            "STUN_SPORE",
+            "GIGA_DRAIN",
+            "REFLECT"
+          ],
+          "ability": "CHLOROPHYLL",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "nature": "CALM",
+          "item": "SITRUS_BERRY",
+          "role": "support",
+          "iv": 255
+        },
+        {
+          "species": "SHIFTRY",
+          "moves": [
+            "FAKE_OUT",
+            "THIEF",
+            "GIGA_DRAIN",
+            "PROTECT"
+          ],
+          "ability": "CHLOROPHYLL",
+          "evs": [
+            252,
+            252,
+            4,
+            0,
+            0,
+            0
+          ],
+          "nature": "ADAMANT",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "VICTREEBEL",
+          "moves": [
+            "RAZOR_LEAF",
+            "SLUDGE_BOMB",
+            "SLEEP_POWDER",
+            "PROTECT"
+          ],
+          "ability": "CHLOROPHYLL",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "BELLOSSOM",
+          "moves": [
+            "SUNNY_DAY",
+            "SOLAR_BEAM",
+            "MOONLIGHT",
+            "PROTECT"
+          ],
+          "ability": "CHLOROPHYLL",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "EXEGGUTOR",
+          "moves": [
+            "PSYCHIC",
+            "SOLAR_BEAM",
+            "REFLECT",
+            "PROTECT"
+          ],
+          "ability": "CHLOROPHYLL",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "VILEPLUME",
+          "moves": [
+            "GIGA_DRAIN",
+            "SLUDGE_BOMB",
+            "SUNNY_DAY",
+            "MOONLIGHT"
+          ],
+          "ability": "CHLOROPHYLL",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        }
+      ]
+    },
+    "LeaderKoga": {
+      "theme": "POISON",
+      "strategy": "Nidoqueen usa Earthquake ao lado de Gengar imune; Helping Hand, sono, queimadura e trÃªs parceiros imunes a Ground permitem alternar funÃ§Ãµes.",
+      "team": [
+        {
+          "species": "NIDOQUEEN",
+          "moves": [
+            "EARTHQUAKE",
+            "ROCK_SLIDE",
+            "ICE_BEAM",
+            "HELPING_HAND"
+          ],
+          "ability": "POISON_POINT",
+          "evs": [
+            252,
+            252,
+            4,
+            0,
+            0,
+            0
+          ],
+          "nature": "ADAMANT",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "GENGAR",
+          "moves": [
+            "THUNDERBOLT",
+            "PSYCHIC",
+            "WILL_O_WISP",
+            "PROTECT"
+          ],
+          "ability": "LEVITATE",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "CROBAT",
+          "moves": [
+            "TAUNT",
+            "SLUDGE_BOMB",
+            "AERIAL_ACE",
+            "BITE"
+          ],
+          "ability": "INNER_FOCUS",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "TENTACRUEL",
+          "moves": [
+            "SURF",
+            "ICE_BEAM",
+            "SLUDGE_BOMB",
+            "PROTECT"
+          ],
+          "ability": "CLEAR_BODY",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "VENOMOTH",
+          "moves": [
+            "SLEEP_POWDER",
+            "PSYCHIC",
+            "GIGA_DRAIN",
+            "STUN_SPORE"
+          ],
+          "ability": "SHIELD_DUST",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "nature": "BOLD",
+          "item": "LUM_BERRY",
+          "role": "support",
+          "iv": 255
+        },
+        {
+          "species": "WEEZING",
+          "moves": [
+            "SLUDGE_BOMB",
+            "THUNDERBOLT",
+            "FLAMETHROWER",
+            "WILL_O_WISP"
+          ],
+          "ability": "LEVITATE",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        }
+      ]
+    },
+    "LeaderSabrina": {
+      "theme": "PSYCHIC",
+      "strategy": "Fake Out e telas de Mr. Mime apoiam Espeon; Helping Hand combina com ataques especiais e Surf de Slowbro.",
+      "team": [
+        {
+          "species": "MR_MIME",
+          "moves": [
+            "FAKE_OUT",
+            "PSYCHIC",
+            "REFLECT",
+            "LIGHT_SCREEN"
+          ],
+          "ability": "SOUNDPROOF",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "nature": "BOLD",
+          "item": "LUM_BERRY",
+          "role": "support",
+          "iv": 255
+        },
+        {
+          "species": "ESPEON",
+          "moves": [
+            "HELPING_HAND",
+            "PSYCHIC",
+            "BITE",
+            "PROTECT"
+          ],
+          "ability": "SYNCHRONIZE",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "HYPNO",
+          "moves": [
+            "PSYCHIC",
+            "THUNDER_WAVE",
+            "LIGHT_SCREEN",
+            "PROTECT"
+          ],
+          "ability": "INSOMNIA",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "nature": "BOLD",
+          "item": "LUM_BERRY",
+          "role": "support",
+          "iv": 255
+        },
+        {
+          "species": "SLOWBRO",
+          "moves": [
+            "SURF",
+            "PSYCHIC",
+            "YAWN",
+            "PROTECT"
+          ],
+          "ability": "OWN_TEMPO",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "GIRAFARIG",
+          "moves": [
+            "PSYCHIC",
+            "THUNDERBOLT",
+            "CRUNCH",
+            "PROTECT"
+          ],
+          "ability": "INNER_FOCUS",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "ALAKAZAM",
+          "moves": [
+            "PSYCHIC",
+            "CALM_MIND",
+            "RECOVER",
+            "SHOCK_WAVE"
+          ],
+          "ability": "INNER_FOCUS",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        }
+      ]
+    },
+    "LeaderBlaine": {
+      "theme": "FIRE",
+      "strategy": "Ninetales prepara sol para Heat Wave de Torkoal/Arcanine; Helping Hand de Flareon amplia a pressÃ£o em ambos os adversÃ¡rios.",
+      "team": [
+        {
+          "species": "NINETALES",
+          "moves": [
+            "SUNNY_DAY",
+            "FLAMETHROWER",
+            "WILL_O_WISP",
+            "PROTECT"
+          ],
+          "ability": "FLASH_FIRE",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "nature": "BOLD",
+          "item": "LUM_BERRY",
+          "role": "support",
+          "iv": 255
+        },
+        {
+          "species": "TORKOAL",
+          "moves": [
+            "HEAT_WAVE",
+            "BODY_SLAM",
+            "AMNESIA",
+            "PROTECT"
+          ],
+          "ability": "WHITE_SMOKE",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "FLAREON",
+          "moves": [
+            "HELPING_HAND",
+            "FLAMETHROWER",
+            "SHADOW_BALL",
+            "QUICK_ATTACK"
+          ],
+          "ability": "FLASH_FIRE",
+          "evs": [
+            252,
+            0,
+            4,
+            0,
+            252,
+            0
+          ],
+          "nature": "MODEST",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "MAGMAR",
+          "moves": [
+            "FLAMETHROWER",
+            "PSYCHIC",
+            "BRICK_BREAK",
+            "PROTECT"
+          ],
+          "ability": "FLAME_BODY",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "RAPIDASH",
+          "moves": [
+            "FLAMETHROWER",
+            "DOUBLE_KICK",
+            "HYPNOSIS",
+            "PROTECT"
+          ],
+          "ability": "FLASH_FIRE",
+          "evs": [
+            4,
+            0,
+            0,
+            252,
+            252,
+            0
+          ],
+          "nature": "TIMID",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "ARCANINE",
+          "moves": [
+            "HEAT_WAVE",
+            "EXTREME_SPEED",
+            "CRUNCH",
+            "HELPING_HAND"
+          ],
+          "ability": "INTIMIDATE",
+          "evs": [
+            4,
+            252,
+            0,
+            252,
+            0,
+            0
+          ],
+          "nature": "JOLLY",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        }
+      ]
+    },
+    "LeaderGiovanni": {
+      "theme": "GROUND",
+      "strategy": "Gligar abre com imunidade a Earthquake de Donphan; Flygon mantÃ©m a opÃ§Ã£o segura e Nidoqueen oferece Helping Hand/cobertura.",
+      "team": [
+        {
+          "species": "GLIGAR",
+          "moves": [
+            "ROCK_SLIDE",
+            "AERIAL_ACE",
+            "SCREECH",
+            "PROTECT"
+          ],
+          "ability": "HYPER_CUTTER",
+          "evs": [
+            4,
+            252,
+            0,
+            252,
+            0,
+            0
+          ],
+          "nature": "JOLLY",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "DONPHAN",
+          "moves": [
+            "EARTHQUAKE",
+            "ROCK_SLIDE",
+            "BODY_SLAM",
+            "PROTECT"
+          ],
+          "ability": "STURDY",
+          "evs": [
+            252,
+            252,
+            4,
+            0,
+            0,
+            0
+          ],
+          "nature": "ADAMANT",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "FLYGON",
+          "moves": [
+            "EARTHQUAKE",
+            "DRAGON_CLAW",
+            "FLAMETHROWER",
+            "PROTECT"
+          ],
+          "ability": "LEVITATE",
+          "evs": [
+            4,
+            252,
+            0,
+            252,
+            0,
+            0
+          ],
+          "nature": "JOLLY",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "NIDOQUEEN",
+          "moves": [
+            "HELPING_HAND",
+            "ICE_BEAM",
+            "THUNDERBOLT",
+            "PROTECT"
+          ],
+          "ability": "POISON_POINT",
+          "evs": [
+            252,
+            0,
+            128,
+            0,
+            0,
+            128
+          ],
+          "nature": "CALM",
+          "item": "LUM_BERRY",
+          "role": "support",
+          "iv": 255
+        },
+        {
+          "species": "MAROWAK",
+          "moves": [
+            "BONEMERANG",
+            "ROCK_SLIDE",
+            "BRICK_BREAK",
+            "PROTECT"
+          ],
+          "ability": "ROCK_HEAD",
+          "evs": [
+            252,
+            252,
+            4,
+            0,
+            0,
+            0
+          ],
+          "nature": "ADAMANT",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        },
+        {
+          "species": "RHYDON",
+          "moves": [
+            "EARTHQUAKE",
+            "ROCK_SLIDE",
+            "MEGAHORN",
+            "PROTECT"
+          ],
+          "ability": "ROCK_HEAD",
+          "evs": [
+            252,
+            252,
+            4,
+            0,
+            0,
+            0
+          ],
+          "nature": "ADAMANT",
+          "item": "SITRUS_BERRY",
+          "role": "attack",
+          "iv": 255
+        }
+      ]
+    }
+  }
+}

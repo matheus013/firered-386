@@ -1,0 +1,16 @@
+{
+  "source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2",
+  "implemented_move_ids": [
+    1,
+    354
+  ],
+  "numeric_fields": [
+    "power",
+    "accuracy",
+    "pp",
+    "priority"
+  ],
+  "category_source": "damage_class_id",
+  "full_modern_effects": false,
+  "full_gen9_learnsets": false
+}

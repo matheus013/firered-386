@@ -30,6 +30,18 @@ int main(void)
     assert(DoublesAI_AdjustScore(100, DOUBLES_MOVE_SPREAD, &state) > 100);
     state.twoOpponents = 0;
     assert(DoublesAI_AdjustScore(100, DOUBLES_MOVE_SPREAD, &state) == 100);
+    state.effectUseful = 0;
+    assert(DoublesAI_AdjustScore(100, DOUBLES_MOVE_DAMAGING_SPEED_CONTROL, &state) == 100);
+    state.effectUseful = 1;
+    assert(DoublesAI_AdjustScore(100, DOUBLES_MOVE_DAMAGING_SPEED_CONTROL, &state) > 100);
+    state.effectAlreadyActive = 1;
+    assert(DoublesAI_AdjustScore(110, DOUBLES_MOVE_PROTECT, &state) < 100);
+    state.effectAlreadyActive = 0;
+    state.effectUseful = 0;
+    assert(DoublesAI_AdjustScore(100, DOUBLES_MOVE_RECEIVE_HELPING_HAND, &state) < 100);
+    state.effectUseful = 1;
+    assert(DoublesAI_AdjustScore(100, DOUBLES_MOVE_RECEIVE_HELPING_HAND, &state) > 100);
+    assert(DoublesAI_AdjustScore(0, DOUBLES_MOVE_RECEIVE_HELPING_HAND, &state) == 0);
     puts("PASS: partner support, inactive effects, weather, friendly fire, disabled moves and score bounds");
     return 0;
 }

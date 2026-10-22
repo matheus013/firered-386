@@ -14,8 +14,14 @@ class NativeBench:
   self.sha=hashlib.sha256((ROOT/'output/firered-386-dev.gba').read_bytes()).hexdigest()
   assert hashlib.sha256((source/'pokefirered.gba').read_bytes()).hexdigest()==self.sha
   self.path=Path(build_dir) if build_dir else Path(tempfile.mkdtemp(prefix='balance-fixture-',dir=Path.home()/'.cache/firered-386'))
+  provenance=self.path/'benchmark-base.json'
+  if build_dir:
+   if not provenance.exists() or json.loads(provenance.read_text()).get('rom_sha256')!=self.sha:
+    raise ValueError('Benchmark fixture is stale or has no base-ROM provenance; create a fresh fixture from the current build.')
+  else:
+   shutil.copytree(source,self.path,dirs_exist_ok=True)
+   provenance.write_text(json.dumps({'rom_sha256':self.sha,'source_build':str(source)},indent=2)+'\n')
   (self.out/'build-path.txt').write_text(str(self.path)+'\n')
-  if not build_dir:shutil.copytree(source,self.path,dirs_exist_ok=True)
   if not reuse:
    suffix='_baseline.c' if baseline else '.c'
    main=(source/'src/main.c').read_text();hook=(ROOT/('scripts/balance_fixture'+suffix)).read_text()
@@ -75,6 +81,5 @@ if __name__=='__main__':
  import argparse
  parser=argparse.ArgumentParser();parser.add_argument('--build-dir');parser.add_argument('--baseline',action='store_true');args=parser.parse_args()
  core=NativeBench(args.build_dir,baseline=args.baseline)
- mon={'species':'BULBASAUR','level':5,'iv':15,'nature':'HARDY','evs':[0]*6,'moves':['TACKLE','GROWL','NONE','NONE']}
- print(core.battle('TRAINER_RIVAL_OAKS_LAB_CHARMANDER',0,0,0,False,[mon],seed=15,started=False),flush=True)
+ print('Built benchmark fixture:',core.path,'base ROM SHA-256:',core.sha,flush=True)
  core.close()

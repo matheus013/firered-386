@@ -56,7 +56,7 @@
           "moves": [
             "SURF",
             "ICE_BEAM",
-            "TOXIC",
+            "SPIKES",
             "PROTECT"
           ],
           "nature": "MODEST",
