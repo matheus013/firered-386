@@ -692,6 +692,38 @@ index d880bf6..92bd78e 100644
 +	def_special Training_UseCenter
 +	def_special Randomizer_PrepareStarter
  gSpecialsEnd::
+diff --git a/include/battle.h b/include/battle.h
+index ea91a3a..099de2a 100644
+--- a/include/battle.h
++++ b/include/battle.h
+@@ -292,25 +292,16 @@ struct UsedMoves
+     u16 unknown[MAX_BATTLERS_COUNT];
+ };
+ 
+-#ifndef BUGFIX
+-struct BattleHistory
+-{
+-    /*0x00*/ struct UsedMoves usedMoves[MAX_BATTLERS_COUNT / 2]; // 0xFFFF means move not used (confuse self hit, etc)
+-    /*0x20*/ u8 abilities[MAX_BATTLERS_COUNT / 2];
+-    /*0x22*/ u8 itemEffects[MAX_BATTLERS_COUNT / 2];
+-    /*0x24*/ u16 trainerItems[MAX_BATTLERS_COUNT];
+-    /*0x2C*/ u8 itemsNo;
+-};
+-#else
+ struct BattleHistory
+ {
+     struct UsedMoves usedMoves[MAX_BATTLERS_COUNT]; // 0xFFFF means move not used (confuse self hit, etc)
+     u8 abilities[MAX_BATTLERS_COUNT];
+     u8 itemEffects[MAX_BATTLERS_COUNT];
++    u8 partyIndexes[MAX_BATTLERS_COUNT]; // party slot + 1; zero means unobserved
+     u16 trainerItems[MAX_BATTLERS_COUNT];
+     u8 itemsNo;
+ };
+-#endif
++
+ 
+ struct BattleScriptsStack
+ {
 diff --git a/include/battle_scripts.h b/include/battle_scripts.h
 index ed2af35..a62ff10 100644
 --- a/include/battle_scripts.h
@@ -854,7 +886,7 @@ index 9a4b450..1c3fc43 100644
          src/field_specials.o(.rodata);
          src/battle_records.o(.rodata);
 diff --git a/src/battle_ai_script_commands.c b/src/battle_ai_script_commands.c
-index 74a3077..c7cf63e 100644
+index 74a3077..0bc5c90 100644
 --- a/src/battle_ai_script_commands.c
 +++ b/src/battle_ai_script_commands.c
 @@ -5,6 +5,7 @@
@@ -865,16 +897,69 @@ index 74a3077..c7cf63e 100644
  #include "constants/abilities.h"
  #include "constants/battle_ai.h"
  #include "constants/battle_move_effects.h"
-@@ -364,11 +365,131 @@ void BattleAI_SetupAIData(void)
+@@ -138,6 +139,7 @@ static void Cmd_if_target_taunted(void);
+ static void Cmd_if_target_not_taunted(void);
+ 
+ static void RecordLastUsedMoveByTarget(void);
++static void AISyncBattlerHistory(u8 battler);
+ static void BattleAI_DoAIProcessing(void);
+ static void AIStackPushVar(const u8 *ptr);
+ static bool8 AIStackPop(void);
+@@ -292,6 +294,8 @@ void BattleAI_SetupAIData(void)
+     u8 *data = (u8 *)AI_THINKING_STRUCT;
+     u8 moveLimitations;
+ 
++    for (i = 0; i < gBattlersCount; i++)
++        AISyncBattlerHistory(i);
+     // Clear AI data.
+     for (i = 0; i < sizeof(struct AI_ThinkingStruct); i++)
+         data[i] = 0;
+@@ -316,11 +320,8 @@ void BattleAI_SetupAIData(void)
+     // Decide a random target battlerId in doubles.
+     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+     {
+-#ifndef BUGFIX
+-        gBattlerTarget = (Random() & BIT_FLANK);
+-#else
+         gBattlerTarget = (Random() & BIT_FLANK) + BATTLE_OPPOSITE(GetBattlerSide(gActiveBattler));
+-#endif
++
+ 
+         if (gAbsentBattlerFlags & gBitTable[gBattlerTarget])
+             gBattlerTarget ^= BIT_FLANK;
+@@ -364,12 +365,246 @@ void BattleAI_SetupAIData(void)
      AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags;
  }
  
 -u8 BattleAI_ChooseMoveOrAction(void)
++// Avoid AbilityBattleEffects here: evaluation must not trigger ability messages.
++static bool8 AIWeatherHasEffect(void)
++{
++    u8 i;
++    for (i = 0; i < gBattlersCount; i++)
++        if (!(gAbsentBattlerFlags & gBitTable[i]) && gBattleMons[i].hp
++         && (gBattleMons[i].ability == ABILITY_CLOUD_NINE || gBattleMons[i].ability == ABILITY_AIR_LOCK))
++            return FALSE;
++    return TRUE;
++}
++
++static bool8 AIInflictsStatus(u16 move)
++{
++    switch (gBattleMoves[move].effect)
++    {
++    case EFFECT_SLEEP:
++    case EFFECT_POISON:
++    case EFFECT_TOXIC:
++    case EFFECT_PARALYZE:
++    case EFFECT_WILL_O_WISP:
++    case EFFECT_YAWN:
++        return TRUE;
++    }
++    return FALSE;
++}
++
 +static void ApplyDoublesScores(void)
- {
--    u8 currentMoveArray[MAX_MON_MOVES];
--    u8 consideredMoveArray[MAX_MON_MOVES];
--    u8 numOfBestMoves;
++{
 +    s32 i, j;
 +    u8 partner = BATTLE_PARTNER(gBattlerAttacker);
 +    struct DoublesAIContext context = {0};
@@ -971,19 +1056,32 @@ index 74a3077..c7cf63e 100644
 +                kind = DOUBLES_MOVE_FRIENDLY_FIRE;
 +                context.partnerImmune = gBattleMoves[move].type == TYPE_GROUND
 +                    && (IS_BATTLER_OF_TYPE(partner, TYPE_FLYING) || gBattleMons[partner].ability == ABILITY_LEVITATE);
++                // Protect/Detect are priority +4; ordinary spread attacks follow.
++                if (context.partnerAlive && gChosenActionByBattler[partner] == B_ACTION_USE_MOVE
++                 && (gChosenMoveByBattler[partner] == MOVE_PROTECT || gChosenMoveByBattler[partner] == MOVE_DETECT)
++                 && !(gBattleMons[partner].status1 & (STATUS1_SLEEP | STATUS1_FREEZE))
++                 && !(gBattleMons[partner].ability == ABILITY_TRUANT && gDisableStructs[partner].truantCounter)
++                 && gDisableStructs[partner].protectUses == 0)
++                    context.partnerImmune = TRUE;
 +            }
 +            break;
 +        }
 +        if (context.partnerAlive && gChosenMoveByBattler[partner] == move
 +         && (kind == DOUBLES_MOVE_SCREEN || kind == DOUBLES_MOVE_WEATHER))
 +            context.effectAlreadyActive = TRUE;
-+        if (kind == DOUBLES_MOVE_WEATHER
-+         && (gBattleMons[gBattlerAttacker].ability == ABILITY_CLOUD_NINE
-+          || gBattleMons[gBattlerAttacker].ability == ABILITY_AIR_LOCK
-+          || (context.partnerAlive && (gBattleMons[partner].ability == ABILITY_CLOUD_NINE
-+                                   || gBattleMons[partner].ability == ABILITY_AIR_LOCK))))
++        if (kind == DOUBLES_MOVE_WEATHER && !AIWeatherHasEffect())
 +            context.effectUseful = FALSE;
 +        AI_THINKING_STRUCT->score[i] = DoublesAI_AdjustScore(AI_THINKING_STRUCT->score[i], kind, &context);
++        // Two major statuses cannot coexist. Spread the own side's status
++        // attempts across targets instead of spending both actions on one.
++        if (context.partnerAlive && AIInflictsStatus(move)
++         && gChosenActionByBattler[partner] == B_ACTION_USE_MOVE
++         && AIInflictsStatus(gChosenMoveByBattler[partner])
++         && gBattleStruct->moveTarget[partner] == gBattlerTarget)
++        {
++            s32 score = AI_THINKING_STRUCT->score[i];
++            AI_THINKING_STRUCT->score[i] = score > 12 ? score - 12 : 0;
++        }
 +        if (gBattleMoves[move].power != 0 && gBattleMoves[move].target == MOVE_TARGET_BOTH)
 +            AI_THINKING_STRUCT->score[i] = DoublesAI_AdjustScore(AI_THINKING_STRUCT->score[i], DOUBLES_MOVE_SPREAD, &context);
 +        if (context.partnerAlive && gChosenMoveByBattler[partner] == MOVE_HELPING_HAND)
@@ -994,14 +1092,93 @@ index 74a3077..c7cf63e 100644
 +    }
 +}
 +
++// Accuracy-weighted fraction of current HP, capped at a knockout. Use only
++// visible combatants and our own moves; never read the player's chosen action.
++static s32 AIDamageValue(u16 move, u8 target)
+ {
+-    u8 currentMoveArray[MAX_MON_MOVES];
+-    u8 consideredMoveArray[MAX_MON_MOVES];
+-    u8 numOfBestMoves;
++    s32 damage, value, savedDamage = gBattleMoveDamage;
++    u16 savedMove = gCurrentMove, savedPower = gDynamicBasePower, savedMovePower = gBattleMovePower;
++    u8 savedType = gBattleStruct->dynamicMoveType, savedCrit = gCritMultiplier;
++    u8 savedMultiplier = gBattleScripting.dmgMultiplier, savedFlags = gMoveResultFlags;
++    u8 flags, accuracy = gBattleMoves[move].accuracy;
++
++    if (!gBattleMoves[move].power || !gBattleMons[target].hp)
++        return 0;
++    gCurrentMove = move;
++    gDynamicBasePower = 0;
++    gBattleStruct->dynamicMoveType = 0;
++    gCritMultiplier = 1;
++    gBattleScripting.dmgMultiplier = 1;
++    gMoveResultFlags = 0;
++    if (gBattleMoves[move].effect == EFFECT_RETURN)
++        gDynamicBasePower = 10 * gBattleMons[gBattlerAttacker].friendship / 25;
++    else if (gBattleMoves[move].effect == EFFECT_FRUSTRATION)
++        gDynamicBasePower = 10 * (255 - gBattleMons[gBattlerAttacker].friendship) / 25;
++    else if (gBattleMoves[move].effect == EFFECT_ERUPTION)
++    {
++        gDynamicBasePower = gBattleMons[gBattlerAttacker].hp * gBattleMoves[move].power / gBattleMons[gBattlerAttacker].maxHP;
++        if (!gDynamicBasePower) gDynamicBasePower = 1;
++    }
++    AI_CalcDmg(gBattlerAttacker, target);
++    flags = TypeCalc(move, gBattlerAttacker, target);
++    damage = gBattleMoveDamage;
++    switch (gBattleMoves[move].effect)
++    {
++    case EFFECT_LEVEL_DAMAGE: damage = gBattleMons[gBattlerAttacker].level; break;
++    case EFFECT_DRAGON_RAGE: damage = 40; break;
++    case EFFECT_SONICBOOM: damage = 20; break;
++    case EFFECT_SUPER_FANG: damage = gBattleMons[target].hp / 2; break;
++    // These require a future hit or random power, not the power-1 placeholder.
++    case EFFECT_COUNTER:
++    case EFFECT_MIRROR_COAT: damage = 0; break;
++    }
++    if ((flags & MOVE_RESULT_NO_EFFECT)
++     || (gBattleMoves[move].type == TYPE_WATER && gBattleMons[target].ability == ABILITY_WATER_ABSORB)
++     || (gBattleMoves[move].type == TYPE_ELECTRIC && gBattleMons[target].ability == ABILITY_VOLT_ABSORB)
++     || (gBattleMoves[move].type == TYPE_FIRE && gBattleMons[target].ability == ABILITY_FLASH_FIRE))
++        damage = 0;
++    if (move == MOVE_THUNDER && AIWeatherHasEffect())
++    {
++        if (gBattleWeather & B_WEATHER_RAIN) accuracy = 100;
++        else if (gBattleWeather & B_WEATHER_SUN) accuracy = 50;
++    }
++    value = damage * 1000 / gBattleMons[target].hp;
++    if (value > 1000) value = 1000;
++    if (accuracy) value = value * accuracy / 100;
++    gCurrentMove = savedMove;
++    gDynamicBasePower = savedPower;
++    gBattleStruct->dynamicMoveType = savedType;
++    gCritMultiplier = savedCrit;
++    gBattleScripting.dmgMultiplier = savedMultiplier;
++    gMoveResultFlags = savedFlags;
++    gBattleMoveDamage = savedDamage;
++    gBattleMovePower = savedMovePower;
++    return value;
++}
++
++static s32 AIMoveDamageValue(u16 move)
++{
++    s32 value = AIDamageValue(move, gBattlerTarget);
++    u8 other = BATTLE_PARTNER(gBattlerTarget);
++    if ((gBattleMoves[move].target == MOVE_TARGET_BOTH || gBattleMoves[move].target == MOVE_TARGET_FOES_AND_ALLY)
++     && !(gAbsentBattlerFlags & gBitTable[other]) && gBattleMons[other].hp)
++        value += AIDamageValue(move, other);
++    return value;
++}
++
 +static u8 ChooseMoveForTarget(void)
 +{
 +    u8 bestMove = 0, bestScore = 0, ties = 0;
 +    u8 limitations;
      s32 i;
++    s32 damage, bestDamage = -1;
  
      RecordLastUsedMoveByTarget();
-@@ -390,26 +511,79 @@ u8 BattleAI_ChooseMoveOrAction(void)
+     while (AI_THINKING_STRUCT->aiFlags != 0)
+@@ -390,26 +625,70 @@ u8 BattleAI_ChooseMoveOrAction(void)
      if (AI_THINKING_STRUCT->aiAction & AI_ACTION_WATCH)
          return AI_CHOICE_WATCH;
  
@@ -1017,17 +1194,20 @@ index 74a3077..c7cf63e 100644
 -        if (currentMoveArray[0] < AI_THINKING_STRUCT->score[i])
 +        if (limitations & gBitTable[i])
 +            continue;
-+        if (ties == 0 || bestScore < AI_THINKING_STRUCT->score[i])
++        damage = (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) ? AIMoveDamageValue(gBattleMons[gBattlerAttacker].moves[i]) : 0;
++        if (ties == 0 || bestScore < AI_THINKING_STRUCT->score[i]
++         || (bestScore == AI_THINKING_STRUCT->score[i] && damage > bestDamage))
          {
 -            numOfBestMoves = 1;
 -            currentMoveArray[0] = AI_THINKING_STRUCT->score[i];
 -            consideredMoveArray[0] = i;
 +            bestScore = AI_THINKING_STRUCT->score[i];
 +            bestMove = i;
++            bestDamage = damage;
 +            ties = 1;
          }
 -        if (currentMoveArray[0] == AI_THINKING_STRUCT->score[i])
-+        else if (bestScore == AI_THINKING_STRUCT->score[i] && Random() % ++ties == 0)
++        else if (bestScore == AI_THINKING_STRUCT->score[i] && damage == bestDamage && Random() % ++ties == 0)
 +            bestMove = i;
 +    }
 +    return bestMove; // All moves blocked is handled as Struggle by the controller.
@@ -1056,25 +1236,13 @@ index 74a3077..c7cf63e 100644
 +        if (move >= MAX_MON_MOVES)
 +            return move;
 +        score = AI_THINKING_STRUCT->score[move];
-+        damage = 0;
-+        gCurrentMove = gBattleMons[gBattlerAttacker].moves[move];
-+        if (gBattleMoves[gCurrentMove].power > 1)
-         {
--            currentMoveArray[numOfBestMoves] = AI_THINKING_STRUCT->score[i];
--            consideredMoveArray[numOfBestMoves++] = i;
-+            gDynamicBasePower = 0;gBattleStruct->dynamicMoveType = 0;
-+            gCritMultiplier = 1;gBattleScripting.dmgMultiplier = 1;gMoveResultFlags = 0;
-+            AI_CalcDmg(gBattlerAttacker, target);
-+            TypeCalc(gCurrentMove, gBattlerAttacker, target);
-+            damage = gBattleMoveDamage * 1000 / gBattleMons[target].hp;
-+            if (damage > 1000) damage = 1000;
-+            if (gBattleMoves[gCurrentMove].accuracy != 0)
-+                damage = damage * gBattleMoves[gCurrentMove].accuracy / 100;
-+        }
++        damage = AIMoveDamageValue(gBattleMons[gBattlerAttacker].moves[move]);
 +        // Native script scores often tie across targets even for a resisted hit.
 +        // Prefer effective damage within that tie; do not override support scores.
 +        if (score > bestScore || (score == bestScore && damage > bestDamage))
-+        {
+         {
+-            currentMoveArray[numOfBestMoves] = AI_THINKING_STRUCT->score[i];
+-            consideredMoveArray[numOfBestMoves++] = i;
 +            bestScore = score;
 +            bestDamage = damage;
 +            bestMove = move;
@@ -1094,6 +1262,418 @@ index 74a3077..c7cf63e 100644
  }
  
  static void BattleAI_DoAIProcessing(void)
+@@ -459,20 +738,25 @@ static void BattleAI_DoAIProcessing(void)
+     }
+ }
+ 
++static void AISyncBattlerHistory(u8 battler)
++{
++    u8 slot = gBattlerPartyIndexes[battler] + 1;
++    if (BATTLE_HISTORY->partyIndexes[battler] != slot)
++    {
++        memset(&BATTLE_HISTORY->usedMoves[battler], 0, sizeof(struct UsedMoves));
++        BATTLE_HISTORY->abilities[battler] = 0;
++        BATTLE_HISTORY->itemEffects[battler] = 0;
++        BATTLE_HISTORY->partyIndexes[battler] = slot;
++    }
++}
++
+ static void RecordLastUsedMoveByTarget(void)
+ {
+     s32 i;
+ 
+-#ifndef BUGFIX // Loops to 8 and divides by 2 instead of looping to 4
+-    for (i = 0; i < MAX_MON_MOVES * 2; i++)
+-    {
+-        if (BATTLE_HISTORY->usedMoves[gBattlerTarget >> 1].moves[i] == MOVE_NONE)
+-        {
+-            BATTLE_HISTORY->usedMoves[gBattlerTarget >> 1].moves[i] = gLastMoves[gBattlerTarget];
+-            break;
+-        }
+-    }
+-#else
++    AISyncBattlerHistory(gBattlerTarget);
++    if (gLastMoves[gBattlerTarget] == MOVE_NONE || gLastMoves[gBattlerTarget] >= MOVES_COUNT)
++        return;
+     for (i = 0; i < MAX_MON_MOVES; i++)
+     {
+         if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gLastMoves[gBattlerTarget])
+@@ -484,7 +768,7 @@ static void RecordLastUsedMoveByTarget(void)
+             break;
+         }
+     }
+-#endif
++
+ }
+ 
+ // not used
+@@ -492,33 +776,23 @@ static void ClearBattlerMoveHistory(u8 battlerId)
+ {
+     s32 i;
+ 
+-#ifndef BUGFIX // Loops to 8 and divides by 2 instead of looping to 4
+-    for (i = 0; i < MAX_MON_MOVES * 2; i++)
+-        BATTLE_HISTORY->usedMoves[battlerId >> 1].moves[i] = MOVE_NONE;
+-#else
+     for (i = 0; i < MAX_MON_MOVES; i++)
+         BATTLE_HISTORY->usedMoves[battlerId].moves[i] = MOVE_NONE;
+-#endif
++
+ }
+ 
+ void RecordAbilityBattle(u8 battlerId, u8 abilityId)
+ {
+-#ifndef BUGFIX // Only records one ability for the whole side
+-    if (GetBattlerSide(battlerId) == 0)
+-        BATTLE_HISTORY->abilities[GET_BATTLER_SIDE(battlerId)] = abilityId;
+-#else
++    AISyncBattlerHistory(battlerId);
+     BATTLE_HISTORY->abilities[battlerId] = abilityId;
+-#endif
++
+ }
+ 
+ void RecordItemEffectBattle(u8 battlerId, u8 itemEffect)
+ {
+-#ifndef BUGFIX // Only records one item for the whole side
+-    if (GetBattlerSide(battlerId) == 0)
+-        BATTLE_HISTORY->itemEffects[GET_BATTLER_SIDE(battlerId)] = itemEffect;
+-#else
++    AISyncBattlerHistory(battlerId);
+     BATTLE_HISTORY->itemEffects[battlerId] = itemEffect;
+-#endif
++
+ }
+ 
+ static void Cmd_if_random_less_than(void)
+@@ -1028,9 +1302,11 @@ static void Cmd_get_how_powerful_move_is(void)
+             {
+                 gCurrentMove = gBattleMons[gBattlerAttacker].moves[checkedMove];
+                 AI_CalcDmg(gBattlerAttacker, gBattlerTarget);
+-                TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
++                gMoveResultFlags = TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
+                 moveDmgs[checkedMove] = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[checkedMove] / 100;
+-                if (moveDmgs[checkedMove] == 0)
++                if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
++                    moveDmgs[checkedMove] = 0;
++                else if (moveDmgs[checkedMove] == 0)
+                     moveDmgs[checkedMove] = 1;
+             }
+             else
+@@ -1175,18 +1451,6 @@ static void Cmd_get_ability(void)
+     else
+         battlerId = gBattlerTarget;
+ 
+-#ifndef BUGFIX // Only considers one ability for the whole side
+-    if (GetBattlerSide(battlerId) == AI_TARGET)
+-    {
+-        u16 side = GET_BATTLER_SIDE(battlerId);
+-
+-        if (BATTLE_HISTORY->abilities[side] != 0)
+-        {
+-            AI_THINKING_STRUCT->funcResult = BATTLE_HISTORY->abilities[side];
+-            sAIScriptPtr += 2;
+-            return;
+-        }
+-#else
+     if (gActiveBattler != battlerId)
+     {
+         if (BATTLE_HISTORY->abilities[battlerId] != 0)
+@@ -1195,7 +1459,7 @@ static void Cmd_get_ability(void)
+             sAIScriptPtr += 2;
+             return;
+         }
+-#endif
++
+         // abilities that prevent fleeing.
+         if (gBattleMons[battlerId].ability == ABILITY_SHADOW_TAG
+         || gBattleMons[battlerId].ability == ABILITY_MAGNET_PULL
+@@ -1256,7 +1520,7 @@ static void Cmd_get_highest_type_effectiveness(void)
+ 
+         if (gCurrentMove != MOVE_NONE)
+         {
+-            TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
++            gMoveResultFlags = TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
+ 
+             if (gBattleMoveDamage == 120) // Super effective STAB.
+                 gBattleMoveDamage = AI_EFFECTIVENESS_x2;
+@@ -1291,7 +1555,7 @@ static void Cmd_if_type_effectiveness(void)
+     gBattleMoveDamage = AI_EFFECTIVENESS_x1;
+     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
+ 
+-    TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
++    gMoveResultFlags = TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
+ 
+     if (gBattleMoveDamage == 120) // Super effective STAB.
+         gBattleMoveDamage = AI_EFFECTIVENESS_x2;
+@@ -1528,7 +1792,12 @@ static void Cmd_if_can_faint(void)
+     gCritMultiplier = 1;
+     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
+     AI_CalcDmg(gBattlerAttacker, gBattlerTarget);
+-    TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
++    gMoveResultFlags = TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
++    if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
++    {
++        sAIScriptPtr += 5;
++        return;
++    }
+ 
+     gBattleMoveDamage = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] / 100;
+ 
+@@ -1557,7 +1826,12 @@ static void Cmd_if_cant_faint(void)
+     gCritMultiplier = 1;
+     gCurrentMove = AI_THINKING_STRUCT->moveConsidered;
+     AI_CalcDmg(gBattlerAttacker, gBattlerTarget);
+-    TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
++    gMoveResultFlags = TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
++    if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
++    {
++        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 1);
++        return;
++    }
+ 
+     gBattleMoveDamage = gBattleMoveDamage * AI_THINKING_STRUCT->simulatedRNG[AI_THINKING_STRUCT->movesetIndex] / 100;
+ 
+@@ -1569,180 +1843,57 @@ static void Cmd_if_cant_faint(void)
+         sAIScriptPtr += 5;
+ }
+ 
+-static void Cmd_if_has_move(void)
++// The AI knows its own side's moves and only observed moves of opponents.
++static bool8 AIHasMove(u8 who, u16 value, bool8 byEffect)
+ {
+-    s32 i;
+-    const u16 *movePtr = (u16 *)(sAIScriptPtr + 2);
+-
+-    switch (sAIScriptPtr[1])
++    u8 battler = (who == AI_USER || who == AI_USER_PARTNER) ? gBattlerAttacker : gBattlerTarget;
++    u8 i;
++    u16 move;
++    if (who == AI_USER_PARTNER || who == AI_TARGET_PARTNER)
++        battler = BATTLE_PARTNER(battler);
++    if ((gAbsentBattlerFlags & gBitTable[battler]) || !gBattleMons[battler].hp)
++        return FALSE;
++    for (i = 0; i < MAX_MON_MOVES; i++)
+     {
+-    case AI_USER:
+-    case AI_USER_PARTNER:
+-        for (i = 0; i < MAX_MON_MOVES; i++)
+-        {
+-            if (gBattleMons[gBattlerAttacker].moves[i] == *movePtr)
+-                break;
+-        }
+-        if (i == MAX_MON_MOVES)
+-            sAIScriptPtr += 8;
+-        else
+-            sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 4);
+-        break;
+-    case AI_TARGET:
+-    case AI_TARGET_PARTNER:
+-#ifndef BUGFIX // Loops to 8 and divides by 2 instead of looping to 4
+-        for (i = 0; i < MAX_MON_MOVES * 2; i++)
+-        {
+-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget >> 1].moves[i] == *movePtr)
+-                break;
+-        }
+-        if (i == MAX_MON_MOVES * 2)
+-            sAIScriptPtr += 8;
+-#else
+-        for (i = 0; i < MAX_MON_MOVES; i++)
+-        {
+-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == *movePtr)
+-                break;
+-        }
+-        if (i == MAX_MON_MOVES)
+-            sAIScriptPtr += 8;
+-#endif
+-        else
+-            sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 4);
+-        break;
++        move = GetBattlerSide(battler) == GetBattlerSide(gBattlerAttacker)
++            ? gBattleMons[battler].moves[i] : BATTLE_HISTORY->usedMoves[battler].moves[i];
++        if (move != MOVE_NONE && move < MOVES_COUNT
++         && (byEffect ? gBattleMoves[move].effect == value : move == value))
++            return TRUE;
+     }
++    return FALSE;
+ }
+ 
+-static void Cmd_if_doesnt_have_move(void)
++static void Cmd_if_has_move(void)
+ {
+-    s32 i;
+-    const u16 *movePtr = (u16 *)(sAIScriptPtr + 2);
++    if (AIHasMove(sAIScriptPtr[1], T1_READ_16(sAIScriptPtr + 2), FALSE))
++        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 4);
++    else
++        sAIScriptPtr += 8;
++}
+ 
+-    switch (sAIScriptPtr[1])
+-    {
+-    case AI_USER:
+-    case AI_USER_PARTNER:
+-        for (i = 0; i < MAX_MON_MOVES; i++)
+-        {
+-            if (gBattleMons[gBattlerAttacker].moves[i] == *movePtr)
+-                break;
+-        }
+-        if (i != MAX_MON_MOVES)
+-            sAIScriptPtr += 8;
+-        else
+-            sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 4);
+-        break;
+-    case AI_TARGET:
+-    case AI_TARGET_PARTNER:
+-#ifndef BUGFIX // Loops to 8 and divides by 2 instead of looping to 4
+-        for (i = 0; i < MAX_MON_MOVES * 2; i++)
+-        {
+-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget >> 1].moves[i] == *movePtr)
+-                break;
+-        }
+-        if (i != 8)
+-            sAIScriptPtr += 8;
+-#else
+-        for (i = 0; i < MAX_MON_MOVES; i++)
+-        {
+-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == *movePtr)
+-                break;
+-        }
+-        if (i != MAX_MON_MOVES)
+-            sAIScriptPtr += 8;
+-#endif
+-        else
+-            sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 4);
+-        break;
+-    }
++static void Cmd_if_doesnt_have_move(void)
++{
++    if (!AIHasMove(sAIScriptPtr[1], T1_READ_16(sAIScriptPtr + 2), FALSE))
++        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 4);
++    else
++        sAIScriptPtr += 8;
+ }
+ 
+ static void Cmd_if_has_move_with_effect(void)
+ {
+-    s32 i;
+-
+-    switch (sAIScriptPtr[1])
+-    {
+-    case AI_USER:
+-    case AI_USER_PARTNER:
+-        for (i = 0; i < MAX_MON_MOVES; i++)
+-        {
+-            if (gBattleMons[gBattlerAttacker].moves[i] != 0 && gBattleMoves[gBattleMons[gBattlerAttacker].moves[i]].effect == sAIScriptPtr[2])
+-                break;
+-        }
+-        if (i != MAX_MON_MOVES)
+-            sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 3);
+-        else
+-            sAIScriptPtr += 7;
+-        break;
+-    case AI_TARGET:
+-    case AI_TARGET_PARTNER:
+-/*  3 bugs here:
+-    1: loops 8 times instead of 4
+-    2: checks attacker's moves instead of AI's moves
+-    3: never checks i, so the entire check is useless and there's never a jump
+-    bugs 1 and 3 were fixed in emerald, bug 2 was not
+-*/
+-#ifndef BUGFIX
+-        for (i = 0; i < MAX_MON_MOVES * 2; i++)
+-        {
+-            if (gBattleMons[gBattlerAttacker].moves[i] != 0 && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget >> 1].moves[i]].effect == sAIScriptPtr[2])
+-                break;
+-        }
++    if (AIHasMove(sAIScriptPtr[1], sAIScriptPtr[2], TRUE))
+         sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 3);
+-#else
+-        for (i = 0; i < MAX_MON_MOVES; i++)
+-        {
+-            if (gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == sAIScriptPtr[2])
+-                break;
+-        }
+-        if (i == MAX_MON_MOVES)
+-            sAIScriptPtr += 7;
+-        else
+-            sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 3);
+-#endif
+-    }
++    else
++        sAIScriptPtr += 7;
+ }
+ 
+ static void Cmd_if_doesnt_have_move_with_effect(void)
+ {
+-    s32 i;
+-
+-    switch (sAIScriptPtr[1])
+-    {
+-    case AI_USER:
+-    case AI_USER_PARTNER:
+-        for (i = 0; i < MAX_MON_MOVES; i++)
+-        {
+-            if (gBattleMons[gBattlerAttacker].moves[i] != 0 && gBattleMoves[gBattleMons[gBattlerAttacker].moves[i]].effect == sAIScriptPtr[2])
+-                break;
+-        }
+-        if (i != MAX_MON_MOVES)
+-            sAIScriptPtr += 7;
+-        else
+-            sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 3);
+-        break;
+-    case AI_TARGET:
+-    case AI_TARGET_PARTNER:
+-#ifndef BUGFIX // Same 3 bugs as last function
+-        for (i = 0; i < MAX_MON_MOVES * 2; i++)
+-        {
+-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget >> 1].moves[i] != 0 && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget >> 1].moves[i]].effect == sAIScriptPtr[2])
+-                break;
+-        }
++    if (!AIHasMove(sAIScriptPtr[1], sAIScriptPtr[2], TRUE))
++        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 3);
++    else
+         sAIScriptPtr += 7;
+-#else
+-        for (i = 0; i < MAX_MON_MOVES; i++)
+-        {
+-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == sAIScriptPtr[2])
+-                break;
+-        }
+-        if (i != MAX_MON_MOVES)
+-            sAIScriptPtr += 7;
+-        else
+-            sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 3);
+-#endif
+-    }
+ }
+ 
+ static void Cmd_if_any_move_disabled_or_encored(void)
+@@ -1834,23 +1985,15 @@ static void Cmd_watch(void)
+ static void Cmd_get_hold_effect(void)
+ {
+     u8 battlerId;
+-    u16 side;
+ 
+     if (sAIScriptPtr[1] == AI_USER)
+         battlerId = gBattlerAttacker;
+     else
+         battlerId = gBattlerTarget;
+ 
+-#ifndef BUGFIX // Only considers one hold effect for the whole side
+-    if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+-    {
+-        side = GET_BATTLER_SIDE(battlerId);
+-        AI_THINKING_STRUCT->funcResult = BATTLE_HISTORY->itemEffects[side];
+-    }
+-#else
+     if (gActiveBattler != battlerId)
+         AI_THINKING_STRUCT->funcResult = BATTLE_HISTORY->itemEffects[battlerId];
+-#endif
++
+     else
+         AI_THINKING_STRUCT->funcResult = ItemId_GetHoldEffect(gBattleMons[battlerId].item);
+ 
 diff --git a/src/battle_controller_player.c b/src/battle_controller_player.c
 index d8e1fe7..b8816eb 100644
 --- a/src/battle_controller_player.c
@@ -19282,7 +19862,7 @@ index 0aa21e8..1ae66e6 100644
                                          | TMHM(TM11_SUNNY_DAY)
                                          | TMHM(TM12_TAUNT)
 diff --git a/src/data/trainer_parties.h b/src/data/trainer_parties.h
-index 2e57800..5743910 100644
+index 2e57800..a7145c1 100644
 --- a/src/data/trainer_parties.h
 +++ b/src/data/trainer_parties.h
 @@ -111,3609 +111,5166 @@ static const struct TrainerMonNoItemDefaultMoves sParty_EliteFourGlacia[] = {DUM
@@ -29578,7 +30158,7 @@ index 2e57800..5743910 100644
 +        .lvl = 84,
 +        .species = SPECIES_GENGAR,
 +        .heldItem = ITEM_LUM_BERRY,
-+        .moves = {MOVE_THUNDERBOLT, MOVE_PSYCHIC, MOVE_WILL_O_WISP, MOVE_PROTECT},
++        .moves = {MOVE_THUNDERBOLT, MOVE_SHADOW_BALL, MOVE_WILL_O_WISP, MOVE_PROTECT},
      },
      {
 -        .iv = 250,
@@ -29660,7 +30240,7 @@ index 2e57800..5743910 100644
 +        .lvl = 87,
 +        .species = SPECIES_GENGAR,
 +        .heldItem = ITEM_LUM_BERRY,
-+        .moves = {MOVE_THUNDERBOLT, MOVE_PSYCHIC, MOVE_WILL_O_WISP, MOVE_PROTECT},
++        .moves = {MOVE_THUNDERBOLT, MOVE_SHADOW_BALL, MOVE_WILL_O_WISP, MOVE_PROTECT},
      },
      {
 -        .iv = 250,
@@ -39385,7 +39965,7 @@ index 2e57800..5743910 100644
 -        .heldItem = ITEM_NONE,
 -        .moves = {MOVE_SHADOW_BALL, MOVE_PSYCHIC, MOVE_CONFUSE_RAY, MOVE_HYPNOSIS},
 +        .heldItem = ITEM_LUM_BERRY,
-+        .moves = {MOVE_THUNDERBOLT, MOVE_PSYCHIC, MOVE_WILL_O_WISP, MOVE_PROTECT},
++        .moves = {MOVE_THUNDERBOLT, MOVE_SHADOW_BALL, MOVE_WILL_O_WISP, MOVE_PROTECT},
      },
      {
          .iv = 255,
@@ -39465,7 +40045,7 @@ index 2e57800..5743910 100644
 +        .lvl = 100,
 +        .species = SPECIES_GENGAR,
 +        .heldItem = ITEM_LUM_BERRY,
-+        .moves = {MOVE_THUNDERBOLT, MOVE_PSYCHIC, MOVE_WILL_O_WISP, MOVE_PROTECT},
++        .moves = {MOVE_THUNDERBOLT, MOVE_SHADOW_BALL, MOVE_WILL_O_WISP, MOVE_PROTECT},
      },
      {
          .iv = 255,
@@ -70346,7 +70926,7 @@ index 0000000..69788e4
 +#endif
 diff --git a/src/data/elite_four_sets.h b/src/data/elite_four_sets.h
 new file mode 100755
-index 0000000..bcfbdf8
+index 0000000..0ad40e6
 --- /dev/null
 +++ b/src/data/elite_four_sets.h
 @@ -0,0 +1,153 @@
@@ -70405,7 +70985,7 @@ index 0000000..bcfbdf8
 +    {
 +        {SPECIES_ELECTRODE, NATURE_BOLD, 0, {252, 0, 128, 0, 0, 128}},
 +        {SPECIES_LANTURN, NATURE_MODEST, 0, {252, 0, 4, 0, 252, 0}},
-+        {SPECIES_MANECTRIC, NATURE_TIMID, 1, {4, 0, 0, 252, 252, 0}},
++        {SPECIES_MANECTRIC, NATURE_TIMID, 0, {4, 0, 0, 252, 252, 0}},
 +        {SPECIES_ELECTABUZZ, NATURE_TIMID, 0, {4, 0, 0, 252, 252, 0}},
 +        {SPECIES_MAGNETON, NATURE_MODEST, 0, {252, 0, 4, 0, 252, 0}},
 +        {SPECIES_RAICHU, NATURE_JOLLY, 0, {4, 252, 0, 252, 0, 0}},

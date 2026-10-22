@@ -113,7 +113,7 @@ A primeira luta contra o rival permanece simples, nas três variantes de inicial
 - Golpes de suporte na abertura, cobertura, clima em equipes compatíveis e equipamento progressivo. Líderes e Elite Four usam seis Pokémon coerentes com seu tipo.
 - Sem golpes que atinjam aliados nos elencos gerados, sem OHKO ou evasão acumulada. Evitar clima em equipes que possam ter Cloud Nine/Air Lock.
 - IA avalia os dois alvos adversários com os scripts existentes e considera parceiro apto, Helping Hand, telas, controle de velocidade, clima e risco de dano aliado.
-- Esta passagem usa os golpes, tipos e cálculo físico/especial da base atual de geração III. Não representa a revisão final para geração IX; EVs/naturezas competitivos dos treinadores regulares e novas revanches de líderes ainda precisam de implementação.
+- Esta passagem usa categorias por golpe e dados numéricos modernos para os golpes implementados; efeitos e tipos ainda estão em migração. Os desafios recebem IVs 31/EVs treinados; novas revanches de líderes continuam pendentes. Estado atual: [MODERNIZATION.md](MODERNIZATION.md) e [AI_REVIEW.md](AI_REVIEW.md).
 - Auditoria por treinador: TRAINER_REVIEW.md; dados reproduzíveis: data/trainer_balance.json; gerador: scripts/balance_trainers.py.
 - Verificações: auditoria estrutural dos elencos e testes nativos das regras de pontuação. Fixtures no mGBA alcançaram a seleção de ação na luta inicial, em dupla normal e em um contra dois. Não foi realizado um teste completo da campanha ou da Torre.
 
@@ -173,7 +173,7 @@ Fonte: https://github.com/pret/pokefirered
 - Travamento de saída das lojas corrigido. [23 catálogos × 2 modos aprovados](SHOP_TEST_RESULTS.md).
 - Recompilação do patch sobre fontes limpas reproduziu a ROM entregue. Base e compilador fixados nos commits documentados no README; formato do save preservado.
 
-Ainda pendentes: engine moderna (separação físico/especial, Fada, atributos e golpes), demais evoluções sem troca, HMs sem ocupar golpes, novas revanches de líderes, catálogo completo pós-Liga em Celadon, troca de habilidade, Alphas/raids e outras melhorias listadas no [README](README.md). Os encontros aleatórios já oferecem captura alternativa dos lendários; reset dos eventos fixos é uma melhoria separada.
+Ainda pendentes: concluir a engine moderna (Fada, atributos, golpes e efeitos restantes), demais evoluções sem troca, HMs sem ocupar golpes, novas revanches de líderes, catálogo completo pós-Liga em Celadon, troca de habilidade, Alphas/raids e outras melhorias listadas no [README](README.md). Os encontros aleatórios já oferecem captura alternativa dos lendários; reset dos eventos fixos é uma melhoria separada.
 
 Os testes de dados, menus, batalhas e save não substituem a validação da campanha inteira, Torre completa ou VBA Link. As etapas anteriores estão no [CHANGELOG](CHANGELOG.md).
 

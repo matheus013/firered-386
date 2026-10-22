@@ -346,10 +346,10 @@
         },
         {
           "species": "GENGAR",
-          "role": "Atacante especial com Levitate e queimadura; sem depender de Mega ou de Shadow Ball físico",
+          "role": "Atacante especial com Shadow Ball STAB, Thunderbolt e Will-O-Wisp; Levitate protege de Ground",
           "moves": [
             "THUNDERBOLT",
-            "PSYCHIC",
+            "SHADOW_BALL",
             "WILL_O_WISP",
             "PROTECT"
           ],
@@ -514,10 +514,10 @@
         },
         {
           "species": "GENGAR",
-          "role": "Atacante especial e Will-O-Wisp com Levitate; sem Mega/Shadow Tag",
+          "role": "Atacante especial com Shadow Ball STAB, Thunderbolt e Will-O-Wisp; Levitate protege de Ground",
           "moves": [
             "THUNDERBOLT",
-            "PSYCHIC",
+            "SHADOW_BALL",
             "WILL_O_WISP",
             "PROTECT"
           ],

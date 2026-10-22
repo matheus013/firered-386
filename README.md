@@ -1,6 +1,6 @@
 # FireRed 386
 
-**Desenvolvimento após v0.4.0:** há revisão da IA/ginásios, categorias por golpe, correção de sobreposição e importação parcial dos learnsets recentes. Estas mudanças ainda não completam a geração IX nem atualizam automaticamente a Release antiga. [Estado exato, testes e pendências](MODERNIZATION.md).
+**Desenvolvimento após v0.4.0:** há revisão da IA/ginásios, categorias por golpe, correção de sobreposição e importação parcial dos learnsets recentes. Estas mudanças ainda não completam a geração IX nem atualizam automaticamente a Release antiga. [Estado exato, testes e pendências](MODERNIZATION.md). [Revisão da IA dos líderes/E4](AI_REVIEW.md).
 
 Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em duplas e melhorias de qualidade de vida. **Versão de desenvolvimento, ainda incompleta.** As 386 espécies já estão distribuídas em encontros capturáveis; as demais melhorias pendentes estão listadas abaixo.
 
@@ -12,7 +12,7 @@ Guias: [onde capturar cada uma das 386 espécies](SPECIES_LOCATIONS.md) · [time
 
 ## Download
 
-Prévia atual: **[v0.5.0-preview.1](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.1)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.5.0-preview.1/firered-386-v0.5.0-preview.1.gba). Corrige a sobreposição, revisa IA/ginásios e introduz categorias/dados modernos. **Ainda não contém todos os golpes nem todas as TMs da geração IX.** [Testes e limites](MODERNIZATION.md).
+Prévia atual: **[v0.5.0-preview.2](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.2)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.5.0-preview.2/firered-386-v0.5.0-preview.2.gba). Corrige a sobreposição, revisa IA/ginásios e introduz categorias/dados modernos. **Ainda não contém todos os golpes nem todas as TMs da geração IX.** [Testes e limites](MODERNIZATION.md).
 
 Versão anterior: **[v0.4.0-dev](https://github.com/matheus013/firered-386/releases/tag/v0.4.0-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.4.0-dev/firered-386-v0.4.0-dev.gba). Inclui idioma EN/PT-BR nas opções, randomizer opcional, treinamento dos desafios e nova interface do cientista. Veja o [histórico de versões](CHANGELOG.md) e o [relatório dos 46 testes de lojas](SHOP_TEST_RESULTS.md).
 

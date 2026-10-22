@@ -3233,7 +3233,7 @@ Mawile + Gengar: Intimidate e Fake Tears apoiam dano especial; três Fantasmas, 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
 | MAWILE | 84 | LEFTOVERS | FAKE_TEARS, BRICK_BREAK, ROCK_SLIDE, PROTECT |
-| GENGAR | 84 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| GENGAR | 84 | LUM_BERRY | THUNDERBOLT, SHADOW_BALL, WILL_O_WISP, PROTECT |
 | DUSCLOPS | 84 | LEFTOVERS | NIGHT_SHADE, SHADOW_BALL, WILL_O_WISP, PROTECT |
 | MISDREAVUS | 84 | LEFTOVERS | PSYCHIC, THUNDERBOLT, THUNDER_WAVE, PAIN_SPLIT |
 | TYRANITAR | 85 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, TAUNT, PROTECT |
@@ -3246,7 +3246,7 @@ IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
 | Pokémon | Natureza | Habilidade | EVs | Função |
 |---|---|---|---|---|
 | MAWILE | CAREFUL | INTIMIDATE | 252 / 4 / 0 / 0 / 0 / 252 | Intimidate protege o grupo; Fake Tears abre espaço para ataques especiais do parceiro |
-| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial com Levitate e queimadura; sem depender de Mega ou de Shadow Ball físico |
+| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial com Shadow Ball STAB, Thunderbolt e Will-O-Wisp; Levitate protege de Ground |
 | DUSCLOPS | CAREFUL | PRESSURE | 252 / 0 / 128 / 0 / 0 / 128 | Substitui Garchomp: Fantasma defensivo, dano fixo e Will-O-Wisp |
 | MISDREAVUS | TIMID | LEVITATE | 252 / 0 / 0 / 252 / 4 / 0 | Substitui Hydreigon: Fantasma com Levitate, Thunder Wave e Pain Split |
 | TYRANITAR | ADAMANT | SAND_STREAM | 252 / 252 / 0 / 0 / 0 / 4 | Pressão física e resistência especial; areia causa dano residual também nos parceiros não imunes |
@@ -3260,7 +3260,7 @@ Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralis
 |---|---:|---|---|
 | HITMONTOP | 87 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
 | KYOGRE | 87 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
-| GENGAR | 87 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| GENGAR | 87 | LUM_BERRY | THUNDERBOLT, SHADOW_BALL, WILL_O_WISP, PROTECT |
 | CLAYDOL | 87 | LEFTOVERS | REFLECT, LIGHT_SCREEN, PSYCHIC, PROTECT |
 | RAICHU | 88 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, LIGHT_SCREEN, PROTECT |
 | RAYQUAZA | 89 | LUM_BERRY | DRAGON_CLAW, FLAMETHROWER, ROCK_SLIDE, PROTECT |
@@ -3273,7 +3273,7 @@ IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
 |---|---|---|---|---|
 | HITMONTOP | CAREFUL | INTIMIDATE | 252 / 4 / 0 / 0 / 0 / 252 | Intimidate e Helping Hand apoiam Kyogre; sem Fake Out ou Wide Guard indisponíveis para ele nesta base |
 | KYOGRE | MODEST | DRIZZLE | 252 / 0 / 0 / 0 / 252 / 4 | Pressão de chuva com Surf, Ice Beam e Thunder; sem Reversão Primal |
-| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial e Will-O-Wisp com Levitate; sem Mega/Shadow Tag |
+| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial com Shadow Ball STAB, Thunderbolt e Will-O-Wisp; Levitate protege de Ground |
 | CLAYDOL | CALM | LEVITATE | 252 / 0 / 128 / 0 / 0 / 128 | Substitui Bronzong: Psíquico com Levitate e duas telas; sem Trick Room |
 | RAICHU | TIMID | STATIC | 252 / 0 / 0 / 252 / 4 / 0 | Thunder Wave e Light Screen, com cobertura elétrica; Static, não Lightning Rod moderno |
 | RAYQUAZA | HASTY | AIR_LOCK | 0 / 52 / 0 / 252 / 204 / 0 | Finalizador Dragão misto: Dragon Claw é especial na geração III; Air Lock suspende efeitos de todos os climas |
@@ -3351,7 +3351,7 @@ IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
 |---|---|---|---|---|
 | ELECTRODE | BOLD | SOUNDPROOF | 252 / 0 / 128 / 0 / 0 / 128 | support |
 | LANTURN | MODEST | VOLT_ABSORB | 252 / 0 / 4 / 0 / 252 / 0 | attack |
-| MANECTRIC | TIMID | LIGHTNING_ROD | 4 / 0 / 0 / 252 / 252 / 0 | attack |
+| MANECTRIC | TIMID | STATIC | 4 / 0 / 0 / 252 / 252 / 0 | attack |
 | ELECTABUZZ | TIMID | STATIC | 4 / 0 / 0 / 252 / 252 / 0 | attack |
 | MAGNETON | MODEST | MAGNET_PULL | 252 / 0 / 4 / 0 / 252 / 0 | attack |
 | RAICHU | JOLLY | STATIC | 4 / 252 / 0 / 252 / 0 / 0 | attack |
@@ -6630,7 +6630,7 @@ Mawile + Gengar: Intimidate e Fake Tears apoiam dano especial; três Fantasmas, 
 | Pokémon | Nível | Item | Golpes |
 |---|---:|---|---|
 | MAWILE | 100 | LEFTOVERS | FAKE_TEARS, BRICK_BREAK, ROCK_SLIDE, PROTECT |
-| GENGAR | 100 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| GENGAR | 100 | LUM_BERRY | THUNDERBOLT, SHADOW_BALL, WILL_O_WISP, PROTECT |
 | DUSCLOPS | 100 | LEFTOVERS | NIGHT_SHADE, SHADOW_BALL, WILL_O_WISP, PROTECT |
 | MISDREAVUS | 100 | LEFTOVERS | PSYCHIC, THUNDERBOLT, THUNDER_WAVE, PAIN_SPLIT |
 | TYRANITAR | 100 | SITRUS_BERRY | ROCK_SLIDE, CRUNCH, TAUNT, PROTECT |
@@ -6643,7 +6643,7 @@ IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
 | Pokémon | Natureza | Habilidade | EVs | Função |
 |---|---|---|---|---|
 | MAWILE | CAREFUL | INTIMIDATE | 252 / 4 / 0 / 0 / 0 / 252 | Intimidate protege o grupo; Fake Tears abre espaço para ataques especiais do parceiro |
-| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial com Levitate e queimadura; sem depender de Mega ou de Shadow Ball físico |
+| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial com Shadow Ball STAB, Thunderbolt e Will-O-Wisp; Levitate protege de Ground |
 | DUSCLOPS | CAREFUL | PRESSURE | 252 / 0 / 128 / 0 / 0 / 128 | Substitui Garchomp: Fantasma defensivo, dano fixo e Will-O-Wisp |
 | MISDREAVUS | TIMID | LEVITATE | 252 / 0 / 0 / 252 / 4 / 0 | Substitui Hydreigon: Fantasma com Levitate, Thunder Wave e Pain Split |
 | TYRANITAR | ADAMANT | SAND_STREAM | 252 / 252 / 0 / 0 / 0 / 4 | Pressão física e resistência especial; areia causa dano residual também nos parceiros não imunes |
@@ -6657,7 +6657,7 @@ Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralis
 |---|---:|---|---|
 | HITMONTOP | 100 | LEFTOVERS | HELPING_HAND, BRICK_BREAK, ROCK_SLIDE, DETECT |
 | KYOGRE | 100 | LEFTOVERS | SURF, ICE_BEAM, THUNDER, PROTECT |
-| GENGAR | 100 | LUM_BERRY | THUNDERBOLT, PSYCHIC, WILL_O_WISP, PROTECT |
+| GENGAR | 100 | LUM_BERRY | THUNDERBOLT, SHADOW_BALL, WILL_O_WISP, PROTECT |
 | CLAYDOL | 100 | LEFTOVERS | REFLECT, LIGHT_SCREEN, PSYCHIC, PROTECT |
 | RAICHU | 100 | SITRUS_BERRY | THUNDERBOLT, THUNDER_WAVE, LIGHT_SCREEN, PROTECT |
 | RAYQUAZA | 100 | LUM_BERRY | DRAGON_CLAW, FLAMETHROWER, ROCK_SLIDE, PROTECT |
@@ -6670,7 +6670,7 @@ IVs 31. EVs na ordem HP / Ataque / Defesa / Velocidade / At. Esp. / Def. Esp.
 |---|---|---|---|---|
 | HITMONTOP | CAREFUL | INTIMIDATE | 252 / 4 / 0 / 0 / 0 / 252 | Intimidate e Helping Hand apoiam Kyogre; sem Fake Out ou Wide Guard indisponíveis para ele nesta base |
 | KYOGRE | MODEST | DRIZZLE | 252 / 0 / 0 / 0 / 252 / 4 | Pressão de chuva com Surf, Ice Beam e Thunder; sem Reversão Primal |
-| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial e Will-O-Wisp com Levitate; sem Mega/Shadow Tag |
+| GENGAR | TIMID | LEVITATE | 4 / 0 / 0 / 252 / 252 / 0 | Atacante especial com Shadow Ball STAB, Thunderbolt e Will-O-Wisp; Levitate protege de Ground |
 | CLAYDOL | CALM | LEVITATE | 252 / 0 / 128 / 0 / 0 / 128 | Substitui Bronzong: Psíquico com Levitate e duas telas; sem Trick Room |
 | RAICHU | TIMID | STATIC | 252 / 0 / 0 / 252 / 4 / 0 | Thunder Wave e Light Screen, com cobertura elétrica; Static, não Lightning Rod moderno |
 | RAYQUAZA | HASTY | AIR_LOCK | 0 / 52 / 0 / 252 / 204 / 0 | Finalizador Dragão misto: Dragon Claw é especial na geração III; Air Lock suspende efeitos de todos os climas |

@@ -1,10 +1,11 @@
 // Decision/damage tests in a disposable ROM; no campaign victory is simulated.
 IWRAM_DATA volatile u32 gDecisionDone, gDecisionChecks, gDecisionFailures;
 IWRAM_DATA volatile u32 gDecisionFailureBits;
+IWRAM_DATA volatile u32 gDecisionFirstFailure;
 static void BenchGymPartyChecks(void);
 static void BenchExpect(bool8 ok)
 {
-    if (!ok) {gDecisionFailures++;gDecisionFailureBits |= 1 << (gDecisionChecks % 32);}
+    if (!ok) {if (!gDecisionFailures) gDecisionFirstFailure=gDecisionChecks;gDecisionFailures++;gDecisionFailureBits |= 1 << (gDecisionChecks % 32);}
     gDecisionChecks++;
 }
 static void BenchScores(void)
@@ -15,6 +16,7 @@ static void BenchScores(void)
 void RunAIDecisionChecks(void)
 {
     u8 i,j,choice;u16 flags;u32 a,b;
+    u8 script[8] = {0};
     gBattleTypeFlags=BATTLE_TYPE_TRAINER|BATTLE_TYPE_DOUBLE;
     gAbsentBattlerFlags=0;gBattlersCount=4;gActiveBattler=gBattlerAttacker=1;gBattlerTarget=0;
     memset(gBattleMons,0,sizeof(gBattleMons));memset(gDisableStructs,0,sizeof(gDisableStructs));
@@ -73,6 +75,89 @@ void RunAIDecisionChecks(void)
         SeedRng(400+i);BattleAI_SetupAIData();choice=BattleAI_ChooseMoveOrAction();
         BenchExpect(choice==3 && gBattlerTarget==0);
     }
+    // Equal script scores: choose damage across move slots, not just targets.
+    gBattleMons[0].type1=gBattleMons[0].type2=TYPE_NORMAL;
+    gBattleMons[2].type1=gBattleMons[2].type2=TYPE_NORMAL;
+    gBattleMons[1].moves[0]=MOVE_TACKLE;gBattleMons[1].pp[0]=10;
+    gBattleMons[1].moves[1]=MOVE_RETURN;gBattleMons[1].pp[1]=10;
+    gBattleMons[1].moves[3]=MOVE_STRENGTH;gBattleMons[1].friendship=255;
+    for(i=0;i<16;i++)
+    {
+        SeedRng(800+i);BattleAI_SetupAIData();gBattleResources->ai->aiFlags=0;
+        choice=ChooseMoveForTarget();BenchExpect(choice==1);
+    }
+    // Spread value must include both foes and exclude an absent flank.
+    gBattlerTarget=0;
+    a=AIMoveDamageValue(MOVE_SURF);b=AIDamageValue(MOVE_SURF,0);
+    BenchExpect(a==b+AIDamageValue(MOVE_SURF,2) && a>b);
+    gAbsentBattlerFlags=4;BenchExpect(AIMoveDamageValue(MOVE_SURF)==AIDamageValue(MOVE_SURF,0));gAbsentBattlerFlags=0;
+    gBattleMons[0].ability=ABILITY_LEVITATE;BenchExpect(AIDamageValue(MOVE_EARTHQUAKE,0)==0);
+    gBattleMons[0].ability=ABILITY_WATER_ABSORB;BenchExpect(AIDamageValue(MOVE_SURF,0)==0);
+    gBattleMons[0].ability=ABILITY_FLASH_FIRE;BenchExpect(AIDamageValue(MOVE_FLAMETHROWER,0)==0);
+    gBattleMons[0].ability=ABILITY_VOLT_ABSORB;BenchExpect(AIDamageValue(MOVE_THUNDER,0)==0);
+    gBattleMons[0].ability=0;gBattleMons[0].hp=gBattleMons[0].maxHP=200;
+    gBattleMons[0].type1=gBattleMons[0].type2=TYPE_WATER;
+    BenchExpect(AIDamageValue(MOVE_NIGHT_SHADE,0)==250);
+    gBattleMons[0].type1=gBattleMons[0].type2=TYPE_NORMAL;
+    BenchExpect(AIDamageValue(MOVE_NIGHT_SHADE,0)==0);
+    gBattleMons[0].type1=gBattleMons[0].type2=TYPE_GHOST;
+    BenchExpect(AIDamageValue(MOVE_SEISMIC_TOSS,0)==0);
+    BenchExpect(AIDamageValue(MOVE_NIGHT_SHADE,0)==250);
+    gBattleMons[0].type1=gBattleMons[0].type2=TYPE_NORMAL;
+    gBattleMons[0].hp=gBattleMons[0].maxHP=100;
+    gBattleWeather=B_WEATHER_RAIN_TEMPORARY;a=AIDamageValue(MOVE_THUNDER,0);
+    gBattleWeather=B_WEATHER_SUN_TEMPORARY;b=AIDamageValue(MOVE_THUNDER,0);
+    BenchExpect(a==b*2 || a==b*2+1);
+    gBattleMons[2].ability=ABILITY_AIR_LOCK;BenchExpect(!AIWeatherHasEffect());
+    BenchExpect(AIDamageValue(MOVE_THUNDER,0)>b && AIDamageValue(MOVE_THUNDER,0)<a);
+    gBattleMons[1].moves[0]=MOVE_RAIN_DANCE;gBattleMons[1].type1=TYPE_WATER;
+    BenchScores();ApplyDoublesScores();BenchExpect(gBattleResources->ai->score[0]<100);
+    gBattleMons[2].hp=0;BenchExpect(AIWeatherHasEffect());gBattleMons[2].hp=100;
+    gAbsentBattlerFlags=4;BenchExpect(AIWeatherHasEffect());gAbsentBattlerFlags=0;
+    gBattleMons[2].ability=0;gBattleWeather=0;gBattleMons[1].type1=TYPE_NORMAL;
+    gBattleMons[3].ability=0;gChosenActionByBattler[3]=B_ACTION_USE_MOVE;
+    gChosenMoveByBattler[3]=MOVE_PROTECT;gBattleMons[1].moves[0]=MOVE_EARTHQUAKE;
+    BenchScores();ApplyDoublesScores();BenchExpect(gBattleResources->ai->score[0]==100);
+    gDisableStructs[3].protectUses=1;
+    BenchScores();ApplyDoublesScores();BenchExpect(gBattleResources->ai->score[0]<100);
+    gDisableStructs[3].protectUses=0;gChosenMoveByBattler[3]=0;gChosenActionByBattler[3]=B_ACTION_NONE;
+    gBattleMons[1].moves[0]=MOVE_THUNDER_WAVE;gChosenMoveByBattler[3]=MOVE_WILL_O_WISP;
+    gChosenActionByBattler[3]=B_ACTION_USE_MOVE;gBattleStruct->moveTarget[3]=0;
+    BenchScores();ApplyDoublesScores();BenchExpect(gBattleResources->ai->score[0]==88);
+    gBattleStruct->moveTarget[3]=2;
+    BenchScores();ApplyDoublesScores();BenchExpect(gBattleResources->ai->score[0]==100);
+    gChosenMoveByBattler[3]=0;gChosenActionByBattler[3]=B_ACTION_NONE;
+    // Per-battler history: do not mix flanks or infer unobserved opposing moves.
+    memset(BATTLE_HISTORY,0,sizeof(*BATTLE_HISTORY));
+    for(i=0;i<4;i++)gBattlerPartyIndexes[i]=i/2;
+    gBattlerTarget=0;gLastMoves[0]=MOVE_SURF;RecordLastUsedMoveByTarget();
+    RecordLastUsedMoveByTarget();
+    BenchExpect(BATTLE_HISTORY->usedMoves[0].moves[0]==MOVE_SURF && BATTLE_HISTORY->usedMoves[0].moves[1]==0);
+    gBattlerTarget=2;gLastMoves[2]=MOVE_THUNDER;RecordLastUsedMoveByTarget();gBattlerTarget=0;
+    BenchExpect(AIHasMove(AI_TARGET,MOVE_SURF,FALSE));
+    BenchExpect(!AIHasMove(AI_TARGET,MOVE_THUNDER,FALSE));
+    BenchExpect(AIHasMove(AI_TARGET_PARTNER,MOVE_THUNDER,FALSE));
+    gBattleMons[2].moves[0]=MOVE_ICE_BEAM;
+    BenchExpect(!AIHasMove(AI_TARGET_PARTNER,MOVE_ICE_BEAM,FALSE));
+    gBattleMons[1].moves[0]=MOVE_GROWL;gBattleMons[3].moves[0]=MOVE_HELPING_HAND;
+    BenchExpect(AIHasMove(AI_USER_PARTNER,MOVE_HELPING_HAND,FALSE));
+    BenchExpect(!AIHasMove(AI_USER,MOVE_HELPING_HAND,FALSE));
+    BenchExpect(AIHasMove(AI_TARGET_PARTNER,EFFECT_THUNDER,TRUE));
+    RecordAbilityBattle(0,ABILITY_WATER_ABSORB);RecordAbilityBattle(2,ABILITY_STATIC);
+    BenchExpect(BATTLE_HISTORY->abilities[0]==ABILITY_WATER_ABSORB && BATTLE_HISTORY->abilities[2]==ABILITY_STATIC);
+    gBattlerPartyIndexes[0]=4;gLastMoves[0]=0;RecordLastUsedMoveByTarget();
+    BenchExpect(BATTLE_HISTORY->usedMoves[0].moves[0]==0 && BATTLE_HISTORY->abilities[0]==0);
+    BenchExpect(BATTLE_HISTORY->usedMoves[2].moves[0]==MOVE_THUNDER);
+    // Native script opcodes must consume TypeCalc's returned immunity flags.
+    gBattleMons[0].ability=ABILITY_LEVITATE;gBattleMons[0].hp=1;
+    gBattleMons[1].moves[0]=MOVE_EARTHQUAKE;
+    for(i=1;i<4;i++)gBattleMons[1].moves[i]=0;
+    gBattleResources->ai->moveConsidered=MOVE_EARTHQUAKE;
+    gBattleResources->ai->movesetIndex=0;gBattleResources->ai->simulatedRNG[0]=100;
+    sAIScriptPtr=script;Cmd_if_can_faint();BenchExpect(sAIScriptPtr==script+5);
+    sAIScriptPtr=script;Cmd_if_cant_faint();BenchExpect(sAIScriptPtr==NULL);
+    sAIScriptPtr=script;Cmd_get_highest_type_effectiveness();BenchExpect(gBattleResources->ai->funcResult==0);
+    gBattleMons[0].hp=100;
     // Native damage tests: category, screens, burn, Thick Fat and physical weather.
     gBattleTypeFlags=BATTLE_TYPE_TRAINER;gBattleWeather=0;gCritMultiplier=1;
     gBattleMons[0].type1=gBattleMons[0].type2=TYPE_NORMAL;

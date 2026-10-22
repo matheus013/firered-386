@@ -14595,10 +14595,10 @@
         },
         {
           "species": "GENGAR",
-          "role": "Atacante especial com Levitate e queimadura; sem depender de Mega ou de Shadow Ball físico",
+          "role": "Atacante especial com Shadow Ball STAB, Thunderbolt e Will-O-Wisp; Levitate protege de Ground",
           "moves": [
             "THUNDERBOLT",
-            "PSYCHIC",
+            "SHADOW_BALL",
             "WILL_O_WISP",
             "PROTECT"
           ],
@@ -14906,10 +14906,10 @@
         },
         {
           "species": "GENGAR",
-          "role": "Atacante especial e Will-O-Wisp com Levitate; sem Mega/Shadow Tag",
+          "role": "Atacante especial com Shadow Ball STAB, Thunderbolt e Will-O-Wisp; Levitate protege de Ground",
           "moves": [
             "THUNDERBOLT",
-            "PSYCHIC",
+            "SHADOW_BALL",
             "WILL_O_WISP",
             "PROTECT"
           ],
@@ -15716,7 +15716,7 @@
             "ROAR",
             "PROTECT"
           ],
-          "ability": "LIGHTNING_ROD",
+          "ability": "STATIC",
           "evs": [
             4,
             0,
@@ -15730,7 +15730,7 @@
           "role": "attack",
           "iv": 255,
           "level": 34,
-          "ability_num": 1,
+          "ability_num": 0,
           "runtime_training": {
             "ivs": [
               31,
@@ -31774,10 +31774,10 @@
         },
         {
           "species": "GENGAR",
-          "role": "Atacante especial com Levitate e queimadura; sem depender de Mega ou de Shadow Ball físico",
+          "role": "Atacante especial com Shadow Ball STAB, Thunderbolt e Will-O-Wisp; Levitate protege de Ground",
           "moves": [
             "THUNDERBOLT",
-            "PSYCHIC",
+            "SHADOW_BALL",
             "WILL_O_WISP",
             "PROTECT"
           ],
@@ -32085,10 +32085,10 @@
         },
         {
           "species": "GENGAR",
-          "role": "Atacante especial e Will-O-Wisp com Levitate; sem Mega/Shadow Tag",
+          "role": "Atacante especial com Shadow Ball STAB, Thunderbolt e Will-O-Wisp; Levitate protege de Ground",
           "moves": [
             "THUNDERBOLT",
-            "PSYCHIC",
+            "SHADOW_BALL",
             "WILL_O_WISP",
             "PROTECT"
           ],

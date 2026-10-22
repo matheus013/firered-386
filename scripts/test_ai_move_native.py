@@ -3,6 +3,8 @@ from pathlib import Path
 import shutil,subprocess,tempfile,json,re,hashlib
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'output/tests/ai-modern';OUT.mkdir(parents=True,exist_ok=True)
 source=Path((ROOT/'output/hack-build-path.txt').read_text().strip())
+reference_sha=hashlib.sha256((ROOT/'output/firered-386-dev.gba').read_bytes()).hexdigest()
+assert hashlib.sha256((source/'pokefirered.gba').read_bytes()).hexdigest()==reference_sha
 fixture=Path(tempfile.mkdtemp(prefix='ai-modern-',dir=source.parent));shutil.copytree(source,fixture,dirs_exist_ok=True)
 (OUT/'build-path.txt').write_text(str(fixture)+'\n')
 main=(fixture/'src/main.c').read_text()
@@ -54,9 +56,10 @@ p=fixture/'src/battle_main.c';p.write_text(p.read_text().replace('static void Ha
 with (OUT/'build.log').open('w') as log:subprocess.run(['make','-j4'],cwd=fixture,stdout=log,stderr=subprocess.STDOUT,check=True)
 symbols={parts[2]:parts[0] for line in subprocess.check_output(['arm-none-eabi-nm','pokefirered.elf'],cwd=fixture,text=True).splitlines() if len(parts:=line.split())==3}
 runner=fixture/'ai-checks';subprocess.run(['gcc','-O2','-w',str(ROOT/'scripts/ai_checks_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
-command=[str(runner),str(fixture/'pokefirered.gba')]+['0x'+symbols[s] for s in ['gDecisionDone','gDecisionChecks','gDecisionFailures','gDecisionFailureBits']]
+command=[str(runner),str(fixture/'pokefirered.gba')]+['0x'+symbols[s] for s in ['gDecisionDone','gDecisionChecks','gDecisionFailures','gDecisionFailureBits','gDecisionFirstFailure']]
 result=subprocess.run(command,capture_output=True,text=True,timeout=90);(OUT/'emulator.log').write_text(result.stdout+result.stderr)
-match=re.search(r'done=(\d+) checks=(\d+) failures=(\d+) bits=(\d+) frames=(\d+)',result.stdout);assert match,result.stdout[-1000:]
-record=dict(zip(['done','checks','failures','failure_bits','frames'],map(int,match.groups())));record['rom_sha256']=hashlib.sha256((ROOT/'output/firered-386-dev.gba').read_bytes()).hexdigest()
+match=re.search(r'done=(\d+) checks=(\d+) failures=(\d+) bits=(\d+) frames=(\d+) first=(\d+)',result.stdout);assert match,result.stdout[-1000:]
+record=dict(zip(['done','checks','failures','failure_bits','frames','first_failure'],map(int,match.groups())));record['rom_sha256']=reference_sha
+assert hashlib.sha256((ROOT/'output/firered-386-dev.gba').read_bytes()).hexdigest()==reference_sha,'Production ROM changed during AI checks'
 (OUT/'results.json').write_text(json.dumps(record,indent=2)+'\n');print(record,flush=True)
 assert result.returncode==0 and record['checks']>=35

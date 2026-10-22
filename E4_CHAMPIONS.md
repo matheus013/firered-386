@@ -2,7 +2,7 @@
 
 Implementado na versão **v0.1.1-dev**, para a primeira Liga e suas revanches. As equipes mantêm as espécies disponíveis das referências e completam as vagas com Pokémon das gerações I–III. São adaptações, não as equipes históricas exatas.
 
-Estado dos fontes: **v0.5.0-preview.1**, em migração parcial. Cloyster usa Spikes no lugar de Toxic para respeitar os learnsets importados. Categorias/poder/precisão foram atualizados; a adaptação integral aos efeitos modernos continua pendente. Os níveis abaixo refletem a curva introduzida na v0.2.0-dev; as 14 variantes de E4/Campeão passaram novamente nos testes de criação das equipes e avanço de turnos. Isso não equivale a uma Liga inteira concluída por um jogador. [Checklist e escopo](TEST_CHECKLIST.md).
+Estado dos fontes: **v0.5.0-preview.2**, em migração parcial. Gengar de Agatha/Lance usa Shadow Ball especial com STAB; [revisão da IA](AI_REVIEW.md). Cloyster usa Spikes no lugar de Toxic para respeitar os learnsets importados. Categorias/poder/precisão foram atualizados; a adaptação integral aos efeitos modernos continua pendente. Os níveis abaixo refletem a curva introduzida na v0.2.0-dev; as 14 variantes de E4/Campeão passaram novamente nos testes de criação das equipes e avanço de turnos. Isso não equivale a uma Liga inteira concluída por um jogador. [Checklist e escopo](TEST_CHECKLIST.md).
 
 ## Equipes implementadas
 
@@ -54,7 +54,7 @@ Mawile + Gengar: Intimidate e Fake Tears apoiam dano especial; três Fantasmas, 
 | Pokémon | Função na adaptação |
 |---|---|
 | MAWILE | Intimidate protege o grupo; Fake Tears abre espaço para ataques especiais do parceiro |
-| GENGAR | Atacante especial com Levitate e queimadura; sem depender de Mega ou de Shadow Ball físico |
+| GENGAR | Atacante especial com Shadow Ball STAB, Thunderbolt e Will-O-Wisp; Levitate protege de Ground |
 | DUSCLOPS | Substitui Garchomp: Fantasma defensivo, dano fixo e Will-O-Wisp |
 | MISDREAVUS | Substitui Hydreigon: Fantasma com Levitate, Thunder Wave e Pain Split |
 | TYRANITAR | Pressão física e resistência especial; areia causa dano residual também nos parceiros não imunes |
@@ -79,10 +79,10 @@ Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralis
 
 - Seis integrantes em duplas nos oito elencos. Na primeira Liga, os maiores níveis são 80/83/86/89, seguidos pelo Campeão no 92. O teto de EXP avança a cada membro vencido, nos dois modos. Na revanche, todos os integrantes da E4 e do Campeão estão no 100.
 - IVs 31, naturezas fixas, EVs até 252 por atributo e 510 no total, e habilidade escolhida entre as existentes na espécie. Os valores exatos estão em TRAINER_REVIEW.md e data/e4_champion_teams.json.
-- As naturezas e habilidades são aplicadas na criação efetiva da equipe inimiga; os atributos são recalculados após os EVs. O Campeão também recebe treinamento competitivo; os demais treinadores usam IVs progressivos, sem EVs específicos. O formato do save preserva seu tamanho.
+- As naturezas e habilidades são aplicadas na criação efetiva da equipe inimiga; os atributos são recalculados após os EVs. O Campeão também recebe treinamento competitivo. Líderes, rivais, chefes Rocket, Koichi, Bikers e Torre recebem IVs 31 e EVs treinados; treinadores comuns mantêm suas regras próprias. O formato do save preserva seu tamanho.
 - Golpes validados por nível, TM/HM, tutor de FireRed ou herança/evolução/ovos descritos nos arquivos da própria base. Helping Hand de Hitmontop vem de Tyrogue; Mud Shot de Piloswine vem de Swinub; Will-O-Wisp de Gengar vem de Gastly.
 - Surf atinge somente os adversários nesta engine de geração III. Os elencos não usam ataques que atinjam o parceiro.
-- Categorias de dano ainda seguem o tipo: Shadow Ball é físico e Dragon Claw é especial. Os sets foram escolhidos levando isso em conta.
+- Categorias de dano são definidas por golpe: Shadow Ball é especial e Dragon Claw é físico. Dados numéricos modernos já estão importados; a migração dos efeitos continua parcial.
 - Sem Mega Evolução, Reversão Primal, Trick Room, Choice Scarf, Assault Vest, Skill Link ou habilidades modernas. Hitmontop não usa Fake Out; Raichu usa Static.
 - Groudon e Kyogre oferecem modos alternativos de clima: Drought substitui a chuva. Air Lock de Rayquaza suspende também os benefícios da chuva do próprio Kyogre. Sand Stream de Tyranitar causa dano residual a parceiros não imunes; não se trata de um benefício gratuito para toda a equipe.
 - As equipes mistas preservam os integrantes históricos disponíveis e reforçam a especialidade nas substituições; não são monotipo. Bruno e Lance mantêm lendários das referências.

@@ -203,3 +203,7 @@ Combates executados no motor nativo, com preparação reconstruída a partir dos
 ## Desenvolvimento após v0.4.0
 
 [IA, ginásios, golpes e correção da interface](MODERNIZATION.md). `test_ai_move_native.py` verifica decisões/dano e os 48 integrantes dos ginásios; `test_category_ui.py` confere seleção e limites de 708 descrições nos dois idiomas; `test_move_data.py` compara os dados com o snapshot fixo. A migração completa e a nova calibração de campanha continuam pendentes. Os resultados de combate dos 35 desafios pertencem ao SHA antigo, não aos novos times.
+
+## Revisão da IA dos líderes/E4
+
+[Correções, escopo e limites](AI_REVIEW.md). `test_ai_move_native.py` confere histórico separado, consultas ao parceiro, imunidades, desempates, clima e suporte; `test_boss_ai_battles.py` executa batalhas isoladas completas contra os oito ginásios e as duas versões da E4, nos dois modos. Usa cópias dos times adversários no lado do jogador com atributos/HP normais e um bot simples. Não valida captura/caminhada nem mede dificuldade. Os resultados consolidados e a proveniência estão em [data/ai_review_validation.json](data/ai_review_validation.json).

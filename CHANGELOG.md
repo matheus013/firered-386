@@ -1,5 +1,13 @@
 # Histórico de versões
 
+## v0.5.0-preview.2 — revisão da IA
+
+- Corrigidos histórico por combatente, consultas ao parceiro e uso de imunidades pelos scripts de IA.
+- Desempate entre golpes por dano/precisão, soma de dano em área, dano fixo e poderes baseados em amizade/HP; Thunder considera clima.
+- Clima suprimido também por adversários; coordenação com Protect/Detect aliado e penalidade para dois status no mesmo alvo.
+- Surge: Manectric com Static. Agatha/Lance: Gengar com Shadow Ball especial e STAB.
+- Novos testes de decisões e batalhas completas isoladas contra ginásios/E4 nos dois modos. [Escopo, resultados e limites](AI_REVIEW.md).
+
 ## v0.5.0-preview.1 — 22/10/2026 (migração parcial)
 
 - IA de duplas: desempate de alvo por dano estimado, suporte conforme o plano/limitações do parceiro, duplicação de telas/clima e uso consecutivo de Protect.
