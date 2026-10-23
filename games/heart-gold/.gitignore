@@ -1,0 +1,20 @@
+# Saídas de build (CMake)
+/build/
+/build-*/
+/out/
+CMakeUserPresets.json
+.cache/
+compile_commands.json
+
+# Nunca versionar dados originais do jogo
+*.nds
+*.srl
+*.bin
+*.sav
+bios7.bin
+bios9.bin
+firmware.bin
+/assets/original/
+
+# Sistema
+.DS_Store
