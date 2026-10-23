@@ -207,3 +207,7 @@ Combates executados no motor nativo, com preparação reconstruída a partir dos
 ## Revisão da IA dos líderes/E4
 
 [Correções, escopo e limites](AI_REVIEW.md). `test_ai_move_native.py` confere histórico separado, consultas ao parceiro, imunidades, desempates, clima e suporte; `test_boss_ai_battles.py` executa batalhas isoladas completas contra os oito ginásios e as duas versões da E4, nos dois modos. Usa cópias dos times adversários no lado do jogador com atributos/HP normais e um bot simples. Não valida captura/caminhada nem mede dificuldade. Os resultados consolidados e a proveniência estão em [data/ai_review_validation.json](data/ai_review_validation.json).
+
+## Revisão do PT-BR
+
+`test_localization.py` confere chaves reais, controles, descrições de habilidades/itens e orçamento de mensagens. `generate_locale.py --check` confere a tabela reproduzível. A medição de descrições de golpes roda no motor nativo em EN/PT-BR; opções, editor e lojas também são testados nos dois idiomas. [Escopo linguístico e limites](PTBR_REVIEW.md) · [Evidência por SHA](data/ptbr_validation.json).

@@ -1,6 +1,6 @@
 # Idioma, randomizer e interface — v0.4.0-dev
 
-Em OPTIONS, a linha LANGUAGE alterna ENGLISH/PT-BR. A mudança aparece imediatamente e é persistida pelo save normal. A tela continua acessível durante a partida. O português é beta: 7.771 entradas traduzidas, 82 revisões manuais; a maior parte foi traduzida automaticamente e ainda requer revisão linguística. A fonte do GBA não contém todos os caracteres portugueses; os não suportados são transliterados. Nomes de espécies/golpes permanecem em inglês.
+Em OPTIONS, LANGUAGE alterna ENGLISH/PT-BR, com mudança imediata e persistência no save. O português segue em beta: 7.865 entradas traduzidas e 1.202 substituições revisadas. As 354 descrições de golpes, 288 de itens, habilidades, menus e mensagens principais foram revisadas; diálogos secundários ainda exigem revisão linguística. Nomes competitivos são preservados. Acentos sem suporte na fonte, como ã/õ, são simplificados na ROM. [Escopo e testes](PTBR_REVIEW.md).
 
 No NEW GAME, escolha Normal/Hardcore, confirme as regras e escolha Randomizer OFF/ON. B retorna ao modo; A confirma a configuração. Modo e randomizer ficam fixos na partida. Saves antigos recebem EN/randomizer desligado sem apagar modo, cotas de captura ou curas. O tamanho e os offsets antigos do bloco de save foram mantidos; migração de todos os saves reais ainda não foi homologada.
 

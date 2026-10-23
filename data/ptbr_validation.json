@@ -1,0 +1,1594 @@
+{
+  "version": "v0.5.0-preview.3",
+  "rom_sha256": "ba5b76e38a177f9ef0fbd7752bcb37b4ce24599c83f02fdca04dd3135901b918",
+  "status": "passed",
+  "linguistic_review_complete": false,
+  "campaign_clear_certified": false,
+  "coverage": {
+    "status": "ptbr_beta_reviewed_gameplay_with_machine_draft_dialogue",
+    "catalog_strings": 9428,
+    "translated_entries": 7865,
+    "reviewed_overrides": 1202,
+    "reviewed_move_descriptions": 354,
+    "reviewed_item_descriptions": 288,
+    "protected_identifiers": 720,
+    "wrapped_map_dialogues": 2444,
+    "fallback_unchanged": 1563,
+    "skipped": [],
+    "font_policy": "Unsupported accented glyphs (including a/o with tilde) are transliterated; supported accents, controls and placeholders preserved.",
+    "linguistic_review_complete": false
+  },
+  "source_patch_sha256": "afdc05494454fe8e98d7b78767b94ba9af8db18a9ac2e1b3321a883a9b0b1890",
+  "checks": {
+    "localization": {
+      "status": "passed",
+      "rom_sha256": "ba5b76e38a177f9ef0fbd7752bcb37b4ce24599c83f02fdca04dd3135901b918",
+      "reviewed_keys_checked": 547,
+      "compiled_entries_checked": 7865,
+      "item_descriptions_checked": 288,
+      "ability_definitions_checked": 78,
+      "missing_source_keys": [],
+      "scope": "source-key coverage, compiled lookup entries, placeholder preservation and item text budgets; move width tested natively in test_category_ui.py",
+      "linguistic_review_complete": false
+    },
+    "features": {
+      "rom_sha256": "ba5b76e38a177f9ef0fbd7752bcb37b4ce24599c83f02fdca04dd3135901b918",
+      "status": "passed",
+      "jobs": [
+        {
+          "name": "capture",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 10.1,
+          "log": "output/tests/features/capture.log"
+        },
+        {
+          "name": "community",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 11.8,
+          "log": "output/tests/features/community.log"
+        },
+        {
+          "name": "editor-ptbr",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 21.0,
+          "log": "output/tests/features/editor-ptbr.log"
+        },
+        {
+          "name": "regression",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 350.0,
+          "log": "output/tests/features/regression.log"
+        },
+        {
+          "name": "settings",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 58.5,
+          "log": "output/tests/features/settings.log"
+        },
+        {
+          "name": "settings-ui",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 17.7,
+          "log": "output/tests/features/settings-ui.log"
+        },
+        {
+          "name": "shops-ptbr",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 153.1,
+          "log": "output/tests/features/shops-ptbr.log"
+        }
+      ],
+      "normal_campaign_clear_certified": false,
+      "hardcore_campaign_clear_certified": false
+    },
+    "category_ui": {
+      "rom_sha256": "ba5b76e38a177f9ef0fbd7752bcb37b4ce24599c83f02fdca04dd3135901b918",
+      "languages": [
+        "EN",
+        "PTBR"
+      ],
+      "slots_checked": 10,
+      "scope": "native move selection summary UI; screenshots require visual inspection",
+      "description_checks": 708
+    },
+    "native_ai": {
+      "done": 1,
+      "checks": 1096,
+      "failures": 0,
+      "failure_bits": 0,
+      "frames": 1138,
+      "first_failure": 0,
+      "rom_sha256": "ba5b76e38a177f9ef0fbd7752bcb37b4ce24599c83f02fdca04dd3135901b918"
+    },
+    "ptbr_battles": {
+      "rom_sha256": "ba5b76e38a177f9ef0fbd7752bcb37b4ce24599c83f02fdca04dd3135901b918",
+      "fixture_sha256": "f444a34439d68f1e28a4288da77b1983d9033fbbe67e45f8b291817af8deaf64",
+      "status": "passed",
+      "language": "PTBR; asserted at battle end",
+      "scope": "four isolated boss-copy player teams, actual HP and native enemy AI; no campaign/capture validation",
+      "rows": [
+        {
+          "trainer": "TRAINER_LEADER_BROCK",
+          "mode": 0,
+          "result": {
+            "outcome": 1,
+            "turns": 8,
+            "faints": 4,
+            "cap": 18,
+            "party_size": 6,
+            "battle_healing_items": 0,
+            "frames": 15253,
+            "completed": true,
+            "between_items": {
+              "HYPER_POTION": 0,
+              "REVIVE": 0,
+              "FULL_HEAL": 0,
+              "RARE_CANDY": 0,
+              "ETHER": 0
+            },
+            "before": [
+              {
+                "species": "NOSEPASS",
+                "level": 16,
+                "hp": 50,
+                "max_hp": 50,
+                "attack": 21,
+                "defense": 58,
+                "speed": 19,
+                "spattack": 24,
+                "spdefense": 47,
+                "exp": 4096,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "OMANYTE",
+                "level": 16,
+                "hp": 52,
+                "max_hp": 52,
+                "attack": 19,
+                "defense": 42,
+                "speed": 21,
+                "spattack": 52,
+                "spdefense": 27,
+                "exp": 4096,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "GEODUDE",
+                "level": 16,
+                "hp": 53,
+                "max_hp": 53,
+                "attack": 49,
+                "defense": 42,
+                "speed": 16,
+                "spattack": 17,
+                "spdefense": 19,
+                "exp": 2535,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "KABUTO",
+                "level": 16,
+                "hp": 50,
+                "max_hp": 50,
+                "attack": 49,
+                "defense": 38,
+                "speed": 27,
+                "spattack": 24,
+                "spdefense": 24,
+                "exp": 4096,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "RHYHORN",
+                "level": 17,
+                "hp": 70,
+                "max_hp": 70,
+                "attack": 53,
+                "defense": 42,
+                "speed": 18,
+                "spattack": 18,
+                "spdefense": 20,
+                "exp": 6141,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "ONIX",
+                "level": 18,
+                "hp": 57,
+                "max_hp": 57,
+                "attack": 41,
+                "defense": 68,
+                "speed": 35,
+                "spattack": 18,
+                "spdefense": 26,
+                "exp": 5832,
+                "ev_total": 508,
+                "iv_total": 186
+              }
+            ],
+            "after": [
+              {
+                "species": "NOSEPASS",
+                "level": 16,
+                "hp": 0,
+                "max_hp": 50,
+                "status": 0,
+                "dead": false,
+                "exp": 4465,
+                "pp": [
+                  20,
+                  13,
+                  35,
+                  10
+                ]
+              },
+              {
+                "species": "OMANYTE",
+                "level": 18,
+                "hp": 33,
+                "max_hp": 57,
+                "status": 0,
+                "dead": false,
+                "exp": 5832,
+                "pp": [
+                  12,
+                  15,
+                  10,
+                  40
+                ]
+              },
+              {
+                "species": "GEODUDE",
+                "level": 16,
+                "hp": 0,
+                "max_hp": 53,
+                "status": 0,
+                "dead": false,
+                "exp": 2719,
+                "pp": [
+                  15,
+                  14,
+                  35,
+                  40
+                ]
+              },
+              {
+                "species": "KABUTO",
+                "level": 18,
+                "hp": 50,
+                "max_hp": 55,
+                "status": 0,
+                "dead": false,
+                "exp": 5832,
+                "pp": [
+                  21,
+                  15,
+                  35,
+                  10
+                ]
+              },
+              {
+                "species": "RHYHORN",
+                "level": 17,
+                "hp": 0,
+                "max_hp": 70,
+                "status": 0,
+                "dead": false,
+                "exp": 6733,
+                "pp": [
+                  14,
+                  10,
+                  25,
+                  30
+                ]
+              },
+              {
+                "species": "ONIX",
+                "level": 18,
+                "hp": 0,
+                "max_hp": 57,
+                "status": 0,
+                "dead": false,
+                "exp": 5832,
+                "pp": [
+                  9,
+                  15,
+                  35,
+                  10
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "trainer": "TRAINER_LEADER_BROCK",
+          "mode": 1,
+          "result": {
+            "outcome": 1,
+            "turns": 11,
+            "faints": 5,
+            "cap": 18,
+            "party_size": 6,
+            "battle_healing_items": 0,
+            "frames": 16969,
+            "completed": true,
+            "between_items": {
+              "HYPER_POTION": 0,
+              "REVIVE": 0,
+              "FULL_HEAL": 0,
+              "RARE_CANDY": 0,
+              "ETHER": 0
+            },
+            "before": [
+              {
+                "species": "NOSEPASS",
+                "level": 16,
+                "hp": 50,
+                "max_hp": 50,
+                "attack": 21,
+                "defense": 58,
+                "speed": 19,
+                "spattack": 24,
+                "spdefense": 47,
+                "exp": 4096,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "OMANYTE",
+                "level": 16,
+                "hp": 52,
+                "max_hp": 52,
+                "attack": 19,
+                "defense": 42,
+                "speed": 21,
+                "spattack": 52,
+                "spdefense": 27,
+                "exp": 4096,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "GEODUDE",
+                "level": 16,
+                "hp": 53,
+                "max_hp": 53,
+                "attack": 49,
+                "defense": 42,
+                "speed": 16,
+                "spattack": 17,
+                "spdefense": 19,
+                "exp": 2535,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "KABUTO",
+                "level": 16,
+                "hp": 50,
+                "max_hp": 50,
+                "attack": 49,
+                "defense": 38,
+                "speed": 27,
+                "spattack": 24,
+                "spdefense": 24,
+                "exp": 4096,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "RHYHORN",
+                "level": 17,
+                "hp": 70,
+                "max_hp": 70,
+                "attack": 53,
+                "defense": 42,
+                "speed": 18,
+                "spattack": 18,
+                "spdefense": 20,
+                "exp": 6141,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "ONIX",
+                "level": 18,
+                "hp": 57,
+                "max_hp": 57,
+                "attack": 41,
+                "defense": 68,
+                "speed": 35,
+                "spattack": 18,
+                "spdefense": 26,
+                "exp": 5832,
+                "ev_total": 508,
+                "iv_total": 186
+              }
+            ],
+            "after": [
+              {
+                "species": "NOSEPASS",
+                "level": 16,
+                "hp": 0,
+                "max_hp": 50,
+                "status": 0,
+                "dead": true,
+                "exp": 4465,
+                "pp": [
+                  19,
+                  12,
+                  35,
+                  10
+                ]
+              },
+              {
+                "species": "OMANYTE",
+                "level": 18,
+                "hp": 0,
+                "max_hp": 57,
+                "status": 0,
+                "dead": true,
+                "exp": 5832,
+                "pp": [
+                  13,
+                  15,
+                  10,
+                  40
+                ]
+              },
+              {
+                "species": "GEODUDE",
+                "level": 16,
+                "hp": 0,
+                "max_hp": 53,
+                "status": 0,
+                "dead": true,
+                "exp": 2923,
+                "pp": [
+                  15,
+                  14,
+                  35,
+                  40
+                ]
+              },
+              {
+                "species": "KABUTO",
+                "level": 18,
+                "hp": 53,
+                "max_hp": 55,
+                "status": 0,
+                "dead": false,
+                "exp": 5832,
+                "pp": [
+                  22,
+                  14,
+                  35,
+                  10
+                ]
+              },
+              {
+                "species": "RHYHORN",
+                "level": 17,
+                "hp": 0,
+                "max_hp": 70,
+                "status": 0,
+                "dead": true,
+                "exp": 6823,
+                "pp": [
+                  14,
+                  10,
+                  25,
+                  30
+                ]
+              },
+              {
+                "species": "ONIX",
+                "level": 18,
+                "hp": 0,
+                "max_hp": 57,
+                "status": 0,
+                "dead": true,
+                "exp": 5832,
+                "pp": [
+                  9,
+                  15,
+                  35,
+                  10
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "trainer": "TRAINER_ELITE_FOUR_AGATHA",
+          "mode": 0,
+          "result": {
+            "outcome": 1,
+            "turns": 19,
+            "faints": 5,
+            "cap": 86,
+            "party_size": 6,
+            "battle_healing_items": 0,
+            "frames": 36672,
+            "completed": true,
+            "between_items": {
+              "HYPER_POTION": 0,
+              "REVIVE": 0,
+              "FULL_HEAL": 0,
+              "RARE_CANDY": 0,
+              "ETHER": 0
+            },
+            "before": [
+              {
+                "species": "MAWILE",
+                "level": 84,
+                "hp": 256,
+                "max_hp": 256,
+                "attack": 174,
+                "defense": 173,
+                "speed": 115,
+                "spattack": 110,
+                "spdefense": 193,
+                "exp": 474163,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "GENGAR",
+                "level": 84,
+                "hp": 221,
+                "max_hp": 221,
+                "attack": 126,
+                "defense": 131,
+                "speed": 294,
+                "spattack": 302,
+                "spdefense": 157,
+                "exp": 613664,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "DUSCLOPS",
+                "level": 84,
+                "hp": 240,
+                "max_hp": 240,
+                "attack": 148,
+                "defense": 276,
+                "speed": 73,
+                "spattack": 117,
+                "spdefense": 303,
+                "exp": 474163,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "MISDREAVUS",
+                "level": 84,
+                "hp": 273,
+                "max_hp": 273,
+                "attack": 117,
+                "defense": 131,
+                "speed": 248,
+                "spattack": 174,
+                "spdefense": 173,
+                "exp": 474163,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "TYRANITAR",
+                "level": 85,
+                "hp": 344,
+                "max_hp": 344,
+                "attack": 343,
+                "defense": 218,
+                "speed": 135,
+                "spattack": 172,
+                "spdefense": 202,
+                "exp": 767656,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "LANTURN",
+                "level": 86,
+                "hp": 391,
+                "max_hp": 391,
+                "attack": 117,
+                "defense": 131,
+                "speed": 146,
+                "spattack": 237,
+                "spdefense": 163,
+                "exp": 795070,
+                "ev_total": 508,
+                "iv_total": 186
+              }
+            ],
+            "after": [
+              {
+                "species": "MAWILE",
+                "level": 84,
+                "hp": 0,
+                "max_hp": 256,
+                "status": 0,
+                "dead": false,
+                "exp": 482569,
+                "pp": [
+                  20,
+                  7,
+                  10,
+                  10
+                ]
+              },
+              {
+                "species": "GENGAR",
+                "level": 84,
+                "hp": 0,
+                "max_hp": 221,
+                "status": 0,
+                "dead": false,
+                "exp": 617084,
+                "pp": [
+                  14,
+                  12,
+                  15,
+                  10
+                ]
+              },
+              {
+                "species": "DUSCLOPS",
+                "level": 84,
+                "hp": 0,
+                "max_hp": 240,
+                "status": 0,
+                "dead": false,
+                "exp": 482449,
+                "pp": [
+                  14,
+                  15,
+                  15,
+                  10
+                ]
+              },
+              {
+                "species": "MISDREAVUS",
+                "level": 84,
+                "hp": 0,
+                "max_hp": 273,
+                "status": 0,
+                "dead": false,
+                "exp": 478366,
+                "pp": [
+                  8,
+                  15,
+                  19,
+                  20
+                ]
+              },
+              {
+                "species": "TYRANITAR",
+                "level": 85,
+                "hp": 50,
+                "max_hp": 344,
+                "status": 0,
+                "dead": false,
+                "exp": 781349,
+                "pp": [
+                  3,
+                  15,
+                  20,
+                  10
+                ]
+              },
+              {
+                "species": "LANTURN",
+                "level": 86,
+                "hp": 0,
+                "max_hp": 391,
+                "status": 0,
+                "dead": false,
+                "exp": 795070,
+                "pp": [
+                  2,
+                  15,
+                  10,
+                  10
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "trainer": "TRAINER_ELITE_FOUR_AGATHA",
+          "mode": 1,
+          "result": {
+            "outcome": 1,
+            "turns": 14,
+            "faints": 3,
+            "cap": 86,
+            "party_size": 6,
+            "battle_healing_items": 0,
+            "frames": 32112,
+            "completed": true,
+            "between_items": {
+              "HYPER_POTION": 0,
+              "REVIVE": 0,
+              "FULL_HEAL": 0,
+              "RARE_CANDY": 0,
+              "ETHER": 0
+            },
+            "before": [
+              {
+                "species": "MAWILE",
+                "level": 84,
+                "hp": 256,
+                "max_hp": 256,
+                "attack": 174,
+                "defense": 173,
+                "speed": 115,
+                "spattack": 110,
+                "spdefense": 193,
+                "exp": 474163,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "GENGAR",
+                "level": 84,
+                "hp": 221,
+                "max_hp": 221,
+                "attack": 126,
+                "defense": 131,
+                "speed": 294,
+                "spattack": 302,
+                "spdefense": 157,
+                "exp": 613664,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "DUSCLOPS",
+                "level": 84,
+                "hp": 240,
+                "max_hp": 240,
+                "attack": 148,
+                "defense": 276,
+                "speed": 73,
+                "spattack": 117,
+                "spdefense": 303,
+                "exp": 474163,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "MISDREAVUS",
+                "level": 84,
+                "hp": 273,
+                "max_hp": 273,
+                "attack": 117,
+                "defense": 131,
+                "speed": 248,
+                "spattack": 174,
+                "spdefense": 173,
+                "exp": 474163,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "TYRANITAR",
+                "level": 85,
+                "hp": 344,
+                "max_hp": 344,
+                "attack": 343,
+                "defense": 218,
+                "speed": 135,
+                "spattack": 172,
+                "spdefense": 202,
+                "exp": 767656,
+                "ev_total": 508,
+                "iv_total": 186
+              },
+              {
+                "species": "LANTURN",
+                "level": 86,
+                "hp": 391,
+                "max_hp": 391,
+                "attack": 117,
+                "defense": 131,
+                "speed": 146,
+                "spattack": 237,
+                "spdefense": 163,
+                "exp": 795070,
+                "ev_total": 508,
+                "iv_total": 186
+              }
+            ],
+            "after": [
+              {
+                "species": "MAWILE",
+                "level": 84,
+                "hp": 0,
+                "max_hp": 256,
+                "status": 0,
+                "dead": true,
+                "exp": 482569,
+                "pp": [
+                  20,
+                  8,
+                  10,
+                  10
+                ]
+              },
+              {
+                "species": "GENGAR",
+                "level": 84,
+                "hp": 0,
+                "max_hp": 221,
+                "status": 0,
+                "dead": true,
+                "exp": 617084,
+                "pp": [
+                  14,
+                  12,
+                  15,
+                  10
+                ]
+              },
+              {
+                "species": "DUSCLOPS",
+                "level": 84,
+                "hp": 240,
+                "max_hp": 240,
+                "status": 0,
+                "dead": false,
+                "exp": 483110,
+                "pp": [
+                  15,
+                  15,
+                  15,
+                  10
+                ]
+              },
+              {
+                "species": "MISDREAVUS",
+                "level": 84,
+                "hp": 0,
+                "max_hp": 273,
+                "status": 0,
+                "dead": true,
+                "exp": 481012,
+                "pp": [
+                  6,
+                  15,
+                  19,
+                  20
+                ]
+              },
+              {
+                "species": "TYRANITAR",
+                "level": 85,
+                "hp": 344,
+                "max_hp": 344,
+                "status": 0,
+                "dead": false,
+                "exp": 780026,
+                "pp": [
+                  9,
+                  15,
+                  20,
+                  10
+                ]
+              },
+              {
+                "species": "LANTURN",
+                "level": 86,
+                "hp": 168,
+                "max_hp": 391,
+                "status": 0,
+                "dead": false,
+                "exp": 795070,
+                "pp": [
+                  0,
+                  15,
+                  10,
+                  10
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "shops_en": {
+      "rom_sha256": "ba5b76e38a177f9ef0fbd7752bcb37b4ce24599c83f02fdca04dd3135901b918",
+      "language": "en",
+      "cases": [
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_TMs",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_TMs",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_4F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_4F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_XItems",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_XItems",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_Vitamins",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_Vitamins",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeruleanCity_Mart_Items",
+          "map": "MAP_CERULEAN_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeruleanCity_Mart_Items",
+          "map": "MAP_CERULEAN_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CinnabarIsland_Mart_Items",
+          "map": "MAP_CINNABAR_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CinnabarIsland_Mart_Items",
+          "map": "MAP_CINNABAR_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "FourIsland_Mart_Items",
+          "map": "MAP_FOUR_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "FourIsland_Mart_Items",
+          "map": "MAP_FOUR_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "FuchsiaCity_Mart_Items",
+          "map": "MAP_FUCHSIA_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "FuchsiaCity_Mart_Items",
+          "map": "MAP_FUCHSIA_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "IndigoPlateau_PokemonCenter_1F_Items",
+          "map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "IndigoPlateau_PokemonCenter_1F_Items",
+          "map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "LavenderTown_Mart_Items",
+          "map": "MAP_LAVENDER_TOWN_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "LavenderTown_Mart_Items",
+          "map": "MAP_LAVENDER_TOWN_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "PewterCity_Mart_Items",
+          "map": "MAP_PEWTER_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "PewterCity_Mart_Items",
+          "map": "MAP_PEWTER_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "SaffronCity_Mart_Items",
+          "map": "MAP_SAFFRON_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "SaffronCity_Mart_Items",
+          "map": "MAP_SAFFRON_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "SevenIsland_Mart_Items",
+          "map": "MAP_SEVEN_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "SevenIsland_Mart_Items",
+          "map": "MAP_SEVEN_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "SixIsland_Mart_Items",
+          "map": "MAP_SIX_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "SixIsland_Mart_Items",
+          "map": "MAP_SIX_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "ThreeIsland_Mart_Items",
+          "map": "MAP_THREE_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "ThreeIsland_Mart_Items",
+          "map": "MAP_THREE_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TrainerTower_Lobby_Mart_Items",
+          "map": "MAP_TRAINER_TOWER_LOBBY",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TrainerTower_Lobby_Mart_Items",
+          "map": "MAP_TRAINER_TOWER_LOBBY",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopInitial",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopInitial",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded1",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded1",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded2",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded2",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded3",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded3",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "VermilionCity_Mart_Items",
+          "map": "MAP_VERMILION_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "VermilionCity_Mart_Items",
+          "map": "MAP_VERMILION_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "ViridianCity_Mart_Items",
+          "map": "MAP_VIRIDIAN_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "ViridianCity_Mart_Items",
+          "map": "MAP_VIRIDIAN_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        }
+      ],
+      "count": 46,
+      "flow": "cancel; buy; sell; quit B/SEE YA; reopen; Hardcore Candy=1; exact stock; heap integrity and script resume"
+    },
+    "shops_ptbr": {
+      "rom_sha256": "ba5b76e38a177f9ef0fbd7752bcb37b4ce24599c83f02fdca04dd3135901b918",
+      "language": "ptbr",
+      "cases": [
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_TMs",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_2F_TMs",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_4F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_4F_Items",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_XItems",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_XItems",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_Vitamins",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeladonCity_DepartmentStore_5F_Vitamins",
+          "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CeruleanCity_Mart_Items",
+          "map": "MAP_CERULEAN_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CeruleanCity_Mart_Items",
+          "map": "MAP_CERULEAN_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "CinnabarIsland_Mart_Items",
+          "map": "MAP_CINNABAR_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "CinnabarIsland_Mart_Items",
+          "map": "MAP_CINNABAR_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "FourIsland_Mart_Items",
+          "map": "MAP_FOUR_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "FourIsland_Mart_Items",
+          "map": "MAP_FOUR_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "FuchsiaCity_Mart_Items",
+          "map": "MAP_FUCHSIA_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "FuchsiaCity_Mart_Items",
+          "map": "MAP_FUCHSIA_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "IndigoPlateau_PokemonCenter_1F_Items",
+          "map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "IndigoPlateau_PokemonCenter_1F_Items",
+          "map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "LavenderTown_Mart_Items",
+          "map": "MAP_LAVENDER_TOWN_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "LavenderTown_Mart_Items",
+          "map": "MAP_LAVENDER_TOWN_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "PewterCity_Mart_Items",
+          "map": "MAP_PEWTER_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "PewterCity_Mart_Items",
+          "map": "MAP_PEWTER_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "SaffronCity_Mart_Items",
+          "map": "MAP_SAFFRON_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "SaffronCity_Mart_Items",
+          "map": "MAP_SAFFRON_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "SevenIsland_Mart_Items",
+          "map": "MAP_SEVEN_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "SevenIsland_Mart_Items",
+          "map": "MAP_SEVEN_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "SixIsland_Mart_Items",
+          "map": "MAP_SIX_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "SixIsland_Mart_Items",
+          "map": "MAP_SIX_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "ThreeIsland_Mart_Items",
+          "map": "MAP_THREE_ISLAND_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "ThreeIsland_Mart_Items",
+          "map": "MAP_THREE_ISLAND_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TrainerTower_Lobby_Mart_Items",
+          "map": "MAP_TRAINER_TOWER_LOBBY",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TrainerTower_Lobby_Mart_Items",
+          "map": "MAP_TRAINER_TOWER_LOBBY",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopInitial",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopInitial",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded1",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded1",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded2",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded2",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded3",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "TwoIsland_Items_ShopExpanded3",
+          "map": "MAP_TWO_ISLAND",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "VermilionCity_Mart_Items",
+          "map": "MAP_VERMILION_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "VermilionCity_Mart_Items",
+          "map": "MAP_VERMILION_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        },
+        {
+          "catalog": "ViridianCity_Mart_Items",
+          "map": "MAP_VIRIDIAN_CITY_MART",
+          "mode": "Normal",
+          "passed": true
+        },
+        {
+          "catalog": "ViridianCity_Mart_Items",
+          "map": "MAP_VIRIDIAN_CITY_MART",
+          "mode": "Hardcore",
+          "passed": true
+        }
+      ],
+      "count": 46,
+      "flow": "cancel; buy; sell; quit B/SEE YA; reopen; Hardcore Candy=1; exact stock; heap integrity and script resume"
+    },
+    "regression": {
+      "rom_sha256": "ba5b76e38a177f9ef0fbd7752bcb37b4ce24599c83f02fdca04dd3135901b918",
+      "suites": [
+        {
+          "suite": "test_elite_four.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 310.4,
+          "log": "output/tests/checklist/test_elite_four.py.log"
+        },
+        {
+          "suite": "test_encounters.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 23.1,
+          "log": "output/tests/checklist/test_encounters.py.log"
+        },
+        {
+          "suite": "test_hardcore.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 29.8,
+          "log": "output/tests/checklist/test_hardcore.py.log"
+        },
+        {
+          "suite": "test_shops.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 156.2,
+          "log": "output/tests/checklist/test_shops.py.log"
+        },
+        {
+          "suite": "test_trainer_battles.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 20.3,
+          "log": "output/tests/checklist/test_trainer_battles.py.log"
+        },
+        {
+          "suite": "test_training.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 18.8,
+          "log": "output/tests/checklist/test_training.py.log"
+        },
+        {
+          "suite": "test_training_ui.py",
+          "status": "passed",
+          "exit_code": 0,
+          "seconds": 30.1,
+          "log": "output/tests/checklist/test_training_ui.py.log"
+        }
+      ]
+    },
+    "release_audit": {
+      "version": "v0.5.0-preview.3",
+      "rom_sha256": "ba5b76e38a177f9ef0fbd7752bcb37b4ce24599c83f02fdca04dd3135901b918",
+      "checks": [
+        {
+          "id": "balance_trainers.py",
+          "status": "passed",
+          "detail": "PASS: 636 teams; 3 lab singles; 0 teams without legal support moves"
+        },
+        {
+          "id": "balance_encounters.py",
+          "status": "passed",
+          "detail": "PASS: 386/386 direct wild species; 21 legendary/mythical species in postgame 1% slots; no trade/event dependency."
+        },
+        {
+          "id": "generate_guides.py",
+          "status": "passed",
+          "detail": "PASS: 35 challenges, 124 encounter maps; 327 method tables validated (including inactive alternatives)."
+        },
+        {
+          "id": "doubles_ai_native",
+          "status": "passed",
+          "detail": "PASS: partner support, inactive effects, weather, friendly fire, disabled moves and score bounds"
+        },
+        {
+          "id": "production_boot_900_frames",
+          "status": "passed",
+          "detail": "frames=900 dimensions=240x160 nonuniform_image=1 result=PASS"
+        },
+        {
+          "id": "release_integrity_ips",
+          "status": "passed",
+          "detail": "All manifest hashes match; clean USA 1.0 + IPS equals the production ROM; source patch matches."
+        },
+        {
+          "id": "fixture_cache_sources_match",
+          "status": "passed",
+          "detail": "9877 source files match the cache used to derive the disposable fixtures."
+        },
+        {
+          "id": "clean_source_rebuild_matches",
+          "status": "passed",
+          "detail": "Fresh build from pinned base plus cumulative source patch equals production ROM."
+        },
+        {
+          "id": "source_patch_applicable",
+          "status": "passed",
+          "detail": ""
+        },
+        {
+          "id": "source_whitespace",
+          "status": "passed",
+          "detail": "warning: in the working copy of 'data/maps/CeladonCity_DepartmentStore_2F/scripts.inc', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/CeladonCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/CeruleanCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/CinnabarIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/FiveIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/FourIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/FuchsiaCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/IndigoPlateau_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/LavenderTown_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/OneIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/PewterCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/Route10_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/Route4_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/SaffronCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/SevenIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/SixIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/ThreeIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/TwoIsland_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/VermilionCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/maps/ViridianCity_PokemonCenter_1F/map.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'src/data/battle_moves.h', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'src/data/pokemon/level_up_learnsets.h', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'src/data/pokemon/tmhm_learnsets.h', CRLF will be replaced by LF the next time Git touches it"
+        }
+      ]
+    }
+  }
+}

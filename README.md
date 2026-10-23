@@ -12,7 +12,7 @@ Guias: [onde capturar cada uma das 386 espécies](SPECIES_LOCATIONS.md) · [time
 
 ## Download
 
-Prévia atual: **[v0.5.0-preview.2](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.2)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.5.0-preview.2/firered-386-v0.5.0-preview.2.gba). Corrige a sobreposição, revisa IA/ginásios e introduz categorias/dados modernos. **Ainda não contém todos os golpes nem todas as TMs da geração IX.** [Testes e limites](MODERNIZATION.md).
+Prévia atual: **[v0.5.0-preview.3](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.3)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.5.0-preview.3/firered-386-v0.5.0-preview.3.gba). Revisa o PT-BR e inclui as melhorias de IA/ginásios, interface e categorias/dados modernos. **Ainda não contém todos os golpes nem todas as TMs da geração IX.** [Testes e limites](MODERNIZATION.md).
 
 Versão anterior: **[v0.4.0-dev](https://github.com/matheus013/firered-386/releases/tag/v0.4.0-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.4.0-dev/firered-386-v0.4.0-dev.gba). Inclui idioma EN/PT-BR nas opções, randomizer opcional, treinamento dos desafios e nova interface do cientista. Veja o [histórico de versões](CHANGELOG.md) e o [relatório dos 46 testes de lojas](SHOP_TEST_RESULTS.md).
 
@@ -22,7 +22,7 @@ O IPS exige uma ROM limpa de **FireRed USA 1.0**, SHA-1 `41cb23d8dccc8ebd7c649cd
 
 Para continuar uma partida, preserve uma cópia do `.sav` e use o mesmo nome-base para ROM e save, por exemplo `firered-386.gba` e `firered-386.sav`. O layout do save foi preservado e os testes de gravação/recarga passaram; a migração de saves reais de cada versão anterior ainda precisa ser validada. Os novos encontros passam a valer ao jogar com a ROM atualizada.
 
-Idioma selecionável em **OPTIONS: ENGLISH / PT-BR**. O português está em beta: 7.735 entradas traduzidas, com 98 revisões manuais; a maior parte veio de tradução automática local e ainda precisa de revisão linguística. Nomes de Pokémon e golpes permanecem em inglês; caracteres sem suporte na fonte são transliterados.
+Idioma selecionável em **OPTIONS: ENGLISH / PT-BR**. O português está em beta: 7.865 entradas traduzidas, com 1.202 substituições revisadas, incluindo as 354 descrições de golpes e 288 de itens. Menus, habilidades, mensagens de batalha, Centros Pokémon e diálogos iniciais foram revisados. Muitos diálogos secundários ainda vêm do rascunho automático. Nomes de Pokémon, golpes, habilidades e naturezas permanecem em inglês; caracteres sem suporte na fonte são simplificados. [Revisão, exemplos e testes do PT-BR](PTBR_REVIEW.md).
 
 Ao criar o save: **Normal/Hardcore → Randomizer OFF/ON**. O randomizer troca encontros selvagens, iniciais e espécies/golpes dos treinadores, preservando níveis e tamanhos dos elencos; sua semente fica gravada. Encontros roteirizados e presentes permanecem fixos. Os times e locais dos guias representam o randomizer desligado. [Detalhes e limites](SETTINGS.md).
 

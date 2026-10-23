@@ -4,7 +4,8 @@ import json,hashlib,shutil,subprocess,tempfile
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'output/tests/categories-ui';OUT.mkdir(parents=True,exist_ok=True)
 source=Path((ROOT/'output/hack-build-path.txt').read_text().strip());fixture=Path(tempfile.mkdtemp(prefix='category-ui-',dir=source.parent));shutil.copytree(source,fixture,dirs_exist_ok=True)
 main=(source/'src/main.c').read_text();summary=(source/'src/pokemon_summary_screen.c').read_text()
-summary=summary.replace('static void PokeSum_PrintSelectedMoveStats(void)\n{','IWRAM_DATA volatile u32 gCategoryObserved;\nstatic void PokeSum_PrintSelectedMoveStats(void)\n{\n    gCategoryObserved = 1 + 10*sMoveSelectionCursorPos + gBattleMoves[sMonSummaryScreen->moveIds[sMoveSelectionCursorPos]].category;')
+summary=summary.replace('static void PokeSum_PrintSelectedMoveStats(void)\n{','IWRAM_DATA volatile u32 gCategoryObserved;\nstatic void PokeSum_PrintSelectedMoveStats(void)\n{')
+summary=summary.replace('    if (sMoveSelectionCursorPos < 5)\n    {','    gCategoryObserved = 1 + 10*sMoveSelectionCursorPos + gBattleMoves[sMonSummaryScreen->moveIds[sMoveSelectionCursorPos]].category;\n    if (sMoveSelectionCursorPos < 5)\n    {',1)
 summary=summary.replace('static void CB2_SetUpPSS(void)\n{','IWRAM_DATA volatile u32 gSummarySetupObserved;\nstatic void CB2_SetUpPSS(void)\n{\n    gSummarySetupObserved = 1 + sMonSummaryScreen->summarySetupStep;')
 audit='''
 IWRAM_DATA volatile u32 gDescriptionOverflow;
