@@ -6,6 +6,11 @@ namespace hg {
 inline constexpr int kDsScreenWidth = 256;
 inline constexpr int kDsScreenHeight = 192;
 
+// Vista única 16:9 do modo desktop. Valor provisório: será validado quando o
+// renderizador do overworld existir (ver docs/architecture.md, "Modo unificado").
+inline constexpr int kUnifiedWidth = 384;
+inline constexpr int kUnifiedHeight = 216;
+
 struct Size {
     int w = 0;
     int h = 0;
@@ -20,10 +25,11 @@ struct Rect {
     friend bool operator==(const Rect&, const Rect&) = default;
 };
 
-// Como as duas telas do DS são arrumadas numa única janela.
+// Como as telas do jogo são arrumadas numa única janela.
 enum class ScreenLayout {
-    Stacked,    // uma sobre a outra, como no aparelho
-    SideBySide, // lado a lado, aproveita telas widescreen
+    Unified,    // modo desktop: uma vista 16:9; o conteúdo da tela de baixo vira HUD sobreposto
+    Stacked,    // clássico: uma tela sobre a outra, como no aparelho
+    SideBySide, // clássico: lado a lado, aproveita telas widescreen
 };
 
 enum class ScaleMode {
@@ -32,12 +38,12 @@ enum class ScaleMode {
 };
 
 struct ScreenPlacement {
-    Rect top;
-    Rect bottom;
+    Rect top;    // no modo Unified, a vista única (onde o HUD também é desenhado)
+    Rect bottom; // vazio (w == 0) no modo Unified
     float scale = 0.0f;
 };
 
-// Calcula onde desenhar as duas telas numa janela de tamanho `window` (em pixels),
+// Calcula onde desenhar as telas numa janela de tamanho `window` (em pixels),
 // sem distorcer a proporção e centralizando o conjunto (letterbox/pillarbox).
 ScreenPlacement place_screens(Size window, ScreenLayout layout, ScaleMode mode, int gap = 0);
 

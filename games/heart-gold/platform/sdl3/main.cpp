@@ -23,7 +23,7 @@ struct Options {
     bool self_test = false;
     bool fullscreen = false;
     bool verbose = false;
-    hg::ScreenLayout layout = hg::ScreenLayout::Stacked;
+    hg::ScreenLayout layout = hg::ScreenLayout::Unified;
     hg::ScaleMode scale = hg::ScaleMode::Integer;
 };
 
@@ -33,7 +33,7 @@ void print_usage()
             "  --frames N           encerra depois de N quadros (para testes)\n"
             "  --video-driver NOME  força um driver de vídeo do SDL (ex.: dummy, offscreen)\n"
             "  --self-test          injeta eventos de teclado e gamepad e confere o mapeamento\n"
-            "  --layout stacked|side\n"
+            "  --layout unified|stacked|side  (padrão: unified)\n"
             "  --scale integer|fit\n"
             "  --fullscreen\n"
             "  --verbose");
@@ -50,7 +50,9 @@ bool parse_args(int argc, char** argv, Options& opt)
             opt.video_driver = argv[++i];
         } else if (arg == "--layout" && has_value) {
             const std::string_view v = argv[++i];
-            opt.layout = v == "side" ? hg::ScreenLayout::SideBySide : hg::ScreenLayout::Stacked;
+            opt.layout = v == "side"      ? hg::ScreenLayout::SideBySide
+                         : v == "stacked" ? hg::ScreenLayout::Stacked
+                                          : hg::ScreenLayout::Unified;
         } else if (arg == "--scale" && has_value) {
             const std::string_view v = argv[++i];
             opt.scale = v == "fit" ? hg::ScaleMode::Fit : hg::ScaleMode::Integer;
@@ -114,9 +116,15 @@ public:
                      "." + std::to_string(SDL_VERSIONNUM_MICRO(v)) + ", driver de vídeo: " +
                      SDL_GetCurrentVideoDriver());
 
-        const bool stacked = m_opt.layout == hg::ScreenLayout::Stacked;
-        const int w = (stacked ? hg::kDsScreenWidth : hg::kDsScreenWidth * 2) * 2;
-        const int h = (stacked ? hg::kDsScreenHeight * 2 : hg::kDsScreenHeight) * 2;
+        int w = hg::kUnifiedWidth * 3;
+        int h = hg::kUnifiedHeight * 3;
+        if (m_opt.layout == hg::ScreenLayout::Stacked) {
+            w = hg::kDsScreenWidth * 2;
+            h = hg::kDsScreenHeight * 4;
+        } else if (m_opt.layout == hg::ScreenLayout::SideBySide) {
+            w = hg::kDsScreenWidth * 4;
+            h = hg::kDsScreenHeight * 2;
+        }
         SDL_WindowFlags flags = SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY;
         if (m_opt.fullscreen) flags |= SDL_WINDOW_FULLSCREEN;
 
@@ -308,9 +316,16 @@ private:
         SDL_RenderClear(m_renderer);
 
         const SDL_FRect top = to_frect(placement.top);
-        const SDL_FRect bottom = to_frect(placement.bottom);
         SDL_SetRenderDrawColor(m_renderer, 168, 32, 40, 255);
         SDL_RenderFillRect(m_renderer, &top);
+
+        // Área do conteúdo da tela de baixo: a segunda tela no modo clássico,
+        // ou um painel de HUD no canto inferior direito da vista no modo unificado.
+        SDL_FRect bottom = to_frect(placement.bottom);
+        if (m_opt.layout == hg::ScreenLayout::Unified) {
+            const float s = placement.scale;
+            bottom = {top.x + top.w - 172.0f * s, top.y + top.h - 44.0f * s, 164.0f * s, 36.0f * s};
+        }
         SDL_SetRenderDrawColor(m_renderer, 48, 48, 60, 255);
         SDL_RenderFillRect(m_renderer, &bottom);
 

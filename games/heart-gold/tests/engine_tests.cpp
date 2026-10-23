@@ -41,6 +41,24 @@ TEST_CASE("viewport: side by side uses widescreen 1920x1080")
     CHECK(p.bottom == (Rect{960, 252, 768, 576}));
 }
 
+TEST_CASE("viewport: unified fills 1080p exactly and has no second screen")
+{
+    const auto p = place_screens({1920, 1080}, ScreenLayout::Unified, ScaleMode::Integer);
+    CHECK_EQ(p.scale, 5.0f);
+    CHECK(p.top == (Rect{0, 0, 1920, 1080}));
+    CHECK_EQ(p.bottom.w, 0);
+}
+
+TEST_CASE("viewport: unified letterboxes 720p with integer scale")
+{
+    // 720/216 = 3,33 -> escala 3 -> 1152x648, centralizado.
+    const auto p = place_screens({1280, 720}, ScreenLayout::Unified, ScaleMode::Integer);
+    CHECK_EQ(p.scale, 3.0f);
+    CHECK(p.top == (Rect{64, 36, 1152, 648}));
+    const auto fit = place_screens({1280, 720}, ScreenLayout::Unified, ScaleMode::Fit);
+    CHECK(fit.top == (Rect{0, 0, 1280, 720}));
+}
+
 TEST_CASE("viewport: aspect ratio is always 4:3 per screen")
 {
     const Size sizes[] = {{800, 600}, {1366, 768}, {2560, 1080}, {3024, 1964}, {300, 1000}};
