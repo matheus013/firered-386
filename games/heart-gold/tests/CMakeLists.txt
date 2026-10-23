@@ -18,3 +18,9 @@ if(HG_BUILD_APP)
         TIMEOUT 30
         PASS_REGULAR_EXPRESSION "Autoteste OK")
 endif()
+
+find_package(Python3 COMPONENTS Interpreter)
+if(Python3_FOUND)
+    add_test(NAME assets.manifest
+        COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tools/check_assets.py ${PROJECT_SOURCE_DIR}/assets)
+endif()
