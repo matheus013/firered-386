@@ -9,6 +9,7 @@ import json
 import subprocess
 import argparse
 import re
+from source_base import game_files, check_patch
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'output/tests/checklist'
@@ -82,8 +83,7 @@ def boot():
 
 def cache_sources():
     cache = Path((ROOT / 'output/hack-build-path.txt').read_text().strip())
-    files = command(['git', '-C', 'game', 'ls-files']).splitlines()
-    files += command(['git', '-C', 'game', 'ls-files', '--others', '--exclude-standard']).splitlines()
+    files = game_files()
     for name in files:
         assert (ROOT / 'game' / name).read_bytes() == (cache / name).read_bytes(), name
     return f'{len(files)} source files match the cache used to derive the disposable fixtures.'
@@ -102,8 +102,8 @@ run('production_boot_900_frames', boot)
 run('release_integrity_ips', package)
 run('fixture_cache_sources_match', cache_sources)
 run('clean_source_rebuild_matches', clean_rebuild)
-run('source_patch_applicable', lambda: command(['git', '-C', 'game', 'apply', '--check', '--cached', '../patches/current.patch']))
-run('source_whitespace', lambda: command(['git', '-C', 'game', '-c', 'core.autocrlf=false', 'diff', '--check']))
+run('source_patch_applicable', check_patch)
+run('source_whitespace', lambda: command(['git', '-c', 'core.autocrlf=false', 'diff', '--check', '--', 'game']))
 report = {'version': args.version, 'rom_sha256': hashlib.sha256((ROOT / 'output/firered-386-dev.gba').read_bytes()).hexdigest(), 'checks': results}
 (OUT / 'release_audit.json').write_text(json.dumps(report, indent=2) + '\n')
 if any(row['status'] == 'failed' for row in results):

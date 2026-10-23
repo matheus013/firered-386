@@ -5,3 +5,11 @@
 
 # Preserve pinned upstream bytes and manifest hashes.
 data/upstream/pokeapi/*.csv -text -whitespace
+
+game/** -text -whitespace
+
+tools/agbcc/** -text -whitespace
+
+emulator/** -text -whitespace
+
+data/upstream/pokefirered-base.tar.gz binary

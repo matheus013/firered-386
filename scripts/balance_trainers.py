@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import re
 import subprocess
+from source_base import base_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 GAME = ROOT / "game"
@@ -98,7 +99,7 @@ def read(path):
 
 
 def original(path):
-    return subprocess.check_output(["git", "-C", str(GAME), "show", f"{BASE}:{path}"], encoding="utf-8")
+    return base_bytes(path).decode('utf-8')
 
 
 def field(body, name):

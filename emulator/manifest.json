@@ -1,0 +1,31 @@
+{
+  "upstream_18": "https://github.com/luckytyphlosion/vba-link",
+  "upstream_commit": "a4f4ff94a9e5ba651b6258b3b4d8319813341577",
+  "original_172": "https://www.vbalink.info/downloads/V172lsrc.zip",
+  "target": "Experimental Linux 1.8 TCP source corrections; not a Windows 1.8 release",
+  "validation": [
+    "265 helper scenarios: PASS (ASan/UBSan)",
+    "Actual 1.8 LAN client/host method integration: PASS (ASan/UBSan)",
+    "GBALink.cpp C++17 object compilation: PASS (legacy warnings)",
+    "1.72 synthetic relay protocol suite: PASS on five build variants"
+  ],
+  "not_validated": [
+    "complete GUI build",
+    "Windows 1.8",
+    "RFU/WiFi",
+    "real Pokemon trades/battles",
+    "internet play"
+  ],
+  "sha256": {
+    "vba-link/src/GBALink.cpp": "007f1b72b495cfb50b6a8ad65b42c09dc2f39495dff88202994dd9edef5edc59",
+    "vba-link/src/LinkTransport.h": "afb76c6dc895187f813e4f7651bbd4d6bfe7c5225c09f0677e7fcb2fc033e078",
+    "vba-link/COPYING": "19404e184cf45ec991b54e1e6f05f847ad8f13fee2a51f3a2d9a960c8f7cb26b",
+    "downloads/V172lsrc.zip": "bba595fce888e2af151d99b4351de4f16aa2cf8671aebfe08a0e37b3bbad944b",
+    "improved-server/src/main.cpp": "d97f68e55b58f63262d9620a667bac35bf371f5ae61dff270b5ae906c19cddf1",
+    "improved-server/bin/vbalink-server.exe": "9b1a4bae5a5627a3c7f421124abfdb64adbf8c1f8468b779d28e7021a2484af3",
+    "improved-server/bin/vbalink-server-linux": "6f798035c749d72d91dbb0c2cacd36633bd76e84587aa51e1887155288f2e732",
+    "vbalink-1.8-transport.patch": "a1e95e1435cfeaecb4911dd50903f526a0f2a88c33fc9c32569c5badc704b842",
+    "test_transport18.cpp": "0cb5ba22d6f93459a3067723a4ba6df87b05fbed89ae7e03c61e744e397d1bc7",
+    "test_integration18.cpp": "50531b314f53953c1954ce84846129455c7180c981a3869310f6cf99893aa62a"
+  }
+}

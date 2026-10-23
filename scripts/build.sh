@@ -27,7 +27,7 @@ fi
 source_dir=$(mktemp -d "$cache_dir/$mode.XXXXXX")
 printf '%s\n' "$source_dir" > "$project_dir/output/$mode-build-path.txt"
 if [[ "$mode" == baseline ]]; then
-    git -c safe.directory="$project_dir/game" -C "$project_dir/game" archive ce6406d8c2eaf46d543c8a2606de0c3cb1951982 | tar -x -C "$source_dir"
+    python3 "$project_dir/scripts/source_base.py" --extract "$source_dir"
 else
     tar -C "$project_dir/game" --exclude=.git --exclude=build --exclude=tools/agbcc \
         --exclude='./poke*.gba' --exclude='*.elf' --exclude='*.map' --exclude='*.sym' -cf - . | tar -x -C "$source_dir"

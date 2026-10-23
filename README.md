@@ -449,7 +449,7 @@ Mega Evolução, Z-Moves, Dynamax/Gigantamax e Terastalização e os golpes depe
 
 ## Compilação do código-fonte
 
-Base: [pret/pokefirered](https://github.com/pret/pokefirered), revisão `ce6406d8c2eaf46d543c8a2606de0c3cb1951982`. Compilador: [pret/agbcc](https://github.com/pret/agbcc), revisão `da598c1d918402c42c0c0d7128ba14567f3175e9`. As modificações estão em um patch cumulativo; `game/` e `tools/agbcc/` são preparados localmente, sem submódulos.
+Base: [pret/pokefirered](https://github.com/pret/pokefirered), revisão `ce6406d8c2eaf46d543c8a2606de0c3cb1951982`. Compilador: [pret/agbcc](https://github.com/pret/agbcc), revisão `da598c1d918402c42c0c0d7128ba14567f3175e9`. O repositório inclui os fontes completos em `game/`, o compilador em `tools/agbcc/` e o trabalho do VBA Link em `emulator/`, sem submódulos. A base original fixada também acompanha o projeto em `data/upstream/pokefirered-base.tar.gz`, com SHA-256 no manifesto; os geradores e a compilação de referência funcionam sem um repositório Git interno. O patch cumulativo é preservado como formato alternativo de distribuição.
 
 No Linux ou Ubuntu/WSL:
 
@@ -515,3 +515,13 @@ Base: [pret/pokefirered](https://github.com/pret/pokefirered). Compilador: [pret
 [Testes dos 35 desafios e classificação por modo](docs/CHALLENGE_BALANCE_TESTS.md) e [equipes testadas, golpes e origens](docs/CHALLENGE_TEAMS_TESTED.md).
 
 Combates executados no motor nativo, com preparação reconstruída a partir dos fontes. Incluem blocos consecutivos da Liga; não certificam caminhada, capturas ou campanha natural completa. Randomizer OFF. A ROM não foi alterada.
+
+## Estrutura do repositório
+
+- `game/`: jogo completo, com fontes, mapas, gráficos, áudio e ferramentas do projeto base.
+- `tools/agbcc/`: fontes do compilador fixado, com seus avisos e licenças originais.
+- `emulator/`: fontes do VBA Link, correções experimentais, testes e licenças; não representa um emulador Windows completo validado.
+- `scripts/`, `data/` e `patches/`: automação, dados e patch alternativo.
+- `docs/`: documentação da hackrom. Arquivos de documentação e licenças de terceiros permanecem em suas pastas originais.
+
+`output/`, `.build/`, caches de Python, saves e builds temporários não são versionados. A ROM pronta permanece disponível nos Releases. Os fontes incluídos são listados em `data/vendor_sources.json`; as origens e revisões foram preservadas.

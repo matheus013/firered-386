@@ -1,0 +1,380 @@
+--- a/src/GBALink.cpp
++++ b/src/GBALink.cpp
+@@ -6,6 +6,7 @@
+ #include "Port.h"
+ #include "GBA.h"
+ #include "GBALink.h"
++#include "LinkTransport.h"
+ #ifdef ENABLE_NLS
+ 	#include <libintl.h>
+ 	#define _(x) gettext(x)
+@@ -587,7 +588,7 @@
+ 
+ bool InitLink()
+ {
+-	bool disable = true;
++	int disable = 1;
+ 
+ 	linkid = 0;
+ 	inifile[3]='1';
+@@ -597,7 +598,7 @@
+ 		return 0;
+ 	}
+ 
+-	setsockopt(lanlink.tcpsocket, IPPROTO_TCP, TCP_NODELAY, (char*)&disable, sizeof(bool)); 
++	setsockopt(lanlink.tcpsocket, IPPROTO_TCP, TCP_NODELAY, (char*)&disable, sizeof(disable));
+ 	
+ 	if((shm_fd = shm_open(STATE_FILE,  (O_CREAT | O_EXCL | O_RDWR), (S_IRUSR | S_IWUSR))) > 0 ) {
+ 		if((mmf = shm_open(STATE_FILE, (O_CREAT | O_RDWR), (S_IRUSR | S_IWUSR))) < 0)
+@@ -714,7 +715,7 @@
+ 			char outbuffer[4];
+ 			outbuffer[0] = 4;
+ 			outbuffer[1] = -32;
+-			if(lanlink.type==0) send(lanlink.tcpsocket, outbuffer, 4, 0);
++			if(lanlink.type==0) if (!link_transport::send_exact(lanlink.tcpsocket, outbuffer, 4, linktimeout)) lanlink.connected = false;
+ 		} else {
+ 			char outbuffer[12];
+ 			int i;
+@@ -722,7 +723,7 @@
+ 			outbuffer[1] = -32;
+ 			for(i=1;i<=lanlink.numgbas;i++){
+ 				if(lanlink.type==0){
+-					send(ls.tcpsocket[i], outbuffer, 12, 0);
++					if (!link_transport::send_exact(ls.tcpsocket[i], outbuffer, 12, linktimeout)) lanlink.connected = false;
+ 				} 
+ 				close(ls.tcpsocket[i]);
+ 			}
+@@ -786,7 +787,7 @@
+ 	gethostname(str, 100);
+ 	printf("Server is ready! Server IP address is: %s\n", inet_ntoa(*(in_addr*)(gethostbyname(str)->h_addr_list[0])));
+ 
+-	if(pthread_create(&lanlink.thread, NULL, LinkServerThread, serverdlg)<0)
++	if(pthread_create(&lanlink.thread, NULL, LinkServerThread, serverdlg)!=0)
+ 		{
+ 		printf("Server Thread error\n");
+ 		return (1);
+@@ -798,18 +799,21 @@
+ void * LinkServerThread(void *serverdlg){	
+ 	fd_set fdset;
+ 	timeval wsocktimeout;
+-	char inbuffer[256], outbuffer[256];
++	char inbuffer[256] = {}, outbuffer[256] = {};
+ 	int *intinbuffer = (int*)inbuffer;
+ 	u16 *u16inbuffer = (u16*)inbuffer;
+ 	int *intoutbuffer = (int*)outbuffer;
+ 	u16 *u16outbuffer = (u16*)outbuffer;
+-	bool disable = true;
++	int disable = 1;
+ 
+ 	wsocktimeout.tv_sec = 1;
+ 	wsocktimeout.tv_usec = 0;
+ 	i = 0;
+ 	
+ 	while(i<lanlink.numgbas){
++		wsocktimeout.tv_sec = 1;
++		wsocktimeout.tv_usec = 0;
++		if (lanlink.terminate) return 0;
+ 		FD_ZERO(&fdset);
+ 		FD_SET(lanlink.tcpsocket, &fdset);
+ 		if(select(FD_SETSIZE, &fdset, NULL, NULL, &wsocktimeout)==1){
+@@ -822,10 +826,10 @@
+ 				printf("ERROR: Network error.\n");
+ 				return 0;
+ 			} else {
+-				setsockopt(ls.tcpsocket[i+1], IPPROTO_TCP, TCP_NODELAY, (char*)&disable, sizeof(bool));
++				setsockopt(ls.tcpsocket[i+1], IPPROTO_TCP, TCP_NODELAY, (char*)&disable, sizeof(disable));
+ 				u16outbuffer[0] = i+1;
+ 				u16outbuffer[1] = lanlink.numgbas;
+-				send(ls.tcpsocket[i+1], outbuffer, 4, 0);
++				if (!link_transport::send_exact(ls.tcpsocket[i+1], outbuffer, 4, linktimeout)) lanlink.connected = false;
+ 				printf("Player %d connected.\n", i+1);
+ 				i++;
+ 			}
+@@ -835,7 +839,7 @@
+ 			
+ 	for(i=1;i<=lanlink.numgbas;i++){
+ 		outbuffer[0] = 4;
+-		send(ls.tcpsocket[i], outbuffer, 4, 0);
++		if (!link_transport::send_exact(ls.tcpsocket[i], outbuffer, 4, linktimeout)) lanlink.connected = false;
+ 	}
+ 
+ 	lanlink.connected = true;
+@@ -849,8 +853,8 @@
+ 			outbuffer[0] = 4;
+ 			outbuffer[1] = -32;	//0xe0
+ 			for(i=1;i<=lanlink.numgbas;i++){
+-				send(tcpsocket[i], outbuffer, 4, 0);
+-				recv(tcpsocket[i], inbuffer, 4, 0);
++				if (!link_transport::send_exact(tcpsocket[i], outbuffer, 4, linktimeout)) lanlink.connected = false;
++				if (!link_transport::receive_frame(tcpsocket[i], inbuffer, sizeof(inbuffer), linktimeout)) lanlink.connected = false;
+ 			}
+ 		}
+ 		outbuffer[1] = tspeed;
+@@ -859,27 +863,27 @@
+ 		if(lanlink.numgbas==1){
+ 			if(lanlink.type==0){
+ 				outbuffer[0] = 8;
+-				send(tcpsocket[1], outbuffer, 8, 0);
++				if (!link_transport::send_exact(tcpsocket[1], outbuffer, 8, linktimeout)) lanlink.connected = false;
+ 			}
+ 		}
+ 		else if(lanlink.numgbas==2){
+ 			u16outbuffer[4] = linkdata[2];
+ 			if(lanlink.type==0){
+ 				outbuffer[0] = 10;
+-				send(tcpsocket[1], outbuffer, 10, 0);
++				if (!link_transport::send_exact(tcpsocket[1], outbuffer, 10, linktimeout)) lanlink.connected = false;
+ 				u16outbuffer[4] = linkdata[1];
+-				send(tcpsocket[2], outbuffer, 10, 0);
++				if (!link_transport::send_exact(tcpsocket[2], outbuffer, 10, linktimeout)) lanlink.connected = false;
+ 			}
+ 		} else {
+ 			if(lanlink.type==0){
+ 				outbuffer[0] = 12;
+ 				u16outbuffer[4] = linkdata[2];
+ 				u16outbuffer[5] = linkdata[3];
+-				send(tcpsocket[1], outbuffer, 12, 0);
++				if (!link_transport::send_exact(tcpsocket[1], outbuffer, 12, linktimeout)) lanlink.connected = false;
+ 				u16outbuffer[4] = linkdata[1];
+-				send(tcpsocket[2], outbuffer, 12, 0);
++				if (!link_transport::send_exact(tcpsocket[2], outbuffer, 12, linktimeout)) lanlink.connected = false;
+ 				u16outbuffer[5] = linkdata[2];
+-				send(tcpsocket[3], outbuffer, 12, 0);
++				if (!link_transport::send_exact(tcpsocket[3], outbuffer, 12, linktimeout)) lanlink.connected = false;
+ 			}
+ 		}
+ 	}
+@@ -887,30 +891,32 @@
+ }
+ 
+ void lserver::Recv(void){
+-	int numbytes;
+ 	if(lanlink.type==0){	// TCP
+ 		wsocktimeout.tv_sec = linktimeout / 1000;
+-		wsocktimeout.tv_usec =  linktimeout * 1000;
+-		for(i=0;i<lanlink.numgbas;i++) {FD_ZERO(&fdset); FD_SET(tcpsocket[i+1], &fdset);}
++		wsocktimeout.tv_usec = (linktimeout % 1000) * 1000;
++		FD_ZERO(&fdset);
++		for(i=0;i<lanlink.numgbas;i++) {FD_SET(tcpsocket[i+1], &fdset);}
+ 		if(select(FD_SETSIZE, &fdset, NULL, NULL, &wsocktimeout)==0){
+ 			return;
+ 		}
+ 		howmanytimes++;
+ 		for(i=0;i<lanlink.numgbas;i++){
+-			numbytes = 0;
+-			inbuffer[0] = 1;
+-			while(numbytes<howmanytimes*inbuffer[0])
+-				numbytes += recv(tcpsocket[i+1], inbuffer+numbytes, 256-numbytes, 0);
+-			if(howmanytimes>1) memcpy(inbuffer, inbuffer+inbuffer[0]*(howmanytimes-1), inbuffer[0]);
++			for (int frame = 0; frame < howmanytimes; ++frame) {
++                if (!link_transport::receive_frame(tcpsocket[i+1], inbuffer, sizeof(inbuffer), linktimeout)
++                    || static_cast<unsigned char>(inbuffer[0]) != 4) {
++                    lanlink.connected = false;
++                    howmanytimes = 0;
++                    return;
++                }
++            }
+ 			if(inbuffer[1]==-32){
+-				char message[30];
+ 				lanlink.connected = false;
+ 				printf("Player %d disconnected.\n", i+2);
+ 				outbuffer[0] = 4;
+ 				outbuffer[1] = -32;
+-				for(i=1;i<lanlink.numgbas;i++){
+-					send(tcpsocket[i], outbuffer, 12, 0);
+-					recv(tcpsocket[i], inbuffer, 256, 0);
++				for(i=1;i<=lanlink.numgbas;i++){
++					if (!link_transport::send_exact(tcpsocket[i], outbuffer, 4, linktimeout)) lanlink.connected = false;
++					if (!link_transport::receive_frame(tcpsocket[i], inbuffer, sizeof(inbuffer), linktimeout)) lanlink.connected = false;
+ 					close(tcpsocket[i]);
+ 				}
+ 				return;
+@@ -954,7 +960,7 @@
+ 
+ 	printf("Connecting...\n");	
+ 	lanlink.terminate = false;
+-	if(pthread_create((&lanlink.thread), NULL, (LinkClientThread), (waitdlg))<0)
++	if(pthread_create((&lanlink.thread), NULL, (LinkClientThread), (waitdlg))!=0)
+ 		{
+ 		printf("pthread_create error\n");
+ 		return (1);
+@@ -965,7 +971,6 @@
+ void* LinkClientThread(void *_cid){
+ 	fd_set fdset;
+ 	timeval wsocktimeout;
+-	int numbytes;
+ 	char inbuffer[16];
+ 	u16 *u16inbuffer = (u16*)inbuffer;
+ 	unsigned long block = 0;
+@@ -986,20 +991,25 @@
+ 	
+ 	fcntl(lanlink.tcpsocket, F_GETFL, &block);
+ 
+-	numbytes = 0;
+-	while(numbytes<4) 
+-		numbytes += recv(lanlink.tcpsocket, inbuffer+numbytes, 16, 0);
++	if (!link_transport::receive_exact(lanlink.tcpsocket, inbuffer, 4, linktimeout)) {
++        lanlink.connected = false;
++        return 0;
++    }
+ 	linkid = (int)u16inbuffer[0];
+ 	lanlink.numgbas = (int)u16inbuffer[1];
++	if (linkid < 1 || linkid > 3 || lanlink.numgbas < linkid || lanlink.numgbas > 3) {
++		lanlink.connected = false;
++		return 0;
++	}
+ 	
+ 	printf("Connected as #%d\n", linkid+1);
+ 	if(lanlink.numgbas!=linkid)	printf("Waiting for %d players to join\n", lanlink.numgbas-linkid);
+ 	else printf("All players joined.\n");
+ 		
+-	numbytes = 0;
+-	inbuffer[0] = 1;
+-	while(numbytes<inbuffer[0]) 
+-		numbytes += recv(lanlink.tcpsocket, inbuffer+numbytes, 16, 0);
++	if (!link_transport::receive_frame(lanlink.tcpsocket, inbuffer, sizeof(inbuffer), 3600000)) {
++        lanlink.connected = false;
++        return 0;
++    }
+ 		
+ 	printf("Connected\n");
+ 
+@@ -1008,18 +1018,31 @@
+ 	fcntl(lanlink.tcpsocket, F_GETFL, &block);
+ 
+ 	lanlink.connected = true;
++	return 0;
+ }
+ 
+ void lclient::CheckConn(void){
+-	if((numbytes=recv(lanlink.tcpsocket, inbuffer, 256, MSG_DONTWAIT))>0){
+-		while(numbytes<inbuffer[0]) 
+-			numbytes += recv(lanlink.tcpsocket, inbuffer+numbytes, 256, 0);
++    char first;
++    int available = recv(lanlink.tcpsocket, &first, 1, MSG_DONTWAIT | MSG_PEEK);
++    if (available == 0 || (available < 0 && errno != EAGAIN && errno != EWOULDBLOCK && errno != EINTR)) {
++        lanlink.connected = false;
++        return;
++    }
++    if (available > 0) {
++        if (!link_transport::receive_frame(lanlink.tcpsocket, inbuffer, sizeof(inbuffer), linktimeout)) {
++            lanlink.connected = false;
++            return;
++        }
+ 		if(inbuffer[1]==-32){
+ 				outbuffer[0] = 4;
+-				send(lanlink.tcpsocket, outbuffer, 4, 0);
++				if (!link_transport::send_exact(lanlink.tcpsocket, outbuffer, 4, linktimeout)) lanlink.connected = false;
+ 				lanlink.connected = false;
+ 				printf("Server disconnected.\n");
+ 				return;
++		}
++		if (static_cast<unsigned char>(inbuffer[0]) != 8 + 2 * (lanlink.numgbas - 1)) {
++			lanlink.connected = false;
++			return;
+ 		}
+ 		numtransfers = 1;
+ 		savedlinktime = 0;
+@@ -1038,20 +1061,25 @@
+ 	FD_ZERO(&fdset);
+ 	FD_SET(lanlink.tcpsocket, &fdset);
+ 	wsocktimeout.tv_sec = linktimeout / 1000;
+-	wsocktimeout.tv_usec =  linktimeout * 1000;
++	wsocktimeout.tv_usec = (linktimeout % 1000) * 1000;
+ 	if(select(FD_SETSIZE, &fdset, NULL, NULL, &wsocktimeout)==0){
+ 		numtransfers = 0;
+ 		return;
+ 	}
+-	numbytes = 0;
+-	inbuffer[0] = 1;
+-	while(numbytes<inbuffer[0]) 
+-		numbytes += recv(lanlink.tcpsocket, inbuffer+numbytes, 256, 0);
++	if (!link_transport::receive_frame(lanlink.tcpsocket, inbuffer, sizeof(inbuffer), linktimeout)) {
++        lanlink.connected = false;
++        numtransfers = 0;
++        return;
++    }
+ 	if(inbuffer[1]==-32){
+ 		outbuffer[0] = 4;
+-		send(lanlink.tcpsocket, outbuffer, 4, 0);
++		if (!link_transport::send_exact(lanlink.tcpsocket, outbuffer, 4, linktimeout)) lanlink.connected = false;
+ 		lanlink.connected = false;
+ 		printf("Server disconnected.\n");
++		return;
++	}
++	if (static_cast<unsigned char>(inbuffer[0]) != 8 + 2 * (lanlink.numgbas - 1)) {
++		lanlink.connected = false;
+ 		return;
+ 	}
+ 	tspeed = inbuffer[1] & 3;
+@@ -1068,7 +1096,7 @@
+ 	outbuffer[0] = 4;
+ 	outbuffer[1] = linkid<<2;
+ 	u16outbuffer[1] = linkdata[linkid];
+-	send(lanlink.tcpsocket, outbuffer, 4, 0);
++	if (!link_transport::send_exact(lanlink.tcpsocket, outbuffer, 4, linktimeout)) lanlink.connected = false;
+ 	return;
+ }
+ 
+--- /dev/null
++++ b/src/LinkTransport.h
+@@ -0,0 +1,59 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++// Bounded TCP framing for the Linux VBA Link 1.8 port.
++#ifndef VBA_LINK_TRANSPORT_H
++#define VBA_LINK_TRANSPORT_H
++#include <cerrno>
++#include <chrono>
++#include <climits>
++#include <cstddef>
++#include <poll.h>
++#include <sys/socket.h>
++
++namespace link_transport {
++typedef std::chrono::steady_clock Clock;
++
++inline bool wait(int socket, short events, Clock::time_point deadline) {
++    for (;;) {
++        long long remaining = std::chrono::duration_cast<std::chrono::milliseconds>(deadline - Clock::now()).count();
++        if (remaining < 0) return false;
++        pollfd descriptor = {socket, events, 0};
++        int result = poll(&descriptor, 1, remaining > INT_MAX ? INT_MAX : static_cast<int>(remaining));
++        if (result > 0) return (descriptor.revents & events) != 0;
++        if (result < 0 && errno == EINTR) continue;
++        return false;
++    }
++}
++
++inline bool transfer(int socket, char* buffer, std::size_t size, bool sending, Clock::time_point deadline) {
++    std::size_t offset = 0;
++    while (offset < size) {
++        if (!wait(socket, sending ? POLLOUT : POLLIN, deadline)) return false;
++        ssize_t count = sending
++            ? send(socket, buffer + offset, size - offset, MSG_DONTWAIT | MSG_NOSIGNAL)
++            : recv(socket, buffer + offset, size - offset, MSG_DONTWAIT);
++        if (count > 0) offset += static_cast<std::size_t>(count);
++        else if (count == 0 || (errno != EINTR && errno != EAGAIN && errno != EWOULDBLOCK)) return false;
++    }
++    return true;
++}
++
++inline Clock::time_point deadline(int timeout_ms) {
++    return Clock::now() + std::chrono::milliseconds(timeout_ms > 0 ? timeout_ms : 1);
++}
++inline bool receive_exact(int socket, char* buffer, std::size_t size, int timeout_ms) {
++    return transfer(socket, buffer, size, false, deadline(timeout_ms));
++}
++inline bool send_exact(int socket, const char* buffer, std::size_t size, int timeout_ms) {
++    return transfer(socket, const_cast<char*>(buffer), size, true, deadline(timeout_ms));
++}
++// Each 1.8 LAN frame begins with an unsigned length byte. Read only that
++// frame; the following frame stays in the socket even when TCP coalesces it.
++inline bool receive_frame(int socket, char* buffer, std::size_t capacity, int timeout_ms) {
++    Clock::time_point end = deadline(timeout_ms);
++    if (capacity < 4 || !transfer(socket, buffer, 1, false, end)) return false;
++    unsigned length = static_cast<unsigned char>(buffer[0]);
++    if (length < 4 || length > 12 || length % 2 || length > capacity) return false;
++    return transfer(socket, buffer + 1, length - 1, false, end);
++}
++}
++#endif

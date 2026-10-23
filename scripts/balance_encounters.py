@@ -7,6 +7,7 @@ import json
 import re
 import struct
 import subprocess
+from source_base import base_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 GAME = ROOT/'game'
@@ -151,7 +152,7 @@ def habitat(cat,species,slot):
 
 def generate():
     cat=Catalog()
-    original=json.loads(subprocess.check_output(['git','-C',str(GAME),'show',BASE+':src/data/wild_encounters.json'],encoding='utf-8'))
+    original=json.loads(base_bytes('src/data/wild_encounters.json'))
     group=original['wild_encounter_groups'][0]
     fields={f['type']:f for f in group['fields']}
     active={};inactive=[]

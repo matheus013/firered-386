@@ -2,10 +2,10 @@
 from pathlib import Path
 import hashlib,io,json,re,struct,subprocess,tarfile
 from collections import deque
+from source_base import base_tar
 root=Path(__file__).resolve().parents[1];game=root/'game';out=root/'output/tests/campaign';out.mkdir(parents=True,exist_ok=True)
-archive=subprocess.check_output(['git','-C',str(game),'archive','ce6406d8c2eaf46d543c8a2606de0c3cb1951982','data/maps','data/layouts'])
-with tarfile.open(fileobj=io.BytesIO(archive)) as tar:
- original={m.name:tar.extractfile(m).read() for m in tar if m.isfile()}
+with base_tar() as tar:
+ original={m.name:tar.extractfile(m).read() for m in tar if m.isfile() and m.name.startswith(('data/maps/','data/layouts/'))}
 maps={p.parent.name:json.loads(p.read_text(encoding='utf-8')) for p in (game/'data/maps').glob('*/map.json')}
 byid={m['id']:m for m in maps.values()};layouts=json.loads((game/'data/layouts/layouts.json').read_text(encoding='utf-8'))['layouts'];bylayout={m['id']:m for m in layouts if 'id' in m}
 checks=[]
