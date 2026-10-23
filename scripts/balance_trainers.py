@@ -118,7 +118,7 @@ class Data:
                 self.species[name]["abilities"] = set(re.findall(r"ABILITY_(\w+)", abilities[1])) if abilities else set()
                 self.species[name]["ability_slots"] = re.findall(r"ABILITY_(\w+)", abilities[1]) if abilities else []
         sets = {}
-        for name, body in re.findall(r"static const u16 (\w+)\[\] = \{(.*?)\n\};", read("src/data/pokemon/level_up_learnsets.h"), re.S):
+        for name, body in re.findall(r"static const u32 (\w+)\[\] = \{(.*?)\n\};", read("src/data/pokemon/level_up_learnsets.h"), re.S):
             sets[name] = [(int(lvl), move) for lvl, move in re.findall(r"LEVEL_UP_MOVE\(\s*(\d+),\s*MOVE_(\w+)\)", body)]
         self.learn = {name: sets[ptr] for name, ptr in re.findall(r"\[SPECIES_(\w+)\] = (\w+)", read("src/data/pokemon/level_up_learnset_pointers.h"))}
         self.tm = {}
@@ -210,8 +210,8 @@ def companion(data, trainer, team, salt):
     level = max(m["level"] for m in team)
     # Use the matching evolutionary stage at later points rather than level-50 basics.
     stages = {"PIDGEY": (18, "PIDGEOTTO", 36, "PIDGEOT"), "RATTATA": (20, "RATICATE", 101, "RATICATE"),
-              "SPEAROW": (20, "FEAROW", 101, "FEAROW"), "POLIWAG": (25, "POLIWHIRL", 101, "POLIWHIRL"),
-              "GOLDEEN": (33, "SEAKING", 101, "SEAKING"), "HORSEA": (32, "SEADRA", 101, "SEADRA"),
+              "SPEAROW": (20, "FEAROW", 101, "FEAROW"), "POLIWAG": (25, "POLIWHIRL", 37, "POLITOED"),
+              "GOLDEEN": (33, "SEAKING", 101, "SEAKING"), "HORSEA": (32, "SEADRA", 37, "KINGDRA"),
               "GEODUDE": (25, "GRAVELER", 37, "GOLEM"), "MACHOP": (28, "MACHOKE", 37, "MACHAMP"),
               "KOFFING": (35, "WEEZING", 101, "WEEZING"), "GRIMER": (38, "MUK", 101, "MUK"),
               "EKANS": (22, "ARBOK", 101, "ARBOK"), "ZUBAT": (22, "GOLBAT", 101, "GOLBAT"),
@@ -322,7 +322,7 @@ def generate(data, originals, trainers):
                 mon["species"] = "GYARADOS" if mon["level"] >= 25 and i == len(team) - 1 else ("POLIWAG" if i % 2 else "GOLDEEN")
         if len(team) < 2:
             team.append(companion(data, trainers[party], team, salt))
-        for mon in team:
+        def evolve(mon, stone_ready):
             seen = set()
             while mon["species"] in evolution and mon["species"] not in seen:
                 seen.add(mon["species"])
@@ -330,10 +330,12 @@ def generate(data, originals, trainers):
                 if mon["level"] < threshold:
                     break
                 mon["species"] = target
-        if min(m["level"] for m in team) >= 42:
-            stones = {"GROWLITHE": "ARCANINE", "VULPIX": "NINETALES", "EXEGGCUTE": "EXEGGUTOR", "GLOOM": "VILEPLUME", "WEEPINBELL": "VICTREEBEL", "STARYU": "STARMIE", "PIKACHU": "RAICHU", "NIDORINO": "NIDOKING", "NIDORINA": "NIDOQUEEN", "CLEFAIRY": "CLEFABLE", "JIGGLYPUFF": "WIGGLYTUFF", "LOMBRE": "LUDICOLO", "NUZLEAF": "SHIFTRY"}
-            for mon in team:
+            if stone_ready:
+                stones = {"GROWLITHE": "ARCANINE", "VULPIX": "NINETALES", "EXEGGCUTE": "EXEGGUTOR", "GLOOM": "VILEPLUME", "WEEPINBELL": "VICTREEBEL", "STARYU": "STARMIE", "PIKACHU": "RAICHU", "NIDORINO": "NIDOKING", "NIDORINA": "NIDOQUEEN", "CLEFAIRY": "CLEFABLE", "JIGGLYPUFF": "WIGGLYTUFF", "LOMBRE": "LUDICOLO", "NUZLEAF": "SHIFTRY"}
                 mon["species"] = stones.get(mon["species"], mon["species"])
+        stone_ready = min(m["level"] for m in team) >= 42
+        for mon in team:
+            evolve(mon, stone_ready)
         # Place an actual team-support move on an opening member when legal.
         support_pair = None
         for move in SUPPORT:
@@ -347,6 +349,8 @@ def generate(data, originals, trainers):
             for attempt in range(16):
                 candidate = companion(data, trainers[party], team, salt + attempt)
                 candidate["level"] = team[-1]["level"]
+                # Replacements must reach the same evolutionary stage as the rest of the team.
+                evolve(candidate, stone_ready)
                 options = [m for m in SUPPORT if m in data.candidates(candidate["species"], candidate["level"])]
                 if options:
                     team[-1] = candidate

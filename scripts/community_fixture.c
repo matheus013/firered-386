@@ -51,6 +51,25 @@ static void CommunityBoot(void)
     RECORD(6,GetEvolutionTargetSpecies(&mon,EVO_MODE_NORMAL,0)==SPECIES_FURRET);
     CreateMon(&mon,SPECIES_PIKACHU,20,31,TRUE,100,OT_ID_PLAYER_ID,0);
     RECORD(7,GetEvolutionTargetSpecies(&mon,EVO_MODE_ITEM_CHECK,ITEM_THUNDER_STONE)==SPECIES_RAICHU);
+    {
+        static const u16 tradeFrom[6]={SPECIES_ONIX,SPECIES_SEADRA,SPECIES_SCYTHER,SPECIES_PORYGON,SPECIES_POLIWHIRL,SPECIES_CLAMPERL};
+        static const u16 tradeTo[6]={SPECIES_STEELIX,SPECIES_KINGDRA,SPECIES_SCIZOR,SPECIES_PORYGON2,SPECIES_POLITOED,SPECIES_HUNTAIL};
+        good=TRUE;
+        for(i=0;i<6;i++){
+            CreateMon(&mon,tradeFrom[i],36,31,TRUE,100,OT_ID_PLAYER_ID,0);
+            good=good&&GetEvolutionTargetSpecies(&mon,EVO_MODE_NORMAL,0)==0;
+            CreateMon(&mon,tradeFrom[i],37,31,TRUE,100,OT_ID_PLAYER_ID,0);
+            good=good&&GetEvolutionTargetSpecies(&mon,EVO_MODE_NORMAL,0)==tradeTo[i];
+        }
+        RECORD(28,good);
+        CreateMon(&mon,SPECIES_SLOWPOKE,20,31,TRUE,100,OT_ID_PLAYER_ID,0);
+        good=GetEvolutionTargetSpecies(&mon,EVO_MODE_ITEM_USE,ITEM_KINGS_ROCK)==SPECIES_SLOWKING;
+        CreateMon(&mon,SPECIES_POLIWHIRL,20,31,TRUE,100,OT_ID_PLAYER_ID,0);
+        good=good&&GetEvolutionTargetSpecies(&mon,EVO_MODE_ITEM_USE,ITEM_WATER_STONE)==SPECIES_POLIWRATH;
+        CreateMon(&mon,SPECIES_CLAMPERL,20,31,TRUE,100,OT_ID_PLAYER_ID,0);
+        good=good&&GetEvolutionTargetSpecies(&mon,EVO_MODE_ITEM_USE,ITEM_DEEP_SEA_SCALE)==SPECIES_GOREBYSS;
+        RECORD(29,good&&GetEvolutionTargetSpecies(&mon,EVO_MODE_TRADE,ITEM_NONE)==0);
+    }
     CreateMon(&mon,SPECIES_BULBASAUR,5,31,TRUE,0,OT_ID_PRESET,0);
     good=IsMonShiny(&mon);
     CreateMon(&mon,SPECIES_BULBASAUR,5,31,TRUE,255,OT_ID_PRESET,0);

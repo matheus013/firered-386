@@ -14,6 +14,9 @@ MAX_LEVEL_UP_MOVES=int(re.search(r'#define MAX_LEVEL_UP_MOVES\s+(\d+)',(GAME/'in
 NATIVE_MAX=max(int(i) for i in re.findall(r'^#define MOVE_\w+\s+(\d+)',(GAME/'include/constants/moves.h').read_text(),re.M) if int(i)<1000)
 move_ids={n:int(i) for n,i in re.findall(r'^#define MOVE_(\w+)\s+(\d+)',(GAME/'include/constants/moves.h').read_text(),re.M)}
 move_names={i:n for n,i in move_ids.items()}
+# PokeAPI and native IDs match up to Psycho Boost; later moves are matched by name.
+native={int(r['id']):(int(r['id']) if int(r['id'])<=354 else move_ids.get(r['identifier'].replace('-','_').upper())) for r in csv.DictReader((ROOT/'data/upstream/pokeapi/moves.csv').open(encoding='utf-8'))}
+native={k:v for k,v in native.items() if v}
 species_ids={n:int(i) for n,i in re.findall(r'^#define SPECIES_(\w+)\s+(\d+)',(GAME/'include/constants/species.h').read_text(),re.M)}
 versions={r['identifier']:int(r['id']) for r in rows('version_groups')}
 coverage=json.loads((ROOT/'data/gen9_coverage.json').read_text())
@@ -44,13 +47,14 @@ for dex in range(1,387):
  level_rows=[r for r in learn[dex] if r['pokemon_move_method_id']=='1']
  for r in sorted(level_rows,key=lambda r:(int(r['level']) or evo_level.get(name,1),int(r['order'] or 0))):
   move=int(r['move_id'])
-  if move>NATIVE_MAX or move in seen:continue
+  move=native.get(move)
+  if move is None or move in seen:continue
   seen.add(move);entries.append((int(r['level']) or evo_level.get(name,1),move))
  entries.sort(key=lambda e:e[0])
  assert entries and len(entries)<=MAX_LEVEL_UP_MOVES,(name,len(entries))
  array=pointers[name]
  body=''.join('    LEVEL_UP_MOVE(%2d, MOVE_%s),\n'%(level,move_names[move]) for level,move in entries)
- text,count=re.subn(r'(static const u16 '+array+r'\[\] = \{\n).*?(    LEVEL_UP_END\n\};)',lambda m:m.group(1)+body+m.group(2),text,flags=re.S)
+ text,count=re.subn(r'(static const u32 '+array+r'\[\] = \{\n).*?(    LEVEL_UP_END\n\};)',lambda m:m.group(1)+body+m.group(2),text,flags=re.S)
  assert count==(2 if name=='DEOXYS' else 1),array
  report.append({'species':name,'version_group':[k for k,v in versions.items() if v==chosen[dex]][0],'level_moves':len(entries)})
 path.write_text(text,encoding='utf-8')

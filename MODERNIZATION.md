@@ -1,5 +1,7 @@
 # IA de duplas e migração dos golpes — desenvolvimento
 
+**Snapshot v0.5.0-preview.4:** 223 golpes novos (577 no total), com Fada, atributos atualizados e nova revisão de interface. Dos 225 golpes ausentes na auditoria original, faltam Ally Switch e Fling; o catálogo de TMs permanece com 50. Os lotes de 167 golpes descritos abaixo são histórico da expansão, não o total atual. [Revisão e evidências da prévia atual](UI_REVIEW.md). A migração integral das regras modernas continua pendente.
+
 Este documento descreve os fontes após a v0.4.0-dev. Não significa que a Release antiga já contenha estas mudanças. A migração completa para geração IX continua incompleta.
 
 ## Interface corrigida
@@ -47,12 +49,14 @@ Sets completos: [TRAINER_REVIEW.md](TRAINER_REVIEW.md). Manifesto editável: [da
 |---|---|
 | Learnsets dos 386 | Importação de nível/TM feita para os golpes já existentes. Não contém todos os golpes das tabelas originais. |
 | Espécies ausentes de SV | Último jogo oficial com tabela de nível disponível: BDSP ou Legends: Arceus neste snapshot, conforme autorização do usuário. |
-| Poder, precisão, PP e prioridade | Dados modernos importados para os 354 golpes implementados. |
+| Poder, precisão, PP e prioridade | Dados modernos importados para os 354 golpes originais e os 223 novos. |
 | Físico/especial/status | Categoria por golpe aplicada ao dano, burn, telas, Hustle, registro de dano para Counter/Mirror Coat e treinamento por função; categoria visível no resumo, batalha e TM Case. |
 | Itens/habilidades ligados à categoria | Thick Fat, bônus de tipo, clima e Flash Fire também consideram golpes físicos dos respectivos tipos. |
 | Loja de Celadon | As 50 TMs existentes estão disponíveis antes da Liga. O catálogo completo de SV/DLC ainda não foi implementado. |
-| Todos os golpes novos | **Pendente:** 225 golpes ausentes para cobrir nível/TM dos 386 neste recorte, depois de reconhecer High Jump Kick como o Hi Jump Kick já existente e excluir Tera Blast. |
-| Efeitos modernos completos/Fairy/atributos base | **Pendentes.** Atualizar números e categoria não equivale a portar todos os efeitos e regras das gerações recentes. |
+| Golpes novos | **223 de 225 lacunas originais implementadas; 577 golpes no total.** Faltam Ally Switch e Fling. Inclui efeitos de terreno, salas, Tailwind, Gravity, neve, perigos de campo e efeitos por turno. Dados e fontes: `data/new_moves.json`, `scripts/import_new_moves.py`, `game/src/modern_battle.c`. A existência de um golpe não certifica todas as combinações de efeitos; os testes dirigidos e limites da prévia estão em [UI_REVIEW.md](UI_REVIEW.md). |
+| Tipo Fada e tabela de tipos | Fada adicionada com ícone próprio; tabela de efetividade da geração IX (Steel deixa de resistir a Ghost/Dark); 18 espécies com tipos atuais; Charm, Sweet Kiss e Moonlight passam a Fada e Curse a Ghost. Hidden Power nunca é Fada. `scripts/import_types_stats.py`, teste `test_fairy_type.py`. |
+| Atributos base | Atributos da geração IX nas 386 espécies (41 mudaram). Os encontros foram redistribuídos pelo novo total de atributos (554 de 4.352 slots) e os guias regenerados. |
+| Efeitos modernos completos | **Pendentes.** Atualizar números e categoria não equivale a portar todos os efeitos e regras das gerações recentes. |
 
 Não foram inseridos golpes com efeito fictício para preencher o catálogo. Z-Moves, Max/G-Max e golpes dependentes de Terastalização continuam fora do escopo. A auditoria de lacunas é [data/gen9_coverage.json](data/gen9_coverage.json); a importação parcial é [data/learnset_import.json](data/learnset_import.json).
 

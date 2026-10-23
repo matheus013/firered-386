@@ -1,8 +1,11 @@
 """Button-driven native summary move-category screenshots in both languages."""
 from pathlib import Path
-import json,hashlib,shutil,subprocess,tempfile
-ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'output/tests/categories-ui';OUT.mkdir(parents=True,exist_ok=True)
+import argparse,json,hashlib,re,shutil,subprocess,tempfile
+parser=argparse.ArgumentParser();parser.add_argument('--expanded',action='store_true');args=parser.parse_args()
+ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/('output/tests/categories-ui-expanded' if args.expanded else 'output/tests/categories-ui');OUT.mkdir(parents=True,exist_ok=True)
+reference_sha=hashlib.sha256((ROOT/'output/firered-386-dev.gba').read_bytes()).hexdigest()
 source=Path((ROOT/'output/hack-build-path.txt').read_text().strip());fixture=Path(tempfile.mkdtemp(prefix='category-ui-',dir=source.parent));shutil.copytree(source,fixture,dirs_exist_ok=True)
+assert hashlib.sha256((source/'pokefirered.gba').read_bytes()).hexdigest()==reference_sha
 main=(source/'src/main.c').read_text();summary=(source/'src/pokemon_summary_screen.c').read_text()
 summary=summary.replace('static void PokeSum_PrintSelectedMoveStats(void)\n{','IWRAM_DATA volatile u32 gCategoryObserved;\nstatic void PokeSum_PrintSelectedMoveStats(void)\n{')
 summary=summary.replace('    if (sMoveSelectionCursorPos < 5)\n    {','    gCategoryObserved = 1 + 10*sMoveSelectionCursorPos + gBattleMoves[sMonSummaryScreen->moveIds[sMoveSelectionCursorPos]].category;\n    if (sMoveSelectionCursorPos < 5)\n    {',1)
@@ -52,7 +55,9 @@ static void UiBoot(void)
  CalculatePlayerPartyCount();ShowSelectMovePokemonSummaryScreen(gPlayerParty,0,0,UiIdle,MOVE_WATER_PULSE);
 }
 '''
-runner=fixture/'category-ui';subprocess.run(['gcc','-O2','-w',str(ROOT/'scripts/category_ui_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
+if args.expanded:
+ for old,new in [('SPECIES_SNORLAX','SPECIES_CLEFABLE'),('MOVE_BITE','MOVE_PLAY_ROUGH'),('MOVE_SHADOW_BALL','MOVE_DAZZLING_GLEAM'),('MOVE_GROWL','MOVE_GRASSY_TERRAIN'),('MOVE_FIRE_PUNCH','MOVE_SUPERCELL_SLAM'),('MOVE_WATER_PULSE','MOVE_HEALING_WISH')]:hook=hook.replace(old,new)
+runner=fixture/'category-ui';subprocess.run(['gcc','-O2','-w',*(['-DEXPANDED_MOVES'] if args.expanded else []),str(ROOT/'scripts/category_ui_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
 for language in [0,1]:
  text=main.replace('static void InitMainCallbacks(void)\n{',hook.replace('TEST_LANGUAGE',str(language))+'\nstatic void InitMainCallbacks(void)\n{').replace('SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);','SetMainCallback2(UiBoot);')
  (fixture/'src/main.c').write_text(text)
@@ -60,4 +65,6 @@ for language in [0,1]:
  symbols={p[2]:p[0] for line in subprocess.check_output(['arm-none-eabi-nm','pokefirered.elf'],cwd=fixture,text=True).splitlines() if len(p:=line.split())==3}
  with (OUT/f'emulator-{language}.log').open('w') as log:subprocess.run([str(runner),str(fixture/'pokefirered.gba'),str(OUT/('en' if language==0 else 'ptbr')),*['0x'+symbols[s] for s in ['gCategoryObserved','gSummarySetupObserved','gDescriptionOverflow','gDescriptionTooLong']]],stdout=log,stderr=subprocess.STDOUT,check=True,timeout=90)
  print('PASS category UI language',language,flush=True)
-(OUT/'results.json').write_text(json.dumps({'rom_sha256':hashlib.sha256((ROOT/'output/firered-386-dev.gba').read_bytes()).hexdigest(),'languages':['EN','PTBR'],'slots_checked':10,'scope':'native move selection summary UI; screenshots require visual inspection'},indent=2)+'\n')
+assert hashlib.sha256((ROOT/'output/firered-386-dev.gba').read_bytes()).hexdigest()==reference_sha
+move_count=int(re.search(r'#define MOVES_COUNT (\d+)',(ROOT/'game/include/constants/moves.h').read_text())[1])-1
+(OUT/'results.json').write_text(json.dumps({'rom_sha256':reference_sha,'languages':['EN','PTBR'],'slots_checked':10,'descriptions_checked':move_count*2,'expanded_moves':args.expanded,'scope':'native move selection summary UI; screenshots require visual inspection'},indent=2)+'\n')

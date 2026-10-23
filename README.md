@@ -1,5 +1,7 @@
 # FireRed 386
 
+**Prévia atual: [v0.5.0-preview.4](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.4)** — revisão de interface, EVs desde o início no Normal, Fada e 223 golpes novos. [Correções, imagens e validação](UI_REVIEW.md). A migração completa para as regras modernas continua em desenvolvimento.
+
 **Desenvolvimento após v0.4.0:** há revisão da IA/ginásios, categorias por golpe, correção de sobreposição e importação parcial dos learnsets recentes. Estas mudanças ainda não completam a geração IX nem atualizam automaticamente a Release antiga. [Estado exato, testes e pendências](MODERNIZATION.md). [Revisão da IA dos líderes/E4](AI_REVIEW.md).
 
 Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em duplas e melhorias de qualidade de vida. **Versão de desenvolvimento, ainda incompleta.** As 386 espécies já estão distribuídas em encontros capturáveis; as demais melhorias pendentes estão listadas abaixo.
@@ -26,7 +28,7 @@ Idioma selecionável em **OPTIONS: ENGLISH / PT-BR**. O português está em beta
 
 Ao criar o save: **Normal/Hardcore → Randomizer OFF/ON**. O randomizer troca encontros selvagens, iniciais e espécies/golpes dos treinadores, preservando níveis e tamanhos dos elencos; sua semente fica gravada. Encontros roteirizados e presentes permanecem fixos. Os times e locais dos guias representam o randomizer desligado. [Detalhes e limites](SETTINGS.md).
 
-O cientista agora mostra retrato, painéis azuis, barras de EV/IV, saldo de EVs e prévia dos atributos antes da confirmação. Acesso mantido: sempre no Hardcore, após a Liga no Normal.
+O cientista mostra retrato, painéis azuis, barras de EV/IV, saldo de EVs e prévia dos atributos antes da confirmação. **Normal: EVs desde o início; IVs e natureza após a Liga. Hardcore: os três desde o início.** [Revisão da interface e testes](UI_REVIEW.md).
 
 ![Nova tela de edição de EVs](docs/images/training-evs-ptbr.png)
 
@@ -109,7 +111,7 @@ A ordem entre este ginásio e o esconderijo Rocket pode variar.
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Kangaskhan **44** → Rhyhorn **39** → Onix **40** |
+| Equipe | Kangaskhan **44** → Rhyhorn **39** → Steelix **40** |
 
 ### 10. Rival — Pokémon Tower
 
@@ -249,7 +251,7 @@ Pós-jogo: etapa de recuperação da Sapphire.
 
 | Variante | Time em ordem de entrada |
 |---|---|
-| Equipe | Magneton **86** → Electrode **86** → Electrode **86** → Magneton **86** → Porygon **86** |
+| Equipe | Magneton **86** → Electrode **86** → Electrode **86** → Magneton **86** → Porygon2 **86** |
 
 ### 31. Lorelei — revanche
 
@@ -343,7 +345,7 @@ A revisão melhora a pontuação de ações, mas não garante decisões perfeita
 - **Exp. Share global após entregar o Parcel ao Professor Oak**, como item-chave que liga/desliga o efeito, sem ocupar item equipado.
 - Cada participante recebe experiência integral; cada reserva apta recebe metade. Ovos e Pokémon desmaiados não recebem. Nos dois modos, vale o teto de nível da progressão.
 - **TMs reutilizáveis:** não são consumidas ao ensinar golpes.
-- **Kadabra → Alakazam, Machoke → Machamp, Graveler → Golem e Haunter → Gengar no nível 37**, sem troca. Evoluções por troca com item continuam pendentes.
+- **Kadabra → Alakazam, Machoke → Machamp, Graveler → Golem e Haunter → Gengar no nível 37**, sem troca. As evoluções por troca com item também passam a ocorrer no **nível 37**: Onix → Steelix, Seadra → Kingdra, Scyther → Scizor, Porygon → Porygon2, Poliwhirl → Politoed e Clamperl → Huntail. Os ramos alternativos usam o item direto da mochila: King's Rock → Slowking e Deep Sea Scale → Gorebyss. Evoluções por pedra, amizade e beleza continuam como no original.
 - **Pokédex Nacional junto com a Pokédex inicial**, sem antecipar os outros eventos da história.
 - **Shiny em 1/256** nas rotinas comuns de geração e identificação. Rotinas que explicitamente impedem shiny continuam impedindo.
 
@@ -390,7 +392,7 @@ Salvar pelo menu persiste o estado. **Não há autosave nem proteção contra re
 | Revanche da Liga inteira | 100 em todos os integrantes |
 
 - Rotas, rivais, esconderijo, Silph, ginásios, Victory Road e treinadores das ilhas foram recalibrados por etapa. A primeira batalha no laboratório permanece simples e com os níveis originais. A Torre mantém seu escalonamento próprio.
-- **NPC cientista nos 19 Centros Pokémon:** ajustes gratuitos de natureza, EVs e IVs. Hardcore libera desde o início; Normal libera após a primeira vitória na Liga.
+- **NPC cientista nos 19 Centros Pokémon:** ajustes gratuitos. Normal libera EVs desde o início, e IVs/natureza após a primeira vitória na Liga. Hardcore libera os três desde o início.
 - EVs de 0 a 252 por atributo, soma máxima 510; IVs de 0 a 31. A interface mostra os valores atuais, permite zerar/maximizar, cancelar e confirmar. EVs ganhos em batalha continuam ativos.
 - O ajuste de natureza muda seu efeito e a natureza exibida, preservando personalidade, shiny, gênero e habilidade. Rotinas de preferências de sabor baseadas diretamente na personalidade mantêm a natureza de origem.
 - Ovos, Pokémon perdidos e, no Hardcore, acima do teto não podem ser editados. Ajustes recalculam atributos sem recuperar HP ou reviver; reduzir o HP máximo pode reduzir o HP atual.
@@ -429,17 +431,13 @@ Corrigida a referência inválida de estoque ao voltar de compra/venda e sair da
 
 Estas funcionalidades **não estão disponíveis nesta release**:
 
-- Demais evoluções sem troca, incluindo as que exigem item.
-- Tipo Fada, tabela de efetividade e tipos correspondentes atualizados.
-- Atributos base da geração IX. Os learnsets por nível e a compatibilidade das TMs já seguem Scarlet/Violet (ou a versão mais recente da espécie), limitados aos golpes existentes na ROM.
-- Novos golpes comuns dessa referência, com efeitos, animações, descrições e aprendizado compatíveis.
+- Golpes da geração IX: 167 de 225 já implementados nos fontes, com efeitos, animações, descrições EN/PT e learnsets; faltam os que dependem de estado de campo (terrenos, salas, Tailwind, perigos de campo) ou de memória de turno.
 - HMs fora de batalha sem ocupar golpes, preservando exigências de insígnias e história.
 - Novas revanches contra líderes, com seis integrantes e equipes competitivas de duplas coerentes com seus tipos; revisão da Elite Four após a futura modernização da engine; as adaptações competitivas da geração III já estão implementadas.
 - Reaparecimento do encontro fixo original após derrota; os encontros aleatórios já oferecem captura alternativa de todos os lendários.
 - Exibição do teto atual no menu; o teto de EXP já está ativo nos dois modos.
 - Todos os itens utilizáveis/equipáveis compráveis em Celadon após a primeira vitória na Liga; catálogo, preços e exceções de itens-chave ainda serão definidos.
 - Troca entre habilidades disponíveis; natureza, EVs e IVs já podem ser ajustados pelo NPC dos Centros.
-- Exibição de habilidade e categoria dos golpes; o cientista já mostra IVs, EVs e efeito da natureza.
 - Lembrete de golpes gratuito e acessível cedo; itens de batalha renováveis.
 - Informações sobre espécies encontradas por área.
 - Restrição de mochila dos dois lados em batalhas importantes; atualmente o Hardcore restringe o jogador, enquanto os adversários mantêm seus itens.

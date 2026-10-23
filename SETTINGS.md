@@ -21,7 +21,7 @@ Treinadores comuns continuam com a escala anterior de IVs. A primeira luta perma
 
 ## Cientista
 
-Disponível nos 19 Centros, sempre no Hardcore e após a Liga no Normal. Retrato, seleção da equipe, barras de EV/IV, EVs restantes e prévia dos atributos ajudam a conferir mudanças antes da confirmação. Setas ajustam, L zera, R maximiza dentro do limite, A confirma e B cancela/volta. A natureza mostra comparação dos atributos calculados. Editar não cura nem revive; perdidos e ovos continuam bloqueados.
+Disponível nos 19 Centros. No Normal, EVs ficam liberados desde o início; natureza e IVs exigem a primeira vitória na Liga. No Hardcore, os três ficam liberados desde o início. O menu mostra as opções bloqueadas em cinza, explica a condição de acesso e impede abri-las; as funções de edição também verificam a condição. Retrato, seleção da equipe, barras de EV/IV, EVs restantes e prévia dos atributos ajudam a conferir mudanças antes da confirmação. Setas ajustam, L zera, R maximiza dentro do limite, A confirma e B cancela/volta. A natureza mostra comparação dos atributos calculados. Editar não cura nem revive; perdidos e ovos continuam bloqueados.
 
 ![Edição de EVs](docs/images/training-evs-ptbr.png)
 

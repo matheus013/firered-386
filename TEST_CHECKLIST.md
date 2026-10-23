@@ -1,6 +1,8 @@
 # Checklist de testes — FireRed 386
 
-**Versão atual v0.4.0-dev:** [validação das novas funcionalidades](FEATURE_TEST_RESULTS.md), com proveniência da ROM e limites. Os resultados antigos abaixo mantêm suas versões de referência. Campanha Normal/Hardcore sem assistência e VBA Link ainda pendentes.
+**v0.5.0-preview.4, 23/10/2026:** [interface e acesso ao editor](UI_REVIEW.md), com novos testes de limites em pixels, golpes expandidos/Fada e EVs desde o início no Normal. Resultados e SHA próprios em [data/ui_review_validation.json](data/ui_review_validation.json). A documentação abaixo preserva os testes históricos de cada versão.
+
+**Prévia anterior v0.5.0-preview.3:** [validação da IA, golpes e interface](MODERNIZATION.md) e [revisão do PT-BR](PTBR_REVIEW.md). Validação anterior da v0.4.0-dev: [novas funcionalidades](FEATURE_TEST_RESULTS.md), com proveniência da ROM e limites. Os resultados antigos abaixo mantêm suas versões de referência. Campanha Normal/Hardcore sem assistência e VBA Link ainda pendentes.
 
 [Auditoria de balanceamento Normal/Hardcore](BALANCE_REVIEW.md): dados e modelos de EXP/atributos, com recomendações. Não conta como campanha ou teste de taxa de vitória. Pendentes: ritmo da primeira Liga, preparação do Normal, três iniciais contra Brock, alcance das curas Hardcore e duração das lutas comuns.
 
@@ -175,7 +177,7 @@ Usar cópias de saves e registrar versão, emulador, modo, local, passos, result
 - [ ] **M19 — duração:** sessões longas, muitas transições/lojas/caixas, salvar repetidamente e retornar ao título; observar travamentos e memória.
 - [ ] **M20 — dificuldade:** jogar cada etapa com recursos realmente disponíveis, sem equipe artificial; registrar níveis, tentativas, estratégias e gargalos. Não aprovar balanceamento só porque a batalha executa.
 
-Separação físico/especial por golpe, Fada, engine/golpes modernos, Alphas/raids e outras funcionalidades ainda pendentes no [README](README.md) não foram consideradas implementadas ou aprovadas. Testes correspondentes devem ser adicionados quando essas mudanças existirem.
+A categoria físico/especial/status por golpe tem testes próprios (`test_move_data.py`, `test_category_ui.py`, `test_ai_move_native.py`). O tipo Fada e a tabela de tipos são verificados por `test_fairy_type.py`. Golpes e efeitos modernos, Alphas/raids e outras funcionalidades ainda pendentes no [README](README.md) não foram consideradas implementadas ou aprovadas. Testes correspondentes devem ser adicionados quando essas mudanças existirem.
 
 ## Repetir os testes
 

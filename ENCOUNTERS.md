@@ -230,8 +230,8 @@ Fonte: tabela `sRoute4_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 | Voltorb | 17–25 | 20% | 17–25 (20%) |
 | Kirlia | 20–25 | 10% | 20–25 (10%) |
 | Nuzleaf | 17–25 | 10% | 17–25 (10%) |
+| Psyduck | 17–25 | 10% | 17–25 (10%) |
 | Seel | 17–25 | 10% | 17–25 (10%) |
-| Swablu | 17–25 | 10% | 17–25 (10%) |
 | Squirtle | 17–25 | 5% | 17–25 (5%) |
 | Torchic | 17–25 | 5% | 17–25 (5%) |
 | Electrike | 17–25 | 4% | 17–25 (4%) |
@@ -243,7 +243,7 @@ Fonte: tabela `sRoute4_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Sealeo | 54–59 | 60% | 54–59 (60%) |
+| Quagsire | 54–59 | 60% | 54–59 (60%) |
 | Wailmer | 54–59 | 30% | 54–59 (30%) |
 | Vaporeon | 54–59 | 9% | 54–59 (9%) |
 | Mantine | 54–59 | 1% | 54–59 (1%) |
@@ -253,13 +253,13 @@ Fonte: tabela `sRoute4_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Magikarp | 27–33 | 70% | 27–33 (70%) |
-| Goldeen | 27–33 | 30% | 27–33 (30%) |
+| Carvanha | 27–33 | 30% | 27–33 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Wailmer | 44–50 | 60% | 44–50 (60%) |
+| Azumarill | 44–50 | 60% | 44–50 (60%) |
 | Kabutops | 44–50 | 20% | 44–50 (20%) |
 | Lanturn | 44–50 | 20% | 44–50 (20%) |
 
@@ -267,11 +267,11 @@ Fonte: tabela `sRoute4_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 44–50 | 40% | 44–50 (40%) |
-| Qwilfish | 44–50 | 40% | 44–50 (40%) |
-| Dewgong | 44–50 | 15% | 44–50 (15%) |
+| Corsola | 44–50 | 40% | 44–50 (40%) |
+| Sealeo | 44–50 | 40% | 44–50 (40%) |
+| Gorebyss | 44–50 | 15% | 44–50 (15%) |
 | Ludicolo | 44–50 | 4% | 44–50 (4%) |
-| Omastar | 44–50 | 1% | 44–50 (1%) |
+| Qwilfish | 44–50 | 1% | 44–50 (1%) |
 
 
 <a id="route5"></a>
@@ -286,14 +286,14 @@ Fonte: tabela `sRoute5_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 |---|---|---:|---|
 | Slugma | 27–33 | 20% | 27–33 (20%) |
 | Togepi | 27–33 | 20% | 27–33 (20%) |
+| Beautifly | 27–33 | 10% | 27–33 (10%) |
+| Beedrill | 27–33 | 10% | 27–33 (10%) |
 | Gloom | 27–33 | 10% | 27–33 (10%) |
-| Ledian | 27–33 | 10% | 27–33 (10%) |
-| Porygon | 27–33 | 10% | 27–33 (10%) |
-| Yanma | 27–33 | 10% | 27–33 (10%) |
+| Weepinbell | 27–33 | 10% | 27–33 (10%) |
 | Flaaffy | 27–33 | 5% | 27–33 (5%) |
-| Mawile | 27–33 | 5% | 27–33 (5%) |
-| Elekid | 27–33 | 4% | 27–33 (4%) |
-| Nidorina | 27–33 | 4% | 27–33 (4%) |
+| Magby | 27–33 | 5% | 27–33 (5%) |
+| Loudred | 27–33 | 4% | 27–33 (4%) |
+| Nidorino | 27–33 | 4% | 27–33 (4%) |
 | Meowth | 27–33 | 1% | 27–33 (1%) |
 | Pidgey | 27–33 | 1% | 27–33 (1%) |
 
@@ -308,23 +308,22 @@ Fonte: tabela `sRoute6_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Meowth | 27–33 | 21% | 27–33 (21%) |
+| Meowth | 27–33 | 25% | 27–33 (25%) |
 | Whismur | 27–33 | 20% | 27–33 (20%) |
-| Ariados | 27–33 | 10% | 27–33 (10%) |
-| Beautifly | 27–33 | 10% | 27–33 (10%) |
-| Beedrill | 27–33 | 10% | 27–33 (10%) |
+| Butterfree | 27–33 | 10% | 27–33 (10%) |
 | Dustox | 27–33 | 10% | 27–33 (10%) |
-| Aipom | 27–33 | 5% | 27–33 (5%) |
-| Magby | 27–33 | 5% | 27–33 (5%) |
+| Ledian | 27–33 | 10% | 27–33 (10%) |
+| Mawile | 27–33 | 10% | 27–33 (10%) |
+| Elekid | 27–33 | 5% | 27–33 (5%) |
+| Nidorina | 27–33 | 5% | 27–33 (5%) |
 | Growlithe | 27–33 | 4% | 27–33 (4%) |
-| Spinda | 27–33 | 4% | 27–33 (4%) |
 | Pidgey | 27–33 | 1% | 27–33 (1%) |
 
 ### Surf
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 54–59 | 60% | 54–59 (60%) |
+| Wailmer | 54–59 | 60% | 54–59 (60%) |
 | Pelipper | 54–59 | 30% | 54–59 (30%) |
 | Crawdaunt | 54–59 | 5% | 54–59 (5%) |
 | Swampert | 54–59 | 4% | 54–59 (4%) |
@@ -335,13 +334,13 @@ Fonte: tabela `sRoute6_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Magikarp | 27–33 | 70% | 27–33 (70%) |
-| Corphish | 27–33 | 30% | 27–33 (30%) |
+| Goldeen | 27–33 | 30% | 27–33 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Wailmer | 44–50 | 60% | 44–50 (60%) |
+| Sealeo | 44–50 | 60% | 44–50 (60%) |
 | Azumarill | 44–50 | 20% | 44–50 (20%) |
 | Whiscash | 44–50 | 20% | 44–50 (20%) |
 
@@ -349,10 +348,9 @@ Fonte: tabela `sRoute6_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Corsola | 44–50 | 40% | 44–50 (40%) |
 | Poliwhirl | 44–50 | 40% | 44–50 (40%) |
-| Sealeo | 44–50 | 40% | 44–50 (40%) |
-| Mantine | 44–50 | 15% | 44–50 (15%) |
-| Relicanth | 44–50 | 4% | 44–50 (4%) |
+| Mantine | 44–50 | 19% | 44–50 (19%) |
 | Sharpedo | 44–50 | 1% | 44–50 (1%) |
 
 
@@ -368,14 +366,14 @@ Fonte: tabela `sRoute7_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 |---|---|---:|---|
 | Sunflora | 35–41 | 20% | 35–41 (20%) |
 | Togetic | 35–41 | 20% | 35–41 (20%) |
-| Illumise | 35–41 | 10% | 35–41 (10%) |
+| Ariados | 35–41 | 10% | 35–41 (10%) |
 | Minun | 35–41 | 10% | 35–41 (10%) |
 | Sealeo | 35–41 | 10% | 35–41 (10%) |
-| Volbeat | 35–41 | 10% | 35–41 (10%) |
-| Kecleon | 35–41 | 5% | 35–41 (5%) |
+| Yanma | 35–41 | 10% | 35–41 (10%) |
+| Arbok | 35–41 | 5% | 35–41 (5%) |
 | Persian | 35–41 | 5% | 35–41 (5%) |
-| Pelipper | 35–41 | 4% | 35–41 (4%) |
-| Wigglytuff | 35–41 | 4% | 35–41 (4%) |
+| Azumarill | 35–41 | 4% | 35–41 (4%) |
+| Illumise | 35–41 | 4% | 35–41 (4%) |
 | Furret | 35–41 | 1% | 35–41 (1%) |
 | Metang | 35–41 | 1% | 35–41 (1%) |
 
@@ -392,12 +390,12 @@ Fonte: tabela `sRoute8_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 |---|---|---:|---|
 | Castform | 35–41 | 20% | 35–41 (20%) |
 | Wynaut | 35–41 | 20% | 35–41 (20%) |
-| Medicham | 37–41 | 10% | 37–41 (10%) |
-| Murkrow | 35–41 | 10% | 35–41 (10%) |
+| Ledian | 35–41 | 10% | 35–41 (10%) |
+| Machoke | 35–41 | 10% | 35–41 (10%) |
+| Parasect | 35–41 | 10% | 35–41 (10%) |
 | Plusle | 35–41 | 10% | 35–41 (10%) |
-| Roselia | 35–41 | 10% | 35–41 (10%) |
-| Arbok | 35–41 | 5% | 35–41 (5%) |
 | Fearow | 35–41 | 5% | 35–41 (5%) |
+| Pelipper | 35–41 | 5% | 35–41 (5%) |
 | Sunflora | 35–41 | 4% | 35–41 (4%) |
 | Tangela | 35–41 | 4% | 35–41 (4%) |
 | Dunsparce | 35–41 | 1% | 35–41 (1%) |
@@ -414,18 +412,18 @@ Fonte: tabela `sRoute9_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Arbok | 35–41 | 20% | 35–41 (20%) |
 | Porygon | 35–41 | 20% | 35–41 (20%) |
-| Roselia | 35–41 | 20% | 35–41 (20%) |
-| Machoke | 35–41 | 10% | 35–41 (10%) |
-| Ponyta | 35–41 | 10% | 35–41 (10%) |
-| Togetic | 35–41 | 10% | 35–41 (10%) |
-| Volbeat | 35–41 | 10% | 35–41 (10%) |
-| Noctowl | 35–41 | 5% | 35–41 (5%) |
+| Delcatty | 35–41 | 10% | 35–41 (10%) |
+| Haunter | 35–41 | 10% | 35–41 (10%) |
+| Murkrow | 35–41 | 10% | 35–41 (10%) |
+| Roselia | 35–41 | 10% | 35–41 (10%) |
+| Kecleon | 35–41 | 5% | 35–41 (5%) |
 | Vigoroth | 35–41 | 5% | 35–41 (5%) |
-| Chimecho | 35–41 | 4% | 35–41 (4%) |
-| Sneasel | 35–41 | 4% | 35–41 (4%) |
-| Masquerain | 35–41 | 1% | 35–41 (1%) |
+| Volbeat | 35–41 | 4% | 35–41 (4%) |
+| Wigglytuff | 35–41 | 4% | 35–41 (4%) |
 | Mightyena | 35–41 | 1% | 35–41 (1%) |
+| Raticate | 35–41 | 1% | 35–41 (1%) |
 
 
 <a id="route10"></a>
@@ -438,24 +436,24 @@ Fonte: tabela `sRoute10_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Mawile | 35–41 | 20% | 35–41 (20%) |
+| Dunsparce | 35–41 | 20% | 35–41 (20%) |
 | Vibrava | 35–41 | 20% | 35–41 (20%) |
 | Minun | 35–41 | 10% | 35–41 (10%) |
 | Murkrow | 35–41 | 10% | 35–41 (10%) |
-| Parasect | 35–41 | 10% | 35–41 (10%) |
-| Tangela | 35–41 | 10% | 35–41 (10%) |
+| Togetic | 35–41 | 10% | 35–41 (10%) |
+| Wynaut | 35–41 | 10% | 35–41 (10%) |
 | Misdreavus | 35–41 | 5% | 35–41 (5%) |
-| Swellow | 35–41 | 5% | 35–41 (5%) |
+| Sneasel | 35–41 | 5% | 35–41 (5%) |
 | Castform | 35–41 | 4% | 35–41 (4%) |
 | Linoone | 35–41 | 4% | 35–41 (4%) |
 | Bayleef | 35–41 | 1% | 35–41 (1%) |
-| Raticate | 35–41 | 1% | 35–41 (1%) |
+| Medicham | 37–41 | 1% | 37–41 (1%) |
 
 ### Surf
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 54–59 | 60% | 54–59 (60%) |
+| Azumarill | 54–59 | 60% | 54–59 (60%) |
 | Seadra | 54–59 | 30% | 54–59 (30%) |
 | Kingdra | 54–59 | 6% | 54–59 (6%) |
 | Ludicolo | 54–59 | 4% | 54–59 (4%) |
@@ -465,7 +463,7 @@ Fonte: tabela `sRoute10_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Azumarill | 35–41 | 70% | 35–41 (70%) |
-| Seadra | 35–41 | 30% | 35–41 (30%) |
+| Qwilfish | 35–41 | 30% | 35–41 (30%) |
 
 ### Good Rod
 
@@ -479,9 +477,9 @@ Fonte: tabela `sRoute10_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 44–50 | 40% | 44–50 (40%) |
+| Corsola | 44–50 | 40% | 44–50 (40%) |
 | Wailmer | 44–50 | 40% | 44–50 (40%) |
-| Qwilfish | 44–50 | 15% | 44–50 (15%) |
+| Dewgong | 44–50 | 15% | 44–50 (15%) |
 | Gorebyss | 44–50 | 4% | 44–50 (4%) |
 | Ludicolo | 44–50 | 1% | 44–50 (1%) |
 
@@ -496,16 +494,15 @@ Fonte: tabela `sRoute11_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Ekans | 27–33 | 21% | 27–33 (21%) |
+| Ekans | 27–33 | 25% | 27–33 (25%) |
 | Igglybuff | 27–33 | 20% | 27–33 (20%) |
-| Butterfree | 27–33 | 10% | 27–33 (10%) |
-| Delcatty | 27–33 | 10% | 27–33 (10%) |
+| Farfetch’d | 27–33 | 10% | 27–33 (10%) |
 | Lickitung | 27–33 | 10% | 27–33 (10%) |
-| Weepinbell | 27–33 | 10% | 27–33 (10%) |
+| Porygon | 27–33 | 10% | 27–33 (10%) |
+| Yanma | 27–33 | 10% | 27–33 (10%) |
+| Aipom | 27–33 | 5% | 27–33 (5%) |
 | Drowzee | 27–33 | 5% | 27–33 (5%) |
-| Loudred | 27–33 | 5% | 27–33 (5%) |
-| Nidorino | 27–33 | 5% | 27–33 (5%) |
-| Farfetch’d | 27–33 | 4% | 27–33 (4%) |
+| Spinda | 27–33 | 5% | 27–33 (5%) |
 
 ### Surf
 
@@ -522,7 +519,7 @@ Fonte: tabela `sRoute11_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Magikarp | 27–33 | 70% | 27–33 (70%) |
-| Carvanha | 27–33 | 30% | 27–33 (30%) |
+| Corphish | 27–33 | 30% | 27–33 (30%) |
 
 ### Good Rod
 
@@ -535,7 +532,8 @@ Fonte: tabela `sRoute11_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Wailmer | 44–50 | 80% | 44–50 (80%) |
+| Pelipper | 44–50 | 40% | 44–50 (40%) |
+| Wailmer | 44–50 | 40% | 44–50 (40%) |
 | Quagsire | 44–50 | 15% | 44–50 (15%) |
 | Kingler | 44–50 | 4% | 44–50 (4%) |
 | Wartortle | 44–50 | 1% | 44–50 (1%) |
@@ -552,15 +550,15 @@ Fonte: tabela `sRoute12_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Cacturne | 44–50 | 20% | 44–50 (20%) |
-| Metang | 44–50 | 20% | 44–50 (20%) |
+| Rhydon | 44–50 | 20% | 44–50 (20%) |
 | Dusclops | 44–50 | 10% | 44–50 (10%) |
-| Golem | 44–50 | 10% | 44–50 (10%) |
 | Linoone | 44–50 | 10% | 44–50 (10%) |
+| Manectric | 44–50 | 10% | 44–50 (10%) |
 | Tauros | 44–50 | 10% | 44–50 (10%) |
-| Glalie | 44–50 | 5% | 44–50 (5%) |
-| Magneton | 44–50 | 5% | 44–50 (5%) |
-| Bagon | 44–50 | 4% | 44–50 (4%) |
-| Grovyle | 44–50 | 4% | 44–50 (4%) |
+| Clefable | 44–50 | 5% | 44–50 (5%) |
+| Swalot | 44–50 | 5% | 44–50 (5%) |
+| Hitmontop | 44–50 | 4% | 44–50 (4%) |
+| Quilava | 44–50 | 4% | 44–50 (4%) |
 | Armaldo | 44–50 | 1% | 44–50 (1%) |
 | Gloom | 44–50 | 1% | 44–50 (1%) |
 
@@ -568,8 +566,7 @@ Fonte: tabela `sRoute12_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 54–59 | 60% | 54–59 (60%) |
-| Azumarill | 54–59 | 30% | 54–59 (30%) |
+| Azumarill | 54–59 | 90% | 54–59 (90%) |
 | Huntail | 54–59 | 5% | 54–59 (5%) |
 | Golduck | 54–59 | 4% | 54–59 (4%) |
 | Poliwrath | 54–59 | 1% | 54–59 (1%) |
@@ -579,14 +576,14 @@ Fonte: tabela `sRoute12_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Azumarill | 44–50 | 70% | 44–50 (70%) |
-| Seadra | 44–50 | 30% | 44–50 (30%) |
+| Corsola | 44–50 | 30% | 44–50 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Wailmer | 44–50 | 60% | 44–50 (60%) |
-| Azumarill | 44–50 | 20% | 44–50 (20%) |
+| Corsola | 44–50 | 60% | 44–50 (60%) |
+| Kingler | 44–50 | 20% | 44–50 (20%) |
 | Sharpedo | 44–50 | 20% | 44–50 (20%) |
 
 ### Super Rod
@@ -594,10 +591,10 @@ Fonte: tabela `sRoute12_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Azumarill | 44–50 | 40% | 44–50 (40%) |
-| Qwilfish | 44–50 | 40% | 44–50 (40%) |
+| Corsola | 44–50 | 40% | 44–50 (40%) |
 | Gorebyss | 44–50 | 15% | 44–50 (15%) |
-| Mantine | 44–50 | 4% | 44–50 (4%) |
-| Dratini | 44–50 | 1% | 44–50 (1%) |
+| Sharpedo | 44–50 | 4% | 44–50 (4%) |
+| Kabutops | 44–50 | 1% | 44–50 (1%) |
 
 
 <a id="route13"></a>
@@ -610,24 +607,24 @@ Fonte: tabela `sRoute13_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Tropius | 44–50 | 30% | 44–50 (30%) |
 | Misdreavus | 44–50 | 20% | 44–50 (20%) |
-| Alakazam | 44–50 | 10% | 44–50 (10%) |
+| Tropius | 44–50 | 20% | 44–50 (20%) |
+| Electabuzz | 44–50 | 10% | 44–50 (10%) |
+| Jumpluff | 44–50 | 10% | 44–50 (10%) |
 | Tangela | 44–50 | 10% | 44–50 (10%) |
 | Torkoal | 44–50 | 10% | 44–50 (10%) |
-| Electrode | 44–50 | 5% | 44–50 (5%) |
 | Forretress | 44–50 | 5% | 44–50 (5%) |
-| Larvitar | 44–50 | 4% | 44–50 (4%) |
+| Hariyama | 44–50 | 5% | 44–50 (5%) |
+| Ivysaur | 44–50 | 4% | 44–50 (4%) |
 | Primeape | 44–50 | 4% | 44–50 (4%) |
+| Arbok | 44–50 | 1% | 44–50 (1%) |
 | Gloom | 44–50 | 1% | 44–50 (1%) |
-| Shiftry | 44–50 | 1% | 44–50 (1%) |
 
 ### Surf
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 54–59 | 60% | 54–59 (60%) |
-| Qwilfish | 54–59 | 30% | 54–59 (30%) |
+| Seadra | 54–59 | 90% | 54–59 (90%) |
 | Lanturn | 54–59 | 5% | 54–59 (5%) |
 | Poliwrath | 54–59 | 4% | 54–59 (4%) |
 | Relicanth | 54–59 | 1% | 54–59 (1%) |
@@ -637,14 +634,14 @@ Fonte: tabela `sRoute13_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Wailmer | 44–50 | 70% | 44–50 (70%) |
-| Azumarill | 44–50 | 30% | 44–50 (30%) |
+| Corsola | 44–50 | 30% | 44–50 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Quagsire | 44–50 | 60% | 44–50 (60%) |
-| Omastar | 44–50 | 20% | 44–50 (20%) |
+| Crawdaunt | 44–50 | 20% | 44–50 (20%) |
 | Qwilfish | 44–50 | 20% | 44–50 (20%) |
 
 ### Super Rod
@@ -654,7 +651,7 @@ Fonte: tabela `sRoute13_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Azumarill | 44–50 | 40% | 44–50 (40%) |
 | Seadra | 44–50 | 40% | 44–50 (40%) |
 | Kingler | 44–50 | 15% | 44–50 (15%) |
-| Crawdaunt | 44–50 | 4% | 44–50 (4%) |
+| Seaking | 44–50 | 4% | 44–50 (4%) |
 | Dragonair | 44–50 | 1% | 44–50 (1%) |
 
 
@@ -675,11 +672,11 @@ Fonte: tabela `sRoute14_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Hypno | 44–50 | 10% | 44–50 (10%) |
 | Sunflora | 44–50 | 10% | 44–50 (10%) |
 | Armaldo | 44–50 | 5% | 44–50 (5%) |
-| Swalot | 44–50 | 5% | 44–50 (5%) |
-| Quilava | 44–50 | 4% | 44–50 (4%) |
+| Manectric | 44–50 | 5% | 44–50 (5%) |
+| Granbull | 44–50 | 4% | 44–50 (4%) |
 | Seviper | 44–50 | 4% | 44–50 (4%) |
-| Jynx | 44–50 | 1% | 44–50 (1%) |
-| Smeargle | 44–50 | 1% | 44–50 (1%) |
+| Bagon | 44–50 | 1% | 44–50 (1%) |
+| Ditto | 44–50 | 1% | 44–50 (1%) |
 
 
 <a id="route15"></a>
@@ -695,15 +692,15 @@ Fonte: tabela `sRoute15_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Illumise | 44–50 | 20% | 44–50 (20%) |
 | Pupitar | 44–50 | 20% | 44–50 (20%) |
 | Camerupt | 44–50 | 10% | 44–50 (10%) |
+| Castform | 44–50 | 10% | 44–50 (10%) |
 | Kabutops | 44–50 | 10% | 44–50 (10%) |
-| Murkrow | 44–50 | 10% | 44–50 (10%) |
-| Sunflora | 44–50 | 10% | 44–50 (10%) |
+| Linoone | 44–50 | 10% | 44–50 (10%) |
 | Electabuzz | 44–50 | 5% | 44–50 (5%) |
 | Torkoal | 44–50 | 5% | 44–50 (5%) |
-| Hitmonchan | 44–50 | 4% | 44–50 (4%) |
-| Hitmontop | 44–50 | 4% | 44–50 (4%) |
+| Golbat | 44–50 | 4% | 44–50 (4%) |
+| Venomoth | 44–50 | 4% | 44–50 (4%) |
 | Gloom | 44–50 | 1% | 44–50 (1%) |
-| Tauros | 44–50 | 1% | 44–50 (1%) |
+| Larvitar | 44–50 | 1% | 44–50 (1%) |
 
 
 <a id="route16"></a>
@@ -716,16 +713,17 @@ Fonte: tabela `sRoute16_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Manectric | 44–50 | 30% | 44–50 (30%) |
 | Machoke | 44–50 | 20% | 44–50 (20%) |
+| Manectric | 44–50 | 20% | 44–50 (20%) |
 | Cacturne | 44–50 | 10% | 44–50 (10%) |
 | Dugtrio | 44–50 | 10% | 44–50 (10%) |
+| Miltank | 44–50 | 10% | 44–50 (10%) |
 | Wobbuffet | 44–50 | 10% | 44–50 (10%) |
-| Hariyama | 44–50 | 5% | 44–50 (5%) |
+| Glalie | 44–50 | 5% | 44–50 (5%) |
 | Magmar | 44–50 | 5% | 44–50 (5%) |
 | Hitmonlee | 44–50 | 4% | 44–50 (4%) |
 | Ninjask | 44–50 | 4% | 44–50 (4%) |
-| Raticate | 44–50 | 1% | 44–50 (1%) |
+| Smeargle | 44–50 | 1% | 44–50 (1%) |
 | Solrock | 44–50 | 1% | 44–50 (1%) |
 
 
@@ -745,8 +743,8 @@ Fonte: tabela `sRoute17_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Illumise | 44–50 | 10% | 44–50 (10%) |
 | Togetic | 44–50 | 10% | 44–50 (10%) |
 | Altaria | 44–50 | 5% | 44–50 (5%) |
-| Manectric | 44–50 | 5% | 44–50 (5%) |
-| Ivysaur | 44–50 | 4% | 44–50 (4%) |
+| Raichu | 44–50 | 5% | 44–50 (5%) |
+| Hitmonchan | 44–50 | 4% | 44–50 (4%) |
 | Skarmory | 44–50 | 4% | 44–50 (4%) |
 | Fearow | 44–50 | 1% | 44–50 (1%) |
 | Wynaut | 44–50 | 1% | 44–50 (1%) |
@@ -767,10 +765,10 @@ Fonte: tabela `sRoute18_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Seviper | 44–50 | 20% | 44–50 (20%) |
 | Fearow | 44–50 | 10% | 44–50 (10%) |
 | Lairon | 44–50 | 10% | 44–50 (10%) |
-| Raichu | 44–50 | 5% | 44–50 (5%) |
+| Electrode | 44–50 | 5% | 44–50 (5%) |
 | Weezing | 44–50 | 5% | 44–50 (5%) |
-| Golbat | 44–50 | 4% | 44–50 (4%) |
-| Venomoth | 44–50 | 4% | 44–50 (4%) |
+| Magneton | 44–50 | 4% | 44–50 (4%) |
+| Masquerain | 44–50 | 4% | 44–50 (4%) |
 | Ditto | 44–50 | 1% | 44–50 (1%) |
 | Sneasel | 44–50 | 1% | 44–50 (1%) |
 
@@ -794,14 +792,14 @@ Fonte: tabela `sRoute19_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 54–59 | 70% | 54–59 (70%) |
+| Sealeo | 54–59 | 70% | 54–59 (70%) |
 | Qwilfish | 54–59 | 30% | 54–59 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 54–59 | 60% | 54–59 (60%) |
+| Quagsire | 54–59 | 60% | 54–59 (60%) |
 | Relicanth | 54–59 | 20% | 54–59 (20%) |
 | Sharpedo | 54–59 | 20% | 54–59 (20%) |
 
@@ -809,7 +807,8 @@ Fonte: tabela `sRoute19_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Sealeo | 54–59 | 80% | 54–59 (80%) |
+| Azumarill | 54–59 | 40% | 54–59 (40%) |
+| Quagsire | 54–59 | 40% | 54–59 (40%) |
 | Mantine | 54–59 | 15% | 54–59 (15%) |
 | Seadra | 54–59 | 4% | 54–59 (4%) |
 | Cloyster | 54–59 | 1% | 54–59 (1%) |
@@ -825,8 +824,7 @@ Fonte: tabela `sRoute20_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 54–59 | 60% | 54–59 (60%) |
-| Sealeo | 54–59 | 30% | 54–59 (30%) |
+| Azumarill | 54–59 | 90% | 54–59 (90%) |
 | Gorebyss | 54–59 | 5% | 54–59 (5%) |
 | Relicanth | 54–59 | 4% | 54–59 (4%) |
 | Cloyster | 54–59 | 1% | 54–59 (1%) |
@@ -835,7 +833,7 @@ Fonte: tabela `sRoute20_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 54–59 | 70% | 54–59 (70%) |
+| Wailmer | 54–59 | 70% | 54–59 (70%) |
 | Seadra | 54–59 | 30% | 54–59 (30%) |
 
 ### Good Rod
@@ -883,7 +881,7 @@ Fonte: tabela `sRoute21North_FireRed` de `game/src/data/wild_encounters.json`; m
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 54–59 | 60% | 54–59 (60%) |
+| Sealeo | 54–59 | 60% | 54–59 (60%) |
 | Seadra | 54–59 | 30% | 54–59 (30%) |
 | Gorebyss | 54–59 | 5% | 54–59 (5%) |
 | Blastoise | 54–59 | 4% | 54–59 (4%) |
@@ -908,7 +906,8 @@ Fonte: tabela `sRoute21North_FireRed` de `game/src/data/wild_encounters.json`; m
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Pelipper | 54–59 | 80% | 54–59 (80%) |
+| Pelipper | 54–59 | 40% | 54–59 (40%) |
+| Sealeo | 54–59 | 40% | 54–59 (40%) |
 | Sharpedo | 54–59 | 15% | 54–59 (15%) |
 | Seadra | 54–59 | 4% | 54–59 (4%) |
 | Mantine | 54–59 | 1% | 54–59 (1%) |
@@ -932,8 +931,8 @@ Fonte: tabela `sRoute21South_FireRed` de `game/src/data/wild_encounters.json`; m
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 54–59 | 60% | 54–59 (60%) |
-| Sealeo | 54–59 | 30% | 54–59 (30%) |
+| Quagsire | 54–59 | 60% | 54–59 (60%) |
+| Qwilfish | 54–59 | 30% | 54–59 (30%) |
 | Politoed | 54–59 | 5% | 54–59 (5%) |
 | Ludicolo | 54–59 | 4% | 54–59 (4%) |
 | Milotic | 54–59 | 1% | 54–59 (1%) |
@@ -942,8 +941,8 @@ Fonte: tabela `sRoute21South_FireRed` de `game/src/data/wild_encounters.json`; m
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 54–59 | 70% | 54–59 (70%) |
-| Qwilfish | 54–59 | 30% | 54–59 (30%) |
+| Sealeo | 54–59 | 70% | 54–59 (70%) |
+| Wailmer | 54–59 | 30% | 54–59 (30%) |
 
 ### Good Rod
 
@@ -957,7 +956,7 @@ Fonte: tabela `sRoute21South_FireRed` de `game/src/data/wild_encounters.json`; m
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 54–59 | 40% | 54–59 (40%) |
+| Azumarill | 54–59 | 40% | 54–59 (40%) |
 | Quagsire | 54–59 | 40% | 54–59 (40%) |
 | Huntail | 54–59 | 15% | 54–59 (15%) |
 | Politoed | 54–59 | 4% | 54–59 (4%) |
@@ -991,7 +990,7 @@ Fonte: tabela `sRoute22_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 54–59 | 60% | 54–59 (60%) |
+| Sealeo | 54–59 | 60% | 54–59 (60%) |
 | Qwilfish | 54–59 | 30% | 54–59 (30%) |
 | Seaking | 54–59 | 5% | 54–59 (5%) |
 | Feraligatr | 54–59 | 4% | 54–59 (4%) |
@@ -1008,8 +1007,8 @@ Fonte: tabela `sRoute22_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Sealeo | 44–50 | 60% | 44–50 (60%) |
-| Gorebyss | 44–50 | 20% | 44–50 (20%) |
+| Qwilfish | 44–50 | 60% | 44–50 (60%) |
+| Omastar | 44–50 | 20% | 44–50 (20%) |
 | Slowking | 44–50 | 20% | 44–50 (20%) |
 
 ### Super Rod
@@ -1034,13 +1033,12 @@ Fonte: tabela `sRoute23_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Mantine | 70–75 | 20% | 70–75 (20%) |
-| Nidoqueen | 70–75 | 20% | 70–75 (20%) |
-| Donphan | 70–75 | 10% | 70–75 (10%) |
-| Gengar | 70–75 | 10% | 70–75 (10%) |
+| Swalot | 70–75 | 20% | 70–75 (20%) |
+| Donphan | 70–75 | 15% | 70–75 (15%) |
 | Machamp | 70–75 | 10% | 70–75 (10%) |
 | Steelix | 70–75 | 10% | 70–75 (10%) |
+| Ursaring | 70–75 | 10% | 70–75 (10%) |
 | Porygon2 | 70–75 | 5% | 70–75 (5%) |
-| Ursaring | 70–75 | 5% | 70–75 (5%) |
 | Arcanine | 70–75 | 4% | 70–75 (4%) |
 | Scizor | 70–75 | 4% | 70–75 (4%) |
 | Salamence | 70–75 | 1% | 70–75 (1%) |
@@ -1050,7 +1048,7 @@ Fonte: tabela `sRoute23_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Corsola | 70–75 | 60% | 70–75 (60%) |
+| Pelipper | 70–75 | 60% | 70–75 (60%) |
 | Wailmer | 70–75 | 30% | 70–75 (30%) |
 | Swampert | 70–75 | 5% | 70–75 (5%) |
 | Walrein | 70–75 | 4% | 70–75 (4%) |
@@ -1060,14 +1058,13 @@ Fonte: tabela `sRoute23_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Corsola | 70–75 | 70% | 70–75 (70%) |
-| Sealeo | 70–75 | 30% | 70–75 (30%) |
+| Sealeo | 70–75 | 100% | 70–75 (100%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 70–75 | 60% | 70–75 (60%) |
+| Seadra | 70–75 | 60% | 70–75 (60%) |
 | Dewgong | 70–75 | 20% | 70–75 (20%) |
 | Relicanth | 70–75 | 20% | 70–75 (20%) |
 
@@ -1075,8 +1072,8 @@ Fonte: tabela `sRoute23_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Quagsire | 70–75 | 40% | 70–75 (40%) |
 | Sealeo | 70–75 | 40% | 70–75 (40%) |
-| Wailmer | 70–75 | 40% | 70–75 (40%) |
 | Lanturn | 70–75 | 15% | 70–75 (15%) |
 | Starmie | 70–75 | 4% | 70–75 (4%) |
 | Kingdra | 70–75 | 1% | 70–75 (1%) |
@@ -1097,7 +1094,7 @@ Fonte: tabela `sRoute24_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Abra | 17–25 | 10% | 17–25 (10%) |
 | Exeggcute | 17–25 | 10% | 17–25 (10%) |
 | Gulpin | 17–25 | 10% | 17–25 (10%) |
-| Psyduck | 17–25 | 10% | 17–25 (10%) |
+| Swablu | 17–25 | 10% | 17–25 (10%) |
 | Chikorita | 17–25 | 5% | 17–25 (5%) |
 | Treecko | 17–25 | 5% | 17–25 (5%) |
 | Ekans | 17–25 | 4% | 17–25 (4%) |
@@ -1109,7 +1106,7 @@ Fonte: tabela `sRoute24_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 54–59 | 60% | 54–59 (60%) |
+| Pelipper | 54–59 | 60% | 54–59 (60%) |
 | Seadra | 54–59 | 30% | 54–59 (30%) |
 | Gyarados | 54–59 | 5% | 54–59 (5%) |
 | Walrein | 54–59 | 4% | 54–59 (4%) |
@@ -1134,7 +1131,8 @@ Fonte: tabela `sRoute24_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 44–50 | 80% | 44–50 (80%) |
+| Azumarill | 44–50 | 40% | 44–50 (40%) |
+| Wailmer | 44–50 | 40% | 44–50 (40%) |
 | Huntail | 44–50 | 15% | 44–50 (15%) |
 | Octillery | 44–50 | 4% | 44–50 (4%) |
 | Dratini | 44–50 | 1% | 44–50 (1%) |
@@ -1168,7 +1166,7 @@ Fonte: tabela `sRoute25_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Qwilfish | 54–59 | 60% | 54–59 (60%) |
-| Sealeo | 54–59 | 30% | 54–59 (30%) |
+| Wailmer | 54–59 | 30% | 54–59 (30%) |
 | Politoed | 54–59 | 9% | 54–59 (9%) |
 | Tentacruel | 54–59 | 1% | 54–59 (1%) |
 
@@ -1192,7 +1190,7 @@ Fonte: tabela `sRoute25_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 |---|---|---:|---|
 | Poliwhirl | 44–50 | 40% | 44–50 (40%) |
 | Quagsire | 44–50 | 40% | 44–50 (40%) |
-| Seadra | 44–50 | 15% | 44–50 (15%) |
+| Whiscash | 44–50 | 15% | 44–50 (15%) |
 | Omastar | 44–50 | 4% | 44–50 (4%) |
 | Dragonair | 44–50 | 1% | 44–50 (1%) |
 
@@ -1207,8 +1205,8 @@ Fonte: tabela `sCeladonCity_FireRed` de `game/src/data/wild_encounters.json`; ma
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 54–59 | 60% | 54–59 (60%) |
-| Quagsire | 54–59 | 30% | 54–59 (30%) |
+| Corsola | 54–59 | 60% | 54–59 (60%) |
+| Seadra | 54–59 | 30% | 54–59 (30%) |
 | Octillery | 54–59 | 5% | 54–59 (5%) |
 | Tentacruel | 54–59 | 4% | 54–59 (4%) |
 | Slowking | 54–59 | 1% | 54–59 (1%) |
@@ -1217,14 +1215,13 @@ Fonte: tabela `sCeladonCity_FireRed` de `game/src/data/wild_encounters.json`; ma
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 35–41 | 70% | 35–41 (70%) |
-| Qwilfish | 35–41 | 30% | 35–41 (30%) |
+| Seadra | 35–41 | 100% | 35–41 (100%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Sealeo | 44–50 | 60% | 44–50 (60%) |
+| Pelipper | 44–50 | 60% | 44–50 (60%) |
 | Gorebyss | 44–50 | 20% | 44–50 (20%) |
 | Omastar | 44–50 | 20% | 44–50 (20%) |
 
@@ -1233,8 +1230,8 @@ Fonte: tabela `sCeladonCity_FireRed` de `game/src/data/wild_encounters.json`; ma
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Pelipper | 44–50 | 40% | 44–50 (40%) |
-| Wailmer | 44–50 | 40% | 44–50 (40%) |
-| Slowking | 44–50 | 15% | 44–50 (15%) |
+| Qwilfish | 44–50 | 40% | 44–50 (40%) |
+| Huntail | 44–50 | 15% | 44–50 (15%) |
 | Lanturn | 44–50 | 4% | 44–50 (4%) |
 | Dragonair | 44–50 | 1% | 44–50 (1%) |
 
@@ -1250,12 +1247,11 @@ Fonte: tabela `sCeruleanCave1F_FireRed` de `game/src/data/wild_encounters.json`;
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Crobat | 84–94 | 21% | 84–94 (21%) |
-| Nidoqueen | 84–94 | 20% | 84–94 (20%) |
+| Absol | 84–94 | 20% | 84–94 (20%) |
+| Claydol | 84–94 | 20% | 84–94 (20%) |
 | Piloswine | 84–94 | 20% | 84–94 (20%) |
-| Claydol | 84–94 | 10% | 84–94 (10%) |
-| Flygon | 84–94 | 10% | 84–94 (10%) |
 | Golbat | 84–94 | 10% | 84–94 (10%) |
-| Aggron | 84–94 | 4% | 84–94 (4%) |
+| Nidoking | 84–94 | 4% | 84–94 (4%) |
 | Shuckle | 84–94 | 4% | 84–94 (4%) |
 | Tyranitar | 84–94 | 1% | 84–94 (1%) |
 
@@ -1263,8 +1259,8 @@ Fonte: tabela `sCeruleanCave1F_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 84–94 | 60% | 84–94 (60%) |
-| Azumarill | 84–94 | 30% | 84–94 (30%) |
+| Wailmer | 84–94 | 60% | 84–94 (60%) |
+| Sealeo | 84–94 | 30% | 84–94 (30%) |
 | Walrein | 84–94 | 5% | 84–94 (5%) |
 | Wailord | 84–94 | 4% | 84–94 (4%) |
 | Poliwrath | 84–94 | 1% | 84–94 (1%) |
@@ -1274,20 +1270,22 @@ Fonte: tabela `sCeruleanCave1F_FireRed` de `game/src/data/wild_encounters.json`;
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Shedinja | 84–94 | 90% | 84–94 (90%) |
-| Claydol | 84–94 | 9% | 84–94 (9%) |
+| Nidoking | 84–94 | 5% | 84–94 (5%) |
+| Scizor | 84–94 | 4% | 84–94 (4%) |
 | Aggron | 84–94 | 1% | 84–94 (1%) |
 
 ### Old Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 84–94 | 100% | 84–94 (100%) |
+| Quagsire | 84–94 | 70% | 84–94 (70%) |
+| Seadra | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Pelipper | 84–94 | 60% | 84–94 (60%) |
+| Sealeo | 84–94 | 60% | 84–94 (60%) |
 | Kabutops | 84–94 | 20% | 84–94 (20%) |
 | Octillery | 84–94 | 20% | 84–94 (20%) |
 
@@ -1295,8 +1293,7 @@ Fonte: tabela `sCeruleanCave1F_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Pelipper | 84–94 | 40% | 84–94 (40%) |
-| Wailmer | 84–94 | 40% | 84–94 (40%) |
+| Wailmer | 84–94 | 80% | 84–94 (80%) |
 | Gorebyss | 84–94 | 15% | 84–94 (15%) |
 | Blastoise | 84–94 | 4% | 84–94 (4%) |
 | Milotic | 84–94 | 1% | 84–94 (1%) |
@@ -1312,23 +1309,23 @@ Fonte: tabela `sCeruleanCave2F_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Camerupt | 84–94 | 20% | 84–94 (20%) |
-| Nidoqueen | 84–94 | 20% | 84–94 (20%) |
-| Aggron | 84–94 | 14% | 84–94 (14%) |
-| Claydol | 84–94 | 10% | 84–94 (10%) |
+| Cacturne | 84–94 | 20% | 84–94 (20%) |
+| Lunatone | 84–94 | 20% | 84–94 (20%) |
+| Aggron | 84–94 | 10% | 84–94 (10%) |
 | Crobat | 84–94 | 10% | 84–94 (10%) |
 | Golbat | 84–94 | 10% | 84–94 (10%) |
+| Nidoking | 84–94 | 10% | 84–94 (10%) |
 | Flygon | 84–94 | 9% | 84–94 (9%) |
-| Umbreon | 84–94 | 5% | 84–94 (5%) |
-| Aerodactyl | 84–94 | 1% | 84–94 (1%) |
+| Aerodactyl | 84–94 | 6% | 84–94 (6%) |
+| Nidoqueen | 84–94 | 4% | 84–94 (4%) |
 | Rayquaza | 90–95 | 1% | 90–95 (1%) |
 
 ### Rock Smash
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Masquerain | 84–94 | 60% | 84–94 (60%) |
-| Lairon | 84–94 | 30% | 84–94 (30%) |
+| Vibrava | 84–94 | 60% | 84–94 (60%) |
+| Quagsire | 84–94 | 30% | 84–94 (30%) |
 | Shuckle | 84–94 | 6% | 84–94 (6%) |
 | Swampert | 84–94 | 4% | 84–94 (4%) |
 
@@ -1343,13 +1340,13 @@ Fonte: tabela `sCeruleanCaveB1F_FireRed` de `game/src/data/wild_encounters.json`
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Nidoqueen | 84–94 | 20% | 84–94 (20%) |
 | Piloswine | 84–94 | 20% | 84–94 (20%) |
-| Flygon | 84–94 | 15% | 84–94 (15%) |
-| Aerodactyl | 84–94 | 14% | 84–94 (14%) |
-| Steelix | 84–94 | 14% | 84–94 (14%) |
+| Sandslash | 84–94 | 20% | 84–94 (20%) |
+| Aerodactyl | 84–94 | 18% | 84–94 (18%) |
+| Nidoqueen | 84–94 | 15% | 84–94 (15%) |
 | Aggron | 84–94 | 10% | 84–94 (10%) |
-| Shuckle | 84–94 | 5% | 84–94 (5%) |
+| Steelix | 84–94 | 10% | 84–94 (10%) |
+| Flygon | 84–94 | 5% | 84–94 (5%) |
 | Crobat | 84–94 | 1% | 84–94 (1%) |
 | Mewtwo | 90–95 | 1% | 90–95 (1%) |
 
@@ -1369,7 +1366,7 @@ Fonte: tabela `sCeruleanCaveB1F_FireRed` de `game/src/data/wild_encounters.json`
 |---|---|---:|---|
 | Parasect | 84–94 | 60% | 84–94 (60%) |
 | Shedinja | 84–94 | 30% | 84–94 (30%) |
-| Shuckle | 84–94 | 5% | 84–94 (5%) |
+| Scizor | 84–94 | 5% | 84–94 (5%) |
 | Heracross | 84–94 | 4% | 84–94 (4%) |
 | Steelix | 84–94 | 1% | 84–94 (1%) |
 
@@ -1378,13 +1375,13 @@ Fonte: tabela `sCeruleanCaveB1F_FireRed` de `game/src/data/wild_encounters.json`
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Seadra | 84–94 | 70% | 84–94 (70%) |
-| Wailmer | 84–94 | 30% | 84–94 (30%) |
+| Qwilfish | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Sealeo | 84–94 | 60% | 84–94 (60%) |
+| Quagsire | 84–94 | 60% | 84–94 (60%) |
 | Lanturn | 84–94 | 20% | 84–94 (20%) |
 | Ludicolo | 84–94 | 20% | 84–94 (20%) |
 
@@ -1392,8 +1389,7 @@ Fonte: tabela `sCeruleanCaveB1F_FireRed` de `game/src/data/wild_encounters.json`
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Pelipper | 84–94 | 40% | 84–94 (40%) |
-| Qwilfish | 84–94 | 40% | 84–94 (40%) |
+| Corsola | 84–94 | 80% | 84–94 (80%) |
 | Crawdaunt | 84–94 | 15% | 84–94 (15%) |
 | Tentacruel | 84–94 | 4% | 84–94 (4%) |
 | Starmie | 84–94 | 1% | 84–94 (1%) |
@@ -1410,7 +1406,7 @@ Fonte: tabela `sCeruleanCity_FireRed` de `game/src/data/wild_encounters.json`; m
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Azumarill | 54–59 | 60% | 54–59 (60%) |
-| Pelipper | 54–59 | 30% | 54–59 (30%) |
+| Quagsire | 54–59 | 30% | 54–59 (30%) |
 | Crawdaunt | 54–59 | 5% | 54–59 (5%) |
 | Poliwrath | 54–59 | 4% | 54–59 (4%) |
 | Cloyster | 54–59 | 1% | 54–59 (1%) |
@@ -1427,8 +1423,8 @@ Fonte: tabela `sCeruleanCity_FireRed` de `game/src/data/wild_encounters.json`; m
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Qwilfish | 44–50 | 60% | 44–50 (60%) |
+| Dewgong | 44–50 | 20% | 44–50 (20%) |
 | Huntail | 44–50 | 20% | 44–50 (20%) |
-| Ludicolo | 44–50 | 20% | 44–50 (20%) |
 
 ### Super Rod
 
@@ -1450,8 +1446,8 @@ Fonte: tabela `sCinnabarIsland_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 62–67 | 60% | 62–67 (60%) |
-| Corsola | 62–67 | 30% | 62–67 (30%) |
+| Wailmer | 62–67 | 60% | 62–67 (60%) |
+| Qwilfish | 62–67 | 30% | 62–67 (30%) |
 | Walrein | 62–67 | 5% | 62–67 (5%) |
 | Feraligatr | 62–67 | 4% | 62–67 (4%) |
 | Lapras | 62–67 | 1% | 62–67 (1%) |
@@ -1467,7 +1463,7 @@ Fonte: tabela `sCinnabarIsland_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 62–67 | 60% | 62–67 (60%) |
+| Sealeo | 62–67 | 60% | 62–67 (60%) |
 | Sharpedo | 62–67 | 20% | 62–67 (20%) |
 | Slowking | 62–67 | 20% | 62–67 (20%) |
 
@@ -1475,8 +1471,8 @@ Fonte: tabela `sCinnabarIsland_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Pelipper | 62–67 | 40% | 62–67 (40%) |
 | Seadra | 62–67 | 40% | 62–67 (40%) |
-| Wailmer | 62–67 | 40% | 62–67 (40%) |
 | Ludicolo | 62–67 | 15% | 62–67 (15%) |
 | Milotic | 62–67 | 4% | 62–67 (4%) |
 | Lapras | 62–67 | 1% | 62–67 (1%) |
@@ -1492,16 +1488,15 @@ Fonte: tabela `sDiglettsCaveB1F_FireRed` de `game/src/data/wild_encounters.json`
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Diglett | 27–33 | 40% | 27–33 (40%) |
-| Corsola | 27–33 | 10% | 27–33 (10%) |
+| Diglett | 27–33 | 41% | 27–33 (41%) |
 | Graveler | 27–33 | 10% | 27–33 (10%) |
+| Nosepass | 27–33 | 10% | 27–33 (10%) |
 | Onix | 27–33 | 10% | 27–33 (10%) |
 | Sableye | 27–33 | 10% | 27–33 (10%) |
 | Anorith | 27–33 | 5% | 27–33 (5%) |
 | Kabuto | 27–33 | 5% | 27–33 (5%) |
-| Nosepass | 27–33 | 5% | 27–33 (5%) |
-| Lileep | 27–33 | 4% | 27–33 (4%) |
-| Omanyte | 27–33 | 1% | 27–33 (1%) |
+| Lileep | 27–33 | 5% | 27–33 (5%) |
+| Omanyte | 27–33 | 4% | 27–33 (4%) |
 
 
 <a id="fiveisland"></a>
@@ -1514,7 +1509,7 @@ Fonte: tabela `sFiveIsland_FireRed` de `game/src/data/wild_encounters.json`; map
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 84–94 | 60% | 84–94 (60%) |
+| Seadra | 84–94 | 60% | 84–94 (60%) |
 | Wailmer | 84–94 | 30% | 84–94 (30%) |
 | Feraligatr | 84–94 | 5% | 84–94 (5%) |
 | Vaporeon | 84–94 | 4% | 84–94 (4%) |
@@ -1525,13 +1520,13 @@ Fonte: tabela `sFiveIsland_FireRed` de `game/src/data/wild_encounters.json`; map
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Sealeo | 84–94 | 70% | 84–94 (70%) |
-| Seadra | 84–94 | 30% | 84–94 (30%) |
+| Corsola | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 84–94 | 60% | 84–94 (60%) |
+| Wailmer | 84–94 | 60% | 84–94 (60%) |
 | Seaking | 84–94 | 20% | 84–94 (20%) |
 | Sharpedo | 84–94 | 20% | 84–94 (20%) |
 
@@ -1539,8 +1534,8 @@ Fonte: tabela `sFiveIsland_FireRed` de `game/src/data/wild_encounters.json`; map
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 84–94 | 40% | 84–94 (40%) |
-| Wailmer | 84–94 | 40% | 84–94 (40%) |
+| Qwilfish | 84–94 | 40% | 84–94 (40%) |
+| Sealeo | 84–94 | 40% | 84–94 (40%) |
 | Slowking | 84–94 | 15% | 84–94 (15%) |
 | Politoed | 84–94 | 4% | 84–94 (4%) |
 | Vaporeon | 84–94 | 1% | 84–94 (1%) |
@@ -1556,12 +1551,12 @@ Fonte: tabela `sFiveIslandLostCaveRoom1_FireRed` de `game/src/data/wild_encounte
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Chimecho | 84–94 | 20% | 84–94 (20%) |
 | Cradily | 84–94 | 20% | 84–94 (20%) |
-| Slowbro | 84–94 | 20% | 84–94 (20%) |
 | Crobat | 84–94 | 19% | 84–94 (19%) |
-| Claydol | 84–94 | 10% | 84–94 (10%) |
 | Flygon | 84–94 | 10% | 84–94 (10%) |
-| Gardevoir | 84–94 | 10% | 84–94 (10%) |
+| Nidoqueen | 84–94 | 10% | 84–94 (10%) |
+| Shuckle | 84–94 | 10% | 84–94 (10%) |
 | Umbreon | 84–94 | 5% | 84–94 (5%) |
 | Donphan | 84–94 | 4% | 84–94 (4%) |
 | Aggron | 84–94 | 1% | 84–94 (1%) |
@@ -1579,12 +1574,14 @@ Fonte: tabela `sFiveIslandLostCaveRoom2_FireRed` de `game/src/data/wild_encounte
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Girafarig | 84–94 | 20% | 84–94 (20%) |
-| Xatu | 84–94 | 20% | 84–94 (20%) |
+| Rhydon | 84–94 | 20% | 84–94 (20%) |
 | Crobat | 84–94 | 19% | 84–94 (19%) |
-| Gardevoir | 84–94 | 15% | 84–94 (15%) |
-| Gengar | 84–94 | 10% | 84–94 (10%) |
+| Gardevoir | 84–94 | 10% | 84–94 (10%) |
 | Golbat | 84–94 | 10% | 84–94 (10%) |
-| Flygon | 84–94 | 5% | 84–94 (5%) |
+| Steelix | 84–94 | 10% | 84–94 (10%) |
+| Exeggutor | 84–94 | 5% | 84–94 (5%) |
+| Flygon | 84–94 | 4% | 84–94 (4%) |
+| Nidoqueen | 84–94 | 1% | 84–94 (1%) |
 | Tyranitar | 84–94 | 1% | 84–94 (1%) |
 
 
@@ -1600,13 +1597,14 @@ Fonte: tabela `sFiveIslandLostCaveRoom3_FireRed` de `game/src/data/wild_encounte
 |---|---|---:|---|
 | Mr. Mime | 84–94 | 20% | 84–94 (20%) |
 | Xatu | 84–94 | 20% | 84–94 (20%) |
-| Aggron | 84–94 | 14% | 84–94 (14%) |
-| Aerodactyl | 84–94 | 11% | 84–94 (11%) |
+| Aggron | 84–94 | 10% | 84–94 (10%) |
+| Alakazam | 84–94 | 10% | 84–94 (10%) |
 | Espeon | 84–94 | 10% | 84–94 (10%) |
-| Exeggutor | 84–94 | 10% | 84–94 (10%) |
-| Gengar | 84–94 | 10% | 84–94 (10%) |
+| Flygon | 84–94 | 10% | 84–94 (10%) |
+| Nidoqueen | 84–94 | 10% | 84–94 (10%) |
+| Exeggutor | 84–94 | 4% | 84–94 (4%) |
 | Umbreon | 84–94 | 4% | 84–94 (4%) |
-| Flygon | 84–94 | 1% | 84–94 (1%) |
+| Nidoking | 84–94 | 2% | 84–94 (2%) |
 
 
 <a id="fiveisland-lostcave-room4"></a>
@@ -1619,14 +1617,15 @@ Fonte: tabela `sFiveIslandLostCaveRoom4_FireRed` de `game/src/data/wild_encounte
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Golem | 84–94 | 20% | 84–94 (20%) |
+| Jynx | 84–94 | 20% | 84–94 (20%) |
 | Omastar | 84–94 | 20% | 84–94 (20%) |
-| Umbreon | 84–94 | 18% | 84–94 (18%) |
-| Aerodactyl | 84–94 | 10% | 84–94 (10%) |
-| Shuckle | 84–94 | 10% | 84–94 (10%) |
+| Shuckle | 84–94 | 20% | 84–94 (20%) |
+| Donphan | 84–94 | 10% | 84–94 (10%) |
 | Steelix | 84–94 | 10% | 84–94 (10%) |
+| Alakazam | 84–94 | 5% | 84–94 (5%) |
 | Exeggutor | 84–94 | 5% | 84–94 (5%) |
-| Gardevoir | 84–94 | 5% | 84–94 (5%) |
+| Gardevoir | 84–94 | 4% | 84–94 (4%) |
+| Umbreon | 84–94 | 4% | 84–94 (4%) |
 | Claydol | 84–94 | 1% | 84–94 (1%) |
 | Golbat | 84–94 | 1% | 84–94 (1%) |
 
@@ -1645,7 +1644,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom5_FireRed` de `game/src/data/wild_encounte
 | Golbat | 84–94 | 20% | 84–94 (20%) |
 | Jynx | 84–94 | 20% | 84–94 (20%) |
 | Gengar | 84–94 | 14% | 84–94 (14%) |
-| Shuckle | 84–94 | 10% | 84–94 (10%) |
+| Alakazam | 84–94 | 10% | 84–94 (10%) |
 | Umbreon | 84–94 | 10% | 84–94 (10%) |
 | Flygon | 84–94 | 1% | 84–94 (1%) |
 | Houndoom | 84–94 | 1% | 84–94 (1%) |
@@ -1663,12 +1662,11 @@ Fonte: tabela `sFiveIslandLostCaveRoom6_FireRed` de `game/src/data/wild_encounte
 |---|---|---:|---|
 | Absol | 84–94 | 20% | 84–94 (20%) |
 | Sandslash | 84–94 | 20% | 84–94 (20%) |
+| Swampert | 84–94 | 14% | 84–94 (14%) |
 | Aerodactyl | 84–94 | 10% | 84–94 (10%) |
 | Gardevoir | 84–94 | 10% | 84–94 (10%) |
 | Houndoom | 84–94 | 10% | 84–94 (10%) |
 | Steelix | 84–94 | 10% | 84–94 (10%) |
-| Swampert | 84–94 | 9% | 84–94 (9%) |
-| Umbreon | 84–94 | 5% | 84–94 (5%) |
 | Shuckle | 84–94 | 4% | 84–94 (4%) |
 | Crobat | 84–94 | 1% | 84–94 (1%) |
 | Exeggutor | 84–94 | 1% | 84–94 (1%) |
@@ -1686,14 +1684,14 @@ Fonte: tabela `sFiveIslandLostCaveRoom7_FireRed` de `game/src/data/wild_encounte
 |---|---|---:|---|
 | Absol | 84–94 | 20% | 84–94 (20%) |
 | Cradily | 84–94 | 20% | 84–94 (20%) |
-| Houndoom | 84–94 | 14% | 84–94 (14%) |
 | Crobat | 84–94 | 11% | 84–94 (11%) |
 | Flygon | 84–94 | 10% | 84–94 (10%) |
-| Umbreon | 84–94 | 10% | 84–94 (10%) |
+| Houndoom | 84–94 | 10% | 84–94 (10%) |
+| Nidoking | 84–94 | 10% | 84–94 (10%) |
+| Alakazam | 84–94 | 5% | 84–94 (5%) |
 | Exeggutor | 84–94 | 5% | 84–94 (5%) |
 | Swampert | 84–94 | 5% | 84–94 (5%) |
-| Shuckle | 84–94 | 4% | 84–94 (4%) |
-| Espeon | 84–94 | 1% | 84–94 (1%) |
+| Gengar | 84–94 | 4% | 84–94 (4%) |
 
 
 <a id="fiveisland-lostcave-room8"></a>
@@ -1707,12 +1705,12 @@ Fonte: tabela `sFiveIslandLostCaveRoom8_FireRed` de `game/src/data/wild_encounte
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Cradily | 84–94 | 20% | 84–94 (20%) |
-| Dusclops | 84–94 | 20% | 84–94 (20%) |
+| Rhydon | 84–94 | 20% | 84–94 (20%) |
 | Golbat | 84–94 | 19% | 84–94 (19%) |
-| Exeggutor | 84–94 | 10% | 84–94 (10%) |
+| Gardevoir | 84–94 | 10% | 84–94 (10%) |
 | Shuckle | 84–94 | 10% | 84–94 (10%) |
 | Steelix | 84–94 | 10% | 84–94 (10%) |
-| Claydol | 84–94 | 5% | 84–94 (5%) |
+| Espeon | 84–94 | 5% | 84–94 (5%) |
 | Aggron | 84–94 | 4% | 84–94 (4%) |
 | Crobat | 84–94 | 2% | 84–94 (2%) |
 
@@ -1728,15 +1726,15 @@ Fonte: tabela `sFiveIslandLostCaveRoom9_FireRed` de `game/src/data/wild_encounte
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Absol | 84–94 | 20% | 84–94 (20%) |
-| Camerupt | 84–94 | 20% | 84–94 (20%) |
+| Dusclops | 84–94 | 20% | 84–94 (20%) |
 | Golbat | 84–94 | 15% | 84–94 (15%) |
+| Alakazam | 84–94 | 10% | 84–94 (10%) |
 | Claydol | 84–94 | 10% | 84–94 (10%) |
 | Espeon | 84–94 | 10% | 84–94 (10%) |
-| Houndoom | 84–94 | 10% | 84–94 (10%) |
 | Crobat | 84–94 | 5% | 84–94 (5%) |
 | Gengar | 84–94 | 4% | 84–94 (4%) |
 | Swampert | 84–94 | 4% | 84–94 (4%) |
-| Exeggutor | 84–94 | 1% | 84–94 (1%) |
+| Nidoking | 84–94 | 1% | 84–94 (1%) |
 | Tyranitar | 84–94 | 1% | 84–94 (1%) |
 
 
@@ -1751,13 +1749,14 @@ Fonte: tabela `sFiveIslandLostCaveRoom10_FireRed` de `game/src/data/wild_encount
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Crobat | 84–94 | 30% | 84–94 (30%) |
-| Camerupt | 84–94 | 20% | 84–94 (20%) |
+| Rhydon | 84–94 | 20% | 84–94 (20%) |
 | Wobbuffet | 84–94 | 20% | 84–94 (20%) |
 | Claydol | 84–94 | 14% | 84–94 (14%) |
-| Flygon | 84–94 | 6% | 84–94 (6%) |
 | Aggron | 84–94 | 5% | 84–94 (5%) |
+| Espeon | 84–94 | 5% | 84–94 (5%) |
 | Donphan | 84–94 | 4% | 84–94 (4%) |
 | Mew | 85–90 | 1% | 85–90 (1%) |
+| Nidoking | 84–94 | 1% | 84–94 (1%) |
 
 
 <a id="fiveisland-lostcave-room11"></a>
@@ -1774,10 +1773,10 @@ Fonte: tabela `sFiveIslandLostCaveRoom11_FireRed` de `game/src/data/wild_encount
 | Golbat | 84–94 | 20% | 84–94 (20%) |
 | Houndoom | 84–94 | 20% | 84–94 (20%) |
 | Crobat | 84–94 | 16% | 84–94 (16%) |
-| Umbreon | 84–94 | 10% | 84–94 (10%) |
+| Shuckle | 84–94 | 10% | 84–94 (10%) |
 | Steelix | 84–94 | 5% | 84–94 (5%) |
+| Alakazam | 84–94 | 4% | 84–94 (4%) |
 | Donphan | 84–94 | 4% | 84–94 (4%) |
-| Swampert | 84–94 | 4% | 84–94 (4%) |
 | Aerodactyl | 84–94 | 1% | 84–94 (1%) |
 
 
@@ -1791,11 +1790,11 @@ Fonte: tabela `sFiveIslandLostCaveRoom12_FireRed` de `game/src/data/wild_encount
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Houndoom | 84–94 | 25% | 84–94 (25%) |
+| Girafarig | 84–94 | 20% | 84–94 (20%) |
 | Nidoking | 84–94 | 20% | 84–94 (20%) |
 | Xatu | 84–94 | 20% | 84–94 (20%) |
-| Claydol | 84–94 | 10% | 84–94 (10%) |
-| Donphan | 84–94 | 10% | 84–94 (10%) |
+| Houndoom | 84–94 | 15% | 84–94 (15%) |
+| Nidoqueen | 84–94 | 10% | 84–94 (10%) |
 | Steelix | 84–94 | 5% | 84–94 (5%) |
 | Flygon | 84–94 | 4% | 84–94 (4%) |
 | Golbat | 84–94 | 4% | 84–94 (4%) |
@@ -1814,11 +1813,13 @@ Fonte: tabela `sFiveIslandLostCaveRoom13_FireRed` de `game/src/data/wild_encount
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Golbat | 84–94 | 35% | 84–94 (35%) |
-| Gengar | 84–94 | 24% | 84–94 (24%) |
 | Wobbuffet | 84–94 | 20% | 84–94 (20%) |
-| Espeon | 84–94 | 11% | 84–94 (11%) |
-| Umbreon | 84–94 | 5% | 84–94 (5%) |
+| Gengar | 84–94 | 14% | 84–94 (14%) |
+| Alakazam | 84–94 | 10% | 84–94 (10%) |
+| Donphan | 84–94 | 10% | 84–94 (10%) |
+| Shuckle | 84–94 | 5% | 84–94 (5%) |
 | Crobat | 84–94 | 4% | 84–94 (4%) |
+| Espeon | 84–94 | 1% | 84–94 (1%) |
 | Tyranitar | 84–94 | 1% | 84–94 (1%) |
 
 
@@ -1834,12 +1835,13 @@ Fonte: tabela `sFiveIslandLostCaveRoom14_FireRed` de `game/src/data/wild_encount
 |---|---|---:|---|
 | Banette | 84–94 | 20% | 84–94 (20%) |
 | Dusclops | 84–94 | 20% | 84–94 (20%) |
-| Aerodactyl | 84–94 | 15% | 84–94 (15%) |
-| Donphan | 84–94 | 14% | 84–94 (14%) |
-| Claydol | 84–94 | 10% | 84–94 (10%) |
+| Claydol | 84–94 | 15% | 84–94 (15%) |
+| Aerodactyl | 84–94 | 10% | 84–94 (10%) |
+| Donphan | 84–94 | 10% | 84–94 (10%) |
 | Gengar | 84–94 | 10% | 84–94 (10%) |
 | Golbat | 84–94 | 5% | 84–94 (5%) |
 | Aggron | 84–94 | 4% | 84–94 (4%) |
+| Shuckle | 84–94 | 4% | 84–94 (4%) |
 | Jirachi | 85–90 | 1% | 85–90 (1%) |
 | Swampert | 84–94 | 1% | 84–94 (1%) |
 
@@ -1858,11 +1860,11 @@ Fonte: tabela `sFiveIslandMeadow_FireRed` de `game/src/data/wild_encounters.json
 | Kabutops | 84–94 | 20% | 84–94 (20%) |
 | Ampharos | 84–94 | 10% | 84–94 (10%) |
 | Golduck | 84–94 | 10% | 84–94 (10%) |
-| Muk | 84–94 | 10% | 84–94 (10%) |
+| Poliwrath | 84–94 | 10% | 84–94 (10%) |
 | Umbreon | 84–94 | 10% | 84–94 (10%) |
 | Swampert | 84–94 | 5% | 84–94 (5%) |
 | Vaporeon | 84–94 | 5% | 84–94 (5%) |
-| Flygon | 84–94 | 4% | 84–94 (4%) |
+| Flareon | 84–94 | 4% | 84–94 (4%) |
 | Shuckle | 84–94 | 4% | 84–94 (4%) |
 | Arcanine | 84–94 | 1% | 84–94 (1%) |
 | Raikou | 85–90 | 1% | 85–90 (1%) |
@@ -1871,7 +1873,7 @@ Fonte: tabela `sFiveIslandMeadow_FireRed` de `game/src/data/wild_encounters.json
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 84–94 | 60% | 84–94 (60%) |
+| Corsola | 84–94 | 60% | 84–94 (60%) |
 | Azumarill | 84–94 | 30% | 84–94 (30%) |
 | Milotic | 84–94 | 5% | 84–94 (5%) |
 | Blastoise | 84–94 | 4% | 84–94 (4%) |
@@ -1881,14 +1883,14 @@ Fonte: tabela `sFiveIslandMeadow_FireRed` de `game/src/data/wild_encounters.json
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 84–94 | 70% | 84–94 (70%) |
-| Quagsire | 84–94 | 30% | 84–94 (30%) |
+| Pelipper | 84–94 | 70% | 84–94 (70%) |
+| Sealeo | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Corsola | 84–94 | 60% | 84–94 (60%) |
+| Seadra | 84–94 | 60% | 84–94 (60%) |
 | Crawdaunt | 84–94 | 20% | 84–94 (20%) |
 | Seaking | 84–94 | 20% | 84–94 (20%) |
 
@@ -1897,7 +1899,7 @@ Fonte: tabela `sFiveIslandMeadow_FireRed` de `game/src/data/wild_encounters.json
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Azumarill | 84–94 | 40% | 84–94 (40%) |
-| Sealeo | 84–94 | 40% | 84–94 (40%) |
+| Qwilfish | 84–94 | 40% | 84–94 (40%) |
 | Kabutops | 84–94 | 15% | 84–94 (15%) |
 | Walrein | 84–94 | 5% | 84–94 (5%) |
 
@@ -1913,12 +1915,12 @@ Fonte: tabela `sFiveIslandMemorialPillar_FireRed` de `game/src/data/wild_encount
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Arcanine | 84–94 | 20% | 84–94 (20%) |
-| Nidoking | 84–94 | 20% | 84–94 (20%) |
+| Breloom | 84–94 | 20% | 84–94 (20%) |
 | Shedinja | 84–94 | 20% | 84–94 (20%) |
-| Exeggutor | 84–94 | 10% | 84–94 (10%) |
+| Ninetales | 84–94 | 10% | 84–94 (10%) |
 | Politoed | 84–94 | 10% | 84–94 (10%) |
-| Umbreon | 84–94 | 10% | 84–94 (10%) |
-| Claydol | 84–94 | 5% | 84–94 (5%) |
+| Vaporeon | 84–94 | 10% | 84–94 (10%) |
+| Typhlosion | 84–94 | 5% | 84–94 (5%) |
 | Feraligatr | 84–94 | 4% | 84–94 (4%) |
 | Latios | 85–90 | 1% | 85–90 (1%) |
 
@@ -1950,7 +1952,7 @@ Fonte: tabela `sFiveIslandMemorialPillar_FireRed` de `game/src/data/wild_encount
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 84–94 | 40% | 84–94 (40%) |
+| Qwilfish | 84–94 | 40% | 84–94 (40%) |
 | Sealeo | 84–94 | 40% | 84–94 (40%) |
 | Ludicolo | 84–94 | 15% | 84–94 (15%) |
 | Kingdra | 84–94 | 4% | 84–94 (4%) |
@@ -1967,7 +1969,7 @@ Fonte: tabela `sFiveIslandResortGorgeous_FireRed` de `game/src/data/wild_encount
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 84–94 | 60% | 84–94 (60%) |
+| Wailmer | 84–94 | 60% | 84–94 (60%) |
 | Azumarill | 84–94 | 30% | 84–94 (30%) |
 | Vaporeon | 84–94 | 9% | 84–94 (9%) |
 | Latias | 85–90 | 1% | 85–90 (1%) |
@@ -1976,14 +1978,14 @@ Fonte: tabela `sFiveIslandResortGorgeous_FireRed` de `game/src/data/wild_encount
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Wailmer | 84–94 | 70% | 84–94 (70%) |
-| Sealeo | 84–94 | 30% | 84–94 (30%) |
+| Corsola | 84–94 | 70% | 84–94 (70%) |
+| Qwilfish | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 84–94 | 60% | 84–94 (60%) |
+| Azumarill | 84–94 | 60% | 84–94 (60%) |
 | Relicanth | 84–94 | 20% | 84–94 (20%) |
 | Slowking | 84–94 | 20% | 84–94 (20%) |
 
@@ -2008,7 +2010,8 @@ Fonte: tabela `sFiveIslandWaterLabyrinth_FireRed` de `game/src/data/wild_encount
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 84–94 | 90% | 84–94 (90%) |
+| Azumarill | 84–94 | 60% | 84–94 (60%) |
+| Seadra | 84–94 | 30% | 84–94 (30%) |
 | Feraligatr | 84–94 | 5% | 84–94 (5%) |
 | Politoed | 84–94 | 4% | 84–94 (4%) |
 | Kyogre | 90–95 | 1% | 90–95 (1%) |
@@ -2018,7 +2021,7 @@ Fonte: tabela `sFiveIslandWaterLabyrinth_FireRed` de `game/src/data/wild_encount
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Seadra | 84–94 | 70% | 84–94 (70%) |
-| Sealeo | 84–94 | 30% | 84–94 (30%) |
+| Corsola | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
 
@@ -2048,7 +2051,7 @@ Fonte: tabela `sFourIsland_FireRed` de `game/src/data/wild_encounters.json`; map
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 84–94 | 60% | 84–94 (60%) |
+| Pelipper | 84–94 | 60% | 84–94 (60%) |
 | Seadra | 84–94 | 30% | 84–94 (30%) |
 | Feraligatr | 84–94 | 5% | 84–94 (5%) |
 | Swampert | 84–94 | 4% | 84–94 (4%) |
@@ -2058,14 +2061,14 @@ Fonte: tabela `sFourIsland_FireRed` de `game/src/data/wild_encounters.json`; map
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 84–94 | 70% | 84–94 (70%) |
+| Wailmer | 84–94 | 70% | 84–94 (70%) |
 | Seadra | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 84–94 | 60% | 84–94 (60%) |
+| Quagsire | 84–94 | 60% | 84–94 (60%) |
 | Slowking | 84–94 | 20% | 84–94 (20%) |
 | Whiscash | 84–94 | 20% | 84–94 (20%) |
 
@@ -2074,7 +2077,7 @@ Fonte: tabela `sFourIsland_FireRed` de `game/src/data/wild_encounters.json`; map
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Azumarill | 84–94 | 40% | 84–94 (40%) |
-| Corsola | 84–94 | 40% | 84–94 (40%) |
+| Pelipper | 84–94 | 40% | 84–94 (40%) |
 | Omastar | 84–94 | 15% | 84–94 (15%) |
 | Politoed | 84–94 | 4% | 84–94 (4%) |
 | Poliwrath | 84–94 | 1% | 84–94 (1%) |
@@ -2090,8 +2093,8 @@ Fonte: tabela `sFourIslandIcefallCave1F_FireRed` de `game/src/data/wild_encounte
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Dewgong | 84–94 | 20% | 84–94 (20%) |
-| Mantine | 84–94 | 20% | 84–94 (20%) |
+| Cradily | 84–94 | 20% | 84–94 (20%) |
+| Lunatone | 84–94 | 20% | 84–94 (20%) |
 | Poliwrath | 84–94 | 14% | 84–94 (14%) |
 | Vaporeon | 84–94 | 14% | 84–94 (14%) |
 | Aerodactyl | 84–94 | 10% | 84–94 (10%) |
@@ -2147,7 +2150,7 @@ Fonte: tabela `sFourIslandIcefallCaveBack_FireRed` de `game/src/data/wild_encoun
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 84–94 | 60% | 84–94 (60%) |
+| Corsola | 84–94 | 60% | 84–94 (60%) |
 | Pelipper | 84–94 | 30% | 84–94 (30%) |
 | Vaporeon | 84–94 | 5% | 84–94 (5%) |
 | Milotic | 84–94 | 4% | 84–94 (4%) |
@@ -2157,8 +2160,8 @@ Fonte: tabela `sFourIslandIcefallCaveBack_FireRed` de `game/src/data/wild_encoun
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Wailmer | 84–94 | 70% | 84–94 (70%) |
-| Azumarill | 84–94 | 30% | 84–94 (30%) |
+| Sealeo | 84–94 | 70% | 84–94 (70%) |
+| Seadra | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
 
@@ -2189,8 +2192,8 @@ Fonte: tabela `sFourIslandIcefallCaveEntrance_FireRed` de `game/src/data/wild_en
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Jynx | 84–94 | 20% | 84–94 (20%) |
-| Slowbro | 84–94 | 20% | 84–94 (20%) |
+| Lunatone | 84–94 | 20% | 84–94 (20%) |
+| Omastar | 84–94 | 20% | 84–94 (20%) |
 | Crobat | 84–94 | 11% | 84–94 (11%) |
 | Golbat | 84–94 | 11% | 84–94 (11%) |
 | Aggron | 84–94 | 10% | 84–94 (10%) |
@@ -2203,7 +2206,7 @@ Fonte: tabela `sFourIslandIcefallCaveEntrance_FireRed` de `game/src/data/wild_en
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Sealeo | 84–94 | 60% | 84–94 (60%) |
+| Seadra | 84–94 | 60% | 84–94 (60%) |
 | Qwilfish | 84–94 | 30% | 84–94 (30%) |
 | Golduck | 84–94 | 5% | 84–94 (5%) |
 | Lapras | 84–94 | 5% | 84–94 (5%) |
@@ -2212,7 +2215,7 @@ Fonte: tabela `sFourIslandIcefallCaveEntrance_FireRed` de `game/src/data/wild_en
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Pelipper | 84–94 | 70% | 84–94 (70%) |
+| Sealeo | 84–94 | 70% | 84–94 (70%) |
 | Azumarill | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
@@ -2227,7 +2230,7 @@ Fonte: tabela `sFourIslandIcefallCaveEntrance_FireRed` de `game/src/data/wild_en
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 84–94 | 40% | 84–94 (40%) |
+| Quagsire | 84–94 | 40% | 84–94 (40%) |
 | Qwilfish | 84–94 | 40% | 84–94 (40%) |
 | Mantine | 84–94 | 15% | 84–94 (15%) |
 | Lapras | 84–94 | 4% | 84–94 (4%) |
@@ -2244,7 +2247,7 @@ Fonte: tabela `sFuchsiaCity_FireRed` de `game/src/data/wild_encounters.json`; ma
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 54–59 | 60% | 54–59 (60%) |
+| Wailmer | 54–59 | 60% | 54–59 (60%) |
 | Seadra | 54–59 | 30% | 54–59 (30%) |
 | Feraligatr | 54–59 | 5% | 54–59 (5%) |
 | Lapras | 54–59 | 4% | 54–59 (4%) |
@@ -2261,7 +2264,7 @@ Fonte: tabela `sFuchsiaCity_FireRed` de `game/src/data/wild_encounters.json`; ma
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Wailmer | 44–50 | 60% | 44–50 (60%) |
+| Azumarill | 44–50 | 60% | 44–50 (60%) |
 | Dewgong | 44–50 | 20% | 44–50 (20%) |
 | Kabutops | 44–50 | 20% | 44–50 (20%) |
 
@@ -2270,7 +2273,7 @@ Fonte: tabela `sFuchsiaCity_FireRed` de `game/src/data/wild_encounters.json`; ma
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Azumarill | 44–50 | 40% | 44–50 (40%) |
-| Qwilfish | 44–50 | 40% | 44–50 (40%) |
+| Wailmer | 44–50 | 40% | 44–50 (40%) |
 | Lanturn | 44–50 | 15% | 44–50 (15%) |
 | Huntail | 44–50 | 4% | 44–50 (4%) |
 | Croconaw | 44–50 | 1% | 44–50 (1%) |
@@ -2286,14 +2289,13 @@ Fonte: tabela `sMtEmberExterior_FireRed` de `game/src/data/wild_encounters.json`
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Nidoqueen | 70–75 | 20% | 70–75 (20%) |
-| Steelix | 70–75 | 20% | 70–75 (20%) |
+| Claydol | 70–75 | 20% | 70–75 (20%) |
+| Piloswine | 70–75 | 20% | 70–75 (20%) |
 | Torkoal | 70–75 | 20% | 70–75 (20%) |
+| Rapidash | 70–75 | 15% | 70–75 (15%) |
 | Flareon | 70–75 | 10% | 70–75 (10%) |
-| Flygon | 70–75 | 10% | 70–75 (10%) |
 | Arcanine | 70–75 | 5% | 70–75 (5%) |
-| Charizard | 70–75 | 5% | 70–75 (5%) |
-| Rapidash | 70–75 | 5% | 70–75 (5%) |
+| Nidoking | 70–75 | 5% | 70–75 (5%) |
 | Swampert | 70–75 | 5% | 70–75 (5%) |
 
 ### Rock Smash
@@ -2303,7 +2305,7 @@ Fonte: tabela `sMtEmberExterior_FireRed` de `game/src/data/wild_encounters.json`
 | Lairon | 70–75 | 60% | 70–75 (60%) |
 | Marowak | 70–75 | 30% | 70–75 (30%) |
 | Pinsir | 70–75 | 5% | 70–75 (5%) |
-| Scyther | 70–75 | 4% | 70–75 (4%) |
+| Claydol | 70–75 | 4% | 70–75 (4%) |
 | Heracross | 70–75 | 1% | 70–75 (1%) |
 
 
@@ -2317,24 +2319,26 @@ Fonte: tabela `sMtEmberRubyPath1F_FireRed` de `game/src/data/wild_encounters.jso
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Nidoqueen | 84–94 | 20% | 84–94 (20%) |
+| Camerupt | 84–94 | 20% | 84–94 (20%) |
 | Rapidash | 84–94 | 20% | 84–94 (20%) |
-| Torkoal | 84–94 | 20% | 84–94 (20%) |
-| Steelix | 84–94 | 15% | 84–94 (15%) |
+| Vibrava | 84–94 | 20% | 84–94 (20%) |
+| Claydol | 84–94 | 11% | 84–94 (11%) |
 | Arcanine | 84–94 | 10% | 84–94 (10%) |
-| Swampert | 84–94 | 9% | 84–94 (9%) |
-| Flygon | 84–94 | 4% | 84–94 (4%) |
-| Donphan | 84–94 | 2% | 84–94 (2%) |
+| Charizard | 84–94 | 5% | 84–94 (5%) |
+| Flygon | 84–94 | 5% | 84–94 (5%) |
+| Flareon | 84–94 | 4% | 84–94 (4%) |
+| Steelix | 84–94 | 4% | 84–94 (4%) |
+| Donphan | 84–94 | 1% | 84–94 (1%) |
 
 ### Rock Smash
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Masquerain | 84–94 | 60% | 84–94 (60%) |
-| Vibrava | 84–94 | 30% | 84–94 (30%) |
+| Pupitar | 84–94 | 60% | 84–94 (60%) |
+| Illumise | 84–94 | 30% | 84–94 (30%) |
 | Scyther | 84–94 | 5% | 84–94 (5%) |
 | Claydol | 84–94 | 4% | 84–94 (4%) |
-| Flygon | 84–94 | 1% | 84–94 (1%) |
+| Shuckle | 84–94 | 1% | 84–94 (1%) |
 
 
 <a id="mtember-rubypath-b1f"></a>
@@ -2347,13 +2351,14 @@ Fonte: tabela `sMtEmberRubyPathB1F_FireRed` de `game/src/data/wild_encounters.js
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Rhydon | 84–94 | 40% | 84–94 (40%) |
+| Piloswine | 84–94 | 40% | 84–94 (40%) |
 | Arcanine | 84–94 | 20% | 84–94 (20%) |
-| Houndoom | 84–94 | 15% | 84–94 (15%) |
-| Claydol | 84–94 | 11% | 84–94 (11%) |
-| Steelix | 84–94 | 5% | 84–94 (5%) |
+| Nidoking | 84–94 | 10% | 84–94 (10%) |
+| Nidoqueen | 84–94 | 10% | 84–94 (10%) |
+| Claydol | 84–94 | 5% | 84–94 (5%) |
+| Houndoom | 84–94 | 5% | 84–94 (5%) |
+| Swampert | 84–94 | 5% | 84–94 (5%) |
 | Donphan | 84–94 | 4% | 84–94 (4%) |
-| Rapidash | 84–94 | 4% | 84–94 (4%) |
 | Moltres | 85–90 | 1% | 85–90 (1%) |
 
 ### Rock Smash
@@ -2377,24 +2382,25 @@ Fonte: tabela `sMtEmberRubyPathB1FStairs_FireRed` de `game/src/data/wild_encount
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Camerupt | 84–94 | 20% | 84–94 (20%) |
+| Donphan | 84–94 | 25% | 84–94 (25%) |
 | Piloswine | 84–94 | 20% | 84–94 (20%) |
+| Sandslash | 84–94 | 20% | 84–94 (20%) |
 | Claydol | 84–94 | 10% | 84–94 (10%) |
-| Flareon | 84–94 | 10% | 84–94 (10%) |
-| Rapidash | 84–94 | 10% | 84–94 (10%) |
-| Steelix | 84–94 | 10% | 84–94 (10%) |
-| Charizard | 84–94 | 6% | 84–94 (6%) |
-| Flygon | 84–94 | 5% | 84–94 (5%) |
+| Nidoqueen | 84–94 | 10% | 84–94 (10%) |
 | Ninetales | 84–94 | 5% | 84–94 (5%) |
 | Arcanine | 84–94 | 4% | 84–94 (4%) |
+| Flygon | 84–94 | 4% | 84–94 (4%) |
+| Charizard | 84–94 | 1% | 84–94 (1%) |
+| Swampert | 84–94 | 1% | 84–94 (1%) |
 
 ### Rock Smash
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Illumise | 84–94 | 60% | 84–94 (60%) |
-| Pupitar | 84–94 | 30% | 84–94 (30%) |
-| Scyther | 84–94 | 9% | 84–94 (9%) |
+| Ariados | 84–94 | 60% | 84–94 (60%) |
+| Parasect | 84–94 | 30% | 84–94 (30%) |
+| Aerodactyl | 84–94 | 5% | 84–94 (5%) |
+| Steelix | 84–94 | 4% | 84–94 (4%) |
 | Tyranitar | 84–94 | 1% | 84–94 (1%) |
 
 
@@ -2411,20 +2417,21 @@ Fonte: tabela `sMtEmberRubyPathB2F_FireRed` de `game/src/data/wild_encounters.js
 | Arcanine | 84–94 | 20% | 84–94 (20%) |
 | Magmar | 84–94 | 20% | 84–94 (20%) |
 | Torkoal | 84–94 | 20% | 84–94 (20%) |
-| Steelix | 84–94 | 14% | 84–94 (14%) |
+| Flareon | 84–94 | 15% | 84–94 (15%) |
 | Rapidash | 84–94 | 10% | 84–94 (10%) |
-| Flygon | 84–94 | 6% | 84–94 (6%) |
 | Houndoom | 84–94 | 5% | 84–94 (5%) |
 | Blaziken | 84–94 | 4% | 84–94 (4%) |
+| Steelix | 84–94 | 4% | 84–94 (4%) |
 | Entei | 85–90 | 1% | 85–90 (1%) |
+| Swampert | 84–94 | 1% | 84–94 (1%) |
 
 ### Rock Smash
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Lunatone | 84–94 | 60% | 84–94 (60%) |
-| Quagsire | 84–94 | 30% | 84–94 (30%) |
-| Aggron | 84–94 | 5% | 84–94 (5%) |
+| Corsola | 84–94 | 60% | 84–94 (60%) |
+| Marowak | 84–94 | 30% | 84–94 (30%) |
+| Nidoking | 84–94 | 5% | 84–94 (5%) |
 | Aerodactyl | 84–94 | 4% | 84–94 (4%) |
 | Scyther | 84–94 | 1% | 84–94 (1%) |
 
@@ -2439,14 +2446,14 @@ Fonte: tabela `sMtEmberRubyPathB2FStairs_FireRed` de `game/src/data/wild_encount
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Golem | 84–94 | 20% | 84–94 (20%) |
-| Nidoqueen | 84–94 | 20% | 84–94 (20%) |
-| Flareon | 84–94 | 14% | 84–94 (14%) |
+| Camerupt | 84–94 | 20% | 84–94 (20%) |
+| Houndoom | 84–94 | 20% | 84–94 (20%) |
+| Sandslash | 84–94 | 20% | 84–94 (20%) |
 | Arcanine | 84–94 | 10% | 84–94 (10%) |
-| Claydol | 84–94 | 10% | 84–94 (10%) |
-| Flygon | 84–94 | 10% | 84–94 (10%) |
-| Steelix | 84–94 | 10% | 84–94 (10%) |
+| Flareon | 84–94 | 10% | 84–94 (10%) |
+| Nidoking | 84–94 | 10% | 84–94 (10%) |
 | Rapidash | 84–94 | 4% | 84–94 (4%) |
+| Steelix | 84–94 | 4% | 84–94 (4%) |
 | Swampert | 84–94 | 1% | 84–94 (1%) |
 | Typhlosion | 84–94 | 1% | 84–94 (1%) |
 
@@ -2456,9 +2463,9 @@ Fonte: tabela `sMtEmberRubyPathB2FStairs_FireRed` de `game/src/data/wild_encount
 |---|---|---:|---|
 | Lairon | 84–94 | 60% | 84–94 (60%) |
 | Parasect | 84–94 | 30% | 84–94 (30%) |
-| Scizor | 84–94 | 5% | 84–94 (5%) |
+| Scyther | 84–94 | 5% | 84–94 (5%) |
 | Pinsir | 84–94 | 4% | 84–94 (4%) |
-| Steelix | 84–94 | 1% | 84–94 (1%) |
+| Shuckle | 84–94 | 1% | 84–94 (1%) |
 
 
 <a id="mtember-rubypath-b3f"></a>
@@ -2471,27 +2478,25 @@ Fonte: tabela `sMtEmberRubyPathB3F_FireRed` de `game/src/data/wild_encounters.js
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Magmar | 84–94 | 20% | 84–94 (20%) |
-| Rhydon | 84–94 | 20% | 84–94 (20%) |
+| Magmar | 84–94 | 40% | 84–94 (40%) |
+| Donphan | 84–94 | 11% | 84–94 (11%) |
 | Flareon | 84–94 | 10% | 84–94 (10%) |
 | Flygon | 84–94 | 10% | 84–94 (10%) |
-| Houndoom | 84–94 | 10% | 84–94 (10%) |
-| Ninetales | 84–94 | 10% | 84–94 (10%) |
+| Steelix | 84–94 | 10% | 84–94 (10%) |
 | Typhlosion | 84–94 | 9% | 84–94 (9%) |
 | Rapidash | 84–94 | 5% | 84–94 (5%) |
-| Steelix | 84–94 | 4% | 84–94 (4%) |
-| Blaziken | 84–94 | 1% | 84–94 (1%) |
+| Swampert | 84–94 | 4% | 84–94 (4%) |
 | Groudon | 90–95 | 1% | 90–95 (1%) |
 
 ### Rock Smash
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Lunatone | 84–94 | 60% | 84–94 (60%) |
-| Parasect | 84–94 | 30% | 84–94 (30%) |
+| Magcargo | 84–94 | 60% | 84–94 (60%) |
+| Ariados | 84–94 | 30% | 84–94 (30%) |
 | Shuckle | 84–94 | 5% | 84–94 (5%) |
-| Swampert | 84–94 | 4% | 84–94 (4%) |
-| Scyther | 84–94 | 1% | 84–94 (1%) |
+| Flygon | 84–94 | 4% | 84–94 (4%) |
+| Heracross | 84–94 | 1% | 84–94 (1%) |
 
 
 <a id="mtember-summitpath-1f"></a>
@@ -2504,14 +2509,14 @@ Fonte: tabela `sMtEmberSummitPath1F_FireRed` de `game/src/data/wild_encounters.j
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Camerupt | 70–75 | 20% | 70–75 (20%) |
-| Flygon | 70–75 | 20% | 70–75 (20%) |
-| Magmar | 70–75 | 20% | 70–75 (20%) |
-| Steelix | 70–75 | 20% | 70–75 (20%) |
-| Blaziken | 70–75 | 5% | 70–75 (5%) |
-| Charizard | 70–75 | 5% | 70–75 (5%) |
-| Ninetales | 70–75 | 5% | 70–75 (5%) |
-| Flareon | 70–75 | 4% | 70–75 (4%) |
+| Steelix | 70–75 | 30% | 70–75 (30%) |
+| Golem | 70–75 | 20% | 70–75 (20%) |
+| Piloswine | 70–75 | 20% | 70–75 (20%) |
+| Flygon | 70–75 | 10% | 70–75 (10%) |
+| Nidoking | 70–75 | 10% | 70–75 (10%) |
+| Nidoqueen | 70–75 | 4% | 70–75 (4%) |
+| Ninetales | 70–75 | 4% | 70–75 (4%) |
+| Charizard | 70–75 | 1% | 70–75 (1%) |
 | Rapidash | 70–75 | 1% | 70–75 (1%) |
 
 
@@ -2525,23 +2530,23 @@ Fonte: tabela `sMtEmberSummitPath2F_FireRed` de `game/src/data/wild_encounters.j
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Rapidash | 70–75 | 21% | 70–75 (21%) |
-| Magmar | 70–75 | 20% | 70–75 (20%) |
+| Houndoom | 70–75 | 25% | 70–75 (25%) |
 | Rhydon | 70–75 | 20% | 70–75 (20%) |
-| Flygon | 70–75 | 14% | 70–75 (14%) |
+| Sandslash | 70–75 | 20% | 70–75 (20%) |
+| Rapidash | 70–75 | 11% | 70–75 (11%) |
 | Flareon | 70–75 | 10% | 70–75 (10%) |
 | Arcanine | 70–75 | 6% | 70–75 (6%) |
-| Blaziken | 70–75 | 5% | 70–75 (5%) |
-| Charizard | 70–75 | 4% | 70–75 (4%) |
+| Nidoking | 70–75 | 4% | 70–75 (4%) |
+| Nidoqueen | 70–75 | 4% | 70–75 (4%) |
 
 ### Rock Smash
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Vibrava | 70–75 | 60% | 70–75 (60%) |
+| Sudowoodo | 70–75 | 60% | 70–75 (60%) |
 | Magcargo | 70–75 | 30% | 70–75 (30%) |
-| Heracross | 70–75 | 5% | 70–75 (5%) |
-| Shuckle | 70–75 | 4% | 70–75 (4%) |
+| Nidoking | 70–75 | 5% | 70–75 (5%) |
+| Scizor | 70–75 | 4% | 70–75 (4%) |
 | Tyranitar | 70–75 | 1% | 70–75 (1%) |
 
 
@@ -2555,14 +2560,15 @@ Fonte: tabela `sMtEmberSummitPath3F_FireRed` de `game/src/data/wild_encounters.j
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Golem | 70–75 | 20% | 70–75 (20%) |
 | Rhydon | 70–75 | 20% | 70–75 (20%) |
-| Sandslash | 70–75 | 20% | 70–75 (20%) |
 | Arcanine | 70–75 | 15% | 70–75 (15%) |
-| Donphan | 70–75 | 15% | 70–75 (15%) |
-| Flareon | 70–75 | 14% | 70–75 (14%) |
-| Flygon | 70–75 | 10% | 70–75 (10%) |
+| Claydol | 70–75 | 11% | 70–75 (11%) |
+| Donphan | 70–75 | 10% | 70–75 (10%) |
+| Steelix | 70–75 | 10% | 70–75 (10%) |
+| Swampert | 70–75 | 5% | 70–75 (5%) |
+| Flareon | 70–75 | 4% | 70–75 (4%) |
 | Rapidash | 70–75 | 4% | 70–75 (4%) |
-| Claydol | 70–75 | 1% | 70–75 (1%) |
 | Typhlosion | 70–75 | 1% | 70–75 (1%) |
 
 
@@ -2638,8 +2644,8 @@ Fonte: tabela `sOneIsland_FireRed` de `game/src/data/wild_encounters.json`; mapa
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 70–75 | 60% | 70–75 (60%) |
-| Pelipper | 70–75 | 30% | 70–75 (30%) |
+| Azumarill | 70–75 | 60% | 70–75 (60%) |
+| Quagsire | 70–75 | 30% | 70–75 (30%) |
 | Poliwrath | 70–75 | 5% | 70–75 (5%) |
 | Tentacruel | 70–75 | 5% | 70–75 (5%) |
 
@@ -2647,13 +2653,14 @@ Fonte: tabela `sOneIsland_FireRed` de `game/src/data/wild_encounters.json`; mapa
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Wailmer | 70–75 | 100% | 70–75 (100%) |
+| Wailmer | 70–75 | 70% | 70–75 (70%) |
+| Corsola | 70–75 | 30% | 70–75 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 70–75 | 60% | 70–75 (60%) |
+| Sealeo | 70–75 | 60% | 70–75 (60%) |
 | Kabutops | 70–75 | 20% | 70–75 (20%) |
 | Ludicolo | 70–75 | 20% | 70–75 (20%) |
 
@@ -2661,8 +2668,8 @@ Fonte: tabela `sOneIsland_FireRed` de `game/src/data/wild_encounters.json`; mapa
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Quagsire | 70–75 | 40% | 70–75 (40%) |
 | Qwilfish | 70–75 | 40% | 70–75 (40%) |
-| Wailmer | 70–75 | 40% | 70–75 (40%) |
 | Kabutops | 70–75 | 15% | 70–75 (15%) |
 | Kingdra | 70–75 | 4% | 70–75 (4%) |
 | Walrein | 70–75 | 1% | 70–75 (1%) |
@@ -2678,11 +2685,10 @@ Fonte: tabela `sOneIslandKindleRoad_FireRed` de `game/src/data/wild_encounters.j
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Mantine | 70–75 | 40% | 70–75 (40%) |
 | Crobat | 70–75 | 20% | 70–75 (20%) |
-| Magmar | 70–75 | 20% | 70–75 (20%) |
-| Mantine | 70–75 | 20% | 70–75 (20%) |
-| Espeon | 70–75 | 10% | 70–75 (10%) |
 | Exeggutor | 70–75 | 10% | 70–75 (10%) |
+| Golduck | 70–75 | 10% | 70–75 (10%) |
 | Lapras | 70–75 | 5% | 70–75 (5%) |
 | Muk | 70–75 | 5% | 70–75 (5%) |
 | Porygon2 | 70–75 | 4% | 70–75 (4%) |
@@ -2703,22 +2709,23 @@ Fonte: tabela `sOneIslandKindleRoad_FireRed` de `game/src/data/wild_encounters.j
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Gligar | 70–75 | 60% | 70–75 (60%) |
-| Solrock | 70–75 | 30% | 70–75 (30%) |
-| Swampert | 70–75 | 5% | 70–75 (5%) |
-| Scyther | 70–75 | 4% | 70–75 (4%) |
-| Flygon | 70–75 | 1% | 70–75 (1%) |
+| Pupitar | 70–75 | 30% | 70–75 (30%) |
+| Aggron | 70–75 | 5% | 70–75 (5%) |
+| Nidoking | 70–75 | 4% | 70–75 (4%) |
+| Swampert | 70–75 | 1% | 70–75 (1%) |
 
 ### Old Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 70–75 | 100% | 70–75 (100%) |
+| Corsola | 70–75 | 70% | 70–75 (70%) |
+| Seadra | 70–75 | 30% | 70–75 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 70–75 | 60% | 70–75 (60%) |
+| Corsola | 70–75 | 60% | 70–75 (60%) |
 | Mantine | 70–75 | 20% | 70–75 (20%) |
 | Omastar | 70–75 | 20% | 70–75 (20%) |
 
@@ -2726,7 +2733,7 @@ Fonte: tabela `sOneIslandKindleRoad_FireRed` de `game/src/data/wild_encounters.j
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 70–75 | 40% | 70–75 (40%) |
+| Pelipper | 70–75 | 40% | 70–75 (40%) |
 | Quagsire | 70–75 | 40% | 70–75 (40%) |
 | Octillery | 70–75 | 15% | 70–75 (15%) |
 | Swampert | 70–75 | 4% | 70–75 (4%) |
@@ -2759,7 +2766,7 @@ Fonte: tabela `sOneIslandTreasureBeach_FireRed` de `game/src/data/wild_encounter
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 70–75 | 60% | 70–75 (60%) |
+| Wailmer | 70–75 | 60% | 70–75 (60%) |
 | Pelipper | 70–75 | 30% | 70–75 (30%) |
 | Lapras | 70–75 | 5% | 70–75 (5%) |
 | Tentacruel | 70–75 | 5% | 70–75 (5%) |
@@ -2769,13 +2776,13 @@ Fonte: tabela `sOneIslandTreasureBeach_FireRed` de `game/src/data/wild_encounter
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Corsola | 70–75 | 70% | 70–75 (70%) |
-| Quagsire | 70–75 | 30% | 70–75 (30%) |
+| Wailmer | 70–75 | 30% | 70–75 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 70–75 | 60% | 70–75 (60%) |
+| Azumarill | 70–75 | 60% | 70–75 (60%) |
 | Lanturn | 70–75 | 20% | 70–75 (20%) |
 | Octillery | 70–75 | 20% | 70–75 (20%) |
 
@@ -2783,7 +2790,7 @@ Fonte: tabela `sOneIslandTreasureBeach_FireRed` de `game/src/data/wild_encounter
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Pelipper | 70–75 | 40% | 70–75 (40%) |
+| Qwilfish | 70–75 | 40% | 70–75 (40%) |
 | Sealeo | 70–75 | 40% | 70–75 (40%) |
 | Octillery | 70–75 | 15% | 70–75 (15%) |
 | Politoed | 70–75 | 4% | 70–75 (4%) |
@@ -2817,16 +2824,15 @@ Fonte: tabela `sPalletTown_FireRed` de `game/src/data/wild_encounters.json`; map
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Pelipper | 44–50 | 60% | 44–50 (60%) |
-| Huntail | 44–50 | 20% | 44–50 (20%) |
-| Mantine | 44–50 | 20% | 44–50 (20%) |
+| Pelipper | 44–50 | 80% | 44–50 (80%) |
+| Quagsire | 44–50 | 20% | 44–50 (20%) |
 
 ### Super Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Corsola | 44–50 | 40% | 44–50 (40%) |
-| Quagsire | 44–50 | 40% | 44–50 (40%) |
+| Seadra | 44–50 | 40% | 44–50 (40%) |
+| Wailmer | 44–50 | 40% | 44–50 (40%) |
 | Huntail | 44–50 | 15% | 44–50 (15%) |
 | Crawdaunt | 44–50 | 4% | 44–50 (4%) |
 | Marshtomp | 44–50 | 1% | 44–50 (1%) |
@@ -2842,11 +2848,10 @@ Fonte: tabela `sPokemonMansion1F_FireRed` de `game/src/data/wild_encounters.json
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Flareon | 62–67 | 20% | 62–67 (20%) |
+| Nidoqueen | 62–67 | 30% | 62–67 (30%) |
 | Magmar | 62–67 | 20% | 62–67 (20%) |
 | Vileplume | 62–67 | 20% | 62–67 (20%) |
-| Arcanine | 62–67 | 10% | 62–67 (10%) |
-| Muk | 62–67 | 10% | 62–67 (10%) |
+| Rapidash | 62–67 | 10% | 62–67 (10%) |
 | Claydol | 62–67 | 5% | 62–67 (5%) |
 | Pinsir | 62–67 | 5% | 62–67 (5%) |
 | Flygon | 62–67 | 4% | 62–67 (4%) |
@@ -2867,14 +2872,15 @@ Fonte: tabela `sPokemonMansion2F_FireRed` de `game/src/data/wild_encounters.json
 |---|---|---:|---|
 | Absol | 62–67 | 20% | 62–67 (20%) |
 | Shiftry | 62–67 | 20% | 62–67 (20%) |
-| Gengar | 62–67 | 11% | 62–67 (11%) |
+| Crobat | 62–67 | 10% | 62–67 (10%) |
+| Gengar | 62–67 | 10% | 62–67 (10%) |
 | Houndoom | 62–67 | 10% | 62–67 (10%) |
-| Ninetales | 62–67 | 10% | 62–67 (10%) |
 | Umbreon | 62–67 | 10% | 62–67 (10%) |
 | Heracross | 62–67 | 5% | 62–67 (5%) |
 | Scyther | 62–67 | 5% | 62–67 (5%) |
 | Machamp | 62–67 | 4% | 62–67 (4%) |
 | Sceptile | 62–67 | 4% | 62–67 (4%) |
+| Ursaring | 62–67 | 1% | 62–67 (1%) |
 | Venusaur | 62–67 | 1% | 62–67 (1%) |
 
 
@@ -2889,14 +2895,15 @@ Fonte: tabela `sPokemonMansion3F_FireRed` de `game/src/data/wild_encounters.json
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Shiftry | 62–67 | 20% | 62–67 (20%) |
-| Torkoal | 62–67 | 20% | 62–67 (20%) |
-| Umbreon | 62–67 | 20% | 62–67 (20%) |
+| Swalot | 62–67 | 20% | 62–67 (20%) |
+| Rapidash | 62–67 | 15% | 62–67 (15%) |
 | Arcanine | 62–67 | 14% | 62–67 (14%) |
-| Rapidash | 62–67 | 10% | 62–67 (10%) |
+| Crobat | 62–67 | 10% | 62–67 (10%) |
+| Umbreon | 62–67 | 10% | 62–67 (10%) |
 | Donphan | 62–67 | 5% | 62–67 (5%) |
-| Ursaring | 62–67 | 5% | 62–67 (5%) |
 | Gardevoir | 62–67 | 4% | 62–67 (4%) |
-| Houndoom | 62–67 | 2% | 62–67 (2%) |
+| Gengar | 62–67 | 1% | 62–67 (1%) |
+| Nidoking | 62–67 | 1% | 62–67 (1%) |
 
 
 <a id="pokemonmansion-b1f"></a>
@@ -2911,10 +2918,10 @@ Fonte: tabela `sPokemonMansionB1F_FireRed` de `game/src/data/wild_encounters.jso
 |---|---|---:|---|
 | Absol | 62–67 | 20% | 62–67 (20%) |
 | Magmar | 62–67 | 20% | 62–67 (20%) |
-| Rapidash | 62–67 | 16% | 62–67 (16%) |
+| Nidoking | 62–67 | 20% | 62–67 (20%) |
 | Houndoom | 62–67 | 15% | 62–67 (15%) |
-| Flareon | 62–67 | 10% | 62–67 (10%) |
-| Muk | 62–67 | 10% | 62–67 (10%) |
+| Crobat | 62–67 | 11% | 62–67 (11%) |
+| Alakazam | 62–67 | 5% | 62–67 (5%) |
 | Meganium | 62–67 | 4% | 62–67 (4%) |
 | Porygon2 | 62–67 | 4% | 62–67 (4%) |
 | Arcanine | 62–67 | 1% | 62–67 (1%) |
@@ -2937,8 +2944,8 @@ Fonte: tabela `sPokemonTower3F_FireRed` de `game/src/data/wild_encounters.json`;
 | Murkrow | 44–50 | 10% | 44–50 (10%) |
 | Shiftry | 44–50 | 10% | 44–50 (10%) |
 | Slowking | 44–50 | 5% | 44–50 (5%) |
-| Jynx | 44–50 | 4% | 44–50 (4%) |
-| Kadabra | 44–50 | 4% | 44–50 (4%) |
+| Dusclops | 44–50 | 4% | 44–50 (4%) |
+| Wobbuffet | 44–50 | 4% | 44–50 (4%) |
 | Beldum | 44–50 | 1% | 44–50 (1%) |
 
 
@@ -2952,15 +2959,15 @@ Fonte: tabela `sPokemonTower4F_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Chimecho | 44–50 | 24% | 44–50 (24%) |
 | Shedinja | 44–50 | 21% | 44–50 (21%) |
-| Dusclops | 44–50 | 20% | 44–50 (20%) |
-| Wynaut | 44–50 | 15% | 44–50 (15%) |
+| Wynaut | 44–50 | 11% | 44–50 (11%) |
 | Metang | 44–50 | 10% | 44–50 (10%) |
 | Shiftry | 44–50 | 10% | 44–50 (10%) |
 | Sneasel | 44–50 | 10% | 44–50 (10%) |
 | Absol | 44–50 | 5% | 44–50 (5%) |
 | Slowbro | 44–50 | 5% | 44–50 (5%) |
-| Wobbuffet | 44–50 | 4% | 44–50 (4%) |
+| Kadabra | 44–50 | 4% | 44–50 (4%) |
 
 
 <a id="pokemontower-5f"></a>
@@ -2973,14 +2980,15 @@ Fonte: tabela `sPokemonTower5F_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Shedinja | 44–50 | 25% | 44–50 (25%) |
 | Grumpig | 44–50 | 20% | 44–50 (20%) |
 | Murkrow | 44–50 | 20% | 44–50 (20%) |
-| Cacturne | 44–50 | 15% | 44–50 (15%) |
+| Shedinja | 44–50 | 15% | 44–50 (15%) |
+| Lunatone | 44–50 | 11% | 44–50 (11%) |
+| Cacturne | 44–50 | 10% | 44–50 (10%) |
 | Xatu | 44–50 | 10% | 44–50 (10%) |
 | Hypno | 44–50 | 5% | 44–50 (5%) |
+| Mr. Mime | 44–50 | 5% | 44–50 (5%) |
 | Girafarig | 44–50 | 4% | 44–50 (4%) |
-| Jynx | 44–50 | 1% | 44–50 (1%) |
 
 
 <a id="pokemontower-6f"></a>
@@ -2993,15 +3001,14 @@ Fonte: tabela `sPokemonTower6F_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Girafarig | 44–50 | 20% | 44–50 (20%) |
-| Mightyena | 44–50 | 20% | 44–50 (20%) |
-| Haunter | 44–50 | 15% | 44–50 (15%) |
+| Cacturne | 44–50 | 25% | 44–50 (25%) |
+| Solrock | 44–50 | 20% | 44–50 (20%) |
+| Lunatone | 44–50 | 15% | 44–50 (15%) |
+| Haunter | 44–50 | 11% | 44–50 (11%) |
 | Chimecho | 44–50 | 10% | 44–50 (10%) |
-| Lunatone | 44–50 | 10% | 44–50 (10%) |
 | Slowking | 44–50 | 10% | 44–50 (10%) |
-| Mr. Mime | 44–50 | 5% | 44–50 (5%) |
-| Shiftry | 44–50 | 5% | 44–50 (5%) |
 | Banette | 44–50 | 4% | 44–50 (4%) |
+| Jynx | 44–50 | 4% | 44–50 (4%) |
 | Metang | 44–50 | 1% | 44–50 (1%) |
 
 
@@ -3020,10 +3027,10 @@ Fonte: tabela `sPokemonTower7F_FireRed` de `game/src/data/wild_encounters.json`;
 | Haunter | 44–50 | 11% | 44–50 (11%) |
 | Medicham | 44–50 | 10% | 44–50 (10%) |
 | Metang | 44–50 | 10% | 44–50 (10%) |
-| Alakazam | 44–50 | 5% | 44–50 (5%) |
+| Shiftry | 44–50 | 5% | 44–50 (5%) |
 | Xatu | 44–50 | 5% | 44–50 (5%) |
 | Beldum | 44–50 | 4% | 44–50 (4%) |
-| Dusclops | 44–50 | 4% | 44–50 (4%) |
+| Solrock | 44–50 | 4% | 44–50 (4%) |
 | Slowking | 44–50 | 1% | 44–50 (1%) |
 
 
@@ -3039,15 +3046,16 @@ Fonte: tabela `sPowerPlant_FireRed` de `game/src/data/wild_encounters.json`; map
 |---|---|---:|---|
 | Lairon | 54–59 | 20% | 54–59 (20%) |
 | Minun | 54–59 | 20% | 54–59 (20%) |
-| Scizor | 54–59 | 20% | 54–59 (20%) |
-| Manectric | 54–59 | 10% | 54–59 (10%) |
+| Gengar | 54–59 | 10% | 54–59 (10%) |
 | Muk | 54–59 | 10% | 54–59 (10%) |
-| Steelix | 54–59 | 5% | 54–59 (5%) |
+| Nidoqueen | 54–59 | 10% | 54–59 (10%) |
+| Scizor | 54–59 | 10% | 54–59 (10%) |
+| Ampharos | 54–59 | 5% | 54–59 (5%) |
 | Venusaur | 54–59 | 5% | 54–59 (5%) |
 | Aggron | 54–59 | 4% | 54–59 (4%) |
 | Jolteon | 54–59 | 4% | 54–59 (4%) |
-| Ampharos | 54–59 | 1% | 54–59 (1%) |
-| Gengar | 54–59 | 1% | 54–59 (1%) |
+| Nidoking | 54–59 | 1% | 54–59 (1%) |
+| Steelix | 54–59 | 1% | 54–59 (1%) |
 
 
 <a id="rocktunnel-1f"></a>
@@ -3060,15 +3068,13 @@ Fonte: tabela `sRockTunnel1F_FireRed` de `game/src/data/wild_encounters.json`; m
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Marowak | 35–41 | 40% | 35–41 (40%) |
 | Onix | 35–41 | 20% | 35–41 (20%) |
-| Solrock | 35–41 | 20% | 35–41 (20%) |
 | Gligar | 35–41 | 15% | 35–41 (15%) |
-| Dugtrio | 35–41 | 10% | 35–41 (10%) |
-| Marowak | 35–41 | 10% | 35–41 (10%) |
-| Vibrava | 35–41 | 10% | 35–41 (10%) |
-| Lunatone | 35–41 | 5% | 35–41 (5%) |
-| Azumarill | 35–41 | 4% | 35–41 (4%) |
-| Quagsire | 35–41 | 4% | 35–41 (4%) |
+| Pupitar | 35–41 | 10% | 35–41 (10%) |
+| Magcargo | 38–41 | 5% | 38–41 (5%) |
+| Corsola | 35–41 | 4% | 35–41 (4%) |
+| Dugtrio | 35–41 | 4% | 35–41 (4%) |
 | Combusken | 35–41 | 1% | 35–41 (1%) |
 | Sudowoodo | 35–41 | 1% | 35–41 (1%) |
 
@@ -3083,14 +3089,14 @@ Fonte: tabela `sRockTunnelB1F_FireRed` de `game/src/data/wild_encounters.json`; 
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Sudowoodo | 35–41 | 30% | 35–41 (30%) |
 | Corsola | 35–41 | 20% | 35–41 (20%) |
 | Dugtrio | 35–41 | 20% | 35–41 (20%) |
-| Sudowoodo | 35–41 | 20% | 35–41 (20%) |
-| Solrock | 35–41 | 15% | 35–41 (15%) |
 | Vibrava | 35–41 | 10% | 35–41 (10%) |
 | Lairon | 35–41 | 5% | 35–41 (5%) |
-| Magcargo | 38–41 | 4% | 38–41 (4%) |
+| Quagsire | 35–41 | 5% | 35–41 (5%) |
 | Marowak | 35–41 | 4% | 35–41 (4%) |
+| Ponyta | 35–41 | 4% | 35–41 (4%) |
 | Charmeleon | 35–41 | 1% | 35–41 (1%) |
 | Pupitar | 35–41 | 1% | 35–41 (1%) |
 
@@ -3099,7 +3105,7 @@ Fonte: tabela `sRockTunnelB1F_FireRed` de `game/src/data/wild_encounters.json`; 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Vibrava | 70–75 | 60% | 70–75 (60%) |
-| Masquerain | 70–75 | 30% | 70–75 (30%) |
+| Parasect | 70–75 | 30% | 70–75 (30%) |
 | Swampert | 70–75 | 5% | 70–75 (5%) |
 | Scizor | 70–75 | 4% | 70–75 (4%) |
 | Heracross | 70–75 | 1% | 70–75 (1%) |
@@ -3155,23 +3161,23 @@ Fonte: tabela `sSafariZoneCenter_FireRed` de `game/src/data/wild_encounters.json
 |---|---|---:|---|
 | Exploud | 44–50 | 20% | 44–50 (20%) |
 | Golem | 44–50 | 20% | 44–50 (20%) |
-| Nidoking | 44–50 | 10% | 44–50 (10%) |
 | Nidorino | 44–50 | 10% | 44–50 (10%) |
+| Parasect | 44–50 | 10% | 44–50 (10%) |
 | Raticate | 44–50 | 10% | 44–50 (10%) |
-| Vileplume | 44–50 | 10% | 44–50 (10%) |
+| Tangela | 44–50 | 10% | 44–50 (10%) |
 | Kangaskhan | 44–50 | 5% | 44–50 (5%) |
-| Rhydon | 44–50 | 5% | 44–50 (5%) |
-| Breloom | 44–50 | 4% | 44–50 (4%) |
-| Clefable | 44–50 | 4% | 44–50 (4%) |
-| Granbull | 44–50 | 1% | 44–50 (1%) |
-| Piloswine | 44–50 | 1% | 44–50 (1%) |
+| Victreebel | 44–50 | 5% | 44–50 (5%) |
+| Camerupt | 44–50 | 4% | 44–50 (4%) |
+| Jumpluff | 44–50 | 4% | 44–50 (4%) |
+| Grovyle | 44–50 | 1% | 44–50 (1%) |
+| Noctowl | 44–50 | 1% | 44–50 (1%) |
 
 ### Surf
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 54–59 | 60% | 54–59 (60%) |
-| Poliwhirl | 54–59 | 30% | 54–59 (30%) |
+| Wailmer | 54–59 | 60% | 54–59 (60%) |
+| Pelipper | 54–59 | 30% | 54–59 (30%) |
 | Omastar | 54–59 | 5% | 54–59 (5%) |
 | Kingdra | 54–59 | 4% | 54–59 (4%) |
 | Blastoise | 54–59 | 1% | 54–59 (1%) |
@@ -3181,24 +3187,23 @@ Fonte: tabela `sSafariZoneCenter_FireRed` de `game/src/data/wild_encounters.json
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Azumarill | 44–50 | 70% | 44–50 (70%) |
-| Corsola | 44–50 | 30% | 44–50 (30%) |
+| Pelipper | 44–50 | 30% | 44–50 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 44–50 | 60% | 44–50 (60%) |
-| Ludicolo | 44–50 | 20% | 44–50 (20%) |
+| Seadra | 44–50 | 60% | 44–50 (60%) |
+| Corsola | 44–50 | 20% | 44–50 (20%) |
 | Slowking | 44–50 | 20% | 44–50 (20%) |
 
 ### Super Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 44–50 | 40% | 44–50 (40%) |
-| Wailmer | 44–50 | 40% | 44–50 (40%) |
+| Corsola | 44–50 | 44% | 44–50 (44%) |
+| Qwilfish | 44–50 | 40% | 44–50 (40%) |
 | Slowbro | 44–50 | 15% | 44–50 (15%) |
-| Croconaw | 44–50 | 4% | 44–50 (4%) |
 | Dragonair | 44–50 | 1% | 44–50 (1%) |
 
 
@@ -3214,23 +3219,23 @@ Fonte: tabela `sSafariZoneEast_FireRed` de `game/src/data/wild_encounters.json`;
 |---|---|---:|---|
 | Kangaskhan | 44–50 | 20% | 44–50 (20%) |
 | Marowak | 44–50 | 20% | 44–50 (20%) |
-| Fearow | 44–50 | 10% | 44–50 (10%) |
+| Delcatty | 44–50 | 10% | 44–50 (10%) |
 | Nidorino | 44–50 | 10% | 44–50 (10%) |
-| Roselia | 44–50 | 10% | 44–50 (10%) |
+| Rhydon | 44–50 | 10% | 44–50 (10%) |
 | Wigglytuff | 44–50 | 10% | 44–50 (10%) |
-| Miltank | 44–50 | 5% | 44–50 (5%) |
-| Nidoqueen | 44–50 | 5% | 44–50 (5%) |
-| Bellossom | 44–50 | 4% | 44–50 (4%) |
-| Stantler | 44–50 | 4% | 44–50 (4%) |
-| Chansey | 44–50 | 1% | 44–50 (1%) |
-| Dodrio | 44–50 | 1% | 44–50 (1%) |
+| Golem | 44–50 | 5% | 44–50 (5%) |
+| Tauros | 44–50 | 5% | 44–50 (5%) |
+| Dodrio | 44–50 | 4% | 44–50 (4%) |
+| Pidgeot | 44–50 | 4% | 44–50 (4%) |
+| Piloswine | 44–50 | 1% | 44–50 (1%) |
+| Zangoose | 44–50 | 1% | 44–50 (1%) |
 
 ### Surf
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 54–59 | 60% | 54–59 (60%) |
-| Poliwhirl | 54–59 | 30% | 54–59 (30%) |
+| Corsola | 54–59 | 60% | 54–59 (60%) |
+| Sealeo | 54–59 | 30% | 54–59 (30%) |
 | Lanturn | 54–59 | 5% | 54–59 (5%) |
 | Swampert | 54–59 | 4% | 54–59 (4%) |
 | Milotic | 54–59 | 1% | 54–59 (1%) |
@@ -3239,14 +3244,14 @@ Fonte: tabela `sSafariZoneEast_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Sealeo | 44–50 | 70% | 44–50 (70%) |
+| Seadra | 44–50 | 70% | 44–50 (70%) |
 | Azumarill | 44–50 | 30% | 44–50 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 44–50 | 60% | 44–50 (60%) |
+| Quagsire | 44–50 | 60% | 44–50 (60%) |
 | Omastar | 44–50 | 20% | 44–50 (20%) |
 | Seaking | 44–50 | 20% | 44–50 (20%) |
 
@@ -3254,7 +3259,8 @@ Fonte: tabela `sSafariZoneEast_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 44–50 | 80% | 44–50 (80%) |
+| Azumarill | 44–50 | 40% | 44–50 (40%) |
+| Corsola | 44–50 | 40% | 44–50 (40%) |
 | Ludicolo | 44–50 | 15% | 44–50 (15%) |
 | Relicanth | 44–50 | 4% | 44–50 (4%) |
 | Dragonair | 44–50 | 1% | 44–50 (1%) |
@@ -3271,23 +3277,23 @@ Fonte: tabela `sSafariZoneNorth_FireRed` de `game/src/data/wild_encounters.json`
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Miltank | 44–50 | 20% | 44–50 (20%) |
-| Sunflora | 44–50 | 20% | 44–50 (20%) |
-| Dunsparce | 44–50 | 10% | 44–50 (10%) |
+| Tauros | 44–50 | 20% | 44–50 (20%) |
+| Delcatty | 44–50 | 10% | 44–50 (10%) |
+| Linoone | 44–50 | 10% | 44–50 (10%) |
 | Nidorino | 44–50 | 10% | 44–50 (10%) |
-| Sandslash | 44–50 | 10% | 44–50 (10%) |
-| Tangela | 44–50 | 10% | 44–50 (10%) |
+| Shiftry | 44–50 | 10% | 44–50 (10%) |
 | Cradily | 44–50 | 5% | 44–50 (5%) |
-| Tauros | 44–50 | 5% | 44–50 (5%) |
-| Exploud | 44–50 | 4% | 44–50 (4%) |
+| Exploud | 44–50 | 5% | 44–50 (5%) |
+| Breloom | 44–50 | 4% | 44–50 (4%) |
 | Vileplume | 44–50 | 4% | 44–50 (4%) |
+| Chansey | 44–50 | 1% | 44–50 (1%) |
 | Tropius | 44–50 | 1% | 44–50 (1%) |
-| Zangoose | 44–50 | 1% | 44–50 (1%) |
 
 ### Surf
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 54–59 | 60% | 54–59 (60%) |
+| Sealeo | 54–59 | 60% | 54–59 (60%) |
 | Azumarill | 54–59 | 30% | 54–59 (30%) |
 | Omastar | 54–59 | 5% | 54–59 (5%) |
 | Gorebyss | 54–59 | 4% | 54–59 (4%) |
@@ -3304,15 +3310,16 @@ Fonte: tabela `sSafariZoneNorth_FireRed` de `game/src/data/wild_encounters.json`
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Wailmer | 44–50 | 80% | 44–50 (80%) |
+| Azumarill | 44–50 | 60% | 44–50 (60%) |
+| Huntail | 44–50 | 20% | 44–50 (20%) |
 | Mantine | 44–50 | 20% | 44–50 (20%) |
 
 ### Super Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 44–50 | 44% | 44–50 (44%) |
-| Pelipper | 44–50 | 40% | 44–50 (40%) |
+| Pelipper | 44–50 | 44% | 44–50 (44%) |
+| Quagsire | 44–50 | 40% | 44–50 (40%) |
 | Lanturn | 44–50 | 15% | 44–50 (15%) |
 | Dragonair | 44–50 | 1% | 44–50 (1%) |
 
@@ -3327,17 +3334,18 @@ Fonte: tabela `sSafariZoneWest_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Golem | 44–50 | 25% | 44–50 (25%) |
+| Golem | 44–50 | 20% | 44–50 (20%) |
 | Linoone | 44–50 | 20% | 44–50 (20%) |
 | Nidorino | 44–50 | 10% | 44–50 (10%) |
 | Raticate | 44–50 | 10% | 44–50 (10%) |
 | Sunflora | 44–50 | 10% | 44–50 (10%) |
 | Tropius | 44–50 | 10% | 44–50 (10%) |
-| Nidoking | 44–50 | 5% | 44–50 (5%) |
-| Pidgeot | 44–50 | 4% | 44–50 (4%) |
-| Victreebel | 44–50 | 4% | 44–50 (4%) |
-| Camerupt | 44–50 | 1% | 44–50 (1%) |
-| Jumpluff | 44–50 | 1% | 44–50 (1%) |
+| Bellossom | 44–50 | 5% | 44–50 (5%) |
+| Miltank | 44–50 | 5% | 44–50 (5%) |
+| Rhydon | 44–50 | 4% | 44–50 (4%) |
+| Stantler | 44–50 | 4% | 44–50 (4%) |
+| Sandslash | 44–50 | 1% | 44–50 (1%) |
+| Swellow | 44–50 | 1% | 44–50 (1%) |
 
 ### Surf
 
@@ -3354,7 +3362,7 @@ Fonte: tabela `sSafariZoneWest_FireRed` de `game/src/data/wild_encounters.json`;
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Wailmer | 44–50 | 70% | 44–50 (70%) |
-| Sealeo | 44–50 | 30% | 44–50 (30%) |
+| Corsola | 44–50 | 30% | 44–50 (30%) |
 
 ### Good Rod
 
@@ -3368,8 +3376,10 @@ Fonte: tabela `sSafariZoneWest_FireRed` de `game/src/data/wild_encounters.json`;
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Sealeo | 44–50 | 55% | 44–50 (55%) |
-| Pelipper | 44–50 | 44% | 44–50 (44%) |
+| Corsola | 44–50 | 40% | 44–50 (40%) |
+| Wailmer | 44–50 | 40% | 44–50 (40%) |
+| Sealeo | 44–50 | 15% | 44–50 (15%) |
+| Pelipper | 44–50 | 4% | 44–50 (4%) |
 | Dragonair | 44–50 | 1% | 44–50 (1%) |
 
 
@@ -3456,7 +3466,8 @@ Fonte: tabela `sSeafoamIslandsB3F_FireRed` de `game/src/data/wild_encounters.jso
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 54–59 | 90% | 54–59 (90%) |
+| Quagsire | 54–59 | 60% | 54–59 (60%) |
+| Corsola | 54–59 | 30% | 54–59 (30%) |
 | Dewgong | 54–59 | 5% | 54–59 (5%) |
 | Milotic | 54–59 | 4% | 54–59 (4%) |
 | Golduck | 54–59 | 1% | 54–59 (1%) |
@@ -3519,7 +3530,7 @@ Fonte: tabela `sSeafoamIslandsB4F_FireRed` de `game/src/data/wild_encounters.jso
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Azumarill | 54–59 | 70% | 54–59 (70%) |
-| Qwilfish | 54–59 | 30% | 54–59 (30%) |
+| Corsola | 54–59 | 30% | 54–59 (30%) |
 
 ### Good Rod
 
@@ -3549,13 +3560,14 @@ Fonte: tabela `sSevenIslandSevaultCanyon_FireRed` de `game/src/data/wild_encount
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Steelix | 84–94 | 29% | 84–94 (29%) |
 | Altaria | 84–94 | 20% | 84–94 (20%) |
-| Nidoqueen | 84–94 | 20% | 84–94 (20%) |
+| Rhydon | 84–94 | 20% | 84–94 (20%) |
+| Shuckle | 84–94 | 20% | 84–94 (20%) |
 | Flygon | 84–94 | 10% | 84–94 (10%) |
-| Golem | 84–94 | 10% | 84–94 (10%) |
-| Swampert | 84–94 | 5% | 84–94 (5%) |
+| Nidoking | 84–94 | 10% | 84–94 (10%) |
+| Steelix | 84–94 | 10% | 84–94 (10%) |
 | Donphan | 84–94 | 4% | 84–94 (4%) |
+| Swampert | 84–94 | 4% | 84–94 (4%) |
 | Regirock | 85–90 | 1% | 85–90 (1%) |
 | Salamence | 84–94 | 1% | 84–94 (1%) |
 
@@ -3564,10 +3576,10 @@ Fonte: tabela `sSevenIslandSevaultCanyon_FireRed` de `game/src/data/wild_encount
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Shedinja | 84–94 | 60% | 84–94 (60%) |
-| Masquerain | 84–94 | 30% | 84–94 (30%) |
+| Corsola | 84–94 | 30% | 84–94 (30%) |
 | Flygon | 84–94 | 5% | 84–94 (5%) |
-| Scyther | 84–94 | 4% | 84–94 (4%) |
-| Swampert | 84–94 | 1% | 84–94 (1%) |
+| Claydol | 84–94 | 4% | 84–94 (4%) |
+| Shuckle | 84–94 | 1% | 84–94 (1%) |
 
 
 <a id="sevenisland-sevaultcanyon-entrance"></a>
@@ -3580,13 +3592,12 @@ Fonte: tabela `sSevenIslandSevaultCanyonEntrance_FireRed` de `game/src/data/wild
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Donphan | 84–94 | 30% | 84–94 (30%) |
-| Nidoqueen | 84–94 | 20% | 84–94 (20%) |
+| Aggron | 84–94 | 25% | 84–94 (25%) |
+| Nidoqueen | 84–94 | 25% | 84–94 (25%) |
+| Lunatone | 84–94 | 20% | 84–94 (20%) |
 | Piloswine | 84–94 | 20% | 84–94 (20%) |
-| Cradily | 84–94 | 10% | 84–94 (10%) |
-| Shuckle | 84–94 | 8% | 84–94 (8%) |
-| Aggron | 84–94 | 5% | 84–94 (5%) |
-| Claydol | 84–94 | 5% | 84–94 (5%) |
+| Donphan | 84–94 | 4% | 84–94 (4%) |
+| Swampert | 84–94 | 4% | 84–94 (4%) |
 | Ho-Oh | 90–95 | 1% | 90–95 (1%) |
 | Zapdos | 85–90 | 1% | 85–90 (1%) |
 
@@ -3602,7 +3613,7 @@ Fonte: tabela `sSevenIslandTanobyRuins_FireRed` de `game/src/data/wild_encounter
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Qwilfish | 84–94 | 60% | 84–94 (60%) |
-| Wailmer | 84–94 | 30% | 84–94 (30%) |
+| Quagsire | 84–94 | 30% | 84–94 (30%) |
 | Blastoise | 84–94 | 5% | 84–94 (5%) |
 | Golduck | 84–94 | 4% | 84–94 (4%) |
 | Starmie | 84–94 | 1% | 84–94 (1%) |
@@ -3611,8 +3622,8 @@ Fonte: tabela `sSevenIslandTanobyRuins_FireRed` de `game/src/data/wild_encounter
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 84–94 | 70% | 84–94 (70%) |
-| Corsola | 84–94 | 30% | 84–94 (30%) |
+| Azumarill | 84–94 | 70% | 84–94 (70%) |
+| Sealeo | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
 
@@ -3756,7 +3767,7 @@ Fonte: tabela `sSevenIslandTrainerTower_FireRed` de `game/src/data/wild_encounte
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Quagsire | 84–94 | 60% | 84–94 (60%) |
-| Azumarill | 84–94 | 30% | 84–94 (30%) |
+| Corsola | 84–94 | 30% | 84–94 (30%) |
 | Golduck | 84–94 | 5% | 84–94 (5%) |
 | Wailord | 84–94 | 4% | 84–94 (4%) |
 | Milotic | 84–94 | 1% | 84–94 (1%) |
@@ -3765,7 +3776,7 @@ Fonte: tabela `sSevenIslandTrainerTower_FireRed` de `game/src/data/wild_encounte
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Pelipper | 84–94 | 70% | 84–94 (70%) |
+| Corsola | 84–94 | 70% | 84–94 (70%) |
 | Qwilfish | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
@@ -3780,8 +3791,8 @@ Fonte: tabela `sSevenIslandTrainerTower_FireRed` de `game/src/data/wild_encounte
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Corsola | 84–94 | 40% | 84–94 (40%) |
-| Pelipper | 84–94 | 40% | 84–94 (40%) |
+| Qwilfish | 84–94 | 40% | 84–94 (40%) |
+| Wailmer | 84–94 | 40% | 84–94 (40%) |
 | Kingler | 84–94 | 15% | 84–94 (15%) |
 | Wailord | 84–94 | 4% | 84–94 (4%) |
 | Milotic | 84–94 | 1% | 84–94 (1%) |
@@ -3801,13 +3812,14 @@ Conjunto 0 redesenhado para esta hack, com Deoxys raro após a Liga. Os conjunto
 |---|---|---:|---|
 | Flygon | 84–94 | 30% | 84–94 (30%) |
 | Cradily | 84–94 | 20% | 84–94 (20%) |
-| Sandslash | 84–94 | 20% | 84–94 (20%) |
+| Kabutops | 84–94 | 20% | 84–94 (20%) |
 | Crobat | 84–94 | 10% | 84–94 (10%) |
-| Swampert | 84–94 | 6% | 84–94 (6%) |
 | Aggron | 84–94 | 5% | 84–94 (5%) |
+| Houndoom | 84–94 | 5% | 84–94 (5%) |
 | Claydol | 84–94 | 4% | 84–94 (4%) |
 | Umbreon | 84–94 | 4% | 84–94 (4%) |
 | Deoxys | 85–90 | 1% | 85–90 (1%) |
+| Swampert | 84–94 | 1% | 84–94 (1%) |
 
 
 <a id="sixisland-greenpath"></a>
@@ -3830,14 +3842,13 @@ Fonte: tabela `sSixIslandGreenPath_FireRed` de `game/src/data/wild_encounters.js
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Corsola | 84–94 | 70% | 84–94 (70%) |
-| Azumarill | 84–94 | 30% | 84–94 (30%) |
+| Seadra | 84–94 | 100% | 84–94 (100%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 84–94 | 60% | 84–94 (60%) |
+| Corsola | 84–94 | 60% | 84–94 (60%) |
 | Dewgong | 84–94 | 20% | 84–94 (20%) |
 | Ludicolo | 84–94 | 20% | 84–94 (20%) |
 
@@ -3845,8 +3856,8 @@ Fonte: tabela `sSixIslandGreenPath_FireRed` de `game/src/data/wild_encounters.js
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 84–94 | 40% | 84–94 (40%) |
 | Seadra | 84–94 | 40% | 84–94 (40%) |
+| Wailmer | 84–94 | 40% | 84–94 (40%) |
 | Ludicolo | 84–94 | 15% | 84–94 (15%) |
 | Blastoise | 84–94 | 4% | 84–94 (4%) |
 | Kingdra | 84–94 | 1% | 84–94 (1%) |
@@ -3862,8 +3873,8 @@ Fonte: tabela `sSixIslandOutcastIsland_FireRed` de `game/src/data/wild_encounter
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 84–94 | 60% | 84–94 (60%) |
-| Corsola | 84–94 | 30% | 84–94 (30%) |
+| Qwilfish | 84–94 | 60% | 84–94 (60%) |
+| Pelipper | 84–94 | 30% | 84–94 (30%) |
 | Vaporeon | 84–94 | 5% | 84–94 (5%) |
 | Politoed | 84–94 | 4% | 84–94 (4%) |
 | Lugia | 90–95 | 1% | 90–95 (1%) |
@@ -3872,7 +3883,7 @@ Fonte: tabela `sSixIslandOutcastIsland_FireRed` de `game/src/data/wild_encounter
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Sealeo | 84–94 | 70% | 84–94 (70%) |
+| Pelipper | 84–94 | 70% | 84–94 (70%) |
 | Wailmer | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
@@ -3887,7 +3898,7 @@ Fonte: tabela `sSixIslandOutcastIsland_FireRed` de `game/src/data/wild_encounter
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 84–94 | 40% | 84–94 (40%) |
+| Seadra | 84–94 | 40% | 84–94 (40%) |
 | Wailmer | 84–94 | 40% | 84–94 (40%) |
 | Gorebyss | 84–94 | 15% | 84–94 (15%) |
 | Tentacruel | 84–94 | 4% | 84–94 (4%) |
@@ -3924,20 +3935,22 @@ Fonte: tabela `sSixIslandRuinValley_FireRed` de `game/src/data/wild_encounters.j
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Slowbro | 84–94 | 40% | 84–94 (40%) |
-| Claydol | 84–94 | 25% | 84–94 (25%) |
-| Aggron | 84–94 | 14% | 84–94 (14%) |
-| Espeon | 84–94 | 10% | 84–94 (10%) |
+| Girafarig | 84–94 | 20% | 84–94 (20%) |
+| Solrock | 84–94 | 20% | 84–94 (20%) |
+| Claydol | 84–94 | 15% | 84–94 (15%) |
+| Espeon | 84–94 | 14% | 84–94 (14%) |
+| Aggron | 84–94 | 10% | 84–94 (10%) |
+| Scizor | 84–94 | 10% | 84–94 (10%) |
 | Exeggutor | 84–94 | 5% | 84–94 (5%) |
-| Gardevoir | 84–94 | 4% | 84–94 (4%) |
+| Steelix | 84–94 | 5% | 84–94 (5%) |
 | Registeel | 85–90 | 1% | 85–90 (1%) |
-| Steelix | 84–94 | 1% | 84–94 (1%) |
 
 ### Surf
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 84–94 | 90% | 84–94 (90%) |
+| Azumarill | 84–94 | 60% | 84–94 (60%) |
+| Corsola | 84–94 | 30% | 84–94 (30%) |
 | Blastoise | 84–94 | 5% | 84–94 (5%) |
 | Cloyster | 84–94 | 4% | 84–94 (4%) |
 | Kingdra | 84–94 | 1% | 84–94 (1%) |
@@ -3946,8 +3959,8 @@ Fonte: tabela `sSixIslandRuinValley_FireRed` de `game/src/data/wild_encounters.j
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Azumarill | 84–94 | 70% | 84–94 (70%) |
-| Corsola | 84–94 | 30% | 84–94 (30%) |
+| Quagsire | 84–94 | 70% | 84–94 (70%) |
+| Qwilfish | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
 
@@ -3961,7 +3974,7 @@ Fonte: tabela `sSixIslandRuinValley_FireRed` de `game/src/data/wild_encounters.j
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 84–94 | 40% | 84–94 (40%) |
+| Azumarill | 84–94 | 40% | 84–94 (40%) |
 | Sealeo | 84–94 | 40% | 84–94 (40%) |
 | Relicanth | 84–94 | 15% | 84–94 (15%) |
 | Vaporeon | 84–94 | 4% | 84–94 (4%) |
@@ -3984,9 +3997,9 @@ Fonte: tabela `sSixIslandWaterPath_FireRed` de `game/src/data/wild_encounters.js
 | Houndoom | 84–94 | 10% | 84–94 (10%) |
 | Machamp | 84–94 | 10% | 84–94 (10%) |
 | Politoed | 84–94 | 10% | 84–94 (10%) |
-| Snorlax | 84–94 | 5% | 84–94 (5%) |
-| Vaporeon | 84–94 | 5% | 84–94 (5%) |
-| Exeggutor | 84–94 | 4% | 84–94 (4%) |
+| Flareon | 84–94 | 5% | 84–94 (5%) |
+| Nidoqueen | 84–94 | 5% | 84–94 (5%) |
+| Ampharos | 84–94 | 4% | 84–94 (4%) |
 | Umbreon | 84–94 | 4% | 84–94 (4%) |
 | Metagross | 84–94 | 1% | 84–94 (1%) |
 | Sceptile | 84–94 | 1% | 84–94 (1%) |
@@ -3995,7 +4008,7 @@ Fonte: tabela `sSixIslandWaterPath_FireRed` de `game/src/data/wild_encounters.js
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Wailmer | 84–94 | 60% | 84–94 (60%) |
+| Sealeo | 84–94 | 60% | 84–94 (60%) |
 | Seadra | 84–94 | 30% | 84–94 (30%) |
 | Vaporeon | 84–94 | 5% | 84–94 (5%) |
 | Blastoise | 84–94 | 4% | 84–94 (4%) |
@@ -4005,7 +4018,7 @@ Fonte: tabela `sSixIslandWaterPath_FireRed` de `game/src/data/wild_encounters.js
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Pelipper | 84–94 | 70% | 84–94 (70%) |
+| Wailmer | 84–94 | 70% | 84–94 (70%) |
 | Quagsire | 84–94 | 30% | 84–94 (30%) |
 
 ### Good Rod
@@ -4020,8 +4033,7 @@ Fonte: tabela `sSixIslandWaterPath_FireRed` de `game/src/data/wild_encounters.js
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 84–94 | 40% | 84–94 (40%) |
-| Quagsire | 84–94 | 40% | 84–94 (40%) |
+| Azumarill | 84–94 | 80% | 84–94 (80%) |
 | Sharpedo | 84–94 | 15% | 84–94 (15%) |
 | Wailord | 84–94 | 4% | 84–94 (4%) |
 | Milotic | 84–94 | 1% | 84–94 (1%) |
@@ -4050,7 +4062,7 @@ Fonte: tabela `sThreeIslandBerryForest_FireRed` de `game/src/data/wild_encounter
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Corsola | 70–75 | 60% | 70–75 (60%) |
+| Pelipper | 70–75 | 60% | 70–75 (60%) |
 | Qwilfish | 70–75 | 30% | 70–75 (30%) |
 | Blastoise | 70–75 | 5% | 70–75 (5%) |
 | Golduck | 70–75 | 5% | 70–75 (5%) |
@@ -4059,14 +4071,14 @@ Fonte: tabela `sThreeIslandBerryForest_FireRed` de `game/src/data/wild_encounter
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Qwilfish | 70–75 | 70% | 70–75 (70%) |
-| Sealeo | 70–75 | 30% | 70–75 (30%) |
+| Sealeo | 70–75 | 70% | 70–75 (70%) |
+| Seadra | 70–75 | 30% | 70–75 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Corsola | 70–75 | 60% | 70–75 (60%) |
+| Qwilfish | 70–75 | 60% | 70–75 (60%) |
 | Ludicolo | 70–75 | 20% | 70–75 (20%) |
 | Slowbro | 70–75 | 20% | 70–75 (20%) |
 
@@ -4074,7 +4086,7 @@ Fonte: tabela `sThreeIslandBerryForest_FireRed` de `game/src/data/wild_encounter
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Poliwhirl | 70–75 | 40% | 70–75 (40%) |
+| Corsola | 70–75 | 40% | 70–75 (40%) |
 | Wailmer | 70–75 | 40% | 70–75 (40%) |
 | Crawdaunt | 70–75 | 15% | 70–75 (15%) |
 | Feraligatr | 70–75 | 5% | 70–75 (5%) |
@@ -4105,7 +4117,8 @@ Fonte: tabela `sThreeIslandBondBridge_FireRed` de `game/src/data/wild_encounters
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 70–75 | 90% | 70–75 (90%) |
+| Quagsire | 70–75 | 60% | 70–75 (60%) |
+| Seadra | 70–75 | 30% | 70–75 (30%) |
 | Gyarados | 70–75 | 5% | 70–75 (5%) |
 | Tentacruel | 70–75 | 5% | 70–75 (5%) |
 
@@ -4113,14 +4126,14 @@ Fonte: tabela `sThreeIslandBondBridge_FireRed` de `game/src/data/wild_encounters
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 70–75 | 70% | 70–75 (70%) |
-| Sealeo | 70–75 | 30% | 70–75 (30%) |
+| Qwilfish | 70–75 | 70% | 70–75 (70%) |
+| Wailmer | 70–75 | 30% | 70–75 (30%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Pelipper | 70–75 | 60% | 70–75 (60%) |
+| Quagsire | 70–75 | 60% | 70–75 (60%) |
 | Dewgong | 70–75 | 20% | 70–75 (20%) |
 | Whiscash | 70–75 | 20% | 70–75 (20%) |
 
@@ -4128,8 +4141,7 @@ Fonte: tabela `sThreeIslandBondBridge_FireRed` de `game/src/data/wild_encounters
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Quagsire | 70–75 | 40% | 70–75 (40%) |
-| Wailmer | 70–75 | 40% | 70–75 (40%) |
+| Quagsire | 70–75 | 80% | 70–75 (80%) |
 | Lanturn | 70–75 | 15% | 70–75 (15%) |
 | Poliwrath | 70–75 | 4% | 70–75 (4%) |
 | Kingdra | 70–75 | 1% | 70–75 (1%) |
@@ -4145,11 +4157,11 @@ Fonte: tabela `sThreeIslandPort_FireRed` de `game/src/data/wild_encounters.json`
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Dodrio | 70–75 | 20% | 70–75 (20%) |
+| Electabuzz | 70–75 | 20% | 70–75 (20%) |
 | Hariyama | 70–75 | 20% | 70–75 (20%) |
 | Arcanine | 70–75 | 15% | 70–75 (15%) |
-| Porygon2 | 70–75 | 15% | 70–75 (15%) |
-| Ninetales | 70–75 | 10% | 70–75 (10%) |
+| Crobat | 70–75 | 15% | 70–75 (15%) |
+| Porygon2 | 70–75 | 10% | 70–75 (10%) |
 | Ursaring | 70–75 | 10% | 70–75 (10%) |
 | Politoed | 70–75 | 4% | 70–75 (4%) |
 | Scyther | 70–75 | 4% | 70–75 (4%) |
@@ -4167,12 +4179,12 @@ Fonte: tabela `sTwoIslandCapeBrink_FireRed` de `game/src/data/wild_encounters.js
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Banette | 70–75 | 20% | 70–75 (20%) |
-| Dewgong | 70–75 | 20% | 70–75 (20%) |
+| Camerupt | 70–75 | 20% | 70–75 (20%) |
+| Shiftry | 70–75 | 20% | 70–75 (20%) |
 | Claydol | 70–75 | 10% | 70–75 (10%) |
 | Gengar | 70–75 | 10% | 70–75 (10%) |
 | Houndoom | 70–75 | 10% | 70–75 (10%) |
-| Shuckle | 70–75 | 10% | 70–75 (10%) |
+| Nidoqueen | 70–75 | 10% | 70–75 (10%) |
 | Golduck | 70–75 | 5% | 70–75 (5%) |
 | Machamp | 70–75 | 5% | 70–75 (5%) |
 | Snorlax | 70–75 | 5% | 70–75 (5%) |
@@ -4184,7 +4196,7 @@ Fonte: tabela `sTwoIslandCapeBrink_FireRed` de `game/src/data/wild_encounters.js
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
 | Seadra | 70–75 | 60% | 70–75 (60%) |
-| Corsola | 70–75 | 30% | 70–75 (30%) |
+| Quagsire | 70–75 | 30% | 70–75 (30%) |
 | Golduck | 70–75 | 5% | 70–75 (5%) |
 | Milotic | 70–75 | 5% | 70–75 (5%) |
 
@@ -4192,14 +4204,13 @@ Fonte: tabela `sTwoIslandCapeBrink_FireRed` de `game/src/data/wild_encounters.js
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Wailmer | 70–75 | 70% | 70–75 (70%) |
-| Azumarill | 70–75 | 30% | 70–75 (30%) |
+| Azumarill | 70–75 | 100% | 70–75 (100%) |
 
 ### Good Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 70–75 | 60% | 70–75 (60%) |
+| Sealeo | 70–75 | 60% | 70–75 (60%) |
 | Crawdaunt | 70–75 | 20% | 70–75 (20%) |
 | Omastar | 70–75 | 20% | 70–75 (20%) |
 
@@ -4224,8 +4235,8 @@ Fonte: tabela `sVermilionCity_FireRed` de `game/src/data/wild_encounters.json`; 
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Corsola | 54–59 | 60% | 54–59 (60%) |
-| Quagsire | 54–59 | 30% | 54–59 (30%) |
+| Pelipper | 54–59 | 60% | 54–59 (60%) |
+| Azumarill | 54–59 | 30% | 54–59 (30%) |
 | Relicanth | 54–59 | 5% | 54–59 (5%) |
 | Cloyster | 54–59 | 4% | 54–59 (4%) |
 | Gyarados | 54–59 | 1% | 54–59 (1%) |
@@ -4248,8 +4259,8 @@ Fonte: tabela `sVermilionCity_FireRed` de `game/src/data/wild_encounters.json`; 
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Corsola | 44–50 | 40% | 44–50 (40%) |
-| Pelipper | 44–50 | 40% | 44–50 (40%) |
+| Quagsire | 44–50 | 40% | 44–50 (40%) |
+| Seadra | 44–50 | 40% | 44–50 (40%) |
 | Dewgong | 44–50 | 15% | 44–50 (15%) |
 | Whiscash | 44–50 | 4% | 44–50 (4%) |
 | Wailmer | 44–50 | 1% | 44–50 (1%) |
@@ -4265,8 +4276,8 @@ Fonte: tabela `sVictoryRoad1F_FireRed` de `game/src/data/wild_encounters.json`; 
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Breloom | 70–75 | 20% | 70–75 (20%) |
-| Slowking | 70–75 | 20% | 70–75 (20%) |
+| Xatu | 70–75 | 20% | 70–75 (20%) |
+| Zangoose | 70–75 | 20% | 70–75 (20%) |
 | Espeon | 70–75 | 10% | 70–75 (10%) |
 | Gengar | 70–75 | 10% | 70–75 (10%) |
 | Shuckle | 70–75 | 10% | 70–75 (10%) |
@@ -4290,12 +4301,12 @@ Fonte: tabela `sVictoryRoad2F_FireRed` de `game/src/data/wild_encounters.json`; 
 |---|---|---:|---|
 | Hitmontop | 70–75 | 20% | 70–75 (20%) |
 | Kangaskhan | 70–75 | 20% | 70–75 (20%) |
-| Crobat | 70–75 | 10% | 70–75 (10%) |
 | Donphan | 70–75 | 10% | 70–75 (10%) |
 | Exeggutor | 70–75 | 10% | 70–75 (10%) |
+| Nidoqueen | 70–75 | 10% | 70–75 (10%) |
 | Ninetales | 70–75 | 10% | 70–75 (10%) |
-| Espeon | 70–75 | 5% | 70–75 (5%) |
-| Muk | 70–75 | 5% | 70–75 (5%) |
+| Flygon | 70–75 | 5% | 70–75 (5%) |
+| Poliwrath | 70–75 | 5% | 70–75 (5%) |
 | Aerodactyl | 70–75 | 4% | 70–75 (4%) |
 | Politoed | 70–75 | 4% | 70–75 (4%) |
 | Rapidash | 70–75 | 1% | 70–75 (1%) |
@@ -4333,7 +4344,8 @@ Fonte: tabela `sViridianCity_FireRed` de `game/src/data/wild_encounters.json`; m
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Sealeo | 54–59 | 90% | 54–59 (90%) |
+| Wailmer | 54–59 | 60% | 54–59 (60%) |
+| Sealeo | 54–59 | 30% | 54–59 (30%) |
 | Gyarados | 54–59 | 5% | 54–59 (5%) |
 | Octillery | 54–59 | 5% | 54–59 (5%) |
 
@@ -4348,18 +4360,17 @@ Fonte: tabela `sViridianCity_FireRed` de `game/src/data/wild_encounters.json`; m
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
-| Seadra | 44–50 | 60% | 44–50 (60%) |
+| Wailmer | 44–50 | 80% | 44–50 (80%) |
 | Slowking | 44–50 | 20% | 44–50 (20%) |
-| Wailmer | 44–50 | 20% | 44–50 (20%) |
 
 ### Super Rod
 
 | Pokémon | Níveis possíveis | Chance | Níveis por slot (peso) |
 |---|---|---:|---|
+| Pelipper | 44–50 | 40% | 44–50 (40%) |
 | Poliwhirl | 44–50 | 40% | 44–50 (40%) |
-| Qwilfish | 44–50 | 40% | 44–50 (40%) |
-| Crawdaunt | 44–50 | 15% | 44–50 (15%) |
-| Mantine | 44–50 | 4% | 44–50 (4%) |
+| Kingler | 44–50 | 15% | 44–50 (15%) |
+| Relicanth | 44–50 | 4% | 44–50 (4%) |
 | Seadra | 44–50 | 1% | 44–50 (1%) |
 
 

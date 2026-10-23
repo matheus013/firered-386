@@ -9,7 +9,7 @@ manifest=DEST/'manifest.json'
 if manifest.exists():commit=json.loads(manifest.read_text())['commit']
 else:commit=json.loads(fetch('https://api.github.com/repos/PokeAPI/pokeapi/commits/master'))['sha']
 files={}
-for name in ['moves','move_names','pokemon_moves','version_groups','versions','machines','pokemon','pokemon_species','move_changelog']:
+for name in ['moves','move_names','pokemon_moves','version_groups','versions','machines','pokemon','pokemon_species','move_changelog','pokemon_stats','pokemon_types','types','type_efficacy','stats','pokemon_abilities','abilities','move_meta','move_meta_stat_changes','move_flag_map','move_flags','move_targets','move_damage_classes','move_effect_prose','move_meta_ailments','move_flavor_text','pokemon_species_names']:
  url=f'https://raw.githubusercontent.com/PokeAPI/pokeapi/{commit}/data/v2/csv/{name}.csv';path=DEST/(name+'.csv')
  if not path.exists():path.write_bytes(fetch(url))
  files[path.name]={'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'url':url,'bytes':path.stat().st_size}

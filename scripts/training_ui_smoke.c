@@ -22,6 +22,22 @@ int main(int argc, char **argv)
     for (int i=0;i<40 && Page()==255;i++) Key(1);
     Frames(60); Shot(argv[2],"party",pixels); assert(Page()==0);
     Key(1); Shot(argv[2],"selected",pixels); assert(Page()==1);
+#ifdef NORMAL_EDITOR
+    Key(1);assert(Page()==1);Shot(argv[2],"nature-locked",pixels);
+    Key(128);Key(128);Key(1);assert(Page()==1);Shot(argv[2],"ivs-locked",pixels);
+    Key(64);Key(1);assert(Page()==3);Key(256);Shot(argv[2],"evs",pixels);
+    Key(2);assert(Page()==1);
+    uint32_t result=strtoul(argv[5],0,0);
+    ui->busWrite32(ui,result,1);Frames(2);assert(ui->busRead32(ui,result)==101);
+    Key(128);Key(1);assert(Page()==3);Key(256);Key(1);assert(Page()==5);
+    Shot(argv[2],"confirm",pixels);Key(1);assert(Page()==1);
+    ui->busWrite32(ui,result,2);Frames(2);assert(ui->busRead32(ui,result)==102);
+    Key(2);Key(2);Frames(180);assert(Page()==255);
+    for(int i=0;i<40&&Page()==255;i++)Key(1);
+    assert(Page()==0);Key(1);Key(1);assert(Page()==1);
+    puts("PASS: Normal EV cancel/apply, Nature/IV blocked, exit/reopen.");
+    ui->deinit(ui);free(pixels);return 0;
+#else
     Key(1); assert(Page()==2);
     Key(1u<<7); Shot(argv[2],"nature",pixels);
     Key(1); assert(Page()==5); Key(1); Shot(argv[2],"applied",pixels); assert(Page()==1);
@@ -56,4 +72,5 @@ int main(int argc, char **argv)
     puts("PASS: field NPC, nature apply, EV cancel/apply, IV apply, exit and reopen.");
     puts("PASS: actual nurse heals three times, refuses fourth, and leaves HP at one.");
     ui->deinit(ui); free(pixels); return 0;
+#endif
 }

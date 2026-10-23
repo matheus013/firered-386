@@ -1,5 +1,19 @@
 # Histórico de versões
 
+## v0.5.0-preview.4 — 23/10/2026
+
+- Revisão de interface: rótulo do editor de IVs abreviado para não invadir a tabela; categoria/tipo dos golpes de batalha dentro dos 64 px; cabeçalhos PT-BR revisados; descrições do estojo de TMs reformatadas para o painel de 144 px. Novos testes de largura com fontes nativas e capturas de tela em EN/PT-BR, incluindo golpes novos e Fada. [Escopo e evidências](UI_REVIEW.md).
+- Normal libera o editor de EVs desde o início; natureza e IVs continuam exigindo a primeira Liga. Hardcore mantém todos liberados desde o início. Bloqueios conferidos no menu e nas funções de edição.
+
+- Evoluções que exigiam troca com item passam a ocorrer no nível 37, como Kadabra/Machoke/Graveler/Haunter: Steelix, Kingdra, Scizor, Porygon2, Politoed e Huntail. Slowking e Gorebyss, ramos alternativos, usam King's Rock e Deep Sea Scale direto da mochila. Pedras, amizade e beleza não mudam. A Deep Sea Scale ainda não tem fonte na campanha; as oito espécies continuam capturáveis na natureza.
+- Times dos treinadores comuns regenerados com as novas evoluções (Kingdra, Politoed, Steelix, Porygon2). Corrigido o balanceador: substitutos de suporte agora evoluem como o resto do time, eliminando Oddish, Nidoran♀, Natu e Jigglypuff acima do nível de evolução.
+- Tipo Fada: ícone, nome, tabela de efetividade da geração IX, tipos atuais de 18 espécies (Clefairy, Jigglypuff, Mr. Mime, Togepi, Marill, Snubbull, Ralts, Mawile e famílias) e de Charm/Sweet Kiss/Moonlight (Fada) e Curse (Ghost). Hidden Power nunca resulta em Fada.
+- Atributos base da geração IX nas 386 espécies; 41 mudaram. Encontros redistribuídos pelo novo total de atributos (554 de 4.352 slots, 386/386 espécies mantidas) e guias regenerados; treinadores comuns regenerados.
+- Nomes de tipo em PT-BR fixados em inglês, como os ícones: o rascunho automático mostrava DARK como "ESTÚDIO" e FLYING como "VOLTAR". O tipo Lutador ainda aparece como "LUTAR", texto compartilhado com o botão de batalha.
+- 223 golpes novos no total. A expansão inclui terrenos, salas, Tailwind, Gravity, neve, perigos de campo e efeitos com memória de turno. O lote inicial tinha 167 golpes: 89 com efeitos nativos e 78 com efeitos novos no motor (alterações de atributo com dano, recuo de 50%, presas, crítico garantido, poder variável, atributo trocado no dano, Freeze-Dry, troca após o ataque, Feint, Sucker Punch, Upper Hand, curas de aliado, Meteor Beam, Steel Beam, Final Gambit, Metal Burst, Triple Axel, golpes de tipo/habilidade/status e Infestation). Números, tipo e categoria do PokeAPI; animações reaproveitadas; descrições EN/PT; aprendizado por nível. Hurricane nunca erra na chuva e tem precisão menor no sol. Metronome alcança todos os golpes. Learnsets em 32 bits e relembrador com até 30 golpes.
+- Correções de motor encontradas nos testes: golpes sem precisão (Struggle, Tearful Look, Play Nice) não erram mais; Explosion/Self-Destruct não dividem mais a Defesa pela metade (o poder moderno já considera isso); queda de High Jump Kick/Jump Kick e similares passa a ser metade do HP máximo, também contra alvo imune; criação de Pokémon cerca de 2× mais rápida com os learnsets maiores.
+- Documentação: categoria por golpe deixa de constar como pendente; checklist aponta a prévia atual.
+
 ## v0.5.0-preview.3 — revisão do PT-BR
 
 - Revisadas 354 descrições de golpes, 288 de itens, descrições de habilidades, menus, mensagens principais de batalha e diálogos iniciais.

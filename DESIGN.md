@@ -66,7 +66,7 @@ As 386 espécies têm captura direta, sem trocas, reprodução ou escolha exclus
 
 ## Interface de treinamento e lojas — implementação parcial
 
-- Implementado: cientista nos 19 Centros, com natureza/EVs/IVs gratuitos desde o início no Hardcore e após a Liga no Normal. Ajustes não curam nem revivem; EVs ganhos em batalha continuam ativos.
+- Implementado: cientista nos 19 Centros. EVs gratuitos desde o início nos dois modos; natureza/IVs desde o início no Hardcore e após a Liga no Normal. Ajustes não curam nem revivem; EVs ganhos em batalha continuam ativos.
 - Implementado: EVs até 252 por atributo/510 total e IVs até 31, com edição, cancelamento e confirmação. Troca de habilidade permanece pendente.
 - Definir acesso e custos de ajuste de natureza e habilidade e quais habilidades são suportadas pela referência da engine.
 - Propor o uso da loja de departamentos existente em Celadon, organizado por categorias, sem alterar a geometria dos mapas.
@@ -169,11 +169,11 @@ Fonte: https://github.com/pret/pokefirered
 - 636 equipes regulares e 60 elencos internos da Torre revisados para duplas; laboratório preservado em simples. E4 com adaptações de campeões e Campeão com treinamento definido.
 - Ginásios até 18/28/36/44/52/60/68/76; primeira Liga até 80/83/86/89/92; revanche inteira no 100. Teto de EXP nos dois modos.
 - Normal/Hardcore persistidos no save, EXP global após o Parcel, TMs reutilizáveis, shiny 1/256, Nacional cedo e quatro evoluções por troca simples no nível 37.
-- Cientista nos 19 Centros com natureza/EVs/IVs gratuitos, sempre no Hardcore e após a Liga no Normal. Rare Candy por ₽1 e três curas por enfermeira/Centro exclusivamente no Hardcore.
+- Cientista nos 19 Centros: EVs gratuitos desde o início nos dois modos; natureza/IVs sempre no Hardcore e após a Liga no Normal. Rare Candy por ₽1 e três curas por enfermeira/Centro exclusivamente no Hardcore.
 - Travamento de saída das lojas corrigido. [23 catálogos × 2 modos aprovados](SHOP_TEST_RESULTS.md).
 - Recompilação do patch sobre fontes limpas reproduziu a ROM entregue. Base e compilador fixados nos commits documentados no README; formato do save preservado.
 
-Ainda pendentes: concluir a engine moderna (Fada, atributos, golpes e efeitos restantes), demais evoluções sem troca, HMs sem ocupar golpes, novas revanches de líderes, catálogo completo pós-Liga em Celadon, troca de habilidade, Alphas/raids e outras melhorias listadas no [README](README.md). Os encontros aleatórios já oferecem captura alternativa dos lendários; reset dos eventos fixos é uma melhoria separada.
+Ainda pendentes: concluir a engine moderna (golpes e efeitos restantes), HMs sem ocupar golpes, novas revanches de líderes, catálogo completo pós-Liga em Celadon, troca de habilidade, Alphas/raids e outras melhorias listadas no [README](README.md). Os encontros aleatórios já oferecem captura alternativa dos lendários; reset dos eventos fixos é uma melhoria separada.
 
 Os testes de dados, menus, batalhas e save não substituem a validação da campanha inteira, Torre completa ou VBA Link. As etapas anteriores estão no [CHANGELOG](CHANGELOG.md).
 

@@ -58,12 +58,12 @@ static void TrainingTestBoot(void)
     Nuzlocke_ChooseMode(GAME_MODE_NORMAL);
     CreateMon(&gPlayerParty[0], SPECIES_BULBASAUR, 5, 15, TRUE, 0, OT_ID_PRESET, 0);
     gPlayerPartyCount = 1;
-    CHECK(!Training_IsUnlocked() && !Training_SetNature(&gPlayerParty[0], NATURE_MODEST), 20);
-    CHECK(!Training_SetEVs(&gPlayerParty[0], evs) && !Training_SetIVs(&gPlayerParty[0], ivs), 21);
+    CHECK(Training_IsUnlocked() && !Training_AreAdvancedEditsUnlocked() && !Training_SetNature(&gPlayerParty[0], NATURE_MODEST), 20);
+    CHECK(Training_SetEVs(&gPlayerParty[0], evs) && !Training_SetIVs(&gPlayerParty[0], ivs), 21);
     CHECK(ItemId_GetPrice(ITEM_RARE_CANDY) == 4800, 22);
     CHECK(Training_CopyShopStock(stock, buffer) == 2 && buffer[2] == ITEM_NONE, 23);
     FlagSet(FLAG_SYS_GAME_CLEAR);
-    CHECK(Training_IsUnlocked() && Training_SetNature(&gPlayerParty[0], NATURE_BOLD), 24);
+    CHECK(Training_IsUnlocked() && Training_AreAdvancedEditsUnlocked() && Training_SetNature(&gPlayerParty[0], NATURE_BOLD) && Training_SetIVs(&gPlayerParty[0], ivs), 24);
     FlagClear(FLAG_SYS_GAME_CLEAR);
     Nuzlocke_ChooseMode(GAME_MODE_HARDCORE);
     CHECK(Training_IsUnlocked() && !Nuzlocke_IsActive(), 25);

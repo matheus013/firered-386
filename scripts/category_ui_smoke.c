@@ -7,7 +7,12 @@ static void Frames(unsigned n){while(n--)ui->runFrame(ui);}
 static void Key(unsigned k){ui->setKeys(ui,k);Frames(4);ui->setKeys(ui,0);Frames(60);}
 int main(int argc,char **argv)
 {
-    color_t *pixels;unsigned expected[]={1,2,0,1,2};
+    color_t *pixels;
+#ifdef EXPANDED_MOVES
+    unsigned expected[]={1,2,0,1,0};
+#else
+    unsigned expected[]={1,2,0,1,2};
+#endif
     assert(argc==7);ui=OpenTestCore(argv[1],&pixels);assert(ui);
     static struct mLogger logger={.log=SmokeLog};mLogSetDefaultLogger(&logger);
     ui->reset(ui);Frames(1000);

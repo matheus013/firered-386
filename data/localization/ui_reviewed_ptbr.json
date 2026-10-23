@@ -152,7 +152,7 @@
   "{DPAD_UPDOWN}PICK {A_BUTTON}{B_BUTTON}CANCEL": "{DPAD_UPDOWN}ESCOLHER {A_BUTTON}{B_BUTTON}VOLTAR",
   "{A_BUTTON}NEXT": "{A_BUTTON}AVANÇAR",
   "{A_BUTTON}NEXT {B_BUTTON}BACK": "{A_BUTTON}AVANÇAR {B_BUTTON}VOLTAR",
-  "{A_BUTTON}CANCEL": "{A_BUTTON}VOLTAR",
+  "{A_BUTTON}CANCEL": "{A_BUTTON}SAIR",
   "{B_BUTTON}CANCEL": "{B_BUTTON}VOLTAR",
   "{A_BUTTON}SWITCH": "{A_BUTTON}TROCAR",
   "{DPAD_ANY}MOVE": "{DPAD_ANY}MOVER",
@@ -172,7 +172,6 @@
   "Is there anything else I can do?": "Posso ajudar em algo mais?",
   "Please come again!": "Volte sempre!",
   "We hope to see you again!": "Esperamos ver você de novo!",
-  "I adjust nature, EVs and IVs\nfor free. Choose your Pokemon.": "Ajusto natureza, EVs e IVs\ngrátis. Escolha seu Pokémon.",
   "Normal: return after the League.\nHardcore: training from the start.": "Normal: volte após a Liga.\nHardcore: treino desde o início.",
   "HARDCORE: this Center has\n{STR_VAR_1} heal(s) remaining.": "HARDCORE: curas restantes\nneste Centro: {STR_VAR_1}.",
   "HARDCORE: all 3 heals at this\nCenter have been used.": "HARDCORE: as 3 curas deste\nCentro já foram usadas.",
@@ -186,5 +185,13 @@
   "{PLAYER} saved the game.": "{PLAYER} salvou o jogo.",
   "Would you like to save the game?": "Deseja salvar o jogo?",
   "SAVING…\nDON'T TURN OFF THE POWER.": "SALVANDO…\nNÃO DESLIGUE O CONSOLE.",
-  "SAVING‥\nDON'T TURN OFF THE POWER.": "SALVANDO…\nNÃO DESLIGUE O CONSOLE."
+  "SAVING‥\nDON'T TURN OFF THE POWER.": "SALVANDO…\nNÃO DESLIGUE O CONSOLE.",
+  "{DPAD_RIGHT}PAGE {A_BUTTON}CANCEL": "{DPAD_RIGHT}PÁG. {A_BUTTON}SAIR",
+  "{DPAD_LEFTRIGHT}PAGE": "{DPAD_LEFTRIGHT}PÁG.",
+  "{DPAD_LEFT}PAGE {A_BUTTON}DETAIL": "{DPAD_LEFT}PÁG. {A_BUTTON}VER",
+  "{DPAD_UPDOWN}PICK {A_BUTTON}SWITCH": "{DPAD_UPDOWN}SEL. {A_BUTTON}TROCAR",
+  "{DPAD_UPDOWN}PICK": "{DPAD_UPDOWN}SEL.",
+  "{DPAD_UPDOWN}PICK {A_BUTTON}DELETE": "{DPAD_UPDOWN}SEL. {A_BUTTON}APAGAR",
+  "EV training is always free.\nNature and IVs: after the League\\lin Normal; always in Hardcore.": "Treino de EVs sempre liberado.\nNatureza e IVs: após a Liga\\lno Normal; sempre no Hardcore.",
+  "KNOWN MOVES": "GOLPES"
 }
