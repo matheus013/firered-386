@@ -41,7 +41,7 @@ CALLS
  CalculatePlayerPartyCount();ShowPokemonSummaryScreen(gPlayerParty,0,0,UiIdle,PSS_MODE_NORMAL);
 }
 '''.replace('CALLS',calls)
-runner=fixture/'fairy-type';subprocess.run(['gcc','-O2','-w','-I',str(ROOT/'scripts'),str(ROOT/'game/scripts/fairy_type_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
+runner=fixture/'fairy-type';subprocess.run(['gcc','-O2','-w','-I',str(ROOT/'game/scripts'),str(ROOT/'game/scripts/fairy_type_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
 results={}
 for language in [0,1]:
  text=main.replace('static void InitMainCallbacks(void)\n{',hook.replace('TEST_LANGUAGE',str(language))+'\nstatic void InitMainCallbacks(void)\n{').replace('SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);','SetMainCallback2(UiBoot);')

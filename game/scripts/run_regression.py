@@ -15,7 +15,7 @@ def run(name):
   assert existing['rom_sha256']==reference_sha and existing['count']==46 and all(c['passed'] for c in existing['cases'])
   return {'suite':name,'status':'passed','exit_code':0,'seconds':0,'reused_current_rom':True,'log':'game/output/tests/shops/results.json'}
  with (out/(name+'.log')).open('w') as log:
-  p=subprocess.run(['python3',str(root/'scripts'/name)],stdout=log,stderr=subprocess.STDOUT)
+  p=subprocess.run(['python3',str(root/'game/scripts'/name)],stdout=log,stderr=subprocess.STDOUT)
  return {'suite':name,'status':'passed' if p.returncode==0 else 'failed','exit_code':p.returncode,'seconds':round(time.monotonic()-start,1),'log':'game/output/tests/checklist/'+name+'.log'}
 with ThreadPoolExecutor(max_workers=3) as pool:
  for f in as_completed([pool.submit(run,name) for name in suites]):

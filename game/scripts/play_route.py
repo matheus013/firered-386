@@ -23,7 +23,7 @@ for token in ' '.join(a for a in sys.argv[1:] if a!='--walk').split():
 assert sequence
 exe='/tmp/firered-route-player'
 command=['wsl','-d','Ubuntu','-u','root','--cd','/root','--']
-subprocess.run(command+['gcc','-O2','-I'+linux(root/'scripts'),linux(root/'game/scripts/route_player.c'),'-o',exe,'-lmgba','-lpng'],check=True,capture_output=True)
+subprocess.run(command+['gcc','-O2','-I'+linux(root/'game/scripts'),linux(root/'game/scripts/route_player.c'),'-o',exe,'-lmgba','-lpng'],check=True,capture_output=True)
 entry={'time':time.time(),'rom_sha256':sha,'inputs':sequence}
 with (out/'inputs.jsonl').open('a',encoding='utf-8') as f:f.write(json.dumps(entry)+'\n')
 run=subprocess.run(command+[exe,linux(target),linux(out)]+(['walk'] if walk else []),input=''.join(f'{k} {n}\n' for k,n in sequence),text=True,capture_output=True)

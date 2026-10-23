@@ -14,7 +14,7 @@ def run(job):
   previous=json.loads((root/'game/output/tests/checklist/regression_results.json').read_text())
   assert previous['rom_sha256']==reference and len(previous['suites'])==7 and all(r['status']=='passed' for r in previous['suites'])
   return {'name':name,'status':'passed','exit_code':0,'seconds':0,'reused_current_rom':True,'log':'game/output/tests/checklist/regression_results.json'}
- with (out/(name+'.log')).open('w') as log:process=subprocess.run(['python3',str(root/'scripts'/command_args[0]),*command_args[1:]],stdout=log,stderr=subprocess.STDOUT)
+ with (out/(name+'.log')).open('w') as log:process=subprocess.run(['python3',str(root/'game/scripts'/command_args[0]),*command_args[1:]],stdout=log,stderr=subprocess.STDOUT)
  return {'name':name,'status':'passed' if process.returncode==0 else 'failed','exit_code':process.returncode,'seconds':round(time.monotonic()-start,1),'log':'game/output/tests/features/'+name+'.log'}
 results=[]
 with ThreadPoolExecutor(max_workers=3) as pool:

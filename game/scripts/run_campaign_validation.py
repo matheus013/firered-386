@@ -16,7 +16,7 @@ if not args.collect_only:
  shutil.copyfile(out/'campaign-checkpoint-12-test-only.sav',out/'first-league-test-only.sav')
  shutil.copyfile(out/'campaign-postleague-test-only.sav',out/'full-postgame-test-only.sav')
  for script in ['audit_campaign_access.py','audit_campaign_saves.py']:
-  subprocess.run([sys.executable,str(root/'scripts'/script)],check=True)
+  subprocess.run([sys.executable,str(root/'game/scripts'/script)],check=True)
 sha=hashlib.sha256((root/'game/output/firered-386-dev.gba').read_bytes()).hexdigest()
 reports={name:json.loads((root/path).read_text(encoding='utf-8')) for name,path in {
  'story':'game/output/tests/campaign-story/results.json','campaign':'game/output/tests/campaign/results.json',

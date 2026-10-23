@@ -11,7 +11,7 @@ parser.add_argument('--version', default='v0.4.0-dev')
 args = parser.parse_args()
 if not re.fullmatch(r'v\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?', args.version):
     parser.error('Invalid version')
-out = root / 'output' / 'release' / args.version
+out = root / 'game/output' / 'release' / args.version
 out.mkdir(parents=True, exist_ok=True)
 baseline = (root / 'game/output/baseline.gba').read_bytes()
 modified = (root / 'game/output/firered-386-dev.gba').read_bytes()

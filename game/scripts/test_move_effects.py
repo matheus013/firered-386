@@ -266,7 +266,7 @@ for original,replacement in [('PlayerHandleChooseAction','MoveTestChooseAction')
 (fixture/'src/battle_controller_player.c').write_text(player)
 with (OUT/'build.log').open('w') as log:subprocess.run(['make','-j4'],cwd=fixture,stdout=log,stderr=subprocess.STDOUT,check=True)
 symbols={p[2]:p[0] for line in subprocess.check_output(['arm-none-eabi-nm','pokefirered.elf'],cwd=fixture,text=True).splitlines() if len(p:=line.split())==3}
-runner=fixture/'move-effects';subprocess.run(['gcc','-O2','-w','-I',str(ROOT/'scripts'),str(ROOT/'game/scripts/move_effects_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
+runner=fixture/'move-effects';subprocess.run(['gcc','-O2','-w','-I',str(ROOT/'game/scripts'),str(ROOT/'game/scripts/move_effects_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
 run=subprocess.run([str(runner),str(fixture/'pokefirered.gba'),str(len(rows)),*['0x'+symbols[s] for s in ('gMoveTestCase','gMoveTestDone','gMoveTestOut')]],capture_output=True,text=True,timeout=1800)
 (OUT/'emulator.log').write_text(run.stdout+run.stderr)
 items={}

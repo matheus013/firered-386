@@ -99,7 +99,7 @@ main=(source/'src/main.c').read_text()
 (fixture/'src/main.c').write_text(main.replace('static void InitMainCallbacks(void)\n{',hook+'\nstatic void InitMainCallbacks(void)\n{').replace('SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);','SetMainCallback2(PowerBoot);'))
 with (OUT/'build.log').open('w') as log:subprocess.run(['make','-j4'],cwd=fixture,stdout=log,stderr=subprocess.STDOUT,check=True)
 symbols={p[2]:p[0] for line in subprocess.check_output(['arm-none-eabi-nm','pokefirered.elf'],cwd=fixture,text=True).splitlines() if len(p:=line.split())==3}
-runner=fixture/'native-checks';subprocess.run(['gcc','-O2','-w','-I',str(ROOT/'scripts'),str(ROOT/'game/scripts/native_checks_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
+runner=fixture/'native-checks';subprocess.run(['gcc','-O2','-w','-I',str(ROOT/'game/scripts'),str(ROOT/'game/scripts/native_checks_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
 run=subprocess.run([str(runner),str(fixture/'pokefirered.gba'),*['0x'+symbols[s] for s in ('gPowerDone','gPowerPassed','gPowerCount','gPowerFailed','gPowerFirst')]],capture_output=True,text=True,timeout=120)
 (OUT/'emulator.log').write_text(run.stdout+run.stderr)
 fields=dict(part.split('=') for part in run.stdout.split())
