@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/venom13/pokefirered-dualscreen",
+  "commit": "cd551d2c6ae5536a2599114fed5ed823a9c9678c",
+  "purpose": "Portable GBA platform C functions and software renderer; desktop adaptation for FireRed 386. Original AI retained. No ARM CPU interpreter.",
+  "platform": "32-bit C host preserving script pointer/save layouts"
+}

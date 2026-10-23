@@ -2,7 +2,7 @@
   "repository": "https://github.com/pret/pokefirered",
   "commit": "ce6406d8c2eaf46d543c8a2606de0c3cb1951982",
   "archive": "pokefirered-base.tar.gz",
-  "sha256": "c4fbb9d38737d03d2e296e4e7ec7dc4cb736d08ed62723a9547dab2f500e2f7d",
-  "bytes": 8546693,
+  "sha256": "c063368bf22e840d5b729c08b5bebc770be7d237b1795a93f077e389c3e75c8e",
+  "bytes": 8544354,
   "purpose": "Pinned original sources for offline baseline builds, source patch export and data generators."
 }

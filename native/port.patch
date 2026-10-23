@@ -1,0 +1,2816 @@
+--- a/asm/macros/music_voice.inc
++++ b/asm/macros/music_voice.inc
+@@ -4,22 +4,12 @@
+ 	.endm
+ 
+ 	.macro voice_directsound_no_resample base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
+-	.byte 0x8
++	.byte 8
+ 	_voice_directsound \base_midi_key, \pan, \sample_data_pointer, \attack, \decay, \sustain, \release
+ 	.endm
+ 
+-	.macro voice_directsound_reverse base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
+-	.byte 0x10
+-	_voice_directsound \base_midi_key, \pan, \sample_data_pointer, \attack, \decay, \sustain, \release
+-	.endm
+-
+-	.macro voice_directsound_compressed base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
+-	.byte 0x20
+-	_voice_directsound \base_midi_key, \pan, \sample_data_pointer, \attack, \decay, \sustain, \release
+-	.endm
+-
+-	.macro voice_directsound_compressed_reverse base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
+-	.byte 0x30
++	.macro voice_directsound_alt base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
++	.byte 16
+ 	_voice_directsound \base_midi_key, \pan, \sample_data_pointer, \attack, \decay, \sustain, \release
+ 	.endm
+ 
+@@ -150,9 +140,13 @@
+ 	.endm
+ 
+ 	.macro cry sample:req
+-	voice_directsound_compressed 60, 0, \sample, 255, 0, 255, 0
++	.byte 0x20, 60, 0, 0
++	.4byte \sample
++	.byte 0xff, 0, 0xff, 0
+ 	.endm
+ 
+ 	.macro cry_reverse sample:req
+-	voice_directsound_compressed_reverse 60, 0, \sample, 255, 0, 255, 0
++	.byte 0x30, 60, 0, 0
++	.4byte \sample
++	.byte 0xff, 0, 0xff, 0
+ 	.endm
+--- a/include/battle_controllers.h
++++ b/include/battle_controllers.h
+@@ -231,7 +231,8 @@
+ void BtlController_EmitStatusAnimation(u8 bufferId, bool8 status2, u32 status);
+ void BtlController_EmitDataTransfer(u8 bufferId, u16 size, void *data);
+ void BtlController_EmitTwoReturnValues(u8 bufferId, u8 arg1, u16 arg2);
+-void BtlController_EmitChosenMonReturnValue(u8 bufferId, u8 b, u8 *c);
++// battlePartyOrder may be NULL when no player party ordering is returned.
++void BtlController_EmitChosenMonReturnValue(u8 bufferId, u8 partyId, u8 *battlePartyOrder);
+ void BtlController_EmitOneReturnValue(u8 bufferId, u16 arg1);
+ void BtlController_EmitOneReturnValue_Duplicate(u8 bufferId, u16 b);
+ void BtlController_EmitHitAnimation(u8 bufferId);
+--- a/include/battle_message.h
++++ b/include/battle_message.h
+@@ -215,6 +215,7 @@
+ void SetPpNumbersPaletteInMoveSelection(void);
+ u8 GetCurrentPpToMaxPpState(u8 currentPp, u8 maxPp);
+ void BattlePutTextOnWindow(const u8 *text, u8 windowId_flags);
++void BattlePutTextOnWindowAtSpeed(const u8 *text, u8 windowId_flags, u8 speed);
+ bool8 BattleStringShouldBeColored(u16);
+ 
+ extern struct BattleMsgData *gBattleMsgDataPtr;
+--- a/include/fieldmap.h
++++ b/include/fieldmap.h
+@@ -19,6 +19,8 @@
+ // metatiles to fill the player's view (the player has
+ // 7 metatiles of view horizontally in either direction).
+ #define MAP_OFFSET 7
++#define MAP_OFFSET_X MAP_OFFSET
++#define MAP_OFFSET_Y MAP_OFFSET
+ #define MAP_OFFSET_W (MAP_OFFSET * 2 + 1)
+ #define MAP_OFFSET_H (MAP_OFFSET * 2)
+ 
+--- a/include/gba/defines.h
++++ b/include/gba/defines.h
+@@ -6,14 +6,19 @@
+ #define TRUE  1
+ #define FALSE 0
+ 
+-#if defined(__APPLE__)
++#ifdef PORTABLE
++#define IWRAM_DATA
++#define EWRAM_DATA
++#define COMMON_DATA
++#elif defined(__APPLE__)
+ #define IWRAM_DATA __attribute__((section("__DATA,iwram_data")))
+ #define EWRAM_DATA __attribute__((section("__DATA,ewram_data")))
++#define COMMON_DATA __attribute__((section("common_data")))
+ #else
+ #define IWRAM_DATA __attribute__((section("iwram_data")))
+ #define EWRAM_DATA __attribute__((section("ewram_data")))
++#define COMMON_DATA __attribute__((section("common_data")))
+ #endif
+-#define COMMON_DATA __attribute__((section("common_data")))
+ 
+ #if MODERN
+ #define NOINLINE __attribute__((noinline))
+@@ -23,24 +28,39 @@
+ 
+ #define ALIGNED(n) __attribute__((aligned(n)))
+ 
++#ifndef PORTABLE
+ #define SOUND_INFO_PTR (*(struct SoundInfo **)0x3007FF0)
+ #define INTR_CHECK     (*(u16 *)0x3007FF8)
+ #define INTR_VECTOR    (*(void **)0x3007FFC)
++#else
++extern struct SoundInfo *SOUND_INFO_PTR;
++extern unsigned short INTR_CHECK;
++extern void *INTR_VECTOR;
++#endif
+ 
+ #define EWRAM_START 0x02000000
+ #define EWRAM_END   (EWRAM_START + 0x40000)
+ #define IWRAM_START 0x03000000
+ #define IWRAM_END   (IWRAM_START + 0x8000)
+ 
+-#define PLTT          0x5000000
+-#define BG_PLTT       PLTT
+ #define BG_PLTT_SIZE  0x200
+-#define OBJ_PLTT      (PLTT + BG_PLTT_SIZE)
+ #define OBJ_PLTT_SIZE 0x200
+ #define PLTT_SIZE     (BG_PLTT_SIZE + OBJ_PLTT_SIZE)
++#ifndef PORTABLE
++#define PLTT          0x5000000
++#else
++extern unsigned char PLTT[PLTT_SIZE] __attribute__((aligned(4)));
++#endif
++#define BG_PLTT       PLTT
++#define OBJ_PLTT      (PLTT + BG_PLTT_SIZE)
+ 
++#define VRAM_SIZE 0x18000
++#ifndef PORTABLE
+ #define VRAM      0x6000000
+-#define VRAM_SIZE 0x18000
++#else
++extern unsigned char VRAM_[VRAM_SIZE] __attribute__((aligned(4)));
++#define VRAM ((uintptr_t)VRAM_)
++#endif
+ 
+ #define BG_VRAM           VRAM
+ #define BG_VRAM_SIZE      0x10000
+@@ -62,8 +82,12 @@
+ #define OBJ_VRAM1      (void *)(VRAM + 0x14000)
+ #define OBJ_VRAM1_SIZE 0x4000
+ 
++#define OAM_SIZE 0x400
++#ifndef PORTABLE
+ #define OAM      0x7000000
+-#define OAM_SIZE 0x400
++#else
++extern unsigned char OAM[OAM_SIZE] __attribute__((aligned(4)));
++#endif
+ 
+ #define ROM_HEADER_SIZE   0xC0
+ 
+--- a/include/gba/flash_internal.h
++++ b/include/gba/flash_internal.h
+@@ -1,7 +1,11 @@
+ #ifndef GUARD_GBA_FLASH_INTERNAL_H
+ #define GUARD_GBA_FLASH_INTERNAL_H
+ 
++#ifndef PORTABLE
+ #define FLASH_BASE ((u8 *)0xE000000)
++#else
++extern unsigned char FLASH_BASE[131072];
++#endif
+ 
+ #define FLASH_WRITE(addr, data) ((*(vu8 *)(FLASH_BASE + (addr))) = (data))
+ 
+@@ -59,6 +63,14 @@
+ extern const struct FlashSetupInfo MX29L010;
+ extern const struct FlashSetupInfo LE26FV10N1TS;
+ extern const struct FlashSetupInfo DefaultFlash;
++#ifdef PORTABLE
++extern const struct FlashSetupInfo DUMMY_SAVE;
++u16 WaitForFlashWrite_DUMMY(u8 phase, u8 *addr, u8 lastData);
++u16 EraseFlashChip_DUMMY(void);
++u16 EraseFlashSector_DUMMY(u16 sectorNum);
++u16 ProgramFlashByte_DUMMY(u16 sectorNum, u32 offset, u8 data);
++u16 ProgramFlashSector_DUMMY(u16 sectorNum, void *src);
++#endif
+ 
+ void SwitchFlashBank(u8 bankNum);
+ u16 ReadFlashId(void);
+--- a/include/gba/io_reg.h
++++ b/include/gba/io_reg.h
+@@ -1,7 +1,11 @@
+ #ifndef GUARD_GBA_IO_REG_H
+ #define GUARD_GBA_IO_REG_H
+ 
++#ifndef PORTABLE
+ #define REG_BASE 0x4000000 // I/O register base address
++#else
++extern unsigned char REG_BASE[];
++#endif
+ 
+ // I/O register offsets
+ 
+@@ -643,9 +647,11 @@
+ #define DMA_DEST_DEC      0x0020
+ #define DMA_DEST_FIXED    0x0040
+ #define DMA_DEST_RELOAD   0x0060
++#define DMA_DEST_MASK     0x0060
+ #define DMA_SRC_INC       0x0000
+ #define DMA_SRC_DEC       0x0080
+ #define DMA_SRC_FIXED     0x0100
++#define DMA_SRC_MASK      0x0180
+ #define DMA_REPEAT        0x0200
+ #define DMA_16BIT         0x0000
+ #define DMA_32BIT         0x0400
+--- a/include/gba/m4a_internal.h
++++ b/include/gba/m4a_internal.h
+@@ -61,10 +61,22 @@
+     u8 length; // sound length (compatible sound)
+     u8 pan_sweep; // pan or sweep (compatible sound ch. 1)
+     struct WaveData *wav;
++#ifdef PORTABLE
++    union {
++        struct {
++            u8 attack;
++            u8 decay;
++            u8 sustain;
++            u8 release;
++        };
++        u8 *keySplitTable;
++    };
++#else
+     u8 attack;
+     u8 decay;
+     u8 sustain;
+     u8 release;
++#endif
+ };
+ 
+ #define SOUND_CHANNEL_SF_START       0x80
+@@ -152,7 +164,11 @@
+     u8 rhythmPan;
+     u8 dummy3[3];
+     u32 count;
++#ifdef PORTABLE
++    float fw;
++#else
+     u32 fw;
++#endif
+     u32 frequency;
+     struct WaveData *wav;
+     s8 *currentPointer;
+@@ -166,7 +182,13 @@
+ 
+ #define MAX_DIRECTSOUND_CHANNELS 12
+ 
++#ifdef PORTABLE
++#define PORTABLE_AUDIO_SAMPLES_PER_FRAME 701
++#define PORTABLE_AUDIO_RATE (60 * PORTABLE_AUDIO_SAMPLES_PER_FRAME)
++#define PCM_DMA_BUF_SIZE (7 * PORTABLE_AUDIO_SAMPLES_PER_FRAME)
++#else
+ #define PCM_DMA_BUF_SIZE 1584 // size of Direct Sound buffer
++#endif
+ 
+ struct MusicPlayerInfo;
+ 
+@@ -205,7 +227,11 @@
+     u8 gap[3];
+     s32 pcmSamplesPerVBlank;
+     s32 pcmFreq;
++#ifdef PORTABLE
++    float divFreq;
++#else
+     s32 divFreq;
++#endif
+     struct CgbChannel *cgbChans;
+     MPlayMainFunc MPlayMainHead;
+     struct MusicPlayerInfo *musicPlayerHead;
+@@ -217,7 +243,11 @@
+     ExtVolPitFunc ExtVolPit;
+     u8 gap2[16];
+     struct SoundChannel chans[MAX_DIRECTSOUND_CHANNELS];
++#ifdef PORTABLE
++    float pcmBuffer[PCM_DMA_BUF_SIZE * 2];
++#else
+     s8 pcmBuffer[PCM_DMA_BUF_SIZE * 2];
++#endif
+ };
+ 
+ struct SongHeader
+@@ -403,15 +433,24 @@
+ 
+ extern const struct ToneData voicegroup000;
+ 
++#ifdef PORTABLE
++#define NUM_MUSIC_PLAYERS 4
++#define MAX_LINES 0
++#else
+ extern char gNumMusicPlayers[];
+ extern char gMaxLines[];
+-
+ #define NUM_MUSIC_PLAYERS ((u16)gNumMusicPlayers)
+ #define MAX_LINES ((u32)gMaxLines)
++#endif
+ 
+ u32 umul3232H32(u32 multiplier, u32 multiplicand);
++u32 MidiKeyToFreq(struct WaveData *wav, u8 key, u8 fineAdjust);
+ void SoundMain(void);
++#ifdef PORTABLE
++void SoundMainBTM(void *ptr);
++#else
+ void SoundMainBTM(void);
++#endif
+ void TrackStop(struct MusicPlayerInfo *mplayInfo, struct MusicPlayerTrack *track);
+ void MPlayMain(struct MusicPlayerInfo *);
+ void RealClearChain(void *x);
+--- a/include/gba/macro.h
++++ b/include/gba/macro.h
+@@ -31,6 +31,9 @@
+ 
+ #define CpuFastCopy(src, dest, size) CpuFastSet(src, dest, ((size)/(32/8) & 0x1FFFFF))
+ 
++#ifdef PORTABLE
++extern void DmaSet(int dmaNum, const void *src, void *dest, u32 control);
++#else
+ #define DmaSet(dmaNum, src, dest, control)        \
+ {                                                 \
+     vu32 *dmaRegs = (vu32 *)REG_ADDR_DMA##dmaNum; \
+@@ -39,6 +42,7 @@
+     dmaRegs[2] = (vu32)(control);                 \
+     dmaRegs[2];                                   \
+ }
++#endif
+ 
+ #define DMA_FILL(dmaNum, value, dest, size, bit)                                              \
+ {                                                                                             \
+@@ -75,8 +79,13 @@
+            (DMA_ENABLE | DMA_START_NOW | DMA_##bit##BIT | DMA_SRC_INC | DMA_DEST_INC) << 16 \
+          | ((size)/(bit/8)))
+ 
++#ifdef PORTABLE
++#define DmaCopy16(dmaNum, src, dest, size) CpuCopy16(src, dest, size)
++#define DmaCopy32(dmaNum, src, dest, size) CpuCopy32(src, dest, size)
++#else
+ #define DmaCopy16(dmaNum, src, dest, size) DMA_COPY(dmaNum, src, dest, size, 16)
+ #define DmaCopy32(dmaNum, src, dest, size) DMA_COPY(dmaNum, src, dest, size, 32)
++#endif
+ 
+ #define DmaStop(dmaNum)                                         \
+ {                                                               \
+--- a/include/global.h
++++ b/include/global.h
+@@ -2,6 +2,12 @@
+ #define GUARD_GLOBAL_H
+ 
+ #include "config.h"
++#ifdef PORTABLE
++#include <stdio.h>
++#define DBGPRINTF(...) printf(__VA_ARGS__)
++#else
++#define DBGPRINTF(...)
++#endif
+ #include "gba/gba.h"
+ #include <string.h>
+ #include "constants/global.h"
+--- a/include/overworld.h
++++ b/include/overworld.h
+@@ -124,6 +124,9 @@
+ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum);
+ void CB2_ReturnToFieldFromDiploma(void);
+ void CB2_OverworldBasic(void);
++#ifdef PORTABLE
++bool32 IsOverworldRunning(void);
++#endif
+ void CB2_NewGame(void);
+ bool8 IsMapTypeOutdoors(u8 mapType);
+ bool8 Overworld_MapTypeAllowsTeleportAndFly(u8 mapType);
+--- a/include/pokemon_storage_system_internal.h
++++ b/include/pokemon_storage_system_internal.h
+@@ -482,7 +482,7 @@
+ void MultiMove_Free(void);
+ void MultiMove_SetFunction(u8 funcId);
+ bool8 MultiMove_RunFunction(void);
+-void CreateItemIconSprites(void);
++bool8 CreateItemIconSprites(void);
+ void MoveItemFromCursorToBag(void);
+ void MoveHeldItemWithPartyMenu(void);
+ bool8 IsItemIconAnimActive(void);
+@@ -541,7 +541,7 @@
+ void CreateMovingMonIcon(void);
+ void SetShiftMonSpritePtr(u8 boxId, u8 position);
+ bool8 ShiftMons(void);
+-void SetMovingMonSprite(u8 cursorArea, u8 cursorPos);
++bool8 SetMovingMonSprite(u8 cursorArea, u8 cursorPos);
+ void SetPlacedMonSprite(u8 cursorArea, u8 cursorPos);
+ void DestroyPartyMonIcon(u8 partyId);
+ void DestroyMovingMonIcon(void);
+--- a/include/region_map.h
++++ b/include/region_map.h
+@@ -17,4 +17,16 @@
+ void InitRegionMapWithExitCB(u8 type, void (*callback)(void));
+ void CB2_OpenFlyMap(void);
+ 
++#ifdef PLATFORM_SDL2
++struct DualScreenMapSection
++{
++    u8 region; // 0 Kanto, 1 Sevii 1-3, 2 Sevii 4-5, 3 Sevii 6-7
++    u8 x, y, width, height; // FireRed's 22x15 grid, origin at pixel (32, 32)
++};
++const u16 *DualScreen_GetRegionMapPal(void);
++const u32 *DualScreen_GetRegionMapGfxLZ(void);
++const u32 *DualScreen_GetRegionMapTilemapLZ(u8 region);
++bool32 DualScreen_GetRegionMapSection(u16 mapsec, struct DualScreenMapSection *out);
++#endif
++
+ #endif // GUARD_REGION_MAP_H
+--- a/include/strings.h
++++ b/include/strings.h
+@@ -224,6 +224,9 @@
+ extern const u8 gText_LinkStandby[];
+ extern const u8 gText_BattleMenu[];
+ extern const u8 gText_WhatWillPkmnDo[];
++#ifdef PLATFORM_SDL2
++extern const u8 gText_DualScreenWhatWillPkmnDo[];
++#endif
+ 
+ // battle_script_commands
+ extern const u8 gText_BattleYesNoChoice[];
+--- a/src/agb_flash.c
++++ b/src/agb_flash.c
+@@ -1,5 +1,9 @@
+ #include "gba/gba.h"
+ #include "gba/flash_internal.h"
++#ifdef PORTABLE
++#include <string.h>
++#include "platform.h"
++#endif
+ 
+ static u8 sTimerNum;
+ static u16 sTimerCount;
+@@ -139,6 +143,10 @@
+ 
+ void ReadFlash(u16 sectorNum, u32 offset, void *dest, u32 size)
+ {
++#ifdef PORTABLE
++    Platform_ReadFlash(sectorNum, offset, dest, size);
++    return;
++#else
+     u8 *src;
+     u16 i;
+     vu16 readFlash_Core_Buffer[0x40];
+@@ -171,6 +179,7 @@
+     src = FLASH_BASE + (sectorNum << gFlash->sector.shift) + offset;
+ 
+     readFlash_Core(src, dest, size);
++#endif
+ }
+ 
+ u32 VerifyFlashSector_Core(u8 *src, u8 *tgt, u32 size)
+@@ -186,6 +195,13 @@
+ 
+ u32 VerifyFlashSector(u16 sectorNum, u8 *src)
+ {
++#ifdef PORTABLE
++    // Android cannot execute the GBA verifier copied onto the stack. The
++    // portable flash is one contiguous RAM buffer, including both banks.
++    if (gFlash == NULL || src == NULL || sectorNum >= gFlash->sector.count)
++        return 1;
++    return memcmp(src, FLASH_BASE + (sectorNum << gFlash->sector.shift), gFlash->sector.size) != 0;
++#else
+     u16 i;
+     vu16 verifyFlashSector_Core_Buffer[0x80];
+     vu16 *funcSrc;
+@@ -220,10 +236,16 @@
+     size = gFlash->sector.size;
+ 
+     return verifyFlashSector_Core(src, tgt, size); // return 0 if verified.
++#endif
+ }
+ 
+ u32 VerifyFlashSectorNBytes(u16 sectorNum, u8 *src, u32 n)
+ {
++#ifdef PORTABLE
++    if (gFlash == NULL || src == NULL || sectorNum >= gFlash->sector.count || n > gFlash->sector.size)
++        return 1;
++    return memcmp(src, FLASH_BASE + (sectorNum << gFlash->sector.shift), n) != 0;
++#else
+     u16 i;
+     vu16 verifyFlashSector_Core_Buffer[0x80];
+     vu16 *funcSrc;
+@@ -256,6 +278,7 @@
+     tgt = FLASH_BASE + (sectorNum << gFlash->sector.shift);
+ 
+     return verifyFlashSector_Core(src, tgt, n);
++#endif
+ }
+ 
+ u32 ProgramFlashSectorAndVerify(u16 sectorNum, u8 *src)
+--- a/src/agb_flash_1m.c
++++ b/src/agb_flash_1m.c
+@@ -5,6 +5,9 @@
+ 
+ const struct FlashSetupInfo * const sSetupInfos[] =
+ {
++#ifdef PORTABLE
++    &DUMMY_SAVE,
++#endif
+     &MX29L010,
+     &LE26FV10N1TS,
+     &DefaultFlash
+@@ -18,9 +21,11 @@
+ 
+     REG_WAITCNT = (REG_WAITCNT & ~WAITCNT_SRAM_MASK) | WAITCNT_SRAM_8;
+ 
++    setupInfo = sSetupInfos;
++#ifdef PORTABLE
++    result = 0;
++#else
+     flashId = ReadFlashId();
+-
+-    setupInfo = sSetupInfos;
+     result = 1;
+ 
+     for (;;)
+@@ -36,6 +41,7 @@
+ 
+         setupInfo++;
+     }
++#endif
+ 
+     ProgramFlashByte = (*setupInfo)->programFlashByte;
+     ProgramFlashSector = (*setupInfo)->programFlashSector;
+--- a/src/battle_controller_oak_old_man.c
++++ b/src/battle_controller_oak_old_man.c
+@@ -17,6 +17,10 @@
+ #include "reshow_battle_screen.h"
+ #include "constants/songs.h"
+ #include "constants/items.h"
++
++#ifdef PLATFORM_SDL2
++#include "platform/dualscreen.h"
++#endif
+ 
+ static void OakOldManHandleGetMonData(void);
+ static void OakOldManHandleGetRawMonData(void);
+@@ -161,6 +165,32 @@
+ {
+ }
+ 
++#ifdef PLATFORM_SDL2
++s32 DualScreen_FirstBattleActionBattler(void)
++{
++    u32 i;
++
++    if (!(gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE))
++        return -1;
++    for (i = 0; i < gBattlersCount && i < MAX_BATTLERS_COUNT; i++)
++        if (gBattlerControllerFuncs[i] == HandleInputChooseAction)
++            return i;
++    return -1;
++}
++
++s32 DualScreen_FirstBattleMoveBattler(void)
++{
++    u32 i;
++
++    if (!(gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE))
++        return -1;
++    for (i = 0; i < gBattlersCount && i < MAX_BATTLERS_COUNT; i++)
++        if (gBattlerControllerFuncs[i] == OakOldManHandleInputChooseMove)
++            return i;
++    return -1;
++}
++#endif
++
+ void SetControllerToOakOrOldMan(void)
+ {
+     gBattlerControllerFuncs[gActiveBattler] = OakOldManBufferRunCommand;
+@@ -209,6 +239,22 @@
+         }
+         OakOldManBufferExecCompleted();
+     }
++#ifdef PLATFORM_SDL2
++    else if (DualScreen_BattleUiActive() && JOY_NEW(DPAD_ANY))
++    {
++        u32 direction = JOY_NEW(DPAD_UP) ? 0 : JOY_NEW(DPAD_DOWN) ? 1
++                      : JOY_NEW(DPAD_LEFT) ? 2 : 3;
++        s32 next = DualScreen_ActionCursorStep(gActionSelectionCursor[gActiveBattler], direction);
++
++        if (next >= 0)
++        {
++            PlaySE(SE_SELECT);
++            ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
++            gActionSelectionCursor[gActiveBattler] = next;
++            ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
++        }
++    }
++#endif
+     else if (JOY_NEW(DPAD_LEFT))
+     {
+         if (gActionSelectionCursor[gActiveBattler] & 1) // if is B_ACTION_USE_ITEM or B_ACTION_RUN
+@@ -1801,7 +1847,12 @@
+     if (!IsDma3ManagerBusyWithBgCopy())
+     {
+         gBattle_BG0_X = 0;
++#ifdef PLATFORM_SDL2
++        gBattle_BG0_Y = ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
++                      && DualScreen_BattleUiActive()) ? 0 : 160;
++#else
+         gBattle_BG0_Y = 160;
++#endif
+         if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
+             gBattlerControllerFuncs[gActiveBattler] = HandleInputChooseAction;
+         else
+@@ -1812,18 +1863,42 @@
+ static void OakOldManHandleChooseAction(void)
+ {
+     s32 i;
++#ifdef PLATFORM_SDL2
++    bool32 dualScreenPrompt = (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
++                           && DualScreen_BattleUiActive();
++    bool32 preservePrompt = dualScreenPrompt
++                         && DualScreen_TakePreservedBattlePrompt(gActiveBattler);
++#endif
+ 
+     gBattlerControllerFuncs[gActiveBattler] = HandleChooseActionAfterDma3;
++#ifdef PLATFORM_SDL2
++    if (!preservePrompt)
++        BattlePutTextOnWindow(gText_EmptyString3, B_WIN_MSG);
++#else
+     BattlePutTextOnWindow(gText_EmptyString3, B_WIN_MSG);
++#endif
+     BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
+     for (i = 0; i < MAX_MON_MOVES; ++i)
+         ActionSelectionDestroyCursorAt((u8)i);
+     ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+-    if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
+-        BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
++#ifdef PLATFORM_SDL2
++    if (dualScreenPrompt)
++    {
++        if (!preservePrompt)
++        {
++            BattleStringExpandPlaceholdersToDisplayedString(gText_DualScreenWhatWillPkmnDo);
++            BattlePutTextOnWindowAtSpeed(gDisplayedStringBattle, B_WIN_MSG, 0);
++        }
++    }
+     else
+-        BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillOldManDo);
+-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
++#endif
++    {
++        if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
++            BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
++        else
++            BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillOldManDo);
++        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
++    }
+ }
+ 
+ static void OakOldManHandleUnknownYesNoBox(void)
+@@ -1836,7 +1911,12 @@
+     if (!IsDma3ManagerBusyWithBgCopy())
+     {
+         gBattle_BG0_X = 0;
++#ifdef PLATFORM_SDL2
++        gBattle_BG0_Y = ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
++                      && DualScreen_BattleUiActive()) ? 0 : 320;
++#else
+         gBattle_BG0_Y = 320;
++#endif
+         gBattlerControllerFuncs[gActiveBattler] = OakOldManHandleInputChooseMove;
+     }
+ }
+@@ -1869,9 +1949,35 @@
+     }
+ }
+ 
++#ifdef PLATFORM_SDL2
++static void DualScreen_WaitForItemChoice(void)
++{
++    u16 itemId;
++
++    if (!DualScreen_PollBattleItemChoice(&itemId))
++        return;
++    gSpecialVar_ItemId = itemId;
++    BtlController_EmitOneReturnValue(1, itemId);
++    OakOldManBufferExecCompleted();
++}
++#endif
++
+ static void OakOldManHandleChooseItem(void)
+ {
+     s32 i;
++
++#ifdef PLATFORM_SDL2
++    // Interactive first rival battle only; the Old Man tutorial stays scripted.
++    if (DualScreen_BattleUiActive() && DualScreen_TakeBattleTakeover(1))
++    {
++        gBattlerInMenuId = gActiveBattler;
++        for (i = 0; i < 3; ++i)
++            gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][1 + i];
++        gBattlerControllerFuncs[gActiveBattler] = DualScreen_WaitForItemChoice;
++        DualScreen_SetBattleMenuOpen(1, 0, gActiveBattler);
++        return;
++    }
++#endif
+ 
+     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+     gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
+--- a/src/battle_controller_player.c
++++ b/src/battle_controller_player.c
+@@ -24,6 +24,10 @@
+ #include "constants/moves.h"
+ #include "constants/songs.h"
+ #include "constants/sound.h"
++
++#ifdef PLATFORM_SDL2
++#include "platform/dualscreen.h"
++#endif
+ 
+ static void PlayerHandleGetMonData(void);
+ static void PlayerHandleSetMonData(void);
+@@ -83,6 +87,7 @@
+ static void PlayerCmdEnd(void);
+ 
+ static void PlayerBufferRunCommand(void);
++static void HandleInputChooseAction(void);
+ static void HandleInputChooseTarget(void);
+ static void MoveSelectionDisplayPpNumber(void);
+ static void MoveSelectionDisplayPpString(void);
+@@ -178,6 +183,29 @@
+ {
+ }
+ 
++#ifdef PLATFORM_SDL2
++s32 DualScreen_PlayerActionBattler(void)
++{
++    u32 i;
++    for (i = 0; i < gBattlersCount && i < MAX_BATTLERS_COUNT; i++)
++        if (gBattlerControllerFuncs[i] == HandleInputChooseAction)
++            return i;
++    return DualScreen_FirstBattleActionBattler();
++}
++
++s32 DualScreen_PlayerMoveBattler(void)
++{
++    u32 i;
++    for (i = 0; i < gBattlersCount && i < MAX_BATTLERS_COUNT; i++)
++        if (gBattlerControllerFuncs[i] == HandleInputChooseMove)
++            return i;
++    return DualScreen_FirstBattleMoveBattler();
++}
++
++u32 DualScreen_PlayerAtActionSelect(void) { return DualScreen_PlayerActionBattler() >= 0; }
++u32 DualScreen_PlayerAtMoveSelect(void) { return DualScreen_PlayerMoveBattler() >= 0; }
++#endif
++
+ void SetControllerToPlayer(void)
+ {
+     gBattlerControllerFuncs[gActiveBattler] = PlayerBufferRunCommand;
+@@ -244,6 +272,22 @@
+         }
+         PlayerBufferExecCompleted();
+     }
++#ifdef PLATFORM_SDL2
++    else if (DualScreen_BattleUiActive() && JOY_NEW(DPAD_ANY))
++    {
++        u32 direction = JOY_NEW(DPAD_UP) ? 0 : JOY_NEW(DPAD_DOWN) ? 1
++                      : JOY_NEW(DPAD_LEFT) ? 2 : 3;
++        s32 next = DualScreen_ActionCursorStep(gActionSelectionCursor[gActiveBattler], direction);
++
++        if (next >= 0)
++        {
++            PlaySE(SE_SELECT);
++            ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
++            gActionSelectionCursor[gActiveBattler] = next;
++            ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
++        }
++    }
++#endif
+     else if (JOY_NEW(DPAD_LEFT))
+     {
+         if (gActionSelectionCursor[gActiveBattler] & 1) // if is B_ACTION_USE_ITEM or B_ACTION_RUN
+@@ -504,6 +548,10 @@
+     else if (JOY_NEW(B_BUTTON))
+     {
+         PlaySE(SE_SELECT);
++#ifdef PLATFORM_SDL2
++        if (DualScreen_BattleUiActive())
++            DualScreen_PreserveBattlePrompt(gActiveBattler);
++#endif
+         BtlController_EmitTwoReturnValues(1, 10, 0xFFFF);
+         PlayerBufferExecCompleted();
+         ResetPaletteFadeControl();
+@@ -2410,7 +2458,11 @@
+     if (!IsDma3ManagerBusyWithBgCopy())
+     {
+         gBattle_BG0_X = 0;
++#ifdef PLATFORM_SDL2
++        gBattle_BG0_Y = DualScreen_BattleUiActive() ? 0 : 160;
++#else
+         gBattle_BG0_Y = 160;
++#endif
+         gBattlerControllerFuncs[gActiveBattler] = HandleInputChooseAction;
+     }
+ }
+@@ -2418,15 +2470,37 @@
+ static void PlayerHandleChooseAction(void)
+ {
+     s32 i;
++#ifdef PLATFORM_SDL2
++    bool32 preservePrompt = DualScreen_BattleUiActive()
++                         && DualScreen_TakePreservedBattlePrompt(gActiveBattler);
++#endif
+ 
+     gBattlerControllerFuncs[gActiveBattler] = HandleChooseActionAfterDma3;
++#ifdef PLATFORM_SDL2
++    if (!preservePrompt)
++        BattlePutTextOnWindow(gText_EmptyString3, B_WIN_MSG);
++#else
+     BattlePutTextOnWindow(gText_EmptyString3, B_WIN_MSG);
++#endif
+     BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
+     for (i = 0; i < 4; ++i)
+         ActionSelectionDestroyCursorAt(i);
+     ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+-    BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
+-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
++#ifdef PLATFORM_SDL2
++    if (DualScreen_BattleUiActive())
++    {
++        if (!preservePrompt)
++        {
++            BattleStringExpandPlaceholdersToDisplayedString(gText_DualScreenWhatWillPkmnDo);
++            BattlePutTextOnWindowAtSpeed(gDisplayedStringBattle, B_WIN_MSG, 0);
++        }
++    }
++    else
++#endif
++    {
++        BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
++        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
++    }
+ }
+ 
+ static void PlayerHandleUnknownYesNoBox(void)
+@@ -2438,7 +2512,11 @@
+     if (!IsDma3ManagerBusyWithBgCopy())
+     {
+         gBattle_BG0_X = 0;
++#ifdef PLATFORM_SDL2
++        gBattle_BG0_Y = DualScreen_BattleUiActive() ? 0 : 320;
++#else
+         gBattle_BG0_Y = 320;
++#endif
+         gBattlerControllerFuncs[gActiveBattler] = HandleInputChooseMove;
+     }
+ }
+@@ -2459,9 +2537,38 @@
+     MoveSelectionDisplayMoveType();
+ }
+ 
++#ifdef PLATFORM_SDL2
++static void DualScreen_WaitForItemChoice(void)
++{
++    u16 itemId;
++
++    if (!DualScreen_PollBattleItemChoice(&itemId))
++        return;
++    gSpecialVar_ItemId = itemId;
++    BtlController_EmitOneReturnValue(1, itemId);
++    PlayerBufferExecCompleted();
++}
++#endif
++
+ static void PlayerHandleChooseItem(void)
+ {
+     s32 i;
++
++#ifdef PLATFORM_SDL2
++    // Keep BattleMainCB2, its graphics and sprites running on the top screen.
++    // The bottom bag owns this command until an item is accepted or cancelled.
++    if (DualScreen_BattleUiActive()
++     && !(gBattleTypeFlags & (BATTLE_TYPE_MULTI | BATTLE_TYPE_POKEDUDE))
++     && DualScreen_TakeBattleTakeover(1))
++    {
++        gBattlerInMenuId = gActiveBattler;
++        for (i = 0; i < 3; ++i)
++            gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][1 + i];
++        gBattlerControllerFuncs[gActiveBattler] = DualScreen_WaitForItemChoice;
++        DualScreen_SetBattleMenuOpen(1, 0, gActiveBattler);
++        return;
++    }
++#endif
+ 
+     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+     gBattlerControllerFuncs[gActiveBattler] = OpenBagAndChooseItem;
+@@ -2470,9 +2577,30 @@
+         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][1 + i];
+ }
+ 
++#ifdef PLATFORM_SDL2
++static void DualScreen_WaitForMonChoice(void)
++{
++    u8 monId;
++
++    if (!DualScreen_PollBattleMonChoice(&monId))
++        return;
++    BtlController_EmitChosenMonReturnValue(1, monId,
++                                         monId == PARTY_SIZE ? NULL : gBattlePartyCurrentOrder);
++    PlayerBufferExecCompleted();
++}
++#endif
++
+ static void PlayerHandleChoosePokemon(void)
+ {
+     s32 i;
++
++#ifdef PLATFORM_SDL2
++    if (DualScreen_TryOpenBattlePartyMenu())
++    {
++        gBattlerControllerFuncs[gActiveBattler] = DualScreen_WaitForMonChoice;
++        return;
++    }
++#endif
+ 
+     gBattleControllerData[gActiveBattler] = CreateTask(TaskDummy, 0xFF);
+     gTasks[gBattleControllerData[gActiveBattler]].data[0] = gBattleBufferA[gActiveBattler][1] & 0xF;
+--- a/src/battle_controllers.c
++++ b/src/battle_controllers.c
+@@ -1020,8 +1020,14 @@
+ 
+     sBattleBuffersTransferData[0] = CONTROLLER_CHOSENMONRETURNVALUE;
+     sBattleBuffersTransferData[1] = partyId;
++    // Opponent choices and cancelled player selections omit the party order.
++    // That NULL address is readable on GBA, but not in a native process.
+     for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
++#ifdef PORTABLE
++        sBattleBuffersTransferData[2 + i] = battlePartyOrder != NULL ? battlePartyOrder[i] : 0;
++#else
+         sBattleBuffersTransferData[2 + i] = battlePartyOrder[i];
++#endif
+     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 5);
+ }
+ 
+--- a/src/battle_main.c
++++ b/src/battle_main.c
+@@ -46,6 +46,18 @@
+ #include "constants/pokemon.h"
+ #include "constants/songs.h"
+ #include "constants/trainers.h"
++
++#ifdef PLATFORM_SDL2
++#include "platform/dualscreen.h"
++
++static bool32 sBattleMonsReady;
++
++u32 DualScreen_BattleDataReady(void)
++{
++    return gMain.inBattle && sBattleMonsReady
++        && gBattlersCount > 0 && gBattlersCount <= MAX_BATTLERS_COUNT;
++}
++#endif
+ 
+ static void SpriteCB_UnusedDebugSprite(struct Sprite *sprite);
+ static void HandleAction_UseMove(void);
+@@ -664,6 +676,12 @@
+ {
+     s32 i;
+ 
++#ifdef PLATFORM_SDL2
++    // The controller buffers and gBattleMons are filled later in the intro.
++    // Hide the previous encounter's cards before inBattle becomes true.
++    sBattleMonsReady = FALSE;
++#endif
++
+     SetHBlankCallback(NULL);
+     SetVBlankCallback(NULL);
+ 
+@@ -2681,6 +2699,10 @@
+             MarkBattlerForControllerExec(gActiveBattler);
+         }
+     }
++#ifdef PLATFORM_SDL2
++    // Publish only after every battler has been copied, including doubles.
++    sBattleMonsReady = TRUE;
++#endif
+     gBattleMainFunc = BattleIntroDrawPartySummaryScreens;
+ }
+ 
+--- a/src/battle_message.c
++++ b/src/battle_message.c
+@@ -1398,6 +1398,12 @@
+ const u8 gText_PkmnStoppedEvolving[] = _("Huh? {STR_VAR_1}\nstopped evolving!\p");
+ const u8 gText_EllipsisQuestionMark[] = _("……?\p");
+ const u8 gText_WhatWillPkmnDo[] = _("What will\n{B_ACTIVE_NAME_WITH_PREFIX} do?");
++#ifdef PLATFORM_SDL2
++// The dual-screen battle UI shows the full-width message window on the top
++// display, so its prompt fits on one line instead of using the classic
++// half-width action-prompt window.
++const u8 gText_DualScreenWhatWillPkmnDo[] = _("What will {B_ACTIVE_NAME_WITH_PREFIX} do?");
++#endif
+ const u8 gText_WhatWillPlayerThrow[] = _("What will {B_PLAYER_NAME}\nthrow?");
+ const u8 gText_WhatWillOldManDo[] = _("What will the\nold man do?");
+ const u8 gText_LinkStandby[] = _("{PAUSE 16}Link standby…");
+@@ -2838,7 +2844,7 @@
+ // windowId: Upper 2 bits are text flags
+ //   x40: Use NPC context-defined font
+ //   x80: Inhibit window clear
+-void BattlePutTextOnWindow(const u8 *text, u8 windowId) {
++static void BattlePutTextOnWindowInternal(const u8 *text, u8 windowId, s32 speedOverride) {
+     bool32 copyToVram;
+     struct TextPrinterTemplate printerTemplate;
+     u8 speed;
+@@ -2901,7 +2907,12 @@
+     else
+         gTextFlags.autoScroll = FALSE;
+ 
+-    if (windowId == B_WIN_MSG || windowId == B_WIN_OAK_OLD_MAN)
++    if (speedOverride >= 0)
++    {
++        speed = (u8)speedOverride;
++        gTextFlags.canABSpeedUpPrint = FALSE;
++    }
++    else if (windowId == B_WIN_MSG || windowId == B_WIN_OAK_OLD_MAN)
+     {
+         if (gBattleTypeFlags & BATTLE_TYPE_LINK)
+             speed = 1;
+@@ -2921,6 +2932,16 @@
+         PutWindowTilemap(windowId);
+         CopyWindowToVram(windowId, COPYWIN_FULL);
+     }
++}
++
++void BattlePutTextOnWindow(const u8 *text, u8 windowId)
++{
++    BattlePutTextOnWindowInternal(text, windowId, -1);
++}
++
++void BattlePutTextOnWindowAtSpeed(const u8 *text, u8 windowId, u8 speed)
++{
++    BattlePutTextOnWindowInternal(text, windowId, speed);
+ }
+ 
+ bool8 BattleStringShouldBeColored(u16 stringId)
+--- a/src/battle_transition.c
++++ b/src/battle_transition.c
+@@ -630,6 +630,15 @@
+     u8 taskId = FindTaskIdByFunc(Task_BattleTransition);
+     if (gTasks[taskId].tTransitionDone)
+     {
++        // Transition callbacks run on the portable renderer thread. Stop them
++        // before releasing sTransitionData, then wait for any callback that
++        // was already in flight to finish.
++        SetVBlankCallback(NULL);
++        SetHBlankCallback(NULL);
++        DmaStop(0);
++#ifdef PORTABLE
++        VBlankIntrWait();
++#endif
+         InitTransitionData();
+         FREE_AND_SET_NULL(sTransitionData);
+         DestroyTask(taskId);
+--- a/src/berry_pouch.c
++++ b/src/berry_pouch.c
+@@ -464,6 +464,12 @@
+             break;
+         if (MenuHelpers_IsLinkActive() == TRUE)
+             break;
++#ifdef PORTABLE
++        // Host DMA is drained by VBlank after this callback returns.
++        // Keep initialization frame-stepped so graphics loading cannot
++        // busy-wait forever for FreeTempTileDataBuffersIfPossible().
++        break;
++#endif
+     }
+ }
+ 
+--- a/src/bg.c
++++ b/src/bg.c
+@@ -1207,8 +1207,10 @@
+ 
+ bool32 IsTileMapOutsideWram(u8 bg)
+ {
++#ifndef PORTABLE
+     if (sGpuBgConfigs2[bg].tilemap > (void *)IWRAM_END)
+         return TRUE;
++#endif
+     if (sGpuBgConfigs2[bg].tilemap == 0x0)
+         return TRUE;
+     return FALSE;
+--- a/src/item_menu.c
++++ b/src/item_menu.c
+@@ -379,6 +379,12 @@
+             break;
+         if (MenuHelpers_IsLinkActive() == TRUE)
+             break;
++#ifdef PORTABLE
++        // Host DMA is drained by VBlank after this callback returns.
++        // Keep initialization frame-stepped so graphics loading cannot
++        // busy-wait forever for FreeTempTileDataBuffersIfPossible().
++        break;
++#endif
+     }
+ }
+ 
+--- a/src/item_use.c
++++ b/src/item_use.c
+@@ -39,6 +39,13 @@
+ #include "constants/songs.h"
+ #include "constants/field_weather.h"
+ 
++#ifdef PLATFORM_SDL2
++#include "platform/dualscreen.h"
++#include "battle_interface.h"
++#include "battle_gfx_sfx_util.h"
++#include "constants/species.h"
++#endif
++
+ static EWRAM_DATA void (*sItemUseOnFieldCB)(u8 taskId) = NULL;
+ 
+ static void FieldCB_FadeInFromBlack(void);
+@@ -948,3 +955,153 @@
+     SetQuestLogEvent(eventId, (void *)data);
+     Free(data);
+ }
++
++#ifdef PLATFORM_SDL2
++// Keep classification shared with JNI so the bottom bag asks for precisely
++// the target (and PP move) that the native item handler needs.
++u32 DualScreen_BattleItemCategory(u16 itemId)
++{
++    ItemUseFunc func;
++    const u8 *effect;
++
++    if (itemId <= ITEM_NONE || itemId >= ITEMS_COUNT || !ItemId_GetBattleUsage(itemId))
++        return 0;
++    func = ItemId_GetBattleFunc(itemId);
++    if (func == BattleUseFunc_PokeBallEtc) return 1;
++    if (func == BattleUseFunc_Medicine) return 2;
++    if (func == BattleUseFunc_StatBooster) return 3;
++    if (func == BattleUseFunc_PokeDoll) return 4;
++    if (func == BattleUseFunc_PokeFlute) return 7;
++    if (func == ItemUseInBattle_EnigmaBerry)
++    {
++        switch (GetItemEffectType(itemId))
++        {
++        case ITEM_EFFECT_X_ITEM: return 3;
++        case ITEM_EFFECT_HEAL_HP:
++        case ITEM_EFFECT_CURE_POISON:
++        case ITEM_EFFECT_CURE_SLEEP:
++        case ITEM_EFFECT_CURE_BURN:
++        case ITEM_EFFECT_CURE_FREEZE:
++        case ITEM_EFFECT_CURE_PARALYSIS:
++        case ITEM_EFFECT_CURE_CONFUSION:
++        case ITEM_EFFECT_CURE_INFATUATION:
++        case ITEM_EFFECT_CURE_ALL_STATUS: return 2;
++        case ITEM_EFFECT_HEAL_PP: break;
++        default: return 0;
++        }
++    }
++    else if (func != BattleUseFunc_Ether)
++        return 0;
++    effect = itemId == ITEM_ENIGMA_BERRY ? gSaveBlock1Ptr->enigmaBerry.itemEffect
++                                       : gItemEffectTable[itemId - ITEM_POTION];
++    return effect && (effect[4] & ITEM4_HEAL_PP_ONE) ? 6 : 5;
++}
++
++u32 DualScreen_BattleItemGroup(u16 itemId)
++{
++    u32 category = DualScreen_BattleItemCategory(itemId);
++
++    if (category == 1)
++        return 2; // Poke Balls
++    if (category == 3 || category == 4)
++        return 4; // stat boosters and escape items
++    if (category == 5 || category == 6)
++        return 1; // PP recovery
++    if (category == 7)
++        return 3; // Poke Flute
++    if (category != 2)
++        return 0;
++
++    // Full Restore belongs with HP recovery even though GetItemEffectType
++    // reports its status-curing half first. Pure status cures get their own
++    // button; healing, reviving and all other medicine stay under HP / PP.
++    if (itemId == ITEM_FULL_RESTORE)
++        return 1;
++    switch (GetItemEffectType(itemId))
++    {
++    case ITEM_EFFECT_CURE_POISON:
++    case ITEM_EFFECT_CURE_SLEEP:
++    case ITEM_EFFECT_CURE_BURN:
++    case ITEM_EFFECT_CURE_FREEZE:
++    case ITEM_EFFECT_CURE_PARALYSIS:
++    case ITEM_EFFECT_CURE_CONFUSION:
++    case ITEM_EFFECT_CURE_INFATUATION:
++    case ITEM_EFFECT_CURE_ALL_STATUS:
++        return 3;
++    default:
++        return 1;
++    }
++}
++
++u32 DualScreen_UseBattleItem(u16 itemId, s32 targetPartyId, s32 moveSlot)
++{
++    u32 category = DualScreen_BattleItemCategory(itemId);
++    u8 savedOrder[3];
++    u8 savedBattler = gActiveBattler;
++    bool8 noEffect;
++    s32 i;
++
++    if (!gMain.inBattle || !category || !CheckBagHasItem(itemId, 1)
++     || gBattlerInMenuId >= gBattlersCount
++     || GetBattlerSide(gBattlerInMenuId) != B_SIDE_PLAYER)
++        return DS_BMENU_RESULT_CANT_USE;
++    if (category == 1)
++    {
++        if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) || IsPlayerPartyAndPokemonStorageFull())
++            return DS_BMENU_RESULT_CANT_USE;
++        RemoveBagItem(itemId, 1);
++        return DS_BMENU_RESULT_USED; // the battle script throws the ball
++    }
++    if (category == 4)
++    {
++        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
++            return DS_BMENU_RESULT_CANT_USE;
++        RemoveBagItem(itemId, 1);
++        ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, itemId, 0xFFFF);
++        return DS_BMENU_RESULT_USED;
++    }
++    if (category == 7)
++        return DS_BMENU_RESULT_USED; // Poke Flute is reusable; its script wakes everyone
++    if (category == 3)
++        targetPartyId = gBattlerPartyIndexes[gBattlerInMenuId];
++    if (targetPartyId < 0 || targetPartyId >= PARTY_SIZE
++     || !GetMonData(&gPlayerParty[targetPartyId], MON_DATA_SPECIES)
++     || GetMonData(&gPlayerParty[targetPartyId], MON_DATA_IS_EGG))
++        return DS_BMENU_RESULT_BAD_TARGET;
++    if (category == 6 && (moveSlot < 0 || moveSlot >= MAX_MON_MOVES
++     || GetMonData(&gPlayerParty[targetPartyId], MON_DATA_MOVE1 + moveSlot) == MOVE_NONE))
++        return DS_BMENU_RESULT_BAD_TARGET;
++    if (GetItemEffectType(itemId) == ITEM_EFFECT_HP_EV
++     && GetMonData(&gPlayerParty[targetPartyId], MON_DATA_SPECIES) == SPECIES_SHEDINJA)
++        return DS_BMENU_RESULT_NO_EFFECT;
++
++    // FireRed's GBA party menu physically reorders the party. This panel does
++    // not, so helpers used by Revive and low-HP audio must see identity order.
++    memcpy(savedOrder, gBattlePartyCurrentOrder, sizeof(savedOrder));
++    for (i = 0; i < 3; ++i)
++        gBattlePartyCurrentOrder[i] = (i * 2 << 4) | (i * 2 + 1);
++    noEffect = ExecuteTableBasedItemEffect(&gPlayerParty[targetPartyId], itemId,
++                                          targetPartyId, category == 6 ? moveSlot : 0);
++    if (!noEffect)
++    {
++        if (itemId == ITEM_BLUE_FLUTE || itemId == ITEM_RED_FLUTE || itemId == ITEM_YELLOW_FLUTE)
++            PlaySE(SE_GLASS_FLUTE);
++        else
++        {
++            PlaySE(SE_USE_ITEM);
++            RemoveBagItem(itemId, 1);
++        }
++        if (category == 5 || category == 6)
++            ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, &gPlayerParty[targetPartyId], itemId, 0xFFFF);
++        // No battle-screen rebuild occurs, so refresh the visible HP/status.
++        for (i = 0; i < gBattlersCount; ++i)
++            if (GetBattlerSide(i) == B_SIDE_PLAYER && gBattlerPartyIndexes[i] == targetPartyId
++             && !(gAbsentBattlerFlags & (1 << i)))
++                UpdateHealthboxAttribute(gHealthboxSpriteIds[i], &gPlayerParty[targetPartyId], HEALTHBOX_ALL);
++        HandleBattleLowHpMusicChange();
++    }
++    memcpy(gBattlePartyCurrentOrder, savedOrder, sizeof(savedOrder));
++    gActiveBattler = savedBattler;
++    return noEffect ? DS_BMENU_RESULT_NO_EFFECT : DS_BMENU_RESULT_USED;
++}
++#endif
+--- a/src/link.c
++++ b/src/link.c
+@@ -242,6 +242,12 @@
+ 
+ bool8 IsWirelessAdapterConnected(void)
+ {
++#ifdef PORTABLE
++    // No GBA RFU adapter exists on the host. Probing its serial registers
++    // waits forever when the main menu checks it before CONTINUE.
++    SetWirelessCommType0_Internal();
++    return FALSE;
++#else
+     if (QL_IS_PLAYBACK_STATE)
+         return FALSE;
+ 
+@@ -258,6 +264,7 @@
+     CloseLink();
+     RestoreSerialTimer3IntrHandlers();
+     return FALSE;
++#endif
+ }
+ 
+ void Task_DestroySelf(u8 taskId)
+--- a/src/m4a.c
++++ b/src/m4a.c
+@@ -1,11 +1,16 @@
+ #include "global.h"
+ #include "gba/m4a_internal.h"
++#ifdef PORTABLE
++#include "cgb_audio.h"
++#endif
+ 
+ extern const u8 gCgb3Vol[];
+ 
++#ifndef PORTABLE
+ #define BSS_CODE __attribute__((section(".bss.code")))
+ 
+ BSS_CODE ALIGNED(4) char SoundMainRAM_Buffer[0x800] = {0};
++#endif
+ 
+ COMMON_DATA struct SoundInfo gSoundInfo = {0};
+ COMMON_DATA struct PokemonCrySong gPokemonCrySongs[MAX_POKEMON_CRIES] = {0};
+@@ -71,7 +76,11 @@
+ {
+     s32 i;
+ 
++#ifndef PORTABLE
+     CpuCopy32((void *)((s32)SoundMainRAM & ~1), SoundMainRAM_Buffer, sizeof(SoundMainRAM_Buffer));
++#else
++    cgb_audio_init(PORTABLE_AUDIO_RATE);
++#endif
+ 
+     SoundInit(&gSoundInfo);
+     MPlayExtender(gCgbChans);
+@@ -240,7 +249,11 @@
+         {
+             if (track->flags & MPT_FLG_START)
+             {
++#ifdef PORTABLE
++                memset(track, 0, offsetof(struct MusicPlayerTrack, cmdPtr));
++#else
+                 Clear64byte(track);
++#endif
+                 track->flags = MPT_FLG_EXIST;
+                 track->bendRange = 2;
+                 track->volX = 64;
+@@ -273,6 +286,14 @@
+     REG_NR44 = 0x80;
+     REG_NR30 = 0;
+     REG_NR50 = 0x77;
++
++#ifdef PORTABLE
++    for (u8 i = 0; i < 4; i++)
++    {
++        cgb_set_envelope(i, 8);
++        cgb_trigger_note(i);
++    }
++#endif
+ 
+     soundInfo = SOUND_INFO_PTR;
+ 
+@@ -327,7 +348,11 @@
+ 
+ void MusicPlayerJumpTableCopy(void)
+ {
++#ifdef PORTABLE
++    MPlayJumpTableCopy(gMPlayJumpTable);
++#else
+     asm("swi 0x2A");
++#endif
+ }
+ 
+ void ClearChain(void *x)
+@@ -403,6 +428,14 @@
+ 
+     freq = (freq & 0xF0000) >> 16;
+     soundInfo->freq = freq;
++#ifdef PORTABLE
++    // SDL runs at 60 Hz, independent of the original GBA timer/scanlines.
++    soundInfo->pcmSamplesPerVBlank = PORTABLE_AUDIO_SAMPLES_PER_FRAME;
++    soundInfo->pcmDmaPeriod = PCM_DMA_BUF_SIZE / soundInfo->pcmSamplesPerVBlank;
++    soundInfo->pcmFreq = PORTABLE_AUDIO_RATE;
++    soundInfo->divFreq = 1.0f / soundInfo->pcmFreq;
++    m4aSoundVSyncOn();
++#else
+     soundInfo->pcmSamplesPerVBlank = gPcmSamplesPerVBlankTable[freq - 1];
+     soundInfo->pcmDmaPeriod = PCM_DMA_BUF_SIZE / soundInfo->pcmSamplesPerVBlank;
+ 
+@@ -427,6 +460,7 @@
+         ;
+ 
+     REG_TM0CNT_H = TIMER_ENABLE | TIMER_1CLK;
++#endif
+ }
+ 
+ void m4aSoundMode(u32 mode)
+@@ -579,7 +613,11 @@
+ 
+     soundInfo->ident++;
+ 
++#ifdef PORTABLE
++    memset(mplayInfo, 0, sizeof(*mplayInfo));
++#else
+     Clear64byte(mplayInfo);
++#endif
+ 
+     mplayInfo->tracks = tracks;
+     mplayInfo->trackCount = trackCount;
+@@ -670,6 +708,11 @@
+     s32 i;
+     struct MusicPlayerTrack *track;
+ 
++#ifdef PORTABLE
++    // A cry can be stopped before the first cry player has been selected.
++    if (mplayInfo == NULL)
++        return;
++#endif
+     if (mplayInfo->ident != ID_NUMBER)
+         return;
+ 
+@@ -873,6 +916,10 @@
+         REG_NR42 = 8;
+         REG_NR44 = 0x80;
+     }
++    #ifdef PORTABLE
++        cgb_set_envelope(chanNum - 1, 8);
++        cgb_trigger_note(chanNum - 1);
++    #endif
+ }
+ 
+ static inline int CgbPan(struct CgbChannel *chan)
+@@ -996,6 +1043,9 @@
+                 {
+                 case 1:
+                     *nrx0ptr = channels->sweep;
++                    #ifdef PORTABLE
++                        cgb_set_sweep(channels->sweep);
++                    #endif
+                     // fallthrough
+                 case 2:
+                     *nrx1ptr = ((u32)channels->wavePointer << 6) + channels->length;
+@@ -1009,6 +1059,9 @@
+                         REG_WAVE_RAM2 = channels->wavePointer[2];
+                         REG_WAVE_RAM3 = channels->wavePointer[3];
+                         channels->currentPointer = channels->wavePointer;
++                        #ifdef PORTABLE
++                            cgb_set_wavram();
++                        #endif
+                     }
+                     *nrx0ptr = 0;
+                     *nrx1ptr = channels->length;
+@@ -1028,6 +1081,9 @@
+                         channels->n4 = 0x00;
+                     break;
+                 }
++                #ifdef PORTABLE
++                    cgb_set_length(ch - 1, channels->length);
++                #endif
+                 channels->envelopeCounter = channels->attack;
+                 if ((s8)(channels->attack & mask))
+                 {
+@@ -1224,6 +1280,11 @@
+                 if (ch == 1 && !(*nrx0ptr & 0x08))
+                     *nrx4ptr = channels->n4 | 0x80;
+             }
++            #ifdef PORTABLE
++                cgb_set_envelope(ch - 1, *nrx2ptr);
++                cgb_toggle_length(ch - 1, (*nrx4ptr & 0x40));
++                cgb_trigger_note(ch - 1);
++            #endif
+         }
+ 
+     channel_complete:
+@@ -1734,6 +1795,10 @@
+ 
+ bool32 IsPokemonCryPlaying(struct MusicPlayerInfo *mplayInfo)
+ {
++#ifdef PORTABLE
++    if (mplayInfo == NULL || mplayInfo->tracks == NULL)
++        return FALSE;
++#endif
+     struct MusicPlayerTrack *track = mplayInfo->tracks;
+ 
+     if (track->chan && track->chan->track == track)
+--- a/src/main.c
++++ b/src/main.c
+@@ -16,6 +16,9 @@
+ #include "save_failed_screen.h"
+ #include "quest_log.h"
+ #include "sloopsvc.h"
++#ifdef PORTABLE
++extern void SDL_Log(const char *fmt, ...);
++#endif
+ 
+ extern u32 intr_main[];
+ 
+@@ -86,6 +89,9 @@
+ 
+ EWRAM_DATA u8 gDecompressionBuffer[0x4000] = {0};
+ EWRAM_DATA u16 gTrainerId = 0;
++#ifdef PORTABLE
++u8 gHeap[HEAP_SIZE] __attribute__((aligned(4)));
++#endif
+ 
+ static void UpdateLinkAndCallCallbacks(void);
+ static void InitMainCallbacks(void);
+@@ -99,10 +105,16 @@
+ 
+ void AgbMain()
+ {
++#ifdef PORTABLE
++#define PORT_BOOT_LOG(step) SDL_Log("[FireRed boot] %s", step)
++    PORT_BOOT_LOG("AgbMain entered");
++#else
++#define PORT_BOOT_LOG(step) ((void)0)
++#endif
+ #if REVISION >= 0xA
+     svc_stubbed();
+ #endif
+-#if MODERN
++#if MODERN && !defined(PORTABLE)
+     // Modern compilers are liberal with the stack on entry to this function,
+     // so RegisterRamReset may crash if it resets IWRAM.
+     RegisterRamReset(RESET_ALL & ~RESET_IWRAM);
+@@ -140,19 +152,38 @@
+     *(vu16 *)BG_PLTT = RGB_WHITE;
+ #endif
+     InitGpuRegManager();
++#ifdef PORTABLE
++    // The GBA starts affine backgrounds with an identity transform. The
++    // portable register buffer is zero-initialized, which otherwise collapses
++    // affine layers (such as Oak's trainer picture) to a single texel.
++    SetGpuReg(REG_OFFSET_BG2PA, 0x100);
++    SetGpuReg(REG_OFFSET_BG2PD, 0x100);
++    SetGpuReg(REG_OFFSET_BG3PA, 0x100);
++    SetGpuReg(REG_OFFSET_BG3PD, 0x100);
++#endif
++    PORT_BOOT_LOG("GPU registers initialized");
+     REG_WAITCNT = WAITCNT_PREFETCH_ENABLE | WAITCNT_WS0_S_1 | WAITCNT_WS0_N_3;
+     InitKeys();
+     InitIntrHandlers();
++    PORT_BOOT_LOG("interrupt handlers initialized");
+     m4aSoundInit();
++    PORT_BOOT_LOG("sound initialized");
+     EnableVCountIntrAtLine150();
++    PORT_BOOT_LOG("vcount initialized");
++#ifndef PORTABLE
+     InitRFU();
++#endif
+     CheckForFlashMemory();
++    PORT_BOOT_LOG("flash checked");
+     InitMainCallbacks();
++    PORT_BOOT_LOG("main callbacks initialized");
+     InitMapMusic();
++    PORT_BOOT_LOG("map music initialized");
+     ClearDma3Requests();
+     ResetBgs();
+     InitHeap(gHeap, HEAP_SIZE);
+     SetDefaultFontsPointer();
++    PORT_BOOT_LOG("heap and fonts initialized");
+ 
+     gSoftResetDisabled = FALSE;
+     gHelpSystemEnabled = FALSE;
+@@ -160,7 +191,7 @@
+     SetNotInSaveFailedScreen();
+ 
+     // Revision 10 has no calls into libisagbprn except this one.
+-#if !defined(NDEBUG) || REVISION >= 0xA
++#if (!defined(NDEBUG) || REVISION >= 0xA) && !defined(PORTABLE)
+ #if (LOG_HANDLER == LOG_HANDLER_MGBA_PRINT)
+     (void) MgbaOpen();
+ #elif (LOG_HANDLER == LOG_HANDLER_AGB_PRINT)
+@@ -169,14 +200,22 @@
+ #endif
+ 
+ #if REVISION >= 1
++#ifndef PORTABLE
+     if (gFlashMemoryPresent != TRUE)
+         SetMainCallback2(NULL);
+ #endif
++#endif
+ 
+     gLinkTransferringData = FALSE;
+-
++    PORT_BOOT_LOG("entering main loop");
++
++    u32 portableFrame = 0;
+     for (;;)
+     {
++#ifdef PORTABLE
++        if (++portableFrame % 300 == 0)
++            SDL_Log("[FireRed boot] frame %u callback=%p", portableFrame, gMain.callback2);
++#endif
+         ReadKeys();
+ 
+         if (gSoftResetDisabled == FALSE
+@@ -231,6 +270,11 @@
+     SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);
+     gSaveBlock2Ptr = &gSaveBlock2;
+     gSaveBlock1Ptr = &gSaveBlock1;
++#ifdef PORTABLE
++    // The copyright screen loads all save sectors before the title screen
++    // calls SetSaveBlocksPointers. PC-box sectors also need a valid target.
++    gPokemonStoragePtr = &gPokemonStorage;
++#endif
+     gSaveBlock2.encryptionKey = 0;
+     gQuestLogPlaybackState = QL_PLAYBACK_STATE_STOPPED;
+ #if REVISION >= 0xA
+@@ -295,7 +339,11 @@
+ 
+ static void ReadKeys(void)
+ {
++#ifndef PORTABLE
+     u16 keyInput = REG_KEYINPUT ^ KEYS_MASK;
++#else
++    u16 keyInput = Platform_GetKeyInput();
++#endif
+     gMain.newKeysRaw = keyInput & ~gMain.heldKeysRaw;
+     gMain.newKeys = gMain.newKeysRaw;
+     gMain.newAndRepeatedKeys = gMain.newKeysRaw;
+@@ -461,10 +509,14 @@
+ 
+ static void WaitForVBlank(void)
+ {
++#ifdef PORTABLE
++    VBlankIntrWait();
++#else
+     gMain.intrCheck &= ~INTR_FLAG_VBLANK;
+ 
+     while (!(gMain.intrCheck & INTR_FLAG_VBLANK))
+         ;
++#endif
+ }
+ 
+ void SetVBlankCounter1Ptr(u32 *ptr)
+--- a/src/naming_screen.c
++++ b/src/naming_screen.c
+@@ -720,6 +720,10 @@
+     {
+         if (sNamingScreen->templateNum == NAMING_SCREEN_PLAYER)
+             SeedRngAndSetTrainerId();
++        // The naming-screen task frees its state from inside RunTasks. Stop
++        // its VBlank callback before releasing that state; the portable main
++        // loop may otherwise run the callback once more during this frame.
++        SetVBlankCallback(NULL);
+         SetMainCallback2(sNamingScreen->returnCallback);
+         DestroyTask(FindTaskIdByFunc(Task_NamingScreen));
+         FreeAllWindowBuffers();
+@@ -2000,6 +2004,10 @@
+ static void CB2_NamingScreen(void)
+ {
+     RunTasks();
++    // MainState_Exit can free sNamingScreen while RunTasks is executing.
++    // None of the naming-screen sprite callbacks are valid after that point.
++    if (sNamingScreen == NULL)
++        return;
+     AnimateSprites();
+     BuildOamBuffer();
+     UpdatePaletteFade();
+@@ -2018,6 +2026,8 @@
+ 
+ static void VBlankCB_NamingScreen(void)
+ {
++    if (sNamingScreen == NULL)
++        return;
+     LoadOam();
+     ProcessSpriteCopyRequests();
+     TransferPlttBuffer();
+--- a/src/overworld.c
++++ b/src/overworld.c
+@@ -1488,6 +1488,13 @@
+         SetFieldVBlankCallback();
+ }
+ 
++#ifdef PORTABLE
++bool32 IsOverworldRunning(void)
++{
++    return gMain.callback2 == CB2_Overworld || gMain.callback2 == CB2_OverworldBasic;
++}
++#endif
++
+ void SetMainCallback1(MainCallback cb)
+ {
+     gMain.callback1 = cb;
+@@ -2050,7 +2057,17 @@
+ 
+ static void DoMapLoadLoop(u8 *state)
+ {
++#ifdef PORTABLE
++    // On hardware, VBlank interrupts can run while this loop is waiting and
++    // drain the queued tileset DMA copies. The portable game thread drives
++    // VBlank explicitly, so a tight loop deadlocks once map loading reaches
++    // FreeTempTileDataBuffersIfPossible(). Yield a frame between loading
++    // steps to let the renderer process those requests.
++    while (!LoadMapInStepsLocal(state, FALSE))
++        VBlankIntrWait();
++#else
+     while (!LoadMapInStepsLocal(state, FALSE)) ;
++#endif
+ }
+ 
+ static void MoveSaveBlocks_ResetHeap_(void)
+@@ -2248,7 +2265,13 @@
+ static void DoLoadMap_QLPlayback(u8 *state)
+ {
+     while (!LoadMap_QLPlayback(state))
++#ifdef PORTABLE
++        // Quest-log playback loads its map synchronously, just like a new
++        // game. Yield so queued tileset DMA copies can finish on the host.
++        VBlankIntrWait();
++#else
+         ;
++#endif
+ }
+ 
+ static bool32 LoadMap_QLPlayback(u8 *state)
+--- a/src/party_menu.c
++++ b/src/party_menu.c
+@@ -37,6 +37,9 @@
+ #include "metatile_behavior.h"
+ #include "overworld.h"
+ #include "party_menu.h"
++#ifdef PLATFORM_SDL2
++#include "platform/dualscreen.h"
++#endif
+ #include "player_pc.h"
+ #include "pokedex.h"
+ #include "pokemon.h"
+@@ -457,6 +460,24 @@
+     }
+ }
+ 
++#ifdef PLATFORM_SDL2
++const u8 *DualScreen_GetPartySlotTilemap(u32 kind, u32 *width, u32 *height)
++{
++    *width = kind <= 1 ? 10 : 18;
++    *height = kind <= 1 ? 7 : 3;
++    switch (kind)
++    {
++    case 0: return sSlotTilemap_Main;
++    case 1: return sSlotTilemap_MainNoHP;
++    case 2: return sSlotTilemap_Wide;
++    case 3: return sSlotTilemap_WideNoHP;
++    default: return sSlotTilemap_WideEmpty;
++    }
++}
++const u32 *DualScreen_GetHeldItemGfx(void) { return (const u32 *)sSpriteSheet_HeldItem.data; }
++const u16 *DualScreen_GetHeldItemPal(void) { return sSpritePalette_HeldItem.data; }
++#endif
++
+ static void CB2_UpdatePartyMenu(void)
+ {
+     RunTasks();
+@@ -475,11 +496,18 @@
+ 
+ static void CB2_InitPartyMenu(void)
+ {
++#ifdef PORTABLE
++    // BG copies finish between host frames. A busy loop here prevents the
++    // queued DMA from completing and leaves the screen faded to black.
++    if (!MenuHelpers_ShouldWaitForLinkRecv())
++        ShowPartyMenu();
++#else
+     while (TRUE)
+     {
+         if (MenuHelpers_ShouldWaitForLinkRecv() == TRUE || ShowPartyMenu() == TRUE || MenuHelpers_IsLinkActive() == TRUE)
+             break;
+     }
++#endif
+ }
+ 
+ static bool8 ShowPartyMenu(void)
+@@ -6190,6 +6218,17 @@
+     return 0;
+ }
+ 
++#ifdef PLATFORM_SDL2
++void DualScreen_BattleSwitchOrder(u8 monId)
++{
++    // The bottom screen uses field party indices and never rearranges the
++    // Pokemon structs. Only return the same packed order as the GBA menu;
++    // its temporary battle-order array swap is unnecessary here.
++    SwitchPartyMonSlots(GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[gBattlerInMenuId]),
++                       GetPartyIdFromBattlePartyId(monId));
++}
++#endif
++
+ static void UpdatePartyToBattleOrder(void)
+ {
+     struct Pokemon *partyBuffer = Alloc(sizeof(gPlayerParty));
+--- a/src/pokemon_storage_system_data.c
++++ b/src/pokemon_storage_system_data.c
+@@ -566,14 +566,16 @@
+     switch (sCursorArea)
+     {
+     case CURSOR_AREA_IN_PARTY:
++        if (!SetMovingMonSprite(MODE_PARTY, sCursorPosition))
++            return;
+         SetMovedMonData(TOTAL_BOXES_COUNT, sCursorPosition);
+-        SetMovingMonSprite(MODE_PARTY, sCursorPosition);
+         break;
+     case CURSOR_AREA_IN_BOX:
+         if (gStorage->inBoxMovingMode == MOVE_MODE_NORMAL)
+         {
++            if (!SetMovingMonSprite(MODE_BOX, sCursorPosition))
++                return;
+             SetMovedMonData(StorageGetCurrentBox(), sCursorPosition);
+-            SetMovingMonSprite(MODE_BOX, sCursorPosition);
+         }
+         break;
+     default:
+--- a/src/pokemon_storage_system_graphics.c
++++ b/src/pokemon_storage_system_graphics.c
+@@ -302,7 +302,8 @@
+     u8 priority = GetMonIconPriorityByCursorArea();
+ 
+     gStorage->movingMonSprite = CreateMonIconSprite(species, personality, 0, 0, priority, 7);
+-    gStorage->movingMonSprite->callback = SpriteCB_HeldMon;
++    if (gStorage->movingMonSprite != NULL)
++        gStorage->movingMonSprite->callback = SpriteCB_HeldMon;
+ }
+ 
+ static void InitBoxMonSprites(u8 boxId)
+@@ -336,7 +337,8 @@
+     {
+         for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
+         {
+-            if (GetBoxMonDataAt(boxId, boxPosition, MON_DATA_HELD_ITEM) == 0)
++            if (gStorage->boxMonsSprites[boxPosition] != NULL
++             && GetBoxMonDataAt(boxId, boxPosition, MON_DATA_HELD_ITEM) == 0)
+                 gStorage->boxMonsSprites[boxPosition]->oam.objMode = ST_OAM_OBJ_BLEND;
+         }
+     }
+@@ -353,7 +355,9 @@
+         u32 personality = GetCurrentBoxMonData(boxPosition, MON_DATA_PERSONALITY);
+ 
+         gStorage->boxMonsSprites[boxPosition] = CreateMonIconSprite(species, personality, x, y, 2, 19 - (boxPosition % IN_BOX_COLUMNS));
+-        if (gStorage->boxOption == OPTION_MOVE_ITEMS)
++        if (gStorage->boxMonsSprites[boxPosition] != NULL
++         && gStorage->boxOption == OPTION_MOVE_ITEMS
++         && GetCurrentBoxMonData(boxPosition, MON_DATA_HELD_ITEM) == 0)
+             gStorage->boxMonsSprites[boxPosition]->oam.objMode = ST_OAM_OBJ_BLEND;
+     }
+ }
+@@ -596,12 +600,14 @@
+ 
+ void CreatePartyMonsSprites(bool8 visible)
+ {
+-    u16 i, count;
++    u16 i;
+     u16 species = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG);
+     u32 personality = GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY);
+ 
+-    gStorage->partySprites[0] = CreateMonIconSprite(species, personality, 104, 64, 1, 12);
+-    count = 1;
++    if (species != SPECIES_NONE)
++        gStorage->partySprites[0] = CreateMonIconSprite(species, personality, 104, 64, 1, 12);
++    else
++        gStorage->partySprites[0] = NULL;
+     for (i = 1; i < PARTY_SIZE; i++)
+     {
+         species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
+@@ -609,7 +615,6 @@
+         {
+             personality = GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY);
+             gStorage->partySprites[i] = CreateMonIconSprite(species, personality, 152,  8 * (3 * (i - 1)) + 16, 1, 12);
+-            count++;
+         }
+         else
+             gStorage->partySprites[i] = NULL;
+@@ -617,10 +622,13 @@
+ 
+     if (!visible)
+     {
+-        for (i = 0; i < count; i++)
+-        {
+-            gStorage->partySprites[i]->y -= 160;
+-            gStorage->partySprites[i]->invisible = TRUE;
++        for (i = 0; i < PARTY_SIZE; i++)
++        {
++            if (gStorage->partySprites[i] != NULL)
++            {
++                gStorage->partySprites[i]->y -= 160;
++                gStorage->partySprites[i]->invisible = TRUE;
++            }
+         }
+     }
+ 
+@@ -776,28 +784,37 @@
+         gStorage->partySprites[partyId]->oam.objMode = objMode;
+ }
+ 
+-void SetMovingMonSprite(u8 mode, u8 id)
+-{
++bool8 SetMovingMonSprite(u8 mode, u8 id)
++{
++    struct Sprite *sprite;
++
+     if (mode == MODE_PARTY)
+-    {
+-        gStorage->movingMonSprite = gStorage->partySprites[id];
++        sprite = gStorage->partySprites[id];
++    else if (mode == MODE_BOX)
++        sprite = gStorage->boxMonsSprites[id];
++    else
++        return FALSE;
++
++    if (sprite == NULL)
++        return FALSE;
++
++    gStorage->movingMonSprite = sprite;
++    if (mode == MODE_PARTY)
+         gStorage->partySprites[id] = NULL;
+-    }
+-    else if (mode == MODE_BOX)
+-    {
+-        gStorage->movingMonSprite = gStorage->boxMonsSprites[id];
++    else
+         gStorage->boxMonsSprites[id] = NULL;
+-    }
+-    else
+-        return;
+ 
+     gStorage->movingMonSprite->callback = SpriteCB_HeldMon;
+     gStorage->movingMonSprite->oam.priority = GetMonIconPriorityByCursorArea();
+     gStorage->movingMonSprite->subpriority = 7;
++    return TRUE;
+ }
+ 
+ void SetPlacedMonSprite(u8 boxId, u8 position)
+ {
++    if (gStorage->movingMonSprite == NULL)
++        return;
++
+     if (boxId == TOTAL_BOXES_COUNT) // party mon
+     {
+         gStorage->partySprites[position] = gStorage->movingMonSprite;
+@@ -821,8 +838,13 @@
+     else
+         gStorage->shiftMonSpritePtr = &gStorage->boxMonsSprites[position];
+ 
+-    gStorage->movingMonSprite->callback = SpriteCallbackDummy;
+-    gStorage->shiftTimer = 0;
++    if (gStorage->movingMonSprite == NULL || *gStorage->shiftMonSpritePtr == NULL)
++        gStorage->shiftTimer = 16;
++    else
++    {
++        gStorage->movingMonSprite->callback = SpriteCallbackDummy;
++        gStorage->shiftTimer = 0;
++    }
+ }
+ 
+ bool8 ShiftMons(void)
+@@ -929,11 +951,21 @@
+ 
+ void SetMovingMonPriority(u8 priority)
+ {
+-    gStorage->movingMonSprite->oam.priority = priority;
++    // The original GBA code can harmlessly write through address 0 while the
++    // storage cursor is moving without a held Pokemon. Native platforms turn
++    // that same write into a null-pointer crash.
++    if (gStorage->movingMonSprite != NULL)
++        gStorage->movingMonSprite->oam.priority = priority;
+ }
+ 
+ static void SpriteCB_HeldMon(struct Sprite *sprite)
+ {
++    if (gStorage == NULL || gStorage->cursorSprite == NULL)
++    {
++        sprite->callback = SpriteCallbackDummy;
++        return;
++    }
++
+     sprite->x = gStorage->cursorSprite->x;
+     sprite->y = gStorage->cursorSprite->y + gStorage->cursorSprite->y2 + 4;
+ }
+@@ -1296,8 +1328,12 @@
+     for (i = 0; i < 2; i++)
+     {
+         u8 spriteId = CreateSprite(&sSpriteTemplate_BoxTitle, x + i * 32, 28, 24);
+-        gStorage->curBoxTitleSprites[i] = &gSprites[spriteId];
+-        StartSpriteAnim(gStorage->curBoxTitleSprites[i], i);
++        gStorage->curBoxTitleSprites[i] = NULL;
++        if (spriteId != MAX_SPRITES)
++        {
++            gStorage->curBoxTitleSprites[i] = &gSprites[spriteId];
++            StartSpriteAnim(gStorage->curBoxTitleSprites[i], i);
++        }
+     }
+     gStorage->boxTitleCycleId = 0;
+ }
+@@ -1337,16 +1373,23 @@
+     {
+         u8 spriteId = CreateSprite(&template, i * 32 + adjustedX, 28, 24);
+ 
+-        gStorage->nextBoxTitleSprites[i] = &gSprites[spriteId];
+-        gStorage->nextBoxTitleSprites[i]->data[0] = (-direction) * 6;
+-        gStorage->nextBoxTitleSprites[i]->data[1] = i * 32 + x;
+-        gStorage->nextBoxTitleSprites[i]->data[2] = 0;
+-        gStorage->nextBoxTitleSprites[i]->callback = SpriteCB_IncomingBoxTitle;
+-        StartSpriteAnim(gStorage->nextBoxTitleSprites[i], i);
+-
+-        gStorage->curBoxTitleSprites[i]->data[0] = (-direction) * 6;
+-        gStorage->curBoxTitleSprites[i]->data[1] = 1;
+-        gStorage->curBoxTitleSprites[i]->callback = SpriteCB_OutgoingBoxTitle;
++        gStorage->nextBoxTitleSprites[i] = NULL;
++        if (spriteId != MAX_SPRITES)
++        {
++            gStorage->nextBoxTitleSprites[i] = &gSprites[spriteId];
++            gStorage->nextBoxTitleSprites[i]->data[0] = (-direction) * 6;
++            gStorage->nextBoxTitleSprites[i]->data[1] = i * 32 + x;
++            gStorage->nextBoxTitleSprites[i]->data[2] = 0;
++            gStorage->nextBoxTitleSprites[i]->callback = SpriteCB_IncomingBoxTitle;
++            StartSpriteAnim(gStorage->nextBoxTitleSprites[i], i);
++        }
++
++        if (gStorage->curBoxTitleSprites[i] != NULL)
++        {
++            gStorage->curBoxTitleSprites[i]->data[0] = (-direction) * 6;
++            gStorage->curBoxTitleSprites[i]->data[1] = 1;
++            gStorage->curBoxTitleSprites[i]->callback = SpriteCB_OutgoingBoxTitle;
++        }
+     }
+ }
+ 
+@@ -1410,6 +1453,7 @@
+     for (i = 0; i < 2; i++)
+     {
+         u8 spriteId = CreateSprite(&sSpriteTemplate_BoxScrollArrow, 92 + i * 136, 28, 22);
++        gStorage->arrowSprites[i] = NULL;
+         if (spriteId != MAX_SPRITES)
+         {
+             struct Sprite *sprite = &gSprites[spriteId];
+@@ -1429,25 +1473,18 @@
+ 
+     for (i = 0; i < 2; i++)
+     {
+-        gStorage->arrowSprites[i]->x2 = 0;
+-        gStorage->arrowSprites[i]->sState = 2;
+-    }
+-    if (direction < 0)
+-    {
+-        gStorage->arrowSprites[0]->sTimer = 29;
+-        gStorage->arrowSprites[1]->sTimer = 5;
+-        gStorage->arrowSprites[0]->data[2] = 72;
+-        gStorage->arrowSprites[1]->data[2] = 72;
+-    }
+-    else
+-    {
+-        gStorage->arrowSprites[0]->sTimer = 5;
+-        gStorage->arrowSprites[1]->sTimer = 29;
+-        gStorage->arrowSprites[0]->data[2] = DISPLAY_WIDTH + 8;
+-        gStorage->arrowSprites[1]->data[2] = DISPLAY_WIDTH + 8;
+-    }
+-    gStorage->arrowSprites[0]->data[7] = 0;
+-    gStorage->arrowSprites[1]->data[7] = 1;
++        if (gStorage->arrowSprites[i] != NULL)
++        {
++            gStorage->arrowSprites[i]->x2 = 0;
++            gStorage->arrowSprites[i]->sState = 2;
++            if (direction < 0)
++                gStorage->arrowSprites[i]->sTimer = (i == 0) ? 29 : 5;
++            else
++                gStorage->arrowSprites[i]->sTimer = (i == 0) ? 5 : 29;
++            gStorage->arrowSprites[i]->data[2] = direction < 0 ? 72 : DISPLAY_WIDTH + 8;
++            gStorage->arrowSprites[i]->data[7] = i;
++        }
++    }
+ }
+ 
+ // New box's scroll arrows have entered, stop sliding and set their position
+@@ -1457,9 +1494,12 @@
+ 
+     for (i = 0; i < 2; i++)
+     {
+-        gStorage->arrowSprites[i]->x = 136 * i + 92;
+-        gStorage->arrowSprites[i]->x2 = 0;
+-        gStorage->arrowSprites[i]->invisible = FALSE;
++        if (gStorage->arrowSprites[i] != NULL)
++        {
++            gStorage->arrowSprites[i]->x = 136 * i + 92;
++            gStorage->arrowSprites[i]->x2 = 0;
++            gStorage->arrowSprites[i]->invisible = FALSE;
++        }
+     }
+     AnimateBoxScrollArrows(TRUE);
+ }
+@@ -1474,17 +1514,23 @@
+         // Start arrows moving
+         for (i = 0; i < 2; i++)
+         {
+-            gStorage->arrowSprites[i]->sState = 1;
+-            gStorage->arrowSprites[i]->sTimer = 0;
+-            gStorage->arrowSprites[i]->data[2] = 0;
+-            gStorage->arrowSprites[i]->data[4] = 0;
++            if (gStorage->arrowSprites[i] != NULL)
++            {
++                gStorage->arrowSprites[i]->sState = 1;
++                gStorage->arrowSprites[i]->sTimer = 0;
++                gStorage->arrowSprites[i]->data[2] = 0;
++                gStorage->arrowSprites[i]->data[4] = 0;
++            }
+         }
+     }
+     else
+     {
+         // Stop arrows moving
+         for (i = 0; i < 2; i++)
+-            gStorage->arrowSprites[i]->sState = 0;
++        {
++            if (gStorage->arrowSprites[i] != NULL)
++                gStorage->arrowSprites[i]->sState = 0;
++        }
+     }
+ }
+ 
+--- a/src/pokemon_storage_system_menu.c
++++ b/src/pokemon_storage_system_menu.c
+@@ -537,11 +537,13 @@
+     const u8 sText_OutOf30[] = _("/30");
+ 
+     sChooseBoxMenu->curBox = curBox;
++    sChooseBoxMenu->menuSprite = NULL;
+     template.tileTag = sChooseBoxMenu->tileTag;
+     template.paletteTag = sChooseBoxMenu->paletteTag;
+ 
+     spriteId = CreateSprite(&template, 160, 96, 0);
+-    sChooseBoxMenu->menuSprite = gSprites + spriteId;
++    if (spriteId != MAX_SPRITES)
++        sChooseBoxMenu->menuSprite = gSprites + spriteId;
+ 
+     oamData.shape = SPRITE_SHAPE(8x32);
+     oamData.size = SPRITE_SIZE(8x32);
+@@ -551,7 +553,11 @@
+     {
+         // corner sprites are created in order of top left, bottom left, top right, bottom right
+         u16 animNum;
++        sChooseBoxMenu->menuCornerSprites[i] = NULL;
+         spriteId = CreateSprite(&template, 124, 80, sChooseBoxMenu->subpriority); // place at top left
++        if (spriteId == MAX_SPRITES)
++            continue;
++
+         sChooseBoxMenu->menuCornerSprites[i] = &gSprites[spriteId];
+         animNum = 0;
+         if (i & 2)
+--- a/src/pokemon_storage_system_misc.c
++++ b/src/pokemon_storage_system_misc.c
+@@ -683,10 +683,13 @@
+     .callback = SpriteCallbackDummy,
+ };
+ 
+-void CreateItemIconSprites(void)
++bool8 CreateItemIconSprites(void)
+ {
+     s32 i;
++    u16 tileStart;
++    u8 palIndex;
+     u8 spriteId;
++    bool8 success = TRUE;
+     struct CompressedSpriteSheet spriteSheet;
+     struct SpriteTemplate spriteTemplate;
+     static u32 sItemIconGfxBuffer[0x61];
+@@ -699,20 +702,45 @@
+ 
+         for (i = 0; i < MAX_ITEM_ICONS; i++)
+         {
++            gStorage->itemIcons[i].tiles = NULL;
++            gStorage->itemIcons[i].sprite = NULL;
++            gStorage->itemIcons[i].active = FALSE;
+             spriteSheet.tag = GFXTAG_ITEM_ICON_0 + i;
+             LoadCompressedSpriteSheet(&spriteSheet);
+-            gStorage->itemIcons[i].tiles = GetSpriteTileStartByTag(spriteSheet.tag) * TILE_SIZE_4BPP + (void *)(OBJ_VRAM0);
+-            gStorage->itemIcons[i].palIndex = AllocSpritePalette(PALTAG_ITEM_ICON_0 + i);
+-            gStorage->itemIcons[i].palIndex = OBJ_PLTT_ID(gStorage->itemIcons[i].palIndex);
++            tileStart = GetSpriteTileStartByTag(spriteSheet.tag);
++            if (tileStart == TAG_NONE)
++            {
++                success = FALSE;
++                continue;
++            }
++
++            palIndex = AllocSpritePalette(PALTAG_ITEM_ICON_0 + i);
++            if (palIndex == 0xFF)
++            {
++                FreeSpriteTilesByTag(spriteSheet.tag);
++                success = FALSE;
++                continue;
++            }
++
+             spriteTemplate.tileTag = GFXTAG_ITEM_ICON_0 + i;
+             spriteTemplate.paletteTag = PALTAG_ITEM_ICON_0 + i;
+             spriteId = CreateSprite(&spriteTemplate, 0, 0, 11);
++            if (spriteId == MAX_SPRITES)
++            {
++                FreeSpriteTilesByTag(spriteSheet.tag);
++                FreeSpritePaletteByTag(spriteTemplate.paletteTag);
++                success = FALSE;
++                continue;
++            }
++
++            gStorage->itemIcons[i].tiles = tileStart * TILE_SIZE_4BPP + (void *)(OBJ_VRAM0);
++            gStorage->itemIcons[i].palIndex = OBJ_PLTT_ID(palIndex);
+             gStorage->itemIcons[i].sprite = &gSprites[spriteId];
+             gStorage->itemIcons[i].sprite->invisible = TRUE;
+-            gStorage->itemIcons[i].active = FALSE;
+         }
+     }
+     gStorage->movingItemId = ITEM_NONE;
++    return success;
+ }
+ 
+ void TryLoadItemIconAtPos(u8 cursorArea, u8 cursorPos)
+@@ -912,7 +940,7 @@
+ 
+     for (i = 0; i < MAX_ITEM_ICONS; i++)
+     {
+-        if (gStorage->itemIcons[i].active)
++        if (gStorage->itemIcons[i].active && gStorage->itemIcons[i].sprite != NULL)
+         {
+             if (!gStorage->itemIcons[i].sprite->affineAnimEnded && gStorage->itemIcons[i].sprite->affineAnimBeginning)
+                 return TRUE;
+@@ -956,7 +984,7 @@
+ 
+     for (i = 0; i < MAX_ITEM_ICONS; i++)
+     {
+-        if (!gStorage->itemIcons[i].active)
++        if (!gStorage->itemIcons[i].active && gStorage->itemIcons[i].sprite != NULL)
+         {
+             gStorage->itemIcons[i].active = TRUE;
+             return i;
+@@ -1014,7 +1042,7 @@
+ {
+     u8 row, column;
+ 
+-    if (id >= MAX_ITEM_ICONS)
++    if (id >= MAX_ITEM_ICONS || gStorage->itemIcons[id].sprite == NULL)
+         return;
+ 
+     switch (cursorArea)
+@@ -1049,7 +1077,7 @@
+ {
+     s32 i;
+ 
+-    if (id >= MAX_ITEM_ICONS)
++    if (id >= MAX_ITEM_ICONS || gStorage->itemIcons[id].sprite == NULL || gStorage->itemIcons[id].tiles == NULL)
+         return;
+ 
+     CpuFastFill(0, gStorage->itemIconBuffer, 0x200);
+@@ -1064,7 +1092,7 @@
+ 
+ static void SetItemIconAffineAnim(u8 id, u8 animNum)
+ {
+-    if (id >= MAX_ITEM_ICONS)
++    if (id >= MAX_ITEM_ICONS || gStorage->itemIcons[id].sprite == NULL)
+         return;
+ 
+     StartSpriteAffineAnim(gStorage->itemIcons[id].sprite, animNum);
+@@ -1077,7 +1105,7 @@
+ 
+ static void SetItemIconCallback(u8 id, u8 callbackId, u8 cursorArea, u8 cursorPos)
+ {
+-    if (id >= MAX_ITEM_ICONS)
++    if (id >= MAX_ITEM_ICONS || gStorage->itemIcons[id].sprite == NULL)
+         return;
+ 
+     switch (callbackId)
+@@ -1119,7 +1147,7 @@
+ 
+ static void SetItemIconActive(u8 id, bool8 show)
+ {
+-    if (id >= MAX_ITEM_ICONS)
++    if (id >= MAX_ITEM_ICONS || gStorage->itemIcons[id].sprite == NULL)
+         return;
+ 
+     gStorage->itemIcons[id].active = show;
+--- a/src/pokemon_storage_system_tasks.c
++++ b/src/pokemon_storage_system_tasks.c
+@@ -401,6 +401,14 @@
+ static void CB2_PokeStorage(void)
+ {
+     RunTasks();
++
++    // Task_ChangeScreen frees gStorage when leaving the storage system. On
++    // native platforms, continuing the rest of this callback in that frame
++    // would dereference the cleared pointer in the close-button and sprite
++    // callbacks before the newly selected main callback gets a chance to run.
++    if (gStorage == NULL)
++        return;
++
+     DoScheduledBgTilemapCopiesToVram();
+     ScrollBackground();
+     UpdateCloseBoxButtonFlash();
+@@ -412,7 +420,7 @@
+ {
+     ResetTasks();
+     sCurrentBoxOption = boxOption;
+-    gStorage = Alloc(sizeof(struct PokemonStorageSystemData));
++    gStorage = AllocZeroed(sizeof(struct PokemonStorageSystemData));
+     if (gStorage == NULL)
+         SetMainCallback2(CB2_ExitPokeStorage);
+     else
+@@ -431,7 +439,7 @@
+ void CB2_ReturnToPokeStorage(void)
+ {
+     ResetTasks();
+-    gStorage = Alloc(sizeof(struct PokemonStorageSystemData));
++    gStorage = AllocZeroed(sizeof(struct PokemonStorageSystemData));
+     if (gStorage == NULL)
+         SetMainCallback2(CB2_ExitPokeStorage);
+     else
+@@ -547,6 +555,17 @@
+             InitCursor();
+         else
+             InitCursorOnReopen();
++
++        // The cursor and its shadow are used throughout every storage mode.
++        // If either critical sprite could not be allocated, leave the screen
++        // cleanly instead of letting the first input dereference a null sprite.
++        if (gStorage->cursorSprite == NULL || gStorage->cursorShadowSprite == NULL
++         || (IsMonBeingMoved() && gStorage->movingMonSprite == NULL))
++        {
++            gStorage->screenChangeType = SCREEN_CHANGE_EXIT_BOX;
++            SetPokeStorageTask(Task_ChangeScreen);
++            return;
++        }
+         break;
+     case 5:
+         if (!MultiMove_Init())
+@@ -582,7 +601,12 @@
+         }
+         else
+         {
+-            CreateItemIconSprites();
++            if (!CreateItemIconSprites())
++            {
++                gStorage->screenChangeType = SCREEN_CHANGE_EXIT_BOX;
++                SetPokeStorageTask(Task_ChangeScreen);
++                return;
++            }
+             InitCursorItemIcon();
+         }
+         break;
+@@ -2102,6 +2126,10 @@
+ 
+ static void FreePokeStorageData(void)
+ {
++    // VBlank can run before the next main callback initializes its own state.
++    // Stop the storage VBlank callback while gStorage is still valid so it
++    // cannot read bg2_X after the allocation has been released.
++    SetVBlankCallback(NULL);
+     TilemapUtil_Free();
+     MultiMove_Free();
+     FREE_AND_SET_NULL(gStorage);
+@@ -2165,6 +2193,9 @@
+ static void CreateMarkingComboSprite(void)
+ {
+     gStorage->markingComboSprite = CreateMonMarkingComboSprite(GFXTAG_MARKING_COMBO, PALTAG_MARKING_COMBO, NULL);
++    if (gStorage->markingComboSprite == NULL)
++        return;
++
+     gStorage->markingComboSprite->oam.priority = 1;
+     gStorage->markingComboSprite->subpriority = 1;
+     gStorage->markingComboSprite->x = 40;
+@@ -2181,7 +2212,10 @@
+     for (i = 0; i < 2; i++)
+     {
+         u8 spriteId = CreateSprite(&sSpriteTemplate_Waveform, i * 63 + 8, 9, 2);
+-        gStorage->waveformSprites[i] = &gSprites[spriteId];
++        if (spriteId == MAX_SPRITES)
++            gStorage->waveformSprites[i] = NULL;
++        else
++            gStorage->waveformSprites[i] = &gSprites[spriteId];
+     }
+ }
+ 
+@@ -2208,7 +2242,7 @@
+ 
+ static u8 IsDisplayMonMosaicActive(void)
+ {
+-    return gStorage->displayMonSprite->oam.mosaic;
++    return gStorage->displayMonSprite != NULL && gStorage->displayMonSprite->oam.mosaic;
+ }
+ 
+ static void SpriteCB_DisplayMonMosaic(struct Sprite *sprite)
+@@ -2243,8 +2277,9 @@
+ 
+     do
+     {
+-        tileStart = LoadSpriteSheet(&sheet);
+-        if (tileStart == 0)
++        LoadSpriteSheet(&sheet);
++        tileStart = GetSpriteTileStartByTag(sheet.tag);
++        if (tileStart == TAG_NONE)
+             break;
+ 
+         palSlot = LoadSpritePalette(&palette);
+@@ -2304,12 +2339,12 @@
+     }
+ 
+     CopyWindowToVram(0, COPYWIN_GFX);
+-    if (gStorage->displayMonSpecies != SPECIES_NONE)
++    if (gStorage->markingComboSprite != NULL && gStorage->displayMonSpecies != SPECIES_NONE)
+     {
+         UpdateMonMarkingTiles(gStorage->displayMonMarkings, gStorage->markingComboTilesPtr);
+         gStorage->markingComboSprite->invisible = FALSE;
+     }
+-    else
++    else if (gStorage->markingComboSprite != NULL)
+         gStorage->markingComboSprite->invisible = TRUE;
+ }
+ 
+@@ -2321,13 +2356,19 @@
+     {
+         TilemapUtil_SetRect(TILEMAP_PKMN_DATA, 0, 0, 8, 2);
+         for (i = 0; i < 2; i++)
+-            StartSpriteAnimIfDifferent(gStorage->waveformSprites[i], i * 2 + 1);
++        {
++            if (gStorage->waveformSprites[i] != NULL)
++                StartSpriteAnimIfDifferent(gStorage->waveformSprites[i], i * 2 + 1);
++        }
+     }
+     else
+     {
+         TilemapUtil_SetRect(TILEMAP_PKMN_DATA, 0, 2, 8, 2);
+         for (i = 0; i < 2; i++)
+-            StartSpriteAnim(gStorage->waveformSprites[i], i * 2);
++        {
++            if (gStorage->waveformSprites[i] != NULL)
++                StartSpriteAnim(gStorage->waveformSprites[i], i * 2);
++        }
+     }
+ 
+     TilemapUtil_Update(TILEMAP_PKMN_DATA);
+--- a/src/pokemon_summary_screen.c
++++ b/src/pokemon_summary_screen.c
+@@ -3036,6 +3036,11 @@
+ 
+ static void Task_DestroyResourcesOnExit(u8 taskId)
+ {
++    // VBlank can run before the restored main callback initializes its state.
++    // Stop the Summary callback while sMonSummaryScreen is still valid so it
++    // cannot read page-flip state after the allocation has been released.
++    SetVBlankCallback(NULL);
++
+     PokeSum_DestroySprites();
+     FreeAllSpritePalettes();
+ 
+@@ -4939,7 +4944,9 @@
+ {
+     u32 markings = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MARKINGS);
+ 
+-    DestroySpriteAndFreeResources(sMonSummaryScreen->markingSprite);
++    if (sMonSummaryScreen->markingSprite != NULL)
++        DestroySpriteAndFreeResources(sMonSummaryScreen->markingSprite);
++
+     sMonSummaryScreen->markingSprite = CreateMonMarkingAllCombosSprite(TAG_PSS_UNK_8C, TAG_PSS_UNK_8C, sMonMarkingSpritePalette);
+ 
+     if (sMonSummaryScreen->markingSprite != NULL)
+@@ -4947,19 +4954,25 @@
+         StartSpriteAnim(sMonSummaryScreen->markingSprite, markings);
+         sMonSummaryScreen->markingSprite->x = 20;
+         sMonSummaryScreen->markingSprite->y = 91;
+-    }
+-
+-    PokeSum_ShowOrHideMonMarkingsSprite(TRUE);
++        PokeSum_ShowOrHideMonMarkingsSprite(TRUE);
++    }
+ }
+ 
+ static void PokeSum_DestroyMonMarkingsSprite(void)
+ {
+-    DestroySpriteAndFreeResources(sMonSummaryScreen->markingSprite);
++    if (sMonSummaryScreen->markingSprite != NULL)
++    {
++        DestroySpriteAndFreeResources(sMonSummaryScreen->markingSprite);
++        sMonSummaryScreen->markingSprite = NULL;
++    }
+ }
+ 
+ static void PokeSum_ShowOrHideMonMarkingsSprite(u8 invisible)
+ {
+     u32 markings = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MARKINGS);
++
++    if (sMonSummaryScreen->markingSprite == NULL)
++        return;
+ 
+     if (markings == 0)
+         sMonSummaryScreen->markingSprite->invisible = TRUE;
+@@ -4970,6 +4983,9 @@
+ static void PokeSum_UpdateMonMarkingsAnim(void)
+ {
+     u32 markings = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MARKINGS);
++
++    if (sMonSummaryScreen->markingSprite == NULL)
++        return;
+ 
+     StartSpriteAnim(sMonSummaryScreen->markingSprite, markings);
+     PokeSum_ShowOrHideMonMarkingsSprite(FALSE);
+--- a/src/region_map.c
++++ b/src/region_map.c
+@@ -3368,6 +3368,92 @@
+     }
+ }
+ 
++#ifdef PLATFORM_SDL2
++// Read-only access for the bottom screen. Never open the GBA map UI or
++// borrow its temporary cursor/VRAM buffers from the Android render thread.
++const u16 *DualScreen_GetRegionMapPal(void)
++{
++    return sRegionMap_Pal;
++}
++
++const u32 *DualScreen_GetRegionMapGfxLZ(void)
++{
++    return sRegionMap_Gfx;
++}
++
++const u32 *DualScreen_GetRegionMapTilemapLZ(u8 region)
++{
++    switch (region)
++    {
++    case REGIONMAP_KANTO: return sKanto_Tilemap;
++    case REGIONMAP_SEVII123: return sSevii123_Tilemap;
++    case REGIONMAP_SEVII45: return sSevii45_Tilemap;
++    case REGIONMAP_SEVII67: return sSevii67_Tilemap;
++    default: return NULL;
++    }
++}
++
++bool32 DualScreen_GetRegionMapSection(u16 mapsec, struct DualScreenMapSection *out)
++{
++    int region, layer, x, y;
++    int left = MAP_WIDTH, top = MAP_HEIGHT, right = -1, bottom = -1;
++    u16 location = mapsec;
++
++    if (out == NULL)
++        return FALSE;
++    memset(out, 0, sizeof(*out));
++    if (mapsec < KANTO_MAPSEC_START || mapsec >= MAPSEC_NONE)
++        return FALSE;
++
++    // These interiors share the outdoor location used by FireRed's map.
++    switch (location)
++    {
++    case MAPSEC_SILPH_CO: location = MAPSEC_SAFFRON_CITY; break;
++    case MAPSEC_ROCKET_HIDEOUT: location = MAPSEC_CELADON_CITY; break;
++    case MAPSEC_POKEMON_MANSION: location = MAPSEC_CINNABAR_ISLAND; break;
++    case MAPSEC_S_S_ANNE: location = MAPSEC_VERMILION_CITY; break;
++    case MAPSEC_POKEMON_LEAGUE: location = MAPSEC_INDIGO_PLATEAU; break;
++    case MAPSEC_KANTO_SAFARI_ZONE: location = MAPSEC_FUCHSIA_CITY; break;
++    case MAPSEC_EMBER_SPA: location = MAPSEC_KINDLE_ROAD; break;
++    case MAPSEC_MONEAN_CHAMBER:
++    case MAPSEC_LIPTOO_CHAMBER:
++    case MAPSEC_WEEPTH_CHAMBER:
++    case MAPSEC_DILFORD_CHAMBER:
++    case MAPSEC_SCUFIB_CHAMBER:
++    case MAPSEC_RIXY_CHAMBER:
++    case MAPSEC_VIAPOIS_CHAMBER:
++        location = MAPSEC_TANOBY_RUINS;
++        break;
++    }
++
++    // Bound every lookup: unused/special map IDs must not overrun the
++    // Sevii table or turn into a false marker at (0, 0).
++    for (region = 0; region < (int)NELEMS(sSeviiMapsecs); region++)
++        for (x = 0; x < (int)NELEMS(sSeviiMapsecs[region]) && sSeviiMapsecs[region][x] != MAPSEC_NONE; x++)
++            if (sSeviiMapsecs[region][x] == location)
++                out->region = region + 1;
++
++    for (layer = 0; layer < LAYER_COUNT; layer++)
++    for (y = 0; y < MAP_HEIGHT; y++)
++    for (x = 0; x < MAP_WIDTH; x++)
++    {
++        if (GetSelectedMapSection(out->region, layer, y, x) != location)
++            continue;
++        if (x < left) left = x;
++        if (x > right) right = x;
++        if (y < top) top = y;
++        if (y > bottom) bottom = y;
++    }
++    if (right < left || bottom < top)
++        return FALSE;
++    out->x = left;
++    out->y = top;
++    out->width = right - left + 1;
++    out->height = bottom - top + 1;
++    return TRUE;
++}
++#endif
++
+ static void CreatePlayerIcon(u16 tileTag, u16 palTag)
+ {
+     sPlayerIcon = AllocZeroed(sizeof(struct PlayerIcon));
+--- a/src/save.c
++++ b/src/save.c
+@@ -10,6 +10,9 @@
+ #include "pokemon_storage_system.h"
+ #include "gba/flash_internal.h"
+ #include "sloopsvc.h"
++#ifdef PLATFORM_SDL2
++#include "platform.h"
++#endif
+ 
+ static u8 HandleWriteSector(u16 sectorId, const struct SaveSectorLocation *locations);
+ static u8 TryWriteSector(u8 sectorNum, u8 *data);
+@@ -94,12 +97,30 @@
+ EWRAM_DATA struct SaveSector gSaveDataBuffer = {0};
+ EWRAM_DATA u32 gSaveUnusedVar2 = 0;
+ 
++static void CommitSaveFile(void)
++{
++#ifdef PLATFORM_SDL2
++    if (gDamagedSaveSectors == 0 && !Platform_CommitSaveFile())
++    {
++        // Reuse the game's save-error/retry flow for host I/O failures.
++        // Roll back the rotation so a retry rewrites this same save slot.
++        u16 sector = gLastWrittenSector + NUM_SECTORS_PER_SLOT * (gSaveCounter % NUM_SAVE_SLOTS);
++        gDamagedSaveSectors |= 1u << sector;
++        gLastWrittenSector = gLastKnownGoodSector;
++        gSaveCounter = gLastSaveCounter;
++    }
++#endif
++}
++
+ void ClearSaveData(void)
+ {
+     u16 i;
+ 
+     for (i = 0; i < SECTORS_COUNT; i++)
+         EraseFlashSector(i);
++#ifdef PLATFORM_SDL2
++    Platform_StoreSaveFile();
++#endif
+ }
+ 
+ void Save_ResetSaveCounters(void)
+@@ -332,7 +353,8 @@
+     // write new save data, excluding the signature and counter fields
+     for (i = 0; i < SECTOR_SIGNATURE_OFFSET; i++)
+     {
+-        if (ProgramFlashByte(sectorNum, i, gSaveDataBufferPtr->data[i]))
++        // This includes the footer, beyond the data[] member of the sector.
++        if (ProgramFlashByte(sectorNum, i, ((u8 *)gSaveDataBufferPtr)[i]))
+         {
+             status = SAVE_STATUS_ERROR;
+             break;
+@@ -448,6 +470,9 @@
+     {
+         ReadFlashSector(i + sector, gSaveDataBufferPtr);
+         id = gSaveDataBufferPtr->id;
++        // An erased sector has id 0xFFFF; never use it as an array index.
++        if (gSaveDataBufferPtr->signature != SECTOR_SIGNATURE || id >= NUM_SECTORS_PER_SLOT)
++            continue;
+         if (id == 0)
+             gLastWrittenSector = i;
+ 
+@@ -481,7 +506,7 @@
+     for (sector = 0; sector < NUM_SECTORS_PER_SLOT; sector++)
+     {
+         ReadFlashSector(sector, gSaveDataBufferPtr);
+-        if (gSaveDataBufferPtr->signature == SECTOR_SIGNATURE)
++        if (gSaveDataBufferPtr->signature == SECTOR_SIGNATURE && gSaveDataBufferPtr->id < NUM_SECTORS_PER_SLOT)
+         {
+             signatureValid = TRUE;
+             checksum = CalculateChecksum(gSaveDataBufferPtr->data, locations[gSaveDataBufferPtr->id].size);
+@@ -509,7 +534,7 @@
+     for (sector = 0; sector < NUM_SECTORS_PER_SLOT; sector++)
+     {
+         ReadFlashSector(NUM_SECTORS_PER_SLOT + sector, gSaveDataBufferPtr);
+-        if (gSaveDataBufferPtr->signature == SECTOR_SIGNATURE)
++        if (gSaveDataBufferPtr->signature == SECTOR_SIGNATURE && gSaveDataBufferPtr->id < NUM_SECTORS_PER_SLOT)
+         {
+             signatureValid = TRUE;
+             checksum = CalculateChecksum(gSaveDataBufferPtr->data, locations[gSaveDataBufferPtr->id].size);
+@@ -653,6 +678,10 @@
+     u32 *backupPtr = gMain.vblankCounter1;
+     u8 *tempAddr;
+ 
++#ifdef PLATFORM_SDL2
++    gLastKnownGoodSector = gLastWrittenSector;
++    gLastSaveCounter = gSaveCounter;
++#endif
+     gMain.vblankCounter1 = NULL;
+     UpdateSaveAddresses();
+     switch (saveType)
+@@ -692,6 +721,7 @@
+         break;
+     }
+     gMain.vblankCounter1 = backupPtr;
++    CommitSaveFile();
+ #if REVISION >= 0xA
+     svc_FinishSave();
+ #endif
+@@ -755,6 +785,7 @@
+ bool8 LinkFullSave_SetLastSectorSignature(void)
+ {
+     CopySectorSignatureByte(NUM_SECTORS_PER_SLOT, gRamSaveSectorLocations);
++    CommitSaveFile();
+     if (gDamagedSaveSectors)
+         DoSaveFailedScreen(SAVE_NORMAL);
+ 
+@@ -794,6 +825,8 @@
+         WriteSectorSignatureByte(sectorId, gRamSaveSectorLocations);
+         finished = TRUE;
+     }
++    if (finished)
++        CommitSaveFile();
+     if (gDamagedSaveSectors)
+         DoSaveFailedScreen(SAVE_LINK);
+ 
+@@ -875,6 +908,10 @@
+ 
+     if (ProgramFlashSectorAndVerify(sector, savDataBuffer) != 0)
+         return SAVE_STATUS_ERROR;
++#ifdef PLATFORM_SDL2
++    if (!Platform_CommitSaveFile())
++        return SAVE_STATUS_ERROR;
++#endif
+ 
+     return SAVE_STATUS_OK;
+ }
+--- a/src/start_menu.c
++++ b/src/start_menu.c
+@@ -37,6 +37,7 @@
+ #include "constants/songs.h"
+ #include "constants/field_weather.h"
+ #include "sloopsvc.h"
++#include "platform.h"
+ 
+ enum StartMenuOption
+ {
+@@ -540,6 +541,7 @@
+     DestroySafariZoneStatsWindow();
+     DestroyHelpMessageWindow_();
+     CloseStartMenu();
++    Platform_ExitApplication();
+     return TRUE;
+ }
+ 
+--- a/src/strings.c
++++ b/src/strings.c
+@@ -902,7 +902,7 @@
+ const u8 gStartMenuDesc_Player[] = _("Check your money and other game data.");
+ const u8 gStartMenuDesc_Save[] = _("Save your game with a complete record\nof your progress to take a break.");
+ const u8 gStartMenuDesc_Option[] = _("Adjust various game settings such as text\nspeed, game rules, etc.");
+-const u8 gStartMenuDesc_Exit[] = _("Close this MENU window.");
++const u8 gStartMenuDesc_Exit[] = _("Close the game.");
+ const u8 gStartMenuDesc_Retire[] = _("Retire from the SAFARI GAME and return to\nthe registration counter.");
+ 
+ #include "data/text/quest_log.h"
+--- a/src/task.c
++++ b/src/task.c
+@@ -86,7 +86,7 @@
+ 
+ void DestroyTask(u8 taskId)
+ {
+-#if REVISION >= 0xA
++#if REVISION >= 0xA || defined(PORTABLE)
+     // Bounds check on the task ID.
+     if (taskId >= NUM_TASKS) return;
+ #endif
+--- a/src/text.c
++++ b/src/text.c
+@@ -184,8 +184,8 @@
+ };
+ static const u16 sFontTallJapaneseGlyphs[] = INCBIN_U16("graphics/fonts/japanese_tall.fwjpnfont");
+ 
+-static const u16 sFontNormalLatinGlyphs[] = INCBIN_U16("graphics/fonts/latin_normal.fwlatfont");
+-static const u8 sFontNormalLatinGlyphWidths[] =
++const u16 sFontNormalLatinGlyphs[] = INCBIN_U16("graphics/fonts/latin_normal.fwlatfont");
++const u8 sFontNormalLatinGlyphWidths[] =
+ {
+      6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+      6,  6,  8,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+--- a/src/tm_case.c
++++ b/src/tm_case.c
+@@ -458,6 +458,12 @@
+             break;
+         if (MenuHelpers_IsLinkActive() == TRUE)
+             break;
++#ifdef PORTABLE
++        // Host DMA is drained by VBlank after this callback returns.
++        // Keep initialization frame-stepped so graphics loading cannot
++        // busy-wait forever for FreeTempTileDataBuffersIfPossible().
++        break;
++#endif
+     }
+ }
+ 
+--- a/src/trainer_card.c
++++ b/src/trainer_card.c
+@@ -451,6 +451,11 @@
+         DmaCopy16(3, &gScanlineEffectRegBuffers[0], &gScanlineEffectRegBuffers[1], 0x140);
+ }
+ 
++#ifdef PLATFORM_SDL2
++const u16 *DualScreen_GetBadgesPal(void) { return sKantoTrainerCardBadges_Pal; }
++const u32 *DualScreen_GetBadgesGfxLZ(void) { return sKantoTrainerCardBadges_Gfx; }
++#endif
++
+ static void HBlankCB_TrainerCard(void)
+ {
+     u16 backup;
+--- a/src/union_room.c
++++ b/src/union_room.c
+@@ -3517,7 +3517,13 @@
+     struct WirelessLink_URoom * data;
+ 
+     sUnionRoomPlayerName[0] = EOS;
+-#if REVISION >= 0xA
++#ifdef PORTABLE
++    // Pokemon Center OnResume scripts call this without checking for an
++    // adapter. The background task calls OpenLink/InitRFUAPI and waits on
++    // GBA serial/timer hardware that the native host does not implement.
++    // Keep the player-name reset, but never allocate or start the RFU task.
++    return;
++#elif REVISION >= 0xA
+     // The rest of this function is stubbed out, as if QL_IS_PLAYBACK_STATE is always true.
+ #else
+     if (QL_IS_PLAYBACK_STATE)
