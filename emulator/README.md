@@ -29,3 +29,15 @@ O script antigo `vba-link/setup.sh` não foi executado. O projeto da hackrom e s
 ## Experimento anterior: servidor 1.72
 
 `improved-server/` contém um servidor separado, compilado para Windows x64 e Linux, com testes de protocolo. Ele serve apenas para o protocolo **1.72 LAN**. Não substitui o servidor interno do **1.8 LAN/WiFi** e não deve ser apresentado como atualização do seu emulador.
+
+## Build para macOS (Apple Silicon)
+
+Requer as Command Line Tools do Xcode e `brew install sdl12-compat libpng`. A partir desta pasta:
+
+```sh
+bash build-mac.sh
+./VisualBoyAdvance-mac --link 0 --linknum 2 rom.gba          # servidor
+./VisualBoyAdvance-mac --link 1 --linkaddr IP_DO_SERVIDOR rom.gba   # cliente
+```
+
+Usa o frontend SDL e o núcleo em C, porque o núcleo em assembly é exclusivo de i386. Um servidor e um cliente se conectaram em `127.0.0.1` e rodaram uma ROM multiboot. Trocas e batalhas reais não foram testadas.
