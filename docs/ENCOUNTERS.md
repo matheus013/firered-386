@@ -12,7 +12,7 @@ Guia dos encontros válido para v0.4.0-dev com randomizer desligado. A distribui
 - Os 21 lendários e míticos têm novos encontros aleatórios de 1% em áreas de pós-jogo, com trava pela primeira vitória na Liga. Encontros fixos originais continuam existindo; lendários derrotados em eventos também podem ser procurados nos novos encontros aleatórios.
 - Roamer, batalhas fixas e eventos aparecem em seções próprias. Tabelas alternativas de Altering Cave estão separadas das acessíveis normalmente. Tabelas de terra sem terreno de encontro no layout recebem aviso explícito; a presença de dados não cria grama onde ela não existe.
 
-Os caminhos `game/...` citados abaixo apontam para os fontes completos incluídos neste repositório. O patch cumulativo alternativo está em [patches/current.patch](../patches/current.patch).
+Os caminhos `game/...` citados abaixo apontam para os fontes completos incluídos neste repositório. O patch cumulativo alternativo está em [game/patches/current.patch](../game/patches/current.patch).
 
 ## Índice por rota
 
@@ -4540,4 +4540,4 @@ Fonte: tabela `sSixIslandAlteringCave_9_FireRed` de `game/src/data/wild_encounte
 
 124 mapas com tabelas comuns de FireRed, 26 entradas de rotas (Route 21 separada em Norte/Sul), 8 tabelas alternativas de Altering Cave e 13 ocorrências fixas/eventos catalogadas. As tabelas de LeafGreen não entram neste guia. Áreas sem tabela aleatória não recebem encontros inventados.
 
-Distribuição reproduzível: `python3 scripts/balance_encounters.py --check`, com cobertura por espécie em `data/encounter_distribution.json`. Gerar novamente os guias: `python3 scripts/generate_guides.py`. Conferir sem escrever: `python3 scripts/generate_guides.py --check`. O gerador valida soma de 100% por método, número de slots, separação das varas, formas de Unown e duplicação somente em Altering Cave. Não altera a ROM.
+Distribuição reproduzível: `python3 game/scripts/balance_encounters.py --check`, com cobertura por espécie em `game/hack-data/encounter_distribution.json`. Gerar novamente os guias: `python3 game/scripts/generate_guides.py`. Conferir sem escrever: `python3 game/scripts/generate_guides.py --check`. O gerador valida soma de 100% por método, número de slots, separação das varas, formas de Unown e duplicação somente em Altering Cave. Não altera a ROM.

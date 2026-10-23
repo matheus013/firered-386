@@ -1,18 +1,23 @@
 * text=auto
 *.sh text eol=lf
 Makefile text eol=lf
-scripts/*.py text eol=lf
-native/** text eol=lf
 *.patch -text -whitespace
 *.png binary
 
-# Preserve pinned upstream bytes and manifest hashes.
-data/upstream/pokeapi/*.csv -text -whitespace
-
 game/** -text -whitespace
-
-tools/agbcc/** -text -whitespace
 
 emulator/** -text -whitespace
 
-data/upstream/pokefirered-base.tar.gz binary
+# Hack tooling kept inside game/ (overrides the decomp rule above).
+game/hack.mk text eol=lf
+game/scripts/** text=auto
+game/scripts/*.py text eol=lf
+game/scripts/*.sh text eol=lf
+game/native/** text eol=lf
+game/hack-data/** text=auto
+game/patches/*.patch -text -whitespace
+game/tools/agbcc/** -text -whitespace
+
+# Preserve pinned upstream bytes and manifest hashes.
+game/hack-data/upstream/pokeapi/*.csv -text -whitespace
+game/hack-data/upstream/pokefirered-base.tar.gz binary

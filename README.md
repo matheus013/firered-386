@@ -17,11 +17,11 @@ Guias: [onde capturar cada uma das 386 espécies](docs/SPECIES_LOCATIONS.md) · 
 ## Compilar para GBA ou PC
 
 ```sh
-make gba   # ROM GBA
-make pc    # executável nativo: Windows no WSL, Linux fora do WSL
+make -C game -f hack.mk gba   # ROM GBA
+make -C game -f hack.mk pc    # executável nativo: Windows no WSL, Linux fora do WSL
 ```
 
-No Windows, execute pela raiz com `wsl -d Ubuntu -u root -- make pc`. Instale as dependências adicionais uma vez com `make setup-native`. Saídas: `output/firered-386-dev.gba` e `output/pc/windows/firered-386.exe` (ou `output/pc/linux/firered-386`). O port PC compila a engine em C para x86, usa SDL2 e está em fase experimental; a campanha completa e a conectividade ainda não foram validadas nele. [Instalação, comandos, controles e testes](docs/NATIVE_BUILD.md).
+No Windows, execute pela raiz com `wsl -d Ubuntu -u root -- make -C game -f hack.mk pc`. Instale as dependências adicionais uma vez com `make -C game -f hack.mk setup-native`. Saídas: `game/output/firered-386-dev.gba` e `game/output/pc/windows/firered-386.exe` (ou `game/output/pc/linux/firered-386`). O port PC compila a engine em C para x86, usa SDL2 e está em fase experimental; a campanha completa e a conectividade ainda não foram validadas nele. [Instalação, comandos, controles e testes](docs/NATIVE_BUILD.md).
 
 ## Download
 
@@ -313,7 +313,7 @@ As novas revanches de líderes ainda não foram implementadas; por isso, não h�
 - **60 elencos internos da Torre de Treinadores** revisados para duplas; segundo Pokémon adicionado aos adversários do modo Knockout. Níveis continuam acompanhando a equipe do jogador; IVs agora são 31 e EVs/natureza seguem a função do Pokémon. Dados externos de e-Reader não foram revisados.
 - Com apenas um Pokémon apto, o jogador enfrenta dois adversários com o segundo espaço vazio, sem duplicação ou exigência de um segundo integrante.
 
-Os fontes de desenvolvimento usam categorias, poder e precisão modernos, e learnsets recentes limitados aos golpes implementados. Parte dos efeitos e das demais regras permanece na geração III. A Release v0.4.0 anterior conserva suas tabelas originais. Líderes, rivais (incluindo o laboratório), chefes Rocket, Koichi, Bikers, E4/Campeão e Torre recebem IVs 31 e EVs treinados. Os demais treinadores preservam sua escala de IVs; a calibração da campanha inteira continua pendente. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](docs/TRAINER_REVIEW.md), com dados em [data/trainer_balance.json](data/trainer_balance.json).
+Os fontes de desenvolvimento usam categorias, poder e precisão modernos, e learnsets recentes limitados aos golpes implementados. Parte dos efeitos e das demais regras permanece na geração III. A Release v0.4.0 anterior conserva suas tabelas originais. Líderes, rivais (incluindo o laboratório), chefes Rocket, Koichi, Bikers, E4/Campeão e Torre recebem IVs 31 e EVs treinados. Os demais treinadores preservam sua escala de IVs; a calibração da campanha inteira continua pendente. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](docs/TRAINER_REVIEW.md), com dados em [game/hack-data/trainer_balance.json](game/hack-data/trainer_balance.json).
 
 ### Elite Four inspirada em campeões oficiais (v0.1.1-dev)
 
@@ -423,7 +423,7 @@ A geometria e a história permanecem preservadas; foram acrescentados os NPCs. O
 - Mew e Deoxys gerados nesses encontros recebem a marca interna necessária para obedecer às regras normais de batalha.
 - No Hardcore, as mesmas espécies podem aparecer, mas **uma captura por seção continua valendo**. A coleção completa de 386 é uma possibilidade do Normal, não uma promessa sob as cotas do Nuzlocke.
 
-A cobertura é reproduzível em `data/encounter_distribution.json`. O gerador exclui grama inexistente de Route 21 South, conjuntos alternativos inativos e tabelas temporárias da S.S. Anne como prova de disponibilidade, e preserva a lógica de formas de Unown nas câmaras Tanoby. Disponibilidade nos dados não substitui testar uma campanha completa.
+A cobertura é reproduzível em `game/hack-data/encounter_distribution.json`. O gerador exclui grama inexistente de Route 21 South, conjuntos alternativos inativos e tabelas temporárias da S.S. Anne como prova de disponibilidade, e preserva a lógica de formas de Unown nas câmaras Tanoby. Disponibilidade nos dados não substitui testar uma campanha completa.
 
 ### Correção de travamento nas lojas (v0.3.0-dev)
 
@@ -458,7 +458,7 @@ Mega Evolução, Z-Moves, Dynamax/Gigantamax e Terastalização e os golpes depe
 
 ## Compilação do código-fonte
 
-Base: [pret/pokefirered](https://github.com/pret/pokefirered), revisão `ce6406d8c2eaf46d543c8a2606de0c3cb1951982`. Compilador: [pret/agbcc](https://github.com/pret/agbcc), revisão `da598c1d918402c42c0c0d7128ba14567f3175e9`. O repositório inclui os fontes completos em `game/`, o compilador em `tools/agbcc/` e o trabalho do VBA Link em `emulator/`, sem submódulos. A base original fixada também acompanha o projeto em `data/upstream/pokefirered-base.tar.gz`, com SHA-256 no manifesto; os geradores e a compilação de referência funcionam sem um repositório Git interno. O patch cumulativo é preservado como formato alternativo de distribuição.
+Base: [pret/pokefirered](https://github.com/pret/pokefirered), revisão `ce6406d8c2eaf46d543c8a2606de0c3cb1951982`. Compilador: [pret/agbcc](https://github.com/pret/agbcc), revisão `da598c1d918402c42c0c0d7128ba14567f3175e9`. O repositório inclui os fontes completos em `game/`, o compilador em `game/tools/agbcc/` e o trabalho do VBA Link em `emulator/`, sem submódulos. A base original fixada também acompanha o projeto em `game/hack-data/upstream/pokefirered-base.tar.gz`, com SHA-256 no manifesto; os geradores e a compilação de referência funcionam sem um repositório Git interno. O patch cumulativo é preservado como formato alternativo de distribuição.
 
 No Linux ou Ubuntu/WSL:
 
@@ -467,13 +467,13 @@ sudo apt update
 sudo apt install build-essential binutils-arm-none-eabi libpng-dev pkg-config git ca-certificates python3
 git clone https://github.com/matheus013/firered-386.git
 cd firered-386
-bash scripts/setup.sh
-bash scripts/build.sh hack
+bash game/scripts/setup.sh
+bash game/scripts/build.sh hack
 ```
 
-Resultado: `output/firered-386-dev.gba`. `bash scripts/build.sh baseline` compila a base original e verifica seu checksum. O build usa cache no sistema de arquivos Linux e deixa logs em `output/`. No Windows, execute pelo Ubuntu/WSL; wrappers PowerShell existentes usam a distribuição `Ubuntu`.
+Resultado: `game/output/firered-386-dev.gba`. `bash game/scripts/build.sh baseline` compila a base original e verifica seu checksum. O build usa cache no sistema de arquivos Linux e deixa logs em `game/output/`. No Windows, execute pelo Ubuntu/WSL; wrappers PowerShell existentes usam a distribuição `Ubuntu`.
 
-`patches/current.patch` é um patch de **fontes**, não de ROM. `0001-initial-improvements.patch` é histórico da primeira etapa: não aplique os dois. Para exportar mudanças locais de `game/`, use `python3 scripts/export_source_patch.py`. O setup preserva checkouts existentes com mudanças diferentes das esperadas.
+`game/patches/current.patch` é um patch de **fontes**, não de ROM. `0001-initial-improvements.patch` é histórico da primeira etapa: não aplique os dois. Para exportar mudanças locais de `game/`, use `python3 game/scripts/export_source_patch.py`. O setup preserva checkouts existentes com mudanças diferentes das esperadas.
 
 ## Verificação e limitações
 
@@ -500,19 +500,19 @@ Os [testes assistidos de campanha e pós-jogo](docs/CAMPAIGN_TEST_RESULTS.md) ap
 
 Para repetir os testes após compilar, instale também `libmgba-dev` e `mgba-sdl` no Ubuntu/WSL:
 
-O [checklist de testes](docs/TEST_CHECKLIST.md) reúne fontes da pesquisa, escopo de cada aprovação, resultados estruturados e roteiro manual. `python3 scripts/run_regression.py` repete as sete suítes abaixo. `python3 scripts/test_community_cases.py` executa 28 casos de Pokémon/creche; `python3 scripts/test_capture_rules.py` executa 23 casos de captura. Todos passaram na v0.3.1-dev. A auditoria de integridade está em `scripts/audit_release.py` e exige os assets locais da versão selecionada (padrão v0.4.0-dev).
+O [checklist de testes](docs/TEST_CHECKLIST.md) reúne fontes da pesquisa, escopo de cada aprovação, resultados estruturados e roteiro manual. `python3 game/scripts/run_regression.py` repete as sete suítes abaixo. `python3 game/scripts/test_community_cases.py` executa 28 casos de Pokémon/creche; `python3 game/scripts/test_capture_rules.py` executa 23 casos de captura. Todos passaram na v0.3.1-dev. A auditoria de integridade está em `game/scripts/audit_release.py` e exige os assets locais da versão selecionada (padrão v0.4.0-dev).
 
 ```bash
-python3 scripts/balance_trainers.py --check
-python3 scripts/balance_encounters.py --check
-python3 scripts/generate_guides.py --check
-python3 scripts/test_encounters.py
-python3 scripts/test_shops.py
-python3 scripts/test_trainer_battles.py
-python3 scripts/test_elite_four.py
-python3 scripts/test_hardcore.py
-python3 scripts/test_training.py
-python3 scripts/test_training_ui.py
+python3 game/scripts/balance_trainers.py --check
+python3 game/scripts/balance_encounters.py --check
+python3 game/scripts/generate_guides.py --check
+python3 game/scripts/test_encounters.py
+python3 game/scripts/test_shops.py
+python3 game/scripts/test_trainer_battles.py
+python3 game/scripts/test_elite_four.py
+python3 game/scripts/test_hardcore.py
+python3 game/scripts/test_training.py
+python3 game/scripts/test_training_ui.py
 ```
 
 ## Créditos
@@ -527,12 +527,16 @@ Combates executados no motor nativo, com preparação reconstruída a partir dos
 
 ## Estrutura do repositório
 
-- `game/`: jogo completo, com fontes, mapas, gráficos, áudio e ferramentas do projeto base.
-- `tools/agbcc/`: fontes do compilador fixado, com seus avisos e licenças originais.
-- `emulator/`: fontes do VBA Link, correções experimentais, testes e licenças; não representa um emulador Windows completo validado.
-- `scripts/`, `data/` e `patches/`: automação, dados e patch alternativo.
-- `docs/`: documentação da hackrom. Arquivos de documentação e licenças de terceiros permanecem em suas pastas originais.
+- `README.md` e `docs/`: documentação da hackrom e do emulador.
+- `game/`: o jogo. A raiz é o decomp [pret/pokefirered](https://github.com/pret/pokefirered) modificado (fontes, mapas, gráficos, áudio e o `Makefile` do decomp), e ao lado ficam as ferramentas da hack:
+  - `game/hack.mk`: comandos de build (`make -C game -f hack.mk gba`, `pc`, `baseline`, `setup`, `guides`);
+  - `game/scripts/`: automação, geradores e testes;
+  - `game/hack-data/`: dados, validações, localização e fontes fixadas;
+  - `game/native/`: port nativo para PC;
+  - `game/patches/`: patch cumulativo alternativo;
+  - `game/tools/agbcc/`: fontes do compilador fixado, com seus avisos e licenças originais.
+- `emulator/`: VBA Link 1.8 com transporte corrigido, build para macOS e testes; não representa um emulador Windows completo validado.
 
-`output/`, `.build/`, caches de Python, saves e builds temporários não são versionados. A ROM pronta permanece disponível nos Releases. Os fontes incluídos são listados em `data/vendor_sources.json`; as origens e revisões foram preservadas.
+`game/output/`, `.build/`, caches de Python, saves e builds temporários não são versionados. A ROM pronta permanece disponível nos Releases. Os fontes incluídos são listados em `game/hack-data/vendor_sources.json`; as origens e revisões foram preservadas.
 
-[Validação de clone completo](data/full_source_validation.json): preparo, geradores, exportação do patch, compilação do compilador do zero e ROM idêntica à prévia validada.
+[Validação de clone completo](game/hack-data/full_source_validation.json): preparo, geradores, exportação do patch, compilação do compilador do zero e ROM idêntica à prévia validada.

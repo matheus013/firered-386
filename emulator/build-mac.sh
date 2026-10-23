@@ -12,6 +12,10 @@ rm -rf build-mac
 cp -Rp vba-link build-mac
 cd build-mac
 chmod +x configure config.guess config.sub install-sh depcomp missing mkinstalldirs
+# O git não preserva datas: deixa os arquivos gerados mais novos que suas fontes.
+touch aclocal.m4
+touch configure
+find . -name Makefile.in -exec touch {} +
 
 # Apple Silicon não tem o núcleo em assembly i386: usar o núcleo em C.
 CC=clang CXX=clang++ \

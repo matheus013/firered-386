@@ -78,7 +78,7 @@ Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralis
 ## Implementação e limites
 
 - Seis integrantes em duplas nos oito elencos. Na primeira Liga, os maiores níveis são 80/83/86/89, seguidos pelo Campeão no 92. O teto de EXP avança a cada membro vencido, nos dois modos. Na revanche, todos os integrantes da E4 e do Campeão estão no 100.
-- IVs 31, naturezas fixas, EVs até 252 por atributo e 510 no total, e habilidade escolhida entre as existentes na espécie. Os valores exatos estão em TRAINER_REVIEW.md e data/e4_champion_teams.json.
+- IVs 31, naturezas fixas, EVs até 252 por atributo e 510 no total, e habilidade escolhida entre as existentes na espécie. Os valores exatos estão em TRAINER_REVIEW.md e game/hack-data/e4_champion_teams.json.
 - As naturezas e habilidades são aplicadas na criação efetiva da equipe inimiga; os atributos são recalculados após os EVs. O Campeão também recebe treinamento competitivo. Líderes, rivais, chefes Rocket, Koichi, Bikers e Torre recebem IVs 31 e EVs treinados; treinadores comuns mantêm suas regras próprias. O formato do save preserva seu tamanho.
 - Golpes validados por nível, TM/HM, tutor de FireRed ou herança/evolução/ovos descritos nos arquivos da própria base. Helping Hand de Hitmontop vem de Tyrogue; Mud Shot de Piloswine vem de Swinub; Will-O-Wisp de Gengar vem de Gastly.
 - Surf atinge somente os adversários nesta engine de geração III. Os elencos não usam ataques que atinjam o parceiro.
@@ -90,7 +90,7 @@ Hitmontop + Kyogre: Intimidate e Helping Hand; Claydol usa telas, Raichu paralis
 
 ## Reproduzir e verificar
 
-`python3 scripts/balance_trainers.py --check` valida geração e legalidade dos dados. Após compilar, `python3 scripts/test_elite_four.py` executa as oito lutas da E4 e as seis variantes do Campeão em ROMs descartáveis no mGBA, confere os seis Pokémon efetivamente criados (espécies, níveis, golpes, itens, IVs, EVs, naturezas e habilidades), chegada à seleção de ação e avanço de turnos. Logs e capturas ficam em output/tests/elite-four/. Não é um teste de campanha completa.
+`python3 game/scripts/balance_trainers.py --check` valida geração e legalidade dos dados. Após compilar, `python3 game/scripts/test_elite_four.py` executa as oito lutas da E4 e as seis variantes do Campeão em ROMs descartáveis no mGBA, confere os seis Pokémon efetivamente criados (espécies, níveis, golpes, itens, IVs, EVs, naturezas e habilidades), chegada à seleção de ação e avanço de turnos. Logs e capturas ficam em game/output/tests/elite-four/. Não é um teste de campanha completa.
 
 ## Fontes históricas
 

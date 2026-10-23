@@ -1,13 +1,12 @@
 /.build/
-/output/
+/game/output/
 __pycache__/
 *.py[cod]
 *.sav
 *.sa1
 *.sa2
 *.sgm
-/emulator/build-18/
-/emulator/improved-server/build/
-/emulator/improved-server/bin/
 /emulator/build-mac/
 /emulator/VisualBoyAdvance-mac
+/emulator/tests/build-18/
+/emulator/tests/test-results/

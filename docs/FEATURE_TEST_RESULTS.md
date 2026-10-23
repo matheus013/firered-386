@@ -1,6 +1,6 @@
 # Validação das funcionalidades — v0.4.0-dev
 
-Executada em 22/10/2026 com a ROM SHA-256 `881869fbaa37abe13becbb071759ff1225984910fdb410d11818e88b56a0990d`. As sete etapas da suíte de funcionalidades passaram; o binário de produção ficou congelado durante a execução. [Resultados estruturados](../data/feature_tests/features.json).
+Executada em 22/10/2026 com a ROM SHA-256 `881869fbaa37abe13becbb071759ff1225984910fdb410d11818e88b56a0990d`. As sete etapas da suíte de funcionalidades passaram; o binário de produção ficou congelado durante a execução. [Resultados estruturados](../game/hack-data/feature_tests/features.json).
 
 | Área | Verificação e resultado |
 |---|---|
@@ -21,11 +21,11 @@ A reconstrução a partir da base fixa com o patch cumulativo gerou ROM idêntic
 Após compilar no Ubuntu/WSL com libmgba-dev e compilador C:
 
 ```sh
-python3 scripts/run_feature_validation.py
-python3 scripts/audit_release.py --version v0.4.0-dev
+python3 game/scripts/run_feature_validation.py
+python3 game/scripts/audit_release.py --version v0.4.0-dev
 ```
 
-As fixtures são cópias descartáveis, com preparação de mapas/equipes para isolar os casos, controle por botões e inspeção da memória. Testes de dados invocam construtores/funções reais. Não alteram a ROM pública nem o save do jogador. [Log nativo dos dados e recarga](../data/feature_tests/settings-native.log), [regressões](../data/feature_tests/regression.json), [lojas EN](../data/feature_tests/shops-en.json), [lojas PT-BR](../data/feature_tests/shops-ptbr.json).
+As fixtures são cópias descartáveis, com preparação de mapas/equipes para isolar os casos, controle por botões e inspeção da memória. Testes de dados invocam construtores/funções reais. Não alteram a ROM pública nem o save do jogador. [Log nativo dos dados e recarga](../game/hack-data/feature_tests/settings-native.log), [regressões](../game/hack-data/feature_tests/regression.json), [lojas EN](../game/hack-data/feature_tests/shops-en.json), [lojas PT-BR](../game/hack-data/feature_tests/shops-ptbr.json).
 
 ## Pendências
 

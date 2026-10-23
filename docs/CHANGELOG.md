@@ -38,7 +38,7 @@
 - Categorias modernas por golpe e dados de poder/precisão/PP/prioridade dos 354 golpes existentes; integração em dano, telas, burn, Hustle e treino por função.
 - Todas as 50 TMs existentes à venda em Celadon antes da Liga.
 - Categoria reposicionada para não sobrepor EFFECT; descrições ajustadas à largura do painel, com 14 traduções revisadas.
-- Learnsets por nível da geração IX (Scarlet/Violet; BDSP ou Legends: Arceus quando a espécie não está em SV) para as 386 espécies, só com golpes existentes na ROM. Golpes de evolução entram no nível da evolução. Compatibilidade das TMs pela geração IX; TMs sem equivalente lá (Hail, Hidden Power, Frustration, Return, Secret Power, Snatch, Double Team, Attract, entre outras) mantêm a compatibilidade anterior; HMs só ganham compatibilidade, nunca perdem. Gerado por `scripts/import_learnsets.py`.
+- Learnsets por nível da geração IX (Scarlet/Violet; BDSP ou Legends: Arceus quando a espécie não está em SV) para as 386 espécies, só com golpes existentes na ROM. Golpes de evolução entram no nível da evolução. Compatibilidade das TMs pela geração IX; TMs sem equivalente lá (Hail, Hidden Power, Frustration, Return, Secret Power, Snatch, Double Team, Attract, entre outras) mantêm a compatibilidade anterior; HMs só ganham compatibilidade, nunca perdem. Gerado por `game/scripts/import_learnsets.py`.
 - A geração IX completa e o catálogo expandido de TMs ainda estão pendentes. [Estado e limites](MODERNIZATION.md).
 
 ## v0.4.0-dev — 22/10/2026
@@ -71,7 +71,7 @@
 - Pesquisa de falhas documentadas por autores de hacks e pelo pret; [checklist de testes](TEST_CHECKLIST.md) com fontes, critérios, reproduções e roteiro manual.
 - Sete suítes existentes repetidas e aprovadas, incluindo 46 casos de lojas e 14 variantes da Liga.
 - Novos testes nativos: 13 de 18 aprovados. Cinco reprovações identificam três defeitos abertos na v0.3.0-dev: truncamento de IVs compactados, leitura larga do status dos errantes em cenário dirigido e creche acima do teto nos dois modos.
-- Adicionados runners e [resumo estruturado](../data/test_audit.json). O `.gba` publicado permanece o mesmo; esta entrada não anuncia correção dos defeitos encontrados.
+- Adicionados runners e [resumo estruturado](../game/hack-data/test_audit.json). O `.gba` publicado permanece o mesmo; esta entrada não anuncia correção dos defeitos encontrados.
 
 ## v0.3.0-dev — 21/10/2026
 

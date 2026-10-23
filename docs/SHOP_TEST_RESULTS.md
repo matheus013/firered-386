@@ -2,7 +2,7 @@
 
 Verificada em 21/10/2026, com ROMs descartáveis na biblioteca do mGBA. Nenhum save do usuário foi aberto ou modificado.
 
-A correção foi introduzida na v0.3.0-dev. Os mesmos 46 casos passaram novamente na v0.3.1-dev, conforme o [checklist atual](TEST_CHECKLIST.md) e o [resumo estruturado](../data/test_audit.json).
+A correção foi introduzida na v0.3.0-dev. Os mesmos 46 casos passaram novamente na v0.3.1-dev, conforme o [checklist atual](TEST_CHECKLIST.md) e o [resumo estruturado](../game/hack-data/test_audit.json).
 
 ## Falha e correção
 
@@ -44,4 +44,4 @@ A fixture chama a rotina normal da loja com o estoque verdadeiro e usa um script
 | `VermilionCity_Mart_Items` | Passou | Passou |
 | `ViridianCity_Mart_Items` | Passou | Passou |
 
-Repetir após compilar: `python3 scripts/test_shops.py` no Ubuntu/WSL com `libmgba-dev`. Logs/capturas ficam em `output/tests/shops/`. Resumo versionado: [data/shop_test_results.json](../data/shop_test_results.json).
+Repetir após compilar: `python3 game/scripts/test_shops.py` no Ubuntu/WSL com `libmgba-dev`. Logs/capturas ficam em `game/output/tests/shops/`. Resumo versionado: [game/hack-data/shop_test_results.json](../game/hack-data/shop_test_results.json).

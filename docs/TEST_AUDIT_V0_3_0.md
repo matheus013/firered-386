@@ -6,7 +6,7 @@ Auditoria de **21/10/2026**, versão **v0.3.0-dev**. Resultado: **há falhas abe
 
 ROM de referência, SHA-256: `d7a31095b588898a05ee3912a9285ac441b054536e459ffc26a1ad677c3c82c1`.
 
-As sete suítes existentes passaram novamente. Nos 18 novos casos inspirados pela pesquisa, **13 passaram e cinco falharam**, correspondendo a **três causas distintas**. Os resultados estruturados estão em [data/test_audit_v0.3.0.json](../data/test_audit_v0.3.0.json). Esta auditoria adiciona testes e documentação; não corrige esses defeitos nem altera o `.gba` publicado.
+As sete suítes existentes passaram novamente. Nos 18 novos casos inspirados pela pesquisa, **13 passaram e cinco falharam**, correspondendo a **três causas distintas**. Os resultados estruturados estão em [game/hack-data/test_audit_v0.3.0.json](../game/hack-data/test_audit_v0.3.0.json). Esta auditoria adiciona testes e documentação; não corrige esses defeitos nem altera o `.gba` publicado.
 
 ## Pesquisa e seleção dos casos
 
@@ -24,7 +24,7 @@ O teto da creche, as regras Hardcore, lojas e editor de treinamento foram inclu�
 
 ## Ambiente e limites da evidência
 
-- Ubuntu/WSL, compilador e base fixados pelo [setup](../scripts/setup.sh); mGBA via biblioteca nativa, sem interface gráfica.
+- Ubuntu/WSL, compilador e base fixados pelo [setup](../game/scripts/setup.sh); mGBA via biblioteca nativa, sem interface gráfica.
 - O boot de 900 frames executa a ROM de produção. As demais suítes de emulação compilam cópias descartáveis dos mesmos fontes, acrescentando pontos de entrada, cenários e verificações. Não são execuções completas da campanha na ROM intacta.
 - Testes de save usam arquivos gerados para teste, gravam Flash e recarregam em uma nova instância. Não carregam nem modificam o save do jogador.
 - Aprovação de dados ou de uma função não prova que todos os caminhos de menus, scripts e história estejam corretos. Os casos manuais abaixo continuam abertos.
@@ -164,16 +164,16 @@ Separação físico/especial por golpe, Fada, engine/golpes modernos, Alphas/rai
 
 ## Repetir os testes
 
-No Ubuntu/WSL, após `bash scripts/setup.sh`, `bash scripts/build.sh baseline` e `bash scripts/build.sh hack`:
+No Ubuntu/WSL, após `bash game/scripts/setup.sh`, `bash game/scripts/build.sh baseline` e `bash game/scripts/build.sh hack`:
 
 ```sh
-python3 scripts/audit_release.py
-python3 scripts/run_regression.py
-python3 scripts/test_community_cases.py
+python3 game/scripts/audit_release.py
+python3 game/scripts/run_regression.py
+python3 game/scripts/test_community_cases.py
 ```
 
-`audit_release.py` é específico ao pacote local **v0.3.0-dev** e precisa dos assets em `output/release/v0.3.0-dev/`, obtidos da release. Ele não baixa ou reempacota assets. `run_regression.py` executa sete suítes em até três processos simultâneos. Os runners usam Python 3, GCC, libmGBA/libpng e o toolchain configurado no projeto.
+`audit_release.py` é específico ao pacote local **v0.3.0-dev** e precisa dos assets em `game/output/release/v0.3.0-dev/`, obtidos da release. Ele não baixa ou reempacota assets. `run_regression.py` executa sete suítes em até três processos simultâneos. Os runners usam Python 3, GCC, libmGBA/libpng e o toolchain configurado no projeto.
 
-**O último comando retorna código 1 enquanto os cinco casos conhecidos falharem.** Isso é resultado de teste reprovado, não aprovação parcial silenciosa. Não remova as verificações para tornar o comando verde. As fixtures C e os logs/JSON ficam nos caminhos indicados pelos scripts, dentro de `output/tests/`; somente o resumo sem saves/ROMs é versionado em [data/test_audit_v0.3.0.json](../data/test_audit_v0.3.0.json).
+**O último comando retorna código 1 enquanto os cinco casos conhecidos falharem.** Isso é resultado de teste reprovado, não aprovação parcial silenciosa. Não remova as verificações para tornar o comando verde. As fixtures C e os logs/JSON ficam nos caminhos indicados pelos scripts, dentro de `game/output/tests/`; somente o resumo sem saves/ROMs é versionado em [game/hack-data/test_audit_v0.3.0.json](../game/hack-data/test_audit_v0.3.0.json).
 
 Antes da próxima release: corrigir BUG-001/002/003, repetir os testes que os reproduzem e as regressões afetadas; registrar novo SHA, resultados e tarefas manuais concluídas. Os resultados desta página continuam sendo o histórico da v0.3.0-dev.

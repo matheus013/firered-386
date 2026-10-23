@@ -29,4 +29,4 @@ Disponível nos 19 Centros. No Normal, EVs ficam liberados desde o início; natu
 
 ## Reprodução dos dados
 
-`python scripts/generate_locale.py` gera o dicionário C a partir dos JSON de localização. A tradução automática opcional em `scripts/translate_ptbr.py` usa Argos Translate com modelo local en→pt; modelo e ambiente virtual não são distribuídos. A compilação normal usa o cabeçalho já gerado no patch de fontes e dispensa esse modelo. `python scripts/balance_trainers.py --check` confere o catálogo e os spreads documentados.
+`python game/scripts/generate_locale.py` gera o dicionário C a partir dos JSON de localização. A tradução automática opcional em `game/scripts/translate_ptbr.py` usa Argos Translate com modelo local en→pt; modelo e ambiente virtual não são distribuídos. A compilação normal usa o cabeçalho já gerado no patch de fontes e dispensa esse modelo. `python game/scripts/balance_trainers.py --check` confere o catálogo e os spreads documentados.
