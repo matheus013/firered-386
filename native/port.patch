@@ -1,47 +1,3 @@
---- a/asm/macros/music_voice.inc
-+++ b/asm/macros/music_voice.inc
-@@ -4,22 +4,12 @@
- 	.endm
- 
- 	.macro voice_directsound_no_resample base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
--	.byte 0x8
-+	.byte 8
- 	_voice_directsound \base_midi_key, \pan, \sample_data_pointer, \attack, \decay, \sustain, \release
- 	.endm
- 
--	.macro voice_directsound_reverse base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
--	.byte 0x10
--	_voice_directsound \base_midi_key, \pan, \sample_data_pointer, \attack, \decay, \sustain, \release
--	.endm
--
--	.macro voice_directsound_compressed base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
--	.byte 0x20
--	_voice_directsound \base_midi_key, \pan, \sample_data_pointer, \attack, \decay, \sustain, \release
--	.endm
--
--	.macro voice_directsound_compressed_reverse base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
--	.byte 0x30
-+	.macro voice_directsound_alt base_midi_key:req, pan:req, sample_data_pointer:req, attack:req, decay:req, sustain:req, release:req
-+	.byte 16
- 	_voice_directsound \base_midi_key, \pan, \sample_data_pointer, \attack, \decay, \sustain, \release
- 	.endm
- 
-@@ -150,9 +140,13 @@
- 	.endm
- 
- 	.macro cry sample:req
--	voice_directsound_compressed 60, 0, \sample, 255, 0, 255, 0
-+	.byte 0x20, 60, 0, 0
-+	.4byte \sample
-+	.byte 0xff, 0, 0xff, 0
- 	.endm
- 
- 	.macro cry_reverse sample:req
--	voice_directsound_compressed_reverse 60, 0, \sample, 255, 0, 255, 0
-+	.byte 0x30, 60, 0, 0
-+	.4byte \sample
-+	.byte 0xff, 0, 0xff, 0
- 	.endm
 --- a/include/battle_controllers.h
 +++ b/include/battle_controllers.h
 @@ -231,7 +231,8 @@
@@ -2814,3 +2770,110 @@
      // The rest of this function is stubbed out, as if QL_IS_PLAYBACK_STATE is always true.
  #else
      if (QL_IS_PLAYBACK_STATE)
+--- a/src/librfu_intr.c
++++ b/src/librfu_intr.c
+@@ -394,24 +394,21 @@
+     REG_SIOCNT = SIO_INTR_ENABLE | SIO_32BIT_MODE | SIO_57600_BPS | SIO_ENABLE;
+ }
+ 
+-NAKED
+ #if __STDC_VERSION__ < 202311L
+ static void Callback_Dummy_M(int reqCommandId, int error, void (*callbackM)())
+ #else
+ static void Callback_Dummy_M(int reqCommandId, int error, void (*callbackM)(...))
+ #endif
+ {
+-    asm("bx r2");
+-}
+-
+-NAKED
++    if (callbackM) callbackM(reqCommandId, error);
++}
++
+ static void Callback_Dummy_S(u16 reqCommandId, void (*callbackS)(u16))
+ {
+-    asm("bx r1");
+-}
+-
+-NAKED
++    if (callbackS) callbackS(reqCommandId);
++}
++
+ static void Callback_Dummy_ID(void (*callbackId)(void))
+ {
+-    asm("bx r0");
+-}
++    if (callbackId) callbackId();
++}
+--- a/src/multiboot.c
++++ b/src/multiboot.c
+@@ -392,19 +392,8 @@
+ 
+ static NOINLINE void MultiBootWaitCycles(u32 cycles)
+ {
+-    asm("mov r2, pc");
+-    asm("lsr r2, #24");
+-    asm("mov r1, #12");
+-    asm("cmp r2, #0x02");
+-    asm("beq MultiBootWaitCyclesLoop");
+-    asm("mov r1, #13");
+-    asm("cmp r2, #0x08");
+-    asm("beq MultiBootWaitCyclesLoop");
+-    asm("mov r1, #4");
+-
+-    asm("MultiBootWaitCyclesLoop:");
+-    asm("sub r0, r1");
+-    asm("bgt MultiBootWaitCyclesLoop");
++    volatile u32 i;
++    for (i = 0; i < cycles; i++) {}
+ }
+ 
+ static void MultiBootWaitSendDone(void)
+--- a/src/script.c
++++ b/src/script.c
+@@ -118,7 +118,7 @@
+             if (ctx->scriptPtr == gNullScriptPtr)
+             {
+                 while (1)
+-                    asm("svc 2"); // HALT
++                    VBlankIntrWait(); // Native host yields to the frame scheduler.
+             }
+ 
+             cmdCode = *(ctx->scriptPtr);
+--- a/src/load_save.c
++++ b/src/load_save.c
+@@ -25,13 +25,34 @@
+ };
+ 
+ // EWRAM DATA
++#ifdef PORTABLE
++// The GBA linker places padding immediately after each save block. Keep that
++// guarantee in a single host object; desktop linkers may reorder globals.
++static struct { struct SaveBlock2 block; u8 padding[SAVEBLOCK_MOVE_RANGE]; } sNative_gSaveBlock2;
++extern struct SaveBlock2 gSaveBlock2 __attribute__((alias("sNative_gSaveBlock2")));
++#else
+ EWRAM_DATA struct SaveBlock2 gSaveBlock2 = {0};
++#endif
+ EWRAM_DATA u8 gSaveBlock2_DMA[SAVEBLOCK_MOVE_RANGE] = {0};
+ 
++#ifdef PORTABLE
++// The GBA linker places padding immediately after each save block. Keep that
++// guarantee in a single host object; desktop linkers may reorder globals.
++static struct { struct SaveBlock1 block; u8 padding[SAVEBLOCK_MOVE_RANGE]; } sNative_gSaveBlock1;
++extern struct SaveBlock1 gSaveBlock1 __attribute__((alias("sNative_gSaveBlock1")));
++#else
+ EWRAM_DATA struct SaveBlock1 gSaveBlock1 = {0};
++#endif
+ EWRAM_DATA u8 gSaveBlock1_DMA[SAVEBLOCK_MOVE_RANGE] = {0};
+ 
++#ifdef PORTABLE
++// The GBA linker places padding immediately after each save block. Keep that
++// guarantee in a single host object; desktop linkers may reorder globals.
++static struct { struct PokemonStorage block; u8 padding[SAVEBLOCK_MOVE_RANGE]; } sNative_gPokemonStorage;
++extern struct PokemonStorage gPokemonStorage __attribute__((alias("sNative_gPokemonStorage")));
++#else
+ EWRAM_DATA struct PokemonStorage gPokemonStorage = {0};
++#endif
+ EWRAM_DATA u8 gSaveBlock3_DMA[SAVEBLOCK_MOVE_RANGE] = {0};
+ 
+ EWRAM_DATA struct LoadedSaveData gLoadedSaveData = {0};

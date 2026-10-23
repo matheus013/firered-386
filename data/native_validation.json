@@ -1,0 +1,267 @@
+{
+  "date": "2026-10-23",
+  "native_source_sha256": "f66c46f3c68d45d13ee58f19ee5e58157a74d0a9295b94d4da52a28d74a4e78a",
+  "gba_sha256": "0b8e7bda6ee3a63846317f525a4b09e3accd8b87cf0d46db0502d4898fe6f63f",
+  "build_commands": [
+    "make gba",
+    "make pc",
+    "python3 scripts/build_native.py --platform linux"
+  ],
+  "c_translation_units": 308,
+  "assembly_data_files": 361,
+  "save_fixture_sha256": "8b5a94f06530e25e2e17f3cc0d3197fb84785e4c57d4711fc22805f01247dce0",
+  "save_fixture_origin": "Assisted GBA campaign test fixture; already positioned in Pewter Gym. Not a campaign completed through native gameplay.",
+  "platforms": [
+    {
+      "platform": "windows",
+      "executable_sha256": "0a7a7e504aa0ce8c0bc2a5b73b12dc33ae235ad23c2b0a977e67206fbe59de39",
+      "scope": "Native opening, menu selection and optional isolated GBA save import/save/reload. Does not validate the full campaign, battles, audio quality or multiplayer.",
+      "cases": [
+        {
+          "case": "opening",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 1000,
+          "state": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "screenshot_sha256": "573dc4917d88ff9bb8e50460b55271c5098740f3b7aefc695c94f2ecc79b7996"
+        },
+        {
+          "case": "normal",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 1400,
+          "state": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "screenshot_sha256": "1fdd1d632db72744efae1a1b869a1e669cc38af462db52e70ea0dd150e551791"
+        },
+        {
+          "case": "hardcore",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 1400,
+          "state": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "screenshot_sha256": "1fdd1d632db72744efae1a1b869a1e669cc38af462db52e70ea0dd150e551791"
+        },
+        {
+          "case": "randomizer",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 1400,
+          "state": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "screenshot_sha256": "1fdd1d632db72744efae1a1b869a1e669cc38af462db52e70ea0dd150e551791"
+        },
+        {
+          "case": "import-save",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 2200,
+          "state": [
+            0,
+            0,
+            6,
+            2,
+            6,
+            31
+          ],
+          "screenshot_sha256": "b0baabbc1a2957135a2d6a24a83cec6e48db39753ce2b4bfc52fbea62264d401"
+        },
+        {
+          "case": "save-roundtrip",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 4200,
+          "state": [
+            0,
+            0,
+            6,
+            2,
+            6,
+            32
+          ],
+          "screenshot_sha256": "b0baabbc1a2957135a2d6a24a83cec6e48db39753ce2b4bfc52fbea62264d401"
+        }
+      ]
+    },
+    {
+      "platform": "linux",
+      "executable_sha256": "119f9cf800cb355bdc0549b21986da86e09bf476a3306378b137add79457ac34",
+      "scope": "Native opening, menu selection and optional isolated GBA save import/save/reload. Does not validate the full campaign, battles, audio quality or multiplayer.",
+      "cases": [
+        {
+          "case": "opening",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 1000,
+          "state": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "screenshot_sha256": "573dc4917d88ff9bb8e50460b55271c5098740f3b7aefc695c94f2ecc79b7996"
+        },
+        {
+          "case": "normal",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 1400,
+          "state": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "screenshot_sha256": "1fdd1d632db72744efae1a1b869a1e669cc38af462db52e70ea0dd150e551791"
+        },
+        {
+          "case": "hardcore",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 1400,
+          "state": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "screenshot_sha256": "1fdd1d632db72744efae1a1b869a1e669cc38af462db52e70ea0dd150e551791"
+        },
+        {
+          "case": "randomizer",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 1400,
+          "state": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "screenshot_sha256": "1fdd1d632db72744efae1a1b869a1e669cc38af462db52e70ea0dd150e551791"
+        },
+        {
+          "case": "import-save",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 2200,
+          "state": [
+            0,
+            0,
+            6,
+            2,
+            6,
+            31
+          ],
+          "screenshot_sha256": "b0baabbc1a2957135a2d6a24a83cec6e48db39753ce2b4bfc52fbea62264d401"
+        },
+        {
+          "case": "save-roundtrip",
+          "passed": true,
+          "exit_code": 0,
+          "frames": 4200,
+          "state": [
+            0,
+            0,
+            6,
+            2,
+            6,
+            32
+          ],
+          "screenshot_sha256": "b0baabbc1a2957135a2d6a24a83cec6e48db39753ce2b4bfc52fbea62264d401"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "No full native campaign/postgame validation",
+    "No link cable/RFU/GameCube functionality",
+    "Physical controls and audio quality not manually validated"
+  ],
+  "additional_gba_checks": [
+    {
+      "id": "balance_trainers.py",
+      "status": "passed",
+      "detail": "PASS: 636 teams; 3 lab singles; 0 teams without legal support moves"
+    },
+    {
+      "id": "balance_encounters.py",
+      "status": "passed",
+      "detail": "PASS: 386/386 direct wild species; 21 legendary/mythical species in postgame 1% slots; no trade/event dependency."
+    },
+    {
+      "id": "generate_guides.py",
+      "status": "passed",
+      "detail": "PASS: 35 challenges, 124 encounter maps; 327 method tables validated (including inactive alternatives)."
+    },
+    {
+      "id": "doubles_ai_native",
+      "status": "passed",
+      "detail": "PASS: partner support, inactive effects, weather, friendly fire, disabled moves and score bounds"
+    },
+    {
+      "id": "production_boot_900_frames",
+      "status": "passed",
+      "detail": "frames=900 dimensions=240x160 nonuniform_image=1 result=PASS"
+    },
+    {
+      "id": "release_integrity_ips",
+      "status": "passed",
+      "detail": "All manifest hashes match; clean USA 1.0 + IPS equals the production ROM; source patch matches."
+    },
+    {
+      "id": "fixture_cache_sources_match",
+      "status": "passed",
+      "detail": "9879 source files match the cache used to derive the disposable fixtures."
+    },
+    {
+      "id": "clean_source_rebuild_matches",
+      "status": "passed",
+      "detail": "Fresh build from pinned base plus cumulative source patch equals production ROM."
+    },
+    {
+      "id": "source_patch_applicable",
+      "status": "passed",
+      "detail": "Cumulative patch applies to the checked pinned archive."
+    },
+    {
+      "id": "source_whitespace",
+      "status": "passed",
+      "detail": "Rerun successfully with Windows Git on NTFS. The WSL Git index refresh was explicitly interrupted because it held the index lock for several minutes."
+    }
+  ]
+}

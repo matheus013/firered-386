@@ -5,6 +5,7 @@
 #include <errno.h>
 #include <string.h>
 #include <time.h>
+#include <setjmp.h>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -41,7 +42,16 @@ bool gVoxelModeEnabled = false;
 #include "platform/dma.h"
 #include "platform/framedraw.h"
 #include "platform/dualscreen.h"
+#include "nuzlocke.h"
+#include "game_settings.h"
+#include "save.h"
+extern u32 gSaveCounter;
 
+// Optional deterministic input/frame hooks for native smoke tests only.
+static SDL_atomic_t sTestFrame;
+static struct { unsigned start, end, keys; } sTestInputs[256];
+static unsigned sTestInputCount;
+static jmp_buf sGameThreadExit;
 SDL_Thread *mainLoopThread;
 SDL_Window *sdlWindow;
 SDL_Renderer *sdlRenderer;
@@ -129,8 +139,25 @@ static void MigrateFile(const char *from, const char *to);
 static FILE *ReclaimSaveFile(const char *path);
 #endif
 
+#ifdef _WIN32
+static LONG WINAPI DesktopException(EXCEPTION_POINTERS *info)
+{
+    fprintf(stderr, "Native exception %08lx at %p; address %p\n",
+        info->ExceptionRecord->ExceptionCode, info->ExceptionRecord->ExceptionAddress,
+        (void *)info->ExceptionRecord->ExceptionInformation[1]);
+    fprintf(stderr, "Image-relative location: %08lx\n", (unsigned long)info->ExceptionRecord->ExceptionAddress - (unsigned long)GetModuleHandle(NULL) + 0x400000);
+    fflush(stderr);
+    return EXCEPTION_EXECUTE_HANDLER;
+}
+#endif
+
 int main(int argc, char **argv)
 {
+    setvbuf(stdout, NULL, _IONBF, 0);
+    setvbuf(stderr, NULL, _IONBF, 0);
+#ifdef _WIN32
+    SetUnhandledExceptionFilter(DesktopException);
+#endif
     // Open an output console on Windows
 #ifdef _WIN32
     /* Keep stdout inherited from the launching terminal. */
@@ -205,6 +232,18 @@ int main(int argc, char **argv)
             SDL_snprintf(sConfigPath, sizeof(sConfigPath), "%spokefirered.cfg", prefPath);
         }
         SDL_free(prefPath);
+    }
+#endif
+    // Desktop saves are separate from emulator saves and independent of cwd.
+#ifdef FIRERED_DESKTOP
+    {
+        const char *override = SDL_getenv("FIRERED_PC_SAVE_DIR");
+        char *pref = override ? NULL : SDL_GetPrefPath("matheus013", "firered-386");
+        const char *directory = override ? override : pref;
+        if (!directory) { SDL_Log("Cannot locate save directory"); return 1; }
+        SDL_snprintf(sSavePath, sizeof(sSavePath), "%s/firered-386.sav", directory);
+        SDL_snprintf(sConfigPath, sizeof(sConfigPath), "%s/firered-386.cfg", directory);
+        SDL_free(pref);
     }
 #endif
     ReadSaveFile(sSavePath);
@@ -420,6 +459,17 @@ int main(int argc, char **argv)
         REG_VCOUNT = 161;
 #endif
 #endif
+    {
+        const char *inputPath = SDL_getenv("FIRERED_PC_TEST_INPUT");
+        FILE *input = inputPath ? fopen(inputPath, "r") : NULL;
+        if (input)
+        {
+            while (sTestInputCount < 256 && fscanf(input, "%u %u %x", &sTestInputs[sTestInputCount].start,
+                &sTestInputs[sTestInputCount].end, &sTestInputs[sTestInputCount].keys) == 3)
+                sTestInputCount++;
+            fclose(input);
+        }
+    }
     mainLoopThread = SDL_CreateThread(DoMain, "AgbMain", NULL);
 
     double accumulator = 0.0;
@@ -431,6 +481,9 @@ int main(int argc, char **argv)
     internalClock.status = SIIRTCINFO_24HOUR;
     UpdateInternalClock();
 
+    unsigned int testFrames = 0;
+    unsigned int testLimit = SDL_getenv("FIRERED_PC_TEST_FRAMES")
+        ? SDL_atoi(SDL_getenv("FIRERED_PC_TEST_FRAMES")) : 0;
     while (isRunning)
     {
         ProcessEvents();
@@ -439,6 +492,7 @@ int main(int argc, char **argv)
         {
             // Fast-forward setting: 0 = 1x .. 3 = 4x game speed.
             timeScale = 1.0 + sPlatformSettings[PLATFORM_SETTING_FAST_FORWARD];
+            if (testLimit && SDL_getenv("FIRERED_PC_TEST_FAST")) timeScale = 64.0;
             double dt = fixedTimestep / timeScale;
 
             curGameTime = SDL_GetPerformanceCounter();
@@ -606,9 +660,30 @@ int main(int argc, char **argv)
 
                     DualScreen_FrameHook();
 
+                    SDL_AtomicAdd(&sTestFrame, 1);
+                    if (testLimit && ++testFrames >= testLimit)
+                    {
+                        const char *snapshot = SDL_getenv("FIRERED_PC_SCREENSHOT");
+                        if (snapshot && sdlRenderer)
+                        {
+                            int width, height;
+                            SDL_GetRendererOutputSize(sdlRenderer, &width, &height);
+                            SDL_Surface *surface = SDL_CreateRGBSurfaceWithFormat(0, width, height, 32, SDL_PIXELFORMAT_ARGB8888);
+                            if (!surface || SDL_RenderReadPixels(sdlRenderer, NULL, SDL_PIXELFORMAT_ARGB8888, surface->pixels, surface->pitch) || SDL_SaveBMP(surface, snapshot))
+                            { SDL_Log("Screenshot failed: %s", SDL_GetError()); exit(2); }
+                            SDL_FreeSurface(surface);
+                        }
+                        printf("Native state: hardcore=%u randomizer=%u map=%u,%u party=%u saveCounter=%u\n",
+                            Nuzlocke_IsHardcore(), GameSettings_IsRandomizer(),
+                            gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum,
+                            gSaveBlock1Ptr->playerPartyCount, (unsigned)gSaveCounter);
+                        printf("Native smoke test completed: %u frames\n", testFrames);
+                        isRunning = false;
+                    }
                     SDL_SemPost(vBlankSemaphore);
 
                     accumulator -= dt;
+                    if (!isRunning) break;
                 }
             }
         }
@@ -631,7 +706,10 @@ int main(int argc, char **argv)
 #endif
     }
 
-    //StoreSaveFile();
+    // Wake and join the game thread before destroying audio/window/save handles.
+    isRunning = false;
+    SDL_SemPost(vBlankSemaphore);
+    if (mainLoopThread) SDL_WaitThread(mainLoopThread, NULL);
     CloseSaveFile();
 
 #if defined(FIRERED_DESKTOP)
@@ -1715,6 +1793,14 @@ u16 GetXInputKeys()
 
 u16 Platform_GetKeyInput(void)
 {
+    if (sTestInputCount)
+    {
+        unsigned frame = SDL_AtomicGet(&sTestFrame);
+        u16 keys = 0;
+        for (unsigned i = 0; i < sTestInputCount; i++)
+            if (frame >= sTestInputs[i].start && frame < sTestInputs[i].end) keys |= sTestInputs[i].keys;
+        return keys;
+    }
 #ifdef _WIN32
     u16 gamepadKeys = GetXInputKeys();
     return gamepadKeys | keyboardKeys | DualScreen_ConsumeVirtualKeys();
@@ -1755,7 +1841,7 @@ void VDraw(SDL_Texture *texture)
 
 int DoMain(void *data)
 {
-    AgbMain();
+    if (setjmp(sGameThreadExit) == 0) AgbMain();
     return 0;
 }
 
@@ -1763,6 +1849,7 @@ void VBlankIntrWait(void)
 {
     SDL_AtomicSet(&isFrameAvailable, 1);
     SDL_SemWait(vBlankSemaphore);
+    if (!isRunning) longjmp(sGameThreadExit, 1);
 }
 
 u8 BinToBcd(u8 bin)

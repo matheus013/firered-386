@@ -14,6 +14,15 @@ Guias: [onde capturar cada uma das 386 espécies](docs/SPECIES_LOCATIONS.md) · 
 
 **Validação anterior, v0.3.1-dev:** corrigidos os três bugs da auditoria (IVs, status dos errantes e teto da creche) e o consumo indevido de cota pelo Marowak fantasma. Passaram 23 casos de captura, com cotas nos 124 mapas de encontros, 28 casos de Pokémon/creche e sete suítes de regressão. Veja o [checklist e pendências manuais](docs/TEST_CHECKLIST.md) e os [testes de captura](docs/CAPTURE_TEST_RESULTS.md).
 
+## Compilar para GBA ou PC
+
+```sh
+make gba   # ROM GBA
+make pc    # executável nativo: Windows no WSL, Linux fora do WSL
+```
+
+No Windows, execute pela raiz com `wsl -d Ubuntu -u root -- make pc`. Instale as dependências adicionais uma vez com `make setup-native`. Saídas: `output/firered-386-dev.gba` e `output/pc/windows/firered-386.exe` (ou `output/pc/linux/firered-386`). O port PC compila a engine em C para x86, usa SDL2 e está em fase experimental; a campanha completa e a conectividade ainda não foram validadas nele. [Instalação, comandos, controles e testes](docs/NATIVE_BUILD.md).
+
 ## Download
 
 Prévia atual: **[v0.5.0-preview.3](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.3)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.5.0-preview.3/firered-386-v0.5.0-preview.3.gba). Revisa o PT-BR e inclui as melhorias de IA/ginásios, interface e categorias/dados modernos. **Ainda não contém todos os golpes nem todas as TMs da geração IX.** [Testes e limites](docs/MODERNIZATION.md).
