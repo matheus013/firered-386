@@ -24,6 +24,10 @@ LDFLAGS="-L$prefix/lib" \
 # O macOS não tem librt; shm/sem já estão na libc.
 sed -i '' 's/^LIBS = \(.*\) -lrt$/LIBS = \1/' src/sdl/Makefile
 
+# Barra de menus nativa (Arquivo, Opções, Link, Ajuda), só no executável principal.
+clang++ -O2 -fobjc-arc -c src/sdl/MacMenu.mm -o src/sdl/MacMenu.o
+sed -i '' 's/^VisualBoyAdvance_LDADD = \(.*\)$/VisualBoyAdvance_LDADD = \1 MacMenu.o -framework Cocoa/' src/sdl/Makefile
+
 make -j"$(sysctl -n hw.ncpu)"
 cp src/sdl/VisualBoyAdvance ../VisualBoyAdvance-mac
 echo "OK: emulator/VisualBoyAdvance-mac"

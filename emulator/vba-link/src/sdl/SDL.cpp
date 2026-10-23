@@ -40,6 +40,16 @@
 #include "../gb/gbGlobals.h"
 
 #include "../GBALink.h"
+#ifdef __APPLE__
+#include <string>
+#include <vector>
+#include "MacMenu.h"
+#include <mach-o/dyld.h>
+static void macRunCommands();
+static bool macSpeedup = false;
+static bool macMuted = false;
+static char macTitleSuffix[160] = "";
+#endif
 int linkType = 2;
 int players = 0;
 int timeset = 0;
@@ -1894,6 +1904,9 @@ void sdlPollEvents()
       break;
     }
   }
+#ifdef __APPLE__
+  macRunCommands();
+#endif
 }
 
 void usage(char *cmd)
@@ -1992,6 +2005,628 @@ Long options only:\n\
 ");
 }
 
+void sdlUpdateFilters()
+{
+  if(systemColorDepth != 32) {
+    switch(filter) {
+    case 0:
+      filterFunction = NULL;
+      break;
+    case 1:
+      filterFunction = ScanlinesTV;
+      break;
+    case 2:
+      filterFunction = _2xSaI;
+      break;
+    case 3:
+      filterFunction = Super2xSaI;
+      break;
+    case 4:
+      filterFunction = SuperEagle;
+      break;
+    case 5:
+      filterFunction = Pixelate;
+      break;
+    case 6:
+      filterFunction = MotionBlur;
+      break;
+    case 7:
+      filterFunction = AdMame2x;
+      break;
+    case 8:
+      filterFunction = Simple2x;
+      break;
+    case 9:
+      filterFunction = Bilinear;
+      break;
+    case 10:
+      filterFunction = BilinearPlus;
+      break;
+    case 11:
+      filterFunction = Scanlines;
+      break;
+    case 12:
+      filterFunction = hq2x;
+      break;
+    case 13:
+      filterFunction = lq2x;
+      break;
+    default:
+      filterFunction = NULL;
+      break;
+    }
+  } else {
+    switch(filter) {
+    case 0:
+      filterFunction = NULL;
+      break;
+    case 1:
+      filterFunction = ScanlinesTV32;
+      break;
+    case 2:
+      filterFunction = _2xSaI32;
+      break;
+    case 3:
+      filterFunction = Super2xSaI32;
+      break;
+    case 4:
+      filterFunction = SuperEagle32;
+      break;
+    case 5:
+      filterFunction = Pixelate32;
+      break;
+    case 6:
+      filterFunction = MotionBlur32;
+      break;
+    case 7:
+      filterFunction = AdMame2x32;
+      break;
+    case 8:
+      filterFunction = Simple2x32;
+      break;
+    case 9:
+      filterFunction = Bilinear32;
+      break;
+    case 10:
+      filterFunction = BilinearPlus32;
+      break;
+    case 11:
+      filterFunction = Scanlines32;
+      break;
+    case 12:
+      filterFunction = hq2x32;
+      break;
+    case 13:
+      filterFunction = lq2x32;
+      break;
+    default:
+      filterFunction = NULL;
+      break;
+    }
+  }
+  
+  if(systemColorDepth == 16) {
+    switch(ifbType) {
+    case 0:
+    default:
+      ifbFunction = NULL;
+      break;
+    case 1:
+      ifbFunction = MotionBlurIB;
+      break;
+    case 2:
+      ifbFunction = SmartIB;
+      break;
+    }
+  } else if(systemColorDepth == 32) {
+    switch(ifbType) {
+    case 0:
+    default:
+      ifbFunction = NULL;
+      break;
+    case 1:
+      ifbFunction = MotionBlurIB32;
+      break;
+    case 2:
+      ifbFunction = SmartIB32;
+      break;
+    }
+  } else
+    ifbFunction = NULL;
+}
+
+#ifdef __APPLE__
+static int macQueue[16][2];
+static int macQueueLen = 0;
+static char macRomPath[2048] = "";
+static bool macRelaunch = false;
+static std::vector<std::string> macRelaunchArgs;
+static bool macAppReady = false;
+
+void sdlMacCommand(int cmd, int arg)
+{
+  if(macQueueLen < 16) {
+    macQueue[macQueueLen][0] = cmd;
+    macQueue[macQueueLen][1] = arg;
+    macQueueLen++;
+  }
+}
+
+// Panels shown before the SDL window exists need the application running.
+static void macEnsureApp()
+{
+  if(!macAppReady) {
+    SDL_InitSubSystem(SDL_INIT_VIDEO);
+    macInitApp();
+    macAppReady = true;
+  }
+}
+
+static void macLoadPrefs()
+{
+  // Defaults for a modern Mac: x3 window and every frame drawn (60 fps).
+  sizeOption = macPrefInt("sizeOption", 2);
+  filter = macPrefInt("filter", filter);
+  ifbType = macPrefInt("ifbType", ifbType);
+  throttle = macPrefInt("throttle", throttle);
+  frameSkip = macPrefInt("frameSkip", 0);
+  autoFrameSkip = macPrefInt("autoFrameSkip", autoFrameSkip);
+  showSpeed = macPrefInt("showSpeed", showSpeed);
+  disableStatusMessages = macPrefInt("disableStatusMessages", disableStatusMessages) != 0;
+  pauseWhenInactive = macPrefInt("pauseWhenInactive", pauseWhenInactive);
+  soundVolume = macPrefInt("soundVolume", soundVolume);
+  macMuted = macPrefInt("mute", 0) != 0;
+  cpuSaveType = macPrefInt("saveType", cpuSaveType);
+  // Pokémon GBA games use 128K Flash; VBA's 64K default corrupts their saves.
+  sdlFlashSize = macPrefInt("flashSize", 1);
+  linktimeout = macPrefInt("linkTimeout", linktimeout);
+}
+
+static void macCurrentLinkArgs(std::vector<std::string> &args)
+{
+  if(linkmode != 1)
+    return;
+  char buffer[16];
+  args.push_back("--link");
+  args.push_back(lanlink.server == 1 ? "0" : "1");
+  if(lanlink.server == 1) {
+    sprintf(buffer, "%d", lanlink.numgbas + 1);
+    args.push_back("--linknum");
+    args.push_back(buffer);
+  } else if(ipserver) {
+    args.push_back("--linkaddr");
+    args.push_back(ipserver);
+  }
+}
+
+// Restarts the emulator with new arguments once the main loop has saved
+// the battery and shut down cleanly.
+static void macRequestRelaunch(const std::vector<std::string> &linkArgs,
+                               const char *rom)
+{
+  char buffer[16];
+  macRelaunchArgs = linkArgs;
+  sprintf(buffer, "%d", linktimeout);
+  macRelaunchArgs.push_back("--linktime");
+  macRelaunchArgs.push_back(buffer);
+  macRelaunchArgs.push_back(rom);
+  macRelaunch = true;
+  emulating = 0;
+}
+
+static void macExecRelaunch()
+{
+  char self[4096];
+  uint32_t size = sizeof(self);
+  if(_NSGetExecutablePath(self, &size) != 0)
+    return;
+  std::vector<char *> argv;
+  argv.push_back(self);
+  for(size_t i = 0; i < macRelaunchArgs.size(); i++)
+    argv.push_back((char *)macRelaunchArgs[i].c_str());
+  argv.push_back(NULL);
+  execv(self, &argv[0]);
+  perror("execv");
+}
+
+static bool macLinkConnected()
+{
+  return lanlink.connected;
+}
+
+void sdlMacLinkStatus(char *out, int outSize)
+{
+  if(linkmode != 1)
+    snprintf(out, outSize, "Link desligado (jogo solo)");
+  else if(lanlink.server == 1)
+    snprintf(out, outSize, "Servidor, %d jogadores%s", lanlink.numgbas + 1,
+             lanlink.connected ? ", conectado" : "");
+  else
+    snprintf(out, outSize, "Cliente de %s%s", ipserver ? ipserver : "?",
+             lanlink.connected ? ", conectado" : "");
+}
+
+static void macUpdateTitleSuffix()
+{
+  char status[128];
+  if(linkmode != 1) {
+    macTitleSuffix[0] = 0;
+    return;
+  }
+  sdlMacLinkStatus(status, sizeof(status));
+  snprintf(macTitleSuffix, sizeof(macTitleSuffix), " [%s]", status);
+}
+
+static void macSetVideo()
+{
+  destWidth = (sizeOption+1)*srcWidth;
+  destHeight = (sizeOption+1)*srcHeight;
+
+  surface = SDL_SetVideoMode(destWidth, destHeight, 16,
+                             SDL_ANYFORMAT|SDL_HWSURFACE|SDL_DOUBLEBUF|
+                             (fullscreen ? SDL_FULLSCREEN : 0));
+  if(surface == NULL) {
+    systemMessage(0, "Failed to set video mode");
+    emulating = 0;
+    return;
+  }
+#ifndef C_CORE
+  sdlMakeStretcher(srcWidth);
+#else
+  switch(systemColorDepth) {
+  case 16:
+    sdlStretcher = sdlStretcher16[sizeOption];
+    break;
+  case 24:
+    sdlStretcher = sdlStretcher24[sizeOption];
+    break;
+  case 32:
+    sdlStretcher = sdlStretcher32[sizeOption];
+    break;
+  }
+#endif
+  sdlUpdateFilters();
+  if(delta)
+    memset(delta, 255, 322*242*4);
+  systemDrawScreen();
+}
+
+// Modal panels stop the main loop: silence the audio and drop held keys.
+static void macBeginModal()
+{
+  SDL_PauseAudio(1);
+}
+
+static void macEndModal()
+{
+  SDL_PauseAudio(paused);
+  memset(sdlButtons, 0, sizeof(sdlButtons));
+  wasPaused = true;
+}
+
+static void macDefaultName(char *out, int outSize, const char *ext)
+{
+  snprintf(out, outSize, "%s.%s", sdlGetFilename(filename), ext);
+}
+
+static void macRestartGame(const char *reason)
+{
+  if(macConfirm("Reiniciar o jogo?", reason, "Reiniciar")) {
+    std::vector<std::string> link;
+    macCurrentLinkArgs(link);
+    macRequestRelaunch(link, macRomPath);
+  }
+}
+
+static void macShowControls()
+{
+  const char *names[12] = { "Esquerda", "Direita", "Cima", "Baixo", "A", "B",
+                            "Start", "Select", "L", "R", "Turbo", "Captura" };
+  char text[1024] = "";
+  for(int i = 0; i < 12; i++) {
+    char line[80];
+    snprintf(line, sizeof(line), "%s: %s\n", names[i],
+             SDL_GetKeyName((SDLKey)joypad[0][i]));
+    strncat(text, line, sizeof(text) - strlen(text) - 1);
+  }
+  strncat(text, "\nPara mudar as teclas, edite Joy0_* em ~/.vba/VisualBoyAdvance.cfg.",
+          sizeof(text) - strlen(text) - 1);
+  macShowMessage("Teclas do controle", text);
+}
+
+static void macRunCommand(int cmd, int arg)
+{
+  char buffer[2048];
+  char *path = NULL;
+
+  switch(cmd) {
+  case MAC_CMD_OPEN:
+    macBeginModal();
+    path = macChooseFile("Abrir ROM", "gba,agb,bin,gb,gbc,sgb,zip,gz", false, NULL);
+    macEndModal();
+    if(path) {
+      std::vector<std::string> link;
+      macCurrentLinkArgs(link);
+      macRequestRelaunch(link, path);
+    }
+    break;
+  case MAC_CMD_LOAD_STATE_FILE:
+    macBeginModal();
+    path = macChooseFile("Carregar estado", "sgm", false, NULL);
+    macEndModal();
+    if(path && emulator.emuReadState) {
+      emulator.emuReadState(path);
+      systemScreenMessage("Loaded state");
+    }
+    break;
+  case MAC_CMD_SAVE_STATE_FILE:
+    macDefaultName(buffer, sizeof(buffer), "sgm");
+    macBeginModal();
+    path = macChooseFile("Salvar estado", "sgm", true, buffer);
+    macEndModal();
+    if(path && emulator.emuWriteState) {
+      emulator.emuWriteState(path);
+      systemScreenMessage("Wrote state");
+    }
+    break;
+  case MAC_CMD_LOAD_SLOT:
+    sdlReadState(arg);
+    break;
+  case MAC_CMD_SAVE_SLOT:
+    sdlWriteState(arg);
+    break;
+  case MAC_CMD_IMPORT_BATTERY:
+    macBeginModal();
+    if(macConfirm("Importar save",
+                  "O save atual do jogo será substituído e o jogo reiniciado.",
+                  "Escolher arquivo…"))
+      path = macChooseFile("Importar save", "sav", false, NULL);
+    macEndModal();
+    if(path) {
+      if(emulator.emuReadBattery(path)) {
+        emulator.emuReset();
+        systemScreenMessage("Loaded battery");
+      } else
+        macShowMessage("Importar save", "Não foi possível ler o arquivo.");
+    }
+    break;
+  case MAC_CMD_EXPORT_BATTERY:
+    macDefaultName(buffer, sizeof(buffer), "sav");
+    macBeginModal();
+    path = macChooseFile("Exportar save", "sav", true, buffer);
+    macEndModal();
+    if(path) {
+      emulator.emuWriteBattery(path);
+      systemScreenMessage("Wrote battery");
+    }
+    break;
+  case MAC_CMD_SCREEN_CAPTURE:
+    macDefaultName(buffer, sizeof(buffer), "png");
+    macBeginModal();
+    path = macChooseFile("Capturar tela", "png,bmp", true, buffer);
+    macEndModal();
+    if(path) {
+      size_t len = strlen(path);
+      if(len > 4 && !strcasecmp(path + len - 4, ".bmp"))
+        emulator.emuWriteBMP(path);
+      else
+        emulator.emuWritePNG(path);
+      systemScreenMessage("Screen capture");
+    }
+    break;
+  case MAC_CMD_PAUSE:
+    paused = !paused;
+    SDL_PauseAudio(paused);
+    if(paused)
+      wasPaused = true;
+    break;
+  case MAC_CMD_RESET:
+    emulator.emuReset();
+    systemScreenMessage("Reset");
+    break;
+  case MAC_CMD_CLOSE:
+    emulating = 0;
+    break;
+  case MAC_CMD_THROTTLE:
+    throttle = arg;
+    throttleLastTime = systemGetClock();
+    macSetPrefInt("throttle", throttle);
+    break;
+  case MAC_CMD_FRAMESKIP:
+    autoFrameSkip = 0;
+    frameSkip = gbFrameSkip = systemFrameSkip = arg;
+    macSetPrefInt("autoFrameSkip", 0);
+    macSetPrefInt("frameSkip", arg);
+    break;
+  case MAC_CMD_AUTO_FRAMESKIP:
+    autoFrameSkip = !autoFrameSkip;
+    macSetPrefInt("autoFrameSkip", autoFrameSkip);
+    break;
+  case MAC_CMD_SIZE:
+    sizeOption = arg;
+    // The filters always render at twice the GBA size.
+    if(filter && sizeOption != 1)
+      filter = 0;
+    macSetVideo();
+    macSetPrefInt("sizeOption", sizeOption);
+    macSetPrefInt("filter", filter);
+    break;
+  case MAC_CMD_FULLSCREEN:
+    fullscreen = !fullscreen;
+    macSetVideo();
+    break;
+  case MAC_CMD_FILTER:
+    filter = arg;
+    if(filter)
+      sizeOption = 1;
+    macSetVideo();
+    macSetPrefInt("sizeOption", sizeOption);
+    macSetPrefInt("filter", filter);
+    break;
+  case MAC_CMD_IFB:
+    ifbType = arg;
+    sdlUpdateFilters();
+    macSetPrefInt("ifbType", ifbType);
+    break;
+  case MAC_CMD_LAYER:
+    layerSettings ^= 0x0100 << arg;
+    layerEnable = DISPCNT & layerSettings;
+    if(cartridgeType == 0)
+      CPUUpdateRenderBuffers(false);
+    break;
+  case MAC_CMD_SHOW_SPEED:
+    showSpeed = arg;
+    if(!showSpeed) {
+      snprintf(buffer, sizeof(buffer), "VisualBoyAdvance%s", macTitleSuffix);
+      systemSetTitle(buffer);
+    }
+    macSetPrefInt("showSpeed", showSpeed);
+    break;
+  case MAC_CMD_STATUS_MESSAGES:
+    disableStatusMessages = !disableStatusMessages;
+    macSetPrefInt("disableStatusMessages", disableStatusMessages);
+    break;
+  case MAC_CMD_PAUSE_INACTIVE:
+    pauseWhenInactive = !pauseWhenInactive;
+    macSetPrefInt("pauseWhenInactive", pauseWhenInactive);
+    break;
+  case MAC_CMD_SPEEDUP:
+    macSpeedup = !macSpeedup;
+    systemScreenMessage(macSpeedup ? "Turbo" : "Turbo disabled");
+    break;
+  case MAC_CMD_SAVE_TYPE:
+    if(cpuSaveType != arg) {
+      macBeginModal();
+      macRestartGame("O tipo de save só vale ao carregar a ROM. O save atual será "
+                     "gravado antes de reiniciar.");
+      macEndModal();
+      if(macRelaunch) {
+        cpuSaveType = arg;
+        macSetPrefInt("saveType", arg);
+      }
+    }
+    break;
+  case MAC_CMD_FLASH_SIZE:
+    if(sdlFlashSize != arg) {
+      macBeginModal();
+      macRestartGame("O tamanho da Flash só vale ao carregar a ROM. Um .sav já "
+                     "existente mantém o tamanho com que foi gravado.");
+      macEndModal();
+      if(macRelaunch) {
+        sdlFlashSize = arg;
+        macSetPrefInt("flashSize", arg);
+      }
+    }
+    break;
+  case MAC_CMD_MUTE:
+    macMuted = !macMuted;
+    if(macMuted)
+      soundDisable(0x30f);
+    else
+      soundEnable(0x30f);
+    macSetPrefInt("mute", macMuted);
+    break;
+  case MAC_CMD_VOLUME:
+    soundVolume = arg;
+    macSetPrefInt("soundVolume", arg);
+    break;
+  case MAC_CMD_AUTOFIRE:
+    autoFire ^= arg;
+    break;
+  case MAC_CMD_LINK_HOST:
+    {
+      std::vector<std::string> link;
+      sprintf(buffer, "%d", arg);
+      link.push_back("--link");
+      link.push_back("0");
+      link.push_back("--linknum");
+      link.push_back(buffer);
+      macRequestRelaunch(link, macRomPath);
+    }
+    break;
+  case MAC_CMD_LINK_JOIN:
+    {
+      char address[256];
+      macPrefString("linkIP", "", address, sizeof(address));
+      macBeginModal();
+      bool ok = macAskText("Conectar a um servidor",
+                           "IP do Mac ou PC que está hospedando a partida "
+                           "(porta TCP 6478):", address, address, sizeof(address));
+      macEndModal();
+      if(ok) {
+        macSetPrefString("linkIP", address);
+        std::vector<std::string> link;
+        link.push_back("--link");
+        link.push_back("1");
+        link.push_back("--linkaddr");
+        link.push_back(address);
+        macRequestRelaunch(link, macRomPath);
+      }
+    }
+    break;
+  case MAC_CMD_LINK_DISCONNECT:
+    if(linkmode == 1) {
+      std::vector<std::string> none;
+      macRequestRelaunch(none, macRomPath);
+    }
+    break;
+  case MAC_CMD_LINK_TIMEOUT:
+    linktimeout = arg;
+    macSetPrefInt("linkTimeout", arg);
+    break;
+  case MAC_CMD_CONTROLS:
+    macBeginModal();
+    macShowControls();
+    macEndModal();
+    break;
+  }
+  free(path);
+}
+
+static void macRunCommands()
+{
+  int pending[16][2];
+  int count = macQueueLen;
+  memcpy(pending, macQueue, sizeof(pending));
+  macQueueLen = 0;
+  for(int i = 0; i < count && !macRelaunch; i++)
+    macRunCommand(pending[i][0], pending[i][1]);
+}
+
+int sdlMacItemState(int cmd, int arg)
+{
+  bool on = false;
+  switch(cmd) {
+  case MAC_CMD_PAUSE: on = paused; break;
+  case MAC_CMD_THROTTLE: on = throttle == arg; break;
+  case MAC_CMD_FRAMESKIP: on = !autoFrameSkip && frameSkip == arg; break;
+  case MAC_CMD_AUTO_FRAMESKIP: on = autoFrameSkip != 0; break;
+  case MAC_CMD_SIZE: on = sizeOption == arg; break;
+  case MAC_CMD_FULLSCREEN: on = fullscreen != 0; break;
+  case MAC_CMD_FILTER: on = filter == arg; break;
+  case MAC_CMD_IFB: on = ifbType == arg; break;
+  case MAC_CMD_LAYER: on = (layerSettings & (0x0100 << arg)) != 0; break;
+  case MAC_CMD_SHOW_SPEED: on = showSpeed == arg; break;
+  case MAC_CMD_STATUS_MESSAGES: on = !disableStatusMessages; break;
+  case MAC_CMD_PAUSE_INACTIVE: on = pauseWhenInactive != 0; break;
+  case MAC_CMD_SPEEDUP: on = macSpeedup; break;
+  case MAC_CMD_SAVE_TYPE: on = cpuSaveType == arg; break;
+  case MAC_CMD_FLASH_SIZE: on = sdlFlashSize == arg; break;
+  case MAC_CMD_MUTE: on = macMuted; break;
+  case MAC_CMD_VOLUME: on = soundVolume == arg; break;
+  case MAC_CMD_AUTOFIRE: on = (autoFire & arg) != 0; break;
+  case MAC_CMD_LINK_HOST:
+    on = linkmode == 1 && lanlink.server == 1 && lanlink.numgbas + 1 == arg;
+    break;
+  case MAC_CMD_LINK_JOIN: on = linkmode == 1 && lanlink.server != 1; break;
+  case MAC_CMD_LINK_DISCONNECT:
+    return linkmode == 1 ? 0 : MAC_ITEM_DISABLED;
+  case MAC_CMD_LINK_TIMEOUT: on = linktimeout == arg; break;
+  }
+  return on ? MAC_ITEM_CHECKED : 0;
+}
+#endif // __APPLE__
+
 int main(int argc, char **argv)
 {
   char buf[1024];
@@ -2019,6 +2654,9 @@ int main(int argc, char **argv)
     mkdir(buf, 0755);
 
   sdlReadPreferences();
+#ifdef __APPLE__
+  macLoadPrefs();
+#endif
 
   sdlPrintUsage = 0;
   
@@ -2255,8 +2893,18 @@ int main(int argc, char **argv)
   rtcEnable(sdlRtcEnable ? true : false);
   agbPrintEnable(sdlAgbPrint ? true : false);
   
+  char *romArg = optind < argc ? argv[optind] : NULL;
+#ifdef __APPLE__
+  if(!debuggerStub && romArg == NULL) {
+    macEnsureApp();
+    romArg = macChooseFile("Abrir ROM", "gba,agb,bin,gb,gbc,sgb,zip,gz", false, NULL);
+    if(romArg == NULL)
+      exit(0);
+  }
+#endif
+
   if(!debuggerStub) {
-    if(optind >= argc) {
+    if(romArg == NULL) {
       systemMessage(0,"Missing image name");
       usage(argv[0]);
       exit(-1);
@@ -2276,8 +2924,8 @@ int main(int argc, char **argv)
 
   systemSaveUpdateCounter = SYSTEM_SAVE_NOT_UPDATED;
 
-  if(optind < argc) {
-    char *szFile = argv[optind];
+  if(romArg) {
+    char *szFile = romArg;
     u32 len = strlen(szFile);
     if (len > SYSMSG_BUFFER_SIZE) 
     {
@@ -2285,6 +2933,10 @@ int main(int argc, char **argv)
       exit(-1);
     }
 
+#ifdef __APPLE__
+    if(!realpath(szFile, macRomPath))
+      strncpy(macRomPath, szFile, sizeof(macRomPath) - 1);
+#endif
     utilGetBaseName(szFile, filename);
     char *p = strrchr(filename, '.');
 
@@ -2303,10 +2955,26 @@ int main(int argc, char **argv)
 			lanlink.speed=1;
 			lspeed=lanlink.speed;  
 			ls.Init(NULL);
+#ifdef __APPLE__
+			char address[64], text[256];
+			macLocalAddress(address, sizeof(address));
+			snprintf(text, sizeof(text),
+				"Peça para os outros %d jogador(es) usarem Link > Conectar a um servidor "
+				"com o IP %s (porta TCP 6478).", lanlink.numgbas, address);
+			macEnsureApp();
+			if(!macWaitFor(macLinkConnected, "Aguardando jogadores", text)) {
+				CloseLink();
+				std::vector<std::string> none;
+				macRequestRelaunch(none, macRomPath);
+				macExecRelaunch();
+				exit(0);
+			}
+#else
 			while(!lanlink.connected)
 				{
 				sleep(1);
 				}
+#endif
 			}
 		else
 			{
@@ -2316,7 +2984,27 @@ int main(int argc, char **argv)
 			linklog=0;
 			lanlink.speed=0;
 			lspeed=lanlink.speed;
+#ifdef __APPLE__
+			struct hostent *host = ipserver ? gethostbyname(ipserver) : NULL;
+			char text[256];
+			macEnsureApp();
+			if(host == NULL) {
+				snprintf(text, sizeof(text), "Endereço inválido: %s", ipserver ? ipserver : "");
+				macShowMessage("Link", text);
+			} else {
+				lc.Init(host, NULL);
+				snprintf(text, sizeof(text), "Conectando a %s (porta TCP 6478)…", ipserver);
+			}
+			if(host == NULL || !macWaitFor(macLinkConnected, "Conectando ao servidor", text)) {
+				CloseLink();
+				std::vector<std::string> none;
+				macRequestRelaunch(none, macRomPath);
+				macExecRelaunch();
+				exit(0);
+			}
+#else
 			lc.Init(gethostbyname(ipserver), NULL);
+#endif
 			}
 		}
 
@@ -2537,132 +3225,7 @@ int main(int argc, char **argv)
 
   utilUpdateSystemColorMaps();
 
-  if(systemColorDepth != 32) {
-    switch(filter) {
-    case 0:
-      filterFunction = NULL;
-      break;
-    case 1:
-      filterFunction = ScanlinesTV;
-      break;
-    case 2:
-      filterFunction = _2xSaI;
-      break;
-    case 3:
-      filterFunction = Super2xSaI;
-      break;
-    case 4:
-      filterFunction = SuperEagle;
-      break;
-    case 5:
-      filterFunction = Pixelate;
-      break;
-    case 6:
-      filterFunction = MotionBlur;
-      break;
-    case 7:
-      filterFunction = AdMame2x;
-      break;
-    case 8:
-      filterFunction = Simple2x;
-      break;
-    case 9:
-      filterFunction = Bilinear;
-      break;
-    case 10:
-      filterFunction = BilinearPlus;
-      break;
-    case 11:
-      filterFunction = Scanlines;
-      break;
-    case 12:
-      filterFunction = hq2x;
-      break;
-    case 13:
-      filterFunction = lq2x;
-      break;
-    default:
-      filterFunction = NULL;
-      break;
-    }
-  } else {
-    switch(filter) {
-    case 0:
-      filterFunction = NULL;
-      break;
-    case 1:
-      filterFunction = ScanlinesTV32;
-      break;
-    case 2:
-      filterFunction = _2xSaI32;
-      break;
-    case 3:
-      filterFunction = Super2xSaI32;
-      break;
-    case 4:
-      filterFunction = SuperEagle32;
-      break;
-    case 5:
-      filterFunction = Pixelate32;
-      break;
-    case 6:
-      filterFunction = MotionBlur32;
-      break;
-    case 7:
-      filterFunction = AdMame2x32;
-      break;
-    case 8:
-      filterFunction = Simple2x32;
-      break;
-    case 9:
-      filterFunction = Bilinear32;
-      break;
-    case 10:
-      filterFunction = BilinearPlus32;
-      break;
-    case 11:
-      filterFunction = Scanlines32;
-      break;
-    case 12:
-      filterFunction = hq2x32;
-      break;
-    case 13:
-      filterFunction = lq2x32;
-      break;
-    default:
-      filterFunction = NULL;
-      break;
-    }
-  }
-  
-  if(systemColorDepth == 16) {
-    switch(ifbType) {
-    case 0:
-    default:
-      ifbFunction = NULL;
-      break;
-    case 1:
-      ifbFunction = MotionBlurIB;
-      break;
-    case 2:
-      ifbFunction = SmartIB;
-      break;
-    }
-  } else if(systemColorDepth == 32) {
-    switch(ifbType) {
-    case 0:
-    default:
-      ifbFunction = NULL;
-      break;
-    case 1:
-      ifbFunction = MotionBlurIB32;
-      break;
-    case 2:
-      ifbFunction = SmartIB32;
-      break;
-    }
-  } else
-    ifbFunction = NULL;
+  sdlUpdateFilters();
 
   if(delta == NULL) {
     delta = (u8*)malloc(322*242*4);
@@ -2677,7 +3240,16 @@ int main(int argc, char **argv)
 
   autoFrameSkipLastTime = throttleLastTime = systemGetClock();
   
+#ifdef __APPLE__
+  if(macMuted)
+    soundDisable(0x30f);
+  macUpdateTitleSuffix();
+  snprintf(buf, sizeof(buf), "VisualBoyAdvance%s", macTitleSuffix);
+  SDL_WM_SetCaption(buf, NULL);
+  macInstallMenu();
+#else
   SDL_WM_SetCaption("VisualBoyAdvance", NULL);
+#endif
 
   while(emulating) {
     if(!paused && active) {
@@ -2702,7 +3274,11 @@ int main(int argc, char **argv)
         rewindSaveNeeded = false;
       }
     } else {
+#ifdef __APPLE__
+      SDL_Delay(50); // keep the menu responsive while paused
+#else
       SDL_Delay(500);
+#endif
     }
     sdlPollEvents();
     if(mouseCounter) {
@@ -2729,6 +3305,10 @@ int main(int argc, char **argv)
   }
   
   SDL_Quit();
+#ifdef __APPLE__
+  if(macRelaunch)
+    macExecRelaunch();
+#endif
   return 0;
 }
 
@@ -2912,6 +3492,10 @@ u32 systemReadJoypad(int which)
 
   if(sdlButtons[which][KEY_BUTTON_SPEED])
     res |= 1024;
+#ifdef __APPLE__
+  if(macSpeedup)
+    res |= 1024;
+#endif
   if(sdlButtons[which][KEY_BUTTON_CAPTURE])
     res |= 2048;
 
@@ -2938,13 +3522,17 @@ void systemShowSpeed(int speed)
   renderedFrames = 0;  
 
   if(!fullscreen && showSpeed) {
-    char buffer[80];
+    char buffer[256];
     if(showSpeed == 1)
       sprintf(buffer, "VisualBoyAdvance-%3d%%", systemSpeed);
     else
       sprintf(buffer, "VisualBoyAdvance-%3d%%(%d, %d fps)", systemSpeed,
               systemFrameSkip,
               showRenderedFrames);
+#ifdef __APPLE__
+    macUpdateTitleSuffix();
+    strcat(buffer, macTitleSuffix);
+#endif
 
     systemSetTitle(buffer);
   }
