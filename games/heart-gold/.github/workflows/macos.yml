@@ -1,0 +1,34 @@
+# Escrito para funcionar quando for movido para .github/workflows/ na raiz do repositório
+# (o GitHub ignora workflows em subpastas). Ver games/heart-gold/README.md.
+name: Super HeartGold (macOS)
+
+on:
+  push:
+    paths: ["games/heart-gold/**"]
+  pull_request:
+    paths: ["games/heart-gold/**"]
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: games/heart-gold
+
+jobs:
+  build:
+    runs-on: macos-14 # Apple Silicon
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compilar e testar .app universal (arm64 + x86-64, SDL3 estático)
+        run: scripts/build.sh universal
+
+      - name: Conferir arquiteturas
+        run: lipo -info build-universal/bin/SuperHeartGold.app/Contents/MacOS/SuperHeartGold
+
+      - name: Empacotar
+        run: ditto -c -k --keepParent build-universal/bin/SuperHeartGold.app SuperHeartGold-macos-universal.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SuperHeartGold-macos-universal
+          path: games/heart-gold/SuperHeartGold-macos-universal.zip
