@@ -5,6 +5,7 @@ e a decisão de como usá-las. Levantamento feito em **23/10/2026**; os números
 desses repositórios, então refaça as consultas (seção [Fontes](#fontes)) antes de depender deles.
 
 **Resumo:** o Super HeartGold é uma **reimplementação nativa em C++20**. As decompilações
+(pret e, desde 23/10/2026, [pokeheartgold-single-screen](#6-existe-outra-decompilação-ou-port-com-licença) no lugar do ctrl-cheeb-del)
 servem como **referência de comportamento** (fórmulas, ordem de eventos, temporização, formatos),
 não como código a ser copiado ou compilado no produto. Nenhuma das duas compila para Windows
 ou macOS como está, e nenhuma tem licença que permita redistribuição.
@@ -130,6 +131,15 @@ Busca feita em 23/10/2026 (`gh search repos` por pokeheartgold, pokeplatinum, po
 - O código realmente licenciável deles é a parte de plataforma (frontends, modelos de hardware derivados do melonDS),
   útil para um caminho de port/emulação, que não é o nosso. Usar qualquer trecho GPL obrigaria o projeto inteiro
   a ser GPL-3.0.
+
+**Referência adotada:** o `pokeheartgold-single-screen` **substitui o ctrl-cheeb-del como decomp de referência**.
+É um fork dele (mesma decompilação completa) e acrescenta o modo de tela única, que é exatamente o problema do
+nosso HUD. Continua valendo para ele o mesmo que para o ctrl-cheeb-del: só **leitura** de comportamento, sem copiar
+código, e o pret como referência preferida de nomes e intenção. Ressalvas: o modo de tela única só foi testado com
+SoulSilver (US), e quase todas as mudanças foram escritas por IA, segundo o próprio README.
+
+Ele **não** serve como base de código do projeto: o MIT não cobre o código decompilado que herda, e o build exige
+ROM, `mwccarm` e NitroSDK, o que contraria as decisões de recriar todo o conteúdo e não depender de ROM.
 
 **O que dá para aproveitar sem copiar código:** o `pokeheartgold-single-screen` e o `ssrecomp` resolveram o mesmo
 problema de interface que o nosso M1 (comandos de batalha, bolsa e equipe numa tela só, em 16:9, com controle).
