@@ -9902,7 +9902,8 @@
       "tools/jsonproc/jsonproc.h",
       "tools/jsonproc/nlohmann/json.hpp",
       "tools/mapjson/.gitignore"
-    ]
+    ],
+    "symlink_files": {}
   },
   "tools/agbcc": {
     "repository": "https://github.com/pret/agbcc.git",
@@ -11440,7 +11441,11 @@
       "libiberty/xmalloc.c",
       "libiberty/xstrdup.c",
       "libiberty/xstrerror.c"
-    ]
+    ],
+    "symlink_files": {
+      "gcc_arm/obstack.c": "./../libiberty/obstack.c",
+      "gcc_arm/splay-tree.c": "./../libiberty/splay-tree.c"
+    }
   },
   "emulator/vba-link": {
     "repository": "https://github.com/luckytyphlosion/vba-link.git",
@@ -12152,6 +12157,7 @@
       "win32/vba_vs2005.sln",
       "win32/vba_vs2005.vcproj"
     ],
-    "executable_files": []
+    "executable_files": [],
+    "symlink_files": {}
   }
 }
