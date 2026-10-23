@@ -10,7 +10,7 @@ esac
 project_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
 cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/firered-386"
 compiler_dir="$cache_dir/agbcc"
-mkdir -p "$cache_dir" "$project_dir/output"
+mkdir -p "$cache_dir" "$project_dir/game/output"
 
 if [[ ! -x "$compiler_dir/agbcc" || ! -f "$compiler_dir/libc.a" ]]; then
     if [[ ! -d "$project_dir/game/tools/agbcc/gcc" ]]; then
