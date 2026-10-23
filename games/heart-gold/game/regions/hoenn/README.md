@@ -6,4 +6,4 @@ Dados da região de Hoenn (insígnias 17–24).
 - **Engine e mecânicas:** as de HeartGold/SoulSilver (Gen IV, overworld 3D, Pokémon seguidor).
   Nada da engine do GBA é portado.
 
-Só **dados e scripts de evento**, como em `johto/`. Começa depois de Johto e Kanto (ver `docs/roadmap.md`, M7).
+Só **dados e scripts de evento**, como em `johto/`. Começa depois de Johto e Kanto (ver `docs/roadmap.md`, M8).

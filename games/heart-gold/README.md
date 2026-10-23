@@ -6,7 +6,9 @@ emulador nem dados extraídos. As decompilações de HG/SS servem só como refer
 Objetivo final: três regiões (Johto e Kanto como em HG/SS; Hoenn com Emerald como referência de conteúdo,
 rodando na engine de HG/SS), 24 insígnias e progressão compartilhada, com as mecânicas originais.
 
-**Estado:** fundação (M0). Há um executável que abre uma janela e processa teclado e gamepad. Ainda não há jogo.
+**Estado:** fundação (M0) concluída. Há um executável que abre uma janela e processa teclado e gamepad. Ainda não há jogo.
+
+**Primeiro objetivo (M1):** rodar nativo com a interface unificada completa: vista única 16:9 e HUD com tudo o que era da tela de baixo.
 
 ## Documentação
 
@@ -15,7 +17,7 @@ rodando na engine de HG/SS), 24 insígnias e progressão compartilhada, com as m
 | [docs/architecture.md](docs/architecture.md) | Arquitetura original do DS, arquitetura deste projeto, modo de tela única com HUD, escala, controles |
 | [docs/porting-strategy.md](docs/porting-strategy.md) | Investigação de pret/pokeheartgold e ctrl-cheeb-del/pokeheartgold, licenças, dependências do DS, port × reimplementação, fontes |
 | [docs/compatibility.md](docs/compatibility.md) | Plataformas, vídeo, entrada, saves e mecânicas |
-| [docs/roadmap.md](docs/roadmap.md) | Marcos M0–M7: engine, dados, overworld, batalha, Johto, Kanto, Hoenn |
+| [docs/roadmap.md](docs/roadmap.md) | Marcos M0–M8: interface unificada nativa (primeiro objetivo), engine, dados, overworld, batalha, Johto, Kanto, Hoenn |
 
 ## Estrutura
 

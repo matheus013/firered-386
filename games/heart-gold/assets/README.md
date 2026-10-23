@@ -17,7 +17,7 @@ assets/
    (feito para o projeto) ou `third-party` (com licença que permita redistribuição).
 3. `tools/check_assets.py` valida as regras acima e roda no CTest (`assets.manifest`).
 
-Ainda não há conversão (empacotamento, atlas, compressão). Ela vem com o sistema de recursos (M1 no roadmap).
+Ainda não há conversão (empacotamento, atlas, compressão). Ela vem com o sistema de recursos (M2 no roadmap).
 
 ## Por que não usar os dados originais
 

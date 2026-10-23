@@ -36,7 +36,7 @@ Notas:
 
 - **Não precisa e não usa ROM, BIOS ou firmware.** Nenhum arquivo do jogo original é lido.
 - Saves do DS (`.sav`) não são compatíveis e não há plano de conversão.
-- Saves do Super HeartGold terão formato próprio e versionado (M1).
+- Saves do Super HeartGold terão formato próprio e versionado (M2).
 
 ## Mecânicas
 
