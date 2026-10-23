@@ -116,8 +116,8 @@ public:
                      "." + std::to_string(SDL_VERSIONNUM_MICRO(v)) + ", driver de vídeo: " +
                      SDL_GetCurrentVideoDriver());
 
-        int w = hg::kUnifiedWidth * 3;
-        int h = hg::kUnifiedHeight * 3;
+        int w = 1280; // 16:9; a vista 4:3 fica no centro e o HUD nas laterais
+        int h = 720;
         if (m_opt.layout == hg::ScreenLayout::Stacked) {
             w = hg::kDsScreenWidth * 2;
             h = hg::kDsScreenHeight * 4;
@@ -319,15 +319,25 @@ private:
         SDL_SetRenderDrawColor(m_renderer, 168, 32, 40, 255);
         SDL_RenderFillRect(m_renderer, &top);
 
-        // Área do conteúdo da tela de baixo: a segunda tela no modo clássico,
-        // ou um painel de HUD no canto inferior direito da vista no modo unificado.
+        // Conteúdo da tela de baixo: a segunda tela no modo clássico, ou os painéis
+        // de HUD nas faixas laterais no modo unificado (ainda só marcados).
         SDL_FRect bottom = to_frect(placement.bottom);
         if (m_opt.layout == hg::ScreenLayout::Unified) {
-            const float s = placement.scale;
-            bottom = {top.x + top.w - 172.0f * s, top.y + top.h - 44.0f * s, 164.0f * s, 36.0f * s};
+            const float margin = 8.0f * placement.scale;
+            SDL_SetRenderDrawColor(m_renderer, 32, 32, 42, 255);
+            for (const hg::Rect& side : {placement.hud_left, placement.hud_right}) {
+                if (side.w > margin * 2) {
+                    const SDL_FRect panel{side.x + margin, side.y + margin, side.w - margin * 2, side.h - margin * 2};
+                    SDL_RenderFillRect(m_renderer, &panel);
+                }
+            }
+            // As células de ação ficam no painel direito (ou sobre a vista, se não houver faixa).
+            const hg::Rect& right = placement.hud_right.w > margin * 2 ? placement.hud_right : placement.top;
+            bottom = {right.x + margin, right.y + margin, right.w - margin * 2, right.h - margin * 2};
+        } else {
+            SDL_SetRenderDrawColor(m_renderer, 48, 48, 60, 255);
+            SDL_RenderFillRect(m_renderer, &bottom);
         }
-        SDL_SetRenderDrawColor(m_renderer, 48, 48, 60, 255);
-        SDL_RenderFillRect(m_renderer, &bottom);
 
         // Uma célula por ação, acesa enquanto a ação estiver pressionada.
         const float cell = 12.0f * placement.scale;

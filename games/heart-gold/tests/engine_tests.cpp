@@ -41,29 +41,40 @@ TEST_CASE("viewport: side by side uses widescreen 1920x1080")
     CHECK(p.bottom == (Rect{960, 252, 768, 576}));
 }
 
-TEST_CASE("viewport: unified fills 1080p exactly and has no second screen")
+TEST_CASE("viewport: unified keeps the original 4:3 view and gives the sides to the HUD")
 {
+    // 1080/192 = 5,625 -> escala inteira 5 -> 1280x960, faixas de 320 px de cada lado.
     const auto p = place_screens({1920, 1080}, ScreenLayout::Unified, ScaleMode::Integer);
     CHECK_EQ(p.scale, 5.0f);
-    CHECK(p.top == (Rect{0, 0, 1920, 1080}));
+    CHECK(p.top == (Rect{320, 60, 1280, 960}));
     CHECK_EQ(p.bottom.w, 0);
+    CHECK(p.hud_left == (Rect{0, 0, 320, 1080}));
+    CHECK(p.hud_right == (Rect{1600, 0, 320, 1080}));
 }
 
-TEST_CASE("viewport: unified letterboxes 720p with integer scale")
+TEST_CASE("viewport: unified fit fills the height at 720p")
 {
-    // 720/216 = 3,33 -> escala 3 -> 1152x648, centralizado.
-    const auto p = place_screens({1280, 720}, ScreenLayout::Unified, ScaleMode::Integer);
-    CHECK_EQ(p.scale, 3.0f);
-    CHECK(p.top == (Rect{64, 36, 1152, 648}));
-    const auto fit = place_screens({1280, 720}, ScreenLayout::Unified, ScaleMode::Fit);
-    CHECK(fit.top == (Rect{0, 0, 1280, 720}));
+    const auto p = place_screens({1280, 720}, ScreenLayout::Unified, ScaleMode::Fit);
+    CHECK_EQ(p.scale, 3.75f);
+    CHECK(p.top == (Rect{160, 0, 960, 720}));
+    CHECK(p.hud_left == (Rect{0, 0, 160, 720}));
+    CHECK(p.hud_right == (Rect{1120, 0, 160, 720}));
+}
+
+TEST_CASE("viewport: unified on a window narrower than 4:3 leaves no side HUD")
+{
+    const auto p = place_screens({800, 900}, ScreenLayout::Unified, ScaleMode::Fit);
+    CHECK_EQ(p.top.w, 800);
+    CHECK_EQ(p.top.h, 600);
+    CHECK_EQ(p.hud_left.w, 0);
+    CHECK_EQ(p.hud_right.w, 0);
 }
 
 TEST_CASE("viewport: aspect ratio is always 4:3 per screen")
 {
     const Size sizes[] = {{800, 600}, {1366, 768}, {2560, 1080}, {3024, 1964}, {300, 1000}};
     for (const auto s : sizes) {
-        for (const auto layout : {ScreenLayout::Stacked, ScreenLayout::SideBySide}) {
+        for (const auto layout : {ScreenLayout::Unified, ScreenLayout::Stacked, ScreenLayout::SideBySide}) {
             const auto p = place_screens(s, layout, ScaleMode::Fit);
             // w/h == 4/3, tolerando 1 pixel de arredondamento.
             const int diff = p.top.w * 3 - p.top.h * 4;
