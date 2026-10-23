@@ -4,20 +4,20 @@ Makefile text eol=lf
 *.patch -text -whitespace
 *.png binary
 
-game/** -text -whitespace
+games/super-fire-red/** -text -whitespace
 
 emulator/** -text -whitespace
 
-# Hack tooling kept inside game/ (overrides the decomp rule above).
-game/hack.mk text eol=lf
-game/scripts/** text=auto
-game/scripts/*.py text eol=lf
-game/scripts/*.sh text eol=lf
-game/native/** text eol=lf
-game/hack-data/** text=auto
-game/patches/*.patch -text -whitespace
-game/tools/agbcc/** -text -whitespace
+# Hack tooling kept inside games/super-fire-red/ (overrides the decomp rule above).
+games/super-fire-red/hack.mk text eol=lf
+games/super-fire-red/scripts/** text=auto
+games/super-fire-red/scripts/*.py text eol=lf
+games/super-fire-red/scripts/*.sh text eol=lf
+games/super-fire-red/native/** text eol=lf
+games/super-fire-red/hack-data/** text=auto
+games/super-fire-red/patches/*.patch -text -whitespace
+games/super-fire-red/tools/agbcc/** -text -whitespace
 
 # Preserve pinned upstream bytes and manifest hashes.
-game/hack-data/upstream/pokeapi/*.csv -text -whitespace
-game/hack-data/upstream/pokefirered-base.tar.gz binary
+games/super-fire-red/hack-data/upstream/pokeapi/*.csv -text -whitespace
+games/super-fire-red/hack-data/upstream/pokefirered-base.tar.gz binary

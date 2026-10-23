@@ -1,6 +1,6 @@
 # Progressão e treinamento — estado em v0.4.0-dev
 
-A curva dos treinadores foi elevada por etapa, preservando história, caminhos e primeira luta no laboratório. Os parâmetros reproduzíveis ficam em `game/hack-data/progression_curve.json`; as equipes completas em TRAINER_REVIEW.md e game/hack-data/trainer_balance.json.
+A curva dos treinadores foi elevada por etapa, preservando história, caminhos e primeira luta no laboratório. Os parâmetros reproduzíveis ficam em `games/super-fire-red/hack-data/progression_curve.json`; as equipes completas em TRAINER_REVIEW.md e games/super-fire-red/hack-data/trainer_balance.json.
 
 | Desafio | Maior nível |
 |---|---:|

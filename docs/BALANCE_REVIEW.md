@@ -1,12 +1,12 @@
 # Balanceamento de Normal e Hardcore — v0.4.0-dev
 
-Auditoria de 22/10/2026, randomizer desligado. ROM SHA-256 `881869fbaa37abe13becbb071759ff1225984910fdb410d11818e88b56a0990d`. [Dados reproduzíveis](../game/hack-data/balance_audit_v0.4.0.json), gerados por `python game/scripts/audit_balance.py`.
+Auditoria de 22/10/2026, randomizer desligado. ROM SHA-256 `881869fbaa37abe13becbb071759ff1225984910fdb410d11818e88b56a0990d`. [Dados reproduzíveis](../games/super-fire-red/hack-data/balance_audit_v0.4.0.json), gerados por `python games/super-fire-red/scripts/audit_balance.py`.
 
 **Parecer: o Normal está difícil e irregular na preparação; o Hardcore facilita a preparação, mas é muito mais punitivo nas batalhas e capturas. Ainda há desequilíbrios que impedem considerar a curva calibrada.** A existência de testes funcionais aprovados não demonstra chance de vitória de um jogador.
 
 Esta avaliação inspeciona fontes e dados, conta recursos/encontros e calcula modelos explícitos de EXP e atributos. Não conclui uma campanha e não mede taxa de vitória. Os testes nativos anteriores conferiram o treino efetivo dos desafios e as regras, mas suas equipes artificiais não servem como referência de balanceamento. O relatório assistido antigo continua separado.
 
-Os 600 limiares de EXP usados pelos seis grupos de crescimento, níveis 1–100, foram comparados com as tabelas do próprio `.gba` compilado; todos coincidiram. Para repetir essa conferência no WSL: `python3 game/scripts/audit_balance.py --verify-rom-tables`. Ela valida os números do modelo, sem transformar o modelo em uma campanha jogada.
+Os 600 limiares de EXP usados pelos seis grupos de crescimento, níveis 1–100, foram comparados com as tabelas do próprio `.gba` compilado; todos coincidiram. Para repetir essa conferência no WSL: `python3 games/super-fire-red/scripts/audit_balance.py --verify-rom-tables`. Ela valida os números do modelo, sem transformar o modelo em uma campanha jogada.
 
 ## Comparação dos modos
 

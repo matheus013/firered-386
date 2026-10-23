@@ -12,7 +12,7 @@ Guia dos encontros válido para v0.4.0-dev com randomizer desligado. A distribui
 - Os 21 lendários e míticos têm novos encontros aleatórios de 1% em áreas de pós-jogo, com trava pela primeira vitória na Liga. Encontros fixos originais continuam existindo; lendários derrotados em eventos também podem ser procurados nos novos encontros aleatórios.
 - Roamer, batalhas fixas e eventos aparecem em seções próprias. Tabelas alternativas de Altering Cave estão separadas das acessíveis normalmente. Tabelas de terra sem terreno de encontro no layout recebem aviso explícito; a presença de dados não cria grama onde ela não existe.
 
-Os caminhos `game/...` citados abaixo apontam para os fontes completos incluídos neste repositório. O patch cumulativo alternativo está em [game/patches/current.patch](../game/patches/current.patch).
+Os caminhos `games/super-fire-red/...` citados abaixo apontam para os fontes completos incluídos neste repositório. O patch cumulativo alternativo está em [games/super-fire-red/patches/current.patch](../games/super-fire-red/patches/current.patch).
 
 ## Índice por rota
 
@@ -148,7 +148,7 @@ Os caminhos `game/...` citados abaixo apontam para os fontes completos incluído
 
 ## Route 1
 
-Fonte: tabela `sRoute1_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route1`.
+Fonte: tabela `sRoute1_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route1`.
 
 ### Grama / caverna
 
@@ -172,7 +172,7 @@ Fonte: tabela `sRoute1_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 ## Route 2
 
-Fonte: tabela `sRoute2_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route2`.
+Fonte: tabela `sRoute2_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route2`.
 
 ### Grama / caverna
 
@@ -196,7 +196,7 @@ Fonte: tabela `sRoute2_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 ## Route 3
 
-Fonte: tabela `sRoute3_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route3`.
+Fonte: tabela `sRoute3_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route3`.
 
 ### Grama / caverna
 
@@ -220,7 +220,7 @@ Fonte: tabela `sRoute3_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 ## Route 4
 
-Fonte: tabela `sRoute4_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route4`.
+Fonte: tabela `sRoute4_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route4`.
 
 ### Grama / caverna
 
@@ -278,7 +278,7 @@ Fonte: tabela `sRoute4_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 ## Route 5
 
-Fonte: tabela `sRoute5_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route5`.
+Fonte: tabela `sRoute5_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route5`.
 
 ### Grama / caverna
 
@@ -302,7 +302,7 @@ Fonte: tabela `sRoute5_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 ## Route 6
 
-Fonte: tabela `sRoute6_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route6`.
+Fonte: tabela `sRoute6_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route6`.
 
 ### Grama / caverna
 
@@ -358,7 +358,7 @@ Fonte: tabela `sRoute6_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 ## Route 7
 
-Fonte: tabela `sRoute7_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route7`.
+Fonte: tabela `sRoute7_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route7`.
 
 ### Grama / caverna
 
@@ -382,7 +382,7 @@ Fonte: tabela `sRoute7_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 ## Route 8
 
-Fonte: tabela `sRoute8_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route8`.
+Fonte: tabela `sRoute8_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route8`.
 
 ### Grama / caverna
 
@@ -406,7 +406,7 @@ Fonte: tabela `sRoute8_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 ## Route 9
 
-Fonte: tabela `sRoute9_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route9`.
+Fonte: tabela `sRoute9_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route9`.
 
 ### Grama / caverna
 
@@ -430,7 +430,7 @@ Fonte: tabela `sRoute9_FireRed` de `game/src/data/wild_encounters.json`; mapa `R
 
 ## Route 10
 
-Fonte: tabela `sRoute10_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route10`.
+Fonte: tabela `sRoute10_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route10`.
 
 ### Grama / caverna
 
@@ -488,7 +488,7 @@ Fonte: tabela `sRoute10_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 11
 
-Fonte: tabela `sRoute11_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route11`.
+Fonte: tabela `sRoute11_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route11`.
 
 ### Grama / caverna
 
@@ -543,7 +543,7 @@ Fonte: tabela `sRoute11_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 12
 
-Fonte: tabela `sRoute12_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route12`.
+Fonte: tabela `sRoute12_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route12`.
 
 ### Grama / caverna
 
@@ -601,7 +601,7 @@ Fonte: tabela `sRoute12_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 13
 
-Fonte: tabela `sRoute13_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route13`.
+Fonte: tabela `sRoute13_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route13`.
 
 ### Grama / caverna
 
@@ -659,7 +659,7 @@ Fonte: tabela `sRoute13_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 14
 
-Fonte: tabela `sRoute14_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route14`.
+Fonte: tabela `sRoute14_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route14`.
 
 ### Grama / caverna
 
@@ -683,7 +683,7 @@ Fonte: tabela `sRoute14_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 15
 
-Fonte: tabela `sRoute15_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route15`.
+Fonte: tabela `sRoute15_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route15`.
 
 ### Grama / caverna
 
@@ -707,7 +707,7 @@ Fonte: tabela `sRoute15_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 16
 
-Fonte: tabela `sRoute16_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route16`.
+Fonte: tabela `sRoute16_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route16`.
 
 ### Grama / caverna
 
@@ -731,7 +731,7 @@ Fonte: tabela `sRoute16_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 17
 
-Fonte: tabela `sRoute17_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route17`.
+Fonte: tabela `sRoute17_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route17`.
 
 ### Grama / caverna
 
@@ -754,7 +754,7 @@ Fonte: tabela `sRoute17_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 18
 
-Fonte: tabela `sRoute18_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route18`.
+Fonte: tabela `sRoute18_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route18`.
 
 ### Grama / caverna
 
@@ -777,7 +777,7 @@ Fonte: tabela `sRoute18_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 19
 
-Fonte: tabela `sRoute19_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route19`.
+Fonte: tabela `sRoute19_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route19`.
 
 ### Surf
 
@@ -818,7 +818,7 @@ Fonte: tabela `sRoute19_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 20
 
-Fonte: tabela `sRoute20_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route20`.
+Fonte: tabela `sRoute20_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route20`.
 
 ### Surf
 
@@ -859,7 +859,7 @@ Fonte: tabela `sRoute20_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 21 — North
 
-Fonte: tabela `sRoute21North_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route21_North`.
+Fonte: tabela `sRoute21North_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route21_North`.
 
 ### Grama / caverna
 
@@ -917,7 +917,7 @@ Fonte: tabela `sRoute21North_FireRed` de `game/src/data/wild_encounters.json`; m
 
 ## Route 21 — South
 
-Fonte: tabela `sRoute21South_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route21_South`.
+Fonte: tabela `sRoute21South_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route21_South`.
 
 **Tabela sem terreno de encontro terrestre no layout atual:** estes slots constam nos dados, mas não representam captura por grama/caverna neste mapa.
 
@@ -967,7 +967,7 @@ Fonte: tabela `sRoute21South_FireRed` de `game/src/data/wild_encounters.json`; m
 
 ## Route 22
 
-Fonte: tabela `sRoute22_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route22`.
+Fonte: tabela `sRoute22_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route22`.
 
 ### Grama / caverna
 
@@ -1026,7 +1026,7 @@ Fonte: tabela `sRoute22_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 23
 
-Fonte: tabela `sRoute23_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route23`.
+Fonte: tabela `sRoute23_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route23`.
 
 ### Grama / caverna
 
@@ -1083,7 +1083,7 @@ Fonte: tabela `sRoute23_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 24
 
-Fonte: tabela `sRoute24_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route24`.
+Fonte: tabela `sRoute24_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route24`.
 
 ### Grama / caverna
 
@@ -1142,7 +1142,7 @@ Fonte: tabela `sRoute24_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Route 25
 
-Fonte: tabela `sRoute25_FireRed` de `game/src/data/wild_encounters.json`; mapa `Route25`.
+Fonte: tabela `sRoute25_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `Route25`.
 
 ### Grama / caverna
 
@@ -1199,7 +1199,7 @@ Fonte: tabela `sRoute25_FireRed` de `game/src/data/wild_encounters.json`; mapa `
 
 ## Celadon City
 
-Fonte: tabela `sCeladonCity_FireRed` de `game/src/data/wild_encounters.json`; mapa `CeladonCity`.
+Fonte: tabela `sCeladonCity_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `CeladonCity`.
 
 ### Surf
 
@@ -1240,7 +1240,7 @@ Fonte: tabela `sCeladonCity_FireRed` de `game/src/data/wild_encounters.json`; ma
 
 ## Cerulean Cave — 1 F
 
-Fonte: tabela `sCeruleanCave1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `CeruleanCave_1F`.
+Fonte: tabela `sCeruleanCave1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `CeruleanCave_1F`.
 
 ### Grama / caverna
 
@@ -1303,7 +1303,7 @@ Fonte: tabela `sCeruleanCave1F_FireRed` de `game/src/data/wild_encounters.json`;
 
 ## Cerulean Cave — 2 F
 
-Fonte: tabela `sCeruleanCave2F_FireRed` de `game/src/data/wild_encounters.json`; mapa `CeruleanCave_2F`.
+Fonte: tabela `sCeruleanCave2F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `CeruleanCave_2F`.
 
 ### Grama / caverna
 
@@ -1334,7 +1334,7 @@ Fonte: tabela `sCeruleanCave2F_FireRed` de `game/src/data/wild_encounters.json`;
 
 ## Cerulean Cave — B1 F
 
-Fonte: tabela `sCeruleanCaveB1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `CeruleanCave_B1F`.
+Fonte: tabela `sCeruleanCaveB1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `CeruleanCave_B1F`.
 
 ### Grama / caverna
 
@@ -1399,7 +1399,7 @@ Fonte: tabela `sCeruleanCaveB1F_FireRed` de `game/src/data/wild_encounters.json`
 
 ## Cerulean City
 
-Fonte: tabela `sCeruleanCity_FireRed` de `game/src/data/wild_encounters.json`; mapa `CeruleanCity`.
+Fonte: tabela `sCeruleanCity_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `CeruleanCity`.
 
 ### Surf
 
@@ -1440,7 +1440,7 @@ Fonte: tabela `sCeruleanCity_FireRed` de `game/src/data/wild_encounters.json`; m
 
 ## Cinnabar Island
 
-Fonte: tabela `sCinnabarIsland_FireRed` de `game/src/data/wild_encounters.json`; mapa `CinnabarIsland`.
+Fonte: tabela `sCinnabarIsland_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `CinnabarIsland`.
 
 ### Surf
 
@@ -1482,7 +1482,7 @@ Fonte: tabela `sCinnabarIsland_FireRed` de `game/src/data/wild_encounters.json`;
 
 ## Digletts Cave — B1 F
 
-Fonte: tabela `sDiglettsCaveB1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `DiglettsCave_B1F`.
+Fonte: tabela `sDiglettsCaveB1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `DiglettsCave_B1F`.
 
 ### Grama / caverna
 
@@ -1503,7 +1503,7 @@ Fonte: tabela `sDiglettsCaveB1F_FireRed` de `game/src/data/wild_encounters.json`
 
 ## Five Island
 
-Fonte: tabela `sFiveIsland_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland`.
+Fonte: tabela `sFiveIsland_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland`.
 
 ### Surf
 
@@ -1545,7 +1545,7 @@ Fonte: tabela `sFiveIsland_FireRed` de `game/src/data/wild_encounters.json`; map
 
 ## Five Island — Lost Cave — Room 1
 
-Fonte: tabela `sFiveIslandLostCaveRoom1_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room1`.
+Fonte: tabela `sFiveIslandLostCaveRoom1_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room1`.
 
 ### Grama / caverna
 
@@ -1567,7 +1567,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom1_FireRed` de `game/src/data/wild_encounte
 
 ## Five Island — Lost Cave — Room 2
 
-Fonte: tabela `sFiveIslandLostCaveRoom2_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room2`.
+Fonte: tabela `sFiveIslandLostCaveRoom2_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room2`.
 
 ### Grama / caverna
 
@@ -1589,7 +1589,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom2_FireRed` de `game/src/data/wild_encounte
 
 ## Five Island — Lost Cave — Room 3
 
-Fonte: tabela `sFiveIslandLostCaveRoom3_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room3`.
+Fonte: tabela `sFiveIslandLostCaveRoom3_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room3`.
 
 ### Grama / caverna
 
@@ -1611,7 +1611,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom3_FireRed` de `game/src/data/wild_encounte
 
 ## Five Island — Lost Cave — Room 4
 
-Fonte: tabela `sFiveIslandLostCaveRoom4_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room4`.
+Fonte: tabela `sFiveIslandLostCaveRoom4_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room4`.
 
 ### Grama / caverna
 
@@ -1634,7 +1634,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom4_FireRed` de `game/src/data/wild_encounte
 
 ## Five Island — Lost Cave — Room 5
 
-Fonte: tabela `sFiveIslandLostCaveRoom5_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room5`.
+Fonte: tabela `sFiveIslandLostCaveRoom5_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room5`.
 
 ### Grama / caverna
 
@@ -1654,7 +1654,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom5_FireRed` de `game/src/data/wild_encounte
 
 ## Five Island — Lost Cave — Room 6
 
-Fonte: tabela `sFiveIslandLostCaveRoom6_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room6`.
+Fonte: tabela `sFiveIslandLostCaveRoom6_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room6`.
 
 ### Grama / caverna
 
@@ -1676,7 +1676,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom6_FireRed` de `game/src/data/wild_encounte
 
 ## Five Island — Lost Cave — Room 7
 
-Fonte: tabela `sFiveIslandLostCaveRoom7_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room7`.
+Fonte: tabela `sFiveIslandLostCaveRoom7_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room7`.
 
 ### Grama / caverna
 
@@ -1698,7 +1698,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom7_FireRed` de `game/src/data/wild_encounte
 
 ## Five Island — Lost Cave — Room 8
 
-Fonte: tabela `sFiveIslandLostCaveRoom8_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room8`.
+Fonte: tabela `sFiveIslandLostCaveRoom8_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room8`.
 
 ### Grama / caverna
 
@@ -1719,7 +1719,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom8_FireRed` de `game/src/data/wild_encounte
 
 ## Five Island — Lost Cave — Room 9
 
-Fonte: tabela `sFiveIslandLostCaveRoom9_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room9`.
+Fonte: tabela `sFiveIslandLostCaveRoom9_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room9`.
 
 ### Grama / caverna
 
@@ -1742,7 +1742,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom9_FireRed` de `game/src/data/wild_encounte
 
 ## Five Island — Lost Cave — Room 10
 
-Fonte: tabela `sFiveIslandLostCaveRoom10_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room10`.
+Fonte: tabela `sFiveIslandLostCaveRoom10_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room10`.
 
 ### Grama / caverna
 
@@ -1763,7 +1763,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom10_FireRed` de `game/src/data/wild_encount
 
 ## Five Island — Lost Cave — Room 11
 
-Fonte: tabela `sFiveIslandLostCaveRoom11_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room11`.
+Fonte: tabela `sFiveIslandLostCaveRoom11_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room11`.
 
 ### Grama / caverna
 
@@ -1784,7 +1784,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom11_FireRed` de `game/src/data/wild_encount
 
 ## Five Island — Lost Cave — Room 12
 
-Fonte: tabela `sFiveIslandLostCaveRoom12_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room12`.
+Fonte: tabela `sFiveIslandLostCaveRoom12_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room12`.
 
 ### Grama / caverna
 
@@ -1806,7 +1806,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom12_FireRed` de `game/src/data/wild_encount
 
 ## Five Island — Lost Cave — Room 13
 
-Fonte: tabela `sFiveIslandLostCaveRoom13_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room13`.
+Fonte: tabela `sFiveIslandLostCaveRoom13_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room13`.
 
 ### Grama / caverna
 
@@ -1827,7 +1827,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom13_FireRed` de `game/src/data/wild_encount
 
 ## Five Island — Lost Cave — Room 14
 
-Fonte: tabela `sFiveIslandLostCaveRoom14_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room14`.
+Fonte: tabela `sFiveIslandLostCaveRoom14_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_LostCave_Room14`.
 
 ### Grama / caverna
 
@@ -1850,7 +1850,7 @@ Fonte: tabela `sFiveIslandLostCaveRoom14_FireRed` de `game/src/data/wild_encount
 
 ## Five Island — Meadow
 
-Fonte: tabela `sFiveIslandMeadow_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_Meadow`.
+Fonte: tabela `sFiveIslandMeadow_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_Meadow`.
 
 ### Grama / caverna
 
@@ -1908,7 +1908,7 @@ Fonte: tabela `sFiveIslandMeadow_FireRed` de `game/src/data/wild_encounters.json
 
 ## Five Island — Memorial Pillar
 
-Fonte: tabela `sFiveIslandMemorialPillar_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_MemorialPillar`.
+Fonte: tabela `sFiveIslandMemorialPillar_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_MemorialPillar`.
 
 ### Grama / caverna
 
@@ -1963,7 +1963,7 @@ Fonte: tabela `sFiveIslandMemorialPillar_FireRed` de `game/src/data/wild_encount
 
 ## Five Island — Resort Gorgeous
 
-Fonte: tabela `sFiveIslandResortGorgeous_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_ResortGorgeous`.
+Fonte: tabela `sFiveIslandResortGorgeous_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_ResortGorgeous`.
 
 ### Surf
 
@@ -2004,7 +2004,7 @@ Fonte: tabela `sFiveIslandResortGorgeous_FireRed` de `game/src/data/wild_encount
 
 ## Five Island — Water Labyrinth
 
-Fonte: tabela `sFiveIslandWaterLabyrinth_FireRed` de `game/src/data/wild_encounters.json`; mapa `FiveIsland_WaterLabyrinth`.
+Fonte: tabela `sFiveIslandWaterLabyrinth_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FiveIsland_WaterLabyrinth`.
 
 ### Surf
 
@@ -2045,7 +2045,7 @@ Fonte: tabela `sFiveIslandWaterLabyrinth_FireRed` de `game/src/data/wild_encount
 
 ## Four Island
 
-Fonte: tabela `sFourIsland_FireRed` de `game/src/data/wild_encounters.json`; mapa `FourIsland`.
+Fonte: tabela `sFourIsland_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FourIsland`.
 
 ### Surf
 
@@ -2087,7 +2087,7 @@ Fonte: tabela `sFourIsland_FireRed` de `game/src/data/wild_encounters.json`; map
 
 ## Four Island — Icefall Cave — 1 F
 
-Fonte: tabela `sFourIslandIcefallCave1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `FourIsland_IcefallCave_1F`.
+Fonte: tabela `sFourIslandIcefallCave1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FourIsland_IcefallCave_1F`.
 
 ### Grama / caverna
 
@@ -2109,7 +2109,7 @@ Fonte: tabela `sFourIslandIcefallCave1F_FireRed` de `game/src/data/wild_encounte
 
 ## Four Island — Icefall Cave — B1 F
 
-Fonte: tabela `sFourIslandIcefallCaveB1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `FourIsland_IcefallCave_B1F`.
+Fonte: tabela `sFourIslandIcefallCaveB1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FourIsland_IcefallCave_B1F`.
 
 ### Grama / caverna
 
@@ -2130,7 +2130,7 @@ Fonte: tabela `sFourIslandIcefallCaveB1F_FireRed` de `game/src/data/wild_encount
 
 ## Four Island — Icefall Cave — Back
 
-Fonte: tabela `sFourIslandIcefallCaveBack_FireRed` de `game/src/data/wild_encounters.json`; mapa `FourIsland_IcefallCave_Back`.
+Fonte: tabela `sFourIslandIcefallCaveBack_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FourIsland_IcefallCave_Back`.
 
 ### Grama / caverna
 
@@ -2186,7 +2186,7 @@ Fonte: tabela `sFourIslandIcefallCaveBack_FireRed` de `game/src/data/wild_encoun
 
 ## Four Island — Icefall Cave — Entrance
 
-Fonte: tabela `sFourIslandIcefallCaveEntrance_FireRed` de `game/src/data/wild_encounters.json`; mapa `FourIsland_IcefallCave_Entrance`.
+Fonte: tabela `sFourIslandIcefallCaveEntrance_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FourIsland_IcefallCave_Entrance`.
 
 ### Grama / caverna
 
@@ -2241,7 +2241,7 @@ Fonte: tabela `sFourIslandIcefallCaveEntrance_FireRed` de `game/src/data/wild_en
 
 ## Fuchsia City
 
-Fonte: tabela `sFuchsiaCity_FireRed` de `game/src/data/wild_encounters.json`; mapa `FuchsiaCity`.
+Fonte: tabela `sFuchsiaCity_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `FuchsiaCity`.
 
 ### Surf
 
@@ -2283,7 +2283,7 @@ Fonte: tabela `sFuchsiaCity_FireRed` de `game/src/data/wild_encounters.json`; ma
 
 ## Mt Ember — Exterior
 
-Fonte: tabela `sMtEmberExterior_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtEmber_Exterior`.
+Fonte: tabela `sMtEmberExterior_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtEmber_Exterior`.
 
 ### Grama / caverna
 
@@ -2313,7 +2313,7 @@ Fonte: tabela `sMtEmberExterior_FireRed` de `game/src/data/wild_encounters.json`
 
 ## Mt Ember — Ruby Path — 1 F
 
-Fonte: tabela `sMtEmberRubyPath1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_1F`.
+Fonte: tabela `sMtEmberRubyPath1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_1F`.
 
 ### Grama / caverna
 
@@ -2345,7 +2345,7 @@ Fonte: tabela `sMtEmberRubyPath1F_FireRed` de `game/src/data/wild_encounters.jso
 
 ## Mt Ember — Ruby Path — B1 F
 
-Fonte: tabela `sMtEmberRubyPathB1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_B1F`.
+Fonte: tabela `sMtEmberRubyPathB1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_B1F`.
 
 ### Grama / caverna
 
@@ -2376,7 +2376,7 @@ Fonte: tabela `sMtEmberRubyPathB1F_FireRed` de `game/src/data/wild_encounters.js
 
 ## Mt Ember — Ruby Path — B1 F — Stairs
 
-Fonte: tabela `sMtEmberRubyPathB1FStairs_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_B1F_Stairs`.
+Fonte: tabela `sMtEmberRubyPathB1FStairs_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_B1F_Stairs`.
 
 ### Grama / caverna
 
@@ -2408,7 +2408,7 @@ Fonte: tabela `sMtEmberRubyPathB1FStairs_FireRed` de `game/src/data/wild_encount
 
 ## Mt Ember — Ruby Path — B2 F
 
-Fonte: tabela `sMtEmberRubyPathB2F_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_B2F`.
+Fonte: tabela `sMtEmberRubyPathB2F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_B2F`.
 
 ### Grama / caverna
 
@@ -2440,7 +2440,7 @@ Fonte: tabela `sMtEmberRubyPathB2F_FireRed` de `game/src/data/wild_encounters.js
 
 ## Mt Ember — Ruby Path — B2 F — Stairs
 
-Fonte: tabela `sMtEmberRubyPathB2FStairs_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_B2F_Stairs`.
+Fonte: tabela `sMtEmberRubyPathB2FStairs_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_B2F_Stairs`.
 
 ### Grama / caverna
 
@@ -2472,7 +2472,7 @@ Fonte: tabela `sMtEmberRubyPathB2FStairs_FireRed` de `game/src/data/wild_encount
 
 ## Mt Ember — Ruby Path — B3 F
 
-Fonte: tabela `sMtEmberRubyPathB3F_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_B3F`.
+Fonte: tabela `sMtEmberRubyPathB3F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtEmber_RubyPath_B3F`.
 
 ### Grama / caverna
 
@@ -2503,7 +2503,7 @@ Fonte: tabela `sMtEmberRubyPathB3F_FireRed` de `game/src/data/wild_encounters.js
 
 ## Mt Ember — Summit Path — 1 F
 
-Fonte: tabela `sMtEmberSummitPath1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtEmber_SummitPath_1F`.
+Fonte: tabela `sMtEmberSummitPath1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtEmber_SummitPath_1F`.
 
 ### Grama / caverna
 
@@ -2524,7 +2524,7 @@ Fonte: tabela `sMtEmberSummitPath1F_FireRed` de `game/src/data/wild_encounters.j
 
 ## Mt Ember — Summit Path — 2 F
 
-Fonte: tabela `sMtEmberSummitPath2F_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtEmber_SummitPath_2F`.
+Fonte: tabela `sMtEmberSummitPath2F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtEmber_SummitPath_2F`.
 
 ### Grama / caverna
 
@@ -2554,7 +2554,7 @@ Fonte: tabela `sMtEmberSummitPath2F_FireRed` de `game/src/data/wild_encounters.j
 
 ## Mt Ember — Summit Path — 3 F
 
-Fonte: tabela `sMtEmberSummitPath3F_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtEmber_SummitPath_3F`.
+Fonte: tabela `sMtEmberSummitPath3F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtEmber_SummitPath_3F`.
 
 ### Grama / caverna
 
@@ -2576,7 +2576,7 @@ Fonte: tabela `sMtEmberSummitPath3F_FireRed` de `game/src/data/wild_encounters.j
 
 ## Mt Moon — 1 F
 
-Fonte: tabela `sMtMoon1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtMoon_1F`.
+Fonte: tabela `sMtMoon1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtMoon_1F`.
 
 ### Grama / caverna
 
@@ -2598,7 +2598,7 @@ Fonte: tabela `sMtMoon1F_FireRed` de `game/src/data/wild_encounters.json`; mapa 
 
 ## Mt Moon — B1 F
 
-Fonte: tabela `sMtMoonB1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtMoon_B1F`.
+Fonte: tabela `sMtMoonB1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtMoon_B1F`.
 
 ### Grama / caverna
 
@@ -2618,7 +2618,7 @@ Fonte: tabela `sMtMoonB1F_FireRed` de `game/src/data/wild_encounters.json`; mapa
 
 ## Mt Moon — B2 F
 
-Fonte: tabela `sMtMoonB2F_FireRed` de `game/src/data/wild_encounters.json`; mapa `MtMoon_B2F`.
+Fonte: tabela `sMtMoonB2F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `MtMoon_B2F`.
 
 ### Grama / caverna
 
@@ -2638,7 +2638,7 @@ Fonte: tabela `sMtMoonB2F_FireRed` de `game/src/data/wild_encounters.json`; mapa
 
 ## One Island
 
-Fonte: tabela `sOneIsland_FireRed` de `game/src/data/wild_encounters.json`; mapa `OneIsland`.
+Fonte: tabela `sOneIsland_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `OneIsland`.
 
 ### Surf
 
@@ -2679,7 +2679,7 @@ Fonte: tabela `sOneIsland_FireRed` de `game/src/data/wild_encounters.json`; mapa
 
 ## One Island — Kindle Road
 
-Fonte: tabela `sOneIslandKindleRoad_FireRed` de `game/src/data/wild_encounters.json`; mapa `OneIsland_KindleRoad`.
+Fonte: tabela `sOneIslandKindleRoad_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `OneIsland_KindleRoad`.
 
 ### Grama / caverna
 
@@ -2744,7 +2744,7 @@ Fonte: tabela `sOneIslandKindleRoad_FireRed` de `game/src/data/wild_encounters.j
 
 ## One Island — Treasure Beach
 
-Fonte: tabela `sOneIslandTreasureBeach_FireRed` de `game/src/data/wild_encounters.json`; mapa `OneIsland_TreasureBeach`.
+Fonte: tabela `sOneIslandTreasureBeach_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `OneIsland_TreasureBeach`.
 
 ### Grama / caverna
 
@@ -2801,7 +2801,7 @@ Fonte: tabela `sOneIslandTreasureBeach_FireRed` de `game/src/data/wild_encounter
 
 ## Pallet Town
 
-Fonte: tabela `sPalletTown_FireRed` de `game/src/data/wild_encounters.json`; mapa `PalletTown`.
+Fonte: tabela `sPalletTown_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `PalletTown`.
 
 ### Surf
 
@@ -2842,7 +2842,7 @@ Fonte: tabela `sPalletTown_FireRed` de `game/src/data/wild_encounters.json`; map
 
 ## Pokemon Mansion — 1 F
 
-Fonte: tabela `sPokemonMansion1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `PokemonMansion_1F`.
+Fonte: tabela `sPokemonMansion1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `PokemonMansion_1F`.
 
 ### Grama / caverna
 
@@ -2864,7 +2864,7 @@ Fonte: tabela `sPokemonMansion1F_FireRed` de `game/src/data/wild_encounters.json
 
 ## Pokemon Mansion — 2 F
 
-Fonte: tabela `sPokemonMansion2F_FireRed` de `game/src/data/wild_encounters.json`; mapa `PokemonMansion_2F`.
+Fonte: tabela `sPokemonMansion2F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `PokemonMansion_2F`.
 
 ### Grama / caverna
 
@@ -2888,7 +2888,7 @@ Fonte: tabela `sPokemonMansion2F_FireRed` de `game/src/data/wild_encounters.json
 
 ## Pokemon Mansion — 3 F
 
-Fonte: tabela `sPokemonMansion3F_FireRed` de `game/src/data/wild_encounters.json`; mapa `PokemonMansion_3F`.
+Fonte: tabela `sPokemonMansion3F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `PokemonMansion_3F`.
 
 ### Grama / caverna
 
@@ -2910,7 +2910,7 @@ Fonte: tabela `sPokemonMansion3F_FireRed` de `game/src/data/wild_encounters.json
 
 ## Pokemon Mansion — B1 F
 
-Fonte: tabela `sPokemonMansionB1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `PokemonMansion_B1F`.
+Fonte: tabela `sPokemonMansionB1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `PokemonMansion_B1F`.
 
 ### Grama / caverna
 
@@ -2931,7 +2931,7 @@ Fonte: tabela `sPokemonMansionB1F_FireRed` de `game/src/data/wild_encounters.jso
 
 ## Pokemon Tower — 3 F
 
-Fonte: tabela `sPokemonTower3F_FireRed` de `game/src/data/wild_encounters.json`; mapa `PokemonTower_3F`.
+Fonte: tabela `sPokemonTower3F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `PokemonTower_3F`.
 
 ### Grama / caverna
 
@@ -2953,7 +2953,7 @@ Fonte: tabela `sPokemonTower3F_FireRed` de `game/src/data/wild_encounters.json`;
 
 ## Pokemon Tower — 4 F
 
-Fonte: tabela `sPokemonTower4F_FireRed` de `game/src/data/wild_encounters.json`; mapa `PokemonTower_4F`.
+Fonte: tabela `sPokemonTower4F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `PokemonTower_4F`.
 
 ### Grama / caverna
 
@@ -2974,7 +2974,7 @@ Fonte: tabela `sPokemonTower4F_FireRed` de `game/src/data/wild_encounters.json`;
 
 ## Pokemon Tower — 5 F
 
-Fonte: tabela `sPokemonTower5F_FireRed` de `game/src/data/wild_encounters.json`; mapa `PokemonTower_5F`.
+Fonte: tabela `sPokemonTower5F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `PokemonTower_5F`.
 
 ### Grama / caverna
 
@@ -2995,7 +2995,7 @@ Fonte: tabela `sPokemonTower5F_FireRed` de `game/src/data/wild_encounters.json`;
 
 ## Pokemon Tower — 6 F
 
-Fonte: tabela `sPokemonTower6F_FireRed` de `game/src/data/wild_encounters.json`; mapa `PokemonTower_6F`.
+Fonte: tabela `sPokemonTower6F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `PokemonTower_6F`.
 
 ### Grama / caverna
 
@@ -3016,7 +3016,7 @@ Fonte: tabela `sPokemonTower6F_FireRed` de `game/src/data/wild_encounters.json`;
 
 ## Pokemon Tower — 7 F
 
-Fonte: tabela `sPokemonTower7F_FireRed` de `game/src/data/wild_encounters.json`; mapa `PokemonTower_7F`.
+Fonte: tabela `sPokemonTower7F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `PokemonTower_7F`.
 
 ### Grama / caverna
 
@@ -3038,7 +3038,7 @@ Fonte: tabela `sPokemonTower7F_FireRed` de `game/src/data/wild_encounters.json`;
 
 ## Power Plant
 
-Fonte: tabela `sPowerPlant_FireRed` de `game/src/data/wild_encounters.json`; mapa `PowerPlant`.
+Fonte: tabela `sPowerPlant_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `PowerPlant`.
 
 ### Grama / caverna
 
@@ -3062,7 +3062,7 @@ Fonte: tabela `sPowerPlant_FireRed` de `game/src/data/wild_encounters.json`; map
 
 ## Rock Tunnel — 1 F
 
-Fonte: tabela `sRockTunnel1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `RockTunnel_1F`.
+Fonte: tabela `sRockTunnel1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `RockTunnel_1F`.
 
 ### Grama / caverna
 
@@ -3083,7 +3083,7 @@ Fonte: tabela `sRockTunnel1F_FireRed` de `game/src/data/wild_encounters.json`; m
 
 ## Rock Tunnel — B1 F
 
-Fonte: tabela `sRockTunnelB1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `RockTunnel_B1F`.
+Fonte: tabela `sRockTunnelB1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `RockTunnel_B1F`.
 
 ### Grama / caverna
 
@@ -3115,7 +3115,7 @@ Fonte: tabela `sRockTunnelB1F_FireRed` de `game/src/data/wild_encounters.json`; 
 
 ## SSAnne — Exterior
 
-Fonte: tabela `sSSAnneExterior_FireRed` de `game/src/data/wild_encounters.json`; mapa `SSAnne_Exterior`.
+Fonte: tabela `sSSAnneExterior_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SSAnne_Exterior`.
 
 **Tabelas originais de acesso limitado:** a S.S. Anne parte antes da obtenção normal de Surf e das varas avançadas. Estes dados foram preservados, mas não contam como prova de captura das 386 espécies. Todas elas têm opções em áreas permanentes.
 
@@ -3153,7 +3153,7 @@ Fonte: tabela `sSSAnneExterior_FireRed` de `game/src/data/wild_encounters.json`;
 
 ## Safari Zone — Center
 
-Fonte: tabela `sSafariZoneCenter_FireRed` de `game/src/data/wild_encounters.json`; mapa `SafariZone_Center`.
+Fonte: tabela `sSafariZoneCenter_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SafariZone_Center`.
 
 ### Grama / caverna
 
@@ -3211,7 +3211,7 @@ Fonte: tabela `sSafariZoneCenter_FireRed` de `game/src/data/wild_encounters.json
 
 ## Safari Zone — East
 
-Fonte: tabela `sSafariZoneEast_FireRed` de `game/src/data/wild_encounters.json`; mapa `SafariZone_East`.
+Fonte: tabela `sSafariZoneEast_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SafariZone_East`.
 
 ### Grama / caverna
 
@@ -3270,7 +3270,7 @@ Fonte: tabela `sSafariZoneEast_FireRed` de `game/src/data/wild_encounters.json`;
 
 ## Safari Zone — North
 
-Fonte: tabela `sSafariZoneNorth_FireRed` de `game/src/data/wild_encounters.json`; mapa `SafariZone_North`.
+Fonte: tabela `sSafariZoneNorth_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SafariZone_North`.
 
 ### Grama / caverna
 
@@ -3328,7 +3328,7 @@ Fonte: tabela `sSafariZoneNorth_FireRed` de `game/src/data/wild_encounters.json`
 
 ## Safari Zone — West
 
-Fonte: tabela `sSafariZoneWest_FireRed` de `game/src/data/wild_encounters.json`; mapa `SafariZone_West`.
+Fonte: tabela `sSafariZoneWest_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SafariZone_West`.
 
 ### Grama / caverna
 
@@ -3387,7 +3387,7 @@ Fonte: tabela `sSafariZoneWest_FireRed` de `game/src/data/wild_encounters.json`;
 
 ## Seafoam Islands — 1 F
 
-Fonte: tabela `sSeafoamIslands1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `SeafoamIslands_1F`.
+Fonte: tabela `sSeafoamIslands1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SeafoamIslands_1F`.
 
 ### Grama / caverna
 
@@ -3406,7 +3406,7 @@ Fonte: tabela `sSeafoamIslands1F_FireRed` de `game/src/data/wild_encounters.json
 
 ## Seafoam Islands — B1 F
 
-Fonte: tabela `sSeafoamIslandsB1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `SeafoamIslands_B1F`.
+Fonte: tabela `sSeafoamIslandsB1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SeafoamIslands_B1F`.
 
 ### Grama / caverna
 
@@ -3427,7 +3427,7 @@ Fonte: tabela `sSeafoamIslandsB1F_FireRed` de `game/src/data/wild_encounters.jso
 
 ## Seafoam Islands — B2 F
 
-Fonte: tabela `sSeafoamIslandsB2F_FireRed` de `game/src/data/wild_encounters.json`; mapa `SeafoamIslands_B2F`.
+Fonte: tabela `sSeafoamIslandsB2F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SeafoamIslands_B2F`.
 
 ### Grama / caverna
 
@@ -3447,7 +3447,7 @@ Fonte: tabela `sSeafoamIslandsB2F_FireRed` de `game/src/data/wild_encounters.jso
 
 ## Seafoam Islands — B3 F
 
-Fonte: tabela `sSeafoamIslandsB3F_FireRed` de `game/src/data/wild_encounters.json`; mapa `SeafoamIslands_B3F`.
+Fonte: tabela `sSeafoamIslandsB3F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SeafoamIslands_B3F`.
 
 ### Grama / caverna
 
@@ -3502,7 +3502,7 @@ Fonte: tabela `sSeafoamIslandsB3F_FireRed` de `game/src/data/wild_encounters.jso
 
 ## Seafoam Islands — B4 F
 
-Fonte: tabela `sSeafoamIslandsB4F_FireRed` de `game/src/data/wild_encounters.json`; mapa `SeafoamIslands_B4F`.
+Fonte: tabela `sSeafoamIslandsB4F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SeafoamIslands_B4F`.
 
 ### Grama / caverna
 
@@ -3554,7 +3554,7 @@ Fonte: tabela `sSeafoamIslandsB4F_FireRed` de `game/src/data/wild_encounters.jso
 
 ## Seven Island — Sevault Canyon
 
-Fonte: tabela `sSevenIslandSevaultCanyon_FireRed` de `game/src/data/wild_encounters.json`; mapa `SevenIsland_SevaultCanyon`.
+Fonte: tabela `sSevenIslandSevaultCanyon_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SevenIsland_SevaultCanyon`.
 
 ### Grama / caverna
 
@@ -3586,7 +3586,7 @@ Fonte: tabela `sSevenIslandSevaultCanyon_FireRed` de `game/src/data/wild_encount
 
 ## Seven Island — Sevault Canyon — Entrance
 
-Fonte: tabela `sSevenIslandSevaultCanyonEntrance_FireRed` de `game/src/data/wild_encounters.json`; mapa `SevenIsland_SevaultCanyon_Entrance`.
+Fonte: tabela `sSevenIslandSevaultCanyonEntrance_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SevenIsland_SevaultCanyon_Entrance`.
 
 ### Grama / caverna
 
@@ -3606,7 +3606,7 @@ Fonte: tabela `sSevenIslandSevaultCanyonEntrance_FireRed` de `game/src/data/wild
 
 ## Seven Island — Tanoby Ruins
 
-Fonte: tabela `sSevenIslandTanobyRuins_FireRed` de `game/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins`.
+Fonte: tabela `sSevenIslandTanobyRuins_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins`.
 
 ### Surf
 
@@ -3648,7 +3648,7 @@ Fonte: tabela `sSevenIslandTanobyRuins_FireRed` de `game/src/data/wild_encounter
 
 ## Seven Island — Tanoby Ruins — Dilford Chamber
 
-Fonte: tabela `sSevenIslandTanobyRuinsDilfordChamber_FireRed` de `game/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_DilfordChamber`.
+Fonte: tabela `sSevenIslandTanobyRuinsDilfordChamber_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_DilfordChamber`.
 
 ### Grama / caverna
 
@@ -3665,7 +3665,7 @@ Fonte: tabela `sSevenIslandTanobyRuinsDilfordChamber_FireRed` de `game/src/data/
 
 ## Seven Island — Tanoby Ruins — Liptoo Chamber
 
-Fonte: tabela `sSevenIslandTanobyRuinsLiptooChamber_FireRed` de `game/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_LiptooChamber`.
+Fonte: tabela `sSevenIslandTanobyRuinsLiptooChamber_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_LiptooChamber`.
 
 ### Grama / caverna
 
@@ -3682,7 +3682,7 @@ Fonte: tabela `sSevenIslandTanobyRuinsLiptooChamber_FireRed` de `game/src/data/w
 
 ## Seven Island — Tanoby Ruins — Monean Chamber
 
-Fonte: tabela `sSevenIslandTanobyRuinsMoneanChamber_FireRed` de `game/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_MoneanChamber`.
+Fonte: tabela `sSevenIslandTanobyRuinsMoneanChamber_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_MoneanChamber`.
 
 ### Grama / caverna
 
@@ -3696,7 +3696,7 @@ Fonte: tabela `sSevenIslandTanobyRuinsMoneanChamber_FireRed` de `game/src/data/w
 
 ## Seven Island — Tanoby Ruins — Rixy Chamber
 
-Fonte: tabela `sSevenIslandTanobyRuinsRixyChamber_FireRed` de `game/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_RixyChamber`.
+Fonte: tabela `sSevenIslandTanobyRuinsRixyChamber_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_RixyChamber`.
 
 ### Grama / caverna
 
@@ -3713,7 +3713,7 @@ Fonte: tabela `sSevenIslandTanobyRuinsRixyChamber_FireRed` de `game/src/data/wil
 
 ## Seven Island — Tanoby Ruins — Scufib Chamber
 
-Fonte: tabela `sSevenIslandTanobyRuinsScufibChamber_FireRed` de `game/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_ScufibChamber`.
+Fonte: tabela `sSevenIslandTanobyRuinsScufibChamber_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_ScufibChamber`.
 
 ### Grama / caverna
 
@@ -3730,7 +3730,7 @@ Fonte: tabela `sSevenIslandTanobyRuinsScufibChamber_FireRed` de `game/src/data/w
 
 ## Seven Island — Tanoby Ruins — Viapois Chamber
 
-Fonte: tabela `sSevenIslandTanobyRuinsViapoisChamber_FireRed` de `game/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_ViapoisChamber`.
+Fonte: tabela `sSevenIslandTanobyRuinsViapoisChamber_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_ViapoisChamber`.
 
 ### Grama / caverna
 
@@ -3744,7 +3744,7 @@ Fonte: tabela `sSevenIslandTanobyRuinsViapoisChamber_FireRed` de `game/src/data/
 
 ## Seven Island — Tanoby Ruins — Weepth Chamber
 
-Fonte: tabela `sSevenIslandTanobyRuinsWeepthChamber_FireRed` de `game/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_WeepthChamber`.
+Fonte: tabela `sSevenIslandTanobyRuinsWeepthChamber_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SevenIsland_TanobyRuins_WeepthChamber`.
 
 ### Grama / caverna
 
@@ -3760,7 +3760,7 @@ Fonte: tabela `sSevenIslandTanobyRuinsWeepthChamber_FireRed` de `game/src/data/w
 
 ## Seven Island — Trainer Tower
 
-Fonte: tabela `sSevenIslandTrainerTower_FireRed` de `game/src/data/wild_encounters.json`; mapa `SevenIsland_TrainerTower`.
+Fonte: tabela `sSevenIslandTrainerTower_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SevenIsland_TrainerTower`.
 
 ### Surf
 
@@ -3802,7 +3802,7 @@ Fonte: tabela `sSevenIslandTrainerTower_FireRed` de `game/src/data/wild_encounte
 
 ## Six Island — Altering Cave
 
-Fonte: tabela `sSixIslandAlteringCave_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
+Fonte: tabela `sSixIslandAlteringCave_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
 
 Conjunto 0 redesenhado para esta hack, com Deoxys raro após a Liga. Os conjuntos alternativos originais constam somente no apêndice.
 
@@ -3826,7 +3826,7 @@ Conjunto 0 redesenhado para esta hack, com Deoxys raro após a Liga. Os conjunto
 
 ## Six Island — Green Path
 
-Fonte: tabela `sSixIslandGreenPath_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_GreenPath`.
+Fonte: tabela `sSixIslandGreenPath_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_GreenPath`.
 
 ### Surf
 
@@ -3867,7 +3867,7 @@ Fonte: tabela `sSixIslandGreenPath_FireRed` de `game/src/data/wild_encounters.js
 
 ## Six Island — Outcast Island
 
-Fonte: tabela `sSixIslandOutcastIsland_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_OutcastIsland`.
+Fonte: tabela `sSixIslandOutcastIsland_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_OutcastIsland`.
 
 ### Surf
 
@@ -3909,7 +3909,7 @@ Fonte: tabela `sSixIslandOutcastIsland_FireRed` de `game/src/data/wild_encounter
 
 ## Six Island — Pattern Bush
 
-Fonte: tabela `sSixIslandPatternBush_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_PatternBush`.
+Fonte: tabela `sSixIslandPatternBush_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_PatternBush`.
 
 ### Grama / caverna
 
@@ -3929,7 +3929,7 @@ Fonte: tabela `sSixIslandPatternBush_FireRed` de `game/src/data/wild_encounters.
 
 ## Six Island — Ruin Valley
 
-Fonte: tabela `sSixIslandRuinValley_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_RuinValley`.
+Fonte: tabela `sSixIslandRuinValley_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_RuinValley`.
 
 ### Grama / caverna
 
@@ -3985,7 +3985,7 @@ Fonte: tabela `sSixIslandRuinValley_FireRed` de `game/src/data/wild_encounters.j
 
 ## Six Island — Water Path
 
-Fonte: tabela `sSixIslandWaterPath_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_WaterPath`.
+Fonte: tabela `sSixIslandWaterPath_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_WaterPath`.
 
 ### Grama / caverna
 
@@ -4043,7 +4043,7 @@ Fonte: tabela `sSixIslandWaterPath_FireRed` de `game/src/data/wild_encounters.js
 
 ## Three Island — Berry Forest
 
-Fonte: tabela `sThreeIslandBerryForest_FireRed` de `game/src/data/wild_encounters.json`; mapa `ThreeIsland_BerryForest`.
+Fonte: tabela `sThreeIslandBerryForest_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `ThreeIsland_BerryForest`.
 
 ### Grama / caverna
 
@@ -4096,7 +4096,7 @@ Fonte: tabela `sThreeIslandBerryForest_FireRed` de `game/src/data/wild_encounter
 
 ## Three Island — Bond Bridge
 
-Fonte: tabela `sThreeIslandBondBridge_FireRed` de `game/src/data/wild_encounters.json`; mapa `ThreeIsland_BondBridge`.
+Fonte: tabela `sThreeIslandBondBridge_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `ThreeIsland_BondBridge`.
 
 ### Grama / caverna
 
@@ -4151,7 +4151,7 @@ Fonte: tabela `sThreeIslandBondBridge_FireRed` de `game/src/data/wild_encounters
 
 ## Three Island — Port
 
-Fonte: tabela `sThreeIslandPort_FireRed` de `game/src/data/wild_encounters.json`; mapa `ThreeIsland_Port`.
+Fonte: tabela `sThreeIslandPort_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `ThreeIsland_Port`.
 
 ### Grama / caverna
 
@@ -4173,7 +4173,7 @@ Fonte: tabela `sThreeIslandPort_FireRed` de `game/src/data/wild_encounters.json`
 
 ## Two Island — Cape Brink
 
-Fonte: tabela `sTwoIslandCapeBrink_FireRed` de `game/src/data/wild_encounters.json`; mapa `TwoIsland_CapeBrink`.
+Fonte: tabela `sTwoIslandCapeBrink_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `TwoIsland_CapeBrink`.
 
 ### Grama / caverna
 
@@ -4229,7 +4229,7 @@ Fonte: tabela `sTwoIslandCapeBrink_FireRed` de `game/src/data/wild_encounters.js
 
 ## Vermilion City
 
-Fonte: tabela `sVermilionCity_FireRed` de `game/src/data/wild_encounters.json`; mapa `VermilionCity`.
+Fonte: tabela `sVermilionCity_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `VermilionCity`.
 
 ### Surf
 
@@ -4270,7 +4270,7 @@ Fonte: tabela `sVermilionCity_FireRed` de `game/src/data/wild_encounters.json`; 
 
 ## Victory Road — 1 F
 
-Fonte: tabela `sVictoryRoad1F_FireRed` de `game/src/data/wild_encounters.json`; mapa `VictoryRoad_1F`.
+Fonte: tabela `sVictoryRoad1F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `VictoryRoad_1F`.
 
 ### Grama / caverna
 
@@ -4293,7 +4293,7 @@ Fonte: tabela `sVictoryRoad1F_FireRed` de `game/src/data/wild_encounters.json`; 
 
 ## Victory Road — 2 F
 
-Fonte: tabela `sVictoryRoad2F_FireRed` de `game/src/data/wild_encounters.json`; mapa `VictoryRoad_2F`.
+Fonte: tabela `sVictoryRoad2F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `VictoryRoad_2F`.
 
 ### Grama / caverna
 
@@ -4317,7 +4317,7 @@ Fonte: tabela `sVictoryRoad2F_FireRed` de `game/src/data/wild_encounters.json`; 
 
 ## Victory Road — 3 F
 
-Fonte: tabela `sVictoryRoad3F_FireRed` de `game/src/data/wild_encounters.json`; mapa `VictoryRoad_3F`.
+Fonte: tabela `sVictoryRoad3F_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `VictoryRoad_3F`.
 
 ### Grama / caverna
 
@@ -4338,7 +4338,7 @@ Fonte: tabela `sVictoryRoad3F_FireRed` de `game/src/data/wild_encounters.json`; 
 
 ## Viridian City
 
-Fonte: tabela `sViridianCity_FireRed` de `game/src/data/wild_encounters.json`; mapa `ViridianCity`.
+Fonte: tabela `sViridianCity_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `ViridianCity`.
 
 ### Surf
 
@@ -4378,7 +4378,7 @@ Fonte: tabela `sViridianCity_FireRed` de `game/src/data/wild_encounters.json`; m
 
 ## Viridian Forest
 
-Fonte: tabela `sViridianForest_FireRed` de `game/src/data/wild_encounters.json`; mapa `ViridianForest`.
+Fonte: tabela `sViridianForest_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `ViridianForest`.
 
 ### Grama / caverna
 
@@ -4421,7 +4421,7 @@ A espécie é fixa (100% ao acionar o evento disponível); isso não garante cap
 
 Após concluir a rede de Celio (entrega da Sapphire), a base ativa um único errante de nível 50: **Entei** se você escolheu Bulbasaur, **Suicune** se escolheu Charmander, ou **Raikou** se escolheu Squirtle. Ele se desloca pelas rotas de Kanto (1–25; Route 21 North, não South).
 
-Quando ele está ativo e no mesmo mapa do jogador, o teste de substituição tem **25%** de chance nominal, após a verificação de encontro e antes de gerar o selvagem comum. Não é 25% em cada rota em todos os momentos: sua localização muda e Repel ainda pode impedir a batalha. Pesca e Rock Smash não usam essa substituição. Fonte: `game/src/roamer.c` e `game/src/wild_encounter.c`.
+Quando ele está ativo e no mesmo mapa do jogador, o teste de substituição tem **25%** de chance nominal, após a verificação de encontro e antes de gerar o selvagem comum. Não é 25% em cada rota em todos os momentos: sua localização muda e Repel ainda pode impedir a batalha. Pesca e Rock Smash não usam essa substituição. Fonte: `games/super-fire-red/src/roamer.c` e `games/super-fire-red/src/wild_encounter.c`.
 
 ## Presentes, compras, fósseis e trocas
 
@@ -4442,7 +4442,7 @@ Recebimentos não são sorteios de grama: a espécie é garantida quando você e
 | Celadon — Game Corner | Scyther | 25 | 5.500 moedas |
 | Celadon — Game Corner | Porygon | 26 | 9.999 moedas |
 
-Trocas por NPC, com nível igual ao Pokémon entregue: Route 2 House, Abra → Mr. Mime; Cerulean House 3, Poliwhirl → Jynx; Underground Path North Entrance, Nidoran♂ → Nidoran♀; Vermilion House 2, Spearow → Farfetch’d; Route 11 East Entrance 2F, Nidorino → Nidorina; Route 18 East Entrance 2F, Golduck → Lickitung; Cinnabar Lab Lounge, Raichu → Electrode e Venonat → Tangela; Cinnabar Lab Experiment Room, Ponyta → Seel. Fonte: `game/src/data/ingame_trades.h` e scripts dos mapas.
+Trocas por NPC, com nível igual ao Pokémon entregue: Route 2 House, Abra → Mr. Mime; Cerulean House 3, Poliwhirl → Jynx; Underground Path North Entrance, Nidoran♂ → Nidoran♀; Vermilion House 2, Spearow → Farfetch’d; Route 11 East Entrance 2F, Nidorino → Nidorina; Route 18 East Entrance 2F, Golduck → Lickitung; Cinnabar Lab Lounge, Raichu → Electrode e Venonat → Tangela; Cinnabar Lab Experiment Room, Ponyta → Seel. Fonte: `games/super-fire-red/src/data/ingame_trades.h` e scripts dos mapas.
 
 ## Altering Cave — tabelas alternativas inativas
 
@@ -4451,7 +4451,7 @@ O jogo usa o conjunto 0 redesenhado por padrão. Os oito conjuntos abaixo foram 
 
 ### sSixIslandAlteringCave_2_FireRed
 
-Fonte: tabela `sSixIslandAlteringCave_2_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
+Fonte: tabela `sSixIslandAlteringCave_2_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
 
 ### Grama / caverna
 
@@ -4462,7 +4462,7 @@ Fonte: tabela `sSixIslandAlteringCave_2_FireRed` de `game/src/data/wild_encounte
 
 ### sSixIslandAlteringCave_3_FireRed
 
-Fonte: tabela `sSixIslandAlteringCave_3_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
+Fonte: tabela `sSixIslandAlteringCave_3_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
 
 ### Grama / caverna
 
@@ -4473,7 +4473,7 @@ Fonte: tabela `sSixIslandAlteringCave_3_FireRed` de `game/src/data/wild_encounte
 
 ### sSixIslandAlteringCave_4_FireRed
 
-Fonte: tabela `sSixIslandAlteringCave_4_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
+Fonte: tabela `sSixIslandAlteringCave_4_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
 
 ### Grama / caverna
 
@@ -4484,7 +4484,7 @@ Fonte: tabela `sSixIslandAlteringCave_4_FireRed` de `game/src/data/wild_encounte
 
 ### sSixIslandAlteringCave_5_FireRed
 
-Fonte: tabela `sSixIslandAlteringCave_5_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
+Fonte: tabela `sSixIslandAlteringCave_5_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
 
 ### Grama / caverna
 
@@ -4495,7 +4495,7 @@ Fonte: tabela `sSixIslandAlteringCave_5_FireRed` de `game/src/data/wild_encounte
 
 ### sSixIslandAlteringCave_6_FireRed
 
-Fonte: tabela `sSixIslandAlteringCave_6_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
+Fonte: tabela `sSixIslandAlteringCave_6_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
 
 ### Grama / caverna
 
@@ -4506,7 +4506,7 @@ Fonte: tabela `sSixIslandAlteringCave_6_FireRed` de `game/src/data/wild_encounte
 
 ### sSixIslandAlteringCave_7_FireRed
 
-Fonte: tabela `sSixIslandAlteringCave_7_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
+Fonte: tabela `sSixIslandAlteringCave_7_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
 
 ### Grama / caverna
 
@@ -4517,7 +4517,7 @@ Fonte: tabela `sSixIslandAlteringCave_7_FireRed` de `game/src/data/wild_encounte
 
 ### sSixIslandAlteringCave_8_FireRed
 
-Fonte: tabela `sSixIslandAlteringCave_8_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
+Fonte: tabela `sSixIslandAlteringCave_8_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
 
 ### Grama / caverna
 
@@ -4528,7 +4528,7 @@ Fonte: tabela `sSixIslandAlteringCave_8_FireRed` de `game/src/data/wild_encounte
 
 ### sSixIslandAlteringCave_9_FireRed
 
-Fonte: tabela `sSixIslandAlteringCave_9_FireRed` de `game/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
+Fonte: tabela `sSixIslandAlteringCave_9_FireRed` de `games/super-fire-red/src/data/wild_encounters.json`; mapa `SixIsland_AlteringCave`.
 
 ### Grama / caverna
 
@@ -4540,4 +4540,4 @@ Fonte: tabela `sSixIslandAlteringCave_9_FireRed` de `game/src/data/wild_encounte
 
 124 mapas com tabelas comuns de FireRed, 26 entradas de rotas (Route 21 separada em Norte/Sul), 8 tabelas alternativas de Altering Cave e 13 ocorrências fixas/eventos catalogadas. As tabelas de LeafGreen não entram neste guia. Áreas sem tabela aleatória não recebem encontros inventados.
 
-Distribuição reproduzível: `python3 game/scripts/balance_encounters.py --check`, com cobertura por espécie em `game/hack-data/encounter_distribution.json`. Gerar novamente os guias: `python3 game/scripts/generate_guides.py`. Conferir sem escrever: `python3 game/scripts/generate_guides.py --check`. O gerador valida soma de 100% por método, número de slots, separação das varas, formas de Unown e duplicação somente em Altering Cave. Não altera a ROM.
+Distribuição reproduzível: `python3 games/super-fire-red/scripts/balance_encounters.py --check`, com cobertura por espécie em `games/super-fire-red/hack-data/encounter_distribution.json`. Gerar novamente os guias: `python3 games/super-fire-red/scripts/generate_guides.py`. Conferir sem escrever: `python3 games/super-fire-red/scripts/generate_guides.py --check`. O gerador valida soma de 100% por método, número de slots, separação das varas, formas de Unown e duplicação somente em Altering Cave. Não altera a ROM.

@@ -1,6 +1,6 @@
 # Captura no Hardcore — v0.3.1-dev
 
-Testado em 21/10/2026, mGBA via biblioteca nativa, em build descartável derivada dos fontes da ROM SHA-256 `d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8`. **23/23 casos aprovados**; **124 mapas** de encontros verificados. [Resultados estruturados](../game/hack-data/capture_test_results.json).
+Testado em 21/10/2026, mGBA via biblioteca nativa, em build descartável derivada dos fontes da ROM SHA-256 `d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8`. **23/23 casos aprovados**; **124 mapas** de encontros verificados. [Resultados estruturados](../games/super-fire-red/hack-data/capture_test_results.json).
 
 ## Regra validada
 
@@ -50,10 +50,10 @@ Um save Flash de **128 KiB** é transferido para uma **nova instância** do mGBA
 
 Na v0.3.0-dev, o fantasma de Marowak **revelado pelo Silph Scope** consumia a oportunidade da Pokémon Tower apesar de o motor rejeitar sua captura. A condição só excluía fantasmas sem identificação. A v0.3.1-dev exclui as batalhas marcadas como fantasma nos dois estados; Gastly e outros selvagens normais da Torre continuam sujeitos à cota.
 
-O [resultado anterior](../game/hack-data/capture_rules_v0.3.0.json) conserva a reprodução: 21/22 aprovados, com falha apenas em `revealed_marowak_does_not_consume`. Os 23 casos atuais passaram. As cotas antigas não são apagadas automaticamente.
+O [resultado anterior](../games/super-fire-red/hack-data/capture_rules_v0.3.0.json) conserva a reprodução: 21/22 aprovados, com falha apenas em `revealed_marowak_does_not_consume`. Os 23 casos atuais passaram. As cotas antigas não são apagadas automaticamente.
 
 ## Repetir e completar validação manual
 
-Após compilar no Ubuntu/WSL: `python3 game/scripts/test_capture_rules.py`. Código de saída esperado: 0. Logs e JSON em `game/output/tests/capture/`.
+Após compilar no Ubuntu/WSL: `python3 games/super-fire-red/scripts/test_capture_rules.py`. Código de saída esperado: 0. Logs e JSON em `games/super-fire-red/output/tests/capture/`.
 
 Ainda é necessário percorrer uma campanha real: fugir do primeiro encontro, tentar capturar outro, testar grama/Surf/pesca na mesma rota, mudar de andar, visitar Safari/Torre, salvar/reabrir e repetir no VBA Link 1.8 LAN/WiFi. O roteiro completo está no [checklist](TEST_CHECKLIST.md).

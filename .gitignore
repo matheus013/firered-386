@@ -1,5 +1,5 @@
 /.build/
-/game/output/
+/games/super-fire-red/output/
 __pycache__/
 *.py[cod]
 *.sav
