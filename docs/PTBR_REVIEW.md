@@ -1,6 +1,6 @@
 # Revisão da tradução PT-BR
 
-Prévia v0.5.0-preview.3. O catálogo contém 7.865 entradas traduzidas e 1.202 substituições revisadas. A tradução completa da campanha ainda não foi revisada linguisticamente: muitos diálogos secundários continuam vindo do rascunho automático. [Cobertura](data/localization/coverage.json) · [Resultados desta ROM](data/ptbr_validation.json).
+Prévia v0.5.0-preview.3. O catálogo contém 7.865 entradas traduzidas e 1.202 substituições revisadas. A tradução completa da campanha ainda não foi revisada linguisticamente: muitos diálogos secundários continuam vindo do rascunho automático. [Cobertura](../data/localization/coverage.json) · [Resultados desta ROM](../data/ptbr_validation.json).
 
 ## O que mudou
 
@@ -12,7 +12,7 @@ Prévia v0.5.0-preview.3. O catálogo contém 7.865 entradas traduzidas e 1.202 
 - Protegidos identificadores de treinadores, apelidos da Torre, naturezas e habilidades contra traduções literais. Pokémon, golpes, habilidades e naturezas conservam os nomes usados nas tabelas do jogo. Os tipos nas descrições acompanham os nomes dos ícones da ROM.
 - Os rótulos desenhados no fundo do resumo de golpes recebem texto PT-BR por código: **PODER**, **PRECIS.** e **CATEG.** A coluna dos valores e as descrições mantêm espaço próprio.
 
-![Resumo de golpes em PT-BR](docs/images/ptbr-move-summary.png)
+![Resumo de golpes em PT-BR](images/ptbr-move-summary.png)
 
 ## Verificação
 

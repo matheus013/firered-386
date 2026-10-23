@@ -4,7 +4,7 @@
 
 Auditoria de 21/10/2026, ROM de referência SHA-256 `d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8`. Foram aprovados **114 checkpoints**: 30 de eventos da história, 81 na sequência de líderes/Liga/Sevii/opcionais/Torre e três confrontos adicionais do rival. Não foi exigida a captura dos 386, conforme a escolha do usuário.
 
-Os resultados estruturados estão em [data/campaign_tests.json](data/campaign_tests.json); logs nativos: [história](data/campaign_logs/story.log), [campanha/pós-jogo](data/campaign_logs/campaign.log), [rival](data/campaign_logs/rivals.log).
+Os resultados estruturados estão em [data/campaign_tests.json](../data/campaign_tests.json); logs nativos: [história](../data/campaign_logs/story.log), [campanha/pós-jogo](../data/campaign_logs/campaign.log), [rival](../data/campaign_logs/rivals.log).
 
 ## O que o teste demonstra
 
@@ -50,7 +50,7 @@ Comparação com a revisão fixa do pret usada como base:
 - Cientistas adicionados: sem ocupar warps/objetos antigos, em piso livre; a conectividade do piso dos Centros desde a entrada não perdeu tiles além da posição do próprio NPC.
 - Fontes de obtenção dos itens críticos identificadas; guarda de Liga antes da consulta à Nacional em Celio; Sapphire ligada à liberação da rede, caverna e seleção da revanche.
 
-Isso reduz o risco de regressão estrutural, mas não executa todas as condições de portas ou resolve puzzles. Detalhes dos nove checks em [data/campaign_tests.json](data/campaign_tests.json).
+Isso reduz o risco de regressão estrutural, mas não executa todas as condições de portas ou resolve puzzles. Detalhes dos nove checks em [data/campaign_tests.json](../data/campaign_tests.json).
 
 ## Estado final persistido
 

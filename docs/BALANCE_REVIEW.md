@@ -1,6 +1,6 @@
 # Balanceamento de Normal e Hardcore — v0.4.0-dev
 
-Auditoria de 22/10/2026, randomizer desligado. ROM SHA-256 `881869fbaa37abe13becbb071759ff1225984910fdb410d11818e88b56a0990d`. [Dados reproduzíveis](data/balance_audit_v0.4.0.json), gerados por `python scripts/audit_balance.py`.
+Auditoria de 22/10/2026, randomizer desligado. ROM SHA-256 `881869fbaa37abe13becbb071759ff1225984910fdb410d11818e88b56a0990d`. [Dados reproduzíveis](../data/balance_audit_v0.4.0.json), gerados por `python scripts/audit_balance.py`.
 
 **Parecer: o Normal está difícil e irregular na preparação; o Hardcore facilita a preparação, mas é muito mais punitivo nas batalhas e capturas. Ainda há desequilíbrios que impedem considerar a curva calibrada.** A existência de testes funcionais aprovados não demonstra chance de vitória de um jogador.
 

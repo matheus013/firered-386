@@ -8,9 +8,9 @@ Este documento descreve os fontes após a v0.4.0-dev. Não significa que a Relea
 
 A categoria fica na coluna dos valores, na linha EFFECT, separada de poder, precisão e descrição. As descrições são traduzidas antes da quebra de linhas e medidas em pixels, usando fonte pequena em até cinco linhas. Foram revisadas 14 traduções longas. A seleção dos cinco golpes foi percorrida por botões em EN e PT-BR; o teste também confere os limites de linhas das 354 descrições nos dois idiomas. As imagens abaixo foram conferidas visualmente.
 
-![Categoria física](docs/images/move-physical-ptbr.png)
+![Categoria física](images/move-physical-ptbr.png)
 
-![Categoria especial e descrição sem sobreposição](docs/images/move-special-ptbr.png)
+![Categoria especial e descrição sem sobreposição](images/move-special-ptbr.png)
 
 ## O que a IA faz
 
@@ -41,7 +41,7 @@ Os oito líderes continuam com seis integrantes, seus tipos e tetos anteriores. 
 
 Revisão posterior do histórico, imunidades, decisões e ajustes pontuais de Surge/Gengar: [AI_REVIEW.md](AI_REVIEW.md).
 
-Sets completos: [TRAINER_REVIEW.md](TRAINER_REVIEW.md). Manifesto editável: [data/gym_doubles_teams.json](data/gym_doubles_teams.json). Lorelei teve Toxic de Cloyster substituído por Spikes para respeitar a compatibilidade importada. Os testes de dificuldade dos 35 desafios continuam sendo evidência histórica da ROM v0.4.0; suas taxas não devem ser atribuídas aos times novos. Ainda falta recalibrar a campanha com estas mudanças.
+Sets completos: [TRAINER_REVIEW.md](TRAINER_REVIEW.md). Manifesto editável: [data/gym_doubles_teams.json](../data/gym_doubles_teams.json). Lorelei teve Toxic de Cloyster substituído por Spikes para respeitar a compatibilidade importada. Os testes de dificuldade dos 35 desafios continuam sendo evidência histórica da ROM v0.4.0; suas taxas não devem ser atribuídas aos times novos. Ainda falta recalibrar a campanha com estas mudanças.
 
 ## Estado da geração IX
 
@@ -58,7 +58,7 @@ Sets completos: [TRAINER_REVIEW.md](TRAINER_REVIEW.md). Manifesto editável: [da
 | Atributos base | Atributos da geração IX nas 386 espécies (41 mudaram). Os encontros foram redistribuídos pelo novo total de atributos (554 de 4.352 slots) e os guias regenerados. |
 | Efeitos modernos completos | **Pendentes.** Atualizar números e categoria não equivale a portar todos os efeitos e regras das gerações recentes. |
 
-Não foram inseridos golpes com efeito fictício para preencher o catálogo. Z-Moves, Max/G-Max e golpes dependentes de Terastalização continuam fora do escopo. A auditoria de lacunas é [data/gen9_coverage.json](data/gen9_coverage.json); a importação parcial é [data/learnset_import.json](data/learnset_import.json).
+Não foram inseridos golpes com efeito fictício para preencher o catálogo. Z-Moves, Max/G-Max e golpes dependentes de Terastalização continuam fora do escopo. A auditoria de lacunas é [data/gen9_coverage.json](../data/gen9_coverage.json); a importação parcial é [data/learnset_import.json](../data/learnset_import.json).
 
 Fonte dos dados: [PokeAPI, revisão fixa 2bf639e](https://github.com/PokeAPI/pokeapi/tree/2bf639e5572812a67d2b94903fdcb9d095f5aeb2/data/v2/csv). URLs e hashes estão no manifesto em `data/upstream/pokeapi/manifest.json`. O projeto usa tabelas geradas e não executa código remoto para obter os dados.
 
@@ -70,6 +70,6 @@ Para obter o snapshot dos dados, execute `python scripts/fetch_gen9_data.py`. A 
 
 Os resultados anteriores de captura, campanha assistida e dificuldade não homologam automaticamente este build. A campanha natural, randomizer e o equilíbrio depois da modernização exigem novas baterias.
 
-Validação da prévia de IA v0.5.0-preview.2: [data/modernization_validation.json](data/modernization_validation.json), ROM SHA-256 `d500b63f0c21501469c3936d95325f91ec6bbf7a898d849b0e8d3fb79cb66f54`. As sete suítes de regressão passaram; os 46 testes de lojas correspondem ao mesmo SHA. A compilação limpa do patch produziu ROM idêntica. A suíte da E4 usa HP ampliado no time de teste para observar criação e avanço de turnos; não demonstra vitória. A prova de dificuldade antiga pode ser conferida com `validate_challenge_evidence.py --reference-rom CAMINHO_DA_ROM_V0.4.0`, sem confundir os dois builds.
+Validação da prévia de IA v0.5.0-preview.2: [data/modernization_validation.json](../data/modernization_validation.json), ROM SHA-256 `d500b63f0c21501469c3936d95325f91ec6bbf7a898d849b0e8d3fb79cb66f54`. As sete suítes de regressão passaram; os 46 testes de lojas correspondem ao mesmo SHA. A compilação limpa do patch produziu ROM idêntica. A suíte da E4 usa HP ampliado no time de teste para observar criação e avanço de turnos; não demonstra vitória. A prova de dificuldade antiga pode ser conferida com `validate_challenge_evidence.py --reference-rom CAMINHO_DA_ROM_V0.4.0`, sem confundir os dois builds.
 
-A prévia posterior v0.5.0-preview.3 revisa o PT-BR e repete os testes afetados. A evidência da nova ROM está em [data/ptbr_validation.json](data/ptbr_validation.json); o escopo linguístico, as imagens e as limitações estão em [PTBR_REVIEW.md](PTBR_REVIEW.md). As 32 batalhas da revisão de IA permanecem associadas ao SHA da prévia .2.
+A prévia posterior v0.5.0-preview.3 revisa o PT-BR e repete os testes afetados. A evidência da nova ROM está em [data/ptbr_validation.json](../data/ptbr_validation.json); o escopo linguístico, as imagens e as limitações estão em [PTBR_REVIEW.md](PTBR_REVIEW.md). As 32 batalhas da revisão de IA permanecem associadas ao SHA da prévia .2.

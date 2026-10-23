@@ -12,7 +12,7 @@ Guia dos encontros válido para v0.4.0-dev com randomizer desligado. A distribui
 - Os 21 lendários e míticos têm novos encontros aleatórios de 1% em áreas de pós-jogo, com trava pela primeira vitória na Liga. Encontros fixos originais continuam existindo; lendários derrotados em eventos também podem ser procurados nos novos encontros aleatórios.
 - Roamer, batalhas fixas e eventos aparecem em seções próprias. Tabelas alternativas de Altering Cave estão separadas das acessíveis normalmente. Tabelas de terra sem terreno de encontro no layout recebem aviso explícito; a presença de dados não cria grama onde ela não existe.
 
-Os caminhos `game/...` citados abaixo são fontes locais reconstruídos por `scripts/setup.sh`, não arquivos versionados diretamente neste repositório. As alterações da hack estão em [patches/current.patch](patches/current.patch).
+Os caminhos `game/...` citados abaixo são fontes locais reconstruídos por `scripts/setup.sh`, não arquivos versionados diretamente neste repositório. As alterações da hack estão em [patches/current.patch](../patches/current.patch).
 
 ## Índice por rota
 

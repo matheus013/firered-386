@@ -9,11 +9,11 @@ Revisão incluída na [v0.5.0-preview.4](https://github.com/matheus013/firered-3
 - **Estojo de TMs:** descrições preparadas para janelas mais largas apareciam sobrepostas ou cortadas no painel de 144 px. Agora são traduzidas, reformatadas para 140 px úteis e desenhadas em até cinco linhas. O título usa fonte pequena e centralização sem subtração negativa.
 - **Resumo:** revisados os títulos e as instruções de seleção/troca em PT-BR; a posição horizontal das instruções não pode ficar negativa. Categoria, poder, precisão e descrição permanecem separados.
 
-![IVs sem invasão da tabela](docs/images/ui-review-ivs-ptbr.png)
+![IVs sem invasão da tabela](images/ui-review-ivs-ptbr.png)
 
-![Descrição de TM dentro do painel](docs/images/ui-review-tm-ptbr.png)
+![Descrição de TM dentro do painel](images/ui-review-tm-ptbr.png)
 
-![Golpes novos e Fada no resumo](docs/images/ui-review-summary-ptbr.png)
+![Golpes novos e Fada no resumo](images/ui-review-summary-ptbr.png)
 
 ## Acesso ao editor
 
@@ -25,7 +25,7 @@ Revisão incluída na [v0.5.0-preview.4](https://github.com/matheus013/firered-3
 
 O cientista pode ser usado desde o início nos dois modos. No Normal, o menu apresenta IVs/natureza em cinza e informa o requisito. As funções de edição também rejeitam mudanças avançadas antes da Liga, mesmo sem passar pelo menu. O editor não cura nem revive; as restrições para ovos/Pokémon perdidos continuam ativas.
 
-![Opções avançadas bloqueadas no Normal](docs/images/ui-review-normal-editor-ptbr.png)
+![Opções avançadas bloqueadas no Normal](images/ui-review-normal-editor-ptbr.png)
 
 ## Validação
 
@@ -38,7 +38,7 @@ O cientista pode ser usado desde o início nos dois modos. No Normal, o menu apr
 - `scripts/test_ai_move_native.py`: 1.096 verificações, nenhuma falha. Testes dirigidos; não demonstram uma IA ótima nem vitória de campanha.
 - `scripts/run_regression.py`: sete suítes aprovadas na ROM final (Hardcore, editor, interface, criação dos treinadores, encontros, lojas e Liga). Lojas também repetidas em PT-BR: 23 catálogos × dois modos × dois idiomas = **92 casos**, com compra, venda, cancelamento, saída/reabertura e preço do Rare Candy.
 
-Os resultados estruturados e as referências de cada teste estão em [data/ui_review_validation.json](data/ui_review_validation.json). A compilação limpa do patch reproduziu a ROM acima.
+Os resultados estruturados e as referências de cada teste estão em [data/ui_review_validation.json](../data/ui_review_validation.json). A compilação limpa do patch reproduziu a ROM acima.
 
 Durante a revisão, também passaram **121 verificações de efeitos em 181 batalhas isoladas**, na ROM `ef88f2fec4e0d9f0fc9251bab4383713e425742a05fdf9f0999de29ba370e4bb`. Esse snapshot precede os últimos ajustes de texto/desenho do estojo e do resumo; seu SHA é preservado na evidência, sem atribuí-lo à ROM final.
 

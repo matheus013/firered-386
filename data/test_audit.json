@@ -347,14 +347,14 @@
       "resolution": "Exclude uncatchable ghosts, including revealed Marowak, from wild encounter quota"
     }
   ],
-  "manual_checklist": "TEST_CHECKLIST.md",
+  "manual_checklist": "docs/TEST_CHECKLIST.md",
   "previous_audit": "data/test_audit_v0.3.0.json",
   "campaign_validation": {
     "status": "assisted_integration_passed",
     "checkpoints": 114,
     "normal_play_clear_certified": false,
     "hardcore_campaign_clear_certified": false,
-    "report": "CAMPAIGN_TEST_RESULTS.md",
+    "report": "docs/CAMPAIGN_TEST_RESULTS.md",
     "results": "data/campaign_tests.json"
   }
 }

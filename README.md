@@ -1,22 +1,24 @@
 # FireRed 386
 
-**Prévia atual: [v0.5.0-preview.4](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.4)** — revisão de interface, EVs desde o início no Normal, Fada e 223 golpes novos. [Correções, imagens e validação](UI_REVIEW.md). A migração completa para as regras modernas continua em desenvolvimento.
+O README fica na raiz; os guias, relatórios de testes e o histórico de mudanças ficam em `docs/`. Os comandos de reprodução continuam sendo executados na raiz do projeto.
 
-**Desenvolvimento após v0.4.0:** há revisão da IA/ginásios, categorias por golpe, correção de sobreposição e importação parcial dos learnsets recentes. Estas mudanças ainda não completam a geração IX nem atualizam automaticamente a Release antiga. [Estado exato, testes e pendências](MODERNIZATION.md). [Revisão da IA dos líderes/E4](AI_REVIEW.md).
+**Prévia atual: [v0.5.0-preview.4](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.4)** — revisão de interface, EVs desde o início no Normal, Fada e 223 golpes novos. [Correções, imagens e validação](docs/UI_REVIEW.md). A migração completa para as regras modernas continua em desenvolvimento.
+
+**Desenvolvimento após v0.4.0:** há revisão da IA/ginásios, categorias por golpe, correção de sobreposição e importação parcial dos learnsets recentes. Estas mudanças ainda não completam a geração IX nem atualizam automaticamente a Release antiga. [Estado exato, testes e pendências](docs/MODERNIZATION.md). [Revisão da IA dos líderes/E4](docs/AI_REVIEW.md).
 
 Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em duplas e melhorias de qualidade de vida. **Versão de desenvolvimento, ainda incompleta.** As 386 espécies já estão distribuídas em encontros capturáveis; as demais melhorias pendentes estão listadas abaixo.
 
-Guias: [onde capturar cada uma das 386 espécies](SPECIES_LOCATIONS.md) · [times dos desafios em sequência](#times-dos-desafios-em-sequência) · [encontros por rota, níveis e probabilidades](ENCOUNTERS.md) · [catálogo de todos os treinadores](TRAINER_REVIEW.md).
+Guias: [onde capturar cada uma das 386 espécies](docs/SPECIES_LOCATIONS.md) · [times dos desafios em sequência](#times-dos-desafios-em-sequência) · [encontros por rota, níveis e probabilidades](docs/ENCOUNTERS.md) · [catálogo de todos os treinadores](docs/TRAINER_REVIEW.md).
 
-[Avaliação de balanceamento da v0.4.0-dev](BALANCE_REVIEW.md): comparação entre Normal/Hardcore, gargalo de EXP na Liga, preparação dos desafios e restrições de cura. É uma auditoria de dados e modelos; a campanha completa sem assistência continua pendente.
+[Avaliação de balanceamento da v0.4.0-dev](docs/BALANCE_REVIEW.md): comparação entre Normal/Hardcore, gargalo de EXP na Liga, preparação dos desafios e restrições de cura. É uma auditoria de dados e modelos; a campanha completa sem assistência continua pendente.
 
-**Validação anterior, v0.3.1-dev:** corrigidos os três bugs da auditoria (IVs, status dos errantes e teto da creche) e o consumo indevido de cota pelo Marowak fantasma. Passaram 23 casos de captura, com cotas nos 124 mapas de encontros, 28 casos de Pokémon/creche e sete suítes de regressão. Veja o [checklist e pendências manuais](TEST_CHECKLIST.md) e os [testes de captura](CAPTURE_TEST_RESULTS.md).
+**Validação anterior, v0.3.1-dev:** corrigidos os três bugs da auditoria (IVs, status dos errantes e teto da creche) e o consumo indevido de cota pelo Marowak fantasma. Passaram 23 casos de captura, com cotas nos 124 mapas de encontros, 28 casos de Pokémon/creche e sete suítes de regressão. Veja o [checklist e pendências manuais](docs/TEST_CHECKLIST.md) e os [testes de captura](docs/CAPTURE_TEST_RESULTS.md).
 
 ## Download
 
-Prévia atual: **[v0.5.0-preview.3](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.3)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.5.0-preview.3/firered-386-v0.5.0-preview.3.gba). Revisa o PT-BR e inclui as melhorias de IA/ginásios, interface e categorias/dados modernos. **Ainda não contém todos os golpes nem todas as TMs da geração IX.** [Testes e limites](MODERNIZATION.md).
+Prévia atual: **[v0.5.0-preview.3](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.3)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.5.0-preview.3/firered-386-v0.5.0-preview.3.gba). Revisa o PT-BR e inclui as melhorias de IA/ginásios, interface e categorias/dados modernos. **Ainda não contém todos os golpes nem todas as TMs da geração IX.** [Testes e limites](docs/MODERNIZATION.md).
 
-Versão anterior: **[v0.4.0-dev](https://github.com/matheus013/firered-386/releases/tag/v0.4.0-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.4.0-dev/firered-386-v0.4.0-dev.gba). Inclui idioma EN/PT-BR nas opções, randomizer opcional, treinamento dos desafios e nova interface do cientista. Veja o [histórico de versões](CHANGELOG.md) e o [relatório dos 46 testes de lojas](SHOP_TEST_RESULTS.md).
+Versão anterior: **[v0.4.0-dev](https://github.com/matheus013/firered-386/releases/tag/v0.4.0-dev)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.4.0-dev/firered-386-v0.4.0-dev.gba). Inclui idioma EN/PT-BR nas opções, randomizer opcional, treinamento dos desafios e nova interface do cientista. Veja o [histórico de versões](docs/CHANGELOG.md) e o [relatório dos 46 testes de lojas](docs/SHOP_TEST_RESULTS.md).
 
 Baixe o **`.gba`** em [Releases](https://github.com/matheus013/firered-386/releases) e abra em um emulador de GBA. Também estão disponíveis um patch `.ips`, o patch de fontes e checksums SHA-256.
 
@@ -24,20 +26,20 @@ O IPS exige uma ROM limpa de **FireRed USA 1.0**, SHA-1 `41cb23d8dccc8ebd7c649cd
 
 Para continuar uma partida, preserve uma cópia do `.sav` e use o mesmo nome-base para ROM e save, por exemplo `firered-386.gba` e `firered-386.sav`. O layout do save foi preservado e os testes de gravação/recarga passaram; a migração de saves reais de cada versão anterior ainda precisa ser validada. Os novos encontros passam a valer ao jogar com a ROM atualizada.
 
-Idioma selecionável em **OPTIONS: ENGLISH / PT-BR**. O português está em beta: 7.865 entradas traduzidas, com 1.202 substituições revisadas, incluindo as 354 descrições de golpes e 288 de itens. Menus, habilidades, mensagens de batalha, Centros Pokémon e diálogos iniciais foram revisados. Muitos diálogos secundários ainda vêm do rascunho automático. Nomes de Pokémon, golpes, habilidades e naturezas permanecem em inglês; caracteres sem suporte na fonte são simplificados. [Revisão, exemplos e testes do PT-BR](PTBR_REVIEW.md).
+Idioma selecionável em **OPTIONS: ENGLISH / PT-BR**. O português está em beta: 7.865 entradas traduzidas, com 1.202 substituições revisadas, incluindo as 354 descrições de golpes e 288 de itens. Menus, habilidades, mensagens de batalha, Centros Pokémon e diálogos iniciais foram revisados. Muitos diálogos secundários ainda vêm do rascunho automático. Nomes de Pokémon, golpes, habilidades e naturezas permanecem em inglês; caracteres sem suporte na fonte são simplificados. [Revisão, exemplos e testes do PT-BR](docs/PTBR_REVIEW.md).
 
-Ao criar o save: **Normal/Hardcore → Randomizer OFF/ON**. O randomizer troca encontros selvagens, iniciais e espécies/golpes dos treinadores, preservando níveis e tamanhos dos elencos; sua semente fica gravada. Encontros roteirizados e presentes permanecem fixos. Os times e locais dos guias representam o randomizer desligado. [Detalhes e limites](SETTINGS.md).
+Ao criar o save: **Normal/Hardcore → Randomizer OFF/ON**. O randomizer troca encontros selvagens, iniciais e espécies/golpes dos treinadores, preservando níveis e tamanhos dos elencos; sua semente fica gravada. Encontros roteirizados e presentes permanecem fixos. Os times e locais dos guias representam o randomizer desligado. [Detalhes e limites](docs/SETTINGS.md).
 
-O cientista mostra retrato, painéis azuis, barras de EV/IV, saldo de EVs e prévia dos atributos antes da confirmação. **Normal: EVs desde o início; IVs e natureza após a Liga. Hardcore: os três desde o início.** [Revisão da interface e testes](UI_REVIEW.md).
+O cientista mostra retrato, painéis azuis, barras de EV/IV, saldo de EVs e prévia dos atributos antes da confirmação. **Normal: EVs desde o início; IVs e natureza após a Liga. Hardcore: os três desde o início.** [Revisão da interface e testes](docs/UI_REVIEW.md).
 
 ![Nova tela de edição de EVs](docs/images/training-evs-ptbr.png)
 
-[Validação da v0.4.0-dev](FEATURE_TEST_RESULTS.md): configurações, salvamento, randomizer, desafios, interface e regressões na ROM compilada. A campanha completa sem assistência continua pendente.
+[Validação da v0.4.0-dev](docs/FEATURE_TEST_RESULTS.md): configurações, salvamento, randomizer, desafios, interface e regressões na ROM compilada. A campanha completa sem assistência continua pendente.
 
 <!-- GENERATED CHALLENGE TEAMS START -->
 ## Times dos desafios em sequência
 
-Roteiro sugerido dos desafios principais e opcionais de destaque da versão atual. A exploração permite mudar algumas ordens; os tetos continuam seguindo a sequência de insígnias. Os demais treinadores e a Torre estão em [TRAINER_REVIEW.md](TRAINER_REVIEW.md).
+Roteiro sugerido dos desafios principais e opcionais de destaque da versão atual. A exploração permite mudar algumas ordens; os tetos continuam seguindo a sequência de insígnias. Os demais treinadores e a Torre estão em [TRAINER_REVIEW.md](docs/TRAINER_REVIEW.md).
 
 Cada equipe aparece na ordem do elenco: nas duplas, os dois primeiros abrem a luta. No rival e no Campeão, **a variante indica o inicial do rival**, não o seu: você escolhe Bulbasaur → rival Charmander; Charmander → rival Squirtle; Squirtle → rival Bulbasaur. Não existe equipe única comum às três variantes.
 
@@ -285,7 +287,7 @@ Pós-jogo: etapa de recuperação da Sapphire.
 | Bulbasaur | Tyranitar **100** → Alakazam **100** → Heracross **100** → Gyarados **100** → Arcanine **100** → Venusaur **100** |
 | Charmander | Heracross **100** → Alakazam **100** → Tyranitar **100** → Exeggutor **100** → Gyarados **100** → Charizard **100** |
 
-As novas revanches de líderes ainda não foram implementadas; por isso, não há times de revanche de ginásio inventados neste roteiro. Para planejar capturas, consulte [ENCOUNTERS.md](ENCOUNTERS.md).
+As novas revanches de líderes ainda não foram implementadas; por isso, não há times de revanche de ginásio inventados neste roteiro. Para planejar capturas, consulte [ENCOUNTERS.md](docs/ENCOUNTERS.md).
 
 <!-- GENERATED CHALLENGE TEAMS END -->
 
@@ -302,7 +304,7 @@ As novas revanches de líderes ainda não foram implementadas; por isso, não h�
 - **60 elencos internos da Torre de Treinadores** revisados para duplas; segundo Pokémon adicionado aos adversários do modo Knockout. Níveis continuam acompanhando a equipe do jogador; IVs agora são 31 e EVs/natureza seguem a função do Pokémon. Dados externos de e-Reader não foram revisados.
 - Com apenas um Pokémon apto, o jogador enfrenta dois adversários com o segundo espaço vazio, sem duplicação ou exigência de um segundo integrante.
 
-Os fontes de desenvolvimento usam categorias, poder e precisão modernos, e learnsets recentes limitados aos golpes implementados. Parte dos efeitos e das demais regras permanece na geração III. A Release v0.4.0 anterior conserva suas tabelas originais. Líderes, rivais (incluindo o laboratório), chefes Rocket, Koichi, Bikers, E4/Campeão e Torre recebem IVs 31 e EVs treinados. Os demais treinadores preservam sua escala de IVs; a calibração da campanha inteira continua pendente. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](TRAINER_REVIEW.md), com dados em [data/trainer_balance.json](data/trainer_balance.json).
+Os fontes de desenvolvimento usam categorias, poder e precisão modernos, e learnsets recentes limitados aos golpes implementados. Parte dos efeitos e das demais regras permanece na geração III. A Release v0.4.0 anterior conserva suas tabelas originais. Líderes, rivais (incluindo o laboratório), chefes Rocket, Koichi, Bikers, E4/Campeão e Torre recebem IVs 31 e EVs treinados. Os demais treinadores preservam sua escala de IVs; a calibração da campanha inteira continua pendente. Cada equipe, nível, item e golpe pode ser consultado em [TRAINER_REVIEW.md](docs/TRAINER_REVIEW.md), com dados em [data/trainer_balance.json](data/trainer_balance.json).
 
 ### Elite Four inspirada em campeões oficiais (v0.1.1-dev)
 
@@ -319,7 +321,7 @@ Os fontes de desenvolvimento usam categorias, poder e precisão modernos, e lear
 - Espécies históricas disponíveis preservadas; as ausentes foram substituídas por parceiros das 386 espécies. As equipes são mistas e não exigem que todos compartilhem o tipo do membro.
 - **São adaptações dos campeões**, sem Mega Evolução, Reversão Primal ou Trick Room. As interações de clima exigem cuidado: Groudon substitui a chuva, Rayquaza suspende seus efeitos e a areia de Tyranitar também atinge parceiros não imunes.
 
-Estratégias, substituições e fontes: [E4_CHAMPIONS.md](E4_CHAMPIONS.md). Sets completos, EVs, naturezas e habilidades: [TRAINER_REVIEW.md](TRAINER_REVIEW.md).
+Estratégias, substituições e fontes: [E4_CHAMPIONS.md](docs/E4_CHAMPIONS.md). Sets completos, EVs, naturezas e habilidades: [TRAINER_REVIEW.md](docs/TRAINER_REVIEW.md).
 
 ### Decisões dos NPCs
 
@@ -373,7 +375,7 @@ A revisão melhora a pontuação de ações, mas não garante decisões perfeita
 
 Capturas e perdas começam após as primeiras Poké Balls de Oak; limite, Set e restrição de itens valem desde a criação. Demonstrações, link e instalações de batalha ficam fora da marcação de perdas e da cota de captura.
 
-Salvar pelo menu persiste o estado. **Não há autosave nem proteção contra recarregar um save anterior, save states, cheats ou edições externas.** A derrota bloqueia o estado atual em memória; recarregar um save anterior restaura aquele estado. Estas são as cláusulas desta hack, que podem diferir de outras variantes. Detalhes em [HARDCORE.md](HARDCORE.md).
+Salvar pelo menu persiste o estado. **Não há autosave nem proteção contra recarregar um save anterior, save states, cheats ou edições externas.** A derrota bloqueia o estado atual em memória; recarregar um save anterior restaura aquele estado. Estas são as cláusulas desta hack, que podem diferir de outras variantes. Detalhes em [HARDCORE.md](docs/HARDCORE.md).
 
 ### Nova curva de níveis e treinador dos Centros (v0.2.0-dev)
 
@@ -398,12 +400,12 @@ Salvar pelo menu persiste o estado. **Não há autosave nem proteção contra re
 - Ovos, Pokémon perdidos e, no Hardcore, acima do teto não podem ser editados. Ajustes recalculam atributos sem recuperar HP ou reviver; reduzir o HP máximo pode reduzir o HP atual.
 - O contador dos Centros é salvo junto da partida. Ao carregar um Hardcore anterior a esta versão, os contadores começam em zero. Não há autosave ou proteção contra recarregar um save anterior.
 
-A geometria e a história permanecem preservadas; foram acrescentados os NPCs. Os encontros foram recalibrados em v0.3.0-dev, conforme a seção seguinte. Os níveis maiores, sozinhos, não comprovam equilíbrio da campanha completa. Detalhes e limites: [PROGRESSION.md](PROGRESSION.md).
+A geometria e a história permanecem preservadas; foram acrescentados os NPCs. Os encontros foram recalibrados em v0.3.0-dev, conforme a seção seguinte. Os níveis maiores, sozinhos, não comprovam equilíbrio da campanha completa. Detalhes e limites: [PROGRESSION.md](docs/PROGRESSION.md).
 
 ### Distribuição das 386 espécies (v0.3.0-dev)
 
 - **386/386 espécies com captura selvagem direta**, no mesmo save Normal, sem depender de inicial, troca, reprodução ou ticket de evento. Isso inclui as evoluções cujos métodos originais ainda exigem troca/item.
-- Encontros de grama/cavernas, Surf, pesca por vara e Rock Smash ajustados em áreas existentes. Chance por espécie, níveis e pesos dos slots estão em [ENCOUNTERS.md](ENCOUNTERS.md); uma opção direta por espécie está em [SPECIES_LOCATIONS.md](SPECIES_LOCATIONS.md).
+- Encontros de grama/cavernas, Surf, pesca por vara e Rock Smash ajustados em áreas existentes. Chance por espécie, níveis e pesos dos slots estão em [ENCOUNTERS.md](docs/ENCOUNTERS.md); uma opção direta por espécie está em [SPECIES_LOCATIONS.md](docs/SPECIES_LOCATIONS.md).
 - Início com fauna básica: Route 1 inclui Pidgey, Rattata, Sentret, Zigzagoon, Taillow e Poochyena; Viridian Forest mantém insetos e Pikachu. Não há lendários nem espécies com atributos elevados nos encontros iniciais.
 - Nove iniciais capturáveis a partir da etapa de Misty, em slots de até 5%. Espécies fortes e evoluções avançadas entram nas etapas posteriores; pseudo-lendários só no fim da campanha, em slots de 1%.
 - **Todos os 21 lendários e míticos** têm novos encontros aleatórios de **1%** nas áreas de pós-jogo, níveis 85–95. A geração exige a primeira vitória na Liga; cada espécie tem um local definido. Concluir a rede de Celio e os acessos normais das ilhas/caverna continua necessário onde aplicável.
@@ -418,7 +420,7 @@ A cobertura é reproduzível em `data/encounter_distribution.json`. O gerador ex
 
 Corrigida a referência inválida de estoque ao voltar de compra/venda e sair da loja. O Rare Candy extra do Hardcore permanece disponível por ₽1 e não depende de memória temporária do mapa. O balcão de TMs também mostra esse item sem tentar tratá-lo como TM.
 
-**23 catálogos, nos dois modos: 46 casos aprovados no mGBA**, com compra, venda, cancelamento, saída por B/SEE YA, reabertura e conferência de estoque/heap. Escopo e resultados por catálogo em [SHOP_TEST_RESULTS.md](SHOP_TEST_RESULTS.md).
+**23 catálogos, nos dois modos: 46 casos aprovados no mGBA**, com compra, venda, cancelamento, saída por B/SEE YA, reabertura e conferência de estoque/heap. Escopo e resultados por catálogo em [SHOP_TEST_RESULTS.md](docs/SHOP_TEST_RESULTS.md).
 
 ### Correções e save
 
@@ -443,7 +445,7 @@ Estas funcionalidades **não estão disponíveis nesta release**:
 - Restrição de mochila dos dois lados em batalhas importantes; atualmente o Hardcore restringe o jogador, enquanto os adversários mantêm seus itens.
 - Alphas raros e raids aleatórias opcionais em mapas existentes, limitados pela progressão. Formato, captura, recompensas e persistência ainda exigem implementação.
 
-Mega Evolução, Z-Moves, Dynamax/Gigantamax e Terastalização e os golpes dependentes dessas mecânicas estão fora do escopo aprovado. Novas formas e espécies após a geração III não estão automaticamente incluídas. Não há versão nativa para PC ou multiplayer de raids implementados. O planejamento completo está em [DESIGN.md](DESIGN.md).
+Mega Evolução, Z-Moves, Dynamax/Gigantamax e Terastalização e os golpes dependentes dessas mecânicas estão fora do escopo aprovado. Novas formas e espécies após a geração III não estão automaticamente incluídas. Não há versão nativa para PC ou multiplayer de raids implementados. O planejamento completo está em [DESIGN.md](docs/DESIGN.md).
 
 ## Compilação do código-fonte
 
@@ -466,9 +468,9 @@ Resultado: `output/firered-386-dev.gba`. `bash scripts/build.sh baseline` compil
 
 ## Verificação e limitações
 
-A versão atual tem [testes de funcionalidades e regressão](FEATURE_TEST_RESULTS.md). O relatório de campanha abaixo é histórico, da v0.3.1-dev, e usa assistência.
+A versão atual tem [testes de funcionalidades e regressão](docs/FEATURE_TEST_RESULTS.md). O relatório de campanha abaixo é histórico, da v0.3.1-dev, e usa assistência.
 
-[Relatório de campanha e pós-jogo](CAMPAIGN_TEST_RESULTS.md): execução assistida no Normal, com limites e evidências no save. Não certifica uma partida normal ou Hardcore sem assistência.
+[Relatório de campanha e pós-jogo](docs/CAMPAIGN_TEST_RESULTS.md): execução assistida no Normal, com limites e evidências no save. Não certifica uma partida normal ou Hardcore sem assistência.
 
 Verificações realizadas em 20 e 21/10/2026:
 
@@ -485,11 +487,11 @@ A versão v0.2.0-dev também verifica os ajustes de atributos, bloqueios por mod
 
 v0.3.0-dev: auditoria de cobertura e limites da distribuição, criação real dos 2.053 slots ativos na ROM de teste (386 espécies distintas), trava dos 21 lendários antes da Liga e entrada em batalha selvagem com Mew no mGBA.
 
-Os [testes assistidos de campanha e pós-jogo](CAMPAIGN_TEST_RESULTS.md) aprovaram 114 checkpoints, incluindo lutas concluídas, dois Halls da Fama, Celio, Mewtwo, opcionais e os quatro cursos da Torre com oito andares/prêmio. Foram usados warps, scripts iniciados diretamente e equipes fornecidas; **campanha normal sem assistência, tentativa Hardcore completa e trocas no VBA Link continuam sem homologação**. Podem existir problemas de balanceamento/compatibilidade. O resultado continua sendo uma ROM de GBA para emuladores.
+Os [testes assistidos de campanha e pós-jogo](docs/CAMPAIGN_TEST_RESULTS.md) aprovaram 114 checkpoints, incluindo lutas concluídas, dois Halls da Fama, Celio, Mewtwo, opcionais e os quatro cursos da Torre com oito andares/prêmio. Foram usados warps, scripts iniciados diretamente e equipes fornecidas; **campanha normal sem assistência, tentativa Hardcore completa e trocas no VBA Link continuam sem homologação**. Podem existir problemas de balanceamento/compatibilidade. O resultado continua sendo uma ROM de GBA para emuladores.
 
 Para repetir os testes após compilar, instale também `libmgba-dev` e `mgba-sdl` no Ubuntu/WSL:
 
-O [checklist de testes](TEST_CHECKLIST.md) reúne fontes da pesquisa, escopo de cada aprovação, resultados estruturados e roteiro manual. `python3 scripts/run_regression.py` repete as sete suítes abaixo. `python3 scripts/test_community_cases.py` executa 28 casos de Pokémon/creche; `python3 scripts/test_capture_rules.py` executa 23 casos de captura. Todos passaram na v0.3.1-dev. A auditoria de integridade está em `scripts/audit_release.py` e exige os assets locais da versão selecionada (padrão v0.4.0-dev).
+O [checklist de testes](docs/TEST_CHECKLIST.md) reúne fontes da pesquisa, escopo de cada aprovação, resultados estruturados e roteiro manual. `python3 scripts/run_regression.py` repete as sete suítes abaixo. `python3 scripts/test_community_cases.py` executa 28 casos de Pokémon/creche; `python3 scripts/test_capture_rules.py` executa 23 casos de captura. Todos passaram na v0.3.1-dev. A auditoria de integridade está em `scripts/audit_release.py` e exige os assets locais da versão selecionada (padrão v0.4.0-dev).
 
 ```bash
 python3 scripts/balance_trainers.py --check
@@ -510,6 +512,6 @@ Base: [pret/pokefirered](https://github.com/pret/pokefirered). Compilador: [pret
 
 ## Testes de equipes e dificuldade
 
-[Testes dos 35 desafios e classificação por modo](CHALLENGE_BALANCE_TESTS.md) e [equipes testadas, golpes e origens](CHALLENGE_TEAMS_TESTED.md).
+[Testes dos 35 desafios e classificação por modo](docs/CHALLENGE_BALANCE_TESTS.md) e [equipes testadas, golpes e origens](docs/CHALLENGE_TEAMS_TESTED.md).
 
 Combates executados no motor nativo, com preparação reconstruída a partir dos fontes. Incluem blocos consecutivos da Liga; não certificam caminhada, capturas ou campanha natural completa. Randomizer OFF. A ROM não foi alterada.

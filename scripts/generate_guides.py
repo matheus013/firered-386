@@ -80,7 +80,7 @@ def challenge_guide():
         body = re.search(r'sParty_RivalOaksLab' + suffix + r'\[\] = \{(.*?)\n\};', parties, re.S)[1]
         lab[suffix] = [{'species': re.search(r'\.species = SPECIES_(\w+)', body)[1], 'level': int(re.search(r'\.lvl = (\d+)', body)[1])}]
     out = [START, '## Times dos desafios em sequência', '',
-           'Roteiro sugerido dos desafios principais e opcionais de destaque da versão atual. A exploração permite mudar algumas ordens; os tetos continuam seguindo a sequência de insígnias. Os demais treinadores e a Torre estão em [TRAINER_REVIEW.md](TRAINER_REVIEW.md).', '',
+           'Roteiro sugerido dos desafios principais e opcionais de destaque da versão atual. A exploração permite mudar algumas ordens; os tetos continuam seguindo a sequência de insígnias. Os demais treinadores e a Torre estão em [TRAINER_REVIEW.md](docs/TRAINER_REVIEW.md).', '',
            'Cada equipe aparece na ordem do elenco: nas duplas, os dois primeiros abrem a luta. No rival e no Campeão, **a variante indica o inicial do rival**, não o seu: você escolhe Bulbasaur → rival Charmander; Charmander → rival Squirtle; Squirtle → rival Bulbasaur. Não existe equipe única comum às três variantes.', '',
            'Os detalhes de golpes, itens e treinamento de cada adversário estão no catálogo completo; abaixo, espécies e níveis extraídos dos mesmos dados usados na ROM.', '']
     for n, (title, key, note) in enumerate(sequence, 1):
@@ -100,7 +100,7 @@ def challenge_guide():
             assert team and all(1 <= mon['level'] <= 100 for mon in team)
             out.append('| ' + (pretty(variant) if variant != 'Equipe' else variant) + ' | ' + ' → '.join(f"{pretty(m['species'])} **{m['level']}**" for m in team) + ' |')
         out.append('')
-    out += ['As novas revanches de líderes ainda não foram implementadas; por isso, não há times de revanche de ginásio inventados neste roteiro. Para planejar capturas, consulte [ENCOUNTERS.md](ENCOUNTERS.md).', '', END]
+    out += ['As novas revanches de líderes ainda não foram implementadas; por isso, não há times de revanche de ginásio inventados neste roteiro. Para planejar capturas, consulte [ENCOUNTERS.md](docs/ENCOUNTERS.md).', '', END]
     return '\n'.join(out), len(sequence)
 
 
@@ -154,7 +154,7 @@ def encounters_guide():
            '- Em Pokémon Tower, o Silph Scope é necessário para identificar/capturar os fantasmas comuns. Nas câmaras Tanoby, é necessário resolver Tanoby Key; as formas de Unown são discriminadas.',
            '- Os 21 lendários e míticos têm novos encontros aleatórios de 1% em áreas de pós-jogo, com trava pela primeira vitória na Liga. Encontros fixos originais continuam existindo; lendários derrotados em eventos também podem ser procurados nos novos encontros aleatórios.',
            '- Roamer, batalhas fixas e eventos aparecem em seções próprias. Tabelas alternativas de Altering Cave estão separadas das acessíveis normalmente. Tabelas de terra sem terreno de encontro no layout recebem aviso explícito; a presença de dados não cria grama onde ela não existe.', '',
-           'Os caminhos `game/...` citados abaixo são fontes locais reconstruídos por `scripts/setup.sh`, não arquivos versionados diretamente neste repositório. As alterações da hack estão em [patches/current.patch](patches/current.patch).', '',
+           'Os caminhos `game/...` citados abaixo são fontes locais reconstruídos por `scripts/setup.sh`, não arquivos versionados diretamente neste repositório. As alterações da hack estão em [patches/current.patch](../patches/current.patch).', '',
            '## Índice por rota', '']
     for row in routes:
         folder = maps[row['map']]
@@ -288,7 +288,7 @@ def main():
         folder=maps[map_id]
         index.append(f"| {row['national_dex']:03d} | {pretty(row['species'])} | [{area_name(folder)}](ENCOUNTERS.md#{slug(folder)}) | {method} | {range_text(e['levels'])} | {e['weight']}% |")
     species_index='\n'.join(index)+'\n'
-    for path, content in ((ROOT/'README.md', readme), (ROOT/'ENCOUNTERS.md', encounters), (ROOT/'SPECIES_LOCATIONS.md',species_index)):
+    for path, content in ((ROOT/'README.md', readme), (ROOT/'docs/ENCOUNTERS.md', encounters), (ROOT/'docs/SPECIES_LOCATIONS.md',species_index)):
         if args.check:
             assert read(path) == content, f'Out of date: {path.name}'
         else:

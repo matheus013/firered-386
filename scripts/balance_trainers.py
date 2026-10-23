@@ -571,7 +571,7 @@ def outputs():
     training.append("};")
     return {GAME / "src/data/elite_four_sets.h": "\n".join(training) + "\n", GAME / "src/data/trainer_parties.h": parties_text, GAME / "src/data/trainers.h": trainers_text,
             ROOT / "data/trainer_balance.json": json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-            ROOT / "TRAINER_REVIEW.md": "\n".join(report), GAME / "src/trainer_tower_sets.c": tower_text}, results, no_support
+            ROOT / "docs/TRAINER_REVIEW.md": "\n".join(report), GAME / "src/trainer_tower_sets.c": tower_text}, results, no_support
 
 
 def main():

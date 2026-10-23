@@ -173,7 +173,7 @@ Fonte: https://github.com/pret/pokefirered
 - Travamento de saída das lojas corrigido. [23 catálogos × 2 modos aprovados](SHOP_TEST_RESULTS.md).
 - Recompilação do patch sobre fontes limpas reproduziu a ROM entregue. Base e compilador fixados nos commits documentados no README; formato do save preservado.
 
-Ainda pendentes: concluir a engine moderna (golpes e efeitos restantes), HMs sem ocupar golpes, novas revanches de líderes, catálogo completo pós-Liga em Celadon, troca de habilidade, Alphas/raids e outras melhorias listadas no [README](README.md). Os encontros aleatórios já oferecem captura alternativa dos lendários; reset dos eventos fixos é uma melhoria separada.
+Ainda pendentes: concluir a engine moderna (golpes e efeitos restantes), HMs sem ocupar golpes, novas revanches de líderes, catálogo completo pós-Liga em Celadon, troca de habilidade, Alphas/raids e outras melhorias listadas no [README](../README.md). Os encontros aleatórios já oferecem captura alternativa dos lendários; reset dos eventos fixos é uma melhoria separada.
 
 Os testes de dados, menus, batalhas e save não substituem a validação da campanha inteira, Torre completa ou VBA Link. As etapas anteriores estão no [CHANGELOG](CHANGELOG.md).
 

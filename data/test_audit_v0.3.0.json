@@ -214,5 +214,5 @@
       "simulated_steps": 50000
     }
   ],
-  "manual_checklist": "TEST_CHECKLIST.md"
+  "manual_checklist": "docs/TEST_CHECKLIST.md"
 }
