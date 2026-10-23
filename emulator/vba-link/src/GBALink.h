@@ -107,7 +107,7 @@ public:
 typedef struct {
 	int tcpsocket;
 	int numgbas;
-	unsigned long thread;
+	pthread_t thread;
 	unsigned char type;
 	unsigned char server;
 	bool terminate;

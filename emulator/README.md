@@ -29,3 +29,29 @@ O script antigo `vba-link/setup.sh` não foi executado. O projeto da hackrom e s
 ## Experimento anterior: servidor 1.72
 
 `improved-server/` contém um servidor separado, compilado para Windows x64 e Linux, com testes de protocolo. Ele serve apenas para o protocolo **1.72 LAN**. Não substitui o servidor interno do **1.8 LAN/WiFi** e não deve ser apresentado como atualização do seu emulador.
+
+## Build para macOS (Apple Silicon)
+
+Requer as Command Line Tools do Xcode e `brew install sdl12-compat libpng`. A partir desta pasta:
+
+```sh
+bash build-mac.sh
+./VisualBoyAdvance-mac --link 0 --linknum 2 rom.gba          # servidor
+./VisualBoyAdvance-mac --link 1 --linkaddr IP_DO_SERVIDOR rom.gba   # cliente
+```
+
+Sem ROM na linha de comando, o emulador abre um seletor de arquivos.
+
+Usa o frontend SDL e o núcleo em C, porque o núcleo em assembly é exclusivo de i386. Um servidor e um cliente se conectaram em `127.0.0.1` e rodaram uma ROM multiboot. Trocas e batalhas reais não foram testadas.
+
+### Barra de menus
+
+No macOS, o emulador ganha uma barra de menus nativa com o essencial do VBA Link para Windows:
+
+- **Arquivo:** abrir ROM, carregar/salvar estado (arquivo ou slots 1–10), pausar, reiniciar, importar/exportar `.sav`, capturar tela.
+- **Opções:** velocidade (sem limite, 25–200%, turbo), frame skip, vídeo x1–x4 e tela cheia, camadas, filtros, tipo de save (Automático, EEPROM, SRAM, Flash, EEPROM+Sensor, Nenhum; Flash 64K/128K), som (mudo, volume), autofire.
+- **Link:** hospedar partida para 2–4 jogadores, conectar a um servidor pelo IP, desconectar, tempo limite e IP deste Mac.
+
+Trocar ROM, tipo de save ou modo de link reinicia o emulador depois de gravar o `.sav`. As opções ficam salvas entre execuções. O padrão no Mac é Flash 128K, que os jogos de Pokémon exigem, frame skip 0 (60 fps) e janela x3. Ainda faltam os menus Cheats, Gameboy e a configuração de teclas, que continua em `~/.vba/VisualBoyAdvance.cfg`.
+
+A release `v0.5.0-preview.4` carregou e rodou a ~100% de velocidade, a 60 fps, da introdução até a tela "PRESS START", e gravou um `.sav` de 128K ao fechar.

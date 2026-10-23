@@ -1,7 +1,7 @@
 // This file was written by denopqrihg for Windows
 // Changes applied by Jacques-Olivier IMBERT
 #include <string.h>
-#include <malloc.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include "Port.h"
 #include "GBA.h"
@@ -688,7 +688,7 @@ bool InitLink()
 	linkmem->numtransfers=0;
 	linkmem->linkflags=0;
 	lanlink.connected = false;
-	lanlink.thread = NULL;
+	lanlink.thread = 0;
 	lanlink.speed = false;
 	for(i=0;i<4;i++){
 		linkmem->linkdata[i] = 0xffff;
@@ -776,10 +776,10 @@ int lserver::Init(void *serverdlg){
 	if(listen(lanlink.tcpsocket, lanlink.numgbas)==-1)
 		return errno;
 
-	if(lanlink.thread!=NULL){
+	if(lanlink.thread!=0){
 		lanlink.terminate = true;
 		WaitForSingleObject(linksync[vbaid], 500);
-		lanlink.thread = NULL;
+		lanlink.thread = 0;
 	}
 	lanlink.terminate = false;
 	linkid = 0;
@@ -952,10 +952,10 @@ int lclient::Init(struct hostent* hostentry, void *waitdlg){
 	if(fcntl(lanlink.tcpsocket, F_GETFL, &notblock)==-1)
 		return errno;
 
-	if(lanlink.thread!=NULL){
+	if(lanlink.thread!=0){
 		lanlink.terminate = true;
 		WaitForSingleObject(linksync[vbaid], 500);
-		lanlink.thread = NULL;
+		lanlink.thread = 0;
 	}
 
 	printf("Connecting...\n");	

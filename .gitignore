@@ -9,3 +9,5 @@ __pycache__/
 /emulator/build-18/
 /emulator/improved-server/build/
 /emulator/improved-server/bin/
+/emulator/build-mac/
+/emulator/VisualBoyAdvance-mac

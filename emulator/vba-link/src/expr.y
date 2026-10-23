@@ -1,10 +1,8 @@
 %{
-namespace std {  
 #include <stdio.h>
 #include <memory.h>
 #include <stdlib.h>
 #include <string.h>
-}
 
 using namespace std;
  
