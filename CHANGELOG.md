@@ -1,15 +1,15 @@
 # Histórico de versões
 
 ## v0.5.0-preview.3 — revisão do PT-BR
-+
-+- Revisadas 354 descrições de golpes, 288 de itens, descrições de habilidades, menus, mensagens principais de batalha e diálogos iniciais.
-+- Incluídas as falas dos Centros Pokémon e as descrições JSON de itens, ausentes do catálogo anterior.
-+- Corrigidas as quebras de 2.444 diálogos por largura em pixels e preservada a pontuação junto a nomes/variáveis.
-+- Protegidos nomes e identificadores; rótulos PODER/PRECIS./CATEG. desenhados em PT-BR no resumo de golpes.
-+- Encurtada uma fala do tutorial que excedia o espaço reservado para mensagens de batalha; novos testes de chaves, controles e limites de texto.
-+- Tradução ainda beta: diálogos secundários automáticos e glifos portugueses ausentes da fonte continuam pendentes. [Revisão completa](PTBR_REVIEW.md).
-+
-+## v0.5.0-preview.2 — revisão da IA
+
+- Revisadas 354 descrições de golpes, 288 de itens, descrições de habilidades, menus, mensagens principais de batalha e diálogos iniciais.
+- Incluídas as falas dos Centros Pokémon e as descrições JSON de itens, ausentes do catálogo anterior.
+- Corrigidas as quebras de 2.444 diálogos por largura em pixels e preservada a pontuação junto a nomes/variáveis.
+- Protegidos nomes e identificadores; rótulos PODER/PRECIS./CATEG. desenhados em PT-BR no resumo de golpes.
+- Encurtada uma fala do tutorial que excedia o espaço reservado para mensagens de batalha; novos testes de chaves, controles e limites de texto.
+- Tradução ainda beta: diálogos secundários automáticos e glifos portugueses ausentes da fonte continuam pendentes. [Revisão completa](PTBR_REVIEW.md).
+
+## v0.5.0-preview.2 — revisão da IA
 
 - Corrigidos histórico por combatente, consultas ao parceiro e uso de imunidades pelos scripts de IA.
 - Desempate entre golpes por dano/precisão, soma de dano em área, dano fixo e poderes baseados em amizade/HP; Thunder considera clima.
