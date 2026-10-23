@@ -525,3 +525,5 @@ Combates executados no motor nativo, com preparação reconstruída a partir dos
 - `docs/`: documentação da hackrom. Arquivos de documentação e licenças de terceiros permanecem em suas pastas originais.
 
 `output/`, `.build/`, caches de Python, saves e builds temporários não são versionados. A ROM pronta permanece disponível nos Releases. Os fontes incluídos são listados em `data/vendor_sources.json`; as origens e revisões foram preservadas.
+
+[Validação de clone completo](data/full_source_validation.json): preparo, geradores, exportação do patch, compilação do compilador do zero e ROM idêntica à prévia validada.

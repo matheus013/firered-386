@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "source_commit": "6657e60500900bf7e5110da622e8e727450c1211",
+  "rom_sha256": "0b8e7bda6ee3a63846317f525a4b09e3accd8b87cf0d46db0502d4898fe6f63f",
+  "checks": [
+    "clone",
+    "setup",
+    "trainers",
+    "encounters",
+    "guides",
+    "export-patch",
+    "patch-check",
+    "build",
+    "rom_matches_validated_release"
+  ],
+  "nested_repositories": false,
+  "fresh_compiler": true,
+  "scope": "ordinary complete clone, bundled offline base, generators, patch export/applicability, compiler from sources and native game build using a fresh private cache; no gameplay changes"
+}
