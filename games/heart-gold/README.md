@@ -8,7 +8,7 @@ rodando na engine de HG/SS), 24 insígnias e progressão compartilhada, com as m
 
 **Estado:** fundação (M0) concluída. Há um executável que abre uma janela e processa teclado e gamepad. Ainda não há jogo.
 
-**Primeiro objetivo (M1):** rodar nativo com a interface unificada completa: vista única 16:9 e HUD com tudo o que era da tela de baixo.
+**Fase 1:** reimplementar HG/SS inteiro, fiel e jogável, recriando todo o conteúdo e mudando só a interface: tela de cima original (4:3) no centro e HUD nas laterais com tudo o que era da tela de baixo. Primeiro marco (M1): essa interface rodando nativa. Hoenn e os extras ficam para a Fase 2.
 
 ## Documentação
 
@@ -17,7 +17,7 @@ rodando na engine de HG/SS), 24 insígnias e progressão compartilhada, com as m
 | [docs/architecture.md](docs/architecture.md) | Arquitetura original do DS, arquitetura deste projeto, modo de tela única com HUD, escala, controles |
 | [docs/porting-strategy.md](docs/porting-strategy.md) | Investigação de pret/pokeheartgold e ctrl-cheeb-del/pokeheartgold, licenças, dependências do DS, port × reimplementação, fontes |
 | [docs/compatibility.md](docs/compatibility.md) | Plataformas, vídeo, entrada, saves e mecânicas |
-| [docs/roadmap.md](docs/roadmap.md) | Marcos M0–M8: interface unificada nativa (primeiro objetivo), engine, dados, overworld, batalha, Johto, Kanto, Hoenn |
+| [docs/roadmap.md](docs/roadmap.md) | Fase 1 (HG/SS fiel e jogável, só o HUD muda): M0–M7. Fase 2: Hoenn e extras |
 
 ## Estrutura
 
@@ -61,7 +61,7 @@ Ver [platform/windows/README.md](platform/windows/README.md).
 ### Opções do executável
 
 ```
---layout unified|stacked|side   unified (padrão): vista única 16:9 com HUD; stacked/side: duas telas clássicas
+--layout unified|stacked|side   unified (padrão): tela de cima 4:3 no centro, HUD nas laterais; stacked/side: duas telas clássicas
 --scale integer|fit             escala inteira (padrão) ou preencher a janela, sem distorção
 --fullscreen                    começa em tela cheia (F11 alterna)
 --frames N                      encerra depois de N quadros
@@ -71,7 +71,7 @@ Ver [platform/windows/README.md](platform/windows/README.md).
 ```
 
 Controles padrão: setas, X (A), Z (B), S (X), A (Y), Q/W (L/R), Enter (Start), Backspace (Select),
-Tab (velocidade 1x/2x/4x), F11 (tela cheia), Esc (sair). Tabela completa em `docs/architecture.md`.
+Tab (velocidade 1x/2x/4x, ferramenta de desenvolvimento), F11 (tela cheia), Esc (sair). Tabela completa em `docs/architecture.md`.
 
 ## Workflows do GitHub Actions
 
@@ -105,18 +105,16 @@ Máquina: macOS 26.3, Apple Silicon (arm64), Apple clang 16.0.0, CMake 4.4.2, SD
    100% tests passed out of 6
    ```
 
-   `hg_tests` tem 15 casos (viewport nos três layouts, ligações e bordas de entrada, passo fixo, log).
+   `hg_tests` tem 16 casos (viewport nos três layouts, incluindo as faixas do HUD; ligações e bordas de entrada; passo fixo; log).
 
 2. **Executável headless** (driver de vídeo dummy, eventos sintéticos):
 
    ```
    $ build/bin/SuperHeartGold.app/Contents/MacOS/SuperHeartGold --video-driver dummy --frames 120 --self-test
-   [    0.089] INFO  SDL 3.4.18, driver de vídeo: dummy
-   [    0.277] INFO  Janela 1152x648, renderer: software, vsync
-   [    0.278] INFO  Tecla X pressionado -> A
-   [    0.278] INFO  Botão b pressionado -> B
-   [    2.264] INFO  Encerrando após 120 quadros e 117 passos de lógica
-   [    2.264] INFO  Autoteste OK: teclado->A=sim, gamepad->B=sim, saída 1152x648
+   [    0.082] INFO  Janela 1280x720, renderer: software, vsync
+   [    0.082] INFO  Autoteste: eventos sintéticos de teclado (X) e gamepad (East) enfileirados
+   [    2.065] INFO  Encerrando após 120 quadros e 117 passos de lógica
+   [    2.065] INFO  Autoteste OK: teclado->A=sim, gamepad->B=sim, saída 1280x720
    ```
    Código de saída 0.
 
@@ -124,8 +122,8 @@ Máquina: macOS 26.3, Apple Silicon (arm64), Apple clang 16.0.0, CMake 4.4.2, SD
 
    ```
    $ SuperHeartGold --frames 60 --self-test
-   [    2.008] INFO  Janela 1152x648, renderer: metal, vsync
-   [    3.210] INFO  Autoteste OK: teclado->A=sim, gamepad->B=sim, saída 2304x1296
+   [    1.099] INFO  Janela 1280x720, renderer: metal, vsync
+   [    2.242] INFO  Autoteste OK: teclado->A=sim, gamepad->B=sim, saída 2560x1440
    ```
 
    Também verificado com `--layout side` (saída Retina 2048x768). Com vsync, 120 quadros levam ≈2 s (60 quadros/s).
@@ -137,7 +135,8 @@ Máquina: macOS 26.3, Apple Silicon (arm64), Apple clang 16.0.0, CMake 4.4.2, SD
 5. **Validador de assets:** aceita o manifesto vazio e rejeita origem inválida, extensão `.narc` e arquivo fora
    do manifesto (testado com um diretório temporário).
 
-6. **Pesquisa** das duas decompilações com fontes e comandos em `docs/porting-strategy.md`.
+6. **Pesquisa** das duas decompilações e da existência de outras decomps/ports com licença (não há atalho com
+   licença limpa), com fontes e comandos em `docs/porting-strategy.md`.
 
 ### Só planejado (documentado, sem código)
 
@@ -154,4 +153,4 @@ Máquina: macOS 26.3, Apple Silicon (arm64), Apple clang 16.0.0, CMake 4.4.2, SD
 - **Gamepad físico:** o caminho de botões foi testado com eventos sintéticos; conexão e desconexão de um controle
   real não foram testadas.
 - **Workflow do macOS:** escrito e com YAML válido, mas nunca executado no GitHub.
-- Tamanho da vista lógica do modo unificado (384×216) é provisório.
+- HUD lateral: só as faixas estão posicionadas e marcadas; nenhum painel funcional ainda.

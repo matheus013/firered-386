@@ -65,29 +65,40 @@ a cada quadro de vídeo:
     desenha
 ```
 
-A lógica sempre roda em passos do DS. Velocidade 2x ou 4x só roda mais passos por segundo; nenhuma fórmula muda.
+A lógica sempre roda em passos do DS. Velocidade 2x ou 4x (ferramenta de desenvolvimento por enquanto) só roda mais passos por segundo; nenhuma fórmula muda.
 
 ## 3. Apresentação: das duas telas para uma janela
 
 ### Modo unificado (padrão, "desktop")
 
-O jogo vira **uma vista única 16:9**. O que era da tela de cima (mundo, batalha, cenas) ocupa a vista toda.
-O que era da tela de baixo vira **HUD**:
+A janela é de desktop (1280×720 por padrão, qualquer tamanho). **A tela de cima original fica no centro, em 4:3,
+sem nenhuma mudança na área visível**: mundo, batalha e cenas aparecem exatamente como no DS, só que escalados.
+As faixas que sobram dos lados numa tela 16:9 recebem o **HUD**, com tudo o que era da tela de baixo:
+
+```
+┌────────┬──────────────────────────┬────────┐
+│  HUD   │                          │  HUD   │
+│ (esq.) │   tela de cima original  │ (dir.) │
+│        │      4:3, 256×192 × N    │        │
+│        │                          │        │
+└────────┴──────────────────────────┴────────┘
+   1080p, escala inteira 5: vista 1280×960, faixas de 320 px
+```
 
 | Conteúdo da tela de baixo no DS | No modo unificado |
 |---|---|
-| Menu de campo (Pokémon, bolsa, Pokédex, salvar...) | Painel lateral aberto por botão/tecla, sobre o mundo pausado |
-| Comandos de batalha (Lutar, Bolsa, Pokémon, Fugir) e golpes | Painel inferior durante a batalha, navegável por cursor ou mouse |
-| Pokégear (mapa, rádio, telefone) | Tela cheia própria, aberta pelo menu |
-| Status da equipe, mensagens rápidas | Elementos de HUD discretos nos cantos, que podem ser escondidos |
+| Menu de campo (Pokémon, bolsa, Pokédex, salvar...) | Painel numa faixa lateral |
+| Comandos de batalha (Lutar, Bolsa, Pokémon, Fugir) e golpes | Painel lateral durante a batalha, por cursor ou mouse |
+| Equipe, bolsa, Pokédex, Pokégear | Painéis laterais; telas grandes (mapa do Pokégear) abrem sobre a vista |
+| Mensagens e status | Elementos discretos nas faixas |
 | Toque na tela | Clique do mouse nos painéis; tudo também acessível por teclado e gamepad |
 
-Pontos de atenção (decisões que ficam para quando cada tela for implementada):
-
-- A vista lógica provisória é **384×216** (`kUnifiedWidth`/`kUnifiedHeight`), um pouco maior que 256×192.
-  Como o overworld é 3D, mostrar mais área é possível, mas cenas e câmeras com enquadramento original
-  precisam ser revistas. O tamanho será confirmado com o renderizador do overworld.
+- `hg::place_screens(..., ScreenLayout::Unified, ...)` devolve a vista (`top`) e as faixas (`hud_left`, `hud_right`).
+- O HUD é desenhado na resolução nativa da janela, não na escala de pixels do jogo, para o texto ficar nítido.
+- Se a janela for mais estreita que 4:3, não sobram faixas; os painéis passam a aparecer sobre a vista (a implementar).
 - Telas que dependem de toque (alguns mini-jogos, Pokéathlon) precisam de um desenho próprio para mouse/controle.
+- Referência de design: `pokeheartgold-single-screen` e `ssrecomp` resolveram o mesmo problema
+  (ver [porting-strategy.md](porting-strategy.md), seção 6).
 
 ### Modos clássicos
 
@@ -121,11 +132,14 @@ Pontos de atenção (decisões que ficam para quando cada tela for implementada)
 | Tela cheia | F11 | — |
 | Sair | Esc | — |
 
-## 5. Recursos que mudam em relação ao original
+## 5. O que muda em relação ao original
 
-Tudo opcional e sem alterar as mecânicas:
+Na **Fase 1** (ver [roadmap.md](roadmap.md)), só a interface: janela de desktop, HUD lateral, escala, tela cheia,
+controles configuráveis e gamepad. Mecânicas, conteúdo e área visível ficam iguais. O Pokémon seguindo o treinador
+já existe em HG/SS e entra como no original.
 
-- **Pokémon seguindo o treinador:** já existe em HG/SS; será mantido e estendido a Kanto e Hoenn.
-- **Velocidade configurável:** `hg::FixedStep` com multiplicador (1x, 2x, 4x; limite 16x).
-- **Widescreen e escala:** seção 3.
-- **Controles configuráveis e gamepad:** seção 4.
+Na **Fase 2**, opcionais:
+
+- **Velocidade configurável:** `hg::FixedStep` já tem multiplicador (1x, 2x, 4x; limite 16x); hoje é ferramenta de desenvolvimento (Tab).
+- **Vista ampliada em 16:9:** mostrar mais área do mundo em vez das faixas.
+- **Seguidor em Hoenn** e o resto das extensões.

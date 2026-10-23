@@ -41,6 +41,6 @@ Notas:
 ## Mecânicas
 
 - Meta: comportamento igual ao de HG/SS (Gen IV) em batalha, crescimento, captura, encontros e eventos.
-- Diferenças intencionais só em apresentação e conveniência (vista única, escala, velocidade, controles),
-  sempre opcionais quando afetarem a experiência original.
+- Fase 1: a única diferença é a interface (janela de desktop, HUD lateral, escala, controles). Extras como velocidade
+  ficam para a Fase 2, sempre opcionais.
 - Hoenn segue as mecânicas de HG/SS, não as de Emerald.

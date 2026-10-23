@@ -107,7 +107,40 @@ são os publicados por eles, não verificados aqui.
 **Decisão:** reimplementar. Manter as mecânicas originais significa reproduzir o comportamento, com testes
 unitários que codificam os resultados esperados (por exemplo, a fórmula de dano com entradas conhecidas).
 
-## 6. Fontes
+## 6. Existe outra decompilação ou port com licença?
+
+Busca feita em 23/10/2026 (`gh search repos` por pokeheartgold, pokeplatinum, pokediamond e ports para PC).
+
+| Repositório | O que é | Licença declarada | Precisa de ROM? |
+|---|---|---|---|
+| [pret/pokeplatinum](https://github.com/pret/pokeplatinum), [pret/pokediamond](https://github.com/pret/pokediamond) | Decompilações de Platinum e Diamond/Pearl (mesma engine da Gen IV) | **Nenhuma** | Sim, para os assets |
+| [ClickingMaster/pokeheartgold-single-screen](https://github.com/ClickingMaster/pokeheartgold-single-screen) | Fork do ctrl-cheeb-del com modo `SINGLE_SCREEN`: batalha, bolsa e equipe desenhadas na tela de cima; feito "com uso pesado de IA" | MIT | Sim (ROM SoulSilver US + mwccarm + NitroSDK) |
+| [ClickingMaster/ssrecomp](https://github.com/ClickingMaster/ssrecomp) | Recompilação estática do ARM9 para C++, rodando sobre o núcleo do melonDS; 16:9 e controle. Descontinuado em favor do anterior | GPL-3.0 | Sim |
+| [AKCore/pokeplatinum-port](https://github.com/AKCore/pokeplatinum-port) | Fork do pret/pokeplatinum que compila o C da decomp como programa nativo (Linux, Windows, ARM, Android, 3DS), com modelos de hardware do DS derivados do melonDS | GPL-3.0 | Sim (lê o sistema de arquivos da ROM) |
+| [GabeSud0/pokeplatinum-3ds](https://github.com/GabeSud0/pokeplatinum-3ds) | Port nativo de Platinum para 3DS a partir do pret; diz que HG/SS é o alvo futuro | GPL-3.0 | Sim |
+| [CVGisBored/PokeHeartGold_PC](https://github.com/CVGisBored/PokeHeartGold_PC) | Port nativo de HG em C++ com carregadores de NARC/NSBMD/SDAT, feito com IA | Nenhuma | Sim (`prepare_rom.sh`) |
+
+**Conclusão: não existe atalho com licença limpa.**
+
+- A licença de um fork (MIT ou GPL) só cobre o que **os autores do fork** escreveram. Ela não pode relicenciar o
+  código do pret (que não tem licença) nem o código original da Game Freak/Nintendo que a decomp traduz.
+  Os próprios READMEs dizem que não contêm "código nem dados do jogo".
+- Todos dependem da ROM do jogador para ter conteúdo. Isso contraria a decisão deste projeto de recriar todo o
+  conteúdo e não depender de ROM.
+- O código realmente licenciável deles é a parte de plataforma (frontends, modelos de hardware derivados do melonDS),
+  útil para um caminho de port/emulação, que não é o nosso. Usar qualquer trecho GPL obrigaria o projeto inteiro
+  a ser GPL-3.0.
+
+**O que dá para aproveitar sem copiar código:** o `pokeheartgold-single-screen` e o `ssrecomp` resolveram o mesmo
+problema de interface que o nosso M1 (comandos de batalha, bolsa e equipe numa tela só, em 16:9, com controle).
+Seus READMEs e capturas de tela servem de referência de design para o HUD.
+
+**O caminho alternativo, registrado para decisão futura:** esses projetos mostram que um HG/SS nativo,
+100% fiel e jogável **com a ROM do jogador** já é viável (o `pokeplatinum-port` e o `pokeplatinum-3ds` declaram
+Platinum jogável). Seria muito mais rápido que recriar todo o conteúdo, mas inverte duas regras daqui:
+o jogo passaria a depender da ROM e herdaria código sem licença. Hoje a decisão é **recriar tudo**.
+
+## 7. Fontes
 
 - https://github.com/pret/pokeheartgold — README.md, INSTALL.md, árvore do `master`, `.github/workflows/build.yml`,
   `.github/actions/calcrom/action.yml`.
