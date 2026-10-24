@@ -1,0 +1,34 @@
+# Escrito para funcionar quando for movido para .github/workflows/ na raiz do repositório
+# (o GitHub ignora workflows em subpastas). Ver games/heart-gold/README.md.
+name: Super HeartGold (Windows)
+
+on:
+  push:
+    paths: ["games/heart-gold/**"]
+  pull_request:
+    paths: ["games/heart-gold/**"]
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: games/heart-gold
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar (SDL3 estático via FetchContent)
+        run: cmake -S . -B build -A x64 -DHG_FETCH_SDL3=ON
+
+      - name: Compilar
+        run: cmake --build build --config Release --parallel
+
+      - name: Testar (inclui o executável em modo headless)
+        run: ctest --test-dir build -C Release --output-on-failure
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SuperHeartGold-windows-x64
+          path: games/heart-gold/build/bin/Release/SuperHeartGold.exe
