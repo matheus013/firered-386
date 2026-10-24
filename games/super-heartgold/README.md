@@ -12,6 +12,7 @@ A pasta antiga `games/heart-gold` foi substituída por esta a pedido do usuário
 
 - Plataforma própria C++20/SDL3/CMake compilada para Windows x64; sete suítes CTest passaram.
 - Testes de viewport, entrada, passo fixo, log, manifesto e inspeção de dados sintéticos.
+- Primeira unidade real do código C de HG/SS compilada e testada nativamente em Windows x64: `SysTaskQueue`. Prova privada opcional, sem CPU DS e sem SDK; ainda não executa a engine completa.
 - O executável atual desenha uma tela de teste, explicitamente identificada como tal. **Ainda não contém a engine do jogo.**
 - ROM local SoulSilver USA identificada e inspecionada; nenhum payload foi incluído no repositório.
 - Investigação privada do caminho de recompilação estática ARM9, com limites em [windows-execution.md](docs/windows-execution.md).
@@ -40,6 +41,11 @@ python games/super-heartgold/tests/test_tools.py
 ```
 
 Essa saída é **infraestrutura**, não uma distribuição jogável de HG/SS. O caminho investigativo de execução do jogo permanece fora do produto e do Git.
+
+Para compilar a prova do scheduler C original, use uma pasta de build **fora do repositório** e configure
+`-DHG_BUILD_APP=OFF -DHG_REFERENCE_TASK_PROBE=ON`. Os dois fontes pinados são obtidos e verificados somente nessa pasta privada.
+`hg_reference_tasks.exe` valida prioridade, capacidade, callbacks, remoção e reutilização; não inclui ROM, SDK ou emulador.
+Esse teste não transforma uma unidade isolada em jogo completo.
 
 ## Entrada e interface de teste
 

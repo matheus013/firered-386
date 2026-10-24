@@ -13,7 +13,13 @@
     "headless_exit_code": 0,
     "real_window_frames": 60,
     "renderer": "direct3d11",
-    "real_window_exit_code": 0
+    "real_window_exit_code": 0,
+    "github_actions": {
+      "run_id": 40055577702,
+      "url": "https://github.com/matheus013/firered-386/actions/runs/40055577702",
+      "conclusion": "success",
+      "scope": "MSVC Windows x64 platform build and CTest; not the HG game"
+    }
   },
   "macos": {
     "validated": false,
@@ -21,5 +27,16 @@
   },
   "game_running_natively": false,
   "rom_payload_in_product": false,
-  "emulator_in_platform_product": false
+  "emulator_in_platform_product": false,
+  "native_source_probe": {
+    "module": "SysTaskQueue",
+    "reference_commit": "6984a3d67592157195940049be2e4bbbf933f9ff",
+    "source_sha256": "9ef0caac3b9c0f869e50e5df5278e4de50f65b0b76813ea4ecd533acc5bc767a",
+    "host": "Windows x86_64",
+    "result": "passed",
+    "emulated_cpu": false,
+    "rom_required": false,
+    "sdk_required": false,
+    "scope": "Native C scheduler unit only, not the full engine"
+  }
 }

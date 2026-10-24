@@ -23,6 +23,13 @@ SOURCES = {
     "libpng": ("https://github.com/pnggroup/libpng.git", "2b978915d82377df13fcbb1fb56660195ded868a"),
 }
 BASE_PIN = "6984a3d67592157195940049be2e4bbbf933f9ff"
+CLANG_LAUNCHER = """#!/usr/bin/env python3
+import subprocess,sys
+args=sys.argv[1:]
+includes='/usr/lib/gcc/x86_64-w64-mingw32/13-posix/include/c++'
+command=['clang++','--target=x86_64-w64-windows-gnu','--sysroot=/usr/x86_64-w64-mingw32','-isystem',includes,'-isystem',includes+'/x86_64-w64-mingw32','-isystem',includes+'/backward',*args[1:]]
+raise SystemExit(subprocess.call(command))
+"""
 
 
 def main() -> int:
@@ -32,6 +39,7 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=Path(os.environ.get("LOCALAPPDATA", str(Path.home()))) / "SuperHeartGold/reference")
     parser.add_argument("--jobs", type=int, choices=range(1, 5), default=3)
     parser.add_argument("--optimization", choices=("0", "1"), default="0", help="Generated gamecode optimization; O0 prioritizes first smoke")
+    parser.add_argument("--gamecode-compiler", choices=("clang", "gcc"), default="clang", help="Clang cross-compiles only generated code; GCC still links")
     parser.add_argument("--distro", default="Ubuntu")
     parser.add_argument("--wsl-user", default="root")
     parser.add_argument("--run-smoke", action="store_true", help="Run 900 headless frames with private screenshots and no save writes")
@@ -77,6 +85,7 @@ fi
 for tool in git cmake ninja x86_64-w64-mingw32-gcc x86_64-w64-mingw32-g++ x86_64-w64-mingw32-windres python3; do
  command -v "$tool" >/dev/null || {{ echo "Missing WSL tool: $tool" >&2; exit 1; }}
 done
+{"command -v clang++ >/dev/null || { echo 'Missing WSL clang++; install clang or choose --gamecode-compiler gcc.' >&2; exit 1; }" if args.gamecode_compiler == "clang" else ""}
 cache={q(str(cache))}
 prefix="$cache/windows-deps"
 mkdir -p "$cache/deps"
@@ -106,9 +115,16 @@ import subprocess
 p=Path('CMakeLists.txt')
 original=subprocess.check_output(['git','show','HEAD:CMakeLists.txt']).decode()
 changed=original.replace('target_compile_options(gamecode PRIVATE -O1','target_compile_options(gamecode PRIVATE -O0',1)
-if p.read_text() not in (original, changed):
+launcher=Path({str(cache / "clang-gamecode-launcher.py")!r})
+extra='\\n# Private reference compiler acceleration; game code semantics unchanged.\\nset_property(TARGET gamecode PROPERTY CXX_COMPILER_LAUNCHER "'+str(launcher)+'")\\n'
+if p.read_text() not in (original, changed, original+extra, changed+extra):
  raise SystemExit('Unexpected cached CMake changes; choose a fresh cache.')
-p.write_text(original.replace('target_compile_options(gamecode PRIVATE -O1','target_compile_options(gamecode PRIVATE -O{args.optimization}',1))
+launcher.write_text({CLANG_LAUNCHER!r})
+launcher.chmod(0o755)
+modified=original.replace('target_compile_options(gamecode PRIVATE -O1','target_compile_options(gamecode PRIVATE -O{args.optimization}',1)
+if {args.gamecode_compiler!r} == 'clang':
+ modified+=extra
+p.write_text(modified)
 PY_OPT
 python3 tools/recomp.py --rom "$rom" --layout layouts/soulsilver-us.json melonDS/src gen
 python3 tools/apps.py --layout layouts/soulsilver-us.json gen
@@ -142,7 +158,7 @@ done
             shots.mkdir(exist_ok=True)
             command = [str(output / "ssrecomp-reference.exe"), str(rom), "--headless", "--frames", "900",
                        "--no-save", "--config", str(output / "smoke.cfg"), "--shot-dir", str(shots),
-                       "--shot-at", "300,900", "--hash-every", "300"]
+                       "--shot-at", "300,899", "--hash-every", "300"]
             with (output / "smoke.log").open("wb") as log:
                 result = subprocess.run(command, cwd=output, stdout=log, stderr=subprocess.STDOUT, timeout=180)
             report["smoke_exit_code"] = result.returncode

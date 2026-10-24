@@ -60,6 +60,6 @@ Windows real é a prioridade; macOS e expansão Hoenn vêm depois dessa evidênc
 - A ROM fornecida tem 128 MiB, header IPGE revisão 0 e SHA1 completo `0959fe9e64dc749382460f1ccf90996f5ef4088d`, diferente do checksum varejo citado acima.
 - Sem alterar a ROM ou desabilitar verificações, `tools/recomp.py --rom ... --layout layouts/soulsilver-us.json melonDS/src gen` terminou com sucesso: 122 seções, 25.120 chunks, 1.685.113 instruções e 71 arquivos.
 - `tools/apps.py --layout layouts/soulsilver-us.json gen` gerou 59 aplicativos.
-- Os checksums de todas as imagens de seção solicitadas pelo layout passaram. Isso comprova compatibilidade do código selecionado com o layout, não identidade de todos os assets/header/dados da ROM com o varejo.
+- Os checksums de todas as imagens de seção ARM9 solicitadas pelo layout passaram. Isso comprova compatibilidade do código selecionado com o layout, não identidade de todos os assets/header/dados da ROM com o varejo.
 - Os arquivos gerados ficam em cache privado, sem distribuição. A geração inclui uma seção adicional para BIOS livre do runtime.
 - MinGW x64, CMake e Ninja foram localizados. Dependências SDL2, zlib e libpng estão sendo preparadas em cache privado; compilação do executável e execução Windows ainda não foram confirmadas neste registro.
