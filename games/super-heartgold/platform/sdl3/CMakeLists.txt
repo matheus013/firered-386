@@ -6,7 +6,7 @@ add_executable(SuperHeartGold
 target_link_libraries(SuperHeartGold PRIVATE hg_engine hg_warnings SDL3::SDL3)
 if(HG_REFERENCE_TITLE_FLOW)
     target_sources(SuperHeartGold PRIVATE title_runtime.cpp)
-    target_link_libraries(SuperHeartGold PRIVATE hg_title_flow)
+    target_link_libraries(SuperHeartGold PRIVATE hg_title_flow hg_checksave_flow)
     target_compile_definitions(SuperHeartGold PRIVATE HG_PRIVATE_TITLE_FLOW=1)
 endif()
 

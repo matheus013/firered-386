@@ -37,6 +37,7 @@ struct Options {
     long capture_at = 0;
     bool title_flow = false;
     bool title_flow_self_test = false;
+    std::uint32_t controlled_save_flags = 0;
     hg::ScreenLayout layout = hg::ScreenLayout::Unified;
     hg::ScaleMode scale = hg::ScaleMode::Integer;
 };
@@ -55,7 +56,8 @@ void print_usage()
             "  --capture PATH.png      captura um quadro; recusa arquivo existente\n"
             "  --capture-at N          quadro da captura (padrão: 0)\n"
             "  --title-flow            controlador C original (build privado opcional)\n"
-            "  --title-flow-self-test  passo fixo e evento SDL Enter no quadro 40");
+            "  --title-flow-self-test  passo fixo e entradas SDL automáticas\n"
+            "  --checksave-flags N      flags DECIMAIS controladas; não lê saves");
 }
 
 bool parse_args(int argc, char** argv, Options& opt)
@@ -71,6 +73,10 @@ bool parse_args(int argc, char** argv, Options& opt)
             const std::string_view value=argv[++i];
             const auto result=std::from_chars(value.data(),value.data()+value.size(),opt.capture_at);
             if (result.ec!=std::errc{} || result.ptr!=value.data()+value.size() || opt.capture_at<0) return false;
+        } else if (arg == "--checksave-flags" && has_value) {
+            const std::string_view value=argv[++i];
+            const auto result=std::from_chars(value.data(),value.data()+value.size(),opt.controlled_save_flags);
+            if (result.ec!=std::errc{} || result.ptr!=value.data()+value.size()) return false;
         } else if (arg == "--title-flow" || arg == "--title-flow-self-test") {
             opt.title_flow=true;
             opt.title_flow_self_test=opt.title_flow_self_test || arg=="--title-flow-self-test";
@@ -205,9 +211,10 @@ public:
         }
 #ifdef HG_PRIVATE_TITLE_FLOW
         if (m_opt.title_flow) {
-            m_title_runtime=std::make_unique<hg::sdl::TitleRuntime>();
+            m_title_runtime=std::make_unique<hg::sdl::TitleRuntime>(m_opt.controlled_save_flags);
             SDL_SetWindowTitle(m_window,"Super HeartGold - original C title flow / host 2D (3D and audio pending)");
             hg::log_info("Controlador C original e OverlayManager nativos; 3D/áudio ausentes, destinos bloqueados");
+            hg::log_info("Check-save: flags CONTROLADAS="+std::to_string(m_opt.controlled_save_flags)+"; nenhum save é carregado ou validado");
         }
 #endif
 
@@ -259,7 +266,7 @@ public:
 #ifdef HG_PRIVATE_TITLE_FLOW
         if (m_opt.title_flow_self_test) {
             const bool complete=m_title_runtime && m_title_runtime->menu_handoff_complete();
-            hg::log_info(complete ? "Title flow self-test PASS: MENU solicitado, alocações do overlay liberadas, destino não executado" : "Title flow self-test FAILED");
+            hg::log_info(complete ? "Title flow self-test PASS: título e decisão check-save completos; menu e saves não executados" : "Title flow self-test FAILED");
             return complete ? EXIT_SUCCESS : EXIT_FAILURE;
         }
 #endif
@@ -271,11 +278,16 @@ public:
 
 private:
     void inject_title_test_key(long frame) {
-        if (!m_opt.title_flow_self_test || (frame!=40 && frame!=41)) return;
+        if (!m_opt.title_flow_self_test) return;
+        const bool start=frame==40 || frame==41;
+        const auto acknowledgement_phase=(frame-120)%12;
+        const bool acknowledge=frame>=120 && (acknowledgement_phase==0 || acknowledgement_phase==1);
+        if (!start && !acknowledge) return;
         SDL_Event key{};
-        key.type=frame==40 ? SDL_EVENT_KEY_DOWN : SDL_EVENT_KEY_UP;
-        key.key.key=SDLK_RETURN;
-        key.key.down=frame==40;
+        const bool down=start ? frame==40 : acknowledgement_phase==0;
+        key.type=down ? SDL_EVENT_KEY_DOWN : SDL_EVENT_KEY_UP;
+        key.key.key=start ? SDLK_RETURN : SDLK_X;
+        key.key.down=down;
         SDL_PushEvent(&key);
     }
 

@@ -19,7 +19,8 @@ um frame renderizado não contém passo de simulação.
 O teste respeita o atraso inicial de 30 ticks e o timeout após mais de 2.340 ticks
 de reprodução. Branco/preto e o ciclo de transições são apresentados pelo renderer.
 Os overlays e seus dados têm RAII; são liberados ao concluir ou fechar a janela.
-Nenhum destino solicitado é executado automaticamente nesta etapa.
+Somente a próxima decisão controlada de check-save é executada; menu e partida
+nova não são iniciados.
 
 | Parte | Situação |
 |---|---|
@@ -30,7 +31,8 @@ Nenhum destino solicitado é executado automaticamente nesta etapa.
 | Fades | Efeito host; duração aproximada, não equivalência ao serviço do DS |
 | Áudio | Pedidos contados e timer host; não há reprodução |
 | Objetos 3D, câmera, brilho do logo | Não implementados |
-| Check-save/menu, apagar save, introdução e microfone | Somente destinos de diagnóstico |
+| Check-save | Decisão original com flags controladas, sem save real |
+| Menu, apagar save, introdução e microfone | Somente destinos de diagnóstico |
 
 As funções de inicialização/execução/liberação de animação usadas pela decisão
 retornam prontidão para o teste 2D já carregado. Não inicializam modelos ou câmera.
@@ -38,9 +40,10 @@ Os hooks de câmera e brilho permanecem vazios. Isso permite testar o controlado
 isolado, não equivale a portar `title_screen.c` inteiro. A janela identifica
 explicitamente que 3D e áudio estão pendentes.
 
-Ao pressionar Enter ou X depois do atraso, o título faz a transição e para em
-`MENU REQUESTED - CHECK-SAVE NOT PORTED`. A tela preta nesse ponto é o estado final
-do fade, com o destino indicado no rodapé; não é uma partida iniciada.
+Ao pressionar Enter ou X depois do atraso, o título faz a transição para
+uma decisão controlada de check-save. Depois aparece
+`DECISION COMPLETE - MAIN MENU / REAL SAVE IO NOT PORTED`. A tela preta nesse ponto
+é o estado final do fade, com o limite indicado no rodapé; não é uma partida iniciada.
 O atalho original de apagar save apenas seleciona um resultado: nenhum save é
 aberto, alterado ou apagado. Fechar e abrir o launcher inicia outro teste.
 
@@ -89,12 +92,13 @@ de fades, destino preservado, rejeição de sessão simultânea e zero alocaçõ
 pendentes ao concluir ou cancelar. Passaram em Linux com ASan/UBSan e em Windows x64.
 
 `--title-flow-self-test` usa um tick por frame e injeta um evento SDL Enter no frame
-40, seguido de key-up. Ao fim exige destino menu concluído e zero alocações do
-overlay. É um teste determinístico, não uma medição de velocidade ou latência.
+40, seguido de key-up, e confirmações X a partir do frame 120. Ao fim exige título
+e decisão check-save controlada concluídos e zero alocações do overlay.
+É um teste determinístico, não uma medição de velocidade ou latência.
 `--capture-at N` captura o frame escolhido, contado a partir de zero. Se o limite
 de execução não alcançar esse frame, o programa retorna falha.
 
 Resultados locais e hashes estão em [native-title-validation.json](native-title-validation.json).
 
-O próximo alvo de integração é o destino check-save e seus serviços de dados.
+O estado da etapa seguinte está em [checksave-decision.md](checksave-decision.md).
 Modelos 3D, áudio e a primeira área jogável continuam pendentes.

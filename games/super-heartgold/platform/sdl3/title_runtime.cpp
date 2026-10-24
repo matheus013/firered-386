@@ -17,12 +17,20 @@ Uint8 channel(unsigned color,unsigned shift) {
 }
 const char* destination_label(unsigned destination) {
     switch (destination) {
-    case TitleSession::Menu: return "MENU REQUESTED - CHECK-SAVE NOT PORTED";
+    case TitleSession::Menu: return "STARTING CONTROLLED CHECK-SAVE DECISION";
     case TitleSession::DeleteSave: return "DELETE-SAVE REQUESTED - BLOCKED, NO SAVE ACCESS";
     case TitleSession::Intro: return "INTRO REQUESTED - INTRO NOT PORTED";
     case TitleSession::Microphone: return "MIC TEST REQUESTED - NOT PORTED";
     default: return "UNSUPPORTED DESTINATION";
     }
+}
+const char* status_message(std::uint32_t message) {
+    constexpr std::array descriptions{
+        "PRIMARY DATA: BACKUP STATUS FLAG", "PRIMARY DATA: CORRUPTION STATUS FLAG",
+        "BATTLE VIDEO: BACKUP STATUS FLAG", "BATTLE VIDEO: CORRUPTION STATUS FLAG",
+        "BATTLE HALL: BACKUP STATUS FLAG", "BATTLE HALL: CORRUPTION STATUS FLAG"
+    };
+    return message<descriptions.size() ? descriptions[message] : "UNKNOWN CONTROLLED MESSAGE";
 }
 }
 void TitleRuntime::advance(const InputState& input,int steps) {
@@ -35,7 +43,11 @@ void TitleRuntime::advance(const InputState& input,int steps) {
     for (int i=0;i<steps;++i) {
         auto pressed=pending_keys_;
         pending_keys_=0;
-        frame_=session_.tick(pressed,held);
+        if (!frame_.completed) frame_=session_.tick(pressed,held);
+        else if (frame_.destination==TitleSession::Menu) {
+            if (!checksave_) checksave_=std::make_unique<ChecksaveSession>(controlled_flags_);
+            check_frame_=checksave_->tick((pressed&TitleSession::A)!=0);
+        }
     }
 }
 void TitleRuntime::draw(SDL_Renderer* renderer,const SDL_FRect& image,int height) const {
@@ -47,6 +59,15 @@ void TitleRuntime::draw(SDL_Renderer* renderer,const SDL_FRect& image,int height
         SDL_SetRenderDrawBlendMode(renderer,SDL_BLENDMODE_NONE);
     }
     SDL_SetRenderDrawColor(renderer,255,255,255,255);
+    if (checksave_) {
+        SDL_RenderDebugText(renderer,8,static_cast<float>(std::max(0,height-24)),"CONTROLLED CHECK-SAVE DECISION - NO SAVE FILE LOADED");
+        const char* status=check_frame_.completed ? "DECISION COMPLETE - MAIN MENU / REAL SAVE IO NOT PORTED" :
+            check_frame_.awaiting_ack ? "X: ACKNOWLEDGE FIXTURE MESSAGE" : "PROCESSING CONTROLLED STATUS FLAGS";
+        SDL_RenderDebugText(renderer,8,static_cast<float>(std::max(0,height-12)),status);
+        if (check_frame_.awaiting_ack && image.w>0 && image.h>0)
+            SDL_RenderDebugText(renderer,image.x+16,image.y+16,status_message(check_frame_.message));
+        return;
+    }
     SDL_RenderDebugText(renderer,8,static_cast<float>(std::max(0,height-24)),"ORIGINAL TITLE DECISION C / HOST 2D - 3D AND AUDIO PENDING");
     const char* status="TITLE INITIALIZING";
     if (frame_.completed) status=destination_label(frame_.destination);
@@ -56,6 +77,7 @@ void TitleRuntime::draw(SDL_Renderer* renderer,const SDL_FRect& image,int height
     SDL_RenderDebugText(renderer,8,static_cast<float>(std::max(0,height-12)),status);
 }
 bool TitleRuntime::menu_handoff_complete() const {
-    return frame_.completed && frame_.destination==TitleSession::Menu && TitleSession::allocations()==0;
+    return frame_.completed && frame_.destination==TitleSession::Menu && TitleSession::allocations()==0 &&
+        checksave_ && check_frame_.completed;
 }
 }

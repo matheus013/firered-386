@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-24",
+  "base_pin": "6984a3d67592157195940049be2e4bbbf933f9ff",
+  "scope": "Original check-save decision with controlled flags; not real save validation",
+  "source_sha256": "f0132f1d62e38aa6358144ed971163336fd09377e9d708e3ceef083012e26016",
+  "function_sha256": "e854ccec22b07d8010c166842aafef3f4a644b02d96e05a6e04aee41c0e3f812",
+  "executable_sha256": "99c99aedbaa48c6902d4818dbdd17e0e765a26307e11cdfc0f00cec2d07bd589",
+  "private_windows_ctest_suites_passed": 12,
+  "windowed_integration": [
+    {
+      "controlled_flags": 0,
+      "exit_code": 0,
+      "frames": 180,
+      "renderer": "direct3d11",
+      "capture_at": 140
+    },
+    {
+      "controlled_flags": 1,
+      "exit_code": 0,
+      "frames": 180,
+      "renderer": "direct3d11",
+      "capture_at": 119
+    }
+  ],
+  "software_integration_flags": 63,
+  "software_integration_frames": 360,
+  "software_integration_exit_code": 0,
+  "actual_save_files_read_or_written": false,
+  "game_campaign_playable": false,
+  "overall_port_estimate_percent": 10,
+  "estimate_range_percent": [
+    5,
+    15
+  ]
+}
