@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-24",
+  "scope": "Original resource C module compiled directly for Windows x64; no CPU emulation",
+  "base_pin": "6984a3d67592157195940049be2e4bbbf933f9ff",
+  "tests": {
+    "platform_windows_suites": 9,
+    "private_native_probe_suites": 10,
+    "linux_core_suites": 8,
+    "python_import_cases": 7
+  },
+  "archives": [
+    {
+      "id": 2,
+      "path": "a/0/0/2",
+      "exit_code": 0,
+      "result": "PASS original C filesystem: archive=a/0/0/2 members=508 bytes=22352 handles=0 allocations=0"
+    },
+    {
+      "id": 11,
+      "path": "a/0/1/1",
+      "exit_code": 0,
+      "result": "PASS original C filesystem: archive=a/0/1/1 members=471 bytes=7536 handles=0 allocations=0"
+    },
+    {
+      "id": 27,
+      "path": "a/0/2/7",
+      "exit_code": 0,
+      "result": "PASS original C filesystem: archive=a/0/2/7 members=829 bytes=4615284 handles=0 allocations=0"
+    }
+  ],
+  "patched_filesystem_sha256": "f065b7d806a690132b54be35d4aa5c5ff5fd624ab14463d1fecad0009ea23f6b",
+  "patch": "FS_CloseFile before GetNarcMemberSizeByIdPair returns",
+  "strict_native_game_complete": false
+}

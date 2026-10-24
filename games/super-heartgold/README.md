@@ -10,9 +10,10 @@ A pasta antiga `games/heart-gold` foi substituída por esta a pedido do usuário
 
 ## Estado atual
 
-- Plataforma própria C++20/SDL3/CMake compilada para Windows x64; sete suítes CTest passaram.
+- Plataforma própria C++20/SDL3/CMake compilada para Windows x64; nove suítes CTest passaram.
 - Testes de viewport, entrada, passo fixo, log, manifesto e inspeção de dados sintéticos.
 - Primeira unidade real do código C de HG/SS compilada e testada nativamente em Windows x64: `SysTaskQueue`. Prova privada opcional, sem CPU DS e sem SDK; ainda não executa a engine completa.
+- Serviço de arquivos host integrado à biblioteca da engine e conectado, em prova privada, ao `filesystem.c` original: 1.808 membros de recursos de Pokémon, golpes e textos comparados no Windows x64. Corrigido o vazamento na consulta de tamanho. Veja [native-resources.md](docs/native-resources.md).
 - O executável atual desenha uma tela de teste, explicitamente identificada como tal. **Ainda não contém a engine do jogo.**
 - ROM local SoulSilver USA identificada e inspecionada; nenhum payload foi incluído no repositório.
 - Referência privada ARM9 AOT compilada em Windows x64: 1.800 frames chegaram ao título de SoulSilver e ao menu de início de partida; janela Windows/Direct3D testada por 180 frames, ambas com exit 0. Continua usando ARM7 interpretado e fallback ARM9, portanto não conclui o port fonte. Evidências em [windows-execution.md](docs/windows-execution.md).

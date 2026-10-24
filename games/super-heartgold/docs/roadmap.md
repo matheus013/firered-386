@@ -26,6 +26,11 @@ Esse marco não contém campanha HeartGold, batalha completa ou assets originais
 
 ## M1 — Prova de lógica e pipeline host
 
+Implementado parcialmente: scheduler original nativo e integração do módulo C de
+recursos ao serviço de arquivos host, com validação de 1.808 membros no Windows.
+Veja [native-resources.md](native-resources.md). Ainda faltam decodificação gráfica
+e integração do fluxo da engine à janela própria.
+
 - Inventariar módulos e suas dependências no pin obrigatório.
 - Selecionar uma unidade real e pequena de lógica HeartGold, com decisão documentada sobre permissões.
 - Integrar ou implementar a unidade conforme essa decisão, com testes de comportamento e proveniência.

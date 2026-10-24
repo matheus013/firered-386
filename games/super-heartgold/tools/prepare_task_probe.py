@@ -1,6 +1,6 @@
-"""Fetch two pinned reference sources into a PRIVATE build directory only.
+"""Fetch pinned reference sources into a PRIVATE build directory only.
 
-The probe compiles real HG task scheduling C as host code. It is not a game
+The probes compile real HG task scheduling/resource C as host code. This is not a game
 port and its generated/reference sources must not be publicly packaged.
 """
 import argparse
@@ -17,6 +17,7 @@ FILES = {
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('destination', type=Path)
+    parser.add_argument('--filesystem', action='store_true', help='Also prepare the private native resource reader probe')
     args = parser.parse_args()
     destination = args.destination.resolve()
     # Never place downloaded game sources in the source tree or its Git repo.
@@ -25,6 +26,12 @@ if __name__ == '__main__':
     if destination.is_relative_to(source.parents[1]) or any(destination.is_relative_to(p) for p in repositories):
         parser.error('Reference probe requires a private build folder outside the repository')
     destination.mkdir(parents=True, exist_ok=True)
+    if args.filesystem:
+        FILES.update({
+            'src/filesystem.c': 'ee526fc2835b2c2259dd393087fb1a5ca036dbf467bcfbd7735b1476819c869d',
+            'include/filesystem.h': '50d8756e99ae5d980d85c4dfeb63291c99c1e17a47d3f810e693ef0237fa920e',
+            'include/filesystem_files_def.h': '871b6abe3fb53e5ff810bb0b0680f2e305daff9670565e4d3eb9c13aebc3c5cf',
+        })
     for relative, expected in FILES.items():
         target = destination / Path(relative).name
         if target.exists() and hashlib.sha256(target.read_bytes()).hexdigest() == expected:
@@ -35,3 +42,11 @@ if __name__ == '__main__':
         if hashlib.sha256(data).hexdigest() != expected:
             raise SystemExit(f'Reference source checksum differs: {relative}')
         target.write_bytes(data)
+    if args.filesystem:
+        target = destination / 'filesystem.c'
+        original = target.read_bytes()
+        before = b'// Bug: File is never closed\n    return chunk_size;'
+        after = b'// Host port: release the file before returning its member size.\n    FS_CloseFile(&file);\n    return chunk_size;'
+        if original.count(before) != 1:
+            raise SystemExit('Filesystem close patch did not match the pinned source')
+        target.write_bytes(original.replace(before, after))
