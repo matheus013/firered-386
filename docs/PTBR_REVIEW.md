@@ -1,6 +1,6 @@
 # Revisão da tradução PT-BR
 
-Prévia v0.5.0-preview.3. O catálogo contém 7.865 entradas traduzidas e 1.202 substituições revisadas. A tradução completa da campanha ainda não foi revisada linguisticamente: muitos diálogos secundários continuam vindo do rascunho automático. [Cobertura](../data/localization/coverage.json) · [Resultados desta ROM](../data/ptbr_validation.json).
+Prévia v0.5.0-preview.3. O catálogo contém 7.865 entradas traduzidas e 1.202 substituições revisadas. A tradução completa da campanha ainda não foi revisada linguisticamente: muitos diálogos secundários continuam vindo do rascunho automático. [Cobertura](../games/super-fire-red/hack-data/localization/coverage.json) · [Resultados desta ROM](../games/super-fire-red/hack-data/ptbr_validation.json).
 
 ## O que mudou
 
@@ -16,7 +16,7 @@ Prévia v0.5.0-preview.3. O catálogo contém 7.865 entradas traduzidas e 1.202 
 
 ## Verificação
 
-`scripts/test_localization.py` confere as chaves contra os textos reais dos fontes, a presença das descrições de habilidades, os marcadores de nomes/valores/controles, os limites das descrições de itens e o orçamento das mensagens de batalha. `generate_locale.py --check` confere que as tabelas foram geradas a partir dos arquivos revisados; traduções revisadas inválidas impedem a geração.
+`games/super-fire-red/scripts/test_localization.py` confere as chaves contra os textos reais dos fontes, a presença das descrições de habilidades, os marcadores de nomes/valores/controles, os limites das descrições de itens e o orçamento das mensagens de batalha. `generate_locale.py --check` confere que as tabelas foram geradas a partir dos arquivos revisados; traduções revisadas inválidas impedem a geração.
 
 `test_category_ui.py` mede as 354 descrições em EN e PT-BR no motor nativo e percorre dez posições da tela com botões. Os testes de opções, editor, lojas nos dois idiomas, captura, randomizer, save/reload, equipes e IA são registrados com o SHA da ROM atual. As imagens de opções, editor e resumo também são inspecionadas visualmente. A compilação limpa deve reproduzir exatamente o arquivo entregue.
 
@@ -26,4 +26,4 @@ Os testes verificam funcionamento e limites nas situações cobertas. Não equiv
 
 A fonte original não contém todos os caracteres portugueses. Os acentos disponíveis são usados; `ã`, `õ` e suas maiúsculas são simplificados na ROM. Os arquivos de tradução preservam a ortografia completa para permitir a futura atualização da fonte. Alguns rótulos incorporados a outras imagens ainda conservam a arte original.
 
-As traduções revistas ficam em `data/localization/*_ptbr.json`, além de `ptbr_overrides.json`. Os textos diretos do editor e do randomizer ficam nos respectivos fontes C. `ptbr_draft.json` permanece como rascunho de referência, sem receber aprovação automática de revisão. Para mudar uma descrição de golpe, edite `move_descriptions_ptbr.json`; para itens, `item_descriptions_ptbr.json`. Depois execute `generate_locale.py`, compile e repita os testes afetados.
+As traduções revistas ficam em `games/super-fire-red/hack-data/localization/*_ptbr.json`, além de `ptbr_overrides.json`. Os textos diretos do editor e do randomizer ficam nos respectivos fontes C. `ptbr_draft.json` permanece como rascunho de referência, sem receber aprovação automática de revisão. Para mudar uma descrição de golpe, edite `move_descriptions_ptbr.json`; para itens, `item_descriptions_ptbr.json`. Depois execute `generate_locale.py`, compile e repita os testes afetados.

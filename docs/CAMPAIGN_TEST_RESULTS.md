@@ -4,7 +4,7 @@
 
 Auditoria de 21/10/2026, ROM de referência SHA-256 `d880845011b29532abf333cc082da02b20eee97cf9f7767fe5fd61acf3b55cf8`. Foram aprovados **114 checkpoints**: 30 de eventos da história, 81 na sequência de líderes/Liga/Sevii/opcionais/Torre e três confrontos adicionais do rival. Não foi exigida a captura dos 386, conforme a escolha do usuário.
 
-Os resultados estruturados estão em [data/campaign_tests.json](../data/campaign_tests.json); logs nativos: [história](../data/campaign_logs/story.log), [campanha/pós-jogo](../data/campaign_logs/campaign.log), [rival](../data/campaign_logs/rivals.log).
+Os resultados estruturados estão em [games/super-fire-red/hack-data/campaign_tests.json](../games/super-fire-red/hack-data/campaign_tests.json); logs nativos: [história](../games/super-fire-red/hack-data/campaign_logs/story.log), [campanha/pós-jogo](../games/super-fire-red/hack-data/campaign_logs/campaign.log), [rival](../games/super-fire-red/hack-data/campaign_logs/rivals.log).
 
 ## O que o teste demonstra
 
@@ -50,7 +50,7 @@ Comparação com a revisão fixa do pret usada como base:
 - Cientistas adicionados: sem ocupar warps/objetos antigos, em piso livre; a conectividade do piso dos Centros desde a entrada não perdeu tiles além da posição do próprio NPC.
 - Fontes de obtenção dos itens críticos identificadas; guarda de Liga antes da consulta à Nacional em Celio; Sapphire ligada à liberação da rede, caverna e seleção da revanche.
 
-Isso reduz o risco de regressão estrutural, mas não executa todas as condições de portas ou resolve puzzles. Detalhes dos nove checks em [data/campaign_tests.json](../data/campaign_tests.json).
+Isso reduz o risco de regressão estrutural, mas não executa todas as condições de portas ou resolve puzzles. Detalhes dos nove checks em [games/super-fire-red/hack-data/campaign_tests.json](../games/super-fire-red/hack-data/campaign_tests.json).
 
 ## Estado final persistido
 
@@ -76,9 +76,9 @@ Os itens de história preservados incluem SS Ticket, Poké Flute, Silph Scope, L
 No Ubuntu/WSL, depois do setup e da compilação, com GCC, libmGBA e libpng:
 
 ```sh
-python3 scripts/run_campaign_validation.py
+python3 games/super-fire-red/scripts/run_campaign_validation.py
 ```
 
-O runner executa eventos da história, carrega seu save na sequência assistida, testa os rivais e audita os mapas/saves. Pode levar vários minutos. Os logs e ROMs/saves descartáveis ficam em `output/tests/`; não devem ser usados como progresso legítimo do jogador. Qualquer falha retorna código diferente de zero. `--collect-only` apenas confere e reúne resultados já completos para o SHA atual.
+O runner executa eventos da história, carrega seu save na sequência assistida, testa os rivais e audita os mapas/saves. Pode levar vários minutos. Os logs e ROMs/saves descartáveis ficam em `games/super-fire-red/output/tests/`; não devem ser usados como progresso legítimo do jogador. Qualquer falha retorna código diferente de zero. `--collect-only` apenas confere e reúne resultados já completos para o SHA atual.
 
 O [checklist](TEST_CHECKLIST.md) mantém abertos os percursos e condições ainda não homologados. Esta auditoria adicionou testes e documentação; não gerou uma nova versão do jogo.

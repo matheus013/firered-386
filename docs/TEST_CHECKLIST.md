@@ -1,6 +1,6 @@
 # Checklist de testes — FireRed 386
 
-**v0.5.0-preview.4, 23/10/2026:** [interface e acesso ao editor](UI_REVIEW.md), com novos testes de limites em pixels, golpes expandidos/Fada e EVs desde o início no Normal. Resultados e SHA próprios em [data/ui_review_validation.json](../data/ui_review_validation.json). A documentação abaixo preserva os testes históricos de cada versão.
+**v0.5.0-preview.4, 23/10/2026:** [interface e acesso ao editor](UI_REVIEW.md), com novos testes de limites em pixels, golpes expandidos/Fada e EVs desde o início no Normal. Resultados e SHA próprios em [games/super-fire-red/hack-data/ui_review_validation.json](../games/super-fire-red/hack-data/ui_review_validation.json). A documentação abaixo preserva os testes históricos de cada versão.
 
 **Prévia anterior v0.5.0-preview.3:** [validação da IA, golpes e interface](MODERNIZATION.md) e [revisão do PT-BR](PTBR_REVIEW.md). Validação anterior da v0.4.0-dev: [novas funcionalidades](FEATURE_TEST_RESULTS.md), com proveniência da ROM e limites. Os resultados antigos abaixo mantêm suas versões de referência. Campanha Normal/Hardcore sem assistência e VBA Link ainda pendentes.
 
@@ -15,7 +15,7 @@ ROM de referência, SHA-256: `d880845011b29532abf333cc082da02b20eee97cf9f7767fe5
 - **7/7 suítes de regressão**, incluindo os **46 casos de lojas** e **14 variantes da Liga**.
 - Integridade do IPS/manifesto, boot e recompilação limpa do patch conferidos separadamente.
 
-Resultados em [data/test_audit.json](../data/test_audit.json); detalhes de captura em [CAPTURE_TEST_RESULTS.md](CAPTURE_TEST_RESULTS.md). O histórico reprovado da v0.3.0-dev foi preservado em [TEST_AUDIT_V0_3_0.md](TEST_AUDIT_V0_3_0.md).
+Resultados em [games/super-fire-red/hack-data/test_audit.json](../games/super-fire-red/hack-data/test_audit.json); detalhes de captura em [CAPTURE_TEST_RESULTS.md](CAPTURE_TEST_RESULTS.md). O histórico reprovado da v0.3.0-dev foi preservado em [TEST_AUDIT_V0_3_0.md](TEST_AUDIT_V0_3_0.md).
 
 ## Campanha e pós-jogo — integração assistida
 
@@ -30,7 +30,7 @@ Passaram 114 checkpoints: 30 eventos de história, 81 na sequência de líderes/
 | BUG-003 — teto da creche | Pidgey 5 saía no 38 com teto 18 | Sai no 18 nos dois modos; previsão, cobrança e creche de Route 5 também limitadas |
 | BUG-004 — Marowak fantasma | Gastava a oportunidade da Torre mesmo rejeitando qualquer Ball | Fantasmas não capturáveis não consomem; Marowak continua impossível de capturar |
 
-BUG-001/002/003 foram registrados na [auditoria anterior](TEST_AUDIT_V0_3_0.md). BUG-004 foi reproduzido antes da correção em [21 de 22 casos aprovados](../data/capture_rules_v0.3.0.json); a suíte atual tem um caso adicional que percorre as cotas dos 124 mapas de encontros.
+BUG-001/002/003 foram registrados na [auditoria anterior](TEST_AUDIT_V0_3_0.md). BUG-004 foi reproduzido antes da correção em [21 de 22 casos aprovados](../games/super-fire-red/hack-data/capture_rules_v0.3.0.json); a suíte atual tem um caso adicional que percorre as cotas dos 124 mapas de encontros.
 
 A creche usa o teto vigente ao consultar ou retirar. Passos permanecem acumulados enquanto o Pokémon está depositado, mas EXP que excede o teto é descartada na retirada. Um recebido acima do teto não perde nível e não ganha EXP até o teto alcançá-lo. A correção não aumenta os níveis dos adversários nem limita a criação deles.
 
@@ -52,7 +52,7 @@ O teto da creche, as regras Hardcore, lojas e editor de treinamento foram inclu�
 
 ## Ambiente e limites da evidência
 
-- Ubuntu/WSL, compilador e base fixados pelo [setup](../scripts/setup.sh); mGBA via biblioteca nativa, sem interface gráfica.
+- Ubuntu/WSL, compilador e base fixados pelo [setup](../games/super-fire-red/scripts/setup.sh); mGBA via biblioteca nativa, sem interface gráfica.
 - O boot de 900 frames executa a ROM de produção. As demais suítes de emulação compilam cópias descartáveis dos mesmos fontes, acrescentando pontos de entrada, cenários e verificações. Não são execuções completas da campanha na ROM intacta.
 - Testes de save usam arquivos gerados para teste, gravam Flash e recarregam em uma nova instância. Não carregam nem modificam o save do jogador.
 - Aprovação de dados ou de uma função não prova que todos os caminhos de menus, scripts e história estejam corretos. Os casos manuais abaixo continuam abertos.
@@ -184,15 +184,15 @@ A categoria físico/especial/status por golpe tem testes próprios (`test_move_d
 No Ubuntu/WSL, após setup e compilação da base e da hack:
 
 ```sh
-python3 scripts/test_capture_rules.py
-python3 scripts/test_community_cases.py
-python3 scripts/run_regression.py
-python3 scripts/run_campaign_validation.py
-bash scripts/verify_source_build.sh
-python3 scripts/audit_release.py --version v0.3.1-dev
+python3 games/super-fire-red/scripts/test_capture_rules.py
+python3 games/super-fire-red/scripts/test_community_cases.py
+python3 games/super-fire-red/scripts/run_regression.py
+python3 games/super-fire-red/scripts/run_campaign_validation.py
+bash games/super-fire-red/scripts/verify_source_build.sh
+python3 games/super-fire-red/scripts/audit_release.py --version v0.3.1-dev
 ```
 
-Os comandos retornam código diferente de zero diante de qualquer reprovação. `audit_release.py` exige os assets da versão selecionada em `output/release/v0.3.1-dev/`; não os baixa nem modifica. Os demais testes geram ROMs descartáveis e logs em `output/tests/`, sem abrir o save do jogador. Dependências de compilação/emulação e instruções de setup estão no [README](../README.md).
+Os comandos retornam código diferente de zero diante de qualquer reprovação. `audit_release.py` exige os assets da versão selecionada em `games/super-fire-red/output/release/v0.3.1-dev/`; não os baixa nem modifica. Os demais testes geram ROMs descartáveis e logs em `games/super-fire-red/output/tests/`, sem abrir o save do jogador. Dependências de compilação/emulação e instruções de setup estão no [README](../README.md).
 
 Cada alteração futura exige repetir os testes afetados, registrar o SHA da nova ROM e manter a lista manual pendente até execução real. Aprovação de fixtures não equivale a campanha homologada.
 
@@ -208,8 +208,8 @@ Combates executados no motor nativo, com preparação reconstruída a partir dos
 
 ## Revisão da IA dos líderes/E4
 
-[Correções, escopo e limites](AI_REVIEW.md). `test_ai_move_native.py` confere histórico separado, consultas ao parceiro, imunidades, desempates, clima e suporte; `test_boss_ai_battles.py` executa batalhas isoladas completas contra os oito ginásios e as duas versões da E4, nos dois modos. Usa cópias dos times adversários no lado do jogador com atributos/HP normais e um bot simples. Não valida captura/caminhada nem mede dificuldade. Os resultados consolidados e a proveniência estão em [data/ai_review_validation.json](../data/ai_review_validation.json).
+[Correções, escopo e limites](AI_REVIEW.md). `test_ai_move_native.py` confere histórico separado, consultas ao parceiro, imunidades, desempates, clima e suporte; `test_boss_ai_battles.py` executa batalhas isoladas completas contra os oito ginásios e as duas versões da E4, nos dois modos. Usa cópias dos times adversários no lado do jogador com atributos/HP normais e um bot simples. Não valida captura/caminhada nem mede dificuldade. Os resultados consolidados e a proveniência estão em [games/super-fire-red/hack-data/ai_review_validation.json](../games/super-fire-red/hack-data/ai_review_validation.json).
 
 ## Revisão do PT-BR
 
-`test_localization.py` confere chaves reais, controles, descrições de habilidades/itens e orçamento de mensagens. `generate_locale.py --check` confere a tabela reproduzível. A medição de descrições de golpes roda no motor nativo em EN/PT-BR; opções, editor e lojas também são testados nos dois idiomas. [Escopo linguístico e limites](PTBR_REVIEW.md) · [Evidência por SHA](../data/ptbr_validation.json).
+`test_localization.py` confere chaves reais, controles, descrições de habilidades/itens e orçamento de mensagens. `generate_locale.py --check` confere a tabela reproduzível. A medição de descrições de golpes roda no motor nativo em EN/PT-BR; opções, editor e lojas também são testados nos dois idiomas. [Escopo linguístico e limites](PTBR_REVIEW.md) · [Evidência por SHA](../games/super-fire-red/hack-data/ptbr_validation.json).

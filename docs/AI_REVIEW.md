@@ -1,6 +1,6 @@
 # Revisão dos líderes e da Elite Four
 
-Revisão da prévia v0.5.0-preview.2. Mantidos os seis integrantes, tipos temáticos, tetos de nível e adaptações dos campeões oficiais. A revanche da E4 continua no nível 100. Os resultados e o SHA da ROM ficam em [data/ai_review_validation.json](../data/ai_review_validation.json).
+Revisão da prévia v0.5.0-preview.2. Mantidos os seis integrantes, tipos temáticos, tetos de nível e adaptações dos campeões oficiais. A revanche da E4 continua no nível 100. Os resultados e o SHA da ROM ficam em [games/super-fire-red/hack-data/ai_review_validation.json](../games/super-fire-red/hack-data/ai_review_validation.json).
 
 ## Correções de decisões
 

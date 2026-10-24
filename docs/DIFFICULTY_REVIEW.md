@@ -104,7 +104,7 @@ Metas observáveis propostas: chegar perto do teto com batalhas de percurso sem 
 
 ## Reprodução e evidência
 
-Execute `python scripts/audit_progression.py`. O relatório de dados sai em `output/analysis/progression.json`, incluindo IDs de treinadores e mapas do roteiro ilustrativo. O script usa `data/trainer_balance.json`, a comparação com os dados da revisão-base, encounters e atributos da engine. As regras foram lidas em `game/src/nuzlocke.c`, a EXP em `game/src/battle_script_commands.c` e o uso de itens da IA em `game/src/battle_ai_switch_items.c`.
+Execute `python games/super-fire-red/scripts/audit_progression.py`. O relatório de dados sai em `games/super-fire-red/output/analysis/progression.json`, incluindo IDs de treinadores e mapas do roteiro ilustrativo. O script usa `games/super-fire-red/hack-data/trainer_balance.json`, a comparação com os dados da revisão-base, encounters e atributos da engine. As regras foram lidas em `games/super-fire-red/src/nuzlocke.c`, a EXP em `games/super-fire-red/src/battle_script_commands.c` e o uso de itens da IA em `games/super-fire-red/src/battle_ai_switch_items.c`.
 
 Esta rodada produziu apenas a análise e seu script; a ROM e as releases não receberam alterações de balanceamento.
 

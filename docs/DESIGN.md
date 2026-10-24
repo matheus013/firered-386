@@ -54,7 +54,7 @@
 
 ## Distribuição implementada — v0.3.0-dev
 
-As 386 espécies têm captura direta, sem trocas, reprodução ou escolha exclusiva. Parâmetros e cobertura em data/encounter_distribution.json; roteiro por espécie em SPECIES_LOCATIONS.md. Lendários/míticos têm um slot de 1% cada em áreas avançadas e trava de vitória na Liga; encontros fixos antigos permanecem. Celio passa a exigir vitória na Liga para iniciar a Ruby, preservando a progressão apesar da Nacional cedo. A coleção completa é possível no Normal; cotas Hardcore continuam limitando capturas. As diretrizes abaixo orientam ajustes posteriores.
+As 386 espécies têm captura direta, sem trocas, reprodução ou escolha exclusiva. Parâmetros e cobertura em games/super-fire-red/hack-data/encounter_distribution.json; roteiro por espécie em SPECIES_LOCATIONS.md. Lendários/míticos têm um slot de 1% cada em áreas avançadas e trava de vitória na Liga; encontros fixos antigos permanecem. Celio passa a exigir vitória na Liga para iniciar a Ruby, preservando a progressão apesar da Nacional cedo. A coleção completa é possível no Normal; cotas Hardcore continuam limitando capturas. As diretrizes abaixo orientam ajustes posteriores.
 
 ## Diretrizes de distribuição
 
@@ -114,7 +114,7 @@ A primeira luta contra o rival permanece simples, nas três variantes de inicial
 - Sem golpes que atinjam aliados nos elencos gerados, sem OHKO ou evasão acumulada. Evitar clima em equipes que possam ter Cloud Nine/Air Lock.
 - IA avalia os dois alvos adversários com os scripts existentes e considera parceiro apto, Helping Hand, telas, controle de velocidade, clima e risco de dano aliado.
 - Esta passagem usa categorias por golpe e dados numéricos modernos para os golpes implementados; efeitos e tipos ainda estão em migração. Os desafios recebem IVs 31/EVs treinados; novas revanches de líderes continuam pendentes. Estado atual: [MODERNIZATION.md](MODERNIZATION.md) e [AI_REVIEW.md](AI_REVIEW.md).
-- Auditoria por treinador: TRAINER_REVIEW.md; dados reproduzíveis: data/trainer_balance.json; gerador: scripts/balance_trainers.py.
+- Auditoria por treinador: TRAINER_REVIEW.md; dados reproduzíveis: games/super-fire-red/hack-data/trainer_balance.json; gerador: games/super-fire-red/scripts/balance_trainers.py.
 - Verificações: auditoria estrutural dos elencos e testes nativos das regras de pontuação. Fixtures no mGBA alcançaram a seleção de ação na luta inicial, em dupla normal e em um contra dois. Não foi realizado um teste completo da campanha ou da Torre.
 
 ## Direção técnica

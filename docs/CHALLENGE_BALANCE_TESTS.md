@@ -136,7 +136,7 @@ As seis séries `final-*-chain` são exploratórias e foram superadas nas compos
 
 Os arquivos `final-*` e `prepared-*` conservam resultados antigos de índices 0–9 para rastreabilidade; a classificação usa `lab-tutorial` e `early-*` nesses índices. A classificação é provisória. O bot não joga como um especialista, não faz trocas voluntárias e a preparação básica ignora recursos úteis. Vitória comprova o combate naquele estado; derrota não demonstra que nenhuma equipe/estratégia vença. As coortes não certificam todos os encontros Hardcore nem randomizer ON. Os 35 grupos são os desafios nomeados do guia; não abrangem cada treinador comum, captura lendária, puzzle ou os quatro cursos completos da Torre. A campanha sem teleportes continua pendente.
 
-Dados: [resumo e arquivos brutos comprimidos](../data/challenge_balance/summary.json). Scripts: `run_challenge_balance.py`, `run_connected_balance.py`, `run_advanced_balance.py`. Para compilar a fixture básica, use `python3 scripts/balance_core.py --baseline`; para o preparo avançado, omita `--baseline`. Os caminhos dos builds e logs ficam em `output/tests/balance/`. Nenhum save do jogador foi usado; a ROM pública permanece com o SHA acima.
+Dados: [resumo e arquivos brutos comprimidos](../games/super-fire-red/hack-data/challenge_balance/summary.json). Scripts: `run_challenge_balance.py`, `run_connected_balance.py`, `run_advanced_balance.py`. Para compilar a fixture básica, use `python3 games/super-fire-red/scripts/balance_core.py --baseline`; para o preparo avançado, omita `--baseline`. Os caminhos dos builds e logs ficam em `games/super-fire-red/output/tests/balance/`. Nenhum save do jogador foi usado; a ROM pública permanece com o SHA acima.
 
 ## Leitura prática
 

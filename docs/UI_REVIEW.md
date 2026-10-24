@@ -29,16 +29,16 @@ O cientista pode ser usado desde o início nos dois modos. No Normal, o menu apr
 
 ## Validação
 
-- `scripts/test_ui_layout.py`: **4.814 medições nativas**, sem exceder os limites. Verifica nomes dos 577 golpes em batalha/resumo, categoria/tipo, categorias completas, instruções/títulos, rótulos do editor e altura das 58 descrições de TM/HM, nos dois idiomas. As capturas de batalha confirmam o controlador de seleção e percorrem os quatro golpes por botões; o estojo percorre as 50 TMs.
-- `scripts/test_category_ui.py --expanded`: dez seleções reais em EN/PT-BR, incluindo Fada, categoria de status e nomes novos; **1.154 descrições** verificadas contra o limite de cinco linhas.
-- `scripts/test_training_ui.py --mode normal`, com e sem `--language ptbr`: interação com o NPC, bloqueio de IVs/natureza, EVs com cancelamento/confirmação e saída/reabertura. A variante Hardcore mantém edição dos três e verifica três curas, com recusa da quarta.
-- `scripts/test_training.py`: acesso por modo e vitória na Liga, validação dos valores, aplicação sem cura, preservação dos dados e recarga do save em outra instância.
-- `scripts/test_settings_ui.py`: escolha inicial de modo/randomizer e opções EN/PT-BR por botões.
-- `scripts/test_localization.py`: catálogo, chaves revisadas, controles/variáveis e orçamentos de texto. `scripts/test_new_moves.py`: 223 novos golpes conferidos contra os dados fixados. Os geradores de treinadores, encontros e guias passaram no modo `--check`.
-- `scripts/test_ai_move_native.py`: 1.096 verificações, nenhuma falha. Testes dirigidos; não demonstram uma IA ótima nem vitória de campanha.
-- `scripts/run_regression.py`: sete suítes aprovadas na ROM final (Hardcore, editor, interface, criação dos treinadores, encontros, lojas e Liga). Lojas também repetidas em PT-BR: 23 catálogos × dois modos × dois idiomas = **92 casos**, com compra, venda, cancelamento, saída/reabertura e preço do Rare Candy.
+- `games/super-fire-red/scripts/test_ui_layout.py`: **4.814 medições nativas**, sem exceder os limites. Verifica nomes dos 577 golpes em batalha/resumo, categoria/tipo, categorias completas, instruções/títulos, rótulos do editor e altura das 58 descrições de TM/HM, nos dois idiomas. As capturas de batalha confirmam o controlador de seleção e percorrem os quatro golpes por botões; o estojo percorre as 50 TMs.
+- `games/super-fire-red/scripts/test_category_ui.py --expanded`: dez seleções reais em EN/PT-BR, incluindo Fada, categoria de status e nomes novos; **1.154 descrições** verificadas contra o limite de cinco linhas.
+- `games/super-fire-red/scripts/test_training_ui.py --mode normal`, com e sem `--language ptbr`: interação com o NPC, bloqueio de IVs/natureza, EVs com cancelamento/confirmação e saída/reabertura. A variante Hardcore mantém edição dos três e verifica três curas, com recusa da quarta.
+- `games/super-fire-red/scripts/test_training.py`: acesso por modo e vitória na Liga, validação dos valores, aplicação sem cura, preservação dos dados e recarga do save em outra instância.
+- `games/super-fire-red/scripts/test_settings_ui.py`: escolha inicial de modo/randomizer e opções EN/PT-BR por botões.
+- `games/super-fire-red/scripts/test_localization.py`: catálogo, chaves revisadas, controles/variáveis e orçamentos de texto. `games/super-fire-red/scripts/test_new_moves.py`: 223 novos golpes conferidos contra os dados fixados. Os geradores de treinadores, encontros e guias passaram no modo `--check`.
+- `games/super-fire-red/scripts/test_ai_move_native.py`: 1.096 verificações, nenhuma falha. Testes dirigidos; não demonstram uma IA ótima nem vitória de campanha.
+- `games/super-fire-red/scripts/run_regression.py`: sete suítes aprovadas na ROM final (Hardcore, editor, interface, criação dos treinadores, encontros, lojas e Liga). Lojas também repetidas em PT-BR: 23 catálogos × dois modos × dois idiomas = **92 casos**, com compra, venda, cancelamento, saída/reabertura e preço do Rare Candy.
 
-Os resultados estruturados e as referências de cada teste estão em [data/ui_review_validation.json](../data/ui_review_validation.json). A compilação limpa do patch reproduziu a ROM acima.
+Os resultados estruturados e as referências de cada teste estão em [games/super-fire-red/hack-data/ui_review_validation.json](../games/super-fire-red/hack-data/ui_review_validation.json). A compilação limpa do patch reproduziu a ROM acima.
 
 Durante a revisão, também passaram **121 verificações de efeitos em 181 batalhas isoladas**, na ROM `ef88f2fec4e0d9f0fc9251bab4383713e425742a05fdf9f0999de29ba370e4bb`. Esse snapshot precede os últimos ajustes de texto/desenho do estojo e do resumo; seu SHA é preservado na evidência, sem atribuí-lo à ROM final.
 
