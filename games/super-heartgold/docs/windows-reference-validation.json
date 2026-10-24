@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-24",
+  "scope": "Private Windows compatibility reference, not the strict native source port",
+  "base_pin": "6984a3d67592157195940049be2e4bbbf933f9ff",
+  "runtime_pin": "3146fb2d4d88522b12b4bf25dee74285120975e2",
+  "rom_sha1": "0959fe9e64dc749382460f1ccf90996f5ef4088d",
+  "generated": {
+    "sections": 122,
+    "chunks": 25120,
+    "instructions": 1685113,
+    "files": 71,
+    "apps": 59
+  },
+  "artifact": {
+    "sha256": "aae7b66c2ee7fc44fd0472cfa588e697dbcdfb4563539de802aec6c3dd268637",
+    "bytes": 1085111854
+  },
+  "headless": {
+    "frames": 1800,
+    "exit_code": 0,
+    "seconds": 52.47,
+    "input": "Start/A scripted presses",
+    "observed": "SoulSilver title and new-game help selection",
+    "save_policy": "New isolated save path with --no-save"
+  },
+  "windowed": {
+    "frames": 180,
+    "exit_code": 0,
+    "video": "windows",
+    "renderer": "direct3d",
+    "sdl": "2.32.10",
+    "save_policy": "New isolated save path with --no-save"
+  },
+  "runtime": {
+    "arm9_chunk_entries": 6105337,
+    "arm9_interpreter_fallbacks": 12233,
+    "fallback_percent_of_dispatches": 0.2,
+    "guard_failures": 27,
+    "arm7_interpreted_handler_calls": 103459454,
+    "instrumentation": "ARM7 counter added only in private reference; not in public build helper"
+  },
+  "linkage": "Static SDL2, PNG, zlib and GCC runtimes; system Windows DLL imports only",
+  "untested": [
+    "Gameplay exploration",
+    "Battles",
+    "Save/load persistence",
+    "Full campaign",
+    "Single-screen changes from the fork",
+    "Audio heard by user",
+    "Physical gamepad"
+  ],
+  "strict_native_goal_complete": false,
+  "fresh_reproduction_script_run": false
+}

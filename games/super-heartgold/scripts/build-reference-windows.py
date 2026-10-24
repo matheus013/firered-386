@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Private Windows AOT reference: ARM9 translation + ARM7/interpreter fallback.
 
-Requires Windows, WSL Ubuntu, git/cmake/ninja and x86_64-w64-mingw32 compilers
+Requires Windows Python 3.12+, WSL Ubuntu, git/cmake/ninja and x86_64-w64-mingw32 compilers
 inside WSL. It never downloads ROM, BIOS or proprietary SDK. Game-derived
 outputs are private and must not be committed or publicly packaged.
 """
@@ -15,6 +15,7 @@ from pathlib import Path, PurePosixPath
 import shlex
 import subprocess
 import sys
+import uuid
 
 SOURCES = {
     "ssrecomp": ("https://github.com/ClickingMaster/ssrecomp.git", "3146fb2d4d88522b12b4bf25dee74285120975e2"),
@@ -75,11 +76,14 @@ def main() -> int:
         clones.append(f"""
 if [ ! -d {q(folder + '/.git')} ]; then
   mkdir -p {q(str(PurePosixPath(folder).parent))}
-  git clone --no-checkout {q(url)} {q(folder)}
-  git -C {q(folder)} checkout --detach {q(pin)}
+  git init {q(folder)}
+  git -C {q(folder)} remote add origin {q(url)}
+  git -C {q(folder)} fetch --depth 1 origin {q(pin)}
+  git -C {q(folder)} checkout --detach FETCH_HEAD
 fi
 [ "$(git -C {q(folder)} rev-parse HEAD)" = {q(pin)} ] || {{ echo 'Cache pin differs; choose a fresh cache.' >&2; exit 1; }}
-[ -z "$(git -C {q(folder)} diff --name-only -- . {q(":(exclude)CMakeLists.txt") if name == "ssrecomp" else ""})" ] || {{ echo 'Tracked cache sources changed; choose a fresh cache.' >&2; exit 1; }}
+[ -z "$(git -C {q(folder)} diff --name-only -- . {q(":(exclude)CMakeLists.txt") if name == "ssrecomp" else q(":(exclude)zconf.h") if name == "zlib" else ""})" ] || {{ echo 'Tracked cache sources changed; choose a fresh cache.' >&2; exit 1; }}
+{("[ ! -f " + q(folder + "/zconf.h") + " ] || [ -z \"$(git -C " + q(folder) + " diff --name-only -- zconf.h)\" ] || exit 1") if name == "zlib" else ""}
 """)
     script = f"""set -euo pipefail
 for tool in git cmake ninja x86_64-w64-mingw32-gcc x86_64-w64-mingw32-g++ x86_64-w64-mingw32-windres python3; do
@@ -87,7 +91,7 @@ for tool in git cmake ninja x86_64-w64-mingw32-gcc x86_64-w64-mingw32-g++ x86_64
 done
 {"command -v clang++ >/dev/null || { echo 'Missing WSL clang++; install clang or choose --gamecode-compiler gcc.' >&2; exit 1; }" if args.gamecode_compiler == "clang" else ""}
 cache={q(str(cache))}
-prefix="$cache/windows-deps"
+prefix="$cache/windows-static-deps"
 mkdir -p "$cache/deps"
 """ + "\n".join(clones) + f"""
 cat > "$cache/windows-toolchain.cmake" <<EOF
@@ -102,9 +106,9 @@ set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 EOF
 for name in SDL zlib libpng; do
- cmake -S "$cache/deps/$name" -B "$cache/deps/build-$name" -G Ninja -DCMAKE_TOOLCHAIN_FILE="$cache/windows-toolchain.cmake" -DCMAKE_INSTALL_PREFIX="$prefix" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$prefix" -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DSDL_TEST=OFF -DSDL_STATIC=OFF -DZLIB_BUILD_EXAMPLES=OFF -DPNG_TESTS=OFF -DPNG_TOOLS=OFF -DPNG_SHARED=ON -DPNG_STATIC=OFF > "$cache/deps-config-$name.log" 2>&1
- cmake --build "$cache/deps/build-$name" --parallel {args.jobs} > "$cache/deps-build-$name.log" 2>&1
- cmake --install "$cache/deps/build-$name" > "$cache/deps-install-$name.log" 2>&1
+ cmake -S "$cache/deps/$name" -B "$cache/deps/static-$name" -G Ninja -DCMAKE_TOOLCHAIN_FILE="$cache/windows-toolchain.cmake" -DCMAKE_INSTALL_PREFIX="$prefix" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$prefix" -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DSDL_TEST=OFF -DSDL_SHARED=OFF -DSDL_STATIC=ON -DZLIB_BUILD_EXAMPLES=OFF -DPNG_TESTS=OFF -DPNG_TOOLS=OFF -DPNG_SHARED=OFF -DPNG_STATIC=ON > "$cache/deps-config-$name.log" 2>&1
+ cmake --build "$cache/deps/static-$name" --parallel {args.jobs} > "$cache/deps-build-$name.log" 2>&1
+ cmake --install "$cache/deps/static-$name" > "$cache/deps-install-$name.log" 2>&1
  echo "Dependency ready: $name"
 done
 rom=$(wslpath -a -u {q(str(rom))})
@@ -128,35 +132,37 @@ p.write_text(modified)
 PY_OPT
 python3 tools/recomp.py --rom "$rom" --layout layouts/soulsilver-us.json melonDS/src gen
 python3 tools/apps.py --layout layouts/soulsilver-us.json gen
-cmake -S . -B "$cache/windows-build" -G Ninja -DCMAKE_TOOLCHAIN_FILE="$cache/windows-toolchain.cmake" -DCMAKE_PREFIX_PATH="$prefix" -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_TYPE=RelWithDebInfo > "$cache/windows-config.log" 2>&1
+cmake -S . -B "$cache/windows-build" -G Ninja -DCMAKE_TOOLCHAIN_FILE="$cache/windows-toolchain.cmake" -DCMAKE_PREFIX_PATH="$prefix" -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DSDL2_DIR="$prefix/lib/cmake/SDL2" -DPNG_LIBRARY_RELEASE="$prefix/lib/libpng16.a" -DPNG_PNG_INCLUDE_DIR="$prefix/include" -DZLIB_LIBRARY_RELEASE="$prefix/lib/libzlibstatic.a" -DZLIB_INCLUDE_DIR="$prefix/include" -DCMAKE_EXE_LINKER_FLAGS="-static -static-libgcc -static-libstdc++" > "$cache/windows-config.log" 2>&1
 cmake --build "$cache/windows-build" --parallel {args.jobs} > "$cache/windows-build.log" 2>&1
-find "$prefix/bin" -maxdepth 1 -name '*.dll' -type f > "$cache/windows-runtime-files.txt"
-for dll in libstdc++-6.dll libgcc_s_seh-1.dll libwinpthread-1.dll; do
- candidate=$(x86_64-w64-mingw32-g++ -print-file-name="$dll")
- [ -f "$candidate" ] || {{ echo "Missing compiler runtime: $dll" >&2; exit 1; }}
- printf '%s\\n' "$candidate" >> "$cache/windows-runtime-files.txt"
-done
 """
     try:
         bash(script)
-        listing = bash(f"cat {q(str(cache / 'windows-runtime-files.txt'))}\n", True).decode().splitlines()
-        paths = [str(cache / "windows-build/ssrecomp.exe"), *listing]
+        executable = str(cache / "windows-build/ssrecomp.exe")
+        imports_output = bash(f"x86_64-w64-mingw32-objdump -p {q(executable)}\n", True).decode(errors="replace")
+        dll_imports = [line.split("DLL Name:", 1)[1].strip() for line in imports_output.splitlines() if "DLL Name:" in line]
+        if not dll_imports or any(any(term in dll.lower() for term in ("sdl", "libpng", "zlib", "libgcc", "libstdc++", "winpthread")) for dll in dll_imports):
+            raise RuntimeError("Expected static host libraries; inspect executable imports before running")
+        paths = [executable]
         copied = {}
         for source in paths:
             name = "ssrecomp-reference.exe" if source.endswith("/ssrecomp.exe") else PurePosixPath(source).name
-            payload = bash(f"cat {q(source)}\n", True)
-            (output / name).write_bytes(payload)
-            copied[name] = hashlib.sha256(payload).hexdigest()
+            destination = output / name
+            with destination.open("wb") as sink:
+                subprocess.run(wsl + ["bash", "-s"], input=f"cat {q(source)}\n".encode(), stdout=sink, check=True)
+            with destination.open("rb") as source_file:
+                copied[name] = hashlib.file_digest(source_file, "sha256").hexdigest()
         for source in ["ssrecomp/LICENSE", "ssrecomp/melonDS/LICENSE"]:
             payload = bash(f"cat {q(str(cache / source))}\n", True)
             (output / ("runtime-LICENSE" if source == "ssrecomp/LICENSE" else "melonDS-LICENSE")).write_bytes(payload)
         report = {"purpose": "private compatibility reference; not the strict native product", "base_pin": BASE_PIN,
                   "sources": SOURCES, "rom_sha1": hashlib.sha1(rom.read_bytes()).hexdigest(),
-                  "cpu": "ARM9 static recompilation with interpreter fallback; ARM7 interpreter", "artifacts_sha256": copied}
+                  "cpu": "ARM9 static recompilation with interpreter fallback; ARM7 interpreter",
+                  "linkage": "static SDL2/PNG/zlib/compiler runtimes", "dll_imports": dll_imports, "artifacts_sha256": copied}
         if args.run_smoke:
             shots = output / "smoke-shots"
             shots.mkdir(exist_ok=True)
-            command = [str(output / "ssrecomp-reference.exe"), str(rom), "--headless", "--frames", "900",
+            test_save = output / ("test-only-" + uuid.uuid4().hex + ".sav")
+            command = [str(output / "ssrecomp-reference.exe"), str(rom), "--save", str(test_save), "--headless", "--frames", "900",
                        "--no-save", "--config", str(output / "smoke.cfg"), "--shot-dir", str(shots),
                        "--shot-at", "300,899", "--hash-every", "300"]
             with (output / "smoke.log").open("wb") as log:

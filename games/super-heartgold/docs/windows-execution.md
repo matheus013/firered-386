@@ -55,11 +55,37 @@ Título/menu alcançados por esse fluxo são uma prova incremental; janela vazia
 C++20/SDL3 continua como arquitetura do projeto próprio; a rota ssrecomp é avaliação separada, com suas licenças e limites explícitos.
 Windows real é a prioridade; macOS e expansão Hoenn vêm depois dessa evidência.
 
-## Evidência local — 23/10/2026
+## Evidência local — 23–24/10/2026
 
 - A ROM fornecida tem 128 MiB, header IPGE revisão 0 e SHA1 completo `0959fe9e64dc749382460f1ccf90996f5ef4088d`, diferente do checksum varejo citado acima.
 - Sem alterar a ROM ou desabilitar verificações, `tools/recomp.py --rom ... --layout layouts/soulsilver-us.json melonDS/src gen` terminou com sucesso: 122 seções, 25.120 chunks, 1.685.113 instruções e 71 arquivos.
 - `tools/apps.py --layout layouts/soulsilver-us.json gen` gerou 59 aplicativos.
 - Os checksums de todas as imagens de seção ARM9 solicitadas pelo layout passaram. Isso comprova compatibilidade do código selecionado com o layout, não identidade de todos os assets/header/dados da ROM com o varejo.
 - Os arquivos gerados ficam em cache privado, sem distribuição. A geração inclui uma seção adicional para BIOS livre do runtime.
-- MinGW x64, CMake e Ninja foram localizados. Dependências SDL2, zlib e libpng estão sendo preparadas em cache privado; compilação do executável e execução Windows ainda não foram confirmadas neste registro.
+- Compilação completa dos 71 arquivos gerados concluída: PE32+ x86-64, Clang 21.1.8 para código gerado em O0, GCC 13 para core/link. Nenhum subconjunto limitado à introdução foi usado.
+- A primeira execução com DLLs externas falhou antes de `main` (`0xC0E90002`); os eventos CodeIntegrity 3077/3033 identificaram bloqueio de SDL2/libgcc. Não foram alteradas políticas de segurança. A ligação estática de SDL2, libpng, zlib e runtimes GCC resolveu a inicialização; o executável final importa somente 12 DLLs do Windows.
+- Execução real no Windows com `--headless --frames 1800`, comandos de Start/A, save novo isolado e `--no-save`: exit 0 em 52,47 segundos. Imagens inspecionadas: título SoulSilver com Lugia no frame 900 e menu de ajuda de nova partida nos frames 1500/1799.
+- Janela real SDL2 2.32.10, driver Windows e renderer Direct3D: 180 frames, exit 0. Isso confirma abertura da janela, não valida áudio percebido, controle físico ou campanha.
+- Contadores privados: 6.105.337 entradas em chunks ARM9, 12.233 fallbacks (0,20% das entradas), 27 falhas de guarda e 103.459.454 chamadas a handlers ARM7 interpretados. A porcentagem é de despachos, não de tempo de CPU ou instruções. O contador ARM7 é instrumentação privada; não altera a ROM e não está incluído no script público.
+- Executável privado estático: 1.085.111.854 bytes, SHA-256 `aae7b66c2ee7fc44fd0472cfa588e697dbcdfb4563539de802aec6c3dd268637`. O tamanho reflete a primeira compilação O0, sem otimização de distribuição.
+- Nenhum save existente foi reutilizado ou sobrescrito nos testes. ROM, código gerado, executável e screenshots ficam fora do Git. O launcher privado `Jogar-Referencia-Hibrida.cmd` usa um save separado para uso manual; persistência desse save ainda não foi validada.
+
+O título/menu renderizados comprovam a referência híbrida funcionando. Não comprovam exploração, batalha, save/load, campanha completa, alterações single-screen do fork ou o produto C++20/SDL3 sem CPU DS interpretada. O primeiro objetivo estrito continua aberto. Um resumo público sem recursos do jogo está em [windows-reference-validation.json](windows-reference-validation.json).
+
+## Reproduzir a referência privada
+
+Em Windows, a partir desta pasta de projeto:
+
+```powershell
+python scripts/build-reference-windows.py --rom "D:\jogos\SoulSilver-USA.nds" --jobs 4 --run-smoke
+```
+
+O caminho é exemplo e deve apontar para a cópia local fornecida pelo usuário.
+O script fixa commits do runtime, SDL2, zlib e libpng, usa cache Linux privado no WSL e grava artefatos fora do Git, em AppData por padrão.
+Dependências: Python 3.12+ no Windows; Git, Python 3, CMake, Ninja, MinGW x64 e Clang no WSL. O launcher Clang usa os headers libstdc++ GCC 13 POSIX da configuração inspecionada.
+`--gamecode-compiler gcc` usa somente GCC; `--optimization 0` é o padrão para a primeira prova e `1` permite avaliar otimização posteriormente.
+O core e o linker continuam GCC; Clang compila somente o target de código gerado, com o mesmo ABI MinGW.
+O teste isolado local de `rc_000.cpp` com Clang 21.1.8 produziu COFF x64 em 39,67 segundos, pico de 858.636 KiB e exit 0; isso não substitui o teste do executável.
+O script foi validado por sintaxe e ajuda; sua execução integral em um cache novo ainda precisa de registro próprio.
+As bibliotecas são ligadas estaticamente; não é necessário instalar SDL2 ou desativar controles do Windows. `--run-smoke` usa save UUID inexistente e `--no-save`; logs e screenshots são privados. O smoke de 900 frames do script é mais curto que o teste manual de 1.800 frames descrito acima e não reproduz sua sequência de entrada.
+Não publicar o executável derivado, `gen/`, ROM ou saves junto ao produto sem decisão explícita de distribuição aplicável.

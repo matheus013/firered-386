@@ -15,7 +15,7 @@ A pasta antiga `games/heart-gold` foi substituída por esta a pedido do usuário
 - Primeira unidade real do código C de HG/SS compilada e testada nativamente em Windows x64: `SysTaskQueue`. Prova privada opcional, sem CPU DS e sem SDK; ainda não executa a engine completa.
 - O executável atual desenha uma tela de teste, explicitamente identificada como tal. **Ainda não contém a engine do jogo.**
 - ROM local SoulSilver USA identificada e inspecionada; nenhum payload foi incluído no repositório.
-- Investigação privada do caminho de recompilação estática ARM9, com limites em [windows-execution.md](docs/windows-execution.md).
+- Referência privada ARM9 AOT compilada em Windows x64: 1.800 frames chegaram ao título de SoulSilver e ao menu de início de partida; janela Windows/Direct3D testada por 180 frames, ambas com exit 0. Continua usando ARM7 interpretado e fallback ARM9, portanto não conclui o port fonte. Evidências em [windows-execution.md](docs/windows-execution.md).
 - Campanha, batalha, saves do jogo, áudio original e Hoenn não estão implementados nesta plataforma.
 
 ## Compilar a plataforma própria
