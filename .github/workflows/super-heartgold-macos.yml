@@ -1,0 +1,32 @@
+name: Super HeartGold native platform (macOS, future target)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+defaults:
+  run:
+    working-directory: games/super-heartgold
+jobs:
+  native-platform:
+    strategy:
+      matrix:
+        include:
+          - runner: macos-14
+            architecture: arm64
+          - runner: macos-15-intel
+            architecture: x86_64
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S . -B build -DHG_FETCH_SDL3=ON -DCMAKE_OSX_ARCHITECTURES=${{ matrix.architecture }}
+      - name: Build
+        run: cmake --build build --parallel 3
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+      - name: Package app
+        run: ditto -c -k --keepParent build/bin/SuperHeartGold.app SuperHeartGold-platform.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SuperHeartGold-platform-macos-${{ matrix.architecture }}
+          path: games/super-heartgold/SuperHeartGold-platform.zip

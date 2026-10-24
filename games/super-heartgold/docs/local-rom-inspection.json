@@ -1,0 +1,35 @@
+{
+  "title": "POKEMON SS",
+  "game_code": "IPGE",
+  "revision": 0,
+  "bytes": 134217728,
+  "sha1": "0959fe9e64dc749382460f1ccf90996f5ef4088d",
+  "header_crc_ok": true,
+  "sections": {
+    "arm9": {
+      "offset": 16384,
+      "bytes": 762648
+    },
+    "arm7": {
+      "offset": 3109888,
+      "bytes": 161496
+    },
+    "fnt": {
+      "offset": 3271680,
+      "bytes": 2902
+    },
+    "fat": {
+      "offset": 3274752,
+      "bytes": 4104
+    },
+    "arm9_overlays": {
+      "offset": 779264,
+      "bytes": 4128
+    },
+    "arm7_overlays": {
+      "offset": 0,
+      "bytes": 0
+    }
+  },
+  "scope": "Header/range inspection only. Does not establish rights, clean-dump identity or AOT compatibility."
+}

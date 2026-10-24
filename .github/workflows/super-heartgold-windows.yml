@@ -1,0 +1,31 @@
+name: Super HeartGold native platform (Windows)
+on:
+  push:
+    paths:
+      - 'games/super-heartgold/**'
+      - '.github/workflows/super-heartgold-windows.yml'
+  pull_request:
+    paths:
+      - 'games/super-heartgold/**'
+      - '.github/workflows/super-heartgold-windows.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+defaults:
+  run:
+    working-directory: games/super-heartgold
+jobs:
+  native-platform:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure x64 (no ROM or emulator)
+        run: cmake -S . -B build -A x64 -DHG_FETCH_SDL3=ON
+      - name: Build
+        run: cmake --build build --config Release --parallel 3
+      - name: Test platform foundation
+        run: ctest --test-dir build -C Release --output-on-failure
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SuperHeartGold-platform-windows-x64
+          path: games/super-heartgold/build/bin/Release/SuperHeartGold.exe

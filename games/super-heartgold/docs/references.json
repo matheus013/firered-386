@@ -1,0 +1,22 @@
+{
+  "primary": {
+    "repository": "https://github.com/ClickingMaster/pokeheartgold-single-screen",
+    "commit": "6984a3d67592157195940049be2e4bbbf933f9ff"
+  },
+  "aot_investigation": {
+    "repository": "https://github.com/ClickingMaster/ssrecomp",
+    "commit": "3146fb2d4d88522b12b4bf25dee74285120975e2",
+    "product": false,
+    "arm7_interpreted": true,
+    "arm9_fallback_interpreter": true
+  },
+  "sdl3": {
+    "version": "3.4.18",
+    "source_archive_sha256": "9c75cf16330322c217dedd2e0609f1124f1b54b8633e763467b4684d0f4334a3"
+  },
+  "inherited_authorial_framework": {
+    "repository_commit": "8ca8d4f",
+    "old_path": "games/heart-gold",
+    "upstream_game_code_imported": false
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-23",
+  "scope": "Native platform foundation only; no HG/SS engine linked",
+  "windows": {
+    "architecture": "x86_64",
+    "compiler": "x86_64-w64-mingw32-g++ (GCC) 13-posix; cross compiled under WSL Ubuntu",
+    "sdl": "3.4.18 static",
+    "exe_sha256": "c7d3bb4cf865e942f97ab730a122c2e682ef909f040843acf42a58d727bdc74b",
+    "ctest_suites_passed": 7,
+    "cpp_cases_passed": 16,
+    "python_synthetic_cases_passed": 8,
+    "headless_frames": 120,
+    "headless_exit_code": 0,
+    "real_window_frames": 60,
+    "renderer": "direct3d11",
+    "real_window_exit_code": 0
+  },
+  "macos": {
+    "validated": false,
+    "priority": "after Windows real-game milestone"
+  },
+  "game_running_natively": false,
+  "rom_payload_in_product": false,
+  "emulator_in_platform_product": false
+}

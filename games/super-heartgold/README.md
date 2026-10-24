@@ -1,0 +1,69 @@
+# Super HeartGold
+
+Projeto de jogo nativo para Windows, com macOS como alvo posterior. A base técnica é
+[pokeheartgold-single-screen, de ClickingMaster](https://github.com/ClickingMaster/pokeheartgold-single-screen/tree/6984a3d67592157195940049be2e4bbbf933f9ff).
+O objetivo futuro é Johto, Kanto e Hoenn com progressão compartilhada e 24 insígnias.
+
+**Primeiro objetivo: executar o jogo real nativamente no Windows x86-64. Esse objetivo ainda não está concluído.**
+
+A pasta antiga `games/heart-gold` foi substituída por esta a pedido do usuário. Os arquivos do FireRed não são alterados por este projeto.
+
+## Estado atual
+
+- Plataforma própria C++20/SDL3/CMake compilada para Windows x64; sete suítes CTest passaram.
+- Testes de viewport, entrada, passo fixo, log, manifesto e inspeção de dados sintéticos.
+- O executável atual desenha uma tela de teste, explicitamente identificada como tal. **Ainda não contém a engine do jogo.**
+- ROM local SoulSilver USA identificada e inspecionada; nenhum payload foi incluído no repositório.
+- Investigação privada do caminho de recompilação estática ARM9, com limites em [windows-execution.md](docs/windows-execution.md).
+- Campanha, batalha, saves do jogo, áudio original e Hoenn não estão implementados nesta plataforma.
+
+## Compilar a plataforma própria
+
+Windows com Visual Studio 2022, CMake e Python:
+
+```powershell
+cmake -S games/super-heartgold -B games/super-heartgold/build -A x64
+cmake --build games/super-heartgold/build --config Release --parallel 3
+ctest --test-dir games/super-heartgold/build -C Release --output-on-failure
+```
+
+O SDL3 3.4.18 é obtido do projeto oficial e verificado por SHA-256. Para usar uma instalação externa,
+configure `-DHG_FETCH_SDL3=OFF` e `CMAKE_PREFIX_PATH`. A compilação não solicita ROM, BIOS, SDK Nintendo ou emulador.
+
+No ambiente WSL Ubuntu deste workspace, com CMake, Ninja e MinGW x64 instalados:
+
+```powershell
+wsl -d Ubuntu -u root -- bash games/super-heartgold/scripts/build-windows-wsl.sh
+games/super-heartgold/out/windows/SuperHeartGold.exe --video-driver dummy --frames 120 --self-test
+games/super-heartgold/out/windows/hg_tests.exe
+python games/super-heartgold/tests/test_tools.py
+```
+
+Essa saída é **infraestrutura**, não uma distribuição jogável de HG/SS. O caminho investigativo de execução do jogo permanece fora do produto e do Git.
+
+## Entrada e interface de teste
+
+Setas: direção; X/Z: A/B; S/A: X/Y; Q/W: L/R; Enter: Start; Backspace: Select.
+F11 alterna tela cheia, Tab alterna velocidade da simulação, Esc fecha.
+`--layout unified|stacked|side` e `--scale integer|fit` testam organização e escala sem distorção.
+Eventos sintéticos de teclado e gamepad são testados; controle físico ainda não foi validado.
+
+## Fontes, dados e CI
+
+Os documentos [architecture](docs/architecture.md), [porting-strategy](docs/porting-strategy.md),
+[compatibility](docs/compatibility.md) e [roadmap](docs/roadmap.md) separam o implementado do planejado.
+A referência principal não é substituída por outro fork. `ctrl-cheeb-del` e `pret` são fontes de proveniência e comparação.
+
+ROM, BIOS, SDK, assets extraídos e C++ gerado da ROM ficam em cache privado fora do repositório.
+`tools/inspect_nds.py` lê somente um arquivo local e gera metadados; não copia seus recursos.
+`tools/check_assets.py` valida manifesto, caminhos e proveniência declarada, sem afirmar autorização jurídica do conteúdo.
+
+Os workflows executáveis estão na **raiz do monorepo**, em `.github/workflows/super-heartgold-*.yml`.
+Windows testa a plataforma a cada mudança; macOS fica preparado para execução manual posterior.
+Um workflow configurado não comprova que o jogo funciona nem que o job remoto passou.
+
+## Origem da infraestrutura
+
+Somente o framework autoral anteriormente versionado neste repositório foi reaproveitado da pasta antiga:
+viewport, entrada, relógio, log e shell SDL. Não foi copiado código da engine Nintendo para essa plataforma.
+O frontend upstream e o runtime ssrecomp têm arquitetura e licenças próprias; consulte o registro de execução antes de tratá-los como port fonte.
