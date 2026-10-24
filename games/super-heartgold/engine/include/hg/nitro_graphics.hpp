@@ -18,6 +18,7 @@ std::span<const std::byte> narc_member(std::span<const std::byte> archive, unsig
 
 // Text backgrounds: 8x8 tiles, 4/8 bpp, maps up to 256x256.
 // No affine maps or extended palettes. Palette index zero has transparent alpha.
+// Each individual resource may be uncompressed or wrapped once in LZ10/LZ11.
 RgbaImage decode_text_background(std::span<const std::byte> ncgr,
     std::span<const std::byte> nclr, std::span<const std::byte> nscr);
 

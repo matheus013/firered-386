@@ -15,9 +15,9 @@ validada na engine própria permanece em **0%: nenhuma área jogável foi integr
 | Área | Validado | Pendente principal |
 |---|---|---|
 | Plataforma Windows | C++20, SDL3, x64, viewport, entrada, clock, CI | Testes extensos de dispositivos e distribuição |
-| Recursos | Importação privada selecionada, arquivos host, NARC, NCGR/NCLR/NSCR | Compressão, formatos restantes, texto, sprites, modelos e animações |
+| Recursos | Importação privada selecionada, arquivos host, NARC, NCGR/NCLR/NSCR e LZ10/LZ11 limitado | Formatos restantes, texto, sprites, modelos e animações |
 | Código original | Scheduler, filesystem e overlay manager em provas nativas; decisão do título ligada à janela | Init/exit completos, serviços de runtime e restante da engine |
-| Check-save | Decisão original com flags controladas, prioridades e confirmação | Leitura, validação e recuperação de saves reais |
+| Check-save | Decisão original controlada; leitor/inspetor dos blocos principais, CRC e seleção redundante testados | Registros extras, estado do jogo e carga de partida real integrados ao launcher |
 | Gráficos/áudio | Camadas 2D estáticas e efeitos host | 3D, câmera, animações e áudio original |
 | Gameplay | Ainda sem integração na engine própria | Nova partida, exploração, scripts, interação, batalhas, equipe e bolsa |
 | Campanha/pós-jogo | Sem validação nativa integrada | Johto, Kanto e pós-jogo; Hoenn depois |
@@ -39,8 +39,9 @@ jogável, uma batalha completa e save/load integrados; não é uma previsão de 
 
 1. Definir o armazenamento host e preservar os layouts de dados sem usar `sizeof`
    de structs x64 como se fossem os formatos DS.
-2. Portar a política real de validação de save com cópias redundantes e CRCs
-   verificados por vetores conhecidos. Ainda não existem saves reais validados aqui.
+2. Ampliar a validação principal de save já implementada para registros extras e
+   interpretação do estado do jogo. CRC e seleção redundante foram confirmados;
+   ainda não existem partidas reais carregadas e validadas no port.
 3. Integrar o caminho de partida nova. A base pula o menu quando não há save;
    não devemos fabricar uma opção Continue funcional antes da persistência existir.
 4. Adaptar os serviços necessários à introdução e à primeira área, incluindo 3D.
@@ -48,4 +49,5 @@ jogável, uma batalha completa e save/load integrados; não é uma previsão de 
 
 As evidências detalhadas estão em [native-resources.md](native-resources.md),
 [native-graphics.md](native-graphics.md), [native-title-flow.md](native-title-flow.md)
-e [checksave-decision.md](checksave-decision.md).
+e [checksave-decision.md](checksave-decision.md). A validação principal independente
+está em [native-save-validation.md](native-save-validation.md).

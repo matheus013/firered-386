@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-24",
+  "base_pin": "6984a3d67592157195940049be2e4bbbf933f9ff",
+  "scope": "Read-only primary save validation and native graphics compression; no game state loading",
+  "windows_cross_ctest_suites_passed": 14,
+  "private_title_ctest_suites_passed": 16,
+  "linux_core_ctest_suites_passed": 14,
+  "windows_save_inspector_integration": "passed including Unicode paths and unchanged bytes/mtime",
+  "windows_raw_lz10_lz11_renderer_integration": "passed",
+  "original_selection_differential_cases_passed": 38416,
+  "original_size_functions_verified": 42,
+  "original_crc_vectors_verified": 14,
+  "generated_title_compression_differential_cases_passed": 176,
+  "original_title_archive_compressed_members": 0,
+  "private_executable_sha256": "c4840f58c69a47dfd11598b5a241d4276bb39bd72f50142b779669b89e9e722f",
+  "title_regression_runs": [
+    {
+      "flags": 63,
+      "frames": 360,
+      "driver": "dummy",
+      "exit_code": 0
+    },
+    {
+      "flags": 0,
+      "frames": 180,
+      "driver": "windowed",
+      "exit_code": 0
+    }
+  ],
+  "game_save_files_used": false,
+  "game_campaign_playable": false,
+  "estimate_percent": 10
+}

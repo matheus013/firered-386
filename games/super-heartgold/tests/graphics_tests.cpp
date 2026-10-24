@@ -65,6 +65,31 @@ TEST_CASE("graphics: 8bpp ignores standard palette bank bits") {
     CHECK_EQ(image.pixels[56*4+2],255); CHECK_EQ(image.pixels[7],0);
 }
 
+TEST_CASE("graphics: compressed resources produce identical pixels in every combination") {
+    const auto compressed = [](const Buffer& bytes, unsigned type) {
+        Buffer result{std::byte(type), std::byte(bytes.size() & 255),
+            std::byte((bytes.size() >> 8) & 255), std::byte((bytes.size() >> 16) & 255)};
+        for (std::size_t offset = 0; offset < bytes.size(); offset += 8) {
+            result.push_back(std::byte{0}); // Eight independent literal tokens.
+            for (auto i = offset; i < bytes.size() && i < offset + 8; ++i) result.push_back(bytes[i]);
+        }
+        return result;
+    };
+    for (const bool eight : {false, true}) {
+        const Fixture fixture(eight);
+        const auto expected = fixture.decode();
+        for (const auto type : {0x10u, 0x11u}) for (unsigned mask = 0; mask < 8; ++mask) {
+            const auto actual = hg::decode_text_background(
+                mask & 1 ? compressed(fixture.characters, type) : fixture.characters,
+                mask & 2 ? compressed(fixture.palette, type) : fixture.palette,
+                mask & 4 ? compressed(fixture.screen, type) : fixture.screen);
+            CHECK_EQ(actual.width, expected.width);
+            CHECK_EQ(actual.height, expected.height);
+            CHECK(actual.pixels == expected.pixels);
+        }
+    }
+}
+
 TEST_CASE("graphics: reject truncated containers out of range tiles and unsupported modes") {
     Fixture fixture;
     for (std::size_t n=0;n<fixture.characters.size();++n)

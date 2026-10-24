@@ -20,7 +20,14 @@ def screen(eight):
     return container(b'RCSN', b'NRCS', struct.pack('<HHHHIH', 8, 8, 1 if eight else 0, 0, 2, 0))
 
 
-def archive():
+def literal_lz(data, compression):
+    output = bytearray([compression]) + len(data).to_bytes(3, 'little')
+    for offset in range(0, len(data), 8):
+        output += b'\0' + data[offset:offset+8]
+    return output
+
+
+def archive(compression=None):
     palette = bytearray(512)
     struct.pack_into('<HH', palette, 2, 31, 31 << 5)
     members = [b'']*38
@@ -31,6 +38,8 @@ def archive():
     members[0] = screen(True)
     members[15] = characters(False, bytes(32))
     members[17] = screen(False)
+    if compression is not None:
+        members = [literal_lz(member, compression) if member else member for member in members]
     table, data = bytearray(), bytearray()
     for member in members:
         table += struct.pack('<II', len(data), len(data)+len(member))
@@ -93,6 +102,18 @@ def main():
         colors = [tuple(pixels[p:p+4]) for p in range(0,len(pixels),4)]
         assert colors.count((255,0,0,255)) == 288, 'Opaque background / transparent foreground failed'
         assert colors.count((0,255,0,255)) == 288, 'Nearest texture scaling or palette upload failed'
+        for compression in (0x10, 0x11):
+            target.write_bytes(archive(compression))
+            compressed_shot = root/f'compressed-{compression}.png'
+            result = subprocess.run(base+['--capture-at','1','--capture',str(compressed_shot)],
+                                    capture_output=True,text=True,timeout=30)
+            assert result.returncode == 0, result.stdout+result.stderr
+            compressed_size, compressed_pixels = png_rgba(compressed_shot)
+            assert compressed_size == size
+            compressed_colors = [tuple(compressed_pixels[p:p+4]) for p in range(0,len(compressed_pixels),4)]
+            assert compressed_colors.count((255,0,0,255)) == 288, 'Compressed background failed'
+            assert compressed_colors.count((0,255,0,255)) == 288, 'Compressed foreground failed'
+        target.write_bytes(archive())
         before = shot.read_bytes()
         result = subprocess.run(base+['--capture',str(shot)],capture_output=True,timeout=30)
         assert result.returncode != 0 and shot.read_bytes() == before, 'Existing capture was overwritten'
@@ -102,7 +123,7 @@ def main():
         target.write_bytes(b'NARC')
         result = subprocess.run(base,capture_output=True,timeout=30)
         assert result.returncode != 0, 'Malformed resource should fail startup'
-    print('PASS native renderer: decoded fixtures, nearest RGBA upload, layering, capture and error paths')
+    print('PASS native renderer: raw/LZ10/LZ11 fixtures, nearest RGBA upload, layering, capture and error paths')
 
 
 if __name__ == '__main__':

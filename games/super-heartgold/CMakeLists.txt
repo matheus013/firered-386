@@ -38,6 +38,18 @@ endif()
 # A engine não conhece SDL nem dados de região.
 add_subdirectory(engine)
 
+# Game data formats and policy are independent of SDL and the DS ABI.
+add_library(hg_game_data STATIC game/core/src/save_image.cpp game/core/src/save_selection.cpp
+    game/core/src/save_validation.cpp)
+target_include_directories(hg_game_data PUBLIC game/core/include)
+target_link_libraries(hg_game_data PRIVATE hg_warnings)
+
+add_executable(hg_save_inspect tools/save_inspect.cpp)
+target_link_libraries(hg_save_inspect PRIVATE hg_game_data hg_warnings)
+if(MINGW)
+    target_link_options(hg_save_inspect PRIVATE -municode)
+endif()
+
 if(HG_REFERENCE_TITLE_FLOW)
     find_package(Python3 REQUIRED COMPONENTS Interpreter)
     set(HG_TITLE_SOURCE_DIR "${PROJECT_BINARY_DIR}/private-reference-title")

@@ -14,12 +14,14 @@ O executável padrão sem recursos mantém a tela de infraestrutura.
 ## Formatos implementados
 
 - NARC: leitura por membro com validação de cabeçalho, blocos e limites.
-- NCGR: tiles de 8x8 pixels, 4 ou 8 bits por pixel, sem compressão ou bitmap/scanned.
+- NCGR: tiles de 8x8 pixels, 4 ou 8 bits por pixel, sem bitmap/scanned.
 - NCLR: paletas padrão RGB555, conversão para RGBA e transparência do índice zero.
 - NSCR: mapas text BG até 256x256, inversão horizontal/vertical e bancos de paleta 4 bpp.
 - Composição de camadas com alpha binário e corte para a área visível 256x192.
+- LZ10/LZ11 nos recursos individuais NCGR/NCLR/NSCR, com limites de memória;
+  detalhes e restrições em [native-compression.md](native-compression.md).
 
-Compressão LZ, mapas maiores com screen blocks, modos afins, paletas estendidas,
+NARC inteiro comprimido, mapas maiores com screen blocks, modos afins, paletas estendidas,
 sprites/células e modelos 3D ainda não são suportados. Recursos fora desse escopo
 produzem erro; não há fallback para emulação. O leitor é usado sobre dados locais
 conhecidos, não como um serviço para processar uploads arbitrários.

@@ -8,5 +8,6 @@ cmake -S "$cache_dir/source" -B "$cache_dir/build" -G Ninja \
     -DCMAKE_TOOLCHAIN_FILE="$cache_dir/source/tools/mingw-x64.cmake" \
     -DCMAKE_BUILD_TYPE=Release -DHG_FETCH_SDL3=ON
 cmake --build "$cache_dir/build" --parallel 3
-cp "$cache_dir/build/bin/SuperHeartGold.exe" "$cache_dir/build/bin/hg_tests.exe" "$project_dir/out/windows/"
+cp "$cache_dir/build/bin/SuperHeartGold.exe" "$cache_dir/build/bin/hg_tests.exe" \
+    "$cache_dir/build/bin/hg_save_inspect.exe" "$project_dir/out/windows/"
 printf 'Windows native platform build: %s/out/windows/SuperHeartGold.exe\n' "$project_dir"

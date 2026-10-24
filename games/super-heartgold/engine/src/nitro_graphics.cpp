@@ -1,4 +1,5 @@
 #include "hg/nitro_graphics.hpp"
+#include "hg/nitro_compression.hpp"
 
 #include <algorithm>
 #include <cstring>
@@ -51,7 +52,7 @@ bool matches_signature(Bytes bytes, std::size_t offset, std::string_view signatu
 Bytes find_block(Bytes bytes, std::string_view container, std::string_view wanted)
 {
     require(matches_signature(bytes, 0, container),
-        "Unsupported resource signature (compression not supported)");
+        "Unsupported resource signature");
     const auto byte_order_marker = container == "NARC" ? 0xfffeu : 0xfeffu;
     const auto version = read_u16(bytes, 6);
     require(read_u16(bytes, 4) == byte_order_marker && (version == 0x100 || version == 0x101),
@@ -165,6 +166,19 @@ Bytes narc_member(Bytes archive, unsigned member)
 
 RgbaImage decode_text_background(Bytes ncgr, Bytes nclr, Bytes nscr)
 {
+    // Keep owned decompressed data alive while the lower-level readers borrow
+    // spans. Only one compression layer is accepted per individual resource.
+    std::vector<std::byte> character_storage, color_storage, screen_storage;
+    const auto expand = [](Bytes bytes, std::vector<std::byte>& storage) -> Bytes {
+        if (!bytes.empty() && (bytes.front() == std::byte{0x10} || bytes.front() == std::byte{0x11})) {
+            storage = decompress_nitro_lz(bytes);
+            return storage;
+        }
+        return bytes;
+    };
+    ncgr = expand(ncgr, character_storage);
+    nclr = expand(nclr, color_storage);
+    nscr = expand(nscr, screen_storage);
     const auto characters = read_characters(ncgr);
     const auto colors = read_colors(nclr);
     const auto screen = find_block(nscr, "RCSN", "NRCS");
