@@ -103,3 +103,49 @@ TEST_CASE("graphics: NARC member bounds and block structure") {
     put(b,32,5); CHECK(rejects([&] { hg::narc_member(b,0); }));
     put(b,32,0); put(b,28,1); CHECK(rejects([&] { hg::narc_member(b,0); }));
 }
+
+TEST_CASE("graphics: 8bpp uses full palette index and RGB555 intermediate values") {
+    Fixture fixture(true);
+    fixture.characters[48] = std::byte{200};
+    // Exercise bit replication instead of only the 0/31 endpoints.
+    put(fixture.palette, 40 + 200 * 2, 1u | (16u << 5) | (30u << 10), 2);
+    const auto image = fixture.decode();
+    CHECK_EQ(image.pixels[0], 8);
+    CHECK_EQ(image.pixels[1], 132);
+    CHECK_EQ(image.pixels[2], 247);
+    CHECK_EQ(image.pixels[3], 255);
+}
+
+TEST_CASE("graphics: zero index stays transparent in nonzero palette banks") {
+    Fixture fixture(false, 15u << 12);
+    put(fixture.palette, 40 + 15 * 16 * 2, 32767, 2);
+    const auto image = fixture.decode();
+    CHECK_EQ(image.pixels[4], 255);
+    CHECK_EQ(image.pixels[5], 255);
+    CHECK_EQ(image.pixels[6], 255);
+    CHECK_EQ(image.pixels[7], 0);
+}
+
+TEST_CASE("graphics: referenced colors must exist in the supplied palette") {
+    Fixture fixture(false, 15u << 12);
+    // A valid small palette does not contain the tile's selected bank.
+    fixture.palette.resize(40 + 32);
+    put(fixture.palette, 8, static_cast<std::uint32_t>(fixture.palette.size()));
+    put(fixture.palette, 20, static_cast<std::uint32_t>(fixture.palette.size() - 16));
+    put(fixture.palette, 32, 32);
+    CHECK(rejects([&] { fixture.decode(); }));
+}
+
+TEST_CASE("graphics: composition uses each image row stride and validates buffers") {
+    hg::RgbaImage canvas{3, 2, std::vector<std::uint8_t>(3 * 2 * 4, 7)};
+    const hg::RgbaImage layer{1, 2, {10, 20, 30, 255, 40, 50, 60, 255}};
+    hg::composite_layer(canvas, layer);
+    CHECK_EQ(canvas.pixels[0], 10);
+    CHECK_EQ(canvas.pixels[12], 40);
+    CHECK_EQ(canvas.pixels[4], 7);
+    CHECK_EQ(canvas.pixels[16], 7);
+    canvas.pixels.pop_back();
+    CHECK(rejects([&] { hg::composite_layer(canvas, layer); }));
+    hg::RgbaImage too_large{4097, 0, {}};
+    CHECK(rejects([&] { hg::composite_layer(too_large, layer); }));
+}

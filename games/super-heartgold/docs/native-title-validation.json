@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-24",
+  "scope": "Original TitleScreen_Main and OverlayManager compiled as x64 with diagnostic 2D host hooks; not a full title/game port",
+  "base_pin": "6984a3d67592157195940049be2e4bbbf933f9ff",
+  "selected_function_sha256": "c2ba2e2f2b1df753d1ce14a0e3a6af6e127754eb5d4207301db562328cac6cd9",
+  "executable_sha256": "f776a7d393f1ec41e98ebb9430db1f413f4a7058de364d11a1b65018cbeeb60a",
+  "windows_title_private_ctest_suites": 11,
+  "windows_standard_ctest_suites": 10,
+  "linux_core_ctest_suites": 9,
+  "graphics_cpp_cases": 10,
+  "renderer_python_integration": "passed",
+  "original_title_linux_asan_ubsan": "passed",
+  "graphics_asan_ubsan": "passed",
+  "graphics_equivalence_cases": 512,
+  "integrated_window": {
+    "driver": "windows",
+    "renderer": "direct3d11",
+    "input": "SDL Return key-down/up at frames 40/41",
+    "fixed_step": "1 deterministic tick per rendered frame",
+    "frames": 180,
+    "exit_code": 0,
+    "result": "Menu requested; destination not executed; overlay allocations released"
+  },
+  "unimplemented": [
+    "Original full title init/exit",
+    "3D models and camera",
+    "Audio playback",
+    "Exact DS fade timing",
+    "Check-save/menu destinations",
+    "Campaign"
+  ],
+  "save_access": false,
+  "strict_native_game_complete": false
+}

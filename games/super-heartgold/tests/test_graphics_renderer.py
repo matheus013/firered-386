@@ -86,7 +86,7 @@ def main():
         target.write_bytes(archive())
         shot = root/'capture.png'
         base = [executable,'--video-driver','dummy','--frames','2','--title-resources',str(root)]
-        result = subprocess.run(base+['--capture',str(shot)],capture_output=True,text=True,timeout=30)
+        result = subprocess.run(base+['--capture-at','1','--capture',str(shot)],capture_output=True,text=True,timeout=30)
         assert result.returncode == 0, result.stdout+result.stderr
         size,pixels = png_rgba(shot)
         assert size == (1280,720)
@@ -96,6 +96,9 @@ def main():
         before = shot.read_bytes()
         result = subprocess.run(base+['--capture',str(shot)],capture_output=True,timeout=30)
         assert result.returncode != 0 and shot.read_bytes() == before, 'Existing capture was overwritten'
+        missing_shot=root/'not-reached.png'
+        result=subprocess.run(base+['--capture-at','2','--capture',str(missing_shot)],capture_output=True,timeout=30)
+        assert result.returncode != 0 and not missing_shot.exists(), 'Unreached capture frame should fail'
         target.write_bytes(b'NARC')
         result = subprocess.run(base,capture_output=True,timeout=30)
         assert result.returncode != 0, 'Malformed resource should fail startup'

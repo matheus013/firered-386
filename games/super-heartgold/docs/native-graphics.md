@@ -72,7 +72,7 @@ Não há leitura ou gravação de saves do jogo.
 - Capturas 1280x720 inspecionadas; logo, fundo, créditos e legenda legíveis, sem
   sobreposição da legenda à área de jogo. Os dois renderers produziram PNG idêntico,
   SHA-256 `a9d2c382758ff28b74239509fe0ce08a162bdf45a1b74cd48b3adc96ab95a3bf`.
-- Seis casos C++ verificam cores, ordem de nibbles, bancos, flips, alpha, cortes,
+- Dez casos C++ verificam cores, ordem de nibbles, bancos, flips, alpha, cortes,
   cabeçalhos truncados, índices e offsets inválidos e modos não suportados.
 - O teste de integração `test_graphics_renderer.py` cria NARC/NCGR/NCLR/NSCR próprios,
   abre o executável real, lê a captura PNG e exige 288 pixels vermelhos e 288 verdes,
@@ -85,5 +85,6 @@ Não há leitura ou gravação de saves do jogo.
 As capturas e os recursos originais ficam somente no armazenamento privado.
 O relatório público contém metadados em [native-graphics-validation.json](native-graphics-validation.json).
 
-O próximo trabalho é integrar o fluxo real do título e adaptar os serviços
-gráficos/3D exigidos por esse fluxo. A primeira área jogável continua pendente.
+O fluxo de decisão original já pode ser integrado em um build privado opcional,
+descrito em [native-title-flow.md](native-title-flow.md). Os serviços 3D/áudio e a
+primeira área jogável continuam pendentes.

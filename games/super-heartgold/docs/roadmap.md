@@ -31,7 +31,9 @@ recursos ao serviço de arquivos host, com validação de 1.808 membros no Windo
 Veja [native-resources.md](native-resources.md). Decodificação e composição das
 camadas 2D do título SoulSilver também foram integradas ao renderer nativo,
 conforme [native-graphics.md](native-graphics.md). Ainda faltam os serviços 3D e a
-integração do fluxo real da engine à janela própria.
+integração completa da engine à janela própria. A função de decisão original do
+título e seu gerenciador já estão conectados em um build privado opcional, com
+limites registrados em [native-title-flow.md](native-title-flow.md).
 
 - Inventariar módulos e suas dependências no pin obrigatório.
 - Selecionar uma unidade real e pequena de lógica HeartGold, com decisão documentada sobre permissões.

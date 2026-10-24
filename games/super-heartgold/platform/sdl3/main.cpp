@@ -3,6 +3,10 @@
 
 #include "default_bindings.hpp"
 #include "title_preview.hpp"
+#ifdef HG_PRIVATE_TITLE_FLOW
+#include "title_runtime.hpp"
+#include <memory>
+#endif
 #include "hg/fixed_step.hpp"
 #include "hg/input.hpp"
 #include "hg/log.hpp"
@@ -12,6 +16,7 @@
 #include <SDL3/SDL_main.h>
 
 #include <cstdlib>
+#include <charconv>
 #include <algorithm>
 #include <filesystem>
 #include <stdexcept>
@@ -29,6 +34,9 @@ struct Options {
     bool verbose = false;
     const char* title_resources = nullptr;
     const char* capture = nullptr;
+    long capture_at = 0;
+    bool title_flow = false;
+    bool title_flow_self_test = false;
     hg::ScreenLayout layout = hg::ScreenLayout::Unified;
     hg::ScaleMode scale = hg::ScaleMode::Integer;
 };
@@ -44,7 +52,10 @@ void print_usage()
             "  --fullscreen\n"
             "  --verbose");
     SDL_Log("  --title-resources PATH  teste das camadas 2D de SoulSilver (dados locais)\n"
-            "  --capture PATH.png      captura o primeiro quadro; recusa arquivo existente");
+            "  --capture PATH.png      captura um quadro; recusa arquivo existente\n"
+            "  --capture-at N          quadro da captura (padrão: 0)\n"
+            "  --title-flow            controlador C original (build privado opcional)\n"
+            "  --title-flow-self-test  passo fixo e evento SDL Enter no quadro 40");
 }
 
 bool parse_args(int argc, char** argv, Options& opt)
@@ -56,6 +67,14 @@ bool parse_args(int argc, char** argv, Options& opt)
             opt.title_resources = argv[++i];
         } else if (arg == "--capture" && has_value) {
             opt.capture = argv[++i];
+        } else if (arg == "--capture-at" && has_value) {
+            const std::string_view value=argv[++i];
+            const auto result=std::from_chars(value.data(),value.data()+value.size(),opt.capture_at);
+            if (result.ec!=std::errc{} || result.ptr!=value.data()+value.size() || opt.capture_at<0) return false;
+        } else if (arg == "--title-flow" || arg == "--title-flow-self-test") {
+            opt.title_flow=true;
+            opt.title_flow_self_test=opt.title_flow_self_test || arg=="--title-flow-self-test";
+            if (opt.title_flow_self_test && opt.max_frames<0) opt.max_frames=180;
         } else if (arg == "--frames" && has_value) {
             opt.max_frames = std::strtol(argv[++i], nullptr, 10);
         } else if (arg == "--video-driver" && has_value) {
@@ -115,6 +134,16 @@ public:
 
     bool init()
     {
+        if (m_opt.title_flow && !m_opt.title_resources) {
+            hg::log_error("--title-flow exige --title-resources");
+            return false;
+        }
+#ifndef HG_PRIVATE_TITLE_FLOW
+        if (m_opt.title_flow) {
+            hg::log_error("Este build não inclui o controlador privado; configure HG_REFERENCE_TITLE_FLOW=ON fora do Git");
+            return false;
+        }
+#endif
         if (m_opt.video_driver) {
             SDL_SetHint(SDL_HINT_VIDEO_DRIVER, m_opt.video_driver);
         }
@@ -174,6 +203,13 @@ public:
                 return false;
             }
         }
+#ifdef HG_PRIVATE_TITLE_FLOW
+        if (m_opt.title_flow) {
+            m_title_runtime=std::make_unique<hg::sdl::TitleRuntime>();
+            SDL_SetWindowTitle(m_window,"Super HeartGold - original C title flow / host 2D (3D and audio pending)");
+            hg::log_info("Controlador C original e OverlayManager nativos; 3D/áudio ausentes, destinos bloqueados");
+        }
+#endif
 
         if (m_opt.self_test) {
             push_self_test_events();
@@ -188,14 +224,18 @@ public:
         while (m_running) {
             const Uint64 frame_start = SDL_GetTicksNS();
             m_input.begin_frame();
+            inject_title_test_key(frames);
             poll_events();
             handle_meta_actions();
 
-            const int steps = m_clock.advance(static_cast<std::int64_t>(frame_start - last));
+            const int steps = m_opt.title_flow_self_test ? 1 : m_clock.advance(static_cast<std::int64_t>(frame_start - last));
             last = frame_start;
-            m_logic_steps += steps; // a lógica do jogo entrará aqui (ver docs/roadmap.md)
+            m_logic_steps += steps; // Source title decision is optional; campaign engine remains pending.
+#ifdef HG_PRIVATE_TITLE_FLOW
+            if (m_title_runtime) m_title_runtime->advance(m_input,steps);
+#endif
 
-            render();
+            render(frames);
             ++frames;
             if (m_opt.max_frames >= 0 && frames >= m_opt.max_frames) {
                 m_running = false;
@@ -212,6 +252,17 @@ public:
                      " passos de lógica");
 
         if (m_capture_failed) return EXIT_FAILURE;
+        if (m_opt.capture && !m_captured) {
+            hg::log_error("Quadro solicitado para captura não foi alcançado");
+            return EXIT_FAILURE;
+        }
+#ifdef HG_PRIVATE_TITLE_FLOW
+        if (m_opt.title_flow_self_test) {
+            const bool complete=m_title_runtime && m_title_runtime->menu_handoff_complete();
+            hg::log_info(complete ? "Title flow self-test PASS: MENU solicitado, alocações do overlay liberadas, destino não executado" : "Title flow self-test FAILED");
+            return complete ? EXIT_SUCCESS : EXIT_FAILURE;
+        }
+#endif
         if (m_opt.self_test) {
             return check_self_test(frames) ? EXIT_SUCCESS : EXIT_FAILURE;
         }
@@ -219,6 +270,15 @@ public:
     }
 
 private:
+    void inject_title_test_key(long frame) {
+        if (!m_opt.title_flow_self_test || (frame!=40 && frame!=41)) return;
+        SDL_Event key{};
+        key.type=frame==40 ? SDL_EVENT_KEY_DOWN : SDL_EVENT_KEY_UP;
+        key.key.key=SDLK_RETURN;
+        key.key.down=frame==40;
+        SDL_PushEvent(&key);
+    }
+
     void push_self_test_events()
     {
         SDL_Event key{};
@@ -339,7 +399,7 @@ private:
         }
     }
 
-    void render()
+    void render(long frame)
     {
         int w = 0;
         int h = 0;
@@ -355,9 +415,15 @@ private:
             if (rectangle.w>0 && rectangle.h>0 && !SDL_RenderTexture(m_renderer,m_title_texture,nullptr,&rectangle)) {
                 hg::log_error(SDL_GetError()); m_capture_failed=true; m_running=false;
             }
-            SDL_SetRenderDrawColor(m_renderer,255,255,255,255);
-            SDL_RenderDebugText(m_renderer,8,static_cast<float>(std::max(0,h-24)),"NATIVE 2D RESOURCE TEST - NO GAME LOGIC / 3D");
-            capture_frame();
+#ifdef HG_PRIVATE_TITLE_FLOW
+            if (m_title_runtime) m_title_runtime->draw(m_renderer,rectangle,h);
+            else
+#endif
+            {
+                SDL_SetRenderDrawColor(m_renderer,255,255,255,255);
+                SDL_RenderDebugText(m_renderer,8,static_cast<float>(std::max(0,h-24)),"NATIVE 2D RESOURCE TEST - NO GAME LOGIC / 3D");
+            }
+            capture_frame(frame);
             SDL_RenderPresent(m_renderer);
             return;
         }
@@ -398,12 +464,12 @@ private:
         SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
         SDL_RenderDebugText(m_renderer, top.x + 12, top.y + 12, "NATIVE PLATFORM TEST");
         SDL_RenderDebugText(m_renderer, top.x + 12, top.y + 28, "HG GAME ENGINE NOT CONNECTED");
-        capture_frame();
+        capture_frame(frame);
         SDL_RenderPresent(m_renderer);
     }
 
-    void capture_frame() {
-        if (!m_opt.capture || m_captured) return;
+    void capture_frame(long frame) {
+        if (!m_opt.capture || m_captured || frame!=m_opt.capture_at) return;
         m_captured=true;
         SDL_Surface* surface=SDL_RenderReadPixels(m_renderer,nullptr);
         if (!surface || !SDL_SavePNG(surface,m_opt.capture)) {
@@ -429,6 +495,9 @@ private:
     bool m_self_test_pad_b = false;
     bool m_captured = false;
     bool m_capture_failed = false;
+#ifdef HG_PRIVATE_TITLE_FLOW
+    std::unique_ptr<hg::sdl::TitleRuntime> m_title_runtime;
+#endif
 };
 
 } // namespace

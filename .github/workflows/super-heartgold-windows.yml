@@ -29,3 +29,14 @@ jobs:
         with:
           name: SuperHeartGold-platform-windows-x64
           path: games/super-heartgold/build/bin/Release/SuperHeartGold.exe
+  title-flow-source:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure original title C in temporary private build (no ROM)
+        run: cmake -S . -B "${{ runner.temp }}/hg-title-flow" -A x64 -DHG_BUILD_APP=OFF -DHG_REFERENCE_TITLE_FLOW=ON
+      - name: Build original decision and host adapters
+        run: cmake --build "${{ runner.temp }}/hg-title-flow" --config Release --parallel 3
+      - name: Test original title decision and host core
+        run: ctest --test-dir "${{ runner.temp }}/hg-title-flow" -C Release --output-on-failure
+      # No original source, private executable or game resource is uploaded.

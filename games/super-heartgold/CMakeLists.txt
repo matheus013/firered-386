@@ -20,6 +20,7 @@ option(HG_BUILD_APP "Compila o executável SDL3" ON)
 option(HG_BUILD_TESTS "Compila os testes unitários" ON)
 option(HG_REFERENCE_TASK_PROBE "Private probe of pinned original C task code (not distributed)" OFF)
 option(HG_REFERENCE_FILESYSTEM_PROBE "Private native resource module probe (not distributed)" OFF)
+option(HG_REFERENCE_TITLE_FLOW "Private original title decision flow (2D host services only)" OFF)
 option(HG_FETCH_SDL3 "Baixa e compila o SDL3 estático em vez de usar o instalado" ON)
 
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
@@ -36,6 +37,20 @@ endif()
 
 # A engine não conhece SDL nem dados de região.
 add_subdirectory(engine)
+
+if(HG_REFERENCE_TITLE_FLOW)
+    find_package(Python3 REQUIRED COMPONENTS Interpreter)
+    set(HG_TITLE_SOURCE_DIR "${PROJECT_BINARY_DIR}/private-reference-title")
+    execute_process(COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/prepare_title_flow.py" "${HG_TITLE_SOURCE_DIR}"
+        RESULT_VARIABLE HG_TITLE_PREPARE_RESULT)
+    if(NOT HG_TITLE_PREPARE_RESULT EQUAL 0)
+        message(FATAL_ERROR "Private title source preparation failed")
+    endif()
+    add_library(hg_title_flow STATIC game/core/src/title_session.cpp
+        "${HG_TITLE_SOURCE_DIR}/overlay_manager.c" "${HG_TITLE_SOURCE_DIR}/title_decision.c")
+    target_include_directories(hg_title_flow PUBLIC game/core/include PRIVATE "${HG_TITLE_SOURCE_DIR}" tools/reference_compat)
+    target_link_libraries(hg_title_flow PRIVATE hg_warnings)
+endif()
 
 if(HG_BUILD_APP)
     if(HG_FETCH_SDL3)
@@ -57,6 +72,11 @@ endif()
 if(HG_BUILD_TESTS)
     enable_testing()
     add_subdirectory(tests)
+    if(HG_REFERENCE_TITLE_FLOW)
+        add_executable(hg_title_flow_tests tests/title_session_tests.cpp)
+        target_link_libraries(hg_title_flow_tests PRIVATE hg_title_flow hg_warnings)
+        add_test(NAME reference.title_flow_native COMMAND hg_title_flow_tests)
+    endif()
 endif()
 
 if(HG_REFERENCE_TASK_PROBE)
