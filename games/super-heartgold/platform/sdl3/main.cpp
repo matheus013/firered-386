@@ -2,6 +2,7 @@
 // do DS numa janela só e traduz teclado/gamepad para ações do jogo.
 
 #include "default_bindings.hpp"
+#include "title_preview.hpp"
 #include "hg/fixed_step.hpp"
 #include "hg/input.hpp"
 #include "hg/log.hpp"
@@ -11,6 +12,9 @@
 #include <SDL3/SDL_main.h>
 
 #include <cstdlib>
+#include <algorithm>
+#include <filesystem>
+#include <stdexcept>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -23,6 +27,8 @@ struct Options {
     bool self_test = false;
     bool fullscreen = false;
     bool verbose = false;
+    const char* title_resources = nullptr;
+    const char* capture = nullptr;
     hg::ScreenLayout layout = hg::ScreenLayout::Unified;
     hg::ScaleMode scale = hg::ScaleMode::Integer;
 };
@@ -37,6 +43,8 @@ void print_usage()
             "  --scale integer|fit\n"
             "  --fullscreen\n"
             "  --verbose");
+    SDL_Log("  --title-resources PATH  teste das camadas 2D de SoulSilver (dados locais)\n"
+            "  --capture PATH.png      captura o primeiro quadro; recusa arquivo existente");
 }
 
 bool parse_args(int argc, char** argv, Options& opt)
@@ -44,7 +52,11 @@ bool parse_args(int argc, char** argv, Options& opt)
     for (int i = 1; i < argc; ++i) {
         const std::string_view arg = argv[i];
         const bool has_value = i + 1 < argc;
-        if (arg == "--frames" && has_value) {
+        if (arg == "--title-resources" && has_value) {
+            opt.title_resources = argv[++i];
+        } else if (arg == "--capture" && has_value) {
+            opt.capture = argv[++i];
+        } else if (arg == "--frames" && has_value) {
             opt.max_frames = std::strtol(argv[++i], nullptr, 10);
         } else if (arg == "--video-driver" && has_value) {
             opt.video_driver = argv[++i];
@@ -95,6 +107,7 @@ public:
         for (SDL_Gamepad* pad : m_gamepads) {
             SDL_CloseGamepad(pad);
         }
+        if (m_title_texture) SDL_DestroyTexture(m_title_texture);
         if (m_renderer) SDL_DestroyRenderer(m_renderer);
         if (m_window) SDL_DestroyWindow(m_window);
         SDL_Quit();
@@ -142,6 +155,26 @@ public:
         hg::log_info(std::string("Janela ") + std::to_string(w) + "x" + std::to_string(h) +
                      ", renderer: " + SDL_GetRendererName(m_renderer) + (m_vsync ? ", vsync" : ", sem vsync"));
 
+        if (m_opt.capture && std::filesystem::exists(m_opt.capture)) {
+            hg::log_error("Captura já existe; escolha outro caminho");
+            return false;
+        }
+        if (m_opt.title_resources) {
+            try {
+                const auto image=hg::sdl::load_title_layers(m_opt.title_resources);
+                m_title_texture=SDL_CreateTexture(m_renderer,SDL_PIXELFORMAT_RGBA32,SDL_TEXTUREACCESS_STATIC,
+                    static_cast<int>(image.width),static_cast<int>(image.height));
+                if (!m_title_texture || !SDL_UpdateTexture(m_title_texture,nullptr,image.pixels.data(),static_cast<int>(image.width*4)) ||
+                    !SDL_SetTextureScaleMode(m_title_texture,SDL_SCALEMODE_NEAREST) || !SDL_SetTextureBlendMode(m_title_texture,SDL_BLENDMODE_NONE))
+                    throw std::runtime_error(SDL_GetError());
+                SDL_SetWindowTitle(m_window,"Super HeartGold - native 2D resources test (no game logic / 3D)");
+                hg::log_info("Camadas 2D SoulSilver: 256x192, NCGR/NCLR/NSCR decodificados no host; sem CPU DS");
+            } catch (const std::exception& e) {
+                hg::log_error(std::string("Recursos gráficos inválidos: ")+e.what());
+                return false;
+            }
+        }
+
         if (m_opt.self_test) {
             push_self_test_events();
         }
@@ -178,6 +211,7 @@ public:
         hg::log_info("Encerrando após " + std::to_string(frames) + " quadros e " + std::to_string(m_logic_steps) +
                      " passos de lógica");
 
+        if (m_capture_failed) return EXIT_FAILURE;
         if (m_opt.self_test) {
             return check_self_test(frames) ? EXIT_SUCCESS : EXIT_FAILURE;
         }
@@ -315,6 +349,19 @@ private:
         SDL_SetRenderDrawColor(m_renderer, 12, 12, 16, 255);
         SDL_RenderClear(m_renderer);
 
+        if (m_title_texture) {
+            const auto preview=hg::place_screens({w,std::max(0,h-32)},hg::ScreenLayout::Unified,m_opt.scale);
+            const auto rectangle=to_frect(preview.top);
+            if (rectangle.w>0 && rectangle.h>0 && !SDL_RenderTexture(m_renderer,m_title_texture,nullptr,&rectangle)) {
+                hg::log_error(SDL_GetError()); m_capture_failed=true; m_running=false;
+            }
+            SDL_SetRenderDrawColor(m_renderer,255,255,255,255);
+            SDL_RenderDebugText(m_renderer,8,static_cast<float>(std::max(0,h-24)),"NATIVE 2D RESOURCE TEST - NO GAME LOGIC / 3D");
+            capture_frame();
+            SDL_RenderPresent(m_renderer);
+            return;
+        }
+
         const SDL_FRect top = to_frect(placement.top);
         SDL_SetRenderDrawColor(m_renderer, 168, 32, 40, 255);
         SDL_RenderFillRect(m_renderer, &top);
@@ -351,7 +398,19 @@ private:
         SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
         SDL_RenderDebugText(m_renderer, top.x + 12, top.y + 12, "NATIVE PLATFORM TEST");
         SDL_RenderDebugText(m_renderer, top.x + 12, top.y + 28, "HG GAME ENGINE NOT CONNECTED");
+        capture_frame();
         SDL_RenderPresent(m_renderer);
+    }
+
+    void capture_frame() {
+        if (!m_opt.capture || m_captured) return;
+        m_captured=true;
+        SDL_Surface* surface=SDL_RenderReadPixels(m_renderer,nullptr);
+        if (!surface || !SDL_SavePNG(surface,m_opt.capture)) {
+            hg::log_error(std::string("Falha na captura: ")+SDL_GetError());
+            m_capture_failed=true; m_running=false;
+        } else hg::log_info(std::string("Captura do renderer: ")+m_opt.capture);
+        if (surface) SDL_DestroySurface(surface);
     }
 
     Options m_opt;
@@ -361,12 +420,15 @@ private:
     hg::FixedStep m_clock;
     SDL_Window* m_window = nullptr;
     SDL_Renderer* m_renderer = nullptr;
+    SDL_Texture* m_title_texture = nullptr;
     std::vector<SDL_Gamepad*> m_gamepads;
     bool m_running = true;
     bool m_vsync = false;
     long m_logic_steps = 0;
     bool m_self_test_key_a = false;
     bool m_self_test_pad_b = false;
+    bool m_captured = false;
+    bool m_capture_failed = false;
 };
 
 } // namespace

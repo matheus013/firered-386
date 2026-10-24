@@ -1,5 +1,6 @@
 add_executable(SuperHeartGold
     main.cpp
+    title_preview.cpp
     default_bindings.cpp)
 
 target_link_libraries(SuperHeartGold PRIVATE hg_engine hg_warnings SDL3::SDL3)
