@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-24",
+  "base_pin": "6984a3d67592157195940049be2e4bbbf933f9ff",
+  "scope": "Native message/font decoding and static SDL preview, not original intro/text printer",
+  "message_banks": 829,
+  "messages_matched": 49984,
+  "packed_names_matched": 738,
+  "encoded_units_matched": 2106048,
+  "fonts_matched": 6,
+  "glyphs_matched": 3054,
+  "visible_pixels_matched": 336112,
+  "cpp_message_cases_passed": 6,
+  "cpp_font_cases_passed": 5,
+  "windows_cross_ctest_suites_passed": 16,
+  "private_title_ctest_suites_passed": 18,
+  "linux_asan_ubsan_ctest_suites_passed": 16,
+  "windows_synthetic_text_renderer": "passed including Unicode paths, LF, pixel roles and error cases",
+  "windows_existing_raw_lz_renderer": "passed",
+  "windowed_preview": {
+    "renderer": "direct3d11",
+    "frames": 60,
+    "bank": 219,
+    "message": 1,
+    "exit_code": 0
+  },
+  "capture_sha256": "4b66640e83eda38faf37a7f0a3414f8e21f0da92a8b41343976cefe7bdae5b59",
+  "own_executable_sha256": "370b47eb2699cd3d39342fc375d63a08244e4c4ba55734886d07b3ff3bbf8ab8",
+  "private_executable_sha256": "0a1d6c14a362902b9ad07154db7ec3b8e8cdd49c02c3ab3f9faccc5bc3627a12",
+  "controlled_title_regression": {
+    "flags": 63,
+    "frames": 360,
+    "driver": "dummy",
+    "exit_code": 0
+  },
+  "original_payload_published": false,
+  "game_save_files_used": false,
+  "game_campaign_playable": false
+}

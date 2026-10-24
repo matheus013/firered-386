@@ -3,6 +3,7 @@
 
 #include "default_bindings.hpp"
 #include "title_preview.hpp"
+#include "message_preview.hpp"
 #ifdef HG_PRIVATE_TITLE_FLOW
 #include "title_runtime.hpp"
 #include <memory>
@@ -26,6 +27,12 @@
 
 namespace {
 
+std::filesystem::path path_from_utf8(const char* text) {
+    std::u8string value;
+    while (*text) value.push_back(static_cast<char8_t>(static_cast<unsigned char>(*text++)));
+    return std::filesystem::path(value);
+}
+
 struct Options {
     long max_frames = -1; // -1: roda até o usuário fechar
     const char* video_driver = nullptr;
@@ -33,6 +40,9 @@ struct Options {
     bool fullscreen = false;
     bool verbose = false;
     const char* title_resources = nullptr;
+    const char* text_resources = nullptr;
+    unsigned message_bank = 219;
+    unsigned message_id = 1;
     const char* capture = nullptr;
     long capture_at = 0;
     bool title_flow = false;
@@ -53,6 +63,9 @@ void print_usage()
             "  --fullscreen\n"
             "  --verbose");
     SDL_Log("  --title-resources PATH  teste das camadas 2D de SoulSilver (dados locais)\n"
+            "  --text-resources PATH   teste estático de fonte e mensagem (dados locais)\n"
+            "  --message-bank N        banco de texto (padrão: 219)\n"
+            "  --message-id N          mensagem (padrão: 1)\n"
             "  --capture PATH.png      captura um quadro; recusa arquivo existente\n"
             "  --capture-at N          quadro da captura (padrão: 0)\n"
             "  --title-flow            controlador C original (build privado opcional)\n"
@@ -67,6 +80,13 @@ bool parse_args(int argc, char** argv, Options& opt)
         const bool has_value = i + 1 < argc;
         if (arg == "--title-resources" && has_value) {
             opt.title_resources = argv[++i];
+        } else if (arg == "--text-resources" && has_value) {
+            opt.text_resources = argv[++i];
+        } else if ((arg == "--message-bank" || arg == "--message-id") && has_value) {
+            const std::string_view value = argv[++i];
+            auto& destination = arg == "--message-bank" ? opt.message_bank : opt.message_id;
+            const auto result = std::from_chars(value.data(),value.data()+value.size(),destination);
+            if (result.ec != std::errc{} || result.ptr != value.data()+value.size()) return false;
         } else if (arg == "--capture" && has_value) {
             opt.capture = argv[++i];
         } else if (arg == "--capture-at" && has_value) {
@@ -132,7 +152,7 @@ public:
         for (SDL_Gamepad* pad : m_gamepads) {
             SDL_CloseGamepad(pad);
         }
-        if (m_title_texture) SDL_DestroyTexture(m_title_texture);
+        if (m_preview_texture) SDL_DestroyTexture(m_preview_texture);
         if (m_renderer) SDL_DestroyRenderer(m_renderer);
         if (m_window) SDL_DestroyWindow(m_window);
         SDL_Quit();
@@ -140,6 +160,10 @@ public:
 
     bool init()
     {
+        if (m_opt.text_resources && (m_opt.title_resources || m_opt.title_flow)) {
+            hg::log_error("Escolha somente um teste de recursos: título ou texto");
+            return false;
+        }
         if (m_opt.title_flow && !m_opt.title_resources) {
             hg::log_error("--title-flow exige --title-resources");
             return false;
@@ -190,20 +214,27 @@ public:
         hg::log_info(std::string("Janela ") + std::to_string(w) + "x" + std::to_string(h) +
                      ", renderer: " + SDL_GetRendererName(m_renderer) + (m_vsync ? ", vsync" : ", sem vsync"));
 
-        if (m_opt.capture && std::filesystem::exists(m_opt.capture)) {
+        if (m_opt.capture && std::filesystem::exists(path_from_utf8(m_opt.capture))) {
             hg::log_error("Captura já existe; escolha outro caminho");
             return false;
         }
-        if (m_opt.title_resources) {
+        if (m_opt.title_resources || m_opt.text_resources) {
             try {
-                const auto image=hg::sdl::load_title_layers(m_opt.title_resources);
-                m_title_texture=SDL_CreateTexture(m_renderer,SDL_PIXELFORMAT_RGBA32,SDL_TEXTUREACCESS_STATIC,
+                const auto image = m_opt.text_resources ?
+                    hg::sdl::load_message_preview(path_from_utf8(m_opt.text_resources),m_opt.message_bank,m_opt.message_id) :
+                    hg::sdl::load_title_layers(path_from_utf8(m_opt.title_resources));
+                m_preview_texture=SDL_CreateTexture(m_renderer,SDL_PIXELFORMAT_RGBA32,SDL_TEXTUREACCESS_STATIC,
                     static_cast<int>(image.width),static_cast<int>(image.height));
-                if (!m_title_texture || !SDL_UpdateTexture(m_title_texture,nullptr,image.pixels.data(),static_cast<int>(image.width*4)) ||
-                    !SDL_SetTextureScaleMode(m_title_texture,SDL_SCALEMODE_NEAREST) || !SDL_SetTextureBlendMode(m_title_texture,SDL_BLENDMODE_NONE))
+                if (!m_preview_texture || !SDL_UpdateTexture(m_preview_texture,nullptr,image.pixels.data(),static_cast<int>(image.width*4)) ||
+                    !SDL_SetTextureScaleMode(m_preview_texture,SDL_SCALEMODE_NEAREST) || !SDL_SetTextureBlendMode(m_preview_texture,SDL_BLENDMODE_NONE))
                     throw std::runtime_error(SDL_GetError());
-                SDL_SetWindowTitle(m_window,"Super HeartGold - native 2D resources test (no game logic / 3D)");
-                hg::log_info("Camadas 2D SoulSilver: 256x192, NCGR/NCLR/NSCR decodificados no host; sem CPU DS");
+                if (m_opt.text_resources) {
+                    SDL_SetWindowTitle(m_window,"Super HeartGold - native font/message test (no game logic)");
+                    hg::log_info("Fonte e mensagem decodificadas no host; sem impressor original, scripts ou CPU DS");
+                } else {
+                    SDL_SetWindowTitle(m_window,"Super HeartGold - native 2D resources test (no game logic / 3D)");
+                    hg::log_info("Camadas 2D SoulSilver: 256x192, NCGR/NCLR/NSCR decodificados no host; sem CPU DS");
+                }
             } catch (const std::exception& e) {
                 hg::log_error(std::string("Recursos gráficos inválidos: ")+e.what());
                 return false;
@@ -421,10 +452,10 @@ private:
         SDL_SetRenderDrawColor(m_renderer, 12, 12, 16, 255);
         SDL_RenderClear(m_renderer);
 
-        if (m_title_texture) {
+        if (m_preview_texture) {
             const auto preview=hg::place_screens({w,std::max(0,h-32)},hg::ScreenLayout::Unified,m_opt.scale);
             const auto rectangle=to_frect(preview.top);
-            if (rectangle.w>0 && rectangle.h>0 && !SDL_RenderTexture(m_renderer,m_title_texture,nullptr,&rectangle)) {
+            if (rectangle.w>0 && rectangle.h>0 && !SDL_RenderTexture(m_renderer,m_preview_texture,nullptr,&rectangle)) {
                 hg::log_error(SDL_GetError()); m_capture_failed=true; m_running=false;
             }
 #ifdef HG_PRIVATE_TITLE_FLOW
@@ -433,7 +464,9 @@ private:
 #endif
             {
                 SDL_SetRenderDrawColor(m_renderer,255,255,255,255);
-                SDL_RenderDebugText(m_renderer,8,static_cast<float>(std::max(0,h-24)),"NATIVE 2D RESOURCE TEST - NO GAME LOGIC / 3D");
+                SDL_RenderDebugText(m_renderer,8,static_cast<float>(std::max(0,h-24)),m_opt.text_resources ?
+                    "NATIVE FONT + MESSAGE TEST - NO GAME LOGIC / TEXT PRINTER" :
+                    "NATIVE 2D RESOURCE TEST - NO GAME LOGIC / 3D");
             }
             capture_frame(frame);
             SDL_RenderPresent(m_renderer);
@@ -484,7 +517,8 @@ private:
         if (!m_opt.capture || m_captured || frame!=m_opt.capture_at) return;
         m_captured=true;
         SDL_Surface* surface=SDL_RenderReadPixels(m_renderer,nullptr);
-        if (!surface || !SDL_SavePNG(surface,m_opt.capture)) {
+        SDL_IOStream* output = surface ? SDL_IOFromFile(m_opt.capture,"wbx") : nullptr;
+        if (!surface || !output || !SDL_SavePNG_IO(surface,output,true)) {
             hg::log_error(std::string("Falha na captura: ")+SDL_GetError());
             m_capture_failed=true; m_running=false;
         } else hg::log_info(std::string("Captura do renderer: ")+m_opt.capture);
@@ -498,7 +532,7 @@ private:
     hg::FixedStep m_clock;
     SDL_Window* m_window = nullptr;
     SDL_Renderer* m_renderer = nullptr;
-    SDL_Texture* m_title_texture = nullptr;
+    SDL_Texture* m_preview_texture = nullptr;
     std::vector<SDL_Gamepad*> m_gamepads;
     bool m_running = true;
     bool m_vsync = false;

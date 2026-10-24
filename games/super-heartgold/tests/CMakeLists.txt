@@ -4,8 +4,10 @@ add_executable(hg_tests
     resource_tests.cpp
     graphics_tests.cpp
     compression_tests.cpp
+    font_tests.cpp
     save_image_tests.cpp
-    save_validation_tests.cpp)
+    save_validation_tests.cpp
+    message_data_tests.cpp)
 
 target_link_libraries(hg_tests PRIVATE hg_engine hg_game_data hg_warnings)
 
@@ -16,8 +18,10 @@ add_test(NAME engine.log COMMAND hg_tests "log:")
 add_test(NAME engine.resource COMMAND hg_tests "resource:")
 add_test(NAME engine.graphics COMMAND hg_tests "graphics:")
 add_test(NAME engine.compression COMMAND hg_tests "compression:")
+add_test(NAME engine.font COMMAND hg_tests "font:")
 add_test(NAME game.save_image COMMAND hg_tests "save_image:")
 add_test(NAME game.save_validation COMMAND hg_tests "save_validation:")
+add_test(NAME game.messages COMMAND hg_tests "messages:")
 
 add_executable(hg_save_selection_tests save_selection_tests.cpp)
 target_link_libraries(hg_save_selection_tests PRIVATE hg_game_data hg_warnings)
@@ -44,6 +48,9 @@ if(Python3_FOUND)
         add_test(NAME app.graphics_resources
             COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_graphics_renderer.py $<TARGET_FILE:SuperHeartGold>)
         set_tests_properties(app.graphics_resources PROPERTIES TIMEOUT 90)
+        add_test(NAME app.text_resources
+            COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_text_renderer.py $<TARGET_FILE:SuperHeartGold>)
+        set_tests_properties(app.text_resources PROPERTIES TIMEOUT 90)
     endif()
     add_test(NAME tools.resource_import
         COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_resource_import.py)

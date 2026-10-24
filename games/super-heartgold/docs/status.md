@@ -15,7 +15,7 @@ validada na engine própria permanece em **0%: nenhuma área jogável foi integr
 | Área | Validado | Pendente principal |
 |---|---|---|
 | Plataforma Windows | C++20, SDL3, x64, viewport, entrada, clock, CI | Testes extensos de dispositivos e distribuição |
-| Recursos | Importação privada selecionada, arquivos host, NARC, NCGR/NCLR/NSCR e LZ10/LZ11 limitado | Formatos restantes, texto, sprites, modelos e animações |
+| Recursos | Importação privada, arquivos host, NARC, NCGR/NCLR/NSCR, LZ10/LZ11, mensagens e fonte própria de HG/SS | Impressão de texto completa, sprites, modelos e animações |
 | Código original | Scheduler, filesystem e overlay manager em provas nativas; decisão do título ligada à janela | Init/exit completos, serviços de runtime e restante da engine |
 | Check-save | Decisão original controlada; leitor/inspetor dos blocos principais, CRC e seleção redundante testados | Registros extras, estado do jogo e carga de partida real integrados ao launcher |
 | Gráficos/áudio | Camadas 2D estáticas e efeitos host | 3D, câmera, animações e áudio original |
@@ -51,3 +51,5 @@ As evidências detalhadas estão em [native-resources.md](native-resources.md),
 [native-graphics.md](native-graphics.md), [native-title-flow.md](native-title-flow.md)
 e [checksave-decision.md](checksave-decision.md). A validação principal independente
 está em [native-save-validation.md](native-save-validation.md).
+Mensagens e fonte estão em [native-text.md](native-text.md). A renderização de
+uma fala estática ainda não acrescenta uma área jogável à campanha validada.

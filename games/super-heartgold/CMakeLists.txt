@@ -40,7 +40,7 @@ add_subdirectory(engine)
 
 # Game data formats and policy are independent of SDL and the DS ABI.
 add_library(hg_game_data STATIC game/core/src/save_image.cpp game/core/src/save_selection.cpp
-    game/core/src/save_validation.cpp)
+    game/core/src/save_validation.cpp game/core/src/message_data.cpp)
 target_include_directories(hg_game_data PUBLIC game/core/include)
 target_link_libraries(hg_game_data PRIVATE hg_warnings)
 

@@ -34,6 +34,10 @@ conforme [native-graphics.md](native-graphics.md). Ainda faltam os serviços 3D 
 integração completa da engine à janela própria. A função de decisão original do
 título e seu gerenciador já estão conectados em um build privado opcional, com
 limites registrados em [native-title-flow.md](native-title-flow.md).
+O leitor dos blocos principais de save, a compressão LZ10/LZ11 e os decoders de
+mensagens/fontes também possuem provas nativas. Veja
+[native-save-validation.md](native-save-validation.md) e [native-text.md](native-text.md).
+O impressor de texto completo, a introdução e a carga de estado de jogo continuam pendentes.
 
 - Inventariar módulos e suas dependências no pin obrigatório.
 - Selecionar uma unidade real e pequena de lógica HeartGold, com decisão documentada sobre permissões.
