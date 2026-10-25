@@ -111,3 +111,24 @@ Este é um protótipo de apresentação de uma tela física, não a integração
 menus SINGLE_SCREEN de HGSS. Ainda faltam conteúdo do jogo, seleção automática
 quando necessária, coordenação com a interface e testes de entrada, redimensionamento
 e alta densidade de pixels. A opção ainda é configurada pelo arquivo INI.
+
+## Mapeamento de entrada isolado
+
+O protótipo agora utiliza `tools/reference_compat/single_screen_touch.h`.
+Ao aplicar o patch externo, copiar esse header autoral para
+`include/simulator/hg_single_screen_touch.h` na cópia da libntr.
+O mapeamento usa limites exclusivos: x=256 e y=192 nunca são produzidos.
+Tela oculta, botão solto, margens e dimensões vazias não produzem toque.
+Intermediários de 64 bits evitam overflow na subtração das coordenadas.
+
+`tools/probe_single_screen_touch.cpp` cobre 196608 posições visíveis e as mesmas
+posições com tela oculta, além de bordas, margens, botão solto, dimensão zero,
+extremos inteiros e viewport de um pixel. Passou em Linux com ASan/UBSan e em
+Windows/MinGW. A demo recompilada apresentou 120 quadros e encerrou com código
+zero. Esses testes verificam o mapeamento isolado; ainda falta injetar eventos
+reais de entrada e conferir os registros touch durante a execução do jogo.
+
+```sh
+g++ -std=c++20 -fsanitize=address,undefined tools/probe_single_screen_touch.cpp -o /tmp/hg-touch-test
+/tmp/hg-touch-test
+```

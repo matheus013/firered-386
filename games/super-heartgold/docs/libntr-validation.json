@@ -37,5 +37,12 @@
     ],
     "touch_input_tested": false,
     "hgss_menus_integrated": false
+  },
+  "single_screen_touch_mapping": {
+    "linux_asan_ubsan": "passed",
+    "windows_mingw": "passed",
+    "positions_per_visibility": 196608,
+    "runtime_event_injection": "not_run",
+    "rebuilt_demo_exit_code": 0
   }
 }
