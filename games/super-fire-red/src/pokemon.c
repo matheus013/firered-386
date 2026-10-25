@@ -5210,6 +5210,14 @@ static u8 GetNatureFromPersonality(u32 personality)
     return personality % NUM_NATURES;
 }
 
+// +1 if the nature raises the stat, -1 if it lowers it, 0 otherwise.
+s8 GetNatureStatEffect(u8 nature, u8 statIndex)
+{
+    if (nature >= NUM_NATURES || statIndex <= STAT_HP || statIndex > NUM_NATURE_STATS)
+        return 0;
+    return sNatureStatTable[nature][statIndex - 1];
+}
+
 u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
 {
     int i;
@@ -6146,7 +6154,11 @@ static s8 GetMonFlavorRelation(struct Pokemon *mon, u8 flavor)
 
 s8 GetFlavorRelationByPersonality(u32 personality, u8 flavor)
 {
-    u8 nature = GetNatureFromPersonality(personality);
+    return GetFlavorRelationByNature(GetNatureFromPersonality(personality), flavor);
+}
+
+s8 GetFlavorRelationByNature(u8 nature, u8 flavor)
+{
     return sPokeblockFlavorCompatibilityTable[nature * FLAVOR_COUNT + flavor];
 }
 

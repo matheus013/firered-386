@@ -2876,6 +2876,17 @@ index ed2af35..129e0ce 100644
  extern const u8 BattleScript_RunByUsingItem[];
  extern const u8 BattleScript_ActionWatchesCarefully[];
  extern const u8 BattleScript_ActionGetNear[];
+diff --git a/include/battle_util.h b/include/battle_util.h
+index fe19aac..97fd778 100644
+--- a/include/battle_util.h
++++ b/include/battle_util.h
+@@ -93,5 +93,6 @@ void ClearFuryCutterDestinyBondGrudge(u8 battlerId);
+ void HandleAction_RunBattleScript(void);
+ u8 GetMoveTarget(u16 move, u8 setTarget);
+ u8 IsMonDisobedient(void);
++u8 GetBattlerNature(u8 battlerId);
+ 
+ #endif // GUARD_BATTLE_UTIL_H
 diff --git a/include/constants/abilities.h b/include/constants/abilities.h
 index 4ad54c8..daba109 100644
 --- a/include/constants/abilities.h
@@ -3461,7 +3472,7 @@ index 77aed78..561e19b 100644
  void FieldUseFunc_CoinCase(u8 taskId);
  void FieldUseFunc_PowderJar(u8 taskId);
 diff --git a/include/pokemon.h b/include/pokemon.h
-index 414dc41..81ec196 100644
+index 414dc41..13569ff 100644
 --- a/include/pokemon.h
 +++ b/include/pokemon.h
 @@ -12,7 +12,7 @@ struct PokemonSubstruct0
@@ -3500,6 +3511,22 @@ index 414dc41..81ec196 100644
  extern const u8 gFacilityClassToPicIndex[];
  extern const u8 gFacilityClassToTrainerClass[];
  extern const struct SpriteTemplate gSpriteTemplates_Battlers[];
+@@ -369,6 +378,7 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
+ u8 GetItemEffectParamOffset(u16 itemId, u8 effectByte, u8 effectBit);
+ const u8 *Battle_PrintStatBoosterEffectMessage(u16 itemId);
+ u8 GetNature(struct Pokemon *mon);
++s8 GetNatureStatEffect(u8 nature, u8 statIndex);
+ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem);
+ u16 NationalPokedexNumToSpecies(u16 nationalNum);
+ u16 SpeciesToNationalPokedexNum(u16 species);
+@@ -403,6 +413,7 @@ const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u
+ bool32 IsHMMove2(u16 move);
+ bool8 IsMonSpriteNotFlipped(u16 species);
+ s8 GetFlavorRelationByPersonality(u32 personality, u8 flavor);
++s8 GetFlavorRelationByNature(u8 nature, u8 flavor);
+ bool8 IsTradedMon(struct Pokemon *mon);
+ bool8 IsOtherTrainer(u32 otId, u8 *otName);
+ void MonRestorePP(struct Pokemon *mon);
 diff --git a/ld_script.ld b/ld_script.ld
 index 9a4b450..1c3fc43 100644
 --- a/ld_script.ld
@@ -5971,7 +5998,7 @@ index 67f90a3..35aaedb 100644
 +        gBattlescriptCurrInstr += 5;
 +}
 diff --git a/src/battle_util.c b/src/battle_util.c
-index bb66a01..6acfc13 100644
+index bb66a01..5e583ea 100644
 --- a/src/battle_util.c
 +++ b/src/battle_util.c
 @@ -12,6 +12,7 @@
@@ -6133,7 +6160,31 @@ index bb66a01..6acfc13 100644
                  {
                      if (gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS)
                          gHitMarker |= HITMARKER_NO_PPDEDUCT;
-@@ -2490,6 +2537,9 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
+@@ -2451,6 +2498,14 @@ enum
+     ITEM_STATS_CHANGE,
+ };
+ 
++// Nature of the battler's party mon, including a nature set by the training editor.
++u8 GetBattlerNature(u8 battlerId)
++{
++    struct Pokemon *party = GetBattlerSide(battlerId) == B_SIDE_PLAYER ? gPlayerParty : gEnemyParty;
++
++    return GetNature(&party[gBattlerPartyIndexes[battlerId]]);
++}
++
+ #define TRY_EAT_CONFUSE_BERRY(flavor)                                                       \
+     if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 && !moveTurn)         \
+     {                                                                                       \
+@@ -2461,7 +2516,7 @@ enum
+         if (gBattleMons[battlerId].hp + gBattleMoveDamage > gBattleMons[battlerId].maxHP)   \
+             gBattleMoveDamage = gBattleMons[battlerId].maxHP - gBattleMons[battlerId].hp;   \
+         gBattleMoveDamage *= -1;                                                            \
+-        if (GetFlavorRelationByPersonality(gBattleMons[battlerId].personality, flavor) < 0) \
++        if (GetFlavorRelationByNature(GetBattlerNature(battlerId), flavor) < 0)             \
+             BattleScriptExecute(BattleScript_BerryConfuseHealEnd2);                         \
+         else                                                                                \
+             BattleScriptExecute(BattleScript_ItemHealHP_RemoveItem);                        \
+@@ -2490,6 +2545,9 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
      u8 battlerHoldEffectParam, atkHoldEffectParam, defHoldEffectParam;
      u16 atkItem, defItem;
  
@@ -77249,7 +77300,7 @@ index 7f3a881..c0f46cf 100644
      else
          noEffect = TRUE;
 diff --git a/src/pokemon.c b/src/pokemon.c
-index 66a5c3d..514ab2a 100644
+index 66a5c3d..c9701ab 100644
 --- a/src/pokemon.c
 +++ b/src/pokemon.c
 @@ -1,6 +1,8 @@
@@ -77692,7 +77743,22 @@ index 66a5c3d..514ab2a 100644
      return GetMonData(mon, MON_DATA_PERSONALITY, NULL) % NUM_NATURES;
  }
  
-@@ -5751,14 +5939,14 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
+@@ -5022,6 +5210,14 @@ static u8 GetNatureFromPersonality(u32 personality)
+     return personality % NUM_NATURES;
+ }
+ 
++// +1 if the nature raises the stat, -1 if it lowers it, 0 otherwise.
++s8 GetNatureStatEffect(u8 nature, u8 statIndex)
++{
++    if (nature >= NUM_NATURES || statIndex <= STAT_HP || statIndex > NUM_NATURE_STATS)
++        return 0;
++    return sNatureStatTable[nature][statIndex - 1];
++}
++
+ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
+ {
+     int i;
+@@ -5751,14 +5947,14 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
  
      for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
      {
@@ -77709,7 +77775,7 @@ index 66a5c3d..514ab2a 100644
          {
              for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID); j++)
                  ;
-@@ -5805,14 +5993,14 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
+@@ -5805,14 +6001,14 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
  
      for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
      {
@@ -77726,6 +77792,19 @@ index 66a5c3d..514ab2a 100644
          {
              for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID); j++)
                  ;
+@@ -5958,7 +6154,11 @@ static s8 GetMonFlavorRelation(struct Pokemon *mon, u8 flavor)
+ 
+ s8 GetFlavorRelationByPersonality(u32 personality, u8 flavor)
+ {
+-    u8 nature = GetNatureFromPersonality(personality);
++    return GetFlavorRelationByNature(GetNatureFromPersonality(personality), flavor);
++}
++
++s8 GetFlavorRelationByNature(u8 nature, u8 flavor)
++{
+     return sPokeblockFlavorCompatibilityTable[nature * FLAVOR_COUNT + flavor];
+ }
+ 
 diff --git a/src/pokemon_summary_screen.c b/src/pokemon_summary_screen.c
 index b3e3c77..a095c4b 100644
 --- a/src/pokemon_summary_screen.c
@@ -107373,7 +107452,7 @@ index 0000000..4746f3b
 +}
 diff --git a/src/modern_battle.c b/src/modern_battle.c
 new file mode 100644
-index 0000000..6538b0a
+index 0000000..2d46815
 --- /dev/null
 +++ b/src/modern_battle.c
 @@ -0,0 +1,827 @@
@@ -107928,7 +108007,7 @@ index 0000000..6538b0a
 +        heal = mon->maxHP / param;
 +        if (heal == 0)
 +            heal = 1;
-+        if (GetFlavorRelationByPersonality(mon->personality, holdEffect - HOLD_EFFECT_CONFUSE_SPICY) < 0)
++        if (GetFlavorRelationByNature(GetBattlerNature(atk), holdEffect - HOLD_EFFECT_CONFUSE_SPICY) < 0)
 +            mon->status2 |= STATUS2_CONFUSION_TURN(((Random()) % 4) + 2);
 +        break;
 +    case HOLD_EFFECT_CURE_PAR:
@@ -108831,10 +108910,10 @@ index 0000000..89da8e4
 +}
 diff --git a/src/training_screen.c b/src/training_screen.c
 new file mode 100644
-index 0000000..67ea709
+index 0000000..d22d275
 --- /dev/null
 +++ b/src/training_screen.c
-@@ -0,0 +1,405 @@
+@@ -0,0 +1,407 @@
 +#include "global.h"
 +#include "game_settings.h"
 +#include "trainer_pokemon_sprites.h"
@@ -109050,7 +109129,9 @@ index 0000000..67ea709
 +            PrintAt(92,45+i*12,11,10,T(sStatIds[i]));
 +            old=GetMonData(mon,MON_DATA_MAX_HP+i);
 +            NumberAt(147,45+i*12,old,11,10);
-+            NumberAt(192,45+i*12,PreviewStat(i),11,PreviewStat(i)>old?8:PreviewStat(i)<old?9:2);
++            // Color by the selected nature's own effect, not by the change from the current
++            // nature, so undoing the current nature does not look like part of the new one.
++            NumberAt(192,45+i*12,PreviewStat(i),11,GetNatureStatEffect(sTraining->nature,i)>0?8:GetNatureStatEffect(sTraining->nature,i)<0?9:2);
 +        }
 +        PrintAt(4,128,0,10,sTraining->page==PAGE_CONFIRM?T(UI_NOHEAL):T(UI_NATUREHELP));
 +        PrintAt(4,140,0,2,sTraining->page==PAGE_CONFIRM?T(UI_APPLY):T(UI_REVIEW));

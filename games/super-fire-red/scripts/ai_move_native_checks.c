@@ -1,4 +1,5 @@
 // Decision/damage tests in a disposable ROM; no campaign victory is simulated.
+#include "berry.h"
 IWRAM_DATA volatile u32 gDecisionDone, gDecisionChecks, gDecisionFailures;
 IWRAM_DATA volatile u32 gDecisionFailureBits;
 IWRAM_DATA volatile u32 gDecisionFirstFailure;
@@ -182,6 +183,22 @@ void RunAIDecisionChecks(void)
     gBattleWeather=0;gBattleMons[0].ability=ABILITY_THICK_FAT;
     b=CalculateBaseDamage(&gBattleMons[1],&gBattleMons[0],MOVE_FIRE_PUNCH,0,0,0,1,0);BenchExpect(b<a);
     BenchExpect(IS_MOVE_SPECIAL(MOVE_SHADOW_BALL) && IS_MOVE_PHYSICAL(MOVE_FIRE_PUNCH) && gBattleMoves[MOVE_GROWL].category==MOVE_CATEGORY_STATUS);
+    // A nature set by the training editor must drive battle checks (confusion berries)
+    // and the editor's stat colors, not the personality's nature.
+    {
+        struct Pokemon *mon=&gPlayerParty[gBattlerPartyIndexes[0]];
+        u8 own=GetMonData(mon,MON_DATA_PERSONALITY)%NUM_NATURES,edited=(own+1)%NUM_NATURES;
+        u16 tag=0xA500|edited,clear=0;
+        SetMonData(mon,MON_DATA_TRAINING_NATURE,&tag);
+        BenchExpect(GetBattlerNature(0)==edited);
+        BenchExpect(GetFlavorRelationByNature(GetBattlerNature(0),FLAVOR_SPICY)==GetFlavorRelationByNature(edited,FLAVOR_SPICY));
+        SetMonData(mon,MON_DATA_TRAINING_NATURE,&clear);
+        BenchExpect(GetBattlerNature(0)==own);
+        BenchExpect(GetFlavorRelationByNature(NATURE_MODEST,FLAVOR_SPICY)<0 && GetFlavorRelationByNature(NATURE_ADAMANT,FLAVOR_SPICY)>0);
+        BenchExpect(GetNatureStatEffect(NATURE_CALM,STAT_SPDEF)>0 && GetNatureStatEffect(NATURE_CALM,STAT_ATK)<0);
+        BenchExpect(GetNatureStatEffect(NATURE_CALM,STAT_DEF)==0 && GetNatureStatEffect(NATURE_CALM,STAT_SPEED)==0 && GetNatureStatEffect(NATURE_CALM,STAT_HP)==0);
+        BenchExpect(GetNatureStatEffect(NATURE_HARDY,STAT_ATK)==0);
+    }
     BenchGymPartyChecks();
     gDecisionDone=1;
 }
