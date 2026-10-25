@@ -72,3 +72,22 @@ esse requisito. Não substituir a base HGSS pelo jogo Platinum.
 
 A cópia externa agora contém apenas a correção local documentada. O teste RTC
 que exige checkout limpo deve usar outra cópia limpa no mesmo pin.
+
+## Captura visual e fechamento
+
+A ferramenta autoral `tools/probe_libntr_frames.c` intercepta a apresentação
+SDL2 no Linux, captura o framebuffer nos quadros 60 e 120 e envia o evento de
+fechar a janela. Compilar como biblioteca compartilhada com gcc -shared -fPIC,
+-I/usr/include/SDL2 -lSDL2 -ldl; executar a demo com LD_PRELOAD apontando para ela
+em um diretório temporário, sob timeout -k 3s 20s.
+
+Os quadros de 512x768 foram inspecionados: figura branca 3D sobre fundo preto,
+com movimento entre os quadros (diferença no retângulo 179,99–341,263).
+O evento SDL_WINDOWEVENT_CLOSE encerrou com código 0. O primeiro experimento
+com SDL_QUIT foi ignorado pelo loop upstream e precisou ser encerrado; isso
+fica registrado como limitação, não como teste de fechamento aprovado.
+
+O upstream só oferece layouts vertical, horizontal e large. Nenhum deles
+implementa o single screen solicitado. Preservar SINGLE_SCREEN nos fontes
+HGSS e adaptar composição, viewport e coordenadas de entrada será necessário.
+A imagem da demo confirma somente a base 3D, não menus ou batalhas de HGSS.
