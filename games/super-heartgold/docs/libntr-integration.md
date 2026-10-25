@@ -91,3 +91,23 @@ O upstream só oferece layouts vertical, horizontal e large. Nenhum deles
 implementa o single screen solicitado. Preservar SINGLE_SCREEN nos fontes
 HGSS e adaptar composição, viewport e coordenadas de entrada será necessário.
 A imagem da demo confirma somente a base 3D, não menus ou batalhas de HGSS.
+
+## Protótipo de apresentação em uma tela
+
+O patch local `tools/patches/libntr-single-screen-prototype.patch` acrescenta
+ScreenLayout=single ao parser e serializador. Usa um quad com seis vértices,
+aspecto 256:192 e janela inicial 512x384. SwapScreens seleciona a outra metade
+da textura composta. A tela superior não deve encaminhar cliques à tela touch
+oculta; a inferior usa o viewport inteiro. Essa política de entrada ainda não
+foi validada com eventos e não substitui a navegação por controle de HGSS.
+
+Testes Linux: tela superior capturada em 512x384, geometria visível e movimento
+entre quadros 60/120; seleção inferior preta como esperado para esta demo.
+Ambas as execuções encerraram com código zero. O resultado superior foi
+inspecionado visualmente. Os patches aplicam-se ao pin registrado; nenhum
+fonte externo é incorporado ao aplicativo de produção nesta etapa.
+
+Este é um protótipo de apresentação de uma tela física, não a integração dos
+menus SINGLE_SCREEN de HGSS. Ainda faltam conteúdo do jogo, seleção automática
+quando necessária, coordenação com a interface e testes de entrada, redimensionamento
+e alta densidade de pixels. A opção ainda é configurada pelo arquivo INI.

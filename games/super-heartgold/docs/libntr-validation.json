@@ -22,5 +22,20 @@
     263
   ],
   "window_close_exit_code": 0,
-  "sdl_quit_event": "ignored_by_upstream_demo_required_forced_termination"
+  "sdl_quit_event": "ignored_by_upstream_demo_required_forced_termination",
+  "single_screen_prototype": {
+    "top_size": [
+      512,
+      384
+    ],
+    "top_geometry_visible": true,
+    "motion_between_frames_60_120": true,
+    "bottom_selection_black_as_expected_for_demo": true,
+    "exit_codes": [
+      0,
+      0
+    ],
+    "touch_input_tested": false,
+    "hgss_menus_integrated": false
+  }
 }
