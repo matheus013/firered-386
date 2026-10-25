@@ -178,3 +178,27 @@ Esta prova cobre compatibilidade de headers e lógica de roteamento. Ainda
 falta ligar essas funções ao renderer real, conferir a composição dos dois
 motores e tratar a introdução que solicita twoScreenScene sem perder conteúdo.
 A campanha e seus menus ainda não executam no novo backend.
+
+## Roteamento HGSS no renderer real
+
+A demo privada agora liga SingleScreen_ShowSubEngine e os metadados originais
+HGSS ao registrador POWCNT real da libntr. O teste escalar anterior é separado.
+Com ScreenLayout=single e SwapScreens=true, a janela 512x384 mostra a tela
+física inferior. O motor principal desenha a figura branca 3D; o secundário
+recebe uma cor de fundo azul pela API GXS_LoadBGPltt.
+
+Primeira execução: quadro 60 com figura, quadro 120 totalmente azul após troca
+no quadro lógico 80. Segunda: troca para secundário no quadro lógico 40 e
+retorno ao principal no 80; capturas 60/120 confirmaram azul e figura branca,
+respectivamente. Ambas encerraram normalmente. A imagem azul foi inspecionada;
+os valores RGB e dimensões também foram conferidos programaticamente.
+
+`tools/prepare_hgss_display_demo.py` reproduz as duas unidades C da segunda
+execução, conferindo o hash HGSS e lendo a demo da revisão libntr fixada. Exige
+uma pasta de saída nova e não sobrescreve a dependência. Ligar main.c e
+hgss_display.c a nitrosdk_dep no build privado standalone. Os fontes gerados
+foram comparados com os efetivamente compilados: idênticos após normalizar
+quebras de linha. Nenhum fonte HGSS gerado foi incluído no Git.
+
+O caso valida troca e retorno de motor numa tela física, não conteúdo de jogo.
+Ainda faltam inicialização completa, overlays, recursos e menus de HGSS.

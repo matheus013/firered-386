@@ -51,5 +51,19 @@
     "original_source_sha256": "cab1ef384b3c232e9b47b76cabfca29e14eec0f57084d10f7429c71faadc2740",
     "register_storage": "host_scalar_in_test",
     "full_game": false
+  },
+  "hgss_renderer_routing": {
+    "linux": "passed",
+    "visible_physical_lcd": "bottom",
+    "window_size": [
+      512,
+      384
+    ],
+    "main_to_sub": "white_geometry_to_blue_backdrop",
+    "sub_to_main": "blue_backdrop_to_white_geometry",
+    "original_routing_function": true,
+    "real_libntr_register": true,
+    "normal_exit": true,
+    "gameplay": false
   }
 }
