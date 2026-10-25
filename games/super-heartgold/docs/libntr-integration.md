@@ -51,3 +51,24 @@ são temporários. Somente código de teste autoral fica neste repositório.
    depois comparar o serviço de conta com os testes ARM9 existentes.
 5. Usar a camada para introdução e primeira área, sem contabilizar a compilação
    da biblioteca como campanha portada.
+
+## Execução Linux e requisito single screen
+
+Teste posterior em Ubuntu/WSL2 com WSLg, Mesa llvmpipe e OpenGL 4.5:
+a demo original abortou em calculateClipMatrix. O memcpy copiava 64 bytes
+para um registro global escalar de quatro bytes; os outros registros são
+objetos independentes. O patch local tools/patches/libntr-clip-matrix.patch
+atribui cada um dos 16 valores ao registro correspondente, sem desativar as
+proteções do compilador. Após recompilar, GDB contou 120 chamadas a
+SDL_GL_SwapWindow sem crash. O depurador encerrou o processo nesse limite.
+Isso prova avanço do ciclo gráfico; ainda não é inspeção visual do cubo,
+teste de encerramento normal, áudio ou execução de HGSS.
+
+Single screen é requisito obrigatório da integração: preservar as adaptações
+SINGLE_SCREEN da base ClickingMaster e apresentar exploração, diálogos,
+menus, bolsa, equipe e comandos de batalha numa única tela, com controle
+utilizável sem depender de uma segunda tela. A demo upstream não comprova
+esse requisito. Não substituir a base HGSS pelo jogo Platinum.
+
+A cópia externa agora contém apenas a correção local documentada. O teste RTC
+que exige checkout limpo deve usar outra cópia limpa no mesmo pin.

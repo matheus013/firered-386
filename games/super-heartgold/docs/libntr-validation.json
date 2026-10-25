@@ -5,6 +5,10 @@
   "windows_full_build": "not_run",
   "linux_rtc_dates_passed": 36525,
   "windows_rtc_dates_passed": 36525,
-  "graphics_runtime": "not_run",
-  "game_integration": false
+  "graphics_runtime": "120_SDL_GL_SwapWindow_calls_after_local_patch_no_visual_assertion",
+  "game_integration": false,
+  "linux_environment": "Ubuntu WSL2 WSLg Mesa llvmpipe OpenGL 4.5",
+  "unpatched_demo": "SIGABRT buffer overflow calculateClipMatrix",
+  "patch": "tools/patches/libntr-clip-matrix.patch",
+  "single_screen_game_validation": "pending_required"
 }
