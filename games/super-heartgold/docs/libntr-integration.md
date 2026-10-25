@@ -152,3 +152,29 @@ GDB, definir LD_PRELOAD para input.so e carregar probe_libntr_input_gdb.py via
 -x. Usar timeout -k 3s 30s como limite externo. Não aplicar LD_PRELOAD ao GDB.
 O teste exige símbolos de depuração. Controle físico e menus HGSS permanecem
 fora do escopo validado.
+
+## Ponte com funções originais HGSS
+
+O global.h da base SINGLE_SCREEN mantém o motor principal na tela física
+inferior. SingleScreen_ShowSubEngine modifica o bit DSEL de POWCNT para levar
+o motor secundário à mesma tela. Portanto a integração HGSS deve apresentar
+a tela inferior; mostrar apenas a superior da demo não reproduz o contrato.
+SwapScreens do frontend e troca de motor do jogo são operações diferentes.
+
+`tools/verify_hgss_libntr_display.py` seleciona as funções originais de
+src/gf_gfx_planes.c depois de conferir seu SHA-256 e as compila contra headers
+libntr. O código original gerado permanece temporário, fora do repositório.
+O teste usa armazenamento escalar para POWCNT e percorre os 65536 estados:
+ShowSubEngine preserva todos os outros bits, IsSubEngineShown reflete DSEL,
+e os campos twoScreenScene, subEngineShown e battleMenu são atualizados.
+Linux ASan/UBSan passou. HandleSwapKey e efeitos sonoros não são incluídos.
+
+Reprodução:
+```sh
+python3 tools/verify_hgss_libntr_display.py --hgss /caminho/hgss --libntr /caminho/libntr --build /caminho/libntr-build
+```
+
+Esta prova cobre compatibilidade de headers e lógica de roteamento. Ainda
+falta ligar essas funções ao renderer real, conferir a composição dos dois
+motores e tratar a introdução que solicita twoScreenScene sem perder conteúdo.
+A campanha e seus menus ainda não executam no novo backend.

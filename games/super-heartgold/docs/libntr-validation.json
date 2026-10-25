@@ -44,5 +44,12 @@
     "positions_per_visibility": 196608,
     "runtime_event_injection": "passed_visible_center_press_release_and_hidden_press_release",
     "rebuilt_demo_exit_code": 0
+  },
+  "hgss_original_display_bridge": {
+    "register_states_tested": 65536,
+    "linux_asan_ubsan": "passed",
+    "original_source_sha256": "cab1ef384b3c232e9b47b76cabfca29e14eec0f57084d10f7429c71faadc2740",
+    "register_storage": "host_scalar_in_test",
+    "full_game": false
   }
 }
