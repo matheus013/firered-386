@@ -60,7 +60,7 @@ Esse teste não transforma uma unidade isolada em jogo completo.
 
 O [impressor C original privado](docs/native-text-flow.md) tem build opcional
 `HG_REFERENCE_TEXT_FLOW=ON`, com texto incremental, pausas e páginas na janela
-SDL. [38 inicializadores isolados](docs/newgame-dependency-audit.md) foram
+SDL. [39 inicializadores isolados](docs/newgame-dependency-audit.md) foram
 comparados com funções ARM9 originais. Ainda não existe uma nova partida ou área
 jogável integrada no port.
 Os [helpers do formato Pokémon](docs/pokemon-crypto.md) implementam XOR de
@@ -72,7 +72,9 @@ com contexto explícito, separados dos 26 blocos sem dependências externas.
 [Mailbox/Safari](docs/native-identity-init.md) acrescentam dois inicializadores
 com identidade e pré-limpeza. Os [blocos CRC](docs/native-crc-block-init.md),
 [SysInfo/RTC](docs/native-system-info-init.md) e
-[PCStorage](docs/native-pc-storage-init.md) também têm provas ARM.
+[PCStorage](docs/native-pc-storage-init.md) também têm provas ARM. O
+[FriendGroup](docs/native-friend-group-init.md) foi comparado; o vínculo
+ao save ativo ainda precisa ser integrado na engine host.
 O [SaveContext](docs/native-save-context.md)
 mantém os 42 blocos em memória estável e atualiza CRCs individuais; não cria
 uma partida ou arquivo de save completo.

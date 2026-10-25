@@ -273,6 +273,9 @@ O candidato Frontier desta rodada foi excluído por depender de estado global:
   explícitos para pré-clear, identidade e mensagens. Veja
   [Mailbox/Safari](native-identity-init.md) e
   [PCStorage](native-pc-storage-init.md).
+- FriendGroup (ID14) foi implementado como bytes de bloco isolados; o vínculo
+  do ponteiro `sFriendGroupSave` ao save ativo ainda é responsabilidade do host.
+  Veja [native-friend-group-init.md](native-friend-group-init.md).
 
 ## Blocos adicionais com contexto explícito
 
@@ -290,8 +293,9 @@ com identidade e pré-limpeza explícitas: 64 comparações ARM9 e 48 controles
 negativos passaram. Depois, seis [inicializadores com CRC](native-crc-block-init.md)
 passaram em 24 comparações de bloco e 652 atualizações CRC; [SysInfo](native-system-info-init.md)
 passou em 32 comparações com snapshot RTC explícito. [PCStorage](native-pc-storage-init.md)
-passou em comparação de 74492 bytes, com 540 BoxMons e 18 nomes. O total é 38
-inicializadores comparados diretamente ao ARM9; restam quatro blocos e toda a
+passou em comparação de 74492 bytes, com 540 BoxMons e 18 nomes. FriendGroup
+passou em quatro comparações de 264 bytes, com o ponteiro global conferido. O
+total é 39 blocos comparados diretamente ao ARM9; restam três blocos e toda a
 integração do boot.
 O [SaveContext](native-save-context.md) implementa o armazenamento estável e
 CRC real por bloco para a integração restante. Ele não executa os inicializadores

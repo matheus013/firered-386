@@ -19,7 +19,7 @@ validada na engine própria permanece em **0%: nenhuma área jogável foi integr
 | Código original | Scheduler, filesystem e overlay manager em provas nativas; decisão do título ligada à janela | Init/exit completos, serviços de runtime e restante da engine |
 | Check-save | Decisão original controlada; leitor/inspetor dos blocos principais, CRC e seleção redundante testados | Registros extras, estado do jogo e carga de partida real integrados ao launcher |
 | Gráficos/áudio | Camadas 2D estáticas e efeitos host | 3D, câmera, animações e áudio original |
-| Gameplay | 26 inicializadores sem contexto externo e 12 com dados/contexto explícitos; 38 foram comparados ao ARM9; ainda sem área jogável | Quatro blocos restantes, fluxo de nova partida, exploração, scripts, interação e batalhas |
+| Gameplay | 26 inicializadores sem contexto externo e 13 com dados/contexto explícitos; 39 foram comparados ao ARM9; ainda sem área jogável | Três blocos restantes, fluxo de nova partida, exploração, scripts, interação e batalhas |
 | Campanha/pós-jogo | Sem validação nativa integrada | Johto, Kanto e pós-jogo; Hoenn depois |
 
 A referência AOT híbrida é útil para observar o jogo original. Como ainda contém
@@ -64,6 +64,8 @@ mas o seed de boot e a ordem de consumo na campanha ainda não estão integrados
 As APIs de [Mailbox e Safari](native-identity-init.md) exigem identidade e
 pré-limpeza explícitas. Seis [inicializadores CRC](native-crc-block-init.md),
 [SysInfo com snapshot RTC](native-system-info-init.md) e
-[PCStorage](native-pc-storage-init.md) foram comparados ao ARM9. O
+[PCStorage](native-pc-storage-init.md) foram comparados ao ARM9. O bloco
+[FriendGroup](native-friend-group-init.md) também corresponde byte a byte; seu
+ponteiro global ativo ainda precisa de um dono explícito no host. O
 [SaveContext](native-save-context.md) oferece armazenamento estável; ainda não
 inicializa os 42 blocos nem gera um arquivo de save válido.
