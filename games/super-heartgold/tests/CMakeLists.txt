@@ -10,7 +10,10 @@ add_executable(hg_tests
     message_data_tests.cpp
     text_commands_tests.cpp
     newgame_blocks_tests.cpp
-    pokemon_crypto_tests.cpp)
+    pokemon_crypto_tests.cpp
+    random_tests.cpp
+    roamer_init_tests.cpp
+    game_stats_init_tests.cpp)
 
 target_link_libraries(hg_tests PRIVATE hg_engine hg_game_data hg_warnings)
 
@@ -28,6 +31,9 @@ add_test(NAME game.messages COMMAND hg_tests "messages:")
 add_test(NAME game.text_commands COMMAND hg_tests "text commands:")
 add_test(NAME game.newgame_blocks COMMAND hg_tests "newgame_blocks:")
 add_test(NAME game.pokemon_crypto COMMAND hg_tests "pokemon crypto:")
+add_test(NAME game.random COMMAND hg_tests "random:")
+add_test(NAME game.roamer_init COMMAND hg_tests "roamer_init:")
+add_test(NAME game.game_stats_init COMMAND hg_tests "game_stats_init:")
 
 add_executable(hg_save_selection_tests save_selection_tests.cpp)
 target_link_libraries(hg_save_selection_tests PRIVATE hg_game_data hg_warnings)

@@ -65,6 +65,10 @@ comparados com funções ARM9 originais. Ainda não existe uma nova partida ou
 área jogável integrada no port.
 Os [helpers do formato Pokémon](docs/pokemon-crypto.md) implementam XOR de
 segmentos e checksum, sem representar ainda registros Pokémon completos.
+Os [RNGs nativos](docs/native-random.md) também foram comparados ao original.
+[Roamers](docs/native-roamer-init.md) e
+[estatísticas](docs/native-game-stats-init.md) têm dois inicializadores adicionais
+com contexto explícito, separados dos 26 blocos sem dependências externas.
 
 ## Entrada e interface de teste
 

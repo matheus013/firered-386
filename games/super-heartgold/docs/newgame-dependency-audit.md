@@ -276,3 +276,13 @@ Os outros três candidatos desta rodada foram excluídos por dependências reais
 - PC Storage (ID41, grupo principal 1) carrega os nomes dos boxes do banco de
   mensagens 24 via NARC/heap. Essa carga precisa ser implementada com os recursos
   privados e limites corretos. Ignorá-la não reproduziria a inicialização.
+
+## Blocos adicionais com contexto explícito
+
+O conjunto acima conserva 26 blocos sem contexto externo. Outras duas APIs
+separadas foram implementadas: [Roamers, ID21](native-roamer-init.md), que consome
+exatamente duas palavras do MT do chamador, e
+[GameStats, ID16](native-game-stats-init.md), que recebe um contador de VBlank
+estável. Foram comparadas com o ARM9 original em 96 e 32 casos respectivamente.
+São 28 inicializadores isolados no total; faltam 14 e a integração do boot.
+Essa contagem não estima a porcentagem da campanha portada.

@@ -3,7 +3,7 @@
   "base_pin": "6984a3d67592157195940049be2e4bbbf933f9ff",
   "scope": "private_original_C_text_decision_with_host_pixels_and_partial_newgame_initializers",
   "original_text_functions_hash_checked": 9,
-  "linux_asan_ubsan_ctest_suites_passed": 20,
+  "linux_asan_ubsan_ctest_suites_passed": 23,
   "windows_private_cross_ctest_prior_commit_80228a2_suites_passed": 21,
   "latest_windows_private_cross_ctest": {
     "passed": 20,
@@ -11,7 +11,7 @@
     "same_text_printer_unit_suite_linux_asan_ubsan": "passed",
     "latest_windows_app_synthetic_pixel_tests": "passed including alignment, position and clipping"
   },
-  "windows_default_cross_ctest_suites_passed": 19,
+  "windows_default_cross_ctest_suites_passed": 22,
   "remote_windows_validation": {
     "commit": "975dbcfae76765d0d1af622608e982abe55048d6",
     "run": 40165913369,
@@ -35,6 +35,24 @@
   "decoded_corpus_tokens_roundtripped": 2055899,
   "newgame_raw_blocks_implemented": 26,
   "newgame_original_arm9_byte_comparisons_passed": 104,
+  "additional_context_explicit_initializers": {
+    "roamers_block_id": 21,
+    "roamers_arm9_comparisons_passed": 96,
+    "roamers_mt_calls_per_init": 2,
+    "game_stats_block_id": 16,
+    "game_stats_arm9_comparisons_passed": 32,
+    "game_stats_vblank_counter": "explicit_and_stable_during_init",
+    "total_isolated_initializers": 28,
+    "remaining_initializers": 14
+  },
+  "native_random_original_c_comparison": {
+    "lc_outputs": 660000,
+    "lc_states": 660000,
+    "mt_outputs": 660000,
+    "mt_default_seed_outputs": 2500,
+    "interleaved_stream_pairs": 10000,
+    "sanitizers": "asan_ubsan_passed"
+  },
   "pokemon_crypto_comparisons": {
     "encrypt": 768,
     "decrypt": 768,
