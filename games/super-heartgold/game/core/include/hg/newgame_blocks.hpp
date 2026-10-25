@@ -5,7 +5,7 @@
 
 namespace hg {
 
-// Thirteen raw DS-layout block initializers, before NewGame_InitSaveData's
+// Twenty-one raw DS-layout block initializers, before NewGame_InitSaveData's
 // money/position/record/flag edits. This is not a complete save or playable state.
 // Defaults are verified against the pinned SoulSilver USA ARM9 image only.
 struct PartialNewGameBlocks {
@@ -22,6 +22,14 @@ struct PartialNewGameBlocks {
     std::array<std::byte, 0xf8> gts;
     std::array<std::byte, 0x28> pokeathlon_friendship_records;
     std::array<std::byte, 0x8> follow_mon;
+    std::array<std::byte, 0x340> pokedex;
+    std::array<std::byte, 0x620> trainer_card;
+    std::array<std::byte, 0x8> plaza_survey;
+    std::array<std::byte, 0x1294> photo_album;
+    std::array<std::byte, 0xb80> pokeathlon;
+    std::array<std::byte, 0x80> apricorn_box;
+    std::array<std::byte, 0x134> pokewalker;
+    std::array<std::byte, 0xf00> trainer_house;
 };
 
 [[nodiscard]] PartialNewGameBlocks initialize_soulsilver_usa_partial_blocks();

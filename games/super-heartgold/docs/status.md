@@ -19,7 +19,7 @@ validada na engine própria permanece em **0%: nenhuma área jogável foi integr
 | Código original | Scheduler, filesystem e overlay manager em provas nativas; decisão do título ligada à janela | Init/exit completos, serviços de runtime e restante da engine |
 | Check-save | Decisão original controlada; leitor/inspetor dos blocos principais, CRC e seleção redundante testados | Registros extras, estado do jogo e carga de partida real integrados ao launcher |
 | Gráficos/áudio | Camadas 2D estáticas e efeitos host | 3D, câmera, animações e áudio original |
-| Gameplay | 13 inicializadores parciais de blocos comprovados; ainda sem área jogável | Outros 29 blocos, fluxo de nova partida, exploração, scripts, interação e batalhas |
+| Gameplay | 21 inicializadores parciais de blocos comprovados; ainda sem área jogável | Outros 21 blocos, fluxo de nova partida, exploração, scripts, interação e batalhas |
 | Campanha/pós-jogo | Sem validação nativa integrada | Johto, Kanto e pós-jogo; Hoenn depois |
 
 A referência AOT híbrida é útil para observar o jogo original. Como ainda contém
@@ -55,5 +55,5 @@ Mensagens e fonte estão em [native-text.md](native-text.md). A renderização d
 uma fala estática ainda não acrescenta uma área jogável à campanha validada.
 O novo [impressor privado](native-text-flow.md) executa texto incremental,
 pausas, confirmação e rolagem. Os
-[13 blocos parciais](newgame-dependency-audit.md) também não constituem uma
+[21 blocos parciais](newgame-dependency-audit.md) também não constituem uma
 partida: os outros inicializadores e o fluxo dos overlays continuam pendentes.

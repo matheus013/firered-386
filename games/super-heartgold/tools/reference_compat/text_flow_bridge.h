@@ -102,6 +102,12 @@ void HGText_CopyGlyph(Window *window, const u8 *data, u16 width, u16 height,
 u8 HGText_FontAttribute(u8 font, int attribute);
 u32 HGText_WindowWidth(Window *window);
 u32 HGText_WidthFirstLine(u8 font, const u16 *text, u32 spacing);
+/* Exact private GetStringWidthFirstLine; invokes the host callback with the
+ * original zero-based glyph index. Requires validated controls and EOS/LF.
+ * Preserves original u32 arithmetic, including empty-line underflow.
+ */
+u32 HGText_MeasureWidth(const u16 *text, u32 spacing);
+u32 HGText_GlyphWidthZeroBased(int glyph);
 void HGText_FillWindow(Window *window, u8 background);
 void HGText_ScrollWindow(Window *window, u8 direction, u8 distance, u8 fill);
 void HGText_PresentWindow(Window *window);

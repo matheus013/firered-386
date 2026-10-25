@@ -54,6 +54,44 @@ def main():
         assert first.count((128, 144, 160, 255)) == 0
         assert final.count((12, 16, 24, 255)) == 576
         assert final.count((128, 144, 160, 255)) == 576
+
+        def color_positions(colors, color):
+            return {(index % 1280, index // 1280)
+                    for index, pixel in enumerate(colors) if pixel == color}
+
+        # Infer the authorial window's screen origin/scale from the existing
+        # baseline, rather than duplicating the SDL viewport placement formula.
+        baseline = color_positions(first, (12, 16, 24, 255))
+        origin_x = min(x for x, _ in baseline)
+        origin_y = min(y for _, y in baseline)
+        glyph_width = max(x for x, _ in baseline) - origin_x + 1
+        glyph_height = max(y for _, y in baseline) - origin_y + 1
+        assert glyph_width == glyph_height and glyph_width % 8 == 0
+        scale = glyph_width // 8
+
+        def rectangle(x, y, width=8, height=8):
+            return {(origin_x + px, origin_y + py)
+                    for py in range(y * scale, (y + height) * scale)
+                    for px in range(x * scale, (x + width) * scale)}
+
+        # WidthFirstLine measures both 8px glyphs: 224px window, 16px line.
+        # Inspect both colors so an implementation positioning only the first
+        # glyph correctly cannot pass this regression.
+        for command, start_x in ((0x205, 104), (0x206, 208)):
+            aligned, _, _ = run([0xfffe, command, 0, 1, 2, 0xffff],
+                                frames=8, capture_at=6)
+            assert color_positions(aligned, (12, 16, 24, 255)) == rectangle(start_x, 0)
+            assert color_positions(aligned, (128, 144, 160, 255)) == rectangle(start_x + 8, 0)
+
+        # Explicit X/Y controls place the first pair at (4,16). The final glyph
+        # begins at (220,140), clipping to 4x4 within the 224x144 host window.
+        positioned = [0xfffe, 0x203, 1, 4, 0xfffe, 0x204, 1, 16, 1, 2,
+                      0xfffe, 0x203, 1, 220, 0xfffe, 0x204, 1, 140, 1, 0xffff]
+        clipped, _, _ = run(positioned, frames=14, capture_at=10)
+        expected_foreground = rectangle(4, 16) | rectangle(220, 140, 4, 4)
+        assert color_positions(clipped, (12, 16, 24, 255)) == expected_foreground
+        assert color_positions(clipped, (128, 144, 160, 255)) == rectangle(12, 16)
+
         # Capture-at is deterministic, and a second write must not replace it.
         repeat, _, _ = run([1, 2, 0xffff], frames=8, capture_at=2)
         assert repeat == final
@@ -81,7 +119,7 @@ def main():
         assert early.count((12, 16, 24, 255)) == 0
         assert late.count((12, 16, 24, 255)) == 576
         for invalid in ([0xfffe, 0x202, 1, 1, 0xffff], [0xfffe, 0x201, 1, 256, 0xffff],
-                        [1], [0xfffe, 0x201, 1, 0xffff]):
+                        [1], [0xfffe, 0x201, 1, 0xffff], [0xfffe, 0x205, 1, 1, 0xffff]):
             run(invalid, frames=2, success=False)
         run([1, 0xffff], frames=2, success=False, extra=['--title-flow'])
         run([1, 0xffff], frames=2, success=False, extra=['--title-resources', str(root)])
@@ -95,7 +133,7 @@ def main():
                                     capture_output=True, timeout=30)
             assert result.returncode != 0
             assert b'HG_REFERENCE_TEXT_FLOW' in result.stdout + result.stderr
-    print('PASS SDL original C text flow: progressive pixels, page clear, scroll, delay, input, Unicode and rejection')
+    print('PASS SDL original C text flow: progressive pixels, alignment, position/clipping, page clear, scroll, delay, input, Unicode and rejection')
 
 
 if __name__ == '__main__':

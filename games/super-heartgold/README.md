@@ -60,7 +60,7 @@ Esse teste não transforma uma unidade isolada em jogo completo.
 
 O [impressor C original privado](docs/native-text-flow.md) tem build opcional
 `HG_REFERENCE_TEXT_FLOW=ON`, com texto incremental, pausas e páginas na janela
-SDL. Os [13 inicializadores parciais](docs/newgame-dependency-audit.md) foram
+SDL. Os [21 inicializadores parciais](docs/newgame-dependency-audit.md) foram
 comparados com funções ARM9 originais. Ainda não existe uma nova partida ou
 área jogável integrada no port.
 

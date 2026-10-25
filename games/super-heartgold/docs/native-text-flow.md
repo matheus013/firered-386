@@ -1,7 +1,8 @@
 # Impressor original em execução nativa privada
 
 O build opcional `HG_REFERENCE_TEXT_FLOW=ON` executa o corpo original de
-`RenderText` e sete helpers de decisão como C compilado para x64. A preparação
+`RenderText`, sete helpers de decisão e a medição original de primeira linha
+como C compilado para x64. A preparação
 confere o SHA-256 do arquivo e de cada função na referência pinada. Os fontes
 selecionados ficam numa pasta de build fora do Git; não integram o executável
 público padrão. Não há CPU DS nesse caminho.
@@ -19,6 +20,8 @@ na função C. Nenhum hook lança exceções C++ através dessa fronteira.
 - Pausa `0201` com argumento de 0 a 255.
 - Limpeza de página `25BC` e `0207`; rolagem `25BD` e `0208`.
 - Ambas as variantes `FE06`: `FE00` para rolar e `FE01` para limpar.
+- Posição X/Y por `0203`/`0204`, centralização `0205` e alinhamento à direita
+  `0206`, com a função original de medição e espaçamento entre letras zero.
 - Espera automática de 100 incrementos, liberada na chamada seguinte, com
   confirmação antecipada opcional.
 - Limpeza e rolagem reais do buffer, incluindo passos de até quatro pixels.
@@ -30,10 +33,12 @@ não escrevem, e o papel de fundo escreve. A janela host recorta os desenhos.
 
 Seta e áudio são **pedidos observáveis**: o adaptador SDL mostra uma seta
 autoral, e o core conta pedidos do som de confirmação. Tiles/animacão originais
-da seta e reprodução sonora não foram portados. Touch, alinhamento, controles
+da seta e reprodução sonora não foram portados. Touch, controles
 de cor, callbacks suspensivos, expansão de variáveis e scheduler global de
 impressores ficam pendentes. Controles fora da lista são rejeitados antes da
 execução; não são ignorados para fabricar uma impressão bem-sucedida.
+Alinhamento combinado com `F0FD` é rejeitado: o helper original de largura não
+trata esse marcador como o impressor, e essa combinação ainda não foi portada.
 
 ## Compilar e executar
 

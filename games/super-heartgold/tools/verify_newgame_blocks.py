@@ -1,4 +1,4 @@
-"""Compare thirteen native partial block initializers with original ARM9 functions.
+"""Compare twenty-one native partial block initializers with original ARM9 functions.
 
 Private bounded investigation only: exact extracted ARM9 image, optional Unicorn,
 synthetic RAM, no game/save execution or writing. Compiles the actual authorial
@@ -24,7 +24,11 @@ BLOCKS = ((1, 0x2c, 'player_data'), (4, 0x44c, 'vars_flags'),
           (11, 0x20, 'link_battle_ruleset'), (17, 0x170, 'seal_case'),
           (18, 0x3ec, 'chatot'), (20, 0xe, 'special_ribbons'),
           (22, 0xf8, 'gts'), (29, 0x28, 'pokeathlon_friendship_records'),
-          (33, 0x8, 'follow_mon'))
+          (33, 0x8, 'follow_mon'), (6, 0x340, 'pokedex'),
+          (15, 0x620, 'trainer_card'), (32, 0x8, 'plaza_survey'),
+          (36, 0x1294, 'photo_album'), (37, 0xb80, 'pokeathlon'),
+          (38, 0x80, 'apricorn_box'), (39, 0x134, 'pokewalker'),
+          (40, 0xf00, 'trainer_house'))
 
 
 def native_bytes(cxx):
@@ -46,7 +50,15 @@ int main() {
                              std::span<const std::byte>(state.special_ribbons),
                              std::span<const std::byte>(state.gts),
                              std::span<const std::byte>(state.pokeathlon_friendship_records),
-                             std::span<const std::byte>(state.follow_mon)}) {
+                             std::span<const std::byte>(state.follow_mon),
+                             std::span<const std::byte>(state.pokedex),
+                             std::span<const std::byte>(state.trainer_card),
+                             std::span<const std::byte>(state.plaza_survey),
+                             std::span<const std::byte>(state.photo_album),
+                             std::span<const std::byte>(state.pokeathlon),
+                             std::span<const std::byte>(state.apricorn_box),
+                             std::span<const std::byte>(state.pokewalker),
+                             std::span<const std::byte>(state.trainer_house)}) {
         if (std::fwrite(block.data(), 1, block.size(), stdout) != block.size()) return 1;
     }
     return 0;
@@ -66,7 +78,7 @@ int main() {
 
 def prove(image, native):
     # Import only after verifying the exact supplied image.
-    from unicorn import Uc, UC_ARCH_ARM, UC_MODE_ARM
+    from unicorn import Uc, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_MEM_WRITE
     from unicorn.arm_const import UC_ARM_REG_R0, UC_ARM_REG_LR, UC_ARM_REG_SP, UC_ARM_REG_PC
 
     if len(native) != sum(size for _, size, _ in BLOCKS):
@@ -91,6 +103,14 @@ def prove(image, native):
             guards = bytes([0x3c]) * 16
             machine.mem_write(start - 16, guards + bytes([pattern]) * size + guards)
 
+            def check_write(_machine, _access, address, length, _value, _user):
+                in_block = start <= address and address + length <= start + size
+                in_stack = RAM + 0xe0000 <= address and address + length <= RAM + 0x100000
+                if not in_block and not in_stack:
+                    raise RuntimeError(f'Original initializer wrote outside its block/stack: block {index}')
+
+            machine.hook_add(UC_HOOK_MEM_WRITE, check_write)
+
             def call(address, argument):
                 machine.reg_write(UC_ARM_REG_R0, argument)
                 machine.reg_write(UC_ARM_REG_SP, RAM + 0xfff00)
@@ -111,8 +131,9 @@ def prove(image, native):
         results.append(dict(id=index, name=name, size=size, patterns_compared=4,
                             bytes_sha256=hashlib.sha256(expected).hexdigest()))
     return dict(image_sha256=IMAGE_SHA256, blocks=results,
-                scope='thirteen_raw_initializers_only_not_complete_newgame',
-                native_original_byte_comparison='passed')
+                scope='twenty_one_raw_initializers_only_not_complete_newgame',
+                native_original_byte_comparison='passed',
+                original_writes='limited_to_target_block_and_synthetic_stack')
 
 
 def main():

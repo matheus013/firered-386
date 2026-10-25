@@ -12,6 +12,9 @@ import urllib.request
 PIN = '6984a3d67592157195940049be2e4bbbf933f9ff'
 SOURCE = 'src/render_text.c'
 SHA256 = 'b5105ecb2b62d14081645c532e28018f22c41c6c937ee2fbd35f5bb0b2d11458'
+FONT_SOURCE = 'src/font_data.c'
+FONT_SHA256 = '308e5083177eb936e1eb342ea191e3accdcc46fcc58fbb0bdeb86eaa84773ce5'
+WIDTH_SHA256 = '3e68523efc8e0d246f2cbdb6f7ba0d521beded4c49a211bb8a44d1c79c6f0b79'
 FUNCTIONS = {
     'TextPrinter_ContinueInputHeld': 'e5ef250c8eb8f7cf7870a024e70dd9e15927225caef1b9f88cd1825ba8569c27',
     'TextPrinter_ContinueInputNew': '8d006605e2a00f7a05ed3efb5990ae0953325b0e5e02083e3fcb71188b467287',
@@ -56,11 +59,13 @@ PREAMBLE = r'''#include "text_flow_bridge.h"
 #define MsgArray_GetControlCode HGText_GetControlCode
 #define MsgArray_ControlCodeGetField HGText_ControlField
 #define MsgArray_SkipControlCode HGText_SkipControlCode
+#define GetStringWidthFirstLine HGText_SelectedWidthFirstLine
+struct FontData { u32 (*glyphWidthFunc)(struct FontData *font, int glyph); };
 '''
 
 
 def extract_function(source, name):
-    match = re.search(r'^(?:static\s+)?(?:void|BOOL|u8|RenderResult)\s+' + re.escape(name) + r'\([^;{}]*\)\s*\{', source, re.M)
+    match = re.search(r'^(?:static\s+)?(?:void|BOOL|u8|u32|RenderResult)\s+' + re.escape(name) + r'\([^;{}]*\)\s*\{', source, re.M)
     if match is None:
         raise ValueError(f'Missing selected text function: {name}')
     end = source.index('{', match.start()) + 1
@@ -73,21 +78,25 @@ def extract_function(source, name):
     return source[match.start():end]
 
 
+def load_pinned_source(destination, filename, source_path, expected):
+    original = destination / filename
+    if not original.exists() or hashlib.sha256(original.read_bytes()).hexdigest() != expected:
+        url = f'https://raw.githubusercontent.com/ClickingMaster/pokeheartgold-single-screen/{PIN}/{source_path}'
+        with urllib.request.urlopen(url, timeout=60) as response:
+            payload = response.read()
+        if hashlib.sha256(payload).hexdigest() != expected:
+            raise ValueError(f'Pinned original text source differs: {source_path}')
+        original.write_bytes(payload)
+    return original.read_text()
+
+
 def prepare(destination):
     destination = destination.resolve()
     project = Path(__file__).resolve().parents[1]
     if destination.is_relative_to(project) or any((p / '.git').exists() for p in (destination, *destination.parents)):
         raise ValueError('Original text sources require a private build folder outside Git')
     destination.mkdir(parents=True, exist_ok=True)
-    original = destination / 'render_text.c'
-    if not original.exists() or hashlib.sha256(original.read_bytes()).hexdigest() != SHA256:
-        url = f'https://raw.githubusercontent.com/ClickingMaster/pokeheartgold-single-screen/{PIN}/{SOURCE}'
-        with urllib.request.urlopen(url, timeout=60) as response:
-            payload = response.read()
-        if hashlib.sha256(payload).hexdigest() != SHA256:
-            raise ValueError('Pinned original text source differs')
-        original.write_bytes(payload)
-    source = original.read_text()
+    source = load_pinned_source(destination, 'render_text.c', SOURCE, SHA256)
     selected = []
     declarations = []
     for name, expected in FUNCTIONS.items():
@@ -96,9 +105,25 @@ def prepare(destination):
             raise ValueError(f'Selected text function differs: {name}')
         declarations.append(function[:function.index('{')].rstrip() + ';')
         selected.append(function)
+    font_source = load_pinned_source(destination, 'font_data.c', FONT_SOURCE, FONT_SHA256)
+    width_function = extract_function(font_source, 'GetStringWidthFirstLine')
+    if hashlib.sha256(width_function.encode()).hexdigest() != WIDTH_SHA256:
+        raise ValueError('Selected text width function differs')
+    declarations.append(width_function[:width_function.index('{')].rstrip() + ';')
+    selected.append(width_function)
     generated = PREAMBLE + '\n' + '\n'.join(declarations) + '\n\n'
     generated += '\n\n'.join(selected)
     generated += '\n\nRenderResult HGText_Run(TextPrinter *printer) { return RenderText(printer); }\n'
+    generated += '''
+static u32 HGText_WidthThunk(struct FontData *font, int glyph) {
+    (void)font;
+    return HGText_GlyphWidthZeroBased(glyph);
+}
+u32 HGText_MeasureWidth(const u16 *text, u32 spacing) {
+    struct FontData font = { HGText_WidthThunk };
+    return GetStringWidthFirstLine(&font, text, spacing);
+}
+'''
     (destination / 'text_decision.c').write_text(generated)
     print(f'Private exact original text decision prepared: {len(selected)} verified functions')
 

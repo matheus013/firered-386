@@ -14,6 +14,7 @@ struct Host {
     TextFlags flags{};
     HGTextInput input{};
     std::map<unsigned, hg::FontGlyph> glyphs;
+    std::map<int, u32> glyph_widths;
     const hg::FontGlyph* current_glyph{};
     GlyphInfo glyph_info{};
     std::vector<std::uint8_t> pixels;
@@ -41,6 +42,8 @@ void validate_controls(const std::vector<hg::TextToken>& tokens) {
         if (token.kind != hg::TextTokenKind::ExtendedControl) continue;
         const auto& args = token.arguments;
         if (token.command == 0x201 && args.size() == 1 && args[0] <= 255) continue;
+        if ((token.command == 0x203 || token.command == 0x204) && args.size() == 1) continue;
+        if ((token.command == 0x205 || token.command == 0x206) && args.empty()) continue;
         if ((token.command == 0x207 || token.command == 0x208) && args.empty()) continue;
         if (token.command == 0xfe06 && args.size() == 1 &&
             (args[0] == 0xfe00 || args[0] == 0xfe01)) continue;
@@ -116,9 +119,20 @@ void HGText_ScrollWindow(Window*, u8 direction, u8 distance, u8 color) {
     state.pixels_scrolled += distance;
 }
 void HGText_PresentWindow(Window*) { /* pixels() exposes the current authorial window. */ }
-u32 HGText_WidthFirstLine(u8, const u16*, u32) {
-    host().error = "Text alignment is not implemented";
-    return 0;
+u32 HGText_GlyphWidthZeroBased(int glyph) {
+    const auto found = host().glyph_widths.find(glyph);
+    if (found == host().glyph_widths.end()) {
+        host().error = "Width query requested an unvalidated glyph";
+        return 0;
+    }
+    return found->second;
+}
+u32 HGText_WidthFirstLine(u8 font, const u16* text, u32 spacing) {
+    if (font != 0 || spacing != 0) {
+        host().error = "Unsupported width query font/spacing";
+        return 0;
+    }
+    return HGText_MeasureWidth(text, spacing);
 }
 } // extern C
 
@@ -138,15 +152,31 @@ struct TextFlowSession::Impl {
             throw std::runtime_error("Text flow options exceed supported bounds");
         const auto tokens = tokenize_text_commands(text);
         validate_controls(tokens);
+        const bool alignment = std::any_of(tokens.begin(), tokens.end(), [](const auto& token) {
+            return token.kind == TextTokenKind::ExtendedControl &&
+                (token.command == 0x205 || token.command == 0x206);
+        });
+        if (alignment && std::any_of(tokens.begin(), tokens.end(), [](const auto& token) {
+                return token.kind == TextTokenKind::SkipOperand;
+            }))
+            throw std::runtime_error("Alignment with skipped operands is not supported");
         units.assign(text.begin(), text.end());
         NitroFont font(font_bytes);
         host_state.font_height = options.font_line_height;
         if (host_state.font_height < font.glyph(1).height ||
             host_state.font_height + options.line_spacing > 255)
             throw std::runtime_error("Text line height exceeds original counter");
-        for (const auto& token : tokens)
-            if (token.kind == TextTokenKind::Glyph)
+        for (const auto& token : tokens) {
+            if (token.kind == TextTokenKind::Glyph) {
                 host_state.glyphs.try_emplace(token.code, font.glyph(token.code));
+                host_state.glyph_widths.try_emplace(static_cast<int>(token.code) - 1,
+                    host_state.glyphs.at(token.code).width);
+            } else if (alignment && (token.kind == TextTokenKind::ClearPage || token.kind == TextTokenKind::Scroll)) {
+                // The original width helper treats these flow markers as glyphs;
+                // preserve its replacement-glyph measurement when available.
+                host_state.glyph_widths.try_emplace(static_cast<int>(token.code) - 1, font.glyph(token.code).width);
+            }
+        }
         host_state.width = options.width;
         host_state.height = options.height;
         host_state.pixels.resize(options.width * options.height);

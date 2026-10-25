@@ -127,9 +127,9 @@ Os offsets de disco e tamanhos dos 42 blocos já comprovados no ARM9 estão em
 [save-format-investigation.md](save-format-investigation.md). Essa comprovação
 dos tamanhos não comprova o conteúdo produzido pelos inicializadores.
 
-## Fatia implementada e prova de 13 blocos
+## Fatia implementada e prova de 21 blocos
 
-`initialize_soulsilver_usa_partial_blocks()` agora produz 13 blocos brutos com
+`initialize_soulsilver_usa_partial_blocks()` agora produz 21 blocos brutos com
 arrays de bytes, sem depender do layout de structs do compilador.
 Não aplica os efeitos posteriores de `NewGame_InitSaveData`, não inicia Oak e
 não cria um save. Os defaults foram limitados à edição SoulSilver USA verificada:
@@ -140,14 +140,16 @@ produção** num harness temporário, captura seus bytes e compara cada bloco
 com sua função inicializadora ARM9 original. Os ponteiros são obtidos da tabela
 original de 42 entradas, depois de verificar o hash completo da imagem.
 Cada função é executada com quatro preenchimentos diferentes em RAM sintética,
-guardas de 16 bytes antes/depois e limite de 100.000 instruções. Também é chamada
-a função de tamanho original correspondente. Nenhum save real é lido.
+guardas de 16 bytes antes/depois e limite de 100.000 instruções. Um hook também
+rejeita qualquer escrita fora do bloco-alvo e da stack sintética, incluindo
+escritas em globais. Também é chamada a função de tamanho original correspondente.
+Nenhum save real é lido.
 
 ```sh
 python3 tools/verify_newgame_blocks.py --arm9 /caminho/privado/rc_image_0.bin
 ```
 
-Prova executada localmente: as 52 comparações (13 blocos × 4 padrões) passaram,
+Prova executada localmente: as 84 comparações (21 blocos × 4 padrões) passaram,
 com guardas preservadas. SHA-256 da saída dos três blocos iniciais:
 
 | Bloco | Bytes | SHA-256 |
@@ -168,6 +170,33 @@ FriendGroup foi deliberadamente excluído desse conjunto: além dos bytes, seu
 inicializador registra um ponteiro global. Reproduzir apenas o buffer não
 implementaria todos os efeitos daquela função.
 
-Os cinco testes C++ passaram com GCC, `-Wall -Wextra -Werror`, AddressSanitizer
-e UndefinedBehaviorSanitizer. Essa é validação de 13 inicializadores parciais;
-os outros 29 blocos, a partida completa e a campanha continuam pendentes.
+Em 25/10/2026, mais oito blocos foram implementados e comprovados com o mesmo
+procedimento, incluindo o hook de escritas:
+
+| ID | Bloco | Tamanho bruto | Defaults não nulos relevantes |
+| --- | --- | --- | --- |
+| 6 | Pokédex | `0x340` | Magic `0xBEEFCAFE`, históricos de formas vazios |
+| 15 | Trainer Card | `0x620` | Oito valores de brilho `0x8C`; assinatura vazia |
+| 32 | Plaza Survey | `0x8` | ID da pesquisa `0xFFFFFFFF`; resposta zero |
+| 36 | Photo Album | `0x1294` | 36 fotos, dois nomes EOS por foto; nenhum Pokémon |
+| 37 | Pokéathlon | `0xB80` | 100 escores u16 `0xFFFF`, sem recorde |
+| 38 | Apricorn Box | `0x80` | Três nomes EOS nos registros de suco |
+| 39 | Pokéwalker | `0x134` | Cursos iniciais 0 e 1 desbloqueados; máscara 3 |
+| 40 | Trainer House | `0xF00` | Nomes EOS de dez treinadores e 60 Pokémon vazios |
+
+As fórmulas vêm dos fontes pinados `pokedex.c`, `save_trainer_card.c`,
+`save_plaza_survey.c`, `photo_album.c`, `pokeathlon/pokeathlon_save.c`,
+`apricorn_box.c`, `pokewalker.c` e `save_trainer_house.c`, junto de seus headers.
+As escritas são little-endian explícitas: não se compilam esses structs para
+deduzir offsets. Os históricos de Deoxys usam os bytes altos de dois words de
+flags da Pokédex; esses sentinelas não concedem capturas nem National Dex.
+
+Mailbox foi excluído deste conjunto: seu inicializador lê globais de idioma e
+versão e não limpa todos os bytes de padding. Na partida original, o clear da
+região dinâmica ocorre antes dessa chamada. Party e Daycare inicializam dados
+de Pokémon criptografados; exigem uma fatia própria para essa semântica.
+
+Os oito testes C++ passaram com GCC, `-Wall -Wextra -Werror`, AddressSanitizer
+e UndefinedBehaviorSanitizer. Essa é validação de 21 inicializadores parciais;
+os outros 21 blocos, a partida completa e a campanha continuam pendentes. A
+fração dos blocos inicializados não estima a conclusão do port ou da campanha.

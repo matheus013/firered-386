@@ -172,10 +172,41 @@ TEST_CASE("text flow: original opaque background and transparent ink compose acr
 TEST_CASE("text flow: unsupported controls malformed text and bad dimensions reject before C") {
     for (const auto& text : {Units{0xfffe,0x201,0,0xffff}, Units{0xfffe,0x201,1,256,0xffff},
              Units{0xfffe,0x202,1,1,0xffff}, Units{0xfffe,0xff00,1,1,0xffff},
-             Units{0xfffe,0x205,0,0xffff}, Units{0xf100,0xffff}, Units{1}})
+             Units{0xfffe,0x205,1,1,0xffff}, Units{0xf100,0xffff}, Units{1},
+             Units{0xfffe,0x205,0,0xf0fd,0,0xffff}})
         CHECK(rejects([&] { hg::TextFlowSession session(font(),text,immediate()); }));
     for (unsigned width : {0u,7u,257u}) {
         auto options = immediate(); options.width = width;
         CHECK(rejects([&] { hg::TextFlowSession session(font(),Units{1,0xffff},options); }));
     }
+}
+
+TEST_CASE("text flow: original first-line measurement centers and right aligns") {
+    auto options = immediate(); options.width = 32;
+    for (const auto command : {0x205u,0x206u}) {
+        hg::TextFlowSession session(font(),Units{0xfffe,static_cast<std::uint16_t>(command),0,
+            1,2,0xe000,1,0xffff},options);
+        const auto first = session.tick({});
+        CHECK_EQ(first.x,command == 0x205 ? 16u : 24u);
+        CHECK_EQ(session.pixels()[0],0);
+        CHECK_EQ(session.pixels()[command == 0x205 ? 8 : 16],1);
+        session.tick({}); const auto next_line = session.tick({});
+        CHECK_EQ(next_line.x,8u); CHECK_EQ(next_line.y,16u);
+    }
+    hg::TextFlowSession empty(font(),Units{0xfffe,0x205,0,0xffff},options);
+    CHECK(empty.tick({}).completed);
+    CHECK_EQ(empty.frame().x,16u);
+}
+
+TEST_CASE("text flow: position controls compose overlapping glyphs and clip safely") {
+    auto options = immediate(); options.width = 16;
+    hg::TextFlowSession session(font(),Units{1,0xfffe,0x203,1,4,2,
+        0xfffe,0x204,1,16,1,0xffff},options);
+    session.tick({}); session.tick({});
+    CHECK_EQ(session.pixels()[0],1); CHECK_EQ(session.pixels()[4],2);
+    const auto below = session.tick({});
+    CHECK_EQ(below.y,16u); CHECK_EQ(session.pixels()[16*16+12],1);
+    hg::TextFlowSession outside(font(),Units{0xfffe,0x203,1,65535,1,0xffff},options);
+    CHECK_EQ(outside.tick({}).glyphs_drawn,1u);
+    CHECK(std::all_of(outside.pixels().begin(), outside.pixels().end(), [](auto value) { return value == 0; }));
 }
