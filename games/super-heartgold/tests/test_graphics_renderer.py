@@ -75,12 +75,21 @@ def png_rgba(path):
     for y in range(height):
         mode, row = raw[y*(stride+1)], bytearray(raw[y*(stride+1)+1:(y+1)*(stride+1)])
         assert mode <= 4
-        for x in range(stride):
-            left,up,corner = row[x-4] if x>=4 else 0, previous[x], previous[x-4] if x>=4 else 0
-            prediction = left+up-corner
-            distances = [abs(prediction-left),abs(prediction-up),abs(prediction-corner)]
-            paeth = [left,up,corner][distances.index(min(distances))]
-            row[x] = (row[x]+[0,left,up,(left+up)//2,paeth][mode])&255
+        if mode == 1:
+            for x in range(4,stride):
+                row[x] = (row[x]+row[x-4])&255
+        elif mode == 2:
+            row = bytearray((value+up)&255 for value,up in zip(row,previous))
+        elif mode in (3,4):
+            for x in range(stride):
+                left,up,corner = row[x-4] if x>=4 else 0, previous[x], previous[x-4] if x>=4 else 0
+                if mode == 3:
+                    predictor = (left+up)//2
+                else:
+                    prediction = left+up-corner
+                    distances = [abs(prediction-left),abs(prediction-up),abs(prediction-corner)]
+                    predictor = [left,up,corner][distances.index(min(distances))]
+                row[x] = (row[x]+predictor)&255
         pixels += row
         previous = row
     return dimensions, pixels

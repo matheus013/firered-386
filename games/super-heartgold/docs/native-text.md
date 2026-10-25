@@ -31,6 +31,12 @@ diagnóstica autoral. Suporta glifos, EOS e LF (`0xE000`). Comandos, placeholder
 mensagens que exigem quebra automática ou paginação causam erro explícito. Eles
 continuam preservados no decoder bruto, para a integração futura do impressor.
 
+O adaptador privado do check-save também usa a fonte 1 e suporta páginas separadas
+por `0x25BC`, com confirmação por entrada de X. A confirmação da decisão original
+fica pendente até a última página. Esse suporte é específico do adaptador;
+o preview estático continua exigindo uma página. Detalhes em
+[checksave-decision.md](checksave-decision.md).
+
 ## Executar
 
 Importe os dois arquivos para uma pasta privada nova, fora do Git:

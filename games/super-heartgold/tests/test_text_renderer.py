@@ -51,7 +51,7 @@ def main():
         before = shot.read_bytes()
         result = subprocess.run(base+['--capture',str(shot)],capture_output=True,timeout=30)
         assert result.returncode != 0 and shot.read_bytes() == before, 'Existing Unicode capture overwritten'
-        for units in ([0xfffe,0x100,0,0xffff], [1]*40+[0xffff]):
+        for units in ([0xfffe,0x100,0,0xffff], [1]*40+[0xffff], [1,0x25bc,2,0xffff], [1,0x25bd,0xffff]):
             text_path.write_bytes(narc([message_bank(units)]))
             assert subprocess.run(base,capture_output=True,timeout=30).returncode != 0, 'Unsupported message accepted'
         text_path.write_bytes(narc([message_bank([1,0xffff])]))

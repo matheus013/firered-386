@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-24",
+  "base_pin": "6984a3d67592157195940049be2e4bbbf933f9ff",
+  "scope": "Original C title/check-save decisions with controlled flags and native static font pages",
+  "original_font_member": 1,
+  "original_message_bank": 229,
+  "prepared_messages": 6,
+  "original_clear_page_marker": "0x25BC",
+  "native_clear_page_message_ids": [2, 4],
+  "synthetic_windows_pixel_cases": [
+    {
+      "flags": 1,
+      "message": 0,
+      "page": 0
+    },
+    {
+      "flags": 2,
+      "message": 1,
+      "page": 0
+    },
+    {
+      "flags": 8,
+      "message": 5,
+      "page": 0
+    },
+    {
+      "flags": 4,
+      "message": 4,
+      "page": 0
+    },
+    {
+      "flags": 4,
+      "message": 4,
+      "page": 1
+    },
+    {
+      "flags": 16,
+      "message": 2,
+      "page": 0
+    },
+    {
+      "flags": 16,
+      "message": 2,
+      "page": 1
+    },
+    {
+      "flags": 32,
+      "message": 3,
+      "page": 0
+    }
+  ],
+  "synthetic_flags63_sequence": "passed 360 frames",
+  "synthetic_failure_cleanup": "passed",
+  "real_resources_window": {
+    "renderer": "direct3d11",
+    "flags": 1,
+    "frames": 180,
+    "capture_at": 119,
+    "exit_code": 0
+  },
+  "real_resources_flags63_sequence": "passed 360 frames with dummy/software",
+  "private_executable_sha256": "9bd6813852ca78020c74472c784a89a579fe9d8ab070ec88656d382d6602fb5b",
+  "own_executable_sha256": "2b57ba1bdb214822c09340447973e4467a457fa45e34af999d405373bb88b255",
+  "private_capture_sha256": "75cc2eec8d7a221bcbc9028a055aad027f86d5f53a2b35bd4924b3c2c14ec056",
+  "game_save_files_used": false,
+  "original_text_printer_ported": false,
+  "game_campaign_playable": false
+}

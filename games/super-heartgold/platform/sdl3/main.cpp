@@ -4,6 +4,7 @@
 #include "default_bindings.hpp"
 #include "title_preview.hpp"
 #include "message_preview.hpp"
+#include "preview_texture.hpp"
 #ifdef HG_PRIVATE_TITLE_FLOW
 #include "title_runtime.hpp"
 #include <memory>
@@ -41,6 +42,7 @@ struct Options {
     bool verbose = false;
     const char* title_resources = nullptr;
     const char* text_resources = nullptr;
+    const char* checksave_text = nullptr;
     unsigned message_bank = 219;
     unsigned message_id = 1;
     const char* capture = nullptr;
@@ -66,6 +68,7 @@ void print_usage()
             "  --text-resources PATH   teste estático de fonte e mensagem (dados locais)\n"
             "  --message-bank N        banco de texto (padrão: 219)\n"
             "  --message-id N          mensagem (padrão: 1)\n"
+            "  --checksave-text PATH   fonte/mensagens no check-save controlado (privado)\n"
             "  --capture PATH.png      captura um quadro; recusa arquivo existente\n"
             "  --capture-at N          quadro da captura (padrão: 0)\n"
             "  --title-flow            controlador C original (build privado opcional)\n"
@@ -82,6 +85,8 @@ bool parse_args(int argc, char** argv, Options& opt)
             opt.title_resources = argv[++i];
         } else if (arg == "--text-resources" && has_value) {
             opt.text_resources = argv[++i];
+        } else if (arg == "--checksave-text" && has_value) {
+            opt.checksave_text = argv[++i];
         } else if ((arg == "--message-bank" || arg == "--message-id") && has_value) {
             const std::string_view value = argv[++i];
             auto& destination = arg == "--message-bank" ? opt.message_bank : opt.message_id;
@@ -152,7 +157,10 @@ public:
         for (SDL_Gamepad* pad : m_gamepads) {
             SDL_CloseGamepad(pad);
         }
-        if (m_preview_texture) SDL_DestroyTexture(m_preview_texture);
+#ifdef HG_PRIVATE_TITLE_FLOW
+        m_title_runtime.reset();
+#endif
+        m_preview_texture.reset();
         if (m_renderer) SDL_DestroyRenderer(m_renderer);
         if (m_window) SDL_DestroyWindow(m_window);
         SDL_Quit();
@@ -160,6 +168,10 @@ public:
 
     bool init()
     {
+        if (m_opt.checksave_text && !m_opt.title_flow) {
+            hg::log_error("--checksave-text exige --title-flow");
+            return false;
+        }
         if (m_opt.text_resources && (m_opt.title_resources || m_opt.title_flow)) {
             hg::log_error("Escolha somente um teste de recursos: título ou texto");
             return false;
@@ -223,11 +235,7 @@ public:
                 const auto image = m_opt.text_resources ?
                     hg::sdl::load_message_preview(path_from_utf8(m_opt.text_resources),m_opt.message_bank,m_opt.message_id) :
                     hg::sdl::load_title_layers(path_from_utf8(m_opt.title_resources));
-                m_preview_texture=SDL_CreateTexture(m_renderer,SDL_PIXELFORMAT_RGBA32,SDL_TEXTUREACCESS_STATIC,
-                    static_cast<int>(image.width),static_cast<int>(image.height));
-                if (!m_preview_texture || !SDL_UpdateTexture(m_preview_texture,nullptr,image.pixels.data(),static_cast<int>(image.width*4)) ||
-                    !SDL_SetTextureScaleMode(m_preview_texture,SDL_SCALEMODE_NEAREST) || !SDL_SetTextureBlendMode(m_preview_texture,SDL_BLENDMODE_NONE))
-                    throw std::runtime_error(SDL_GetError());
+                m_preview_texture = hg::sdl::make_preview_texture(m_renderer,image);
                 if (m_opt.text_resources) {
                     SDL_SetWindowTitle(m_window,"Super HeartGold - native font/message test (no game logic)");
                     hg::log_info("Fonte e mensagem decodificadas no host; sem impressor original, scripts ou CPU DS");
@@ -242,7 +250,13 @@ public:
         }
 #ifdef HG_PRIVATE_TITLE_FLOW
         if (m_opt.title_flow) {
-            m_title_runtime=std::make_unique<hg::sdl::TitleRuntime>(m_opt.controlled_save_flags);
+            try {
+                m_title_runtime=std::make_unique<hg::sdl::TitleRuntime>(m_renderer,m_opt.controlled_save_flags,
+                    m_opt.checksave_text ? path_from_utf8(m_opt.checksave_text) : std::filesystem::path{});
+            } catch (const std::exception& error) {
+                hg::log_error(std::string("Falha no adaptador de título/texto: ")+error.what());
+                return false;
+            }
             SDL_SetWindowTitle(m_window,"Super HeartGold - original C title flow / host 2D (3D and audio pending)");
             hg::log_info("Controlador C original e OverlayManager nativos; 3D/áudio ausentes, destinos bloqueados");
             hg::log_info("Check-save: flags CONTROLADAS="+std::to_string(m_opt.controlled_save_flags)+"; nenhum save é carregado ou validado");
@@ -455,7 +469,7 @@ private:
         if (m_preview_texture) {
             const auto preview=hg::place_screens({w,std::max(0,h-32)},hg::ScreenLayout::Unified,m_opt.scale);
             const auto rectangle=to_frect(preview.top);
-            if (rectangle.w>0 && rectangle.h>0 && !SDL_RenderTexture(m_renderer,m_preview_texture,nullptr,&rectangle)) {
+            if (rectangle.w>0 && rectangle.h>0 && !SDL_RenderTexture(m_renderer,m_preview_texture.get(),nullptr,&rectangle)) {
                 hg::log_error(SDL_GetError()); m_capture_failed=true; m_running=false;
             }
 #ifdef HG_PRIVATE_TITLE_FLOW
@@ -532,7 +546,7 @@ private:
     hg::FixedStep m_clock;
     SDL_Window* m_window = nullptr;
     SDL_Renderer* m_renderer = nullptr;
-    SDL_Texture* m_preview_texture = nullptr;
+    hg::sdl::PreviewTexture m_preview_texture;
     std::vector<SDL_Gamepad*> m_gamepads;
     bool m_running = true;
     bool m_vsync = false;

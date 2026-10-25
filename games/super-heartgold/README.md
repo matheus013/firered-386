@@ -22,6 +22,7 @@ A pasta antiga `games/heart-gold` foi substituída por esta a pedido do usuário
 - Mensagens e fonte original decodificadas no host: 49.984 mensagens e 3.054 glifos comparados com funções originais. O teste `--text-resources` exibe uma fala estática com os pixels da fonte; ainda não executa a introdução. Veja [native-text.md](docs/native-text.md).
 - Build privado opcional conecta a função C original de decisão do título e o `OverlayManager` à janela: entrada SDL, transições e destino de menu validados. 3D/áudio e os destinos não foram portados. Veja [native-title-flow.md](docs/native-title-flow.md).
 - A decisão original de check-save também é executada com flags controladas; ainda não lê ou valida saves reais. Veja [checksave-decision.md](docs/checksave-decision.md).
+- O adaptador privado pode renderizar as mensagens originais do check-save com a fonte nativa e passagem de página por X (`--checksave-text`); as flags continuam controladas e o task original de impressão ainda não foi portado.
 - Leitor nativo independente e inspetor dos blocos principais de save: tamanho, rodapés, CRC e seleção das cópias redundantes verificados com fixtures e código original. Ainda não carrega a partida. Veja [native-save-validation.md](docs/native-save-validation.md).
 - O executável atual oferece a tela de infraestrutura e o teste opcional de gráficos 2D. **Ainda não contém a engine completa do jogo.**
 - ROM local SoulSilver USA identificada e inspecionada; nenhum payload foi incluído no repositório.

@@ -2,6 +2,7 @@ add_executable(SuperHeartGold
     main.cpp
     title_preview.cpp
     message_preview.cpp
+    preview_texture.cpp
     default_bindings.cpp)
 
 target_link_libraries(SuperHeartGold PRIVATE hg_engine hg_game_data hg_warnings SDL3::SDL3)

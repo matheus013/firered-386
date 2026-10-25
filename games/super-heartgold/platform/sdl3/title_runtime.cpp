@@ -1,6 +1,9 @@
 #include "title_runtime.hpp"
+#include "message_preview.hpp"
 #include <algorithm>
 #include <array>
+#include <stdexcept>
+#include <string>
 
 namespace hg::sdl {
 namespace {
@@ -33,6 +36,20 @@ const char* status_message(std::uint32_t message) {
     return message<descriptions.size() ? descriptions[message] : "UNKNOWN CONTROLLED MESSAGE";
 }
 }
+TitleRuntime::TitleRuntime(SDL_Renderer* renderer, std::uint32_t flags, const std::filesystem::path& text_root)
+    : controlled_flags_(flags) {
+    if (!text_root.empty()) {
+        for (unsigned id = 0; id < messages_.size(); ++id) {
+            try {
+                // Original CheckSavedataApp_PrintMessage uses font 1.
+                for (const auto& page : load_message_pages(text_root,229,id,1))
+                    messages_[id].push_back(make_preview_texture(renderer,page));
+            } catch (const std::exception& error) {
+                throw std::runtime_error("Check-save message " + std::to_string(id) + ": " + error.what());
+            }
+        }
+    }
+}
 void TitleRuntime::advance(const InputState& input,int steps) {
     std::uint32_t held{};
     for (const auto& key:keys) {
@@ -46,7 +63,17 @@ void TitleRuntime::advance(const InputState& input,int steps) {
         if (!frame_.completed) frame_=session_.tick(pressed,held);
         else if (frame_.destination==TitleSession::Menu) {
             if (!checksave_) checksave_=std::make_unique<ChecksaveSession>(controlled_flags_);
-            check_frame_=checksave_->tick((pressed&TitleSession::A)!=0);
+            bool acknowledge = (pressed&TitleSession::A)!=0;
+            if (acknowledge && check_frame_.awaiting_ack && active_message_ < messages_.size() &&
+                message_page_+1 < messages_[active_message_].size()) {
+                ++message_page_;
+                acknowledge = false; // Clear-page input is not the final message acknowledgement.
+            }
+            check_frame_=checksave_->tick(acknowledge);
+            if (check_frame_.message != active_message_) {
+                active_message_ = check_frame_.message;
+                message_page_ = 0;
+            }
         }
     }
 }
@@ -60,11 +87,16 @@ void TitleRuntime::draw(SDL_Renderer* renderer,const SDL_FRect& image,int height
     }
     SDL_SetRenderDrawColor(renderer,255,255,255,255);
     if (checksave_) {
+        const auto message = check_frame_.message;
+        const bool has_page = check_frame_.awaiting_ack && message < messages_.size() &&
+            message_page_ < messages_[message].size();
+        if (has_page && image.w > 0 && image.h > 0)
+            SDL_RenderTexture(renderer,messages_[message][message_page_].get(),nullptr,&image);
         SDL_RenderDebugText(renderer,8,static_cast<float>(std::max(0,height-24)),"CONTROLLED CHECK-SAVE DECISION - NO SAVE FILE LOADED");
         const char* status=check_frame_.completed ? "DECISION COMPLETE - MAIN MENU / REAL SAVE IO NOT PORTED" :
-            check_frame_.awaiting_ack ? "X: ACKNOWLEDGE FIXTURE MESSAGE" : "PROCESSING CONTROLLED STATUS FLAGS";
+            check_frame_.awaiting_ack ? "X: NEXT PAGE / ACKNOWLEDGE FIXTURE MESSAGE" : "PROCESSING CONTROLLED STATUS FLAGS";
         SDL_RenderDebugText(renderer,8,static_cast<float>(std::max(0,height-12)),status);
-        if (check_frame_.awaiting_ack && image.w>0 && image.h>0)
+        if (check_frame_.awaiting_ack && !has_page && image.w>0 && image.h>0)
             SDL_RenderDebugText(renderer,image.x+16,image.y+16,status_message(check_frame_.message));
         return;
     }

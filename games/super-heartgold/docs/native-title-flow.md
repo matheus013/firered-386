@@ -72,9 +72,9 @@ não são layouts compatíveis com memória DS ou com o módulo de título compl
 | `include/overlay_manager.h` | `8ef3461aae09ab92063af9ef29b6094e5b7a3b1f9e1dba83db4aeb068f2762bf` |
 
 Essa saída e seus fontes selecionados ficam fora dos artefatos públicos. A CI
-Windows tem um job separado que compila a decisão C e seus testes numa pasta
-temporária do runner, sem ROM, sem SDL e sem publicar fontes ou executáveis desse
-job. O build
+Windows tem um job separado que compila a decisão C, SDL e testes com recursos
+sintéticos numa pasta temporária do runner, sem ROM e sem publicar fontes ou
+executáveis desse job. O build
 padrão recusa `--title-flow` com uma mensagem explicando a opção necessária.
 
 ## Testes e Clean Code

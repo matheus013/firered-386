@@ -51,6 +51,11 @@ if(Python3_FOUND)
         add_test(NAME app.text_resources
             COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_text_renderer.py $<TARGET_FILE:SuperHeartGold>)
         set_tests_properties(app.text_resources PROPERTIES TIMEOUT 90)
+        if(HG_REFERENCE_TITLE_FLOW)
+            add_test(NAME app.title_text_resources
+                COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_title_text_renderer.py $<TARGET_FILE:SuperHeartGold>)
+            set_tests_properties(app.title_text_resources PROPERTIES TIMEOUT 180)
+        endif()
     endif()
     add_test(NAME tools.resource_import
         COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_resource_import.py)
