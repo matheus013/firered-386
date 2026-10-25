@@ -12,6 +12,12 @@ if(HG_REFERENCE_TITLE_FLOW)
     target_compile_definitions(SuperHeartGold PRIVATE HG_PRIVATE_TITLE_FLOW=1)
 endif()
 
+if(HG_REFERENCE_TEXT_FLOW)
+    target_sources(SuperHeartGold PRIVATE text_runtime.cpp)
+    target_link_libraries(SuperHeartGold PRIVATE hg_text_flow)
+    target_compile_definitions(SuperHeartGold PRIVATE HG_PRIVATE_TEXT_FLOW=1)
+endif()
+
 if(APPLE)
     set_target_properties(SuperHeartGold PROPERTIES
         MACOSX_BUNDLE TRUE

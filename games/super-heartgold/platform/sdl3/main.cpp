@@ -5,6 +5,9 @@
 #include "title_preview.hpp"
 #include "message_preview.hpp"
 #include "preview_texture.hpp"
+#ifdef HG_PRIVATE_TEXT_FLOW
+#include "text_runtime.hpp"
+#endif
 #ifdef HG_PRIVATE_TITLE_FLOW
 #include "title_runtime.hpp"
 #include <memory>
@@ -21,6 +24,7 @@
 #include <charconv>
 #include <algorithm>
 #include <filesystem>
+#include <memory>
 #include <stdexcept>
 #include <string>
 #include <string_view>
@@ -49,6 +53,8 @@ struct Options {
     long capture_at = 0;
     bool title_flow = false;
     bool title_flow_self_test = false;
+    bool text_flow = false;
+    bool text_flow_self_test = false;
     std::uint32_t controlled_save_flags = 0;
     hg::ScreenLayout layout = hg::ScreenLayout::Unified;
     hg::ScaleMode scale = hg::ScaleMode::Integer;
@@ -66,6 +72,8 @@ void print_usage()
             "  --verbose");
     SDL_Log("  --title-resources PATH  teste das camadas 2D de SoulSilver (dados locais)\n"
             "  --text-resources PATH   teste estático de fonte e mensagem (dados locais)\n"
+            "  --text-flow             impressor C original (build privado opcional)\n"
+            "  --text-flow-self-test   passo fixo e X automático para páginas\n"
             "  --message-bank N        banco de texto (padrão: 219)\n"
             "  --message-id N          mensagem (padrão: 1)\n"
             "  --checksave-text PATH   fonte/mensagens no check-save controlado (privado)\n"
@@ -87,6 +95,10 @@ bool parse_args(int argc, char** argv, Options& opt)
             opt.text_resources = argv[++i];
         } else if (arg == "--checksave-text" && has_value) {
             opt.checksave_text = argv[++i];
+        } else if (arg == "--text-flow" || arg == "--text-flow-self-test") {
+            opt.text_flow = true;
+            opt.text_flow_self_test = opt.text_flow_self_test || arg == "--text-flow-self-test";
+            if (opt.text_flow_self_test && opt.max_frames < 0) opt.max_frames = 360;
         } else if ((arg == "--message-bank" || arg == "--message-id") && has_value) {
             const std::string_view value = argv[++i];
             auto& destination = arg == "--message-bank" ? opt.message_bank : opt.message_id;
@@ -160,6 +172,9 @@ public:
 #ifdef HG_PRIVATE_TITLE_FLOW
         m_title_runtime.reset();
 #endif
+#ifdef HG_PRIVATE_TEXT_FLOW
+        m_text_runtime.reset();
+#endif
         m_preview_texture.reset();
         if (m_renderer) SDL_DestroyRenderer(m_renderer);
         if (m_window) SDL_DestroyWindow(m_window);
@@ -168,6 +183,16 @@ public:
 
     bool init()
     {
+        if (m_opt.text_flow && (!m_opt.text_resources || m_opt.title_resources || m_opt.title_flow || m_opt.checksave_text)) {
+            hg::log_error("--text-flow exige --text-resources e não pode combinar com o teste de título");
+            return false;
+        }
+#ifndef HG_PRIVATE_TEXT_FLOW
+        if (m_opt.text_flow) {
+            hg::log_error("Este build não inclui o impressor C privado; configure HG_REFERENCE_TEXT_FLOW=ON fora do Git");
+            return false;
+        }
+#endif
         if (m_opt.checksave_text && !m_opt.title_flow) {
             hg::log_error("--checksave-text exige --title-flow");
             return false;
@@ -230,7 +255,7 @@ public:
             hg::log_error("Captura já existe; escolha outro caminho");
             return false;
         }
-        if (m_opt.title_resources || m_opt.text_resources) {
+        if ((m_opt.title_resources || m_opt.text_resources) && !m_opt.text_flow) {
             try {
                 const auto image = m_opt.text_resources ?
                     hg::sdl::load_message_preview(path_from_utf8(m_opt.text_resources),m_opt.message_bank,m_opt.message_id) :
@@ -248,6 +273,19 @@ public:
                 return false;
             }
         }
+#ifdef HG_PRIVATE_TEXT_FLOW
+        if (m_opt.text_flow) {
+            try {
+                m_text_runtime = std::make_unique<hg::sdl::TextRuntime>(m_renderer,
+                    path_from_utf8(m_opt.text_resources), m_opt.message_bank, m_opt.message_id);
+            } catch (const std::exception& error) {
+                hg::log_error(std::string("Falha no impressor nativo: ") + error.what());
+                return false;
+            }
+            SDL_SetWindowTitle(m_window, "Super HeartGold - original C text flow / native pixels (diagnostic)");
+            hg::log_info("Impressor C original com janela de pixels host; diagnóstico, campanha e áudio pendentes");
+        }
+#endif
 #ifdef HG_PRIVATE_TITLE_FLOW
         if (m_opt.title_flow) {
             try {
@@ -277,14 +315,18 @@ public:
             const Uint64 frame_start = SDL_GetTicksNS();
             m_input.begin_frame();
             inject_title_test_key(frames);
+            inject_text_test_key(frames);
             poll_events();
             handle_meta_actions();
 
-            const int steps = m_opt.title_flow_self_test ? 1 : m_clock.advance(static_cast<std::int64_t>(frame_start - last));
+            const int steps = (m_opt.title_flow_self_test || m_opt.text_flow_self_test) ? 1 : m_clock.advance(static_cast<std::int64_t>(frame_start - last));
             last = frame_start;
             m_logic_steps += steps; // Source title decision is optional; campaign engine remains pending.
 #ifdef HG_PRIVATE_TITLE_FLOW
             if (m_title_runtime) m_title_runtime->advance(m_input,steps);
+#endif
+#ifdef HG_PRIVATE_TEXT_FLOW
+            if (m_text_runtime) m_text_runtime->advance(m_input, steps);
 #endif
 
             render(frames);
@@ -315,6 +357,16 @@ public:
             return complete ? EXIT_SUCCESS : EXIT_FAILURE;
         }
 #endif
+#ifdef HG_PRIVATE_TEXT_FLOW
+        if (m_opt.text_flow_self_test) {
+            const auto result = m_text_runtime->frame();
+            hg::log_info(std::string("Text flow self-test ") + (result.completed ? "PASS" : "FAILED") +
+                ": glyphs=" + std::to_string(result.glyphs_drawn) + ", clears=" +
+                std::to_string(result.clears) + ", scrolled=" + std::to_string(result.pixels_scrolled) +
+                "; diagnóstico, campanha não executada");
+            return result.completed ? EXIT_SUCCESS : EXIT_FAILURE;
+        }
+#endif
         if (m_opt.self_test) {
             return check_self_test(frames) ? EXIT_SUCCESS : EXIT_FAILURE;
         }
@@ -322,6 +374,17 @@ public:
     }
 
 private:
+    void inject_text_test_key(long frame) {
+        if (!m_opt.text_flow_self_test || frame < 120) return;
+        const auto phase = (frame - 120) % 12;
+        if (phase != 0 && phase != 1) return;
+        SDL_Event key{};
+        key.type = phase == 0 ? SDL_EVENT_KEY_DOWN : SDL_EVENT_KEY_UP;
+        key.key.key = SDLK_X;
+        key.key.down = phase == 0;
+        SDL_PushEvent(&key);
+    }
+
     void inject_title_test_key(long frame) {
         if (!m_opt.title_flow_self_test) return;
         const bool start=frame==40 || frame==41;
@@ -466,6 +529,16 @@ private:
         SDL_SetRenderDrawColor(m_renderer, 12, 12, 16, 255);
         SDL_RenderClear(m_renderer);
 
+#ifdef HG_PRIVATE_TEXT_FLOW
+        if (m_text_runtime) {
+            const auto preview = hg::place_screens({w, std::max(0, h - 32)}, hg::ScreenLayout::Unified, m_opt.scale);
+            m_text_runtime->draw(m_renderer, to_frect(preview.top), h);
+            capture_frame(frame);
+            SDL_RenderPresent(m_renderer);
+            return;
+        }
+#endif
+
         if (m_preview_texture) {
             const auto preview=hg::place_screens({w,std::max(0,h-32)},hg::ScreenLayout::Unified,m_opt.scale);
             const auto rectangle=to_frect(preview.top);
@@ -558,6 +631,9 @@ private:
 #ifdef HG_PRIVATE_TITLE_FLOW
     std::unique_ptr<hg::sdl::TitleRuntime> m_title_runtime;
 #endif
+#ifdef HG_PRIVATE_TEXT_FLOW
+    std::unique_ptr<hg::sdl::TextRuntime> m_text_runtime;
+#endif
 };
 
 } // namespace
@@ -571,9 +647,12 @@ int main(int argc, char** argv)
     hg::set_log_level(opt.verbose ? hg::LogLevel::Debug : hg::LogLevel::Info);
     hg::log_info("Super HeartGold 0.1.0 iniciando");
 
-    App app(opt);
-    if (!app.init()) {
+    try {
+        App app(opt);
+        if (!app.init()) return EXIT_FAILURE;
+        return app.run();
+    } catch (const std::exception& error) {
+        hg::log_error(std::string("Execução nativa interrompida: ") + error.what());
         return EXIT_FAILURE;
     }
-    return app.run();
 }

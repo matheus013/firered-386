@@ -58,6 +58,12 @@ Para compilar a prova do scheduler C original, use uma pasta de build **fora do 
 `hg_reference_tasks.exe` valida prioridade, capacidade, callbacks, remoção e reutilização; não inclui ROM, SDK ou emulador.
 Esse teste não transforma uma unidade isolada em jogo completo.
 
+O [impressor C original privado](docs/native-text-flow.md) tem build opcional
+`HG_REFERENCE_TEXT_FLOW=ON`, com texto incremental, pausas e páginas na janela
+SDL. Os [13 inicializadores parciais](docs/newgame-dependency-audit.md) foram
+comparados com funções ARM9 originais. Ainda não existe uma nova partida ou
+área jogável integrada no port.
+
 ## Entrada e interface de teste
 
 Setas: direção; X/Z: A/B; S/A: X/Y; Q/W: L/R; Enter: Start; Backspace: Select.

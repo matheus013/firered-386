@@ -86,3 +86,9 @@ sintéticas autorais e confere os pixels do executável real.
 Ainda faltam formatação de variáveis, comandos de impressão, paginação, animação
 de texto e ligação desses serviços aos overlays do jogo. Exibir uma fala do Oak
 não significa que o controlador da introdução ou a campanha já foram portados.
+
+Avanço posterior: o [impressor privado original](native-text-flow.md) agora
+executa o subconjunto incremental com pausa, confirmação, limpeza e rolagem.
+O preview estático documentado acima conserva seus limites; o modo novo exige
+build opcional separado. O [tokenizer](text-command-corpus.md) passou roundtrip
+em todos os bancos privados e impede dividir argumentos como páginas.

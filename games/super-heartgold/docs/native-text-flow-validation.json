@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-25",
+  "base_pin": "6984a3d67592157195940049be2e4bbbf933f9ff",
+  "scope": "private_original_C_text_decision_with_host_pixels_and_partial_newgame_initializers",
+  "original_text_functions_hash_checked": 8,
+  "linux_asan_ubsan_ctest_suites_passed": 19,
+  "windows_private_cross_ctest_suites_passed": 21,
+  "windows_default_cross_ctest_suites_passed": 18,
+  "windows_synthetic_text_flow_renderer": "passed",
+  "windows_existing_title_checksave_text_renderer": "passed_all_six_messages",
+  "windows_public_build_rejects_private_text_mode": true,
+  "original_resource_test": {
+    "bank": 219,
+    "message": 1,
+    "glyphs_printed": 64,
+    "page_clears": 3,
+    "dummy_frames": 900,
+    "direct3d11_frames": 360,
+    "completed": true
+  },
+  "decoded_corpus_messages_roundtripped": 49984,
+  "decoded_corpus_tokens_roundtripped": 2055899,
+  "newgame_raw_blocks_implemented": 13,
+  "newgame_original_arm9_byte_comparisons_passed": 52,
+  "private_windows_executable_sha256": "02ab57e5e962",
+  "private_windows_executable_hash_is_prefix": true,
+  "save_files_used_or_written": false,
+  "original_payload_published": false,
+  "complete_newgame_implemented": false,
+  "campaign_playable": false
+}

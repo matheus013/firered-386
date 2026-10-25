@@ -21,6 +21,7 @@ option(HG_BUILD_TESTS "Compila os testes unitários" ON)
 option(HG_REFERENCE_TASK_PROBE "Private probe of pinned original C task code (not distributed)" OFF)
 option(HG_REFERENCE_FILESYSTEM_PROBE "Private native resource module probe (not distributed)" OFF)
 option(HG_REFERENCE_TITLE_FLOW "Private original title decision flow (2D host services only)" OFF)
+option(HG_REFERENCE_TEXT_FLOW "Private original text printer decision flow (host pixel window)" OFF)
 option(HG_FETCH_SDL3 "Baixa e compila o SDL3 estático em vez de usar o instalado" ON)
 
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
@@ -40,7 +41,8 @@ add_subdirectory(engine)
 
 # Game data formats and policy are independent of SDL and the DS ABI.
 add_library(hg_game_data STATIC game/core/src/save_image.cpp game/core/src/save_selection.cpp
-    game/core/src/save_validation.cpp game/core/src/message_data.cpp)
+    game/core/src/save_validation.cpp game/core/src/message_data.cpp
+    game/core/src/text_commands.cpp game/core/src/newgame_blocks.cpp)
 target_include_directories(hg_game_data PUBLIC game/core/include)
 target_link_libraries(hg_game_data PRIVATE hg_warnings)
 
@@ -73,6 +75,23 @@ if(HG_REFERENCE_TITLE_FLOW)
     target_link_libraries(hg_checksave_flow PRIVATE hg_warnings)
 endif()
 
+if(HG_REFERENCE_TEXT_FLOW)
+    find_package(Python3 REQUIRED COMPONENTS Interpreter)
+    set(HG_TEXT_SOURCE_DIR "${PROJECT_BINARY_DIR}/private-reference-text")
+    execute_process(COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/prepare_text_flow.py" "${HG_TEXT_SOURCE_DIR}"
+        RESULT_VARIABLE HG_TEXT_PREPARE_RESULT)
+    if(NOT HG_TEXT_PREPARE_RESULT EQUAL 0)
+        message(FATAL_ERROR "Private text printer source preparation failed")
+    endif()
+    add_library(hg_text_flow STATIC game/core/src/text_flow_session.cpp "${HG_TEXT_SOURCE_DIR}/text_decision.c")
+    target_include_directories(hg_text_flow PUBLIC game/core/include PRIVATE tools/reference_compat)
+    target_link_libraries(hg_text_flow PUBLIC hg_engine hg_game_data PRIVATE hg_warnings)
+    if(NOT MSVC)
+        set_source_files_properties("${HG_TEXT_SOURCE_DIR}/text_decision.c" PROPERTIES
+            COMPILE_OPTIONS "-Wno-unknown-pragmas;-Wno-unused-parameter")
+    endif()
+endif()
+
 if(HG_BUILD_APP)
     if(HG_FETCH_SDL3)
         include(FetchContent)
@@ -93,6 +112,11 @@ endif()
 if(HG_BUILD_TESTS)
     enable_testing()
     add_subdirectory(tests)
+    if(HG_REFERENCE_TEXT_FLOW)
+        add_executable(hg_text_flow_tests tests/main.cpp tests/text_flow_session_tests.cpp)
+        target_link_libraries(hg_text_flow_tests PRIVATE hg_text_flow hg_warnings)
+        add_test(NAME reference.text_printer_native COMMAND hg_text_flow_tests)
+    endif()
     if(HG_REFERENCE_TITLE_FLOW)
         add_executable(hg_title_flow_tests tests/title_session_tests.cpp)
         target_link_libraries(hg_title_flow_tests PRIVATE hg_title_flow hg_warnings)

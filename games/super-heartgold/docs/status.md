@@ -15,11 +15,11 @@ validada na engine própria permanece em **0%: nenhuma área jogável foi integr
 | Área | Validado | Pendente principal |
 |---|---|---|
 | Plataforma Windows | C++20, SDL3, x64, viewport, entrada, clock, CI | Testes extensos de dispositivos e distribuição |
-| Recursos | Importação privada, arquivos host, NARC, NCGR/NCLR/NSCR, LZ10/LZ11, mensagens e fonte própria de HG/SS | Impressão de texto completa, sprites, modelos e animações |
+| Recursos | Importação privada, arquivos host, NARC, NCGR/NCLR/NSCR, LZ10/LZ11, mensagens, fontes e impressor C incremental privado | Comandos restantes de texto, sprites, modelos e animações |
 | Código original | Scheduler, filesystem e overlay manager em provas nativas; decisão do título ligada à janela | Init/exit completos, serviços de runtime e restante da engine |
 | Check-save | Decisão original controlada; leitor/inspetor dos blocos principais, CRC e seleção redundante testados | Registros extras, estado do jogo e carga de partida real integrados ao launcher |
 | Gráficos/áudio | Camadas 2D estáticas e efeitos host | 3D, câmera, animações e áudio original |
-| Gameplay | Ainda sem integração na engine própria | Nova partida, exploração, scripts, interação, batalhas, equipe e bolsa |
+| Gameplay | 13 inicializadores parciais de blocos comprovados; ainda sem área jogável | Outros 29 blocos, fluxo de nova partida, exploração, scripts, interação e batalhas |
 | Campanha/pós-jogo | Sem validação nativa integrada | Johto, Kanto e pós-jogo; Hoenn depois |
 
 A referência AOT híbrida é útil para observar o jogo original. Como ainda contém
@@ -53,3 +53,7 @@ e [checksave-decision.md](checksave-decision.md). A validação principal indepe
 está em [native-save-validation.md](native-save-validation.md).
 Mensagens e fonte estão em [native-text.md](native-text.md). A renderização de
 uma fala estática ainda não acrescenta uma área jogável à campanha validada.
+O novo [impressor privado](native-text-flow.md) executa texto incremental,
+pausas, confirmação e rolagem. Os
+[13 blocos parciais](newgame-dependency-audit.md) também não constituem uma
+partida: os outros inicializadores e o fluxo dos overlays continuam pendentes.

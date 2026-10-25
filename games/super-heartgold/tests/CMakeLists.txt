@@ -7,7 +7,9 @@ add_executable(hg_tests
     font_tests.cpp
     save_image_tests.cpp
     save_validation_tests.cpp
-    message_data_tests.cpp)
+    message_data_tests.cpp
+    text_commands_tests.cpp
+    newgame_blocks_tests.cpp)
 
 target_link_libraries(hg_tests PRIVATE hg_engine hg_game_data hg_warnings)
 
@@ -22,6 +24,8 @@ add_test(NAME engine.font COMMAND hg_tests "font:")
 add_test(NAME game.save_image COMMAND hg_tests "save_image:")
 add_test(NAME game.save_validation COMMAND hg_tests "save_validation:")
 add_test(NAME game.messages COMMAND hg_tests "messages:")
+add_test(NAME game.text_commands COMMAND hg_tests "text commands:")
+add_test(NAME game.newgame_blocks COMMAND hg_tests "newgame_blocks:")
 
 add_executable(hg_save_selection_tests save_selection_tests.cpp)
 target_link_libraries(hg_save_selection_tests PRIVATE hg_game_data hg_warnings)
@@ -51,6 +55,11 @@ if(Python3_FOUND)
         add_test(NAME app.text_resources
             COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_text_renderer.py $<TARGET_FILE:SuperHeartGold>)
         set_tests_properties(app.text_resources PROPERTIES TIMEOUT 90)
+        if(HG_REFERENCE_TEXT_FLOW)
+            add_test(NAME app.text_flow_resources
+                COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_text_flow_renderer.py $<TARGET_FILE:SuperHeartGold>)
+            set_tests_properties(app.text_flow_resources PROPERTIES TIMEOUT 180)
+        endif()
         if(HG_REFERENCE_TITLE_FLOW)
             add_test(NAME app.title_text_resources
                 COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_title_text_renderer.py $<TARGET_FILE:SuperHeartGold>)

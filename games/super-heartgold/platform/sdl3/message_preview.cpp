@@ -1,5 +1,6 @@
 #include "message_preview.hpp"
 #include "hg/message_data.hpp"
+#include "hg/text_commands.hpp"
 #include "hg/nitro_font.hpp"
 #include "hg/resource_store.hpp"
 
@@ -20,7 +21,7 @@ void pixel(RgbaImage& image, unsigned x, unsigned y, const std::array<std::uint8
     const auto at = (y*image.width+x)*4;
     for (unsigned channel = 0; channel < 4; ++channel) image.pixels[at+channel] = color[channel];
 }
-RgbaImage render_page(const NitroFont& font, std::span<const std::uint16_t> units) {
+RgbaImage render_page(const NitroFont& font, std::span<const TextToken> tokens) {
     RgbaImage image{256,192,std::vector<std::uint8_t>(256*192*4)};
     for (unsigned y = 0; y < image.height; ++y) for (unsigned x = 0; x < image.width; ++x) {
         const bool panel = x >= 8 && x < 248 && y >= 8 && y < 184;
@@ -32,12 +33,11 @@ RgbaImage render_page(const NitroFont& font, std::span<const std::uint16_t> unit
         {0,0,0,0}, {12,16,24,255}, {128,144,160,255}, {248,250,252,255}
     }};
     unsigned x = 16, y = 20;
-    for (const auto code : units) {
-        if (code == 0xffff) break;
-        if (code == 0xe000) { x = 16; y += 18; continue; }
-        if (code == 0xfffe || code == 0x25bd || code == 0xf0fd)
-            throw std::runtime_error("Text commands/placeholders/scroll are not supported by this preview");
-        const auto glyph = font.glyph(code);
+    for (const auto& token : tokens) {
+        if (token.kind == TextTokenKind::LineFeed) { x = 16; y += 18; continue; }
+        if (token.kind != TextTokenKind::Glyph)
+            throw std::runtime_error("Unexpected token in static text page");
+        const auto glyph = font.glyph(token.code);
         if (x + glyph.width > 240 || y + glyph.height > 176)
             throw std::runtime_error("Message exceeds static preview; paging/wrapping is not ported");
         for (unsigned gy = 0; gy < glyph.height; ++gy) for (unsigned gx = 0; gx < glyph.width; ++gx) {
@@ -56,15 +56,23 @@ std::vector<RgbaImage> load_message_pages(const std::filesystem::path& root, uns
     const auto messages = load_archive(store, "a/0/2/7");
     const NitroFont font(narc_member(font_archive, font_member));
     const auto decoded = decode_message_data(narc_member(messages, bank), message);
+    const auto tokens = tokenize_text_commands(decoded.code_units);
+    // Validate the complete stream before dividing pages. Marker-like operands
+    // belong to their command; they cannot terminate text or create pages.
+    for (const auto& token : tokens) {
+        if (token.kind == TextTokenKind::ExtendedControl || token.kind == TextTokenKind::Scroll ||
+            token.kind == TextTokenKind::SkipOperand)
+            throw std::runtime_error("Text commands/placeholders/scroll are not supported by this preview");
+    }
     std::vector<RgbaImage> pages;
     std::size_t start{};
-    for (std::size_t index = 0; index < decoded.code_units.size(); ++index) {
-        const auto code = decoded.code_units[index];
-        if (code == 0x25bc || code == 0xffff) {
+    for (std::size_t index = 0; index < tokens.size(); ++index) {
+        const auto kind = tokens[index].kind;
+        if (kind == TextTokenKind::ClearPage || kind == TextTokenKind::End) {
             if (pages.size() >= 16) throw std::runtime_error("Message exceeds diagnostic page limit");
-            pages.push_back(render_page(font,std::span(decoded.code_units).subspan(start,index-start)));
+            pages.push_back(render_page(font,std::span(tokens).subspan(start,index-start)));
             start = index+1;
-            if (code == 0xffff) break;
+            if (kind == TextTokenKind::End) break;
         }
     }
     return pages;

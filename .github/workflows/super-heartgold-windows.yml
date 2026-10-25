@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Configure original title C and SDL in temporary private build (no ROM)
-        run: cmake -S . -B "${{ runner.temp }}/hg-title-flow" -A x64 -DHG_REFERENCE_TITLE_FLOW=ON -DHG_FETCH_SDL3=ON
+        run: cmake -S . -B "${{ runner.temp }}/hg-title-flow" -A x64 -DHG_REFERENCE_TITLE_FLOW=ON -DHG_REFERENCE_TEXT_FLOW=ON -DHG_FETCH_SDL3=ON
       - name: Build original decision and host adapters
         run: cmake --build "${{ runner.temp }}/hg-title-flow" --config Release --parallel 3
       - name: Test original decisions, host core and synthetic SDL font pages

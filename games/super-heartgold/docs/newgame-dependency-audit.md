@@ -1,0 +1,173 @@
+# Dependências da nova partida até o primeiro mapa
+
+Auditoria de código de 24/10/2026, sem executar a campanha, abrir saves do jogador
+ou modificar dados privados. Referência fixada em
+`6984a3d67592157195940049be2e4bbbf933f9ff` de
+[`ClickingMaster/pokeheartgold-single-screen`](https://github.com/ClickingMaster/pokeheartgold-single-screen/tree/6984a3d67592157195940049be2e4bbbf933f9ff).
+As linhas abaixo referem-se a essa versão. Este documento identifica trabalho
+pendente; não constitui evidência de uma nova partida funcional.
+
+## Caminho real
+
+1. `src/overlay_36.c:93–114`: NewGame cria heap, inicializa o RNG, chama
+   `NewGame_InitSaveData` e só depois registra `gApplication_OakSpeech`.
+2. `overlay_36.c:251–260`: inicializa a região dinâmica completa, posiciona o
+   jogador no quarto, define dinheiro 3000, recorde Magikarp 56150 e flag 960.
+3. `src/save.c:799–812`: limpa a região dinâmica e chama os **42** inicializadores
+   de `gSaveChunkHeaders`, na ordem. Substituí-los por zero não preserva o estado.
+4. `src/field_comm_cmds.c:15`: Oak corresponde a `OakSpeech_Init/Main/Exit`, OVY53.
+5. `src/oaks_speech.c:546–650`: Oak usa options do save, duas estruturas de naming,
+   fontes, BG, sprites, yes/no, input/touch e fades. A saída grava nome/gênero e
+   nome do rival; registra a aplicação pós-Oak do OVY36. O task principal tem
+   estados numerados até 126, com lacunas; isso não significa 126 estados ativos.
+6. `overlay_36.c:117–140,170–243`: pós-Oak configura relógio/identidade, RNG,
+   treinador, avatar, Safari, apricorns, Pokéwalker e a carta inicial no PC.
+   Esta carta exige criar um Marill e usar dados de mail/texto; não é só dinheiro
+   e coordenadas. Só então começa o IGT e registra `gApplication_NewGameFieldsys`.
+7. `src/field_system.c:70–73,140–160`: cria FieldSystem, carrega temporariamente
+   OVY124 e executa `FieldSystem_Init`; depois chama a tarefa de nova partida.
+8. `src/field_warp_tasks.c:386–414`: executa init-script; entra no local; carrega
+   matriz e modo; inicializa mapa; cria jogador/objetos; restaura overworld/fade.
+   São necessários eventos, scripts, colisão/movimento e representação do mapa,
+   além do renderer. Um callback que retorna sucesso sem esses efeitos não
+   valida a chegada ao quarto.
+
+O local inicial original é `MAP_NEW_BARK_PLAYER_HOUSE_2F` (64), warp -1, x=6,
+y=6, direção=1 (`src/location_backup.c:10–18,36–39`). Não há teleporte de teste
+necessário no fluxo final; o próprio estado inicial define essas coordenadas.
+
+## Os 42 inicializadores
+
+Esta lista registra dependências diretas observadas no corpo das funções,
+não o fechamento transitivo. Todos precisam de tamanhos/offsets DS explícitos;
+`sizeof` x64 e ponteiros host não definem um formato de disco válido.
+
+| ID | Inicializador original | Dependências ou particularidades relevantes |
+| --- | --- | --- |
+| 0 | `Save_SysInfo_Init` | RTC/date/time e conversão do epoch Nitro |
+| 1 | `Save_PlayerData_Init` | Options, Profile, Coins, IGT |
+| 2 | `SaveArray_Party_Init` | Party size=6, `ZeroMonData`, região extra |
+| 3 | `Save_Bag_Init` | Clear16 |
+| 4 | `Save_VarsFlags_Init` | Memset; flags temporárias são globais separadas |
+| 5 | `Save_LocalFieldData_Init` | PlayerSaveData, spawn da mãe=1 |
+| 6 | `Save_Pokedex_Init` | Ordem de formas de Deoxys |
+| 7 | `Save_Daycare_Init` | ZeroBoxMonData |
+| 8 | `Save_PalPad_Init` | Memset |
+| 9 | `Save_Misc_Init` | Berry pots/RTC, apricorns, mail/easy-chat, gymmicks |
+| 10 | `Save_MapObjects_Init` | Clear32, 64 registros |
+| 11 | `Save_LinkBattleRuleset_Init` | Memset |
+| 12 | `Save_FashionData_Init` | FashionCase_Init |
+| 13 | `Save_Mailbox_Init` | Mail_Init por slot |
+| 14 | `Save_FriendGroup_Init` | ClearFast |
+| 15 | `Save_TrainerCard_Init` | Inicializa brilho das insígnias |
+| 16 | `GameStats_Init` | VBlank count e GameStats_Release |
+| 17 | `Save_SealCase_Init` | Clear8 |
+| 18 | `Save_Chatot_Init` | Clear32 |
+| 19 | `Save_Frontier_Init` | Tower/Arcade/Factory/Castle/Hall/downloads |
+| 20 | `Save_SpecialRibbons_Init` | Memset |
+| 21 | `Save_Roamers_Init` | MTRandom |
+| 22 | `Save_Gts_Init` | ClearFast |
+| 23 | `SaveBlock23_Init` | Atualiza CRC via save global |
+| 24 | `Save_Rankings_Init` | Rankings entries e CRC via save global |
+| 25 | `Save_FriendRoster_Init` | DWC userdata e cópia em roster global |
+| 26 | `Save_WiFiHistory_Init` | CRC via save global |
+| 27 | `Save_MysteryGift_Init` | CRC via save global |
+| 28 | `MigratedPokemon_Init` | ZeroMonData, GetMonData/assert |
+| 29 | `PokeathlonSave_FriendshipRecords_Init` | Clear8 |
+| 30 | `Save_EasyChat_Init` | Greeting flags e CRC via save global |
+| 31 | `Save_WiiMessage_Init` | Clear8/memset e CRC via save global |
+| 32 | `Save_PlazaSurvey_Init` | Clear32 |
+| 33 | `Save_FollowMon_Init` | Memset |
+| 34 | `SaveData_Pokegear_Init` | SavePokegear_Init_Internal |
+| 35 | `Save_SafariZone_Init` | Limpa líder |
+| 36 | `Save_PhotoAlbum_Init` | Photo_Init |
+| 37 | `PokeathlonSave_Init` | Fill8 |
+| 38 | `Save_ApricornBox_Init` | InitApricornBox |
+| 39 | `Pokewalker_Init` | Desbloqueia curso inicial |
+| 40 | `Save_TrainerHouse_Init` | TrainerHouseSet_SetZero |
+| 41 | `PCStorage_Init` | Inicializa boxes, nomes e papéis de parede |
+
+As funções que atualizam CRC precisam do contexto global correto, não apenas de
+um ponteiro para um bloco isolado. RTC, VBlank e RNG devem ter serviços host com
+semântica definida e entradas injetáveis nos testes. DWC exige uma decisão
+explícita de compatibilidade offline; retornar sucesso sem criar userdata é um
+stub incorreto. `SaveData_New` inicializa cabeçalhos e o contexto antes de chamar
+os inicializadores, inclusive quando não há save na flash.
+
+## Próxima fatia implementável
+
+Uma fatia pequena e verificável é executar nativamente os inicializadores C
+originais de **PLAYERDATA, VarsFlags e LocalFieldData**, com dependências exatas
+Options/Profile/Coins/IGT, PlayerSaveData e GetMomSpawnId. Estes não exigem renderer,
+rede ou dados de Pokémon. O resultado deve ser apresentado como **estado parcial
+em memória**, sem habilitar Continue, gravar arquivo ou anunciar NewGame completo.
+
+Critérios de aceitação:
+
+- Seleção privada e hash do código C original, como nos probes já existentes.
+- Verificar tamanho bruto original: PLAYERDATA `0x2C`, VarsFlags `0x44C`,
+  LocalFieldData `0x80`; o tamanho dos headers do save inclui alinhamento/4 bytes
+  adicionais e não é o tamanho bruto do objeto.
+- Comparar bytes com as mesmas funções originais ARM9 em memória sintética.
+  Use bytes iniciais não nulos e guardas antes/depois para testar o alcance real.
+- Validar padding/bitfields com offsets/asserts e comparação; não inferir ABI
+  apenas porque o struct compilou. PLAYERDATA inclui alinhamento entre Options
+  e Profile; a definição original não usa packing.
+- Aplicar separadamente os efeitos originais de nova partida (dinheiro 3000,
+  quarto, recorde e flag), preservando a distinção entre inicialização de bloco
+  e inicialização da partida inteira.
+- Interromper no limite declarado de estado parcial. Enfileirar Oak só após os
+  42 blocos completos e os serviços obrigatórios estarem implementados.
+
+Uma alternativa visual independente é carregar os recursos 2D de Oak e o banco
+de mensagens 219 como diagnóstico. Isso valida decoders/renderização, mas não
+substitui a state machine de Oak, naming ou a inicialização do save.
+
+Os offsets de disco e tamanhos dos 42 blocos já comprovados no ARM9 estão em
+[save-format-investigation.md](save-format-investigation.md). Essa comprovação
+dos tamanhos não comprova o conteúdo produzido pelos inicializadores.
+
+## Fatia implementada e prova de 13 blocos
+
+`initialize_soulsilver_usa_partial_blocks()` agora produz 13 blocos brutos com
+arrays de bytes, sem depender do layout de structs do compilador.
+Não aplica os efeitos posteriores de `NewGame_InitSaveData`, não inicia Oak e
+não cria um save. Os defaults foram limitados à edição SoulSilver USA verificada:
+idioma inglês, versão 8. Não se afirma suporte a defaults de outras edições.
+
+A ferramenta privada `tools/verify_newgame_blocks.py` compila o **mesmo C++ de
+produção** num harness temporário, captura seus bytes e compara cada bloco
+com sua função inicializadora ARM9 original. Os ponteiros são obtidos da tabela
+original de 42 entradas, depois de verificar o hash completo da imagem.
+Cada função é executada com quatro preenchimentos diferentes em RAM sintética,
+guardas de 16 bytes antes/depois e limite de 100.000 instruções. Também é chamada
+a função de tamanho original correspondente. Nenhum save real é lido.
+
+```sh
+python3 tools/verify_newgame_blocks.py --arm9 /caminho/privado/rc_image_0.bin
+```
+
+Prova executada localmente: as 52 comparações (13 blocos × 4 padrões) passaram,
+com guardas preservadas. SHA-256 da saída dos três blocos iniciais:
+
+| Bloco | Bytes | SHA-256 |
+| --- | --- | --- |
+| PLAYERDATA | 44 | `b454c2c268e9c40e843cd7f1f91c229777b5d50f87e5bbce60200fc3390199c5` |
+| VarsFlags | 1100 | `a805fd6f7ad225e289321ba6e2b079e92c3accc1675a7ba6626101da38f727f2` |
+| LocalFieldData | 128 | `babcac2e871a15d603fc499b90ce598ee48896b3613f4d87b1d01b3dc5e7e2d4` |
+
+Os dez blocos adicionais verificados são bag (ID3, 1948 bytes), Pal Pad (ID8,
+2176), map objects (ID10, 5120), link ruleset (ID11, 32), seal case (ID17, 368),
+Chatot (ID18, 1004), special ribbons (ID20, 14), GTS (ID22, 248), Pokéathlon
+friendship records (ID29, 40) e follow mon (ID33, 8). Seus hashes também são
+impressos pela ferramenta. Pal Pad precisa de EOS `0xFFFF` no início dos 16 nomes;
+os outros nove blocos adicionais são zerados pelas funções originais. Special
+ribbons tem tamanho bruto 14, não deve receber 16 bytes de escrita.
+
+FriendGroup foi deliberadamente excluído desse conjunto: além dos bytes, seu
+inicializador registra um ponteiro global. Reproduzir apenas o buffer não
+implementaria todos os efeitos daquela função.
+
+Os cinco testes C++ passaram com GCC, `-Wall -Wextra -Werror`, AddressSanitizer
+e UndefinedBehaviorSanitizer. Essa é validação de 13 inicializadores parciais;
+os outros 29 blocos, a partida completa e a campanha continuam pendentes.
