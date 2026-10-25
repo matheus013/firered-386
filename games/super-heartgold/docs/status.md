@@ -19,7 +19,7 @@ validada na engine própria permanece em **0%: nenhuma área jogável foi integr
 | Código original | Scheduler, filesystem e overlay manager em provas nativas; decisão do título ligada à janela | Init/exit completos, serviços de runtime e restante da engine |
 | Check-save | Decisão original controlada; leitor/inspetor dos blocos principais, CRC e seleção redundante testados | Registros extras, estado do jogo e carga de partida real integrados ao launcher |
 | Gráficos/áudio | Camadas 2D estáticas e efeitos host | 3D, câmera, animações e áudio original |
-| Gameplay | 26 inicializadores sem contexto externo e 2 com contexto explícito; ainda sem área jogável | Outros 14 blocos, fluxo de nova partida, exploração, scripts, interação e batalhas |
+| Gameplay | 26 inicializadores sem contexto externo e 4 com contexto explícito; ainda sem área jogável | Outros 12 blocos, fluxo de nova partida, exploração, scripts, interação e batalhas |
 | Campanha/pós-jogo | Sem validação nativa integrada | Johto, Kanto e pós-jogo; Hoenn depois |
 
 A referência AOT híbrida é útil para observar o jogo original. Como ainda contém
@@ -61,3 +61,7 @@ Separadamente, [roamers](native-roamer-init.md) e
 [estatísticas](native-game-stats-init.md) recebem RNG/contador explicitamente.
 Os [geradores nativos](native-random.md) reproduzem as sequências originais,
 mas o seed de boot e a ordem de consumo na campanha ainda não estão integrados.
+As APIs de [Mailbox e Safari](native-identity-init.md) exigem identidade e
+pré-limpeza explícitas. O [SaveContext](native-save-context.md) oferece
+armazenamento e CRC por bloco; ainda não inicializa os 42 blocos nem gera um
+arquivo de save válido.

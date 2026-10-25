@@ -192,7 +192,7 @@ deduzir offsets. Os históricos de Deoxys usam os bytes altos de dois words de
 flags da Pokédex; esses sentinelas não concedem capturas nem National Dex.
 
 Mailbox foi excluído deste conjunto: seu inicializador lê globais de idioma e
-versão e não limpa todos os bytes de padding. Na partida original, o clear da
+versão e preserva os campos `msg_no` de `MailMessage`. Na partida original, o clear da
 região dinâmica ocorre antes dessa chamada.
 
 Os 13 testes C++ passaram com GCC, `-Wall -Wextra -Werror`, AddressSanitizer
@@ -286,3 +286,10 @@ exatamente duas palavras do MT do chamador, e
 estável. Foram comparadas com o ARM9 original em 96 e 32 casos respectivamente.
 São 28 inicializadores isolados no total; faltam 14 e a integração do boot.
 Essa contagem não estima a porcentagem da campanha portada.
+
+Em seguida foram acrescentados [Mailbox e Safari](native-identity-init.md),
+com identidade e pré-limpeza explícitas: 64 comparações ARM9 e 48 controles
+negativos passaram. O total passa a 30 inicializadores isolados, faltando 12.
+O [SaveContext](native-save-context.md) implementa o armazenamento estável e
+CRC real por bloco para a integração restante. Ele não executa os inicializadores
+nem cria os rodapés do save, registros extras ou working copies globais.

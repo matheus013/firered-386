@@ -44,7 +44,8 @@ add_library(hg_game_data STATIC game/core/src/save_image.cpp game/core/src/save_
     game/core/src/save_validation.cpp game/core/src/message_data.cpp
     game/core/src/text_commands.cpp game/core/src/newgame_blocks.cpp
     game/core/src/pokemon_crypto.cpp game/core/src/random.cpp
-    game/core/src/roamer_init.cpp game/core/src/game_stats_init.cpp)
+    game/core/src/roamer_init.cpp game/core/src/game_stats_init.cpp
+    game/core/src/save_context.cpp game/core/src/identity_init.cpp)
 target_include_directories(hg_game_data PUBLIC game/core/include)
 target_link_libraries(hg_game_data PRIVATE hg_warnings)
 

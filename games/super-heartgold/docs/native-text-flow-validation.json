@@ -3,21 +3,21 @@
   "base_pin": "6984a3d67592157195940049be2e4bbbf933f9ff",
   "scope": "private_original_C_text_decision_with_host_pixels_and_partial_newgame_initializers",
   "original_text_functions_hash_checked": 9,
-  "linux_asan_ubsan_ctest_suites_passed": 23,
+  "linux_asan_ubsan_ctest_suites_passed": 25,
   "windows_private_cross_ctest_prior_commit_80228a2_suites_passed": 21,
-  "latest_windows_private_cross_ctest": {
+  "historical_windows_private_cross_ctest_975dbcf": {
     "passed": 20,
     "unable_to_start": "reference.text_printer_native executable access denied locally",
     "same_text_printer_unit_suite_linux_asan_ubsan": "passed",
     "latest_windows_app_synthetic_pixel_tests": "passed including alignment, position and clipping"
   },
-  "windows_default_cross_ctest_suites_passed": 22,
+  "windows_default_cross_ctest_suites_passed": 24,
   "remote_windows_validation": {
-    "commit": "975dbcfae76765d0d1af622608e982abe55048d6",
-    "run": 40165913369,
+    "commit": "46e2f6f87cb6c199c48e9e2b32895853e47a7601",
+    "run": 40166868015,
     "native_platform": "success",
     "original_title_and_text_flows": "success",
-    "scope": "text_alignment_and_21_blocks_before_final_crypto_stage"
+    "scope": "text_alignment_crypto_rng_and_28_initializers_before_SaveContext_and_identity_stage"
   },
   "windows_synthetic_text_flow_renderer": "passed",
   "windows_existing_title_checksave_text_renderer": "passed_all_six_messages",
@@ -42,8 +42,18 @@
     "game_stats_block_id": 16,
     "game_stats_arm9_comparisons_passed": 32,
     "game_stats_vblank_counter": "explicit_and_stable_during_init",
-    "total_isolated_initializers": 28,
-    "remaining_initializers": 14
+    "identity_blocks": [13, 35],
+    "identity_arm9_comparisons_passed": 64,
+    "identity_negative_controls_without_preclear": 48,
+    "total_isolated_initializers": 30,
+    "remaining_initializers": 12
+  },
+  "save_context": {
+    "raw_sizes_matched_arm9": 42,
+    "layouts_matched_arm9": 42,
+    "stable_bindings": true,
+    "per_block_crc": "real_CCITT_including_alignment_padding",
+    "complete_save_or_flash_write": false
   },
   "native_random_original_c_comparison": {
     "lc_outputs": 660000,

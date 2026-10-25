@@ -13,7 +13,9 @@ add_executable(hg_tests
     pokemon_crypto_tests.cpp
     random_tests.cpp
     roamer_init_tests.cpp
-    game_stats_init_tests.cpp)
+    game_stats_init_tests.cpp
+    save_context_tests.cpp
+    identity_init_tests.cpp)
 
 target_link_libraries(hg_tests PRIVATE hg_engine hg_game_data hg_warnings)
 
@@ -34,6 +36,8 @@ add_test(NAME game.pokemon_crypto COMMAND hg_tests "pokemon crypto:")
 add_test(NAME game.random COMMAND hg_tests "random:")
 add_test(NAME game.roamer_init COMMAND hg_tests "roamer_init:")
 add_test(NAME game.game_stats_init COMMAND hg_tests "game_stats_init:")
+add_test(NAME game.save_context COMMAND hg_tests "save context:")
+add_test(NAME game.identity_init COMMAND hg_tests "identity_init:")
 
 add_executable(hg_save_selection_tests save_selection_tests.cpp)
 target_link_libraries(hg_save_selection_tests PRIVATE hg_game_data hg_warnings)

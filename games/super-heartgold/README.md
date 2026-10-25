@@ -69,6 +69,10 @@ Os [RNGs nativos](docs/native-random.md) também foram comparados ao original.
 [Roamers](docs/native-roamer-init.md) e
 [estatísticas](docs/native-game-stats-init.md) têm dois inicializadores adicionais
 com contexto explícito, separados dos 26 blocos sem dependências externas.
+[Mailbox/Safari](docs/native-identity-init.md) acrescentam dois inicializadores
+com identidade e pré-limpeza. O [SaveContext](docs/native-save-context.md)
+mantém os 42 blocos em memória estável e atualiza CRCs individuais; não cria
+uma partida ou arquivo de save completo.
 
 ## Entrada e interface de teste
 
