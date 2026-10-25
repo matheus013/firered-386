@@ -42,7 +42,7 @@
     "linux_asan_ubsan": "passed",
     "windows_mingw": "passed",
     "positions_per_visibility": 196608,
-    "runtime_event_injection": "not_run",
+    "runtime_event_injection": "passed_visible_center_press_release_and_hidden_press_release",
     "rebuilt_demo_exit_code": 0
   }
 }

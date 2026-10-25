@@ -132,3 +132,23 @@ reais de entrada e conferir os registros touch durante a execução do jogo.
 g++ -std=c++20 -fsanitize=address,undefined tools/probe_single_screen_touch.cpp -o /tmp/hg-touch-test
 /tmp/hg-touch-test
 ```
+
+## Eventos touch durante a execução
+
+`tools/probe_libntr_input.c` injeta botão pressionado no quadro 10, solto no 30
+e fechamento no 50 usando SDL_PushEvent. SDL_GetMouseState é substituído por
+posição determinística (256,192); portanto este teste não usa um mouse físico.
+`tools/probe_libntr_input_gdb.py` observa s_tpData após o mapeamento no loop
+real, localizando o ponto de observação no fonte em vez de fixar a linha.
+
+Resultados Linux: tela inferior visível, quadro 20 touch=1 e (128,96); quadro
+40 touch=0. Tela inferior oculta: touch=0 nos dois pontos. Ambas as execuções
+encerraram normalmente. Não houve alteração do código de produção nesta rodada.
+
+Para repetir: compilar o interpositor com gcc -shared -fPIC e SDL2/dl, definir
+ScreenLayout=single e SwapScreens conforme o caso; iniciar GDB batch com
+HG_LIBNTR_SOURCE apontando para o checkout e HG_EXPECT_TOUCH=0 ou 1. Dentro do
+GDB, definir LD_PRELOAD para input.so e carregar probe_libntr_input_gdb.py via
+-x. Usar timeout -k 3s 30s como limite externo. Não aplicar LD_PRELOAD ao GDB.
+O teste exige símbolos de depuração. Controle físico e menus HGSS permanecem
+fora do escopo validado.
