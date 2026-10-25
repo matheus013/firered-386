@@ -266,16 +266,13 @@ dos offsets e defaults são `src/save_fashion.c`, `include/fashion_case.h`,
 | Fashion | `545888bb37dc5b8ab9c37dfb4425a1675e09e296718f07b5a5ce4ec3d2907786` |
 | Pokégear | `a49d7ea033fb89c4ff0ebaa7bafc45d574f3fde097419b10ab2bd5ad137618c6` |
 
-Os outros três candidatos desta rodada foram excluídos por dependências reais:
+O candidato Frontier desta rodada foi excluído por depender de estado global:
 
 - Frontier (ID19) copia o estado para `sFrontierSave`, um global usado pelo jogo.
-- Safari (ID35) lê idioma/versão globais e deixa quatro bytes finais preservados
-  quando chamado sobre memória não zerada. Depende do clear prévio da região
-  dinâmica e de um contrato explícito para o contexto; não foi tratado como
-  inicializador puro completo.
-- PC Storage (ID41, grupo principal 1) carrega os nomes dos boxes do banco de
-  mensagens 24 via NARC/heap. Essa carga precisa ser implementada com os recursos
-  privados e limites corretos. Ignorá-la não reproduziria a inicialização.
+- Safari (ID35) e PCStorage (ID41) foram implementados depois, com contratos
+  explícitos para pré-clear, identidade e mensagens. Veja
+  [Mailbox/Safari](native-identity-init.md) e
+  [PCStorage](native-pc-storage-init.md).
 
 ## Blocos adicionais com contexto explícito
 
@@ -284,12 +281,18 @@ separadas foram implementadas: [Roamers, ID21](native-roamer-init.md), que conso
 exatamente duas palavras do MT do chamador, e
 [GameStats, ID16](native-game-stats-init.md), que recebe um contador de VBlank
 estável. Foram comparadas com o ARM9 original em 96 e 32 casos respectivamente.
-São 28 inicializadores isolados no total; faltam 14 e a integração do boot.
-Essa contagem não estima a porcentagem da campanha portada.
+Naquela etapa intermediária havia 28 inicializadores isolados. As validações
+adicionais desta rodada estão registradas abaixo. Essa contagem não estima a
+porcentagem da campanha portada.
 
 Em seguida foram acrescentados [Mailbox e Safari](native-identity-init.md),
 com identidade e pré-limpeza explícitas: 64 comparações ARM9 e 48 controles
-negativos passaram. O total passa a 30 inicializadores isolados, faltando 12.
+negativos passaram. Depois, seis [inicializadores com CRC](native-crc-block-init.md)
+passaram em 24 comparações de bloco e 652 atualizações CRC; [SysInfo](native-system-info-init.md)
+passou em 32 comparações com snapshot RTC explícito. [PCStorage](native-pc-storage-init.md)
+passou em comparação de 74492 bytes, com 540 BoxMons e 18 nomes. O total é 38
+inicializadores comparados diretamente ao ARM9; restam quatro blocos e toda a
+integração do boot.
 O [SaveContext](native-save-context.md) implementa o armazenamento estável e
 CRC real por bloco para a integração restante. Ele não executa os inicializadores
 nem cria os rodapés do save, registros extras ou working copies globais.

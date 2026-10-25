@@ -103,9 +103,10 @@ Os valores de regressão incluem `0xD71B` para o payload zerado de `0xBC8` bytes
 payload são `A5 5A`. Os testes não apenas recalculam o valor esperado pela mesma
 função que está sendo testada.
 
-Este contexto ainda não inicializa os seis blocos dependentes de CRC, não
-fornece as cópias de trabalho Frontier/roster, não cria userdata DWC e não liga
-o boot da partida. Em particular, Mystery Gift inicializa apenas seu CRC no
-original: seu payload depende da limpeza prévia da região dinâmica. Os futuros
-consumidores precisam preservar essa ordem e o binding entre o ponteiro recebido
-pelo inicializador e o bloco que `update_crc(id)` consulta.
+Seis [inicializadores dependentes de CRC](native-crc-block-init.md) agora usam
+este contexto e foram comparados à ARM9. Isso ainda não fornece as cópias de
+trabalho Frontier/roster, não cria userdata DWC e não liga o boot da partida.
+Em particular, Mystery Gift inicializa apenas seu CRC no original: seu payload
+depende da limpeza prévia da região dinâmica. Os futuros consumidores precisam
+preservar essa ordem e o binding entre o ponteiro recebido pelo inicializador e
+o bloco que `update_crc(id)` consulta.

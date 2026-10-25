@@ -15,7 +15,10 @@ add_executable(hg_tests
     roamer_init_tests.cpp
     game_stats_init_tests.cpp
     save_context_tests.cpp
-    identity_init_tests.cpp)
+    identity_init_tests.cpp
+    crc_block_init_tests.cpp
+    pc_storage_init_tests.cpp
+    system_info_init_tests.cpp)
 
 target_link_libraries(hg_tests PRIVATE hg_engine hg_game_data hg_warnings)
 
@@ -38,6 +41,9 @@ add_test(NAME game.roamer_init COMMAND hg_tests "roamer_init:")
 add_test(NAME game.game_stats_init COMMAND hg_tests "game_stats_init:")
 add_test(NAME game.save_context COMMAND hg_tests "save context:")
 add_test(NAME game.identity_init COMMAND hg_tests "identity_init:")
+add_test(NAME game.crc_block_init COMMAND hg_tests "crc block init:")
+add_test(NAME game.pc_storage_init COMMAND hg_tests "pc_storage_init:")
+add_test(NAME game.system_info_init COMMAND hg_tests "system_info_init:")
 
 add_executable(hg_save_selection_tests save_selection_tests.cpp)
 target_link_libraries(hg_save_selection_tests PRIVATE hg_game_data hg_warnings)
