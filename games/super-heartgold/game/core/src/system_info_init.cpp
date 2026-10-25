@@ -3,7 +3,7 @@
 #include <stdexcept>
 
 namespace hg {
-InitialSystemInfo initialize_system_info(RtcSnapshot snapshot) {
+void validate_rtc_snapshot(RtcSnapshot snapshot) {
     if (snapshot.year_since_2000 > 99 || snapshot.month < 1 || snapshot.month > 12 ||
         snapshot.day < 1 || snapshot.day > 31 || snapshot.weekday > 6 ||
         snapshot.hour > 23 || snapshot.minute > 59 || snapshot.second > 59)
@@ -12,6 +12,13 @@ InitialSystemInfo initialize_system_info(RtcSnapshot snapshot) {
     const year_month_day date{year{2000 + static_cast<int>(snapshot.year_since_2000)},
         month{snapshot.month}, day{snapshot.day}};
     if (!date.ok()) throw std::runtime_error("RTC snapshot contains an invalid calendar date");
+}
+
+InitialSystemInfo initialize_system_info(RtcSnapshot snapshot) {
+    validate_rtc_snapshot(snapshot);
+    using namespace std::chrono;
+    const year_month_day date{year{2000 + static_cast<int>(snapshot.year_since_2000)},
+        month{snapshot.month}, day{snapshot.day}};
     const auto days = static_cast<std::uint32_t>((sys_days{date} - sys_days{year{2000}/January/1}).count());
     const std::uint64_t seconds = static_cast<std::uint64_t>(days) * 86400u +
         snapshot.hour * 3600u + snapshot.minute * 60u + snapshot.second;
