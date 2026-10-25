@@ -3,7 +3,7 @@
   "base_pin": "6984a3d67592157195940049be2e4bbbf933f9ff",
   "scope": "private_original_C_text_decision_with_host_pixels_and_partial_newgame_initializers",
   "original_text_functions_hash_checked": 9,
-  "linux_asan_ubsan_ctest_suites_passed": 25,
+  "linux_asan_ubsan_ctest_suites_passed": 29,
   "windows_private_cross_ctest_prior_commit_80228a2_suites_passed": 21,
   "historical_windows_private_cross_ctest_975dbcf": {
     "passed": 20,
@@ -11,13 +11,13 @@
     "same_text_printer_unit_suite_linux_asan_ubsan": "passed",
     "latest_windows_app_synthetic_pixel_tests": "passed including alignment, position and clipping"
   },
-  "windows_default_cross_ctest_suites_passed": 24,
+  "windows_default_cross_ctest_suites_passed": 28,
   "remote_windows_validation": {
-    "commit": "46e2f6f87cb6c199c48e9e2b32895853e47a7601",
-    "run": 40166868015,
+    "commit": "1dcfeb706fc8694753390c427f15a3966e9a3265",
+    "run": 40185337828,
     "native_platform": "success",
     "original_title_and_text_flows": "success",
-    "scope": "text_alignment_crypto_rng_and_28_initializers_before_SaveContext_and_identity_stage"
+    "scope": "verified_CRC_SysInfo_PCStorage_initializers_and_stable_save_context"
   },
   "windows_synthetic_text_flow_renderer": "passed",
   "windows_existing_title_checksave_text_renderer": "passed_all_six_messages",
@@ -45,8 +45,20 @@
     "identity_blocks": [13, 35],
     "identity_arm9_comparisons_passed": 64,
     "identity_negative_controls_without_preclear": 48,
-    "total_isolated_initializers": 30,
-    "remaining_initializers": 12
+    "crc_block_ids": [23, 24, 26, 27, 30, 31],
+    "crc_arm9_block_comparisons": 24,
+    "crc_update_calls_compared": 652,
+    "system_info_block_id": 0,
+    "system_info_arm9_comparisons": 32,
+    "pc_storage_block_id": 41,
+    "pc_storage_arm9_bytes_matched": 74492,
+    "pc_storage_empty_boxmons": 540,
+    "pc_storage_name_messages": 18,
+    "friend_group_block_id": 14,
+    "friend_group_arm9_comparisons": 4,
+    "friend_group_global_binding_writes_checked": 4,
+    "total_isolated_initializers_compared": 39,
+    "remaining_initializers": [9, 19, 25]
   },
   "save_context": {
     "raw_sizes_matched_arm9": 42,
