@@ -199,6 +199,33 @@ void RunAIDecisionChecks(void)
         BenchExpect(GetNatureStatEffect(NATURE_CALM,STAT_DEF)==0 && GetNatureStatEffect(NATURE_CALM,STAT_SPEED)==0 && GetNatureStatEffect(NATURE_CALM,STAT_HP)==0);
         BenchExpect(GetNatureStatEffect(NATURE_HARDY,STAT_ATK)==0);
     }
+    // Wild mons always hold a species item (70% common / 30% rare); no items stays empty.
+    {
+        static const u16 sSpecies[]={SPECIES_RATICATE,SPECIES_BUTTERFREE,SPECIES_VULPIX,SPECIES_SNORLAX,SPECIES_BULBASAUR};
+        u32 flags=gBattleTypeFlags;
+        u16 counts[5][2],item;
+        u8 s,n;
+        struct Pokemon saved=gEnemyParty[0];
+        for(s=0;s<5;s++)
+        {
+            counts[s][0]=counts[s][1]=0;
+            for(n=0;n<100;n++)
+            {
+                CreateMon(&gEnemyParty[0],sSpecies[s],10,0,FALSE,0,OT_ID_PLAYER_ID,0);
+                gBattleTypeFlags=0;SetWildMonHeldItem();
+                item=GetMonData(&gEnemyParty[0],MON_DATA_HELD_ITEM);
+                if(item==gSpeciesInfo[sSpecies[s]].itemCommon && item!=ITEM_NONE)counts[s][0]++;
+                else if(item==gSpeciesInfo[sSpecies[s]].itemRare && item!=ITEM_NONE)counts[s][1]++;
+            }
+        }
+        BenchExpect(counts[0][0]+counts[0][1]==100 && counts[0][0]>counts[0][1] && counts[0][1]>10);
+        BenchExpect(counts[1][1]==100 && counts[2][0]==100 && counts[3][0]==100);
+        BenchExpect(counts[4][0]+counts[4][1]==0);
+        CreateMon(&gEnemyParty[0],SPECIES_RATICATE,10,0,FALSE,0,OT_ID_PLAYER_ID,0);
+        gBattleTypeFlags=BATTLE_TYPE_TRAINER;SetWildMonHeldItem();
+        BenchExpect(GetMonData(&gEnemyParty[0],MON_DATA_HELD_ITEM)==ITEM_NONE);
+        gEnemyParty[0]=saved;gBattleTypeFlags=flags;
+    }
     BenchGymPartyChecks();
     gDecisionDone=1;
 }
