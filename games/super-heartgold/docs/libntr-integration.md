@@ -202,3 +202,22 @@ quebras de linha. Nenhum fonte HGSS gerado foi incluído no Git.
 
 O caso valida troca e retorno de motor numa tela física, não conteúdo de jogo.
 Ainda faltam inicialização completa, overlays, recursos e menus de HGSS.
+
+## Comando único de integração Linux
+
+`tools/verify_hgss_renderer.py` prepara uma pasta privada nova, clona a revisão
+libntr fixada, aplica os dois patches versionados, instala o helper de touch,
+gera as unidades originais privadas e compila a demo completa. Depois captura
+os quadros 60 e 120, exige 512x384, verifica o secundário azul e o retorno da
+geometria principal e exige saída normal. Falhas de build, execução, dimensões
+ou conteúdo fazem o comando falhar. Resultados ficam em result.json; fontes,
+binários e capturas permanecem na pasta privada, fora do Git.
+
+```sh
+python3 tools/verify_hgss_renderer.py   --hgss /caminho/referencia-hgss   --libntr /caminho/libntr   --workspace /caminho/privado/novo-teste
+```
+
+Requer Linux com display OpenGL (WSLg foi o ambiente usado), SDL2, ENet,
+GCC/G++, Meson, Ninja, NASM, Flex e Bison. O destino deve ser inexistente.
+As fontes de entrada não são modificadas. O teste ainda é uma demo de
+roteamento gráfico, não inicialização de jogo, menus ou campanha.

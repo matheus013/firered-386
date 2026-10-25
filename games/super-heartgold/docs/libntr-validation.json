@@ -65,5 +65,15 @@
     "real_libntr_register": true,
     "normal_exit": true,
     "gameplay": false
+  },
+  "clean_renderer_gate": {
+    "result": "passed",
+    "script": "tools/verify_hgss_renderer.py",
+    "built_from_clean_pinned_checkout": true,
+    "single_screen_dimensions": [
+      512,
+      384
+    ],
+    "process_exit": 0
   }
 }
