@@ -73,3 +73,5 @@ inicializa os 42 blocos nem gera um arquivo de save válido.
 Misc (ID 9): 32 comparações ARM9 passaram. Total: 41/42 inicializadores após Frontier. Resta ID 25; nova partida e campanha ainda não integradas.
 
 [Frontier](native-frontier-init.md): quatro comparações integrais, incluindo a cópia global original, passaram.
+
+Avaliação [libntr](libntr-integration.md): biblioteca compilada em Linux e ponte RTC validada em Linux/Windows (36.525 datas por plataforma). Integração gráfica e DWC pendentes.

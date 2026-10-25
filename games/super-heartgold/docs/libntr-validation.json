@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-25",
+  "libntr_commit": "380a3d7e60de82aced82075e7b3b9acf5f68b1cd",
+  "linux_full_build": "passed",
+  "windows_full_build": "not_run",
+  "linux_rtc_dates_passed": 36525,
+  "windows_rtc_dates_passed": 36525,
+  "graphics_runtime": "not_run",
+  "game_integration": false
+}
