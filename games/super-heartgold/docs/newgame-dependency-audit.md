@@ -295,7 +295,8 @@ passaram em 24 comparações de bloco e 652 atualizações CRC; [SysInfo](native
 passou em 32 comparações com snapshot RTC explícito. [PCStorage](native-pc-storage-init.md)
 passou em comparação de 74492 bytes, com 540 BoxMons e 18 nomes. FriendGroup
 passou em quatro comparações de 264 bytes, com o ponteiro global conferido. O
-total agora é 40 blocos, incluindo Misc (32 comparações ARM9); restam dois blocos (19 e 25) e toda a
+total agora é 41 blocos, incluindo Misc (32 comparações ARM9) e Frontier
+(quatro comparações integrais com a cópia de trabalho); resta FriendRoster (25) e toda a
 integração do boot.
 O [SaveContext](native-save-context.md) implementa o armazenamento estável e
 CRC real por bloco para a integração restante. Ele não executa os inicializadores
