@@ -549,7 +549,7 @@ static bool32 ModernEatTargetBerry(void)
         heal = mon->maxHP / param;
         if (heal == 0)
             heal = 1;
-        if (GetFlavorRelationByPersonality(mon->personality, holdEffect - HOLD_EFFECT_CONFUSE_SPICY) < 0)
+        if (GetFlavorRelationByNature(GetBattlerNature(atk), holdEffect - HOLD_EFFECT_CONFUSE_SPICY) < 0)
             mon->status2 |= STATUS2_CONFUSION_TURN(((Random()) % 4) + 2);
         break;
     case HOLD_EFFECT_CURE_PAR:

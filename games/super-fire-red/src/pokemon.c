@@ -5210,6 +5210,14 @@ static u8 GetNatureFromPersonality(u32 personality)
     return personality % NUM_NATURES;
 }
 
+// +1 if the nature raises the stat, -1 if it lowers it, 0 otherwise.
+s8 GetNatureStatEffect(u8 nature, u8 statIndex)
+{
+    if (nature >= NUM_NATURES || statIndex <= STAT_HP || statIndex > NUM_NATURE_STATS)
+        return 0;
+    return sNatureStatTable[nature][statIndex - 1];
+}
+
 u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
 {
     int i;
@@ -6146,7 +6154,11 @@ static s8 GetMonFlavorRelation(struct Pokemon *mon, u8 flavor)
 
 s8 GetFlavorRelationByPersonality(u32 personality, u8 flavor)
 {
-    u8 nature = GetNatureFromPersonality(personality);
+    return GetFlavorRelationByNature(GetNatureFromPersonality(personality), flavor);
+}
+
+s8 GetFlavorRelationByNature(u8 nature, u8 flavor)
+{
     return sPokeblockFlavorCompatibilityTable[nature * FLAVOR_COUNT + flavor];
 }
 
@@ -6217,26 +6229,20 @@ void SetMonPreventsSwitchingString(void)
     BattleStringExpandPlaceholders(gText_PkmnsXPreventsSwitching, gStringVar4);
 }
 
+// Wild mons, legendaries included, always hold one of their species' items:
+// 70% common / 30% rare when both exist, otherwise whichever one is defined.
+// Species without held items still hold nothing.
 void SetWildMonHeldItem(void)
 {
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_POKEDUDE | BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_TRAINER)))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_POKEDUDE | BATTLE_TYPE_TRAINER)))
     {
-        u16 rnd = Random() % 100;
         u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
-        if (gSpeciesInfo[species].itemCommon == gSpeciesInfo[species].itemRare)
-        {
-            // Both held items are the same, 100% chance to hold item   
-            SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemCommon);
-            return;
-        }
+        u16 item = gSpeciesInfo[species].itemCommon;
 
-        if (rnd > 44)
-        {
-            if (rnd <= 94)
-                SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemCommon);
-            else
-                SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemRare);
-        }
+        if (item == ITEM_NONE || (gSpeciesInfo[species].itemRare != ITEM_NONE && Random() % 100 >= 70))
+            item = gSpeciesInfo[species].itemRare;
+        if (item != ITEM_NONE)
+            SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &item);
     }
 }
 

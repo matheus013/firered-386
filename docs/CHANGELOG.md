@@ -1,5 +1,11 @@
 # Histórico de versões
 
+## Em desenvolvimento
+
+- Editor de natureza: as cores da prévia agora seguem a natureza escolhida (verde no atributo que ela aumenta, vermelho no que reduz). Antes, a cor comparava com os atributos atuais, então desfazer a natureza atual parecia parte da nova: com um Pokémon Hasty, toda natureza mostrava DEF verde e SPEED vermelho. Os valores calculados já estavam corretos.
+- Berries de confusão (Figy, Wiki, Mago, Aguav, Iapapa) passam a usar a natureza escolhida no editor para decidir se o Pokémon não gosta do sabor; antes usavam a natureza original da personalidade.
+- Pokémon selvagens, inclusive os lendários de encontro fixo, sempre vêm com item quando a espécie tem item cadastrado: 70% o comum e 30% o raro; com só um dos dois, sempre esse. Antes eram 45% sem item, 50% comum e 5% raro, e os lendários fixos nunca traziam item. Espécies sem item cadastrado continuam sem item.
+
 ## v0.5.0-preview.4 — 23/10/2026
 
 - Revisão de interface: rótulo do editor de IVs abreviado para não invadir a tabela; categoria/tipo dos golpes de batalha dentro dos 64 px; cabeçalhos PT-BR revisados; descrições do estojo de TMs reformatadas para o painel de 144 px. Novos testes de largura com fontes nativas e capturas de tela em EN/PT-BR, incluindo golpes novos e Fada. [Escopo e evidências](UI_REVIEW.md).

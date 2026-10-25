@@ -213,7 +213,9 @@ static void DrawTraining(void)
             PrintAt(92,45+i*12,11,10,T(sStatIds[i]));
             old=GetMonData(mon,MON_DATA_MAX_HP+i);
             NumberAt(147,45+i*12,old,11,10);
-            NumberAt(192,45+i*12,PreviewStat(i),11,PreviewStat(i)>old?8:PreviewStat(i)<old?9:2);
+            // Color by the selected nature's own effect, not by the change from the current
+            // nature, so undoing the current nature does not look like part of the new one.
+            NumberAt(192,45+i*12,PreviewStat(i),11,GetNatureStatEffect(sTraining->nature,i)>0?8:GetNatureStatEffect(sTraining->nature,i)<0?9:2);
         }
         PrintAt(4,128,0,10,sTraining->page==PAGE_CONFIRM?T(UI_NOHEAL):T(UI_NATUREHELP));
         PrintAt(4,140,0,2,sTraining->page==PAGE_CONFIRM?T(UI_APPLY):T(UI_REVIEW));

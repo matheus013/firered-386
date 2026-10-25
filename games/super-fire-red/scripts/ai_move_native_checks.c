@@ -1,4 +1,5 @@
 // Decision/damage tests in a disposable ROM; no campaign victory is simulated.
+#include "berry.h"
 IWRAM_DATA volatile u32 gDecisionDone, gDecisionChecks, gDecisionFailures;
 IWRAM_DATA volatile u32 gDecisionFailureBits;
 IWRAM_DATA volatile u32 gDecisionFirstFailure;
@@ -182,6 +183,49 @@ void RunAIDecisionChecks(void)
     gBattleWeather=0;gBattleMons[0].ability=ABILITY_THICK_FAT;
     b=CalculateBaseDamage(&gBattleMons[1],&gBattleMons[0],MOVE_FIRE_PUNCH,0,0,0,1,0);BenchExpect(b<a);
     BenchExpect(IS_MOVE_SPECIAL(MOVE_SHADOW_BALL) && IS_MOVE_PHYSICAL(MOVE_FIRE_PUNCH) && gBattleMoves[MOVE_GROWL].category==MOVE_CATEGORY_STATUS);
+    // A nature set by the training editor must drive battle checks (confusion berries)
+    // and the editor's stat colors, not the personality's nature.
+    {
+        struct Pokemon *mon=&gPlayerParty[gBattlerPartyIndexes[0]];
+        u8 own=GetMonData(mon,MON_DATA_PERSONALITY)%NUM_NATURES,edited=(own+1)%NUM_NATURES;
+        u16 tag=0xA500|edited,clear=0;
+        SetMonData(mon,MON_DATA_TRAINING_NATURE,&tag);
+        BenchExpect(GetBattlerNature(0)==edited);
+        BenchExpect(GetFlavorRelationByNature(GetBattlerNature(0),FLAVOR_SPICY)==GetFlavorRelationByNature(edited,FLAVOR_SPICY));
+        SetMonData(mon,MON_DATA_TRAINING_NATURE,&clear);
+        BenchExpect(GetBattlerNature(0)==own);
+        BenchExpect(GetFlavorRelationByNature(NATURE_MODEST,FLAVOR_SPICY)<0 && GetFlavorRelationByNature(NATURE_ADAMANT,FLAVOR_SPICY)>0);
+        BenchExpect(GetNatureStatEffect(NATURE_CALM,STAT_SPDEF)>0 && GetNatureStatEffect(NATURE_CALM,STAT_ATK)<0);
+        BenchExpect(GetNatureStatEffect(NATURE_CALM,STAT_DEF)==0 && GetNatureStatEffect(NATURE_CALM,STAT_SPEED)==0 && GetNatureStatEffect(NATURE_CALM,STAT_HP)==0);
+        BenchExpect(GetNatureStatEffect(NATURE_HARDY,STAT_ATK)==0);
+    }
+    // Wild mons always hold a species item (70% common / 30% rare); no items stays empty.
+    {
+        static const u16 sSpecies[]={SPECIES_RATICATE,SPECIES_BUTTERFREE,SPECIES_VULPIX,SPECIES_SNORLAX,SPECIES_BULBASAUR};
+        u32 flags=gBattleTypeFlags;
+        u16 counts[5][2],item;
+        u8 s,n;
+        struct Pokemon saved=gEnemyParty[0];
+        for(s=0;s<5;s++)
+        {
+            counts[s][0]=counts[s][1]=0;
+            for(n=0;n<100;n++)
+            {
+                CreateMon(&gEnemyParty[0],sSpecies[s],10,0,FALSE,0,OT_ID_PLAYER_ID,0);
+                gBattleTypeFlags=0;SetWildMonHeldItem();
+                item=GetMonData(&gEnemyParty[0],MON_DATA_HELD_ITEM);
+                if(item==gSpeciesInfo[sSpecies[s]].itemCommon && item!=ITEM_NONE)counts[s][0]++;
+                else if(item==gSpeciesInfo[sSpecies[s]].itemRare && item!=ITEM_NONE)counts[s][1]++;
+            }
+        }
+        BenchExpect(counts[0][0]+counts[0][1]==100 && counts[0][0]>counts[0][1] && counts[0][1]>10);
+        BenchExpect(counts[1][1]==100 && counts[2][0]==100 && counts[3][0]==100);
+        BenchExpect(counts[4][0]+counts[4][1]==0);
+        CreateMon(&gEnemyParty[0],SPECIES_RATICATE,10,0,FALSE,0,OT_ID_PLAYER_ID,0);
+        gBattleTypeFlags=BATTLE_TYPE_TRAINER;SetWildMonHeldItem();
+        BenchExpect(GetMonData(&gEnemyParty[0],MON_DATA_HELD_ITEM)==ITEM_NONE);
+        gEnemyParty[0]=saved;gBattleTypeFlags=flags;
+    }
     BenchGymPartyChecks();
     gDecisionDone=1;
 }
