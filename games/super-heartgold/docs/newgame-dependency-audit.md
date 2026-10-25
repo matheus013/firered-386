@@ -127,9 +127,9 @@ Os offsets de disco e tamanhos dos 42 blocos já comprovados no ARM9 estão em
 [save-format-investigation.md](save-format-investigation.md). Essa comprovação
 dos tamanhos não comprova o conteúdo produzido pelos inicializadores.
 
-## Fatia implementada e prova de 21 blocos
+## Fatia implementada e prova de 26 blocos
 
-`initialize_soulsilver_usa_partial_blocks()` agora produz 21 blocos brutos com
+`initialize_soulsilver_usa_partial_blocks()` agora produz 26 blocos brutos com
 arrays de bytes, sem depender do layout de structs do compilador.
 Não aplica os efeitos posteriores de `NewGame_InitSaveData`, não inicia Oak e
 não cria um save. Os defaults foram limitados à edição SoulSilver USA verificada:
@@ -149,7 +149,7 @@ Nenhum save real é lido.
 python3 tools/verify_newgame_blocks.py --arm9 /caminho/privado/rc_image_0.bin
 ```
 
-Prova executada localmente: as 84 comparações (21 blocos × 4 padrões) passaram,
+Prova executada localmente: as 104 comparações (26 blocos × 4 padrões) passaram,
 com guardas preservadas. SHA-256 da saída dos três blocos iniciais:
 
 | Bloco | Bytes | SHA-256 |
@@ -193,10 +193,86 @@ flags da Pokédex; esses sentinelas não concedem capturas nem National Dex.
 
 Mailbox foi excluído deste conjunto: seu inicializador lê globais de idioma e
 versão e não limpa todos os bytes de padding. Na partida original, o clear da
-região dinâmica ocorre antes dessa chamada. Party e Daycare inicializam dados
-de Pokémon criptografados; exigem uma fatia própria para essa semântica.
+região dinâmica ocorre antes dessa chamada.
 
-Os oito testes C++ passaram com GCC, `-Wall -Wextra -Werror`, AddressSanitizer
-e UndefinedBehaviorSanitizer. Essa é validação de 21 inicializadores parciais;
-os outros 21 blocos, a partida completa e a campanha continuam pendentes. A
+Os 13 testes C++ passaram com GCC, `-Wall -Wextra -Werror`, AddressSanitizer
+e UndefinedBehaviorSanitizer. Essa é validação de 26 inicializadores parciais;
+os outros 16 blocos, a partida completa e a campanha continuam pendentes. A
 fração dos blocos inicializados não estima a conclusão do port ou da campanha.
+
+## Pokémon vazios criptografados
+
+Em 25/10/2026, foram acrescentados Party (ID2, `0x5B0`), Daycare (ID7, `0x1E0`)
+e MigratedPokemon (ID28, `0x688`). Cada um passou pelas quatro execuções ARM9
+com padrões diferentes e pelo hook de escritas restritas. Os três inicializadores
+originais limpam o bloco inteiro, incluindo padding, antes de criar os registros.
+
+Um Pokémon vazio armazenado não é uma sequência de zeros. `ZeroMonData` e
+`ZeroBoxMonData` de `src/pokemon.c:101–110` limpam o objeto e criptografam seus
+segmentos. Os macros `ENCRY_ARGS_BOX/PTY` usam checksum e personalidade como
+seed; ambos são zero nesses objetos vazios. O algoritmo de
+`src/math_util.c:143–156` é reproduzido com aritmética u32 definida:
+
+```text
+para cada halfword little-endian, partindo de seed=0 por segmento:
+    seed = (seed * 1103515245 + 24691) modulo 2^32
+    ciphertext = plaintext_zero XOR (seed >> 16)
+```
+
+Este é um gerador local do cifrador; não lê nem avança o RNG global da partida.
+Os inicializadores usam o helper comum `xor_pokemon_segment` de
+`hg/pokemon_crypto.hpp`; o algoritmo não é duplicado no módulo de nova partida.
+Não há blocos grandes de bytes criptografados copiados como constantes. A região
+BoxPokemon começa em +8 e tem 128 bytes. O Pokémon completo tem 236 bytes e
+criptografa separadamente seus 100 bytes de dados de party em +136, reiniciando
+a seed. Não é necessário implementar geração de personalidade, checksum de
+Pokémon não vazios ou embaralhamento de blocos para esses casos vazios.
+
+Party mantém capacidade 6 e quantidade atual 0, seguida de seis registros a
+partir de +8; extras e padding ficam zerados. Daycare tem dois registros de
+236 bytes, mas criptografa apenas o BoxPokemon de cada um; mail, nomes, passos e
+dados de ovo permanecem zerados. MigratedPokemon tem seis registros completos
+e mantém IDs, horários de migração, RTC e MAC zerados. Isso não cria Pokémon
+capturados nem inventa dados da máquina.
+
+| Bloco | SHA-256 dos bytes comparados |
+| --- | --- |
+| Party | `9f9721c6e9018093de5fb65927809d5b111bad077cc8b90167d608a81733fdea` |
+| Daycare | `967a817cbde7fc39e9b162812adcd51678c52b9e9612dbd2e7c47745917f9131` |
+| MigratedPokemon | `f0a5233c9f22975a2c4cf60db93061510cce6e01ca57a0ba105ef368d22c2d1f` |
+
+Os testes também descriptografam os segmentos por uma recorrência independente
+com inteiros de 64 bits e módulo explícito, exigem plaintext integralmente zero,
+conferem o reinício das seeds e um prefixo observado diretamente no ARM9.
+
+## Fashion e Pokégear; próximos limites
+
+Também em 25/10/2026, os inicializadores Fashion (ID12, `0x834`) e Pokégear
+(ID34, `0x658`) passaram pela prova completa de quatro padrões, guardas e
+hook de escritas sem globais. Fashion usa magic `0x00001234` nos 16 registros
+vazios (11 pequenos e cinco grandes), mantém acessórios zerados e os 18 bytes
+de ordem de wallpapers com sentinela 18. Isso não concede wallpapers.
+
+Pokégear inicializa o app anterior como 3, cursor de rádio `(128,128)`, 75
+registros de rematch com o bit inicial original, contador de Kenji em sete dias
+e somente Mother no primeiro contato. Os outros 74 contatos são `0xFF`; saldo,
+presentes, registro de cartões e desbloqueio de mapa ficam zerados. A origem
+dos offsets e defaults são `src/save_fashion.c`, `include/fashion_case.h`,
+`src/save_pokegear.c`, `include/save_pokegear.h` e
+`include/constants/phone_contacts.h` no pin indicado.
+
+| Bloco | SHA-256 dos bytes comparados |
+| --- | --- |
+| Fashion | `545888bb37dc5b8ab9c37dfb4425a1675e09e296718f07b5a5ce4ec3d2907786` |
+| Pokégear | `a49d7ea033fb89c4ff0ebaa7bafc45d574f3fde097419b10ab2bd5ad137618c6` |
+
+Os outros três candidatos desta rodada foram excluídos por dependências reais:
+
+- Frontier (ID19) copia o estado para `sFrontierSave`, um global usado pelo jogo.
+- Safari (ID35) lê idioma/versão globais e deixa quatro bytes finais preservados
+  quando chamado sobre memória não zerada. Depende do clear prévio da região
+  dinâmica e de um contrato explícito para o contexto; não foi tratado como
+  inicializador puro completo.
+- PC Storage (ID41, grupo principal 1) carrega os nomes dos boxes do banco de
+  mensagens 24 via NARC/heap. Essa carga precisa ser implementada com os recursos
+  privados e limites corretos. Ignorá-la não reproduziria a inicialização.

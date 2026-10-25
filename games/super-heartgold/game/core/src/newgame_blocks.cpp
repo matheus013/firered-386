@@ -1,8 +1,19 @@
 #include "hg/newgame_blocks.hpp"
+#include "hg/pokemon_crypto.hpp"
 
 #include <algorithm>
+#include <span>
 
 namespace hg {
+namespace {
+// The local per-segment LCRNG is part of the Pokémon storage cipher, not the
+// game's global RNG. Empty Pokémon have zero checksum/personality, so every
+// independently encrypted region starts with seed zero and plaintext zero.
+void initialize_empty_pokemon(std::span<std::byte> pokemon) {
+    xor_pokemon_segment(pokemon.subspan(8, 128), 0); // BoxPokemon encrypted blocks
+    xor_pokemon_segment(pokemon.subspan(136, 100), 0); // party stats/mail/capsule
+}
+}
 
 PartialNewGameBlocks initialize_soulsilver_usa_partial_blocks() {
     PartialNewGameBlocks blocks{};
@@ -62,6 +73,34 @@ PartialNewGameBlocks initialize_soulsilver_usa_partial_blocks() {
         for (std::size_t mon = 0; mon < 6; ++mon)
             std::fill_n(blocks.trainer_house.begin() + start + 48 + mon * 56 + 36, 20, std::byte{0xff});
     }
+
+    blocks.party[0] = std::byte{6}; // capacity, current count remains zero
+    for (std::size_t slot = 0; slot < 6; ++slot) {
+        initialize_empty_pokemon(std::span(blocks.party).subspan(8 + slot * 236, 236));
+        initialize_empty_pokemon(std::span(blocks.migrated_pokemon).subspan(slot * 236, 236));
+    }
+    // Two 236-byte DaycareMon records contain a 136-byte BoxPokemon followed
+    // by clear mail/name/steps extras. Only their 128-byte box payload encrypts.
+    for (std::size_t slot = 0; slot < 2; ++slot)
+        xor_pokemon_segment(std::span(blocks.daycare).subspan(slot * 236 + 8, 128), 0);
+
+    // Empty Fashion entries use magic 0x00001234. The case's 18 wallpaper
+    // order bytes use 18 as the empty marker, not an unlocked wallpaper ID.
+    const auto empty_fashion_entry = [&](std::size_t offset) {
+        blocks.fashion_data[offset] = std::byte{0x34};
+        blocks.fashion_data[offset + 1] = std::byte{0x12};
+    };
+    for (std::size_t entry = 0; entry < 11; ++entry) empty_fashion_entry(entry * 116);
+    for (std::size_t entry = 0; entry < 5; ++entry) empty_fashion_entry(0x4fc + entry * 152);
+    std::fill_n(blocks.fashion_data.begin() + 0x81c, 18, std::byte{18});
+
+    blocks.pokegear[0] = std::byte{3};
+    blocks.pokegear[2] = blocks.pokegear[3] = std::byte{128}; // radio cursor
+    for (std::size_t contact = 0; contact < 75; ++contact)
+        blocks.pokegear[0x4b8 + contact * 4] = std::byte{4}; // rematch startup bit
+    blocks.pokegear[0x5fe] = std::byte{7}; // Kenji wait days, inactive
+    // Contact zero is Mother; the remaining 74 contacts are absent (0xff).
+    std::fill_n(blocks.pokegear.begin() + 0x60d, 74, std::byte{0xff});
     return blocks;
 }
 

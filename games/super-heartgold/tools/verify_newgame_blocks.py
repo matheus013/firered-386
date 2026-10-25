@@ -1,4 +1,4 @@
-"""Compare twenty-one native partial block initializers with original ARM9 functions.
+"""Compare twenty-six native partial block initializers with original ARM9 functions.
 
 Private bounded investigation only: exact extracted ARM9 image, optional Unicorn,
 synthetic RAM, no game/save execution or writing. Compiles the actual authorial
@@ -28,7 +28,9 @@ BLOCKS = ((1, 0x2c, 'player_data'), (4, 0x44c, 'vars_flags'),
           (15, 0x620, 'trainer_card'), (32, 0x8, 'plaza_survey'),
           (36, 0x1294, 'photo_album'), (37, 0xb80, 'pokeathlon'),
           (38, 0x80, 'apricorn_box'), (39, 0x134, 'pokewalker'),
-          (40, 0xf00, 'trainer_house'))
+          (40, 0xf00, 'trainer_house'), (2, 0x5b0, 'party'),
+          (7, 0x1e0, 'daycare'), (28, 0x688, 'migrated_pokemon'),
+          (12, 0x834, 'fashion_data'), (34, 0x658, 'pokegear'))
 
 
 def native_bytes(cxx):
@@ -36,7 +38,14 @@ def native_bytes(cxx):
     harness = r'''
 #include "hg/newgame_blocks.hpp"
 #include <cstdio>
+#ifdef _WIN32
+#include <fcntl.h>
+#include <io.h>
+#endif
 int main() {
+#ifdef _WIN32
+    if (_setmode(_fileno(stdout), _O_BINARY) == -1) return 1;
+#endif
     const auto state = hg::initialize_soulsilver_usa_partial_blocks();
     for (const auto block : {std::span<const std::byte>(state.player_data),
                              std::span<const std::byte>(state.vars_flags),
@@ -58,7 +67,12 @@ int main() {
                              std::span<const std::byte>(state.pokeathlon),
                              std::span<const std::byte>(state.apricorn_box),
                              std::span<const std::byte>(state.pokewalker),
-                             std::span<const std::byte>(state.trainer_house)}) {
+                             std::span<const std::byte>(state.trainer_house),
+                             std::span<const std::byte>(state.party),
+                             std::span<const std::byte>(state.daycare),
+                             std::span<const std::byte>(state.migrated_pokemon),
+                             std::span<const std::byte>(state.fashion_data),
+                             std::span<const std::byte>(state.pokegear)}) {
         if (std::fwrite(block.data(), 1, block.size(), stdout) != block.size()) return 1;
     }
     return 0;
@@ -72,6 +86,7 @@ int main() {
         subprocess.run([cxx, '-std=c++20', '-Wall', '-Wextra', '-Werror',
                         '-I', str(root / 'game/core/include'), str(source),
                         str(root / 'game/core/src/newgame_blocks.cpp'),
+                        str(root / 'game/core/src/pokemon_crypto.cpp'),
                         '-o', str(executable)], check=True, capture_output=True)
         return subprocess.run([str(executable)], check=True, capture_output=True).stdout
 
@@ -131,7 +146,7 @@ def prove(image, native):
         results.append(dict(id=index, name=name, size=size, patterns_compared=4,
                             bytes_sha256=hashlib.sha256(expected).hexdigest()))
     return dict(image_sha256=IMAGE_SHA256, blocks=results,
-                scope='twenty_one_raw_initializers_only_not_complete_newgame',
+                scope='twenty_six_raw_initializers_only_not_complete_newgame',
                 native_original_byte_comparison='passed',
                 original_writes='limited_to_target_block_and_synthetic_stack')
 
