@@ -634,3 +634,22 @@ hashes originais e adaptados. Essa validação não compara quadro a quadro com 
 A constante gSplAxisY vem de lib/asm/spl_data.s do commit 01eeeb4b da referência:
 três valores de 16 bits, 0, 0x1000 e 0. A biblioteca matemática do SDK continua
 pré-compilada sem sanitizers. Não há upload de texturas nem desenho neste teste.
+
+## Contrato de upload SPL
+
+`--verify-spl-upload`, junto do teste de recurso, executa as funções originais
+SPL_LoadTexByCallbackFunction e SPL_LoadTexPlttByCallbackFunction. As chamadas
+GX são interceptadas por uma fronteira de gravação em memória limitada,
+com validação de origem dentro do recurso, destino dentro da reserva,
+conteúdo copiado e sequência Begin/Load/End. Esta fronteira não representa
+o alocador VRAM real, suas restrições de formato, bancos ou DMA.
+
+No recurso da abertura passaram 9 chamadas de textura e 9 de paleta,
+reservando 11840 e 88 bytes respectivamente. O teste também confere que os
+endereços armazenados nas 9 texturas ficam dentro das reservas. A mesma
+execução passou os 100 ciclos de pools e as 5400 atualizações de emissores
+com ASan/UBSan. Relatório: hgss-spl-upload-test.json.
+
+Não foi testado upload pela implementação GX do SDK, OpenGL, paletas
+compartilhadas de outros recursos ou qualquer imagem renderizada. O próximo
+passo continua sendo substituir essa fronteira pelo caminho gráfico real.

@@ -16,6 +16,7 @@ parser.add_argument('--verify-spl',action='store_true',help='Test original SPL p
 parser.add_argument('--spl-resource-archive',type=Path,help='Verified private a/0/5/9 archive; test intro member 4')
 parser.add_argument('--spl-fx-library',type=Path,help='Native SDK libfx.a for the SPL resource test')
 parser.add_argument('--verify-spl-update',action='store_true',help='Simulate each intro particle resource for 600 frames')
+parser.add_argument('--verify-spl-upload',action='store_true',help='Validate SPL uploads at a recording graphics boundary; no GPU')
 parser.add_argument('--verify-scheduler',action='store_true',help='Execute original sys_task.c with ASan/UBSan')
 parser.add_argument('--require-all',action='store_true',help='Fail if any selected module fails to compile')
 parser.add_argument('--extra-modules',nargs='+',default=[],help='Additional source basenames to compile')
@@ -29,6 +30,7 @@ a=parser.parse_args()
 if a.verify_spl and not a.spl_sources:parser.error('--verify-spl requires --spl-sources')
 if a.spl_resource_archive and (not a.verify_spl or not a.spl_fx_library):parser.error('Resource test requires --verify-spl and --spl-fx-library')
 if a.verify_spl_update and not a.spl_resource_archive:parser.error('--verify-spl-update requires --spl-resource-archive')
+if a.verify_spl_upload and not a.spl_resource_archive:parser.error('--verify-spl-upload requires --spl-resource-archive')
 if a.spl_sources and len(list(a.spl_sources.glob('spl_*.c')))!=9:parser.error('Expected nine private SPL C sources')
 if a.build_windows_heap and not a.verify_heap:parser.error('--build-windows-heap requires --verify-heap')
 if a.build_windows_heap and not a.windows_sdl_include:parser.error('--build-windows-heap requires --windows-sdl-include')
@@ -222,6 +224,7 @@ if a.verify_spl:
   resource.write_bytes(read_banks(archive)[4])
   resource_arguments=[str(resource)]
   command[1:1]=['-DHG_SPL_RESOURCE_TEST']
+  if a.verify_spl_upload:command[1:1]=['-DHG_SPL_UPLOAD_TEST']
   command[-2:-2]=[str(a.spl_sources/'spl_field.c'),str(a.libntr/'libraries/sim/src/sim_vars.c'),str(a.spl_fx_library),'-lm']
   if a.verify_spl_update:
    command[1:1]=['-DHG_SPL_UPDATE_TEST']
@@ -240,6 +243,8 @@ if a.verify_spl:
    'rendering_tested':False,'resource_loading_tested':bool(resource_arguments),
    'resource_sha256':hashlib.sha256(resource.read_bytes()).hexdigest() if resource_arguments else None,
    'resource_updates_tested':a.verify_spl_update,
+   'upload_recording_boundary_tested':a.verify_spl_upload,
+   'gpu_upload_tested':False,
    'frames_per_resource':600 if a.verify_spl_update else 0,
    'resource_archive_member':4 if resource_arguments else None},indent=2)+'\n')
 if a.verify_particles:

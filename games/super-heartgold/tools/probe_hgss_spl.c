@@ -5,6 +5,54 @@
 #include <string.h>
 
 #define CHECK(c) do { if (!(c)) abort(); } while (0)
+#ifdef HG_SPL_UPLOAD_TEST
+/* Recording graphics boundary: validates upload data, not GPU rendering. */
+static unsigned char texture_memory[512 * 1024], palette_memory[128 * 1024];
+static const unsigned char *resource_begin;
+static size_t resource_length;
+static u32 texture_used, palette_used;
+static unsigned texture_calls, palette_calls;
+static int transfer_mode;
+static u32 allocate_texture(u32 size, BOOL compressed) {
+    (void)compressed;
+    u32 address = texture_used;
+    CHECK(size <= sizeof(texture_memory) - address);
+    texture_used += (size + 7) & ~7u;
+    CHECK(texture_used <= sizeof(texture_memory));
+    return address;
+}
+static u32 allocate_palette(u32 size, BOOL four_colors) {
+    (void)four_colors;
+    u32 address = palette_used;
+    CHECK(size <= sizeof(palette_memory) - address);
+    palette_used += (size + 7) & ~7u;
+    CHECK(palette_used <= sizeof(palette_memory));
+    return address;
+}
+static void validate_source(const void *source, u32 size) {
+    uintptr_t begin = (uintptr_t)resource_begin, cursor = (uintptr_t)source;
+    CHECK(cursor >= begin && cursor - begin <= resource_length);
+    CHECK(size <= resource_length - (cursor - begin));
+}
+void GX_BeginLoadTex(void) { CHECK(transfer_mode == 0); transfer_mode = 1; }
+void GX_EndLoadTex(void) { CHECK(transfer_mode == 1); transfer_mode = 0; }
+void GX_BeginLoadTexPltt(void) { CHECK(transfer_mode == 0); transfer_mode = 2; }
+void GX_EndLoadTexPltt(void) { CHECK(transfer_mode == 2); transfer_mode = 0; }
+void GX_LoadTex(const void *source, u32 address, u32 size) {
+    CHECK(transfer_mode == 1 && address <= texture_used && size <= texture_used - address);
+    validate_source(source, size);
+    memcpy(texture_memory + address, source, size);
+    CHECK(memcmp(texture_memory + address, source, size) == 0);
+    ++texture_calls;
+}
+void GX_LoadTexPltt(const void *source, u32 address, u32 size) {
+    CHECK(transfer_mode == 2 && address <= palette_used && size <= palette_used - address);
+    validate_source(source, size);
+    memcpy(palette_memory + address, source, size);
+    CHECK(memcmp(palette_memory + address, source, size) == 0);
+    ++palette_calls;
+}
+#endif
 static void *blocks[1024];
 static unsigned allocated;
 #ifdef HG_SPL_RESOURCE_TEST
@@ -91,6 +139,19 @@ int main(int argc, char **argv) {
         CHECK(base >= (uintptr_t)data && base + sizeof(SPLResBase) <= (uintptr_t)data + length);
     }
     printf("SPL resource: %u emitters and %u textures loaded\n", manager->res_num, manager->tex_num);
+#ifdef HG_SPL_UPLOAD_TEST
+    resource_begin = data;
+    resource_length = (size_t)length;
+    CHECK(SPL_LoadTexByCallbackFunction(manager, allocate_texture));
+    CHECK(SPL_LoadTexPlttByCallbackFunction(manager, allocate_palette));
+    CHECK(transfer_mode == 0 && texture_calls > 0 && palette_calls > 0);
+    for (unsigned i = 0; i < manager->tex_num; ++i) {
+        CHECK(manager->tex_ary[i].tex_addr < texture_used);
+        CHECK(manager->tex_ary[i].plt_addr < palette_used);
+    }
+    printf("SPL upload boundary: %u texture / %u palette calls, %u / %u bytes reserved\n",
+           texture_calls, palette_calls, texture_used, palette_used);
+#endif
 #ifdef HG_SPL_UPDATE_TEST
     unsigned peak = 0;
     for (unsigned resource = 0; resource < manager->res_num; ++resource) {
