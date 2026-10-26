@@ -653,3 +653,27 @@ com ASan/UBSan. Relatório: hgss-spl-upload-test.json.
 Não foi testado upload pela implementação GX do SDK, OpenGL, paletas
 compartilhadas de outros recursos ou qualquer imagem renderizada. O próximo
 passo continua sendo substituir essa fronteira pelo caminho gráfico real.
+
+## Endereçamento nativo dos uploads diretos GX
+
+A inspeção do SDK encontrou um defeito adicional nos caminhos Ex:
+GX_LoadTexEx truncava os endereços da tabela nativa para u32 e deslocava-os
+12 bits; GX_LoadTexPlttEx mantinha u64, mas ainda deslocava o endereço.
+As tabelas SDK_PORT já contêm ponteiros completos, ao contrário das tabelas DS.
+
+prepare_sdk_texture_upload.py verifica o hash do fonte e adapta somente esses
+endereços no ramo SDK_PORT, mantendo o ramo DS. O build conjunto dos SDKs
+aplica a correção à sua cópia privada e registra o hash resultante.
+
+verify_sdk_texture_upload.py extrai as duas funções do fonte original e da
+cópia adaptada para um teste com estado de bancos e cópias controlados.
+O original falhou na verificação do endereço de destino; a versão adaptada
+passou quatro casos: banco único, fronteira entre bancos, segundo banco e
+paleta. Os endereços são superiores a UINT32_MAX e ASan/UBSan ficam ativos.
+Resultado em hgss-sdk-direct-upload-test.json.
+
+Reprodução: `verify_sdk_texture_upload.py --source <libntr/libraries/gx/src/gx_load3d.c>
+--output <novo-diretorio>`. É um teste das funções extraídas, não execução do
+driver completo, DMA, OpenGL ou apresentação na tela. O caminho SPL usual
+Begin/Load/End já trata esses endereços de forma diferente; essa descoberta
+não demonstra falha desse caminho nem conclui sua integração gráfica.

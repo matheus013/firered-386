@@ -16,37 +16,38 @@
   ],
   "platform": "linux-x86_64",
   "native_expheap_sha256": "5381f19a4bb60a16c53988b27a69a9cd8ea6ced4585dda809adb4b34a04de894",
+  "native_texture_upload_sha256": "38bfd09ded9db3deb09d532f4693c5c924a3414c663574e5f1a8a31895b5d58b",
   "runtime_tested": false,
   "libraries": [
     {
       "file": "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a",
       "bytes": 2682,
-      "sha256": "391f187a9e145b78cfeed4637fad4116bf4a074294a238ec0d0c9d5050377ca0"
+      "sha256": "913dae9b27712f906f1021815c092048a8a285dab4d16824ac6bf1e6002bdda1"
     },
     {
       "file": "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a",
       "bytes": 12018,
-      "sha256": "c4ae5f17a45801914b9e991cfe12cced353495710d3002bc6db15cf113114e35"
+      "sha256": "5367325df9ae55ee30db36c35907327c8c8813f22d73e668b7a678151d891eac"
     },
     {
       "file": "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a",
       "bytes": 8920,
-      "sha256": "f257f76f69dc3f9bbbf55b5610ef36f063d5f5c50e1aa15963f0fcc7aa8812c7"
+      "sha256": "2811f4e126e3b9567b589977396e512e6a5447ba0a5fc79fc2a53c3a92950348"
     },
     {
       "file": "subprojects/libntrsystem/libraries/gfd/libnnsgfd.a",
       "bytes": 3036,
-      "sha256": "5cb2d509ff9f4c71925b5e426dfa714a844c3a623b71d6b1e6c011f8250c82f6"
+      "sha256": "08bf69c057793dfa8e008e1f9c3b78395e06892e57bc518b3a31e2b22455f8da"
     },
     {
       "file": "subprojects/libntrsystem/libraries/mcs/libnnsmcs.a",
       "bytes": 1054,
-      "sha256": "824ad6ac64ea0cb985407b6c4709cad364eb0eb16ff4a996c13ab96324cd1003"
+      "sha256": "2632c66fd81311f660bc177bf10b28b3478a607d49b8afc5b2c7e2d524a9f557"
     },
     {
       "file": "subprojects/libntrsystem/libraries/snd/libnnssnd.a",
       "bytes": 7766,
-      "sha256": "570986efbc9e52ed35767e625e0c99f4eda2b1402813b7e4d37108f5a9c15b8b"
+      "sha256": "fa9e9fd1056e8c2d55d1ecb1fc0b241802845e3c18481e1df93d1571bfd9f857"
     }
   ]
 }

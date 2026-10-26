@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "original_rejected_bad_address": true,
+  "adapted_cases": 4,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "scope": "two extracted SDK functions, controlled bank state and copy hooks",
+  "gpu_tested": false
+}
