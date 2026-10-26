@@ -592,3 +592,24 @@ provedor nesse conjunto. O número de referências externas pode crescer ao
 adicionar código, mesmo resolvendo dependências da camada anterior.
 Não foi ligado um executável completo. Os testes SPL cobrem apenas pools
 e listas, no Linux com ASan/UBSan; o launcher Windows não foi alterado.
+
+## Carregamento do recurso SPL da abertura
+
+O ensaio foi ampliado para chamar SPL_Load com o membro 4 do arquivo privado
+a/0/5/9, exatamente o recurso selecionado por intro_movie_scene_4.c.
+O arquivo NARC é identificado por SHA256 antes da extração local. O teste
+carregou 9 definições de emissores e 9 texturas, com ASan/UBSan e sem falhas.
+Confere contagens do cabeçalho e limites dos ponteiros base. Os 100 ciclos
+anteriores de pools/listas também passaram nessa execução.
+
+Reprodução: acrescentar `--spl-resource-archive <a/0/5/9>` e
+`--spl-fx-library <libfx.a>` a `--verify-spl --spl-sources <fontes>`.
+Usa spl_field.c original, matemática nativa do SDK e sim_vars.c original.
+As fronteiras controladas são malloc, preenchimento/cópia de bytes,
+armazenamento da semente RNG e um handler de assert que aborta.
+A biblioteca matemática pré-compilada não está instrumentada; os fontes SPL
+e o ensaio estão. O RNG e os callbacks de campos não são executados.
+
+Resultado: hgss-spl-resource-test.json. O recurso fica fora do Git.
+Este teste não cobre arquivos malformados, todos os recursos do jogo,
+atualização dos emissores, upload de texturas/paletas ou renderização.
