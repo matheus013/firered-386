@@ -31,11 +31,13 @@
       "StringAllCharsValid",
       "TryLoadGlyph"
     ],
+    "g2d_cell_culling": [],
     "gf_3d_render": [
       "GF_3DVramMan_Create",
       "GF_3DVramMan_Delete",
       "GF_AssertFail"
     ],
+    "gf_g2d_renderer": [],
     "gf_gfx_loader": [
       "__stack_chk_fail"
     ],
@@ -58,7 +60,6 @@
     "intro_movie": [
       "G2dRenderer_Init",
       "GF_AssertFail",
-      "IntroMovie_GetSceneDataPtr",
       "IntroMovie_Scene1",
       "IntroMovie_Scene2",
       "IntroMovie_Scene3",
@@ -68,6 +69,14 @@
       "__stack_chk_fail",
       "gApplication_TitleScreen",
       "memset"
+    ],
+    "intro_movie_scenes_lib": [
+      "Create2DGfxResObjMan",
+      "CreateSpriteResourcesHeader",
+      "Destroy2DGfxResObjMan",
+      "G2dRenderer_SetMainSurfaceCoords",
+      "G2dRenderer_SetSubSurfaceCoords",
+      "GF_AssertFail"
     ],
     "main": [
       "CommState_GetErrorScreen",
@@ -117,8 +126,6 @@
     ],
     "oam_manager": [
       "GF_AssertFail",
-      "GF_G2dIsCellVisible",
-      "GF_InitG2dRenderSurface",
       "_GLOBAL_OFFSET_TABLE_"
     ],
     "obj_char_transfer": [
@@ -320,56 +327,39 @@
       "__stack_chk_fail"
     ],
     "screen_fade": [
-      "FadeFunc_00",
-      "FadeFunc_01",
-      "FadeFunc_02",
-      "FadeFunc_03",
-      "FadeFunc_04",
-      "FadeFunc_05",
-      "FadeFunc_06",
-      "FadeFunc_07",
-      "FadeFunc_08",
-      "FadeFunc_09",
-      "FadeFunc_10",
-      "FadeFunc_11",
-      "FadeFunc_12",
-      "FadeFunc_13",
-      "FadeFunc_14",
-      "FadeFunc_15",
-      "FadeFunc_16",
-      "FadeFunc_17",
-      "FadeFunc_18",
-      "FadeFunc_19",
-      "FadeFunc_20",
-      "FadeFunc_21",
-      "FadeFunc_22",
-      "FadeFunc_23",
-      "FadeFunc_24",
-      "FadeFunc_25",
-      "FadeFunc_26",
-      "FadeFunc_27",
-      "FadeFunc_28",
-      "FadeFunc_29",
-      "FadeFunc_30",
-      "FadeFunc_31",
-      "FadeFunc_32",
-      "FadeFunc_33",
-      "FadeFunc_34",
-      "FadeFunc_35",
-      "FadeFunc_36",
-      "FadeFunc_37",
-      "FadeFunc_38",
-      "FadeFunc_39",
-      "FadeFunc_40",
-      "FadeFunc_41",
-      "FadeFunc_42",
       "GF_AssertFail",
-      "ScreenWindow_QueueSetInside",
-      "ScreenWindow_QueueSetOutside",
-      "ScreenWindow_QueueSetRect",
-      "ScreenWindow_QueueSetVisible",
-      "ScreenWindow_SetVisible",
       "memset"
+    ],
+    "screen_fade_effects": [
+      "CircleWipe_Begin",
+      "CircleWipe_Update",
+      "DoubleRectWipe_Begin",
+      "DoubleRectWipe_Update",
+      "GF_AssertFail",
+      "LineShutterWipe_Begin",
+      "LineShutterWipe_Update",
+      "MirroredSectorWipe_Begin",
+      "MirroredSectorWipe_Update",
+      "MultiRectWipe_Begin",
+      "MultiRectWipe_Update",
+      "RectShutterWipe_Begin",
+      "RectShutterWipe_Update",
+      "RectWipe_Begin",
+      "RectWipe_Update",
+      "SectorWipe_Begin",
+      "SectorWipe_Update",
+      "SlopeWipe_Begin",
+      "SlopeWipe_Update",
+      "WedgeWipe_Begin",
+      "WedgeWipe_Update",
+      "__stack_chk_fail",
+      "memcpy",
+      "memset"
+    ],
+    "screen_window_wipe": [
+      "GF_AssertFail",
+      "_GLOBAL_OFFSET_TABLE_",
+      "__stack_chk_fail"
     ],
     "sprite": [
       "GF_AssertFail",
@@ -410,9 +400,9 @@
     ]
   },
   "executable_link_tested": false,
-  "module_count": 37,
+  "module_count": 42,
   "relocatable_link_passed": true,
-  "sdk_candidate_count": 294,
+  "sdk_candidate_count": 312,
   "sdk_candidates": {
     "CARD_CancelBackupAsync": [
       "subprojects/libntr/libraries/card/libcard.a"
@@ -529,6 +519,9 @@
       "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G2x_SetBGyAffine_": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G2x_SetBlendAlpha_": [
       "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G2x_SetBlendBrightness_": [
@@ -831,6 +824,9 @@
     "NNS_FndResizeForMBlockExpHeap": [
       "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
     ],
+    "NNS_G2dAddRendererTargetSurface": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
     "NNS_G2dApplyAndResetOamManagerBuffer": [
       "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
     ],
@@ -913,6 +909,12 @@
       "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
     ],
     "NNS_G2dInitOamManagerModule": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dInitRenderSurface": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dInitRenderer": [
       "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
     ],
     "NNS_G2dLoadImage1DMapping": [
@@ -1218,6 +1220,24 @@
     "s_reg_G2S_DB_BLDCNT": [
       "subprojects/libntr/libraries/sim/libsim.a"
     ],
+    "s_reg_G2S_DB_WIN0H": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_WIN0V": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_WIN1H": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_WIN1V": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_WININ": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_WINOUT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
     "s_reg_G2_BG0CNT": [
       "subprojects/libntr/libraries/sim/libsim.a"
     ],
@@ -1251,6 +1271,24 @@
     "s_reg_G2_BLDCNT": [
       "subprojects/libntr/libraries/sim/libsim.a"
     ],
+    "s_reg_G2_WIN0H": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_WIN0V": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_WIN1H": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_WIN1V": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_WININ": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_WINOUT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
     "s_reg_G3X_ALPHA_TEST_REF": [
       "subprojects/libntr/libraries/sim/libsim.a"
     ],
@@ -1269,10 +1307,16 @@
     "s_reg_GX_DISPCNT": [
       "subprojects/libntr/libraries/sim/libsim.a"
     ],
+    "s_reg_GX_DISPSTAT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
     "s_reg_GX_MASTER_BRIGHT": [
       "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_GX_POWCNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_GX_VCOUNT": [
       "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_OS_IE": [
@@ -1297,7 +1341,7 @@
       "subprojects/libntr/libraries/sim/libsim.a"
     ]
   },
-  "unresolved_count": 568,
+  "unresolved_count": 560,
   "without_sdk_provider": [
     "AddIGTSeconds",
     "BattleRecord_Init",
@@ -1308,6 +1352,8 @@
     "Chatot_PlayCryWithDelayedFallback",
     "Chatot_PlayCryWithFallback",
     "Chatot_SetForceDefaultCry",
+    "CircleWipe_Begin",
+    "CircleWipe_Update",
     "CommState_Exists",
     "CommState_GetErrorScreen",
     "CommState_GetLinkMode",
@@ -1317,50 +1363,12 @@
     "Comm_LoadAndInitDwc",
     "Comm_Update",
     "CopyCapsule",
+    "Create2DGfxResObjMan",
+    "CreateSpriteResourcesHeader",
+    "Destroy2DGfxResObjMan",
     "DoSoundUpdateFrame",
-    "FadeFunc_00",
-    "FadeFunc_01",
-    "FadeFunc_02",
-    "FadeFunc_03",
-    "FadeFunc_04",
-    "FadeFunc_05",
-    "FadeFunc_06",
-    "FadeFunc_07",
-    "FadeFunc_08",
-    "FadeFunc_09",
-    "FadeFunc_10",
-    "FadeFunc_11",
-    "FadeFunc_12",
-    "FadeFunc_13",
-    "FadeFunc_14",
-    "FadeFunc_15",
-    "FadeFunc_16",
-    "FadeFunc_17",
-    "FadeFunc_18",
-    "FadeFunc_19",
-    "FadeFunc_20",
-    "FadeFunc_21",
-    "FadeFunc_22",
-    "FadeFunc_23",
-    "FadeFunc_24",
-    "FadeFunc_25",
-    "FadeFunc_26",
-    "FadeFunc_27",
-    "FadeFunc_28",
-    "FadeFunc_29",
-    "FadeFunc_30",
-    "FadeFunc_31",
-    "FadeFunc_32",
-    "FadeFunc_33",
-    "FadeFunc_34",
-    "FadeFunc_35",
-    "FadeFunc_36",
-    "FadeFunc_37",
-    "FadeFunc_38",
-    "FadeFunc_39",
-    "FadeFunc_40",
-    "FadeFunc_41",
-    "FadeFunc_42",
+    "DoubleRectWipe_Begin",
+    "DoubleRectWipe_Update",
     "FieldSystem_IsChildAppRunning",
     "FieldSystem_IsFieldMapLoaded",
     "FieldSystem_IsFieldMapRunning",
@@ -1372,12 +1380,12 @@
     "FrontierSpeciesRecords_Init",
     "FrontierSpeciesRecords_sizeof",
     "G2dRenderer_Init",
+    "G2dRenderer_SetMainSurfaceCoords",
+    "G2dRenderer_SetSubSurfaceCoords",
     "GF_3DVramMan_Create",
     "GF_3DVramMan_Delete",
     "GF_AssertFail",
     "GF_CreateNewVramTransferTask",
-    "GF_G2dIsCellVisible",
-    "GF_InitG2dRenderSurface",
     "GF_MicPauseOnLidClose",
     "GF_MicResumeOnLidOpen",
     "GameStats_Init",
@@ -1397,13 +1405,14 @@
     "GetSubBgPlttAddr",
     "GetSubObjPlttAddr",
     "InitSoundData",
-    "IntroMovie_GetSceneDataPtr",
     "IntroMovie_Scene1",
     "IntroMovie_Scene2",
     "IntroMovie_Scene3",
     "IntroMovie_Scene4",
     "IntroMovie_Scene5",
     "ItemIdIsMail",
+    "LineShutterWipe_Begin",
+    "LineShutterWipe_Update",
     "LoadDownArrowTiles",
     "LocationIsDiamondPearlCompatible",
     "Mail_Copy",
@@ -1415,6 +1424,10 @@
     "Mapsec_GetType",
     "MigratedPokemon_GetSize",
     "MigratedPokemon_Init",
+    "MirroredSectorWipe_Begin",
+    "MirroredSectorWipe_Update",
+    "MultiRectWipe_Begin",
+    "MultiRectWipe_Update",
     "PCBox_sizeof",
     "PCStorage_ClearBoxPadding",
     "PCStorage_GetBoxModifiedFlags",
@@ -1442,6 +1455,10 @@
     "Pokewalker_Init",
     "Pokewalker_sizeof",
     "PrintErrorMessageAndReset",
+    "RectShutterWipe_Begin",
+    "RectShutterWipe_Update",
+    "RectWipe_Begin",
+    "RectWipe_Update",
     "SaveArray_Party_Init",
     "SaveArray_Party_sizeof",
     "SaveBlock23_Init",
@@ -1534,16 +1551,15 @@
     "Save_WiFiHistory_sizeof",
     "Save_WiiMessage_Init",
     "Save_WiiMessage_sizeof",
-    "ScreenWindow_QueueSetInside",
-    "ScreenWindow_QueueSetOutside",
-    "ScreenWindow_QueueSetRect",
-    "ScreenWindow_QueueSetVisible",
-    "ScreenWindow_SetVisible",
+    "SectorWipe_Begin",
+    "SectorWipe_Update",
     "SetFontsPointer",
     "ShowCommunicationError",
     "ShowSaveDataReadError",
     "ShowSaveDataWriteError",
     "ShowWFCUserInfoWarning",
+    "SlopeWipe_Begin",
+    "SlopeWipe_Update",
     "Sound_ResetFieldBGMStopOnce",
     "Sound_SetSceneAndPlayBGM",
     "SpriteSystem_LoadAnimResObjFromOpenNarc",
@@ -1558,6 +1574,8 @@
     "TouchscreenHitbox_TouchNewIsIn",
     "TrainerClass_GetGenderOrTrainerCount",
     "TryLoadGlyph",
+    "WedgeWipe_Begin",
+    "WedgeWipe_Update",
     "_GLOBAL_OFFSET_TABLE_",
     "__stack_chk_fail",
     "fclose",
@@ -1574,5 +1592,5 @@
     "memset",
     "ov36_App_MainMenu_SelectOption_Continue"
   ],
-  "without_sdk_provider_count": 274
+  "without_sdk_provider_count": 248
 }

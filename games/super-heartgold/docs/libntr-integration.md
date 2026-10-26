@@ -505,21 +505,38 @@ o uso é de uma única thread, sem suporte a callbacks que lançam exceções.
 
 ## Compilação da introdução e suporte gráfico
 
-A rodada `hgss-intro-compilation.json` amplia de 27 para 37 módulos C
+A rodada `hgss-intro-compilation.json` amplia de 27 para 42 módulos C
 compilados no Linux. Inclui intro_movie, sys_task_api, screen_fade,
 gf_3d_render, camera, gf_gfx_loader, obj_char_transfer, obj_pltt_transfer,
-oam_manager e sprite. O probe acrescenta o diretório original include/library
+oam_manager, sprite, intro_movie_scenes_lib, gf_g2d_renderer, g2d_cell_culling,
+screen_fade_effects e screen_window_wipe. O probe acrescenta o diretório original include/library
 para resolver os headers de partículas.
 
 `prepare_hgss_graphics.py` verifica hashes dos fontes antes de adaptar cópias
 privadas: mapingType passa a mappingType, nome fornecido pelo SDK; a estrutura
 opaca de sete palavras usada pelo gerenciador OAM passa a usar o tipo
 NNSG2dOamManagerInstance, com os protótipos reais do SDK. Esses dois módulos
-foram compilados, mas ainda não executados nesta integração.
+foram compilados, mas ainda não executados nesta integração. O adaptador também
+substitui o header interno antigo do renderer pelo header público do SDK e
+remove a definição local duplicada de GX_IsHBlank, utilizando a do SDK.
 
-O link relocável dos 37 módulos passou. O relatório separado
-`hgss-intro-link-dependencies.json` registra 568 referências externas, das
-quais 294 possuem candidatos nos SDKs e 274 ainda não têm provedor nesse
+O link relocável dos 42 módulos passou. O relatório separado
+`hgss-intro-link-dependencies.json` registra 560 referências externas, das
+quais 312 possuem candidatos nos SDKs e 248 ainda não têm provedor nesse
 conjunto. O aumento em relação à rodada de 27 módulos corresponde à ampliação
 do código analisado. Não houve link de executável completo nem execução da
 introdução; avisos sobre ponteiros de tamanhos diferentes continuam pendentes.
+
+Para reproduzir esse conjunto, usar `--intro-support --require-all` no probe,
+com os mesmos caminhos de SDKs e headers de mensagens. As cinco unidades
+intro_movie_scene_1 a intro_movie_scene_5 ainda não fazem parte desse conjunto:
+o ensaio separado parou pela ausência de demo/opening/gs_opening.naix.
+O diretório local contém recursos extraídos, mas falta a regra específica
+files/demo/opening/gs_opening.mk referenciada pelo build original. Os índices
+e sufixos de compressão ainda precisam ser gerados/verificados antes de compilar
+as cenas. SINGLE_SCREEN permanece definido pelo global.h da base original.
+
+O inventário consulta apenas os objetos selecionados e os arquivos estáticos
+dos SDKs; a lista sem provedor também contém símbolos do runtime C e do linker
+(por exemplo memset e __stack_chk_fail). Portanto, sua contagem não equivale
+ao número de funções do jogo a implementar.

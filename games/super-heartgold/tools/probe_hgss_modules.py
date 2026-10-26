@@ -13,6 +13,7 @@ parser.add_argument('--message-headers',type=Path,help='Privately generated msgd
 parser.add_argument('--verify-scheduler',action='store_true',help='Execute original sys_task.c with ASan/UBSan')
 parser.add_argument('--require-all',action='store_true',help='Fail if any selected module fails to compile')
 parser.add_argument('--extra-modules',nargs='+',default=[],help='Additional source basenames to compile')
+parser.add_argument('--intro-support',action='store_true',help='Compile the verified 42-module intro support set (not the five asset-dependent scenes)')
 parser.add_argument('--verify-timer',action='store_true',help='Execute Timer3 register-boundary test with ASan/UBSan')
 parser.add_argument('--verify-heap',action='store_true',help='Execute original heap with the native NNS allocator')
 parser.add_argument('--build-windows-heap',action='store_true',help='Also compile the heap test with MinGW; run the EXE separately on Windows')
@@ -60,6 +61,13 @@ report=[]
 prepare_game_heap(ref/'src/heap.c',out/'heap-native.c')
 modules=['gf_rtc','heap','task','sys_task','overlay_manager','gf_gfx_planes','bg_window','pokemon','save','save_arrays','main','system','render_text','font','palette','message_format','msgdata']
 if a.verify_timer:modules.append('timer3')
+if a.intro_support:
+ modules += ['filesystem','pm_string','brightness','poke_overlay','timer3','touchpad',
+             'swap_3d_buffers','math_util','igt_counter','string_control_code','intro_movie',
+             'sys_task_api','screen_fade','gf_3d_render','camera','gf_gfx_loader',
+             'obj_char_transfer','obj_pltt_transfer','oam_manager','sprite',
+             'intro_movie_scenes_lib','gf_g2d_renderer','g2d_cell_culling',
+             'screen_fade_effects','screen_window_wipe']
 for name in dict.fromkeys(modules+a.extra_modules):
  if not name.isidentifier():raise ValueError('Invalid module basename: '+name)
  source=ref/'src'/f'{name}.c'

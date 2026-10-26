@@ -220,5 +220,35 @@
     "compiled": true,
     "first_errors": [],
     "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scenes_lib",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "gf_g2d_renderer",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "g2d_cell_culling",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "screen_fade_effects",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "screen_window_wipe",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
   }
 ]
