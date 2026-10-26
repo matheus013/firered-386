@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "sdk_units": [
+    "gx_load3d.c",
+    "gx_vramcnt.c",
+    "gxstate.c",
+    "mi_memory.c",
+    "mi_dma.c",
+    "sim_vars.c"
+  ],
+  "source_sha256": {
+    "gx_load3d.c": "38bfd09ded9db3deb09d532f4693c5c924a3414c663574e5f1a8a31895b5d58b",
+    "gx_vramcnt.c": "4e0371f3858c5dd996b8ec5353b26811c34e067fc2b939603dbc4ecc4f2063cd",
+    "gxstate.c": "dc12eb72f89a4515ea6d655cfacdc3d450206b161092e2144cec4b64753bdd32",
+    "mi_memory.c": "13d6bc03e6f6e8696187ed0633b7dda4143e8c885eb82b2e7a243dffbe00b5a3",
+    "mi_dma.c": "1bcfb2333d8bfedb0ac6a18dffa0dcfdc1848b77e3222cd2254d515db720f023",
+    "sim_vars.c": "a07cebddb698180b4ddf4444a9946236c500ec1fe0dd887f60ccf361e643a87a"
+  },
+  "texture_bank_combinations": 15,
+  "texture_upload_paths": 2,
+  "platform_hooks": "headless globals; assertion, terminate and DMA callback abort",
+  "cpu_copy_tested": true,
+  "bank_restore_tested": true,
+  "dma_tested": false,
+  "gpu_tested": false,
+  "build_configuration": "SDK_FINALROM, matching SDK build",
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "output": "Real GX uploads: 15 texture bank combinations x 2 paths, split offset, palette and bank restoration passed"
+}

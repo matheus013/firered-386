@@ -677,3 +677,23 @@ Reprodução: `verify_sdk_texture_upload.py --source <libntr/libraries/gx/src/gx
 driver completo, DMA, OpenGL ou apresentação na tela. O caminho SPL usual
 Begin/Load/End já trata esses endereços de forma diferente; essa descoberta
 não demonstra falha desse caminho nem conclui sua integração gráfica.
+
+## Execução dos uploads com unidades completas do SDK
+
+`verify_sdk_upload_runtime.py --build <sdk-stack/build> --output <novo-diretorio>`
+recompila seis unidades completas do SDK com ASan/UBSan, usando os parâmetros
+do build Meson e seu fonte privado adaptado. Não extrai funções nem substitui
+as cópias GX/MI. O teste usa o modo CPU do SDK (`GX_DMA_NOT_USE`).
+
+Foram verificadas as 15 combinações de bancos A/B/C/D, tanto pelo caminho
+Begin/Load/End quanto pelo upload Ex: comparação de todos os bytes transferidos,
+preservação integral dos bancos não selecionados e restauração da seleção.
+Também passaram uma transferência com deslocamento cruzando A/C e uma paleta
+no banco E. Resultado e hashes em `hgss-sdk-upload-runtime-test.json`.
+
+O ambiente é headless, com globais de plataforma fornecidas pelo teste.
+Assertions, término e callbacks de DMA abortam se acionados. A configuração
+SDK_FINALROM é a mesma do build existente; portanto, não valida as verificações
+internas de exclusividade desabilitadas nessa configuração. DMA, OpenGL,
+desenho de partículas e apresentação em tela única continuam sem validação
+por este teste. O jogo completo ainda não inicia.
