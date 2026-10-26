@@ -221,3 +221,28 @@ Requer Linux com display OpenGL (WSLg foi o ambiente usado), SDL2, ENet,
 GCC/G++, Meson, Ninja, NASM, Flex e Bison. O destino deve ser inexistente.
 As fontes de entrada não são modificadas. O teste ainda é uma demo de
 roteamento gráfico, não inicialização de jogo, menus ou campanha.
+
+## Compilação de módulos completos
+
+Avaliação com libntrsystem 97fa995ed33fe2ab8c83ec7068aa3aa5b4c3e12f,
+libntr no pin acima e HGSS original: 12 de 17 unidades C completas compilaram.
+Inclui main, heap, sys_task, overlay_manager, gf_gfx_planes, bg_window,
+pokemon, save_arrays, gf_rtc, render_text, font e palette.
+
+A ferramenta `tools/probe_hgss_modules.py` reproduz a avaliação com argumentos
+--hgss, --libntr, --libntrsystem, --build e --output (pasta nova).
+Usa uma ponte MSL para headers C padrão, um include agregador nitro/fx.h e
+alias OS_IE_VBLANK=OS_IE_V_BLANK. Não altera os fontes originais.
+O resultado detalhado está em hgss-module-compilation.json; logs completos
+ficam na pasta privada. O comando registra falhas esperadas por módulo.
+
+Bloqueios: task tem conflitos de tipos de animação/material e fog; save exige
+CARD_BACKUP_TYPE_FLASH_4MBITS_EX; system exige alias HBlank; message_format e
+msgdata precisam do header gerado msgdata/msg.naix. Não substituir constantes
+de backup ou tipos 3D por valores arbitrários apenas para compilar.
+
+Todos os objetos geraram avisos de casts de ponteiros nos headers NNS, e
+bg_window também possui casts próprios de endereço para u32. Logo, compilar
+não prova segurança de ABI 64-bit. Ainda não foi feito link desses módulos
+nem execução da inicialização completa. libntrsystem permanece externo;
+licenciamento e procedência precisam de revisão antes de redistribuição.
