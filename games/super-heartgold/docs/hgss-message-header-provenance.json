@@ -1,0 +1,49 @@
+{
+  "pret_commit": "a6ebf56ab7a454d91cc4715c73b62e93c305dc29",
+  "archive_sha256": "570433fadb7f2959c99e73ee446ad7bc770702dd71b472acf51c0e358a51136c",
+  "archive_members": 829,
+  "referenced_banks": 46,
+  "headers": [
+    {
+      "bank": "msg_0021",
+      "count": 134,
+      "gmm_sha256": "fc93eda28ca29d3417b4fc6e07fc392b077f313a7557375e40227e0c72dcdd12"
+    },
+    {
+      "bank": "msg_0040",
+      "count": 117,
+      "gmm_sha256": "2fc71ca4134b1bf3c98d0c27639689e5d9a23ce73c26a5b33ca8b9fd29b1890b"
+    },
+    {
+      "bank": "msg_0191",
+      "count": 477,
+      "gmm_sha256": "1f830dd4e64b61c29f33f7162c3c563f457d37e3c2216ea2bff2490f51923d62"
+    },
+    {
+      "bank": "msg_0274",
+      "count": 157,
+      "gmm_sha256": "298972ab59a1a6d2a241510927934cb44f3d61bd42de04f8135c2547c0a50206"
+    },
+    {
+      "bank": "msg_0313",
+      "count": 30,
+      "gmm_sha256": "e0f1e9c7f5c8e13de1c7a064574fe6c48ac50e671a2e8424246ae2ec1130eeb3"
+    },
+    {
+      "bank": "msg_0428",
+      "count": 12,
+      "gmm_sha256": "90685c14b249bcccd25a236502726c32c74d1f810a2e0fd5aef99406826de84c"
+    },
+    {
+      "bank": "msg_0430",
+      "count": 62,
+      "gmm_sha256": "c295d0849f1c54b6880cc41b3444a908de2046f2c3644049974109b7f7ebc287"
+    },
+    {
+      "bank": "msg_0445",
+      "count": 2,
+      "gmm_sha256": "0061eae8b6288082f896bac449d7d7992fad1082fd9ed9b0ae43e0f4dbaccc36"
+    }
+  ],
+  "runtime_tested": false
+}

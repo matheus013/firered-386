@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "samples": 131072,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "hardware_boundary": "test registers",
+  "real_time_accuracy_tested": false
+}

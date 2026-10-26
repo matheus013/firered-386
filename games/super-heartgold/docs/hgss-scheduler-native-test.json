@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "original_module": "sys_task.c",
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "recycle_iterations": 10000,
+  "campaign_tested": false
+}

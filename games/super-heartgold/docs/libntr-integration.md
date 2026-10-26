@@ -261,3 +261,94 @@ Os fontes e headers de entrada permanecem intactos.
 Restam save (constante de tipo de flash), message_format e msgdata (header de
 índices de mensagens ausente). Os avisos de ponteiro continuam visíveis e não
 foram suprimidos. Não houve link ou validação de execução desses 14 módulos.
+
+## Terceira rodada: 17 módulos e execução do agendador
+
+Em 2026-10-26, os 17 módulos selecionados compilaram integralmente com GCC
+no Linux x86-64. O conjunto avaliado é limitado: não representa todos os
+fontes do jogo. Save, message_format e msgdata foram desbloqueados.
+
+A constante CARD_BACKUP_TYPE_FLASH_4MBITS_EX é 0x00ff1302, conferida no
+literal ARM9 em 0x02028750; o fallback em 0x02028754 é 0x00001302.
+O vendor 255 corresponde à variante IRC do SDK, com capacidade de 524288
+bytes. `verify_hgss_backup_constant.py` exige o SHA-256 da imagem ARM9
+conhecida antes de conferir os valores. A ponte de compilação não testa
+leitura, escrita, persistência ou recuperação de save.
+
+`prepare_hgss_message_headers.py` gera headers privados para os dois módulos
+de mensagens. Usa GMM do commit pret fixado pelo próprio fork e confere os
+índices de cada uma das oito tabelas contra a contagem no arquivo NARC local
+SoulSilver USA. Exige o hash desse arquivo, que contém 829 membros. Os 46
+identificadores de bancos usados pelos módulos seguem a numeração dos bancos
+originais. O relatório de hashes e contagens está em
+`hgss-message-header-provenance.json`. Nenhum texto, recurso ou ROM é
+incluído no repositório. Isso ainda não valida renderização das mensagens.
+
+```sh
+python3 tools/prepare_hgss_message_headers.py --hgss "$HGSS" --archive "$MSG_NARC" --output "$PRIVATE_HEADERS"
+python3 tools/probe_hgss_modules.py --hgss "$HGSS" --libntr "$LIBNTR" --libntrsystem "$LIBNTRSYSTEM" --build "$SDK_BUILD" --message-headers "$PRIVATE_HEADERS" --verify-scheduler --require-all --output "$NEW_PROBE"
+python3 tools/probe_hgss_link_dependencies.py --objects "$NEW_PROBE" --sdk-build "$SDK_BUILD" --output "$NEW_LINK_PROBE"
+```
+
+As variáveis representam caminhos locais; os três destinos de saída devem
+ser pastas novas. A geração dos headers consulta os arquivos públicos no
+GitHub. O NARC permanece local.
+
+O link relocável dos 17 objetos passou sem conflitos de símbolos. Permanecem
+434 referências externas: 162 têm possíveis fornecedores nos arquivos do
+SDK compilado; 272 não têm fornecedor nesse conjunto. O inventário em
+`hgss-link-dependencies.json` separa referências por módulo. Essas contagens
+não são uma estimativa de trabalho restante, e encontrar um símbolo no SDK
+não prova compatibilidade de assinatura, ABI ou comportamento.
+
+O módulo original completo sys_task.c também foi compilado e executado com
+AddressSanitizer e UndefinedBehaviorSanitizer. Passaram prioridade, ordem
+FIFO em prioridades iguais, fila cheia, remoção da próxima tarefa, criação
+durante callback com execução adiada e 10000 ciclos de criação/autorremoção.
+A arena do teste é zerada com calloc, como pré-condição explícita do ensaio.
+O teste usa ponteiros nativos; não executa código ARM nem substitui a lógica
+do agendador por uma implementação de teste.
+
+Continuam pendentes o link executável do jogo, os avisos de ponteiros dos
+headers NNS, a inicialização completa, os recursos, os overlays e a campanha.
+O teste single screen anterior permanece separado destes testes de módulos.
+
+## Ampliação para 27 módulos e correções de configuração nativa
+
+A avaliação foi ampliada com filesystem, pm_string, brightness, poke_overlay,
+timer3, touchpad, swap_3d_buffers, math_util, igt_counter e
+string_control_code. Os 27 compilam e passam pelo link relocável.
+Os relatórios JSON de compilação e dependências agora correspondem a esse
+conjunto ampliado. A contagem atual é de 418 referências externas, das quais
+191 têm candidatos no SDK e 227 não têm. Ela substitui a contagem da rodada
+anterior; ainda não é um link executável.
+
+**Correção importante do probe:** PM_KEEP_ASSERTS passa a ser definido.
+HGSS coloca chamadas com efeitos necessários dentro de GF_ASSERT, incluindo
+operações de overlays. Compilar sem essa macro removia também essas chamadas.
+As rodadas anteriores eram insuficientes para representar o comportamento
+completo do jogo. A nova rodada preserva essas expressões; o teste de fila
+também verifica explicitamente que uma expressão de GF_ASSERT é executada.
+
+Timer3_GetTicks calculava um endereço a partir de TM0, reduzia o ponteiro
+para u32 e o dereferenciava. Em libntr os registradores são variáveis nativas
+separadas, portanto não se pode assumir a disposição contígua do hardware DS.
+O probe gera uma cópia privada de timer3.c e troca somente essa expressão
+por reg_OS_TM3CNT_L. Exige exatamente uma ocorrência da expressão original
+e preserva a referência de entrada. O restante do algoritmo não muda.
+
+`--verify-timer` compila essa cópia com ASan/UBSan e verifica todos os 65536
+valores baixos do contador, com e sem IRQ pendente, totalizando 131072 casos,
+além da restauração de interrupções e conversão para segundos. Registradores
+e funções de seção crítica são fornecidos pelo teste; não se validam aqui
+precisão em tempo real, entrega de IRQ ou inicialização do temporizador no SDK.
+
+Para reproduzir a rodada ampliada, adicionar ao comando do probe:
+
+```sh
+--verify-timer --extra-modules filesystem pm_string brightness poke_overlay timer3 touchpad swap_3d_buffers math_util igt_counter string_control_code
+```
+
+O aviso de truncamento próprio de timer3 foi eliminado. Permanecem os avisos
+NNS, os de bg_window e o de HW_DTCM usado em poke_overlay; esse último exige
+tratamento antes de executar o carregador de overlays nativamente.
