@@ -16,12 +16,8 @@
     },
     {
       "module": "task",
-      "compiled": false,
-      "first_errors": [
-        "HGSS/include/field/map_prop_render.h:120:35: error: conflicting types for \u2018NNSG3dMatAnmResult\u2019; have \u2018struct NNSG3dMatAnmResult\u2019",
-        "HGSS/include/field/map_prop_render.h:121:16: error: conflicting types for \u2018NNSG3dFuncAnmMat\u2019; have \u2018void (*)(NNSG3dMatAnmResult *, const NNSG3dAnmObj *, u32)\u2019 {aka \u2018void (*)(NNSG3dMatAnmResult *, const struct NNSG3dAnmObj_ *, unsigned int)\u2019}",
-        "HGSS/include/field/field_fog.h:9:6: error: conflicting types for \u2018G3X_SetFogTable\u2019; have \u2018void(u32 *)\u2019 {aka \u2018void(unsigned int *)\u2019}"
-      ],
+      "compiled": true,
+      "first_errors": [],
       "pointer_cast_warnings": 2
     },
     {
@@ -76,10 +72,8 @@
     },
     {
       "module": "system",
-      "compiled": false,
-      "first_errors": [
-        "HGSS/src/system.c:75:27: error: \u2018OS_IE_HBLANK\u2019 undeclared (first use in this function); did you mean \u2018OS_IE_H_BLANK\u2019?"
-      ],
+      "compiled": true,
+      "first_errors": [],
       "pointer_cast_warnings": 2
     },
     {
@@ -116,5 +110,9 @@
       ],
       "pointer_cast_warnings": 2
     }
+  ],
+  "compatibility_changes": [
+    "VBlank and HBlank macro aliases",
+    "private removal of redundant SDK material/fog declarations"
   ]
 }

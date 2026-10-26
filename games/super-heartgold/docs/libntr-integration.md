@@ -246,3 +246,18 @@ bg_window também possui casts próprios de endereço para u32. Logo, compilar
 não prova segurança de ABI 64-bit. Ainda não foi feito link desses módulos
 nem execução da inicialização completa. libntrsystem permanece externo;
 licenciamento e procedência precisam de revisão antes de redistribuição.
+
+## Segunda rodada de compatibilidade de módulos
+
+14/17 módulos agora compilam. task e system foram desbloqueados. A ferramenta
+copia os headers HGSS para o diretório privado de saída, remove as declarações
+redundantes de NNSG3dMatAnmResult, NNSG3dFuncAnmMat e G3X_SetFogTable e usa as
+definições dos SDKs nativos. Isso evita inventar layouts de structs: a declaração
+HGSS usava uma tag de struct diferente daquela definida por libntrsystem, e a
+assinatura de fog omitia const. O alias HBlank acompanha o alias VBlank.
+Cada declaração removida deve ocorrer exatamente uma vez; divergência falha.
+Os fontes e headers de entrada permanecem intactos.
+
+Restam save (constante de tipo de flash), message_format e msgdata (header de
+índices de mensagens ausente). Os avisos de ponteiro continuam visíveis e não
+foram suprimidos. Não houve link ou validação de execução desses 14 módulos.
