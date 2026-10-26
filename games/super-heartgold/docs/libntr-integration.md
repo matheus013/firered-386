@@ -352,3 +352,32 @@ Para reproduzir a rodada ampliada, adicionar ao comando do probe:
 O aviso de truncamento próprio de timer3 foi eliminado. Permanecem os avisos
 NNS, os de bg_window e o de HW_DTCM usado em poke_overlay; esse último exige
 tratamento antes de executar o carregador de overlays nativamente.
+
+## Build conjunto dos SDKs
+
+`tools/build_hgss_sdk_stack.py` agora reproduz o build Linux x86-64 de libntr
+e libntrsystem juntos. Clona as revisões fixadas para uma pasta privada nova,
+aplica os patches de clip matrix e single screen, instala o helper de touch
+e configura os dois como subprojetos Meson. O projeto temporário recebe um
+commit local porque o gerador de metadados do SDK exige um HEAD válido.
+Nenhuma alteração é feita nas referências de entrada ou no Git do usuário.
+
+```sh
+python3 tools/build_hgss_sdk_stack.py --libntr "$LIBNTR" --libntrsystem "$LIBNTRSYSTEM" --output "$NEW_SDK_STACK"
+python3 tools/probe_hgss_link_dependencies.py --objects "$NEW_PROBE" --sdk-build "$NEW_SDK_STACK/build" --output "$NEW_DEPENDENCY_REPORT"
+```
+
+A reprodução limpa passou: foram geradas as bibliotecas fnd, g2d, g3d, gfd,
+mcs e snd de NitroSystem, além das bibliotecas de libntr. O relatório está
+em `hgss-sdk-stack-build.json`. Os arquivos .a gerados pelo Meson são thin
+archives e dependem dos objetos na árvore de build; não são um pacote para
+redistribuir isoladamente. Os hashes registrados identificam o resultado
+local, não garantem builds idênticos em diretórios ou toolchains diferentes.
+
+O inventário atualizado mantém 418 referências externas nos 27 objetos,
+com candidatos para 199 e sem fornecedor para 219. Oito referências adicionais
+encontraram símbolos em libntrsystem. A existência das bibliotecas não valida
+execução, compatibilidade de ABI, qualidade dos algoritmos ou todos os seus
+subsistemas. Não houve build Windows nesta rodada, nem avanço de campanha.
+As questões de procedência/licença de libntrsystem continuam pendentes antes
+de redistribuição; os fontes e binários avaliados permanecem privados.

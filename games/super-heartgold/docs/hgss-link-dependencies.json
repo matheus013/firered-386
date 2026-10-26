@@ -38,14 +38,6 @@
     "heap": [
       "CommState_Exists",
       "GF_AssertFail",
-      "NNS_FndAllocFromExpHeapEx",
-      "NNS_FndCreateExpHeapEx",
-      "NNS_FndDestroyExpHeap",
-      "NNS_FndFreeToExpHeap",
-      "NNS_FndGetSizeForMBlockExpHeap",
-      "NNS_FndGetTotalFreeSizeForExpHeap",
-      "NNS_FndInitAllocatorForExpHeap",
-      "NNS_FndResizeForMBlockExpHeap",
       "PrintErrorMessageAndReset"
     ],
     "igt_counter": [
@@ -327,580 +319,604 @@
   "executable_link_tested": false,
   "module_count": 27,
   "relocatable_link_passed": true,
-  "sdk_candidate_count": 191,
+  "sdk_candidate_count": 199,
   "sdk_candidates": {
     "CARD_CancelBackupAsync": [
-      "libraries/card/libcard.a"
+      "subprojects/libntr/libraries/card/libcard.a"
     ],
     "CARD_GetResultCode": [
-      "libraries/card/libcard.a"
+      "subprojects/libntr/libraries/card/libcard.a"
     ],
     "CARD_IdentifyBackup": [
-      "libraries/card/libcard.a"
+      "subprojects/libntr/libraries/card/libcard.a"
     ],
     "CARD_IsPulledOut": [
-      "libraries/card/libcard.a"
+      "subprojects/libntr/libraries/card/libcard.a"
     ],
     "CARD_LockBackup": [
-      "libraries/card/libcard.a"
+      "subprojects/libntr/libraries/card/libcard.a"
     ],
     "CARD_SetCacheFlushThreshold": [
-      "libraries/card/libcard.a"
+      "subprojects/libntr/libraries/card/libcard.a"
     ],
     "CARD_TryWaitBackupAsync": [
-      "libraries/card/libcard.a"
+      "subprojects/libntr/libraries/card/libcard.a"
     ],
     "CARD_UnlockBackup": [
-      "libraries/card/libcard.a"
+      "subprojects/libntr/libraries/card/libcard.a"
     ],
     "CARD_WaitBackupAsync": [
-      "libraries/card/libcard.a"
+      "subprojects/libntr/libraries/card/libcard.a"
     ],
     "CTRDG_IsPulledOut": [
-      "libraries/ctrdg/libctrdg.a"
+      "subprojects/libntr/libraries/ctrdg/libctrdg.a"
     ],
     "DC_FlushRange": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "FS_CloseFile": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_Init": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_InitFile": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_LoadOverlay": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_LoadOverlayImage": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_LoadOverlayImageAsync": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_LoadOverlayInfo": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_OpenFile": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_ReadFile": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_SeekFile": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_SetDefaultDMA": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_StartOverlay": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_TryLoadTable": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_UnloadOverlay": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FS_WaitAsync": [
-      "libraries/fs/libfs.a"
+      "subprojects/libntr/libraries/fs/libfs.a"
     ],
     "FX_Init": [
-      "libraries/fx/libfx.a"
+      "subprojects/libntr/libraries/fx/libfx.a"
     ],
     "FX_SinCosTable_": [
-      "libraries/fx/libfx.a"
+      "subprojects/libntr/libraries/fx/libfx.a"
     ],
     "G2S_GetBG0CharPtr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G2S_GetBG1CharPtr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G2S_GetBG2CharPtr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G2S_GetBG3CharPtr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G2_GetBG0CharPtr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G2_GetBG1CharPtr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G2_GetBG2CharPtr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G2_GetBG3CharPtr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G2x_SetBGyAffine_": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G2x_SetBlendBrightness_": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G3X_Reset": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_BeginLoadBGExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_BeginLoadOBJExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_EndLoadBGExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_EndLoadOBJExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadBG0Char": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadBG0Scr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadBG1Char": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadBG1Scr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadBG2Char": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadBG2Scr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadBG3Char": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadBG3Scr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadBGExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadBGPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadOBJExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_LoadOBJPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GXS_SetGraphicsMode": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_BeginLoadBGExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_BeginLoadOBJExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_DisableBankForLCDC": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_DispOff": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_DispOn": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_EndLoadBGExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_EndLoadOBJExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_HBlankIntr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_Init": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadBG0Char": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadBG0Scr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadBG1Char": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadBG1Scr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadBG2Char": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadBG2Scr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadBG3Char": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadBG3Scr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadBGExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadBGPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadOBJExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_LoadOBJPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_ResetBankForBG": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_ResetBankForBGExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_ResetBankForOBJ": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_ResetBankForOBJExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_ResetBankForSubBG": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_ResetBankForSubBGExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_ResetBankForSubOBJ": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_ResetBankForSubOBJExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_ResetBankForTex": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_ResetBankForTexPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetBankForBG": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetBankForBGExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetBankForLCDC": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetBankForOBJ": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetBankForOBJExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetBankForSubBG": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetBankForSubBGExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetBankForSubOBJ": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetBankForSubOBJExtPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetBankForTex": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetBankForTexPltt": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_SetGraphicsMode": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "GX_VBlankIntr": [
-      "libraries/gx/libgx.a"
+      "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "MATH_CalcCRC16CCITT": [
-      "libraries/math/libmath.a"
+      "subprojects/libntr/libraries/math/libmath.a"
     ],
     "MATH_CalcMD5": [
-      "libraries/math/libmath.a"
+      "subprojects/libntr/libraries/math/libmath.a"
     ],
     "MATHi_CRC16InitTableRev": [
-      "libraries/math/libmath.a"
+      "subprojects/libntr/libraries/math/libmath.a"
     ],
     "MI_CpuCopy8": [
-      "libraries/mi/libmi.a"
+      "subprojects/libntr/libraries/mi/libmi.a"
     ],
     "MI_CpuFill8": [
-      "libraries/mi/libmi.a"
+      "subprojects/libntr/libraries/mi/libmi.a"
     ],
     "MI_UncompressLZ8": [
-      "libraries/mi/libmi.a"
+      "subprojects/libntr/libraries/mi/libmi.a"
     ],
     "MI_WaitDma": [
-      "libraries/mi/libmi.a"
+      "subprojects/libntr/libraries/mi/libmi.a"
     ],
     "MIi_CpuClear16": [
-      "libraries/mi/libmi.a"
+      "subprojects/libntr/libraries/mi/libmi.a"
     ],
     "MIi_CpuCopy16": [
-      "libraries/mi/libmi.a"
+      "subprojects/libntr/libraries/mi/libmi.a"
     ],
     "MIi_CpuCopy32": [
-      "libraries/mi/libmi.a"
+      "subprojects/libntr/libraries/mi/libmi.a"
     ],
     "MIi_CpuCopyFast": [
-      "libraries/mi/libmi.a"
+      "subprojects/libntr/libraries/mi/libmi.a"
     ],
     "MTX_Rot22_": [
-      "libraries/fx/libfx.a"
+      "subprojects/libntr/libraries/fx/libfx.a"
     ],
     "MTX_ScaleApply22": [
-      "libraries/fx/libfx.a"
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "NNS_FndAllocFromExpHeapEx": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndCreateExpHeapEx": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndDestroyExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndFreeToExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndGetSizeForMBlockExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndGetTotalFreeSizeForExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndInitAllocatorForExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndResizeForMBlockExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
     ],
     "OS_AllocFromArenaHi": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_AllocFromArenaLo": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_DisableInterrupts": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_DisableIrqMask": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_EnableIrqMask": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_GetLockID": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_GetLowEntropyData": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_GetProcMode": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_GetTick": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_Init": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_InitTick": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_ReleaseLockID": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_ResetSystem": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_RestoreInterrupts": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_SetIrqFunction": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "OS_WaitIrq": [
-      "libraries/os/libos.a"
+      "subprojects/libntr/libraries/os/libos.a"
     ],
     "PM_ForceToPowerOff": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "PM_GetBackLight": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "PM_GoSleepMode": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "PM_SetBackLight": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "RTC_ConvertDateTimeToSecond": [
-      "libraries/rtc/librtc.a"
+      "subprojects/libntr/libraries/rtc/librtc.a"
     ],
     "RTC_GetDateTimeAsync": [
-      "libraries/rtc/librtc.a"
+      "subprojects/libntr/libraries/rtc/librtc.a"
     ],
     "RTC_Init": [
-      "libraries/rtc/librtc.a"
+      "subprojects/libntr/libraries/rtc/librtc.a"
     ],
     "SDK_AUTOLOAD_DTCM_START": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "SIM_HandleG3Command": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "TP_CheckBusy": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "TP_GetCalibratedPoint": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "TP_GetLatestIndexInAuto": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "TP_GetLatestRawPointInAuto": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "TP_GetUserInfo": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "TP_Init": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "TP_RequestAutoSamplingStartAsync": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "TP_RequestAutoSamplingStopAsync": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "TP_RequestSamplingAsync": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "TP_SetCalibrateParam": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "TP_WaitBusy": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "TP_WaitRawResult": [
-      "libraries/spi/libspi.a"
+      "subprojects/libntr/libraries/spi/libspi.a"
     ],
     "s_HW_BG_PLTT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_HW_DB_BG_PLTT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_HW_DB_OAM": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_HW_DB_OBJ_PLTT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_HW_INTR_CHECK_BUF": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_HW_LCDC_VRAM": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_HW_MAIN_MEM_SYSTEM": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_HW_OAM": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_HW_OBJ_PLTT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2S_DB_BG0CNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2S_DB_BG0OFS": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2S_DB_BG1CNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2S_DB_BG1OFS": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2S_DB_BG2CNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2S_DB_BG2OFS": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2S_DB_BG2PA": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2S_DB_BG3CNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2S_DB_BG3OFS": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2S_DB_BG3PA": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2S_DB_BLDCNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2_BG0CNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2_BG0OFS": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2_BG1CNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2_BG1OFS": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2_BG2CNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2_BG2OFS": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2_BG2PA": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2_BG3CNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2_BG3OFS": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2_BG3PA": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_G2_BLDCNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_GXS_DB_DISPCNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_GX_DISPCNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_GX_POWCNT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_OS_IE": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_OS_IF": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_OS_IME": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_OS_TM0CNT_H": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_OS_TM0CNT_L": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_OS_TM3CNT_L": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ],
     "s_reg_PAD_KEYINPUT": [
-      "libraries/sim/libsim.a"
+      "subprojects/libntr/libraries/sim/libsim.a"
     ]
   },
   "unresolved_count": 418,
@@ -969,14 +985,6 @@
     "Mapsec_GetType",
     "MigratedPokemon_GetSize",
     "MigratedPokemon_Init",
-    "NNS_FndAllocFromExpHeapEx",
-    "NNS_FndCreateExpHeapEx",
-    "NNS_FndDestroyExpHeap",
-    "NNS_FndFreeToExpHeap",
-    "NNS_FndGetSizeForMBlockExpHeap",
-    "NNS_FndGetTotalFreeSizeForExpHeap",
-    "NNS_FndInitAllocatorForExpHeap",
-    "NNS_FndResizeForMBlockExpHeap",
     "PCBox_sizeof",
     "PCStorage_ClearBoxPadding",
     "PCStorage_GetBoxModifiedFlags",
@@ -1133,5 +1141,5 @@
     "memset",
     "ov36_App_MainMenu_SelectOption_Continue"
   ],
-  "without_sdk_provider_count": 227
+  "without_sdk_provider_count": 219
 }
