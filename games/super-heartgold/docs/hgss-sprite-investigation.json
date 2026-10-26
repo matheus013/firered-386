@@ -1,0 +1,330 @@
+[
+  {
+    "module": "gf_rtc",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "heap",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "task",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "sys_task",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "overlay_manager",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "gf_gfx_planes",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "bg_window",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 4
+  },
+  {
+    "module": "pokemon",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "save",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "save_arrays",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "main",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "system",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "render_text",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "font",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "palette",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "message_format",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "msgdata",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "filesystem",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "pm_string",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "brightness",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "poke_overlay",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 3
+  },
+  {
+    "module": "timer3",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "touchpad",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "swap_3d_buffers",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "math_util",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "igt_counter",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "string_control_code",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "sys_task_api",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "screen_fade",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "gf_3d_render",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "camera",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "gf_gfx_loader",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 4
+  },
+  {
+    "module": "obj_char_transfer",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "obj_pltt_transfer",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "oam_manager",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "sprite",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scenes_lib",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "gf_g2d_renderer",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "g2d_cell_culling",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "screen_fade_effects",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "screen_window_wipe",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scene_1",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scene_2",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scene_3",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scene_4",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scene_5",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "sprite_transfer",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "sprite_resource",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "sprite_resource_header",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "gf_3d_vramman",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "particle_system",
+    "compiled": false,
+    "first_errors": [
+      "/root/.cache/super-heartgold/hgss-sprite-support2/particle_system-native.c:147:41: error: passing argument 1 of \u2018NNS_GfdSetFrmTexVramState\u2019 from incompatible pointer type [-Wincompatible-pointer-types]",
+      "/root/.cache/super-heartgold/hgss-sprite-support2/particle_system-native.c:157:42: error: passing argument 1 of \u2018NNS_GfdSetFrmPlttVramState\u2019 from incompatible pointer type [-Wincompatible-pointer-types]",
+      "/root/.cache/super-heartgold/hgss-sprite-support2/particle_system-native.c:237:41: error: passing argument 1 of \u2018NNS_GfdGetFrmTexVramState\u2019 from incompatible pointer type [-Wincompatible-pointer-types]"
+    ],
+    "pointer_cast_warnings": 34
+  },
+  {
+    "module": "vram_transfer_manager",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "gf_3d_loader",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  }
+]
