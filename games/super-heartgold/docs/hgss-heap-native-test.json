@@ -7,12 +7,17 @@
     "address",
     "undefined"
   ],
+  "application_lifecycle_cycles": 1000,
+  "display_register_boundary": "test register",
+  "native_overlay_loading_tested": false,
   "fail_on_first_undefined_behavior": true,
   "os_boundary": "test arena and interrupt hooks",
   "allocator": "original NNS expandable heap with native alignment adaptation",
   "game_sources": [
     "heap.c (native alignment adaptation)",
-    "pm_string.c (unchanged)"
+    "pm_string.c (unchanged)",
+    "overlay_manager.c (unchanged)",
+    "gf_gfx_planes.c (unchanged)"
   ],
   "graphics_resource_release_tested": false
 }

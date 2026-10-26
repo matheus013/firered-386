@@ -461,3 +461,26 @@ Após essas mudanças, os 27 módulos continuam compilando e os testes de
 agendador, temporizador e memória passaram novamente no Linux. O teste de
 memória Windows foi executado antes da inclusão desse header de IDs; ele
 não usa overlays. Nenhuma dessas validações equivale a iniciar a campanha.
+
+## Gerenciador de aplicações com memória e tela única
+
+O ensaio de memória foi ampliado para compilar também overlay_manager.c e
+gf_gfx_planes.c completos e inalterados. Executa 1000 ciclos de uma aplicação
+de teste estaticamente ligada (FS_OVERLAY_ID_NONE), com init em duas chamadas,
+exec em três e exit em duas. Confere passagem de argumentos, dados alocados
+com alinhamento nativo, preservação de um valor de 64 bits e liberação dos
+dados e do gerenciador ao terminar.
+
+Cada ciclo começa com o motor secundário selecionado. O gerenciador original
+deve retornar ao principal antes de chamar init, preservando os demais bits
+do registrador gráfico. O callback de execução seleciona o secundário outra
+vez, permitindo conferir a mesma restauração na próxima aplicação.
+
+Passou no Linux com ASan/UBSan e no executável MinGW rodando diretamente no
+Windows (código 0). Os dois relatórios de heap foram atualizados para incluir
+esses 1000 ciclos; essa rodada Windows também usa o header de IDs corrigidos.
+Os callbacks são do teste, o registrador gráfico é controlado e qualquer
+tentativa de carregar/descarregar uma imagem de overlay aborta o processo.
+Assim, o ensaio valida a interação do código original com a memória nativa
+e o controle single screen, mas não um carregador de overlays, renderização
+de cenas, inicialização do menu ou gameplay.

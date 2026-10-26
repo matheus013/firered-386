@@ -112,6 +112,7 @@ if a.verify_heap:
  command=flags+['-g','-fsanitize=address,undefined','-fno-sanitize-recover=all',
    '-ffunction-sections','-fdata-sections','-Wl,--gc-sections','-DNNS_FINALROM','-DSDK_FINALROM',
    '-I'+str(fnd/'include'),str(out/'heap-native.c'),str(out/'expheap-native.c'),str(ref/'src/pm_string.c'),
+   str(ref/'src/overlay_manager.c'),str(ref/'src/gf_gfx_planes.c'),
    *[str(fnd/'src'/name) for name in ['heapcommon.c','list.c']],
    str(Path(__file__).with_name('probe_hgss_heap.c')),'-o',str(executable)]
  result=subprocess.run(command,capture_output=True,text=True,timeout=60)
@@ -123,9 +124,12 @@ if a.verify_heap:
  result.check_returncode()
  (out/'heap-result.json').write_text(json.dumps({'passed':True,'allocation_cycles':32000,
    'string_cycles':1000,'direct_sdk_alignment_cases':1024,'sanitizers':['address','undefined'],
+   'application_lifecycle_cycles':1000,'display_register_boundary':'test register',
+   'native_overlay_loading_tested':False,
    'fail_on_first_undefined_behavior':True,'os_boundary':'test arena and interrupt hooks',
    'allocator':'original NNS expandable heap with native alignment adaptation',
-   'game_sources':['heap.c (native alignment adaptation)','pm_string.c (unchanged)'],
+   'game_sources':['heap.c (native alignment adaptation)','pm_string.c (unchanged)',
+                   'overlay_manager.c (unchanged)','gf_gfx_planes.c (unchanged)'],
    'graphics_resource_release_tested':False},indent=2)+'\n')
  if a.build_windows_heap:
   windows_command=[arg.replace('-DSDK_BUILD_LINUX','-DSDK_BUILD_WIN64') for arg in command

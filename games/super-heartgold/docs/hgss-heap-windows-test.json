@@ -6,7 +6,10 @@
   "allocation_cycles": 32000,
   "string_cycles": 1000,
   "direct_sdk_alignment_cases": 1024,
+  "application_lifecycle_cycles": 1000,
+  "display_register_boundary": "test register",
+  "native_overlay_loading_tested": false,
   "sanitizers": [],
-  "sha256": "6bca40e9b7722c2eb1d5b45de73a6d966836bddaf17083548fcb65b4f3bcae47",
+  "sha256": "5c3c256d69dcdc8b500768329b8e468d82c1f6f09f8730d10dba635b2aa3b46d",
   "full_game_tested": false
 }

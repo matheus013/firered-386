@@ -7,10 +7,47 @@
 #include <string.h>
 #include "heap.h"
 #include "pm_string.h"
+#include "overlay_manager.h"
+#include "poke_overlay.h"
+#include "gf_gfx_planes.h"
 #define CHECK(c) do { if (!(c)) { fprintf(stderr, "Heap check failed: %s\n", #c); abort(); } } while (0)
 static unsigned char *arena;
 static size_t used;
 static unsigned critical;
+REGType16v s_reg_GX_POWCNT;
+/* This test uses a statically linked application (FS_OVERLAY_ID_NONE).
+ * Any accidental attempt to load an ARM image must fail the test. */
+BOOL HandleLoadOverlay(FSOverlayID id, PMOverlayLoadType type) {
+    (void)id; (void)type; abort();
+}
+void UnloadOverlayByID(FSOverlayID id) { (void)id; abort(); }
+typedef struct ApplicationState { uint64_t marker; void *argument; } ApplicationState;
+static BOOL app_init(OverlayManager *manager, int *state) {
+    CHECK(!SingleScreen_IsSubEngineShown());
+    CHECK((s_reg_GX_POWCNT & 0x7fff) == 0x1234);
+    if ((*state)++ == 0) {
+        ApplicationState *data = OverlayManager_CreateAndGetData(manager, sizeof(*data), 2);
+        CHECK(data && (uintptr_t)data % _Alignof(ApplicationState) == 0);
+        data->marker = UINT64_C(0x123456789abcdef0);
+        data->argument = OverlayManager_GetArgs(manager);
+        return FALSE;
+    }
+    return TRUE;
+}
+static BOOL app_exec(OverlayManager *manager, int *state) {
+    ApplicationState *data = OverlayManager_GetData(manager);
+    CHECK(data->marker == UINT64_C(0x123456789abcdef0));
+    CHECK(data->argument == OverlayManager_GetArgs(manager));
+    SingleScreen_ShowSubEngine(TRUE);
+    return ++(*state) == 3;
+}
+static BOOL app_exit(OverlayManager *manager, int *state) {
+    CHECK(SingleScreen_IsSubEngineShown());
+    if (++(*state) != 2) return FALSE;
+    OverlayManager_FreeData(manager);
+    CHECK(!OverlayManager_GetData(manager));
+    return TRUE;
+}
 void GF_AssertFail(void) { fputs("HGSS heap assertion\n", stderr); abort(); }
 BOOL CommState_Exists(void) { return FALSE; }
 void PrintErrorMessageAndReset(void) { abort(); }
@@ -78,6 +115,16 @@ int main(void) {
         String_Delete(text);
     }
     CHECK(HeapExp_FndGetTotalFreeSize(1) == child_free);
+    for (unsigned cycle = 0; cycle < 1000; ++cycle) {
+        const OverlayManagerTemplate application = {app_init, app_exec, app_exit, FS_OVERLAY_ID_NONE};
+        s_reg_GX_POWCNT = 0x9234; /* Start with the sub engine selected. */
+        OverlayManager *manager = OverlayManager_New(&application, &cycle, 2);
+        CHECK(manager);
+        unsigned frames = 0;
+        while (!OverlayManager_Run(manager)) CHECK(++frames < 20);
+        CHECK(frames == 6);
+        OverlayManager_Delete(manager);
+    }
     Heap_Destroy(1);
     Heap_Destroy(2);
     CHECK(HeapExp_FndGetTotalFreeSize(0) == root_free);
@@ -110,5 +157,6 @@ int main(void) {
     CHECK(!critical);
     free(arena);
     puts("HGSS heap: 32000 allocation cycles, 1000 string cycles and 1024 direct SDK alignment cases passed");
+    puts("HGSS application manager: 1000 native lifecycle and single-screen reset cycles passed");
     return 0;
 }
