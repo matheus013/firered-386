@@ -1,5 +1,5 @@
 from pathlib import Path
-import subprocess,json,argparse,shutil
+import subprocess,json,argparse,shutil,hashlib
 from prepare_hgss_heap import prepare_game_heap, prepare_sdk_heap
 from prepare_hgss_overlay_ids import prepare_overlay_ids
 from prepare_hgss_graphics import HASHES as GRAPHICS_SOURCES, prepare_graphics
@@ -11,6 +11,8 @@ parser.add_argument('--build',type=Path,required=True)
 parser.add_argument('--output',type=Path,required=True)
 parser.add_argument('--message-headers',type=Path,help='Privately generated msgdata headers')
 parser.add_argument('--opening-headers',type=Path,help='Opening indices verified against private resources')
+parser.add_argument('--spl-sources',type=Path,help='Private SPL C sources for compatibility evaluation')
+parser.add_argument('--verify-spl',action='store_true',help='Test original SPL pool initialization and lists')
 parser.add_argument('--verify-scheduler',action='store_true',help='Execute original sys_task.c with ASan/UBSan')
 parser.add_argument('--require-all',action='store_true',help='Fail if any selected module fails to compile')
 parser.add_argument('--extra-modules',nargs='+',default=[],help='Additional source basenames to compile')
@@ -21,6 +23,8 @@ parser.add_argument('--verify-particles',action='store_true',help='Test adapted 
 parser.add_argument('--build-windows-heap',action='store_true',help='Also compile the heap test with MinGW; run the EXE separately on Windows')
 parser.add_argument('--windows-sdl-include',type=Path,help='Directory containing the target Windows SDL2 headers')
 a=parser.parse_args()
+if a.verify_spl and not a.spl_sources:parser.error('--verify-spl requires --spl-sources')
+if a.spl_sources and len(list(a.spl_sources.glob('spl_*.c')))!=9:parser.error('Expected nine private SPL C sources')
 if a.build_windows_heap and not a.verify_heap:parser.error('--build-windows-heap requires --verify-heap')
 if a.build_windows_heap and not a.windows_sdl_include:parser.error('--build-windows-heap requires --windows-sdl-include')
 ref=a.hgss.resolve();out=a.output.resolve();out.mkdir(parents=True,exist_ok=False)
@@ -91,6 +95,14 @@ for name in dict.fromkeys(modules+a.extra_modules):
  (out/f'{name}.log').write_text(result.stderr)
  errors=[line.strip() for line in result.stderr.splitlines() if 'error:' in line]
  report.append({'module':name,'compiled':result.returncode==0,'first_errors':errors[:3],'pointer_cast_warnings':sum('different size' in line for line in result.stderr.splitlines())})
+if a.spl_sources:
+ for source in sorted(a.spl_sources.glob('spl_*.c')):
+  result=subprocess.run(flags+['-c',str(source),'-o',str(out/(source.stem+'.o'))],capture_output=True,text=True,timeout=60)
+  (out/(source.stem+'.log')).write_text(result.stderr)
+  report.append({'module':source.stem,'compiled':result.returncode==0,
+    'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
+    'first_errors':[line.strip() for line in result.stderr.splitlines() if 'error:' in line][:3],
+    'pointer_cast_warnings':sum('different size' in line for line in result.stderr.splitlines())})
 print(json.dumps(report,indent=2));(out/'report.json').write_text(json.dumps(report,indent=2)+'\n')
 if a.verify_scheduler:
  executable=out/'scheduler-test'
@@ -178,6 +190,22 @@ if a.verify_heap:
   (out/'heap-windows-build.log').write_text(result.stdout+result.stderr)
   result.check_returncode()
   print('Windows heap executable compiled; native Windows execution is a separate check.')
+if a.verify_spl:
+ executable=out/'spl-test'
+ command=flags+['-g','-fsanitize=address,undefined','-fno-sanitize-recover=all',
+   '-ffunction-sections','-fdata-sections','-Wl,--gc-sections',
+   str(a.spl_sources/'spl_manager.c'),str(a.spl_sources/'spl_list.c'),
+   str(Path(__file__).with_name('probe_hgss_spl.c')),'-o',str(executable)]
+ result=subprocess.run(command,capture_output=True,text=True,timeout=60)
+ (out/'spl-build.log').write_text(result.stdout+result.stderr)
+ result.check_returncode()
+ result=subprocess.run([str(executable)],capture_output=True,text=True,timeout=30)
+ (out/'spl-run.log').write_text(result.stdout+result.stderr)
+ result.check_returncode()
+ print(result.stdout)
+ (out/'spl-result.json').write_text(json.dumps({'passed':True,'cycles':100,
+   'emitter_pool_size':20,'particle_pool_size':200,'sanitizers':['address','undefined'],
+   'boundary':'malloc and byte fill','rendering_tested':False,'resource_loading_tested':False},indent=2)+'\n')
 if a.verify_particles:
  executable=out/'particle-test'
  command=flags+['-g','-fsanitize=address,undefined','-fno-sanitize-recover=all',

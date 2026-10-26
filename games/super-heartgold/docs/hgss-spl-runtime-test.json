@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "cycles": 100,
+  "emitter_pool_size": 20,
+  "particle_pool_size": 200,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "boundary": "malloc and byte fill",
+  "rendering_tested": false,
+  "resource_loading_tested": false
+}

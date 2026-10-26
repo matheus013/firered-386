@@ -578,3 +578,17 @@ O link relocável dos 54 módulos passou: 600 referências externas, 348 com
 candidatos no SDK e 252 fora desse conjunto. O relatório é
 hgss-particles-link-dependencies.json. A biblioteca SPL continua pendente;
 compilar a ponte particle_system não significa que seus emissores executam.
+
+## Biblioteca SPL em avaliação privada
+
+A rodada hgss-spl-compilation.json acrescenta os nove fontes SPL HGSS,
+totalizando 63 módulos compilados. Sua origem e o teste de inicialização
+estão descritos em native-missing-parts-references.md. Não houve alteração
+do código externo; os hashes usados estão no relatório de compilação.
+
+O link relocável dos 63 módulos passou. hgss-spl-link-dependencies.json
+registra 617 referências externas: 379 com candidatos nos SDKs, 238 sem
+provedor nesse conjunto. O número de referências externas pode crescer ao
+adicionar código, mesmo resolvendo dependências da camada anterior.
+Não foi ligado um executável completo. Os testes SPL cobrem apenas pools
+e listas, no Linux com ASan/UBSan; o launcher Windows não foi alterado.

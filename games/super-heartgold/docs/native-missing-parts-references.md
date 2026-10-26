@@ -60,3 +60,21 @@ tipadas dos estados de VRAM e alinhamento nativo nos alocadores. Os 2032
 casos de alocação passaram com ASan/UBSan. Isso não integra a biblioteca SPL
 externa; consultar a seção de partículas em libntr-integration.md e os novos
 relatórios hgss-particles-* para o estado atual.
+
+## Avaliação privada da SPL HGSS
+
+Os nove fontes lib/src/spl_*.c do commit 01eeeb4b96087cb94c84de3045e9f2d4ef00061b
+de ctrl-cheeb-del/pokeheartgold foram obtidos em pasta privada e compilados
+sem adaptações com os headers da base single screen. O probe aceita
+`--spl-sources <diretorio>` e registra o SHA256 de cada fonte usado.
+Os fontes externos não foram adicionados ao repositório nem ao launcher.
+
+`--verify-spl` testa SPL_Init e as rotinas originais de listas, com malloc
+e preenchimento de bytes como fronteiras controladas. Passaram 100 ciclos
+com pools de 20 emissores e 200 partículas, verificando contagem, alinhamento,
+ligações anterior/próxima, remoção intermediária/final e esvaziamento.
+ASan/UBSan estavam ativos. O relatório é hgss-spl-runtime-test.json.
+
+Esse teste ainda não carrega arquivos SPA, não atualiza emissores e não
+desenha partículas; validar o layout dos recursos e a renderização permanece
+necessário antes de usar a biblioteca na abertura real.
