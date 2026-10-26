@@ -10,6 +10,7 @@ parser.add_argument('--libntrsystem',type=Path,required=True)
 parser.add_argument('--build',type=Path,required=True)
 parser.add_argument('--output',type=Path,required=True)
 parser.add_argument('--message-headers',type=Path,help='Privately generated msgdata headers')
+parser.add_argument('--opening-headers',type=Path,help='Opening indices verified against private resources')
 parser.add_argument('--verify-scheduler',action='store_true',help='Execute original sys_task.c with ASan/UBSan')
 parser.add_argument('--require-all',action='store_true',help='Fail if any selected module fails to compile')
 parser.add_argument('--extra-modules',nargs='+',default=[],help='Additional source basenames to compile')
@@ -44,6 +45,7 @@ flags+=['-include',str(out/'hgss_backup.h')]
 overlay_contract=prepare_overlay_ids(ref/'main.lsf',out)
 flags+=['-include',str(out/'hgss_overlay_ids.h')]
 if a.message_headers:flags+=['-I'+str(a.message_headers.resolve())]
+if a.opening_headers:flags+=['-I'+str(a.opening_headers.resolve())]
 for p in [out,headers,headers/'library',a.libntr/'include',a.libntrsystem/'include',a.build/'gen',a.build/'gen/nitro/fx']:flags+=['-I'+str(p)]
 result=subprocess.run(flags+[str(out/'overlay-contract.c'),'-o',str(out/'overlay-contract')],
                       capture_output=True,text=True,timeout=60)

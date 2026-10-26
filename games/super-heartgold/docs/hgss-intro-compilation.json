@@ -250,5 +250,35 @@
     "compiled": true,
     "first_errors": [],
     "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scene_1",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scene_2",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scene_3",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scene_4",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
+  },
+  {
+    "module": "intro_movie_scene_5",
+    "compiled": true,
+    "first_errors": [],
+    "pointer_cast_warnings": 2
   }
 ]

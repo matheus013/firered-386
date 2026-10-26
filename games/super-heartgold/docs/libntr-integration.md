@@ -505,11 +505,12 @@ o uso é de uma única thread, sem suporte a callbacks que lançam exceções.
 
 ## Compilação da introdução e suporte gráfico
 
-A rodada `hgss-intro-compilation.json` amplia de 27 para 42 módulos C
+A rodada `hgss-intro-compilation.json` amplia de 27 para 47 módulos C
 compilados no Linux. Inclui intro_movie, sys_task_api, screen_fade,
 gf_3d_render, camera, gf_gfx_loader, obj_char_transfer, obj_pltt_transfer,
 oam_manager, sprite, intro_movie_scenes_lib, gf_g2d_renderer, g2d_cell_culling,
-screen_fade_effects e screen_window_wipe. O probe acrescenta o diretório original include/library
+screen_fade_effects, screen_window_wipe e as cinco intro_movie_scene_1 a
+intro_movie_scene_5. O probe acrescenta o diretório original include/library
 para resolver os headers de partículas.
 
 `prepare_hgss_graphics.py` verifica hashes dos fontes antes de adaptar cópias
@@ -520,21 +521,32 @@ foram compilados, mas ainda não executados nesta integração. O adaptador tamb
 substitui o header interno antigo do renderer pelo header público do SDK e
 remove a definição local duplicada de GX_IsHBlank, utilizando a do SDK.
 
-O link relocável dos 42 módulos passou. O relatório separado
-`hgss-intro-link-dependencies.json` registra 560 referências externas, das
-quais 312 possuem candidatos nos SDKs e 248 ainda não têm provedor nesse
+O link relocável dos 47 módulos passou. O relatório separado
+`hgss-intro-link-dependencies.json` registra 588 referências externas, das
+quais 325 possuem candidatos nos SDKs e 263 ainda não têm provedor nesse
 conjunto. O aumento em relação à rodada de 27 módulos corresponde à ampliação
 do código analisado. Não houve link de executável completo nem execução da
 introdução; avisos sobre ponteiros de tamanhos diferentes continuam pendentes.
 
 Para reproduzir esse conjunto, usar `--intro-support --require-all` no probe,
-com os mesmos caminhos de SDKs e headers de mensagens. As cinco unidades
-intro_movie_scene_1 a intro_movie_scene_5 ainda não fazem parte desse conjunto:
-o ensaio separado parou pela ausência de demo/opening/gs_opening.naix.
-O diretório local contém recursos extraídos, mas falta a regra específica
-files/demo/opening/gs_opening.mk referenciada pelo build original. Os índices
-e sufixos de compressão ainda precisam ser gerados/verificados antes de compilar
-as cenas. SINGLE_SCREEN permanece definido pelo global.h da base original.
+os mesmos caminhos de SDKs e headers de mensagens, `--opening-headers` com
+o diretório gerado abaixo e `--extra-modules intro_movie_scene_1
+intro_movie_scene_2 intro_movie_scene_3 intro_movie_scene_4 intro_movie_scene_5`.
+SINGLE_SCREEN permanece definido pelo global.h da base original.
+
+`prepare_hgss_opening_headers.py --hgss <base> --archive <arquivo> --output <novo-diretorio>`
+gera demo/opening/gs_opening.naix após validar o hash do arquivo privado
+a/2/6/2 da SoulSilver USA. Verifica as 99 referências das cenas contra os
+106 membros: índice, compressão LZ10 e igualdade byte a byte do recurso
+descomprimido com o recurso extraído localmente. Não precisa reconstruir
+o arquivo usando a regra gs_opening.mk ausente. O relatório público
+`hgss-opening-indices.json` contém somente índices, hashes e resultados;
+nenhum recurso original é incluído no repositório.
+
+O teste `tools.opening_headers` usa dados sintéticos para conferir literais,
+referências sobrepostas e rejeição de streams truncados ou referências fora
+dos limites. A verificação dos recursos reais foi executada separadamente
+na cópia privada. Compilar as cenas não valida sua renderização nem o áudio.
 
 O inventário consulta apenas os objetos selecionados e os arquivos estáticos
 dos SDKs; a lista sem provedor também contém símbolos do runtime C e do linker

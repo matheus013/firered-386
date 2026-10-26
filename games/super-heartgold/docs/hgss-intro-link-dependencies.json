@@ -60,15 +60,72 @@
     "intro_movie": [
       "G2dRenderer_Init",
       "GF_AssertFail",
-      "IntroMovie_Scene1",
-      "IntroMovie_Scene2",
-      "IntroMovie_Scene3",
-      "IntroMovie_Scene4",
-      "IntroMovie_Scene5",
       "Sound_SetSceneAndPlayBGM",
       "__stack_chk_fail",
       "gApplication_TitleScreen",
       "memset"
+    ],
+    "intro_movie_scene_1": [
+      "AddCellOrAnimResObjFromNarc",
+      "AddCharResObjFromNarc",
+      "AddPlttResObjFromNarc",
+      "SpriteTransfer_CreateCharTransferTask",
+      "SpriteTransfer_CreateExtPlttTransferTask",
+      "SpriteTransfer_DeleteCharTransferTask",
+      "SpriteTransfer_DeletePlttTransferTask",
+      "__stack_chk_fail"
+    ],
+    "intro_movie_scene_2": [
+      "AddCellOrAnimResObjFromNarc",
+      "AddCharResObjFromNarc",
+      "AddPlttResObjFromNarc",
+      "GF_AssertFail",
+      "SpriteTransfer_CreateCharTransferTask",
+      "SpriteTransfer_CreateExtPlttTransferTask",
+      "SpriteTransfer_DeleteCharTransferTask",
+      "SpriteTransfer_DeletePlttTransferTask",
+      "__stack_chk_fail"
+    ],
+    "intro_movie_scene_3": [
+      "AddCellOrAnimResObjFromNarc",
+      "AddCharResObjFromNarc",
+      "AddPlttResObjFromNarc",
+      "GF_3DVramMan_Create",
+      "GF_3DVramMan_Delete",
+      "SpriteTransfer_CreateCharTransferTask",
+      "SpriteTransfer_CreateExtPlttTransferTask",
+      "SpriteTransfer_DeleteCharTransferTask",
+      "SpriteTransfer_DeletePlttTransferTask",
+      "__stack_chk_fail"
+    ],
+    "intro_movie_scene_4": [
+      "AddCellOrAnimResObjFromNarc",
+      "AddCharResObjFromNarc",
+      "AddPlttResObjFromNarc",
+      "GF_3DVramMan_Create",
+      "GF_3DVramMan_Delete",
+      "GF_AssertFail",
+      "ParticleSystem_CalcAll",
+      "ParticleSystem_CreateEmitterWithParam",
+      "ParticleSystem_DrawAll",
+      "ParticleSystem_Free",
+      "ParticleSystem_GetActiveEmitterCount",
+      "ParticleSystem_GetCamera",
+      "ParticleSystem_LoadResourceFile",
+      "ParticleSystem_New",
+      "ParticleSystem_RegisterPlttKey",
+      "ParticleSystem_RegisterTexKey",
+      "ParticleSystem_SetPerspectiveType",
+      "ParticleSystem_SetResource",
+      "ParticleSystem_ZeroAll",
+      "SpriteTransfer_CreateCharTransferTask",
+      "SpriteTransfer_CreateExtPlttTransferTask",
+      "SpriteTransfer_DeleteCharTransferTask",
+      "SpriteTransfer_DeletePlttTransferTask",
+      "__stack_chk_fail"
+    ],
+    "intro_movie_scene_5": [
+      "__stack_chk_fail"
     ],
     "intro_movie_scenes_lib": [
       "Create2DGfxResObjMan",
@@ -400,9 +457,9 @@
     ]
   },
   "executable_link_tested": false,
-  "module_count": 42,
+  "module_count": 47,
   "relocatable_link_passed": true,
-  "sdk_candidate_count": 312,
+  "sdk_candidate_count": 325,
   "sdk_candidates": {
     "CARD_CancelBackupAsync": [
       "subprojects/libntr/libraries/card/libcard.a"
@@ -531,6 +588,9 @@
       "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G3X_SetClearColor": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G3X_SetEdgeColorTable": [
       "subprojects/libntr/libraries/gx/libgx.a"
     ],
     "G3X_SetFog": [
@@ -977,10 +1037,22 @@
     "NNS_G2dTranslate": [
       "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
     ],
+    "NNS_G3dAllocAnmObj": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dAnmObjInit": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
     "NNS_G3dBindMdlSet": [
       "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
     ],
     "NNS_G3dDraw": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dFreeAnmObj": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGetAnmByIdx": [
       "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
     ],
     "NNS_G3dGetMdlSet": [
@@ -993,6 +1065,21 @@
       "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
     ],
     "NNS_G3dGlbFlushP": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGlbLightColor": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGlbLightVector": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGlbMaterialColorDiffAmb": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGlbMaterialColorSpecEmi": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGlbPolygonAttr": [
       "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
     ],
     "NNS_G3dGlbSetBaseScale": [
@@ -1008,6 +1095,9 @@
       "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
     ],
     "NNS_G3dPlttSetPlttKey": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dRenderObjAddAnmObj": [
       "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
     ],
     "NNS_G3dRenderObjInit": [
@@ -1039,6 +1129,12 @@
     ],
     "NNS_GfdDefaultFuncFreeTexVram": [
       "subprojects/libntrsystem/libraries/gfd/libnnsgfd.a"
+    ],
+    "NNSi_G3dModifyMatFlag": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNSi_G3dModifyPolygonAttrMask": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
     ],
     "OS_AllocFromArenaHi": [
       "subprojects/libntr/libraries/os/libos.a"
@@ -1341,9 +1437,12 @@
       "subprojects/libntr/libraries/sim/libsim.a"
     ]
   },
-  "unresolved_count": 560,
+  "unresolved_count": 588,
   "without_sdk_provider": [
+    "AddCellOrAnimResObjFromNarc",
+    "AddCharResObjFromNarc",
     "AddIGTSeconds",
+    "AddPlttResObjFromNarc",
     "BattleRecord_Init",
     "BattleRecord_sizeof",
     "BoxMonSetTrainerMemo",
@@ -1405,11 +1504,6 @@
     "GetSubBgPlttAddr",
     "GetSubObjPlttAddr",
     "InitSoundData",
-    "IntroMovie_Scene1",
-    "IntroMovie_Scene2",
-    "IntroMovie_Scene3",
-    "IntroMovie_Scene4",
-    "IntroMovie_Scene5",
     "ItemIdIsMail",
     "LineShutterWipe_Begin",
     "LineShutterWipe_Update",
@@ -1436,6 +1530,19 @@
     "PCStorage_ResetBoxModifiedFlags",
     "PCStorage_SetAllBoxesModified",
     "PCStorage_sizeof",
+    "ParticleSystem_CalcAll",
+    "ParticleSystem_CreateEmitterWithParam",
+    "ParticleSystem_DrawAll",
+    "ParticleSystem_Free",
+    "ParticleSystem_GetActiveEmitterCount",
+    "ParticleSystem_GetCamera",
+    "ParticleSystem_LoadResourceFile",
+    "ParticleSystem_New",
+    "ParticleSystem_RegisterPlttKey",
+    "ParticleSystem_RegisterTexKey",
+    "ParticleSystem_SetPerspectiveType",
+    "ParticleSystem_SetResource",
+    "ParticleSystem_ZeroAll",
     "Party_GetCount",
     "Party_GetMonByIndex",
     "Party_HasMon",
@@ -1567,6 +1674,10 @@
     "SpriteSystem_LoadCharResObjFromOpenNarc",
     "SpriteSystem_LoadPaletteBufferFromOpenNarc",
     "SpriteSystem_NewSprite",
+    "SpriteTransfer_CreateCharTransferTask",
+    "SpriteTransfer_CreateExtPlttTransferTask",
+    "SpriteTransfer_DeleteCharTransferTask",
+    "SpriteTransfer_DeletePlttTransferTask",
     "StringAllCharsValid",
     "StringNotEqual",
     "SystemCard_InitRomArchive",
@@ -1592,5 +1703,5 @@
     "memset",
     "ov36_App_MainMenu_SelectOption_Continue"
   ],
-  "without_sdk_provider_count": 248
+  "without_sdk_provider_count": 263
 }

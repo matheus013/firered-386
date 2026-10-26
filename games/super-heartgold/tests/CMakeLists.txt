@@ -95,6 +95,8 @@ if(Python3_FOUND)
     endif()
     add_test(NAME tools.resource_import
         COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_resource_import.py)
+    add_test(NAME tools.opening_headers
+        COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_opening_headers.py)
     add_test(NAME tools.synthetic_fixtures
         COMMAND Python3::Interpreter ${PROJECT_SOURCE_DIR}/tests/test_tools.py)
     add_test(NAME assets.manifest
