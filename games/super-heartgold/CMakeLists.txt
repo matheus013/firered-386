@@ -39,6 +39,12 @@ endif()
 # A engine não conhece SDL nem dados de região.
 add_subdirectory(engine)
 
+# Native module lifecycle; intentionally independent of ROM layouts and SDKs.
+add_library(hg_native_overlays STATIC game/native/src/native_overlays.c)
+target_include_directories(hg_native_overlays PUBLIC game/native/include)
+set_target_properties(hg_native_overlays PROPERTIES C_STANDARD 11 C_STANDARD_REQUIRED ON)
+target_link_libraries(hg_native_overlays PRIVATE hg_warnings)
+
 # Game data formats and policy are independent of SDL and the DS ABI.
 add_library(hg_game_data STATIC game/core/src/save_image.cpp game/core/src/save_selection.cpp
     game/core/src/save_validation.cpp game/core/src/message_data.cpp

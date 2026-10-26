@@ -1,0 +1,1578 @@
+{
+  "by_module": {
+    "bg_window": [
+      "GF_AssertFail",
+      "__stack_chk_fail",
+      "memcpy",
+      "memset"
+    ],
+    "brightness": [
+      "GF_AssertFail"
+    ],
+    "camera": [
+      "CalcAngleBetweenVecs",
+      "GF_AssertFail",
+      "__stack_chk_fail"
+    ],
+    "filesystem": [
+      "GF_AssertFail",
+      "__stack_chk_fail"
+    ],
+    "font": [
+      "FontData_Delete",
+      "FontData_ModeSwitch",
+      "FontData_New",
+      "GF_AssertFail",
+      "GetGlyphWidth",
+      "GetStringWidth",
+      "GetStringWidthFirstLine",
+      "GetStringWidthMultiline",
+      "SetFontsPointer",
+      "StringAllCharsValid",
+      "TryLoadGlyph"
+    ],
+    "gf_3d_render": [
+      "GF_3DVramMan_Create",
+      "GF_3DVramMan_Delete",
+      "GF_AssertFail"
+    ],
+    "gf_gfx_loader": [
+      "__stack_chk_fail"
+    ],
+    "gf_gfx_planes": [
+      "PlaySE"
+    ],
+    "gf_rtc": [
+      "GF_AssertFail",
+      "__stack_chk_fail",
+      "memset"
+    ],
+    "heap": [
+      "CommState_Exists",
+      "GF_AssertFail",
+      "PrintErrorMessageAndReset"
+    ],
+    "igt_counter": [
+      "AddIGTSeconds"
+    ],
+    "intro_movie": [
+      "G2dRenderer_Init",
+      "GF_AssertFail",
+      "IntroMovie_GetSceneDataPtr",
+      "IntroMovie_Scene1",
+      "IntroMovie_Scene2",
+      "IntroMovie_Scene3",
+      "IntroMovie_Scene4",
+      "IntroMovie_Scene5",
+      "Sound_SetSceneAndPlayBGM",
+      "__stack_chk_fail",
+      "gApplication_TitleScreen",
+      "memset"
+    ],
+    "main": [
+      "CommState_GetErrorScreen",
+      "CommState_GetLinkMode",
+      "CommState_IsLinkDown",
+      "CommState_IsWifi",
+      "CommState_StopForReset",
+      "Comm_LoadAndInitDwc",
+      "Comm_Update",
+      "DoSoundUpdateFrame",
+      "GF_AssertFail",
+      "GF_MicPauseOnLidClose",
+      "GF_MicResumeOnLidOpen",
+      "InitSoundData",
+      "Save_Chatot_Get",
+      "Save_PlayerData_GetOptionsAddr",
+      "ShowCommunicationError",
+      "ShowSaveDataReadError",
+      "ShowWFCUserInfoWarning",
+      "Sound_ResetFieldBGMStopOnce",
+      "__stack_chk_fail",
+      "ov36_App_MainMenu_SelectOption_Continue"
+    ],
+    "math_util": [
+      "GF_AssertFail"
+    ],
+    "message_format": [
+      "GF_AssertFail",
+      "GetCityNamesMsgdataIdByCountry",
+      "GetECWordIntoStringByIndex",
+      "Mapsec_GetIndexInType",
+      "Mapsec_GetType",
+      "PCStorage_GetBoxName",
+      "PlayerProfile_GetNamePtr",
+      "PlayerProfile_GetTrainerGender",
+      "Save_FriendGroup_Get",
+      "Save_FriendGroup_GetLanguage",
+      "Save_FriendGroup_GetLeaderGender",
+      "Save_FriendGroup_GetName",
+      "Save_Misc_Const_Get",
+      "Save_Misc_RivalName_Const_Get",
+      "Save_PlayerData_GetProfile"
+    ],
+    "msgdata": [
+      "GF_AssertFail",
+      "__stack_chk_fail"
+    ],
+    "oam_manager": [
+      "GF_AssertFail",
+      "GF_G2dIsCellVisible",
+      "GF_InitG2dRenderSurface",
+      "_GLOBAL_OFFSET_TABLE_"
+    ],
+    "obj_char_transfer": [
+      "GF_AssertFail",
+      "GF_CreateNewVramTransferTask",
+      "__stack_chk_fail",
+      "memset"
+    ],
+    "obj_pltt_transfer": [
+      "GF_AssertFail",
+      "GF_CreateNewVramTransferTask",
+      "memset"
+    ],
+    "overlay_manager": [],
+    "palette": [
+      "GF_AssertFail",
+      "GetMainBgPlttAddr",
+      "GetMainObjPlttAddr",
+      "GetSubBgPlttAddr",
+      "GetSubObjPlttAddr",
+      "__stack_chk_fail",
+      "memset"
+    ],
+    "pm_string": [
+      "GF_AssertFail",
+      "memcpy"
+    ],
+    "poke_overlay": [
+      "GF_AssertFail",
+      "__stack_chk_fail"
+    ],
+    "pokemon": [
+      "BoxMonSetTrainerMemo",
+      "Chatot_CryPatternUsesRecording",
+      "Chatot_PlayCryWithDelayedFallback",
+      "Chatot_PlayCryWithFallback",
+      "Chatot_SetForceDefaultCry",
+      "CopyCapsule",
+      "GF_AssertFail",
+      "GetItemAttr",
+      "GetMoveAttr",
+      "GetMoveMaxPP",
+      "ItemIdIsMail",
+      "LocationIsDiamondPearlCompatible",
+      "Mail_Copy",
+      "Mail_New",
+      "ManagedSprite_SetAnimateFlag",
+      "ManagedSprite_SetPositionXY",
+      "ManagedSprite_TickFrame",
+      "Party_GetCount",
+      "Party_GetMonByIndex",
+      "Party_HasMon",
+      "PlayCry",
+      "PlayCryDelayedEx",
+      "PlayCryEx",
+      "PlayerProfile_GetPlayerName_NewString",
+      "PlayerProfile_GetTrainerGender",
+      "PlayerProfile_GetTrainerID",
+      "PokepicAnimManager_StartAnim",
+      "SpriteSystem_LoadAnimResObjFromOpenNarc",
+      "SpriteSystem_LoadCellResObjFromOpenNarc",
+      "SpriteSystem_LoadCharResObjFromOpenNarc",
+      "SpriteSystem_LoadPaletteBufferFromOpenNarc",
+      "SpriteSystem_NewSprite",
+      "StringNotEqual",
+      "TrainerClass_GetGenderOrTrainerCount",
+      "__stack_chk_fail",
+      "gGameLanguage",
+      "gGameVersion",
+      "memset"
+    ],
+    "render_text": [
+      "GF_AssertFail",
+      "GenerateFontHalfRowLookupTable",
+      "LoadDownArrowTiles",
+      "PlaySE",
+      "TouchscreenHitbox_TouchHeldIsIn",
+      "TouchscreenHitbox_TouchNewIsIn"
+    ],
+    "save": [
+      "GF_AssertFail",
+      "SaveMisc_CheckExtraChunksExist",
+      "SaveMisc_GetExtraChunkKeys",
+      "SaveMisc_SetExtraChunkKeys",
+      "SaveMisc_SetExtraChunksExist",
+      "Save_FriendRoster_LoadFromSave",
+      "Save_FriendRoster_StoreToSave",
+      "Save_Frontier_Commit",
+      "Save_Frontier_Load",
+      "Save_Misc_Get",
+      "ShowSaveDataReadError",
+      "ShowSaveDataWriteError",
+      "__stack_chk_fail",
+      "fclose",
+      "fopen",
+      "fread",
+      "free",
+      "fseek",
+      "fwrite",
+      "malloc",
+      "memset"
+    ],
+    "save_arrays": [
+      "BattleRecord_Init",
+      "BattleRecord_sizeof",
+      "FrontierSpeciesRecords_Init",
+      "FrontierSpeciesRecords_sizeof",
+      "GameStats_Init",
+      "GameStats_sizeof",
+      "MigratedPokemon_GetSize",
+      "MigratedPokemon_Init",
+      "PCBox_sizeof",
+      "PCStorage_ClearBoxPadding",
+      "PCStorage_GetBoxModifiedFlags",
+      "PCStorage_Init",
+      "PCStorage_ResetBoxModifiedFlags",
+      "PCStorage_SetAllBoxesModified",
+      "PCStorage_sizeof",
+      "PokeathlonSave_FriendshipRecords_Init",
+      "PokeathlonSave_FriendshipRecords_sizeof",
+      "PokeathlonSave_Init",
+      "PokeathlonSave_sizeof",
+      "Pokewalker_Init",
+      "Pokewalker_sizeof",
+      "SaveArray_Party_Init",
+      "SaveArray_Party_sizeof",
+      "SaveBlock23_Init",
+      "SaveBlock23_sizeof",
+      "SaveData_Pokegear_Init",
+      "SaveData_Pokegear_sizeof",
+      "Save_ApricornBox_Init",
+      "Save_ApricornBox_sizeof",
+      "Save_Bag_Init",
+      "Save_Bag_sizeof",
+      "Save_Chatot_Init",
+      "Save_Chatot_sizeof",
+      "Save_Daycare_Init",
+      "Save_Daycare_sizeof",
+      "Save_EasyChat_Init",
+      "Save_EasyChat_sizeof",
+      "Save_FashionData_Init",
+      "Save_FashionData_sizeof",
+      "Save_FollowMon_Init",
+      "Save_FollowMon_sizeof",
+      "Save_FriendGroup_Init",
+      "Save_FriendGroup_sizeof",
+      "Save_FriendRoster_Init",
+      "Save_FriendRoster_sizeof",
+      "Save_Frontier_Init",
+      "Save_Frontier_sizeof",
+      "Save_Gts_Init",
+      "Save_Gts_sizeof",
+      "Save_HOF_Init",
+      "Save_HOF_sizeof",
+      "Save_LinkBattleRuleset_Init",
+      "Save_LinkBattleRuleset_sizeof",
+      "Save_LocalFieldData_Init",
+      "Save_LocalFieldData_sizeof",
+      "Save_Mailbox_Init",
+      "Save_Mailbox_sizeof",
+      "Save_MapObjects_Init",
+      "Save_MapObjects_sizeof",
+      "Save_Misc_Init",
+      "Save_Misc_sizeof",
+      "Save_MysteryGift_Init",
+      "Save_MysteryGift_sizeof",
+      "Save_PalPad_Init",
+      "Save_PalPad_sizeof",
+      "Save_PhotoAlbum_Init",
+      "Save_PhotoAlbum_sizeof",
+      "Save_PlayerData_Init",
+      "Save_PlayerData_sizeof",
+      "Save_PlazaSurvey_Init",
+      "Save_PlazaSurvey_sizeof",
+      "Save_Pokedex_Init",
+      "Save_Pokedex_sizeof",
+      "Save_Rankings_Init",
+      "Save_Rankings_sizeof",
+      "Save_Roamers_Init",
+      "Save_Roamers_sizeof",
+      "Save_SafariZone_Init",
+      "Save_SafariZone_sizeof",
+      "Save_SealCase_Init",
+      "Save_SealCase_sizeof",
+      "Save_SpecialRibbons_Init",
+      "Save_SpecialRibbons_sizeof",
+      "Save_SysInfo_Init",
+      "Save_SysInfo_sizeof",
+      "Save_TrainerCard_Init",
+      "Save_TrainerCard_sizeof",
+      "Save_TrainerHouse_Init",
+      "Save_TrainerHouse_sizeof",
+      "Save_VarsFlags_Init",
+      "Save_VarsFlags_sizeof",
+      "Save_WiFiHistory_Init",
+      "Save_WiFiHistory_sizeof",
+      "Save_WiiMessage_Init",
+      "Save_WiiMessage_sizeof",
+      "__stack_chk_fail"
+    ],
+    "screen_fade": [
+      "FadeFunc_00",
+      "FadeFunc_01",
+      "FadeFunc_02",
+      "FadeFunc_03",
+      "FadeFunc_04",
+      "FadeFunc_05",
+      "FadeFunc_06",
+      "FadeFunc_07",
+      "FadeFunc_08",
+      "FadeFunc_09",
+      "FadeFunc_10",
+      "FadeFunc_11",
+      "FadeFunc_12",
+      "FadeFunc_13",
+      "FadeFunc_14",
+      "FadeFunc_15",
+      "FadeFunc_16",
+      "FadeFunc_17",
+      "FadeFunc_18",
+      "FadeFunc_19",
+      "FadeFunc_20",
+      "FadeFunc_21",
+      "FadeFunc_22",
+      "FadeFunc_23",
+      "FadeFunc_24",
+      "FadeFunc_25",
+      "FadeFunc_26",
+      "FadeFunc_27",
+      "FadeFunc_28",
+      "FadeFunc_29",
+      "FadeFunc_30",
+      "FadeFunc_31",
+      "FadeFunc_32",
+      "FadeFunc_33",
+      "FadeFunc_34",
+      "FadeFunc_35",
+      "FadeFunc_36",
+      "FadeFunc_37",
+      "FadeFunc_38",
+      "FadeFunc_39",
+      "FadeFunc_40",
+      "FadeFunc_41",
+      "FadeFunc_42",
+      "GF_AssertFail",
+      "ScreenWindow_QueueSetInside",
+      "ScreenWindow_QueueSetOutside",
+      "ScreenWindow_QueueSetRect",
+      "ScreenWindow_QueueSetVisible",
+      "ScreenWindow_SetVisible",
+      "memset"
+    ],
+    "sprite": [
+      "GF_AssertFail",
+      "__stack_chk_fail",
+      "memset"
+    ],
+    "string_control_code": [
+      "GF_AssertFail"
+    ],
+    "swap_3d_buffers": [
+      "free",
+      "malloc",
+      "memset"
+    ],
+    "sys_task": [
+      "GF_AssertFail"
+    ],
+    "sys_task_api": [],
+    "system": [
+      "GF_AssertFail",
+      "SystemCard_InitRomArchive",
+      "__stack_chk_fail",
+      "memset"
+    ],
+    "task": [
+      "FieldSystem_IsChildAppRunning",
+      "FieldSystem_IsFieldMapLoaded",
+      "FieldSystem_IsFieldMapRunning",
+      "FieldSystem_LaunchApplication",
+      "FieldSystem_LoadFieldOverlayInternal",
+      "GF_AssertFail"
+    ],
+    "timer3": [],
+    "touchpad": [
+      "GF_AssertFail",
+      "__stack_chk_fail",
+      "memset"
+    ]
+  },
+  "executable_link_tested": false,
+  "module_count": 37,
+  "relocatable_link_passed": true,
+  "sdk_candidate_count": 294,
+  "sdk_candidates": {
+    "CARD_CancelBackupAsync": [
+      "subprojects/libntr/libraries/card/libcard.a"
+    ],
+    "CARD_GetResultCode": [
+      "subprojects/libntr/libraries/card/libcard.a"
+    ],
+    "CARD_IdentifyBackup": [
+      "subprojects/libntr/libraries/card/libcard.a"
+    ],
+    "CARD_IsPulledOut": [
+      "subprojects/libntr/libraries/card/libcard.a"
+    ],
+    "CARD_LockBackup": [
+      "subprojects/libntr/libraries/card/libcard.a"
+    ],
+    "CARD_SetCacheFlushThreshold": [
+      "subprojects/libntr/libraries/card/libcard.a"
+    ],
+    "CARD_TryWaitBackupAsync": [
+      "subprojects/libntr/libraries/card/libcard.a"
+    ],
+    "CARD_UnlockBackup": [
+      "subprojects/libntr/libraries/card/libcard.a"
+    ],
+    "CARD_WaitBackupAsync": [
+      "subprojects/libntr/libraries/card/libcard.a"
+    ],
+    "CTRDG_IsPulledOut": [
+      "subprojects/libntr/libraries/ctrdg/libctrdg.a"
+    ],
+    "DC_FlushRange": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "FS_CloseFile": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_Init": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_InitFile": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_LoadOverlay": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_LoadOverlayImage": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_LoadOverlayImageAsync": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_LoadOverlayInfo": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_OpenFile": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_ReadFile": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_SeekFile": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_SetDefaultDMA": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_StartOverlay": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_TryLoadTable": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_UnloadOverlay": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FS_WaitAsync": [
+      "subprojects/libntr/libraries/fs/libfs.a"
+    ],
+    "FX_Div": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "FX_Init": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "FX_MulFunc": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "FX_SinCosTable_": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "G2S_GetBG0CharPtr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G2S_GetBG1CharPtr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G2S_GetBG2CharPtr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G2S_GetBG3CharPtr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G2_GetBG0CharPtr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G2_GetBG1CharPtr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G2_GetBG2CharPtr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G2_GetBG3CharPtr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G2x_SetBGyAffine_": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G2x_SetBlendBrightness_": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G3X_Reset": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G3X_SetClearColor": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "G3X_SetFog": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_BeginLoadBGExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_BeginLoadOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_EndLoadBGExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_EndLoadOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadBG0Char": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadBG0Scr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadBG1Char": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadBG1Scr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadBG2Char": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadBG2Scr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadBG3Char": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadBG3Scr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadBGExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadBGPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadOAM": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadOBJ": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_LoadOBJPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXS_SetGraphicsMode": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_BeginLoadBGExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_BeginLoadOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_DisableBankForLCDC": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_DispOff": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_DispOn": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_EndLoadBGExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_EndLoadOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_GetBankForOBJ": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_GetBankForOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_GetBankForSubOBJ": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_GetBankForSubOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_HBlankIntr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_Init": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadBG0Char": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadBG0Scr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadBG1Char": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadBG1Scr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadBG2Char": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadBG2Scr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadBG3Char": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadBG3Scr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadBGExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadBGPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadOAM": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadOBJ": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_LoadOBJPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_ResetBankForBG": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_ResetBankForBGExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_ResetBankForOBJ": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_ResetBankForOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_ResetBankForSubBG": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_ResetBankForSubBGExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_ResetBankForSubOBJ": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_ResetBankForSubOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_ResetBankForTex": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_ResetBankForTexPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetBankForBG": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetBankForBGExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetBankForLCDC": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetBankForOBJ": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetBankForOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetBankForSubBG": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetBankForSubBGExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetBankForSubOBJ": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetBankForSubOBJExtPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetBankForTex": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetBankForTexPltt": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_SetGraphicsMode": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GX_VBlankIntr": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "GXx_SetMasterBrightness_": [
+      "subprojects/libntr/libraries/gx/libgx.a"
+    ],
+    "MATH_CalcCRC16CCITT": [
+      "subprojects/libntr/libraries/math/libmath.a"
+    ],
+    "MATH_CalcMD5": [
+      "subprojects/libntr/libraries/math/libmath.a"
+    ],
+    "MATHi_CRC16InitTableRev": [
+      "subprojects/libntr/libraries/math/libmath.a"
+    ],
+    "MI_Copy36B": [
+      "subprojects/libntr/libraries/mi/libmi.a"
+    ],
+    "MI_CpuCopy8": [
+      "subprojects/libntr/libraries/mi/libmi.a"
+    ],
+    "MI_CpuFill8": [
+      "subprojects/libntr/libraries/mi/libmi.a"
+    ],
+    "MI_UncompressLZ8": [
+      "subprojects/libntr/libraries/mi/libmi.a"
+    ],
+    "MI_WaitDma": [
+      "subprojects/libntr/libraries/mi/libmi.a"
+    ],
+    "MIi_CpuClear16": [
+      "subprojects/libntr/libraries/mi/libmi.a"
+    ],
+    "MIi_CpuClear32": [
+      "subprojects/libntr/libraries/mi/libmi.a"
+    ],
+    "MIi_CpuCopy16": [
+      "subprojects/libntr/libraries/mi/libmi.a"
+    ],
+    "MIi_CpuCopy32": [
+      "subprojects/libntr/libraries/mi/libmi.a"
+    ],
+    "MIi_CpuCopyFast": [
+      "subprojects/libntr/libraries/mi/libmi.a"
+    ],
+    "MTX_LookAt": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "MTX_OrthoW": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "MTX_PerspectiveW": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "MTX_Rot22_": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "MTX_ScaleApply22": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "NNS_FndAllocFromExpHeapEx": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndCreateExpHeapEx": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndDestroyExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndFreeToExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndGetSizeForMBlockExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndGetTotalFreeSizeForExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndInitAllocatorForExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_FndResizeForMBlockExpHeap": [
+      "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a"
+    ],
+    "NNS_G2dApplyAndResetOamManagerBuffer": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dBeginRendering": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dDrawCellAnimation": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dDrawMultiCellAnimation": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dEndRendering": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dEntryOamManagerAffine": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dEntryOamManagerOamWithAffineIdx": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dFreeCellTransferStateHandle": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetAnimCtrlCurrentFrame": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetAnimSequenceByIdx": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetImageLocation": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetImagePaletteLocation": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetMCBankNumNodesRequired": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetNewCellTransferStateHandle": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetNewOamManagerInstance": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetUnpackedAnimBank": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetUnpackedBGCharacterData": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetUnpackedCellBank": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetUnpackedCharacterData": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetUnpackedPaletteCompressInfo": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetUnpackedPaletteData": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dGetUnpackedScreenData": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dInitCellAnimation": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dInitCellAnimationVramTransfered": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dInitImagePaletteProxy": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dInitImageProxy": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dInitMCAnimation": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dInitOamManagerModule": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dLoadImage1DMapping": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dLoadImage2DMapping": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dLoadImageVramTransfer": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dLoadPalette": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dLoadPaletteEx": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dPopMtx": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dPushMtx": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dResetAnimCtrlState": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dRotZ": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dScale": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dSetAnimSequenceToMCAnimation": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dSetCellAnimationCurrentFrame": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dSetCellAnimationSequence": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dSetMCAnimationCurrentFrame": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dSetRendererImageProxy": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dSetRndCoreAffineOverwriteMode": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dSetRndCoreFlipMode": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dTickCellAnimation": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dTickMCAnimation": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G2dTranslate": [
+      "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a"
+    ],
+    "NNS_G3dBindMdlSet": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dDraw": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGetMdlSet": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGetTex": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGlb": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGlbFlushP": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGlbSetBaseScale": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dGlbSetBaseTrans": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dPlttGetRequiredSize": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dPlttLoad": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dPlttSetPlttKey": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dRenderObjInit": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dResDefaultSetup": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dTex4x4GetRequiredSize": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dTexGetRequiredSize": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dTexLoad": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_G3dTexSetTexKey": [
+      "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a"
+    ],
+    "NNS_GfdDefaultFuncAllocPlttVram": [
+      "subprojects/libntrsystem/libraries/gfd/libnnsgfd.a"
+    ],
+    "NNS_GfdDefaultFuncAllocTexVram": [
+      "subprojects/libntrsystem/libraries/gfd/libnnsgfd.a"
+    ],
+    "NNS_GfdDefaultFuncFreePlttVram": [
+      "subprojects/libntrsystem/libraries/gfd/libnnsgfd.a"
+    ],
+    "NNS_GfdDefaultFuncFreeTexVram": [
+      "subprojects/libntrsystem/libraries/gfd/libnnsgfd.a"
+    ],
+    "OS_AllocFromArenaHi": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_AllocFromArenaLo": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_DisableInterrupts": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_DisableIrqMask": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_EnableIrqMask": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_GetLockID": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_GetLowEntropyData": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_GetProcMode": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_GetTick": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_Init": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_InitTick": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_ReleaseLockID": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_ResetSystem": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_RestoreInterrupts": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_SetIrqFunction": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "OS_WaitIrq": [
+      "subprojects/libntr/libraries/os/libos.a"
+    ],
+    "PM_ForceToPowerOff": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "PM_GetBackLight": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "PM_GoSleepMode": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "PM_SetBackLight": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "RTC_ConvertDateTimeToSecond": [
+      "subprojects/libntr/libraries/rtc/librtc.a"
+    ],
+    "RTC_GetDateTimeAsync": [
+      "subprojects/libntr/libraries/rtc/librtc.a"
+    ],
+    "RTC_Init": [
+      "subprojects/libntr/libraries/rtc/librtc.a"
+    ],
+    "SDK_AUTOLOAD_DTCM_START": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "SIM_HandleG3Command": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "TP_CheckBusy": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "TP_GetCalibratedPoint": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "TP_GetLatestIndexInAuto": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "TP_GetLatestRawPointInAuto": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "TP_GetUserInfo": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "TP_Init": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "TP_RequestAutoSamplingStartAsync": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "TP_RequestAutoSamplingStopAsync": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "TP_RequestSamplingAsync": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "TP_SetCalibrateParam": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "TP_WaitBusy": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "TP_WaitRawResult": [
+      "subprojects/libntr/libraries/spi/libspi.a"
+    ],
+    "VEC_Add": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "VEC_Mag": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "VEC_Subtract": [
+      "subprojects/libntr/libraries/fx/libfx.a"
+    ],
+    "s_HW_BG_PLTT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_HW_DB_BG_PLTT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_HW_DB_OAM": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_HW_DB_OBJ_PLTT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_HW_INTR_CHECK_BUF": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_HW_LCDC_VRAM": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_HW_MAIN_MEM_SYSTEM": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_HW_OAM": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_HW_OBJ_PLTT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_BG0CNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_BG0OFS": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_BG1CNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_BG1OFS": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_BG2CNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_BG2OFS": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_BG2PA": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_BG3CNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_BG3OFS": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_BG3PA": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2S_DB_BLDCNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_BG0CNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_BG0OFS": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_BG1CNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_BG1OFS": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_BG2CNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_BG2OFS": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_BG2PA": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_BG3CNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_BG3OFS": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_BG3PA": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G2_BLDCNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G3X_ALPHA_TEST_REF": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G3X_DISP3DCNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_G3_VIEWPORT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_GXS_DB_DISPCNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_GXS_DB_MASTER_BRIGHT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_GX_DISPCNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_GX_MASTER_BRIGHT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_GX_POWCNT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_OS_IE": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_OS_IF": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_OS_IME": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_OS_TM0CNT_H": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_OS_TM0CNT_L": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_OS_TM3CNT_L": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ],
+    "s_reg_PAD_KEYINPUT": [
+      "subprojects/libntr/libraries/sim/libsim.a"
+    ]
+  },
+  "unresolved_count": 568,
+  "without_sdk_provider": [
+    "AddIGTSeconds",
+    "BattleRecord_Init",
+    "BattleRecord_sizeof",
+    "BoxMonSetTrainerMemo",
+    "CalcAngleBetweenVecs",
+    "Chatot_CryPatternUsesRecording",
+    "Chatot_PlayCryWithDelayedFallback",
+    "Chatot_PlayCryWithFallback",
+    "Chatot_SetForceDefaultCry",
+    "CommState_Exists",
+    "CommState_GetErrorScreen",
+    "CommState_GetLinkMode",
+    "CommState_IsLinkDown",
+    "CommState_IsWifi",
+    "CommState_StopForReset",
+    "Comm_LoadAndInitDwc",
+    "Comm_Update",
+    "CopyCapsule",
+    "DoSoundUpdateFrame",
+    "FadeFunc_00",
+    "FadeFunc_01",
+    "FadeFunc_02",
+    "FadeFunc_03",
+    "FadeFunc_04",
+    "FadeFunc_05",
+    "FadeFunc_06",
+    "FadeFunc_07",
+    "FadeFunc_08",
+    "FadeFunc_09",
+    "FadeFunc_10",
+    "FadeFunc_11",
+    "FadeFunc_12",
+    "FadeFunc_13",
+    "FadeFunc_14",
+    "FadeFunc_15",
+    "FadeFunc_16",
+    "FadeFunc_17",
+    "FadeFunc_18",
+    "FadeFunc_19",
+    "FadeFunc_20",
+    "FadeFunc_21",
+    "FadeFunc_22",
+    "FadeFunc_23",
+    "FadeFunc_24",
+    "FadeFunc_25",
+    "FadeFunc_26",
+    "FadeFunc_27",
+    "FadeFunc_28",
+    "FadeFunc_29",
+    "FadeFunc_30",
+    "FadeFunc_31",
+    "FadeFunc_32",
+    "FadeFunc_33",
+    "FadeFunc_34",
+    "FadeFunc_35",
+    "FadeFunc_36",
+    "FadeFunc_37",
+    "FadeFunc_38",
+    "FadeFunc_39",
+    "FadeFunc_40",
+    "FadeFunc_41",
+    "FadeFunc_42",
+    "FieldSystem_IsChildAppRunning",
+    "FieldSystem_IsFieldMapLoaded",
+    "FieldSystem_IsFieldMapRunning",
+    "FieldSystem_LaunchApplication",
+    "FieldSystem_LoadFieldOverlayInternal",
+    "FontData_Delete",
+    "FontData_ModeSwitch",
+    "FontData_New",
+    "FrontierSpeciesRecords_Init",
+    "FrontierSpeciesRecords_sizeof",
+    "G2dRenderer_Init",
+    "GF_3DVramMan_Create",
+    "GF_3DVramMan_Delete",
+    "GF_AssertFail",
+    "GF_CreateNewVramTransferTask",
+    "GF_G2dIsCellVisible",
+    "GF_InitG2dRenderSurface",
+    "GF_MicPauseOnLidClose",
+    "GF_MicResumeOnLidOpen",
+    "GameStats_Init",
+    "GameStats_sizeof",
+    "GenerateFontHalfRowLookupTable",
+    "GetCityNamesMsgdataIdByCountry",
+    "GetECWordIntoStringByIndex",
+    "GetGlyphWidth",
+    "GetItemAttr",
+    "GetMainBgPlttAddr",
+    "GetMainObjPlttAddr",
+    "GetMoveAttr",
+    "GetMoveMaxPP",
+    "GetStringWidth",
+    "GetStringWidthFirstLine",
+    "GetStringWidthMultiline",
+    "GetSubBgPlttAddr",
+    "GetSubObjPlttAddr",
+    "InitSoundData",
+    "IntroMovie_GetSceneDataPtr",
+    "IntroMovie_Scene1",
+    "IntroMovie_Scene2",
+    "IntroMovie_Scene3",
+    "IntroMovie_Scene4",
+    "IntroMovie_Scene5",
+    "ItemIdIsMail",
+    "LoadDownArrowTiles",
+    "LocationIsDiamondPearlCompatible",
+    "Mail_Copy",
+    "Mail_New",
+    "ManagedSprite_SetAnimateFlag",
+    "ManagedSprite_SetPositionXY",
+    "ManagedSprite_TickFrame",
+    "Mapsec_GetIndexInType",
+    "Mapsec_GetType",
+    "MigratedPokemon_GetSize",
+    "MigratedPokemon_Init",
+    "PCBox_sizeof",
+    "PCStorage_ClearBoxPadding",
+    "PCStorage_GetBoxModifiedFlags",
+    "PCStorage_GetBoxName",
+    "PCStorage_Init",
+    "PCStorage_ResetBoxModifiedFlags",
+    "PCStorage_SetAllBoxesModified",
+    "PCStorage_sizeof",
+    "Party_GetCount",
+    "Party_GetMonByIndex",
+    "Party_HasMon",
+    "PlayCry",
+    "PlayCryDelayedEx",
+    "PlayCryEx",
+    "PlaySE",
+    "PlayerProfile_GetNamePtr",
+    "PlayerProfile_GetPlayerName_NewString",
+    "PlayerProfile_GetTrainerGender",
+    "PlayerProfile_GetTrainerID",
+    "PokeathlonSave_FriendshipRecords_Init",
+    "PokeathlonSave_FriendshipRecords_sizeof",
+    "PokeathlonSave_Init",
+    "PokeathlonSave_sizeof",
+    "PokepicAnimManager_StartAnim",
+    "Pokewalker_Init",
+    "Pokewalker_sizeof",
+    "PrintErrorMessageAndReset",
+    "SaveArray_Party_Init",
+    "SaveArray_Party_sizeof",
+    "SaveBlock23_Init",
+    "SaveBlock23_sizeof",
+    "SaveData_Pokegear_Init",
+    "SaveData_Pokegear_sizeof",
+    "SaveMisc_CheckExtraChunksExist",
+    "SaveMisc_GetExtraChunkKeys",
+    "SaveMisc_SetExtraChunkKeys",
+    "SaveMisc_SetExtraChunksExist",
+    "Save_ApricornBox_Init",
+    "Save_ApricornBox_sizeof",
+    "Save_Bag_Init",
+    "Save_Bag_sizeof",
+    "Save_Chatot_Get",
+    "Save_Chatot_Init",
+    "Save_Chatot_sizeof",
+    "Save_Daycare_Init",
+    "Save_Daycare_sizeof",
+    "Save_EasyChat_Init",
+    "Save_EasyChat_sizeof",
+    "Save_FashionData_Init",
+    "Save_FashionData_sizeof",
+    "Save_FollowMon_Init",
+    "Save_FollowMon_sizeof",
+    "Save_FriendGroup_Get",
+    "Save_FriendGroup_GetLanguage",
+    "Save_FriendGroup_GetLeaderGender",
+    "Save_FriendGroup_GetName",
+    "Save_FriendGroup_Init",
+    "Save_FriendGroup_sizeof",
+    "Save_FriendRoster_Init",
+    "Save_FriendRoster_LoadFromSave",
+    "Save_FriendRoster_StoreToSave",
+    "Save_FriendRoster_sizeof",
+    "Save_Frontier_Commit",
+    "Save_Frontier_Init",
+    "Save_Frontier_Load",
+    "Save_Frontier_sizeof",
+    "Save_Gts_Init",
+    "Save_Gts_sizeof",
+    "Save_HOF_Init",
+    "Save_HOF_sizeof",
+    "Save_LinkBattleRuleset_Init",
+    "Save_LinkBattleRuleset_sizeof",
+    "Save_LocalFieldData_Init",
+    "Save_LocalFieldData_sizeof",
+    "Save_Mailbox_Init",
+    "Save_Mailbox_sizeof",
+    "Save_MapObjects_Init",
+    "Save_MapObjects_sizeof",
+    "Save_Misc_Const_Get",
+    "Save_Misc_Get",
+    "Save_Misc_Init",
+    "Save_Misc_RivalName_Const_Get",
+    "Save_Misc_sizeof",
+    "Save_MysteryGift_Init",
+    "Save_MysteryGift_sizeof",
+    "Save_PalPad_Init",
+    "Save_PalPad_sizeof",
+    "Save_PhotoAlbum_Init",
+    "Save_PhotoAlbum_sizeof",
+    "Save_PlayerData_GetOptionsAddr",
+    "Save_PlayerData_GetProfile",
+    "Save_PlayerData_Init",
+    "Save_PlayerData_sizeof",
+    "Save_PlazaSurvey_Init",
+    "Save_PlazaSurvey_sizeof",
+    "Save_Pokedex_Init",
+    "Save_Pokedex_sizeof",
+    "Save_Rankings_Init",
+    "Save_Rankings_sizeof",
+    "Save_Roamers_Init",
+    "Save_Roamers_sizeof",
+    "Save_SafariZone_Init",
+    "Save_SafariZone_sizeof",
+    "Save_SealCase_Init",
+    "Save_SealCase_sizeof",
+    "Save_SpecialRibbons_Init",
+    "Save_SpecialRibbons_sizeof",
+    "Save_SysInfo_Init",
+    "Save_SysInfo_sizeof",
+    "Save_TrainerCard_Init",
+    "Save_TrainerCard_sizeof",
+    "Save_TrainerHouse_Init",
+    "Save_TrainerHouse_sizeof",
+    "Save_VarsFlags_Init",
+    "Save_VarsFlags_sizeof",
+    "Save_WiFiHistory_Init",
+    "Save_WiFiHistory_sizeof",
+    "Save_WiiMessage_Init",
+    "Save_WiiMessage_sizeof",
+    "ScreenWindow_QueueSetInside",
+    "ScreenWindow_QueueSetOutside",
+    "ScreenWindow_QueueSetRect",
+    "ScreenWindow_QueueSetVisible",
+    "ScreenWindow_SetVisible",
+    "SetFontsPointer",
+    "ShowCommunicationError",
+    "ShowSaveDataReadError",
+    "ShowSaveDataWriteError",
+    "ShowWFCUserInfoWarning",
+    "Sound_ResetFieldBGMStopOnce",
+    "Sound_SetSceneAndPlayBGM",
+    "SpriteSystem_LoadAnimResObjFromOpenNarc",
+    "SpriteSystem_LoadCellResObjFromOpenNarc",
+    "SpriteSystem_LoadCharResObjFromOpenNarc",
+    "SpriteSystem_LoadPaletteBufferFromOpenNarc",
+    "SpriteSystem_NewSprite",
+    "StringAllCharsValid",
+    "StringNotEqual",
+    "SystemCard_InitRomArchive",
+    "TouchscreenHitbox_TouchHeldIsIn",
+    "TouchscreenHitbox_TouchNewIsIn",
+    "TrainerClass_GetGenderOrTrainerCount",
+    "TryLoadGlyph",
+    "_GLOBAL_OFFSET_TABLE_",
+    "__stack_chk_fail",
+    "fclose",
+    "fopen",
+    "fread",
+    "free",
+    "fseek",
+    "fwrite",
+    "gApplication_TitleScreen",
+    "gGameLanguage",
+    "gGameVersion",
+    "malloc",
+    "memcpy",
+    "memset",
+    "ov36_App_MainMenu_SelectOption_Continue"
+  ],
+  "without_sdk_provider_count": 274
+}

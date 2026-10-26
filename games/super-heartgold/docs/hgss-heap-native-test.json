@@ -9,7 +9,9 @@
   ],
   "application_lifecycle_cycles": 1000,
   "display_register_boundary": "test register",
-  "native_overlay_loading_tested": false,
+  "native_overlay_loading_tested": true,
+  "registered_module_cycles": 1000,
+  "unknown_module_fails_before_application_callback": true,
   "fail_on_first_undefined_behavior": true,
   "os_boundary": "test arena and interrupt hooks",
   "allocator": "original NNS expandable heap with native alignment adaptation",
@@ -19,5 +21,6 @@
     "overlay_manager.c (unchanged)",
     "gf_gfx_planes.c (unchanged)"
   ],
-  "graphics_resource_release_tested": false
+  "graphics_resource_release_tested": false,
+  "native_overlay_test_scope": "registered test fixture only; no game overlays"
 }

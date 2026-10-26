@@ -466,7 +466,7 @@ não usa overlays. Nenhuma dessas validações equivale a iniciar a campanha.
 
 O ensaio de memória foi ampliado para compilar também overlay_manager.c e
 gf_gfx_planes.c completos e inalterados. Executa 1000 ciclos de uma aplicação
-de teste estaticamente ligada (FS_OVERLAY_ID_NONE), com init em duas chamadas,
+de teste registrada no carregador nativo, com init em duas chamadas,
 exec em três e exit em duas. Confere passagem de argumentos, dados alocados
 com alinhamento nativo, preservação de um valor de 64 bits e liberação dos
 dados e do gerenciador ao terminar.
@@ -479,8 +479,47 @@ vez, permitindo conferir a mesma restauração na próxima aplicação.
 Passou no Linux com ASan/UBSan e no executável MinGW rodando diretamente no
 Windows (código 0). Os dois relatórios de heap foram atualizados para incluir
 esses 1000 ciclos; essa rodada Windows também usa o header de IDs corrigidos.
-Os callbacks são do teste, o registrador gráfico é controlado e qualquer
-tentativa de carregar/descarregar uma imagem de overlay aborta o processo.
-Assim, o ensaio valida a interação do código original com a memória nativa
-e o controle single screen, mas não um carregador de overlays, renderização
-de cenas, inicialização do menu ou gameplay.
+Os callbacks são do teste e o registrador gráfico é controlado. O ensaio
+valida a interação do código original com a memória nativa e o controle
+single screen, mas não renderização de cenas, inicialização do menu ou gameplay.
+
+## Registro de módulos nativos
+
+`game/native` fornece um registro C de módulos já ligados ao executável,
+com estados de carga/descarga, rejeição de IDs duplicados e controle de
+reentrada. O teste CMake `game.native_overlays` cobre falha de carregamento,
+nova tentativa, identidade e fechamento com módulos ativos.
+
+A ponte `hgss_native_overlay_bridge.c` conecta esse registro ao gerenciador
+original. Os três modos de carga são síncronos para módulos já ligados;
+não se carregam imagens ARM da ROM. Um ID ausente encerra o processo com
+diagnóstico antes de executar callbacks da aplicação. Esse caminho negativo
+foi validado no Linux. Os mil ciclos positivos passaram com ASan/UBSan no
+Linux e em processo nativo Windows, incluindo alocação/liberação de recurso
+do módulo e retorno à tela principal.
+
+O ID sintético 0x7ffffffe pertence apenas ao teste. Nenhum overlay real do
+jogo foi registrado: este carregador ainda não está integrado ao launcher.
+A vinculação requer registro inativo e armazenamento válido até a desvinculação;
+o uso é de uma única thread, sem suporte a callbacks que lançam exceções.
+
+## Compilação da introdução e suporte gráfico
+
+A rodada `hgss-intro-compilation.json` amplia de 27 para 37 módulos C
+compilados no Linux. Inclui intro_movie, sys_task_api, screen_fade,
+gf_3d_render, camera, gf_gfx_loader, obj_char_transfer, obj_pltt_transfer,
+oam_manager e sprite. O probe acrescenta o diretório original include/library
+para resolver os headers de partículas.
+
+`prepare_hgss_graphics.py` verifica hashes dos fontes antes de adaptar cópias
+privadas: mapingType passa a mappingType, nome fornecido pelo SDK; a estrutura
+opaca de sete palavras usada pelo gerenciador OAM passa a usar o tipo
+NNSG2dOamManagerInstance, com os protótipos reais do SDK. Esses dois módulos
+foram compilados, mas ainda não executados nesta integração.
+
+O link relocável dos 37 módulos passou. O relatório separado
+`hgss-intro-link-dependencies.json` registra 568 referências externas, das
+quais 294 possuem candidatos nos SDKs e 274 ainda não têm provedor nesse
+conjunto. O aumento em relação à rodada de 27 módulos corresponde à ampliação
+do código analisado. Não houve link de executável completo nem execução da
+introdução; avisos sobre ponteiros de tamanhos diferentes continuam pendentes.

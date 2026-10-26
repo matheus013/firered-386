@@ -53,6 +53,11 @@ add_executable(hg_save_selection_tests save_selection_tests.cpp)
 target_link_libraries(hg_save_selection_tests PRIVATE hg_game_data hg_warnings)
 add_test(NAME game.save_selection COMMAND hg_save_selection_tests)
 
+add_executable(hg_native_overlay_tests native_overlay_tests.c)
+target_link_libraries(hg_native_overlay_tests PRIVATE hg_native_overlays hg_warnings)
+set_target_properties(hg_native_overlay_tests PROPERTIES C_STANDARD 11 C_STANDARD_REQUIRED ON)
+add_test(NAME game.native_overlays COMMAND hg_native_overlay_tests)
+
 if(HG_BUILD_APP)
     # Roda o executável real sem janela visível: driver de vídeo "dummy",
     # eventos sintéticos de teclado e gamepad, e saída após 120 quadros.

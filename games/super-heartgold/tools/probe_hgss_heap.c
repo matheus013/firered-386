@@ -10,19 +10,36 @@
 #include "overlay_manager.h"
 #include "poke_overlay.h"
 #include "gf_gfx_planes.h"
+#include "hgss_native_overlay_bridge.h"
 #define CHECK(c) do { if (!(c)) { fprintf(stderr, "Heap check failed: %s\n", #c); abort(); } } while (0)
 static unsigned char *arena;
 static size_t used;
 static unsigned critical;
 REGType16v s_reg_GX_POWCNT;
-/* This test uses a statically linked application (FS_OVERLAY_ID_NONE).
- * Any accidental attempt to load an ARM image must fail the test. */
-BOOL HandleLoadOverlay(FSOverlayID id, PMOverlayLoadType type) {
-    (void)id; (void)type; abort();
+/* Deliberately outside the real game's 0..128 range: this is a fixture,
+ * not a registration claiming that the intro or field has been ported. */
+#define TEST_MODULE_ID UINT32_C(0x7ffffffe)
+typedef struct ModuleContext { unsigned loads, unloads; String *resource; } ModuleContext;
+static ModuleContext module_context;
+static int module_load(void *argument) {
+    ModuleContext *module = argument;
+    CHECK(!module->resource);
+    module->resource = String_New(16, 1);
+    if (!module->resource) return 0;
+    String_AddChar(module->resource, 0x121);
+    ++module->loads;
+    return 1;
 }
-void UnloadOverlayByID(FSOverlayID id) { (void)id; abort(); }
+static void module_unload(void *argument) {
+    ModuleContext *module = argument;
+    CHECK(module->resource && String_GetLength(module->resource) == 1);
+    String_Delete(module->resource);
+    module->resource = NULL;
+    ++module->unloads;
+}
 typedef struct ApplicationState { uint64_t marker; void *argument; } ApplicationState;
 static BOOL app_init(OverlayManager *manager, int *state) {
+    CHECK(module_context.resource && !HGSS_UnbindNativeOverlays());
     CHECK(!SingleScreen_IsSubEngineShown());
     CHECK((s_reg_GX_POWCNT & 0x7fff) == 0x1234);
     if ((*state)++ == 0) {
@@ -72,7 +89,7 @@ void MIi_CpuClear32(u32 data, void *destination, u32 size) {
     for (u32 offset = 0; offset < size; offset += 4)
         memcpy((unsigned char *)destination + offset, &data, 4);
 }
-int main(void) {
+int main(int argc, char **argv) {
     arena = calloc(1, 2 * 1024 * 1024);
     CHECK(arena);
     HeapParam templates[] = {{1024 * 1024, OS_ARENA_MAIN}};
@@ -115,16 +132,30 @@ int main(void) {
         String_Delete(text);
     }
     CHECK(HeapExp_FndGetTotalFreeSize(1) == child_free);
+    HgNativeOverlayRegistry registry = {0};
+    HgNativeOverlayState module_state;
+    const HgNativeOverlayDefinition module = {TEST_MODULE_ID, module_load, module_unload, &module_context};
+    CHECK(HgNativeOverlays_Init(&registry, &module, &module_state, 1) == HG_OVERLAY_OK);
+    CHECK(HGSS_BindNativeOverlays(&registry));
+    CHECK(!HGSS_BindNativeOverlays(&registry));
     for (unsigned cycle = 0; cycle < 1000; ++cycle) {
-        const OverlayManagerTemplate application = {app_init, app_exec, app_exit, FS_OVERLAY_ID_NONE};
+        const int reject = argc == 2 && !strcmp(argv[1], "--reject-unknown-module");
+        const OverlayManagerTemplate application = {app_init, app_exec, app_exit, reject ? TEST_MODULE_ID - 1 : TEST_MODULE_ID};
         s_reg_GX_POWCNT = 0x9234; /* Start with the sub engine selected. */
         OverlayManager *manager = OverlayManager_New(&application, &cycle, 2);
         CHECK(manager);
         unsigned frames = 0;
         while (!OverlayManager_Run(manager)) CHECK(++frames < 20);
         CHECK(frames == 6);
+        CHECK(!module_context.resource && module_state == HG_OVERLAY_INACTIVE);
         OverlayManager_Delete(manager);
     }
+    CHECK(module_context.loads == 1000 && module_context.unloads == 1000);
+    UnloadOverlayByID(TEST_MODULE_ID); /* Known inactive module is a no-op. */
+    CHECK(module_context.unloads == 1000);
+    CHECK(HGSS_UnbindNativeOverlays());
+    CHECK(!HGSS_UnbindNativeOverlays());
+    CHECK(HgNativeOverlays_Close(&registry) == HG_OVERLAY_OK);
     Heap_Destroy(1);
     Heap_Destroy(2);
     CHECK(HeapExp_FndGetTotalFreeSize(0) == root_free);
@@ -157,6 +188,6 @@ int main(void) {
     CHECK(!critical);
     free(arena);
     puts("HGSS heap: 32000 allocation cycles, 1000 string cycles and 1024 direct SDK alignment cases passed");
-    puts("HGSS application manager: 1000 native lifecycle and single-screen reset cycles passed");
+    puts("HGSS application manager: 1000 registered module load/unload and single-screen reset cycles passed");
     return 0;
 }

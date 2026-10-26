@@ -2,6 +2,7 @@ from pathlib import Path
 import subprocess,json,argparse,shutil
 from prepare_hgss_heap import prepare_game_heap, prepare_sdk_heap
 from prepare_hgss_overlay_ids import prepare_overlay_ids
+from prepare_hgss_graphics import HASHES as GRAPHICS_SOURCES, prepare_graphics
 parser=argparse.ArgumentParser(description="Compile complete HGSS translation units; does not link or validate ABI")
 parser.add_argument('--hgss',type=Path,required=True)
 parser.add_argument('--libntr',type=Path,required=True)
@@ -42,7 +43,7 @@ flags+=['-include',str(out/'hgss_backup.h')]
 overlay_contract=prepare_overlay_ids(ref/'main.lsf',out)
 flags+=['-include',str(out/'hgss_overlay_ids.h')]
 if a.message_headers:flags+=['-I'+str(a.message_headers.resolve())]
-for p in [out,headers,a.libntr/'include',a.libntrsystem/'include',a.build/'gen',a.build/'gen/nitro/fx']:flags+=['-I'+str(p)]
+for p in [out,headers,headers/'library',a.libntr/'include',a.libntrsystem/'include',a.build/'gen',a.build/'gen/nitro/fx']:flags+=['-I'+str(p)]
 result=subprocess.run(flags+[str(out/'overlay-contract.c'),'-o',str(out/'overlay-contract')],
                       capture_output=True,text=True,timeout=60)
 (out/'overlay-contract-build.log').write_text(result.stdout+result.stderr)
@@ -64,6 +65,10 @@ for name in dict.fromkeys(modules+a.extra_modules):
  source=ref/'src'/f'{name}.c'
  if not source.exists():raise FileNotFoundError(source)
  if name=='heap':source=out/'heap-native.c'
+ if name in GRAPHICS_SOURCES:
+  adapted=out/f'{name}-native.c'
+  prepare_graphics(source,adapted)
+  source=adapted
  if name=='timer3':
   original='*(REGType16 *)((u32)(REG_TM0CNT_L_ADDR + 4 * OS_TIMER_3))'
   content=source.read_text()
@@ -108,11 +113,15 @@ if a.verify_timer:
 if a.verify_heap:
  executable=out/'heap-test'
  fnd=a.libntrsystem/'libraries/fnd'
+ project=Path(__file__).resolve().parents[1]
  prepare_sdk_heap(fnd/'src/expheap.c',out/'expheap-native.c')
  command=flags+['-g','-fsanitize=address,undefined','-fno-sanitize-recover=all',
    '-ffunction-sections','-fdata-sections','-Wl,--gc-sections','-DNNS_FINALROM','-DSDK_FINALROM',
    '-I'+str(fnd/'include'),str(out/'heap-native.c'),str(out/'expheap-native.c'),str(ref/'src/pm_string.c'),
    str(ref/'src/overlay_manager.c'),str(ref/'src/gf_gfx_planes.c'),
+   '-I'+str(project/'game/native/include'),'-I'+str(project/'tools/reference_compat'),
+   str(project/'game/native/src/native_overlays.c'),
+   str(project/'tools/reference_compat/hgss_native_overlay_bridge.c'),
    *[str(fnd/'src'/name) for name in ['heapcommon.c','list.c']],
    str(Path(__file__).with_name('probe_hgss_heap.c')),'-o',str(executable)]
  result=subprocess.run(command,capture_output=True,text=True,timeout=60)
@@ -122,10 +131,22 @@ if a.verify_heap:
  (out/'heap-run.log').write_text(result.stdout+result.stderr)
  print(result.stdout+result.stderr)
  result.check_returncode()
+ # Missing native registrations must stop before application callbacks run.
+ # Disable core dumps for this deliberate abort.
+ import resource
+ def disable_core_dump():resource.setrlimit(resource.RLIMIT_CORE,(0,0))
+ rejection=subprocess.run([str(executable),'--reject-unknown-module'],capture_output=True,
+                          text=True,timeout=30,preexec_fn=disable_core_dump)
+ (out/'overlay-rejection.log').write_text(rejection.stdout+rejection.stderr)
+ if rejection.returncode!=-6 or 'Native overlay load failed: id=2147483645 result=2' not in rejection.stderr:
+  raise RuntimeError('Unknown overlay was not rejected through the expected fatal path')
  (out/'heap-result.json').write_text(json.dumps({'passed':True,'allocation_cycles':32000,
    'string_cycles':1000,'direct_sdk_alignment_cases':1024,'sanitizers':['address','undefined'],
    'application_lifecycle_cycles':1000,'display_register_boundary':'test register',
-   'native_overlay_loading_tested':False,
+   'native_overlay_loading_tested':True,
+   'native_overlay_test_scope':'registered test fixture only; no game overlays',
+   'registered_module_cycles':1000,
+   'unknown_module_fails_before_application_callback':True,
    'fail_on_first_undefined_behavior':True,'os_boundary':'test arena and interrupt hooks',
    'allocator':'original NNS expandable heap with native alignment adaptation',
    'game_sources':['heap.c (native alignment adaptation)','pm_string.c (unchanged)',

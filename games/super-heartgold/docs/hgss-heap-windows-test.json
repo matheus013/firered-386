@@ -8,8 +8,10 @@
   "direct_sdk_alignment_cases": 1024,
   "application_lifecycle_cycles": 1000,
   "display_register_boundary": "test register",
-  "native_overlay_loading_tested": false,
+  "native_overlay_loading_tested": true,
   "sanitizers": [],
-  "sha256": "5c3c256d69dcdc8b500768329b8e468d82c1f6f09f8730d10dba635b2aa3b46d",
-  "full_game_tested": false
+  "sha256": "aed182be15490f364fd03995cb2320e6e0a91ab8e5c53bc9aa7fbd15b48e636f",
+  "full_game_tested": false,
+  "native_overlay_test_scope": "registered test fixture only; no game overlays",
+  "registered_module_cycles": 1000
 }
