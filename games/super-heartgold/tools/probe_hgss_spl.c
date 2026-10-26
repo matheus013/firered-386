@@ -8,8 +8,10 @@
 static void *blocks[1024];
 static unsigned allocated;
 #ifdef HG_SPL_RESOURCE_TEST
-/* Loader stores field callbacks but does not execute their RNG in this test. */
+/* Explicit deterministic seed for the isolated native test. */
 u32 spl_rndm_seed;
+/* lib/asm/spl_data.s at upstream 01eeeb4b: .short 0, 0x1000, 0. */
+const VecFx16 gSplAxisY = {0, 0x1000, 0};
 void SIM_handleAssertionFailureMsg(const char *file, unsigned line, const char *format, ...) {
     (void)format;
     fprintf(stderr, "SDK assertion: %s:%u\n", file, line);
@@ -89,6 +91,32 @@ int main(int argc, char **argv) {
         CHECK(base >= (uintptr_t)data && base + sizeof(SPLResBase) <= (uintptr_t)data + length);
     }
     printf("SPL resource: %u emitters and %u textures loaded\n", manager->res_num, manager->tex_num);
+#ifdef HG_SPL_UPDATE_TEST
+    unsigned peak = 0;
+    for (unsigned resource = 0; resource < manager->res_num; ++resource) {
+        VecFx32 origin = {0, 0, 0};
+        spl_rndm_seed = 0x12345678;
+        (void)SPL_Create(manager, resource, &origin);
+        for (unsigned frame = 0; frame < 600; ++frame) {
+            SPL_Calc(manager);
+            unsigned active = 0;
+            check_list((SplList *)&manager->act_emtr_list, manager->act_emtr_list.node_num);
+            CHECK(manager->act_emtr_list.node_num + manager->ina_emtr_list.node_num == 20);
+            for (SPLEmitter *emitter = manager->act_emtr_list.p_begin; emitter; emitter = emitter->p_next) {
+                check_list((SplList *)&emitter->act_ptcl_list, emitter->act_ptcl_list.node_num);
+                check_list((SplList *)&emitter->act_chld_list, emitter->act_chld_list.node_num);
+                active += emitter->act_ptcl_list.node_num + emitter->act_chld_list.node_num;
+            }
+            CHECK(active + manager->ina_ptcl_list.node_num == 200);
+            if (active > peak) peak = active;
+        }
+        SPL_DeleteAll(manager);
+        check_list((SplList *)&manager->ina_emtr_list, 20);
+        check_list((SplList *)&manager->ina_ptcl_list, 200);
+    }
+    CHECK(peak > 0);
+    printf("SPL updates: %u resource simulations, 600 frames each; peak %u particles\n", manager->res_num, peak);
+#endif
     for (unsigned i = 0; i < allocated; ++i) free(blocks[i]);
     free(data);
 #else

@@ -15,6 +15,7 @@ parser.add_argument('--spl-sources',type=Path,help='Private SPL C sources for co
 parser.add_argument('--verify-spl',action='store_true',help='Test original SPL pool initialization and lists')
 parser.add_argument('--spl-resource-archive',type=Path,help='Verified private a/0/5/9 archive; test intro member 4')
 parser.add_argument('--spl-fx-library',type=Path,help='Native SDK libfx.a for the SPL resource test')
+parser.add_argument('--verify-spl-update',action='store_true',help='Simulate each intro particle resource for 600 frames')
 parser.add_argument('--verify-scheduler',action='store_true',help='Execute original sys_task.c with ASan/UBSan')
 parser.add_argument('--require-all',action='store_true',help='Fail if any selected module fails to compile')
 parser.add_argument('--extra-modules',nargs='+',default=[],help='Additional source basenames to compile')
@@ -27,6 +28,7 @@ parser.add_argument('--windows-sdl-include',type=Path,help='Directory containing
 a=parser.parse_args()
 if a.verify_spl and not a.spl_sources:parser.error('--verify-spl requires --spl-sources')
 if a.spl_resource_archive and (not a.verify_spl or not a.spl_fx_library):parser.error('Resource test requires --verify-spl and --spl-fx-library')
+if a.verify_spl_update and not a.spl_resource_archive:parser.error('--verify-spl-update requires --spl-resource-archive')
 if a.spl_sources and len(list(a.spl_sources.glob('spl_*.c')))!=9:parser.error('Expected nine private SPL C sources')
 if a.build_windows_heap and not a.verify_heap:parser.error('--build-windows-heap requires --verify-heap')
 if a.build_windows_heap and not a.windows_sdl_include:parser.error('--build-windows-heap requires --windows-sdl-include')
@@ -99,11 +101,23 @@ for name in dict.fromkeys(modules+a.extra_modules):
  errors=[line.strip() for line in result.stderr.splitlines() if 'error:' in line]
  report.append({'module':name,'compiled':result.returncode==0,'first_errors':errors[:3],'pointer_cast_warnings':sum('different size' in line for line in result.stderr.splitlines())})
 if a.spl_sources:
+ original_spl=a.spl_sources
+ a.spl_sources=out/'spl-native'
+ a.spl_sources.mkdir()
+ for source in sorted(original_spl.glob('spl_*.c')):
+  content=source.read_text()
+  if source.name=='spl_generate.c':
+   old='(base->rtt_min << 12)'
+   if content.count(old)!=1:raise ValueError('SPL rotation contract differs')
+   # rtt_min is s16: multiplication by 4096 fits s32 even when negative.
+   content=content.replace(old,'(base->rtt_min * 4096)')
+  (a.spl_sources/source.name).write_text(content)
  for source in sorted(a.spl_sources.glob('spl_*.c')):
   result=subprocess.run(flags+['-c',str(source),'-o',str(out/(source.stem+'.o'))],capture_output=True,text=True,timeout=60)
   (out/(source.stem+'.log')).write_text(result.stderr)
   report.append({'module':source.stem,'compiled':result.returncode==0,
     'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
+    'original_source_sha256':hashlib.sha256((original_spl/source.name).read_bytes()).hexdigest(),
     'first_errors':[line.strip() for line in result.stderr.splitlines() if 'error:' in line][:3],
     'pointer_cast_warnings':sum('different size' in line for line in result.stderr.splitlines())})
 print(json.dumps(report,indent=2));(out/'report.json').write_text(json.dumps(report,indent=2)+'\n')
@@ -209,6 +223,10 @@ if a.verify_spl:
   resource_arguments=[str(resource)]
   command[1:1]=['-DHG_SPL_RESOURCE_TEST']
   command[-2:-2]=[str(a.spl_sources/'spl_field.c'),str(a.libntr/'libraries/sim/src/sim_vars.c'),str(a.spl_fx_library),'-lm']
+  if a.verify_spl_update:
+   command[1:1]=['-DHG_SPL_UPDATE_TEST']
+   position=command.index(str(a.spl_fx_library))
+   command[position:position]=[str(a.spl_sources/(name+'.c')) for name in ['spl_emitter','spl_generate','spl_anim','spl_random']]
  result=subprocess.run(command,capture_output=True,text=True,timeout=60)
  (out/'spl-build.log').write_text(result.stdout+result.stderr)
  result.check_returncode()
@@ -221,6 +239,8 @@ if a.verify_spl:
    'boundary':'malloc, byte fill/copy, fatal assertion handler and RNG storage',
    'rendering_tested':False,'resource_loading_tested':bool(resource_arguments),
    'resource_sha256':hashlib.sha256(resource.read_bytes()).hexdigest() if resource_arguments else None,
+   'resource_updates_tested':a.verify_spl_update,
+   'frames_per_resource':600 if a.verify_spl_update else 0,
    'resource_archive_member':4 if resource_arguments else None},indent=2)+'\n')
 if a.verify_particles:
  executable=out/'particle-test'

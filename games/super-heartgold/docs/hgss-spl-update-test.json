@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "cycles": 100,
+  "emitter_pool_size": 20,
+  "particle_pool_size": 200,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "boundary": "malloc, byte fill/copy, fatal assertion handler and RNG storage",
+  "rendering_tested": false,
+  "resource_loading_tested": true,
+  "resource_sha256": "748eded76a142bcf2247df73ed54bfec6e24d15d48d2c1c9b825cf1c061c916e",
+  "resource_updates_tested": true,
+  "frames_per_resource": 600,
+  "resource_archive_member": 4
+}

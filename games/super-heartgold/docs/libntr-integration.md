@@ -613,3 +613,24 @@ e o ensaio estão. O RNG e os callbacks de campos não são executados.
 Resultado: hgss-spl-resource-test.json. O recurso fica fora do Git.
 Este teste não cobre arquivos malformados, todos os recursos do jogo,
 atualização dos emissores, upload de texturas/paletas ou renderização.
+
+## Simulação dos emissores da abertura
+
+`--verify-spl-update`, junto das opções do teste de recurso SPL, cria um
+emissor por definição do recurso e executa SPL_Calc por 600 quadros antes de
+SPL_DeleteAll. Passaram as 9 definições (5400 atualizações), com pico de 150
+partículas. O ensaio confere listas e conservação dos pools de 20 emissores
+e 200 partículas durante a simulação e a recuperação integral após excluir.
+Resultado em hgss-spl-update-test.json; fontes/hashes em
+hgss-spl-update-compilation.json. RNG reinicializado em 0x12345678 por definição.
+
+O primeiro ensaio UBSan detectou deslocamento à esquerda de -2071 em
+spl_generate.c, no cálculo de velocidade angular. A cópia privada passa a usar
+`rtt_min * 4096`: rtt_min é s16, portanto o produto cabe em s32 e preserva
+o valor esperado sem deslocar um inteiro negativo. A execução corrigida passou
+com ASan/UBSan. Os fontes de referência permanecem intactos; o probe registra
+hashes originais e adaptados. Essa validação não compara quadro a quadro com ARM.
+
+A constante gSplAxisY vem de lib/asm/spl_data.s do commit 01eeeb4b da referência:
+três valores de 16 bits, 0, 0x1000 e 0. A biblioteca matemática do SDK continua
+pré-compilada sem sanitizers. Não há upload de texturas nem desenho neste teste.
