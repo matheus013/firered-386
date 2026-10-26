@@ -17,6 +17,7 @@ parser.add_argument('--extra-modules',nargs='+',default=[],help='Additional sour
 parser.add_argument('--intro-support',action='store_true',help='Compile the verified 42-module intro support set (not the five asset-dependent scenes)')
 parser.add_argument('--verify-timer',action='store_true',help='Execute Timer3 register-boundary test with ASan/UBSan')
 parser.add_argument('--verify-heap',action='store_true',help='Execute original heap with the native NNS allocator')
+parser.add_argument('--verify-particles',action='store_true',help='Test adapted particle slot allocators with ASan/UBSan')
 parser.add_argument('--build-windows-heap',action='store_true',help='Also compile the heap test with MinGW; run the EXE separately on Windows')
 parser.add_argument('--windows-sdl-include',type=Path,help='Directory containing the target Windows SDL2 headers')
 a=parser.parse_args()
@@ -63,6 +64,7 @@ report=[]
 prepare_game_heap(ref/'src/heap.c',out/'heap-native.c')
 modules=['gf_rtc','heap','task','sys_task','overlay_manager','gf_gfx_planes','bg_window','pokemon','save','save_arrays','main','system','render_text','font','palette','message_format','msgdata']
 if a.verify_timer:modules.append('timer3')
+if a.verify_particles:modules.append('particle_system')
 if a.intro_support:
  modules += ['filesystem','pm_string','brightness','poke_overlay','timer3','touchpad',
              'swap_3d_buffers','math_util','igt_counter','string_control_code','intro_movie',
@@ -176,5 +178,20 @@ if a.verify_heap:
   (out/'heap-windows-build.log').write_text(result.stdout+result.stderr)
   result.check_returncode()
   print('Windows heap executable compiled; native Windows execution is a separate check.')
+if a.verify_particles:
+ executable=out/'particle-test'
+ command=flags+['-g','-fsanitize=address,undefined','-fno-sanitize-recover=all',
+                '-ffunction-sections','-fdata-sections','-Wl,--gc-sections',
+                str(Path(__file__).with_name('probe_hgss_particles.c')),'-o',str(executable)]
+ result=subprocess.run(command,capture_output=True,text=True,timeout=60)
+ (out/'particle-build.log').write_text(result.stdout+result.stderr)
+ result.check_returncode()
+ result=subprocess.run([str(executable)],capture_output=True,text=True,timeout=30)
+ (out/'particle-run.log').write_text(result.stdout+result.stderr)
+ result.check_returncode()
+ print(result.stdout)
+ (out/'particle-result.json').write_text(json.dumps({'passed':True,'slots':16,'cases':2032,
+   'sanitizers':['address','undefined'],'scope':'slot allocator alignment and content preservation',
+   'rendering_tested':False,'vram_state_runtime_tested':False},indent=2)+'\n')
 if a.require_all and any(not module['compiled'] for module in report):
  raise SystemExit('Some HGSS modules failed to compile; see report.json')

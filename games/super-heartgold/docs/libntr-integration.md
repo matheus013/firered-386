@@ -552,3 +552,29 @@ O inventário consulta apenas os objetos selecionados e os arquivos estáticos
 dos SDKs; a lista sem provedor também contém símbolos do runtime C e do linker
 (por exemplo memset e __stack_chk_fail). Portanto, sua contagem não equivale
 ao número de funções do jogo a implementar.
+
+## Ponte de partículas e recursos de sprites
+
+A rodada `hgss-particles-compilation.json` reúne 54 unidades compiladas:
+as 47 anteriores, sprite_transfer, sprite_resource, sprite_resource_header,
+gf_3d_vramman, vram_transfer_manager, gf_3d_loader e particle_system.
+Adicionar esses sete nomes a `--extra-modules` reproduz o conjunto.
+
+O adaptador de particle_system verifica o hash do fonte e usa o header público
+gfd.h. Nas quatro operações de estado de VRAM, cria uma estrutura SDK local
+e copia os bytes entre ela e o armazenamento original; uma static assertion
+confere a capacidade. Assim não converte o array em um ponteiro incompatível.
+Os 16 alocadores SPL passam de alinhamento 4 para sizeof(void*), com uintptr_t
+na operação de alinhamento. As estruturas SPL de runtime contêm ponteiros.
+
+`--verify-particles` executa os próprios alocadores estáticos da unidade
+adaptada em arenas controladas. Passaram 2032 casos (16 slots, tamanhos 1–127),
+com ASan/UBSan, verificando alinhamento, escrita de uintptr_t e preservação dos
+dados da alocação anterior. Resultado: hgss-particle-allocator-test.json.
+Não foram testados esgotamento da arena, estados de VRAM em execução,
+carregamento SPL ou renderização. As funções não usadas são descartadas no link.
+
+O link relocável dos 54 módulos passou: 600 referências externas, 348 com
+candidatos no SDK e 252 fora desse conjunto. O relatório é
+hgss-particles-link-dependencies.json. A biblioteca SPL continua pendente;
+compilar a ponte particle_system não significa que seus emissores executam.

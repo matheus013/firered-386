@@ -54,3 +54,9 @@ Trocar apenas o include é insuficiente; a adaptação experimental foi retirada
 do gerador público. É necessário resolver armazenamento tipado dos estados e
 os acessos que pressupõem ponteiros de 32 bits antes de registrar esse módulo
 como portado. O relatório está em hgss-sprite-investigation.json.
+
+Rodada posterior: a ponte particle_system passou a compilar com cópias
+tipadas dos estados de VRAM e alinhamento nativo nos alocadores. Os 2032
+casos de alocação passaram com ASan/UBSan. Isso não integra a biblioteca SPL
+externa; consultar a seção de partículas em libntr-integration.md e os novos
+relatórios hgss-particles-* para o estado atual.

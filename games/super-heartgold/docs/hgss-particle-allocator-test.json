@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "slots": 16,
+  "cases": 2032,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "scope": "slot allocator alignment and content preservation",
+  "rendering_tested": false,
+  "vram_state_runtime_tested": false
+}

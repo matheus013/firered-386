@@ -8,6 +8,7 @@ HASHES = {
     'oam_manager': 'f39027c4d9e1547409098100b09105efecc9eb9956739e4c0a8fdd2c7b044b45',
     'gf_g2d_renderer': '2ce29ac2f92166d9aa4dfcf3e2b71c78093c866b6d9887b3fbdaa375c3a5af17',
     'screen_fade_effects': 'c22dd25244a58cea8885c70fd99c0b86227e7c65b649d0ed4a5471378e77149d',
+    'particle_system': '1af2e73b1668a53b20b9b6c5a778520e0785b0133099d32f317fd2e4a9225a66',
 }
 
 
@@ -18,6 +19,26 @@ def prepare_graphics(source: Path, destination: Path) -> None:
     text = data.decode()
     if source.stem == 'obj_char_transfer':
         text = text.replace('->mapingType', '->mappingType')
+    elif source.stem == 'particle_system':
+        text = text.replace('#include "nnsys/gfd_internal.h"',
+                            '#include <nnsys/gfd.h>\n#include <stdint.h>\n#include <string.h>')
+        # Preserve the original storage without aliasing an array as an SDK struct.
+        for kind, field in [('Tex', 'texKeys'), ('Pltt', 'plttKeys')]:
+            state = f'NNSGfdFrm{kind}VramState'
+            for operation in ('Get', 'Set'):
+                call = f'NNS_Gfd{operation}Frm{kind}VramState'
+                before = f'{call}(system->{field});'
+                copy_in = f'memcpy(&nativeState, system->{field}, sizeof(nativeState));'
+                copy_out = f'memcpy(system->{field}, &nativeState, sizeof(nativeState));'
+                body = [f'{state} nativeState;',
+                        f'_Static_assert(sizeof(nativeState) <= sizeof(system->{field}), "VRAM state storage");']
+                if operation == 'Set': body.append(copy_in)
+                body.append(f'{call}(&nativeState);')
+                if operation == 'Get': body.append(copy_out)
+                text = text.replace(before, '{ ' + ' '.join(body) + ' }')
+        # SPL runtime structs contain host pointers; allocations need host alignment.
+        text = text.replace('(u32)next & 3', '(uintptr_t)next & (sizeof(void *) - 1)')
+        text = text.replace('next += 4 - ', 'next += sizeof(void *) - ')
     elif source.stem == 'gf_g2d_renderer':
         # Renderer structures are already exposed by this SDK's public header.
         text = text.replace('#include <nnsys/g2d_renderer_internal.h>',
