@@ -1,0 +1,20 @@
+{
+  "source_sha256": "39d41b5e22fa10762f0fbdd060612d7b0c19f328bc0c49477a6788244b067e3b",
+  "overlay_count": 129,
+  "intro_title": 60,
+  "continue_menu": 36,
+  "native_layout": {
+    "pointer_bytes": 8,
+    "overlay_header_bytes": 48,
+    "ram_address_offset": 8,
+    "file_id_offset": 40
+  },
+  "rom_layout": {
+    "overlay_header_bytes": 32,
+    "ram_address_offset": 4,
+    "file_id_offset": 24
+  },
+  "direct_rom_struct_copy_compatible": false,
+  "ids_compile_time_checked": true,
+  "native_overlay_loading_tested": false
+}

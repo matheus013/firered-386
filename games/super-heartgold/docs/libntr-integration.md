@@ -381,3 +381,83 @@ execução, compatibilidade de ABI, qualidade dos algoritmos ou todos os seus
 subsistemas. Não houve build Windows nesta rodada, nem avanço de campanha.
 As questões de procedência/licença de libntrsystem continuam pendentes antes
 de redistribuição; os fontes e binários avaliados permanecem privados.
+
+## Memória nativa: erro reproduzido e corrigido
+
+O primeiro teste executável de heap.c com o alocador expansível real de
+libntrsystem falhou no UBSan: NNSiFndHeapHead foi acessado num endereço
+alinhado a 4 bytes, mas a estrutura exige 8 bytes no host de 64 bits.
+Compilar os módulos não revelava esse erro de execução.
+
+`prepare_hgss_heap.py` faz adaptações verificadas em cópias privadas:
+
+- heap.c solicita alinhamento de sizeof(void*) para a tabela de heaps,
+  arenas e alocações nas duas direções. O prefixo de 16 bytes dos blocos
+  permanece igual; formatos persistentes não são alterados.
+- expheap.c usa sizeof(void*) como alinhamento mínimo de cabeçalhos e
+  arredondamento dos blocos. Pedidos legados de +4/-4 são elevados ao mínimo
+  nativo, preservando a direção. O ajuste também vale para consultas de
+  tamanho alocável e para a criação de arenas inicialmente desalinhadas.
+
+O build conjunto dos SDKs aplica a mesma adaptação em sua cópia privada de
+libntrsystem. O hash do expheap.c resultante aparece no relatório de build.
+
+O teste `--verify-heap` compila heap.c adaptado, pm_string.c inalterado e os
+fontes reais heapcommon.c, list.c e expheap.c. Passaram, com ASan/UBSan e
+falha imediata em comportamento indefinido:
+
+- 32000 alocações/liberações alternadas pelo início e fim de heaps filhos;
+- preservação de conteúdo em blocos de tamanhos diferentes, exaustão,
+  destruição dos filhos e recuperação integral do espaço livre;
+- 1000 ciclos de criação, cópia, concatenação e liberação de strings;
+- 1024 casos diretos do SDK, com alinhamentos ±4/±8/±16/±32, tamanhos de
+  0 a 127 e uma arena inicial deslocada em quatro bytes;
+- redução de bloco e recuperação do espaço após liberação.
+
+O resultado está em `hgss-heap-native-test.json`. Arena do sistema, seção
+crítica e limpeza de recursos gráficos são fronteiras controladas do teste.
+Nenhum recurso gráfico é registrado nesse ensaio. Não se validam concorrência,
+liberação de assets gráficos nem o heap completo dentro do jogo.
+
+Adicionar `--verify-heap` ao probe reproduz a validação Linux. Para gerar
+também o teste Windows, adicionar `--build-windows-heap` e
+`--windows-sdl-include /caminho/headers-windows`. Exige MinGW e gera
+heap-test.exe na pasta privada; a execução no Windows é uma verificação
+separada. A versão Windows desse ensaio não usa ASan/UBSan.
+
+O heap-test.exe compilado com MinGW foi executado diretamente no Windows
+x86-64 e terminou com código 0, passando os mesmos casos de memória e strings.
+O relatório `hgss-heap-windows-test.json` registra o hash do executável privado.
+SDL_MAIN_HANDLED evita que o header SDL redirecione o main do teste; LTO
+elimina as funções não exercitadas antes do link COFF. Não foram acrescentadas
+implementações fictícias de fontes ou RNG para satisfazer funções não usadas.
+Este resultado valida esse conjunto de módulos, não um executável do jogo.
+
+Na revisão de overlays, confirmou-se que o FS_LoadOverlayInfo do SDK ainda
+interpreta a tabela de overlays da ROM e FS_LoadOverlay carrega a imagem
+correspondente. Isso não fornece automaticamente um carregador de funções
+nativas do jogo. Corrigir apenas o cast de HW_DTCM seria insuficiente:
+o port precisa definir a ligação e o ciclo de vida de cada overlay nativo.
+
+## Identidade e ABI dos overlays
+
+Foi identificado outro bloqueio: sob SDK_PORT, libntr define FS_OVERLAY_ID
+como zero para qualquer nome. Em main.c isso confundia intro_title (60) com
+OVY_36 (36), usado para continuar o jogo. O probe agora gera um header
+privado com os 129 IDs do main.lsf original, cujo hash é obrigatório.
+`prepare_hgss_overlay_ids.py` segue a numeração sequencial usada por
+makelcf (`t->id = list->num++`) e confere todos os nomes OVY_N contra o
+índice N. Todos os 129 valores são verificados por static assertions na
+compilação, incluindo os overlays com nomes sem número.
+
+O teste também mediu FSOverlayInfoHeader no host: 48 bytes, ram_address no
+offset 8 e file_id no offset 40. O formato da ROM tem 32 bytes, com esses
+campos nos offsets 4 e 24. Portanto, copiar a tabela da ROM diretamente para
+essa estrutura nativa não é válido. O relatório `hgss-overlay-contract.json`
+registra essa incompatibilidade; preservar os IDs não resolve o carregamento
+nem torna os ponteiros ARM utilizáveis pelo executável nativo.
+
+Após essas mudanças, os 27 módulos continuam compilando e os testes de
+agendador, temporizador e memória passaram novamente no Linux. O teste de
+memória Windows foi executado antes da inclusão desse header de IDs; ele
+não usa overlays. Nenhuma dessas validações equivale a iniciar a campanha.

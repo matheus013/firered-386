@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "allocation_cycles": 32000,
+  "string_cycles": 1000,
+  "direct_sdk_alignment_cases": 1024,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "fail_on_first_undefined_behavior": true,
+  "os_boundary": "test arena and interrupt hooks",
+  "allocator": "original NNS expandable heap with native alignment adaptation",
+  "game_sources": [
+    "heap.c (native alignment adaptation)",
+    "pm_string.c (unchanged)"
+  ],
+  "graphics_resource_release_tested": false
+}

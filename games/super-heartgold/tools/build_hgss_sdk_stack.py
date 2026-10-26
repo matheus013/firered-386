@@ -8,6 +8,7 @@ import json
 import shutil
 import subprocess
 from pathlib import Path
+from prepare_hgss_heap import prepare_sdk_heap
 
 PINS = {'libntr': '380a3d7e60de82aced82075e7b3b9acf5f68b1cd',
         'libntrsystem': '97fa995ed33fe2ab8c83ec7068aa3aa5b4c3e12f'}
@@ -42,6 +43,8 @@ def main():
         patches.append({'name': name, 'sha256': hashlib.sha256(patch.read_bytes()).hexdigest()})
     shutil.copy2(tools / 'reference_compat/single_screen_touch.h',
                  sdk / 'include/simulator/hg_single_screen_touch.h')
+    expheap = subprojects / 'libntrsystem/libraries/fnd/src/expheap.c'
+    prepare_sdk_heap(expheap, expheap)
     (root / 'meson.build').write_text(
         "project('hgss-sdk-stack', 'c', 'cpp')\n"
         "subproject('libntr', default_options: ['build_target=linux', 'standalone=false'])\n"
@@ -66,6 +69,7 @@ def main():
     if {path.name for path in libraries} != expected:
         raise SystemExit('Expected six NitroSystem libraries')
     report = {'passed': True, 'pins': PINS, 'patches': patches, 'platform': 'linux-x86_64',
+              'native_expheap_sha256': hashlib.sha256(expheap.read_bytes()).hexdigest(),
               'runtime_tested': False, 'libraries': [
                   {'file': str(path.relative_to(build)), 'bytes': path.stat().st_size,
                    'sha256': hashlib.sha256(path.read_bytes()).hexdigest()} for path in libraries]}

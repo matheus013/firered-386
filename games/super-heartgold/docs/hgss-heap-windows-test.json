@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "platform": "windows-x86_64",
+  "execution": "native Windows process",
+  "exit_code": 0,
+  "allocation_cycles": 32000,
+  "string_cycles": 1000,
+  "direct_sdk_alignment_cases": 1024,
+  "sanitizers": [],
+  "sha256": "6bca40e9b7722c2eb1d5b45de73a6d966836bddaf17083548fcb65b4f3bcae47",
+  "full_game_tested": false
+}
