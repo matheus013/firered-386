@@ -767,3 +767,26 @@ Resultado do build limpo: `hgss-spl-emitter-render-test.json`, aprovado em
 sem desenho ficou preto. O log registrou pico de 150 partículas, upload de
 11.840 bytes de textura e 132 bytes de espaço de paleta, incluindo alinhamento
 de 16 bytes do alocador diagnóstico. O conteúdo da captura foi inspecionado.
+
+## Nove emissores e três grupos da cena 4
+
+A busca no GitHub por `sStarterParticleResIds` na base single screen confirmou
+os grupos `{6,7,8}`, `{3,4,5}`, `{0,1,2}` da cena 4, na revisão
+`6984a3d67592157195940049be2e4bbbf933f9ff`. O callback original coloca os emissores
+em `(0, 0, 1/64)`. O harness reproduz essa seleção e posição para testar os
+grupos, preservando sua própria câmera e janela de captura.
+
+`verify_spl_emitter_set.py --workspace <teste-emissor-validado> --output <novo>`
+recompila o harness no workspace privado existente e executa os nove recursos
+individualmente e os três grupos em processos separados. Cada execução exige
+saída zero, captura válida de 512×384, tela secundária azul e pelo menos 16 pixels
+não pretos após retornar à principal. As variáveis de seleção são isoladas por
+caso. Esse comando atualiza o binário diagnóstico do workspace fornecido; o
+relatório novo registra o hash do harness usado.
+
+Os 12 casos passaram em 2026-10-27. Resultado:
+`hgss-spl-emitter-set-test.json`. Os grupos produziram respectivamente 87.659,
+51.105 e 31.638 pixels não pretos; suas capturas foram inspecionadas. Isso amplia
+o teste anterior de um recurso, mas não confirma fidelidade visual ao DS: câmera,
+projeção, ordem de atualização e temporização da cena original ainda precisam
+ser integradas. Áudio, campanha e execução Windows continuam fora deste teste.

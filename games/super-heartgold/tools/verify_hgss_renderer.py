@@ -113,6 +113,8 @@ def main():
          '-lSDL2','-ldl','-o',runtime/'capture.so'])
     (runtime/'sim_config.ini').write_text('[General]\nScreenLayout=single\nSwapScreens=true\nWindowWidth=512\nWindowHeight=384\n')
     env = dict(os.environ, LD_PRELOAD=str(runtime/'capture.so'))
+    for key in ('HG_SPL_RESOURCE', 'HG_SPL_GROUP', 'HG_SPL_DISABLE_DRAW'):
+        env.pop(key, None)
     if args.spl_resource: env['SDL_AUDIODRIVER'] = 'dummy'
     command = ['timeout','-k','3s','30s',str(build/'standalone/libntr')]
     result = subprocess.run(command,cwd=runtime,env=env,timeout=40,capture_output=True,text=True)

@@ -52,6 +52,15 @@ void NitroMain(void) {
     fclose(file);
     SPLManager *manager = SPL_Init(allocate, 20, 200, 5, 6, 63);
     SPL_Load(manager, data);
+    const char *selection = getenv("HG_SPL_RESOURCE");
+    char *end = NULL;
+    long resource = selection ? strtol(selection, &end, 10) : 0;
+    if (resource < 0 || resource >= manager->res_num || (selection && (end == selection || *end))) abort();
+    const char *group_selection = getenv("HG_SPL_GROUP");
+    long group = group_selection ? strtol(group_selection, &end, 10) : -1;
+    if (group_selection && (group < 0 || group > 2 || end == group_selection || *end || selection)) abort();
+    /* Original scene 4 resource ordering, pinned base 6984a3d67592157195940049be2e4bbbf933f9ff. */
+    const unsigned starter_groups[3][3] = {{6,7,8}, {3,4,5}, {0,1,2}};
     if (!SPL_LoadTexByCallbackFunction(manager, allocate_texture) ||
         !SPL_LoadTexPlttByCallbackFunction(manager, allocate_palette)) abort();
     unsigned peak = 0;
@@ -64,7 +73,13 @@ void NitroMain(void) {
             SPL_DeleteAll(manager);
             spl_rndm_seed = 0x12345678;
             VecFx32 origin = {0, 0, 0};
-            SPL_Create(manager, 0, &origin);
+            if (group >= 0) {
+                origin.z = FX32_ONE / 64; /* Original emitter callback position. */
+                for (unsigned i = 0; i < 3; ++i)
+                    SPL_Create(manager, starter_groups[group][i], &origin);
+            } else {
+                SPL_Create(manager, resource, &origin);
+            }
         }
         SPL_Calc(manager);
         unsigned active = 200 - manager->ina_ptcl_list.node_num;

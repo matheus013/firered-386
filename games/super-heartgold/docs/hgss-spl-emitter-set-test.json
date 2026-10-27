@@ -1,0 +1,81 @@
+{
+  "scope": "nine individual intro emitters and three original groups, diagnostic camera and timing, Linux only",
+  "harness_sha256": "1950e7c501a3eff602c47e4fe669cd0f0086289a447ec3a50527719a5f3b90c9",
+  "results": [
+    {
+      "resource": 0,
+      "exit_code": 0,
+      "visible_pixels": 29722,
+      "secondary_blue": true
+    },
+    {
+      "resource": 1,
+      "exit_code": 0,
+      "visible_pixels": 3508,
+      "secondary_blue": true
+    },
+    {
+      "resource": 2,
+      "exit_code": 0,
+      "visible_pixels": 2838,
+      "secondary_blue": true
+    },
+    {
+      "resource": 3,
+      "exit_code": 0,
+      "visible_pixels": 31635,
+      "secondary_blue": true
+    },
+    {
+      "resource": 4,
+      "exit_code": 0,
+      "visible_pixels": 39394,
+      "secondary_blue": true
+    },
+    {
+      "resource": 5,
+      "exit_code": 0,
+      "visible_pixels": 1645,
+      "secondary_blue": true
+    },
+    {
+      "resource": 6,
+      "exit_code": 0,
+      "visible_pixels": 6122,
+      "secondary_blue": true
+    },
+    {
+      "resource": 7,
+      "exit_code": 0,
+      "visible_pixels": 4973,
+      "secondary_blue": true
+    },
+    {
+      "resource": 8,
+      "exit_code": 0,
+      "visible_pixels": 87308,
+      "secondary_blue": true
+    },
+    {
+      "group": 0,
+      "exit_code": 0,
+      "visible_pixels": 87659,
+      "secondary_blue": true
+    },
+    {
+      "group": 1,
+      "exit_code": 0,
+      "visible_pixels": 51105,
+      "secondary_blue": true
+    },
+    {
+      "group": 2,
+      "exit_code": 0,
+      "visible_pixels": 31638,
+      "secondary_blue": true
+    }
+  ],
+  "passed": true,
+  "audio_tested": false,
+  "gameplay_tested": false
+}
