@@ -736,3 +736,34 @@ python3 tools/verify_spl_draw_commands.py --source <spl_draw_ptcl.c-original> \
   --probe <probe-com-headers> --sdk <libntr> --sdk-build <build-libntr> \
   --output <novo-diretorio-privado>
 ```
+
+## Emissor da abertura com upload e desenho reais
+
+Após a busca registrada em `native-missing-parts-references.md`, o teste
+`verify_hgss_renderer.py` ganhou `--spl-resource <intro-particles.spa>` e
+`--libntrsystem <checkout>` além das opções SPL anteriores. O SHA256 exigido
+para o SPA é `748eded76a142bcf2247df73ed54bfec6e24d15d48d2c1c9b825cf1c061c916e`:
+o membro 4 do arquivo privado a/0/5/9, já validado nos testes de recursos.
+
+O executável diagnóstico liga os nove fontes SPL privados e usa os uploads
+GX reais, sem gravadores ou cópias simuladas no lugar dessas funções. As tabelas
+de planos e rotações seguem `spl_data.s` da revisão HGSS consultada. O harness
+fornece alocação de memória e alocadores de VRAM limitados aos bancos A/E; aborta
+para texturas comprimidas, que exigiriam uma política adicional de alocação.
+
+O recurso de emissor 0 é criado com seed fixa, atualizado e desenhado usando
+uma câmera diagnóstica. Como o efeito termina rapidamente, uma segunda criação
+no frame 100 permite capturá-lo no frame 120. O frame 60 verifica o motor
+secundário azul e o frame 120 verifica partículas após retornar à tela principal.
+Uma segunda execução desativa somente `SPL_Draw`; sua captura final deve ser
+inteiramente preta. O áudio usa o driver dummy do SDL e não é validado.
+
+Esse teste não executa a cena original da abertura, não verifica os demais oito
+recursos de emissor, não valida a fidelidade contra um DS e não testa Windows.
+ROM, SPA, capturas com recursos do jogo e binários permanecem fora do Git.
+
+Resultado do build limpo: `hgss-spl-emitter-render-test.json`, aprovado em
+2026-10-27. A captura final apresentou 29.722 pixels não pretos e o controle
+sem desenho ficou preto. O log registrou pico de 150 partículas, upload de
+11.840 bytes de textura e 132 bytes de espaço de paleta, incluindo alinhamento
+de 16 bytes do alocador diagnóstico. O conteúdo da captura foi inspecionado.

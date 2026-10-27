@@ -78,3 +78,41 @@ ASan/UBSan estavam ativos. O relatório é hgss-spl-runtime-test.json.
 Esse teste ainda não carrega arquivos SPA, não atualiza emissores e não
 desenha partículas; validar o layout dos recursos e a renderização permanece
 necessário antes de usar a biblioteca na abertura real.
+
+## Busca antes de implementar — 2026-10-27
+
+Por orientação do usuário, novas partes do port devem começar com uma busca
+no GitHub. Registrar a referência, revisão, compatibilidade, licença e o que
+foi realmente validado; reutilizar componentes adequados antes de criar outra
+implementação. Resultado vazio não prova que nenhuma solução exista.
+
+Nesta rodada, buscas por `SPL_Draw SDK_PORT`, `SPL_Draw` no pspoke,
+`SPLManager_Draw` no pokeplatinum e repositórios `heartgold native` retornaram:
+
+- [pspoke: teste de partículas](https://github.com/IbrahimIrfan/pspoke/blob/7477648fbe904a27eef8ba56bcc11c1799475c1a/port/soulsilver-native-particles/main.c):
+  testa pools e atualização; o main consultado não chama o desenho. Seu glue
+  oferece a sequência load/upload/update/draw, mas pressupõe tamanhos de
+  estruturas e ponteiros de 32 bits. Referência GPL-3.0 já identificada na
+  investigação anterior; nenhum fonte desse teste foi incorporado.
+- [HGSS: tabelas SPL](https://github.com/ctrl-cheeb-del/pokeheartgold/blob/01eeeb4b96087cb94c84de3045e9f2d4ef00061b/lib/asm/spl_data.s):
+  confirma a ordem XY/XZ dos planos e Y/XYZ das rotações, eixo Y em ponto fixo
+  e seed inicial zero. Essas definições conectam os nove fontes privados
+  existentes; não foi necessário reimplementar a biblioteca de partículas.
+- [Platinum: interface SPL](https://github.com/pret/pokeplatinum/blob/6eeb1b04c6433761f3049811b7e1383619c59743/lib/spl/include/spl_manager.h):
+  confirma a separação entre upload, atualização e desenho com matriz de câmera.
+  Mantida como referência, sem substituir os tipos HGSS já validados.
+- [ApricotGS](https://github.com/BaZZtian/PS5-ApricotGS): README declara versão
+  experimental PS5, preparação estática local, ROMs alemãs revision-0 e layout
+  de duas telas; campanha completa não verificada pelo projeto. Seus avisos
+  identificam componentes MIT/GPL/LGPL e dependências PS5/Vulkan. Não é um
+  substituto Windows/single screen pronto; implementação interna e portabilidade
+  ainda não avaliadas. Nenhum componente foi importado.
+- [HGSS macOS Engine](https://github.com/dylanfernandezdelara/hgss-macos-engine):
+  README descreve scaffold Swift e player de uma abertura extraída, sem port
+  direto do código DS. API do GitHub não identificou licença. Não adotado como
+  engine do projeto.
+
+Decisão: integrar os emissores HGSS existentes ao SDK e ao teste de tela única,
+usando as tabelas confirmadas na referência. Testes anteriores de SPA e comandos
+estão em `libntr-integration.md`; as limitações dos testes históricos acima não
+descrevem sozinhas o estado atual da integração.

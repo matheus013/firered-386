@@ -1,0 +1,20 @@
+{
+  "result": "passed",
+  "libntr_pin": "380a3d7e60de82aced82075e7b3b9acf5f68b1cd",
+  "dimensions": [
+    512,
+    384
+  ],
+  "original_hgss_routing": true,
+  "secondary_blue": true,
+  "main_geometry_returned": true,
+  "process_exit": 0,
+  "scope": "one_intro_SPL_emitter_real_SDK_upload_and_render_not_gameplay",
+  "spl_xy_plane_rendered": false,
+  "particle_emitter_rendered": true,
+  "emitter_resource": 0,
+  "visible_pixels": 29722,
+  "disabled_draw_control_black": true,
+  "audio_tested": false,
+  "audio_driver": "dummy"
+}
