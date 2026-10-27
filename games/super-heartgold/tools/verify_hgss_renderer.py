@@ -10,6 +10,7 @@ import shutil
 import subprocess
 import sys
 from prepare_hgss_display_demo import PIN
+from prepare_spl_drawing import prepare as prepare_spl_drawing
 
 
 def run(command, *, cwd=None, env=None, timeout=600):
@@ -33,7 +34,11 @@ def main():
     parser.add_argument('--hgss', type=Path, required=True)
     parser.add_argument('--libntr', type=Path, required=True)
     parser.add_argument('--workspace', type=Path, required=True)
+    parser.add_argument('--spl-source', type=Path, help='Private original spl_draw_ptcl.c for plane rendering')
+    parser.add_argument('--spl-probe', type=Path, help='Existing module probe with compatible HGSS headers')
     args = parser.parse_args()
+    if bool(args.spl_source) != bool(args.spl_probe):
+        parser.error('--spl-source and --spl-probe must be supplied together')
     root = Path(__file__).resolve().parents[1]
     work = args.workspace.resolve()
     work.mkdir(parents=True, exist_ok=False)
@@ -49,11 +54,35 @@ def main():
          '--libntr',source,'--output',generated])
     for name in ('main.c','hgss_display.c'):
         shutil.copyfile(generated/name,source/'standalone'/name)
+    if args.spl_source:
+        prepare_spl_drawing(args.spl_source, source/'standalone/spl_draw_ptcl.c')
+        demo_path = source/'standalone/main.c'
+        demo = demo_path.read_text()
+        begin = demo.index('    G3_Begin(GX_BEGIN_QUADS);')
+        end = demo.index('    G3_End();', begin) + len('    G3_End();')
+        demo = demo[:begin] + '    drawXYPlane(FX32_ONE, FX32_ONE, 0, 0);' + demo[end:]
+        # A single plane must not disappear as the original cube rotates away.
+        demo = demo.replace('GX_CULL_BACK', 'GX_CULL_NONE')
+        for axis in 'XYZ':
+            demo = demo.replace(f'      G3_Rot{axis}(s, c);', '')
+        demo = 'void drawXYPlane(int s, int t, int x, int y);\n' + demo
+        demo_path.write_text(demo)
     meson = source/'standalone/meson.build'
     text = meson.read_text()
     old = "sources: files('main.c')"
     if text.count(old) != 1: raise ValueError('Standalone build contract differs')
-    meson.write_text(text.replace(old,"sources: files('main.c', 'hgss_display.c')"))
+    if args.spl_source:
+        text = text.replace(old,"sources: files('main.c', 'hgss_display.c', 'spl_draw_ptcl.c')")
+        includes = [args.spl_probe.resolve(), args.spl_probe.resolve()/'hgss-include',
+                    args.spl_probe.resolve()/'hgss-include/library']
+        if any("'" in str(p) for p in includes): raise ValueError('Unsupported quote in include path')
+        flags = ['-ffunction-sections', '-fdata-sections'] + ['-I'+str(p) for p in includes]
+        text = text.replace('dependencies: [ nitrosdk_dep ],',
+                            'dependencies: [ nitrosdk_dep ],\n    c_args: '+repr(flags)+',')
+        text = text.replace('libntr_link_args = []', "libntr_link_args = ['-Wl,--gc-sections']")
+    else:
+        text = text.replace(old,"sources: files('main.c', 'hgss_display.c')")
+    meson.write_text(text)
     run(['meson','setup',build,source,'-Dbuild_target=linux','-Dstandalone=true',
          '-Dcard_game_code=IPGE','-Dcard_maker_code=01'])
     run(['meson','compile','-C',build,'-j4'])
@@ -73,6 +102,9 @@ def main():
     report = dict(result='passed',libntr_pin=PIN,dimensions=[512,384],
         original_hgss_routing=True,secondary_blue=True,main_geometry_returned=True,
         process_exit=0,scope='private_routing_demo_not_gameplay')
+    if args.spl_source:
+        report.update(spl_xy_plane_rendered=True, particle_emitter_rendered=False,
+                      scope='adapted_SPL_plane_with_original_HGSS_routing_not_gameplay')
     (work/'result.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2))
 

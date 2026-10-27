@@ -1,0 +1,15 @@
+{
+  "result": "passed",
+  "libntr_pin": "380a3d7e60de82aced82075e7b3b9acf5f68b1cd",
+  "dimensions": [
+    512,
+    384
+  ],
+  "original_hgss_routing": true,
+  "secondary_blue": true,
+  "main_geometry_returned": true,
+  "process_exit": 0,
+  "scope": "adapted_SPL_plane_with_original_HGSS_routing_not_gameplay",
+  "spl_xy_plane_rendered": true,
+  "particle_emitter_rendered": false
+}

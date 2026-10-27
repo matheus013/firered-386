@@ -3,6 +3,7 @@ import subprocess,json,argparse,shutil,hashlib
 from prepare_hgss_heap import prepare_game_heap, prepare_sdk_heap
 from prepare_hgss_overlay_ids import prepare_overlay_ids
 from prepare_hgss_graphics import HASHES as GRAPHICS_SOURCES, prepare_graphics
+from prepare_spl_drawing import prepare as prepare_spl_drawing
 parser=argparse.ArgumentParser(description="Compile complete HGSS translation units; does not link or validate ABI")
 parser.add_argument('--hgss',type=Path,required=True)
 parser.add_argument('--libntr',type=Path,required=True)
@@ -114,6 +115,8 @@ if a.spl_sources:
    # rtt_min is s16: multiplication by 4096 fits s32 even when negative.
    content=content.replace(old,'(base->rtt_min * 4096)')
   (a.spl_sources/source.name).write_text(content)
+  if source.name=='spl_draw_ptcl.c':
+   prepare_spl_drawing(source,a.spl_sources/source.name)
  for source in sorted(a.spl_sources.glob('spl_*.c')):
   result=subprocess.run(flags+['-c',str(source),'-o',str(out/(source.stem+'.o'))],capture_output=True,text=True,timeout=60)
   (out/(source.stem+'.log')).write_text(result.stderr)

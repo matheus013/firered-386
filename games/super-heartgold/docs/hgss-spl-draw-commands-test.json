@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "original_missing_commands_reproduced": true,
+  "source_sha256": "dac327c8e6c31be256103457bb4af956515334b8b8f7335ec5c00a4dc016a9ba",
+  "signed_coordinate_cases": 65536,
+  "planes": [
+    "XY",
+    "XZ"
+  ],
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "gpu_tested": false,
+  "scope": "complete SPL drawing unit, SDK inline APIs, recording dispatcher"
+}

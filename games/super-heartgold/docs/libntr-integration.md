@@ -697,3 +697,42 @@ SDK_FINALROM é a mesma do build existente; portanto, não valida as verificaç�
 internas de exclusividade desabilitadas nessa configuração. DMA, OpenGL,
 desenho de partículas e apresentação em tela única continuam sem validação
 por este teste. O jogo completo ainda não inicia.
+
+## Comandos de desenho SPL no port nativo
+
+`spl_draw_ptcl.c` escrevia diretamente nos registradores 3D. No SDK nativo,
+essas escritas não enviam as mensagens necessárias ao renderizador.
+`prepare_spl_drawing.py` verifica o hash do fonte privado e converte os acessos
+para chamadas da API gráfica: coordenadas de textura, vértices, início/fim de
+primitivas, identidade, escala, translação, cor e atributos de polígonos.
+O probe de módulos aplica essa adaptação automaticamente à cópia privada.
+
+Os vértices preservam o arredondamento VTX10 do DS antes de serem enviados como
+VTX16; enviar os valores sem essa conversão alteraria sua precisão.
+`verify_spl_draw_commands.py` reproduz a ausência de comandos no original e
+verifica o adaptado contra um dispatcher que grava as mensagens do SDK.
+Passaram os planos XY/XZ, todos os 65.536 valores de coordenadas de 16 bits,
+escala e atributos, com ASan/UBSan. Resultado:
+`hgss-spl-draw-commands-test.json`. A unidade completa compila, mas esse teste
+executa somente os helpers e planos, não todos os tipos de partículas.
+
+O teste gráfico `verify_hgss_renderer.py` aceita `--spl-source <spl_draw_ptcl.c>`
+e `--spl-probe <probe-com-headers>` para substituir o cubo pelo plano XY SPL.
+A cena usa orientação fixa e nenhuma face descartada para não ocultar o plano
+durante a captura. A execução em WSLg verifica a janela de 512×384, a troca para
+o motor secundário azul e a volta ao plano no motor principal usando as funções
+originais de roteamento do HGSS. Não carrega texturas da ROM nem executa um
+emissor completo; integrar esses dois caminhos continua pendente.
+
+O build limpo desse teste terminou com sucesso; resultado em
+`hgss-spl-plane-render-test.json`. A captura final foi inspecionada: plano branco
+centralizado sobre fundo preto, sem uma segunda tela empilhada. Esse resultado
+valida o plano XY sem textura, não a abertura completa nem o executável Windows.
+
+Para repetir o teste de comandos:
+
+```text
+python3 tools/verify_spl_draw_commands.py --source <spl_draw_ptcl.c-original> \
+  --probe <probe-com-headers> --sdk <libntr> --sdk-build <build-libntr> \
+  --output <novo-diretorio-privado>
+```
