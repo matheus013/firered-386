@@ -851,3 +851,17 @@ completa das bibliotecas SDK também passou com a adaptação integrada;
 [hgss-sdk-stack-build.json](hgss-sdk-stack-build.json) registra os hashes.
 Esta validação ocorreu em Linux x86_64. Ainda falta integrar sprites, fundos
 e fades ao desenho da cena e validar o jogo completo no Windows.
+
+## Recursos 2D e fundos estáticos — 28/10/2026
+
+O teste ampliado dos loaders encontrou e reproduziu ponteiros opcionais não
+inicializados no descritor NANR. A adaptação está integrada ao build do SDK;
+os 17 recursos da cena passaram por 512 ciclos cada com ASan/UBSan, e a pilha
+SDK recompilou. Os seis casos de BG1/2/3, principal/secundário, renderizaram em
+single screen com zero pixels divergentes contra a decodificação independente
+dos mapas. As capturas foram inspecionadas.
+
+Detalhes, comandos e limites: [referências e testes da cena 4](scene4-graphics-references.md).
+Ainda são diagnósticos isolados; sprites, composição, fades e boot do jogo não
+estão validados. O [plano de issues](github-issues-plan.md) separa esses marcos;
+a publicação como issues permanece bloqueada pela permissão da integração.

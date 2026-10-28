@@ -11,6 +11,7 @@ from pathlib import Path
 from prepare_hgss_heap import prepare_sdk_heap
 from prepare_sdk_texture_upload import prepare as prepare_texture_upload
 from prepare_sdk_palette_loader import prepare as prepare_palette_loader
+from prepare_sdk_animation_loader import prepare as prepare_animation_loader
 
 PINS = {'libntr': '380a3d7e60de82aced82075e7b3b9acf5f68b1cd',
         'libntrsystem': '97fa995ed33fe2ab8c83ec7068aa3aa5b4c3e12f'}
@@ -51,6 +52,8 @@ def main():
     prepare_texture_upload(texture_upload, texture_upload)
     palette_loader = subprojects / 'libntrsystem/libraries/g2d/src/load/g2d_NCL_load.c'
     prepare_palette_loader(palette_loader, palette_loader)
+    animation_loader = subprojects / 'libntrsystem/libraries/g2d/src/load/g2d_NAN_load.c'
+    prepare_animation_loader(animation_loader, animation_loader)
     (root / 'meson.build').write_text(
         "project('hgss-sdk-stack', 'c', 'cpp')\n"
         "subproject('libntr', default_options: ['build_target=linux', 'standalone=false'])\n"
@@ -78,6 +81,7 @@ def main():
               'native_expheap_sha256': hashlib.sha256(expheap.read_bytes()).hexdigest(),
               'native_texture_upload_sha256': hashlib.sha256(texture_upload.read_bytes()).hexdigest(),
               'native_palette_loader_sha256': hashlib.sha256(palette_loader.read_bytes()).hexdigest(),
+              'native_animation_loader_sha256': hashlib.sha256(animation_loader.read_bytes()).hexdigest(),
               'runtime_tested': False, 'libraries': [
                   {'file': str(path.relative_to(build)), 'bytes': path.stat().st_size,
                    'sha256': hashlib.sha256(path.read_bytes()).hexdigest()} for path in libraries]}

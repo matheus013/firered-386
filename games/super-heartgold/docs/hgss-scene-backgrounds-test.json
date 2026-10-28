@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "layer": 1,
+      "engine": "sub",
+      "member": 57,
+      "mismatched_pixels": 0
+    },
+    {
+      "layer": 1,
+      "engine": "main",
+      "member": 58,
+      "mismatched_pixels": 0
+    },
+    {
+      "layer": 2,
+      "engine": "sub",
+      "member": 55,
+      "mismatched_pixels": 0
+    },
+    {
+      "layer": 2,
+      "engine": "main",
+      "member": 55,
+      "mismatched_pixels": 0
+    },
+    {
+      "layer": 3,
+      "engine": "sub",
+      "member": 56,
+      "mismatched_pixels": 0
+    },
+    {
+      "layer": 3,
+      "engine": "main",
+      "member": 56,
+      "mismatched_pixels": 0
+    }
+  ],
+  "libntr_pin": "380a3d7e60de82aced82075e7b3b9acf5f68b1cd",
+  "dimensions": [
+    512,
+    384
+  ],
+  "platform": "linux-x86_64",
+  "scope": "isolated_static_backgrounds_not_intro_state_machine",
+  "harness_sha256": "f506cd72119fdf163899d82d10434e07ed2b26e239d67c9ee16143f7819fdf11"
+}

@@ -54,5 +54,54 @@ na versão adaptada, comparando tamanho, formato, bytes das cores e preservaçã
 integral do arquivo. Relatório: `hgss-sdk-palette-loader-test.json`. Não é um teste
 de arquivos malformados, renderização ou de todos os formatos Nitro 2D.
 
-Próxima integração: validar tiles/células/animações, desenhar os sprites e fundos
-com os gerenciadores originais e então executar os fades 8/9 com tarefas e HBlank.
+## Carregadores e fundos validados em 28/10/2026
+
+A consulta GitHub por `NNS_G2dGetUnpackedCellBank` confirmou os pontos de ligação
+em `gf_gfx_loader.c` e `sprite_resource.c` da revisão HGSS acima. As consultas
+por `NNS_G2dUnpackNCG` e `pStringBank pExtendedData` no libntrsystem não trouxeram
+uma correção pronta. A busca por `GXS_LoadBG1Scr` no libntr confirmou a API de
+transferência; os testes mantêm a revisão local fixada `380a3d7`, sem atualizar
+automaticamente para a revisão mais recente da busca.
+
+`verify_sdk_scene_loaders.py` executa os loaders completos de NCGR/NSCR/NCER/NANR
+contra 17 recursos privados da cena, por 512 ciclos de carga/liberação cada.
+Confere dimensões, offsets, atributos OAM, retângulos das células, sequências,
+duração e conteúdo dos frames, além da preservação integral da entrada.
+O teste ampliado reproduziu dois ponteiros opcionais não inicializados no
+descritor NANR. `prepare_sdk_animation_loader.py` inicializa `pStringBank` e
+`pExtendedData` no caminho nativo, mantendo a reconstrução posterior das
+extensões presentes. Os quatro NANR da cena não contêm esses dados opcionais;
+o teste não cobre conteúdo de extensões presentes nem arquivos malformados.
+
+Os 8.704 ciclos passaram com ASan/UBSan após a adaptação. Resultado:
+[hgss-scene-loaders-test.json](hgss-scene-loaders-test.json). O comando requer
+um `--stack` anterior à adaptação NANR, para reproduzir a falha original antes
+de testar a correção. A compilação completa do SDK com a adaptação integrada
+também passou: [hgss-sdk-stack-build.json](hgss-sdk-stack-build.json).
+
+`verify_scene_backgrounds.py` compila um diagnóstico gráfico novo usando os
+loaders do SDK e as APIs GX. Reproduz os parâmetros estáticos dos BG1/2/3 da cena,
+carrega os tiles 54, paleta 53 e mapas 55–58 e alterna o motor visível com o
+código single screen original. Cada camada é desenhada isoladamente nos dois
+motores. As seis capturas de 512×384 tiveram **zero pixels divergentes** contra
+um decodificador independente de mapa 4bpp, incluindo flip, banco de paleta e
+transparência. As capturas também foram inspecionadas visualmente.
+
+A primeira comparação reprovava por expandir RGB555 apenas com deslocamento;
+o framebuffer usa componentes normalizados de 0 a 255. O comparador corrigido
+usa arredondamento de `canal * 255 / 31`, sem tolerância ou máscara de pixels.
+O renderizador não foi alterado para fazer essa comparação passar.
+Resultado: [hgss-scene-backgrounds-test.json](hgss-scene-backgrounds-test.json).
+
+Exemplo de reprodução, com caminhos privados substituídos pelos seus:
+
+```sh
+python3 tools/verify_sdk_scene_loaders.py --stack /private/sdk-before-nanr-fix --archive /private/opening.narc --output /private/loaders-new
+python3 tools/verify_scene_backgrounds.py --hgss /private/hgss --libntr /private/libntr --stack /private/sdk-with-palette-fix --archive /private/opening.narc --output /private/backgrounds-new
+```
+
+Os testes gráficos ocorreram em Linux/WSLg, com áudio dummy. Não executam os
+gerenciadores HGSS de sprites/BG, rolagem, composição completa ou máquina de
+estados da abertura. Próxima integração: desenhar os sprites com os gerenciadores
+originais, compor a cena e executar os fades 8/9 com tarefas e HBlank. O jogo
+completo e a execução Windows continuam pendentes.

@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "members": [
+    54,
+    55,
+    56,
+    57,
+    58,
+    82,
+    84,
+    83,
+    86,
+    88,
+    87,
+    94,
+    96,
+    95,
+    90,
+    92,
+    91
+  ],
+  "cycles_per_member": 512,
+  "input_unchanged": true,
+  "gpu_tested": false,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "original_optional_pointer_failure_reproduced": true,
+  "adapted_animation_sha256": "51fed3c64e05962c5af576a66919d1cae0d48889b91d1f20b25a61e52493b0ef",
+  "source_sha256": {
+    "probe_sdk_scene_loaders.c": "49e69c2a8c3640e840b35735acdad57d4f257ec8470aa78daee60e090eb07018",
+    "g2d_NCG_load.c": "5d5cec18ada9e83f942a01b1359fff5e1ba3e07b86e950298a04431605749c7c",
+    "g2d_NSC_load.c": "7f79995075bb556d5b8808a2a5164e894c322a9086720cea3a30ffd9ae067c98",
+    "g2d_NOB_load.c": "80f283dc80124eced2f4cfb8cba203a880a431b1c72fd0605354d7f19d876fb6",
+    "g2d_NAN_load.c": "b622fe84e401df0a98a9beb5ac63ade51d4912603743a777b0518082c992246c",
+    "g2d_Load.c": "1d4e3775cf1694a78d8b996fae0d50b043e061e18956f03873253ba00665fc59"
+  }
+}
