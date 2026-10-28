@@ -65,7 +65,10 @@ void NitroMain(void) {
         !SPL_LoadTexPlttByCallbackFunction(manager, allocate_palette)) abort();
     unsigned peak = 0;
     const int disabled = getenv("HG_SPL_DISABLE_DRAW") != NULL;
-    const int scene_camera = getenv("HG_SPL_SCENE_CAMERA") != NULL;
+    const int sequence = getenv("HG_SPL_SEQUENCE") != NULL;
+    const int scene_camera = sequence || getenv("HG_SPL_SCENE_CAMERA") != NULL;
+    unsigned next_group = 1;
+    if (sequence) group = 0;
     if (scene_camera) {
         /* Camera_ApplyPerspectiveType(ORTHOGRAPHIC), angle 8192, distance 4;
          * scene 4 overrides the near plane to 1 and retains far plane 900. */
@@ -74,12 +77,16 @@ void NitroMain(void) {
         G3_Ortho(height, -height, -width, width, FX32_ONE, 900 * FX32_ONE, NULL);
     }
     for (unsigned frame = 1;; ++frame) {
-        if (frame == 40) SingleScreen_ShowSubEngine(TRUE);
-        if (frame == 80) SingleScreen_ShowSubEngine(FALSE);
+        if (!sequence && frame == 40) SingleScreen_ShowSubEngine(TRUE);
+        if (!sequence && frame == 80) SingleScreen_ShowSubEngine(FALSE);
         /* Resource zero is a short burst. Respawn before the final capture. */
-        if (frame == 1 || frame == 100) {
-            SPL_DeleteAll(manager);
-            spl_rndm_seed = 0x12345678;
+        if (sequence ? (next_group && group < 3) : (frame == 1 || frame == 100)) {
+            if (sequence) {
+                if (manager->ina_ptcl_list.node_num != 200 || manager->ina_emtr_list.node_num != 20) abort();
+                next_group = 0;
+                peak = 0;
+            } else SPL_DeleteAll(manager);
+            if (!sequence) spl_rndm_seed = 0x12345678;
             VecFx32 origin = {0, 0, 0};
             if (group >= 0) {
                 origin.z = FX32_ONE / 64; /* Original emitter callback position. */
@@ -99,6 +106,13 @@ void NitroMain(void) {
         G3_LookAt(&eye, &up, &at, &camera);
         if (!disabled) SPL_Draw(manager, &camera);
         if (scene_camera) SPL_Calc(manager);
+        if (sequence && group < 3 && !next_group && manager->act_emtr_list.node_num == 0) {
+            if (manager->ina_ptcl_list.node_num != 200 || manager->ina_emtr_list.node_num != 20 || peak == 0) abort();
+            printf("SPL_SEQUENCE group=%ld end_frame=%u peak=%u particles_free=200 emitters_free=20\n", group, frame, peak);
+            fflush(stdout);
+            ++group;
+            next_group = 1;
+        }
         G3_SwapBuffers(scene_camera ? GX_SORTMODE_MANUAL : GX_SORTMODE_AUTO,
                        scene_camera ? GX_BUFFERMODE_Z : GX_BUFFERMODE_W);
         if (frame == 110) {

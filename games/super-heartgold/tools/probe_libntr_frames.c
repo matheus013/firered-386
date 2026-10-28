@@ -4,12 +4,15 @@
 #include <dlfcn.h>
 #include <stdio.h>
 #include <stdlib.h>
+#ifndef HG_CAPTURE_LAST_FRAME
+#define HG_CAPTURE_LAST_FRAME 120
+#endif
 // Linux-only diagnostic interposer. No game assets or runtime dependency.
 void SDL_GL_SwapWindow(SDL_Window *window) {
     static unsigned frame;
     void (*swap)(SDL_Window*) = dlsym(RTLD_NEXT,"SDL_GL_SwapWindow");
     ++frame;
-    if (frame==60 || frame==120) {
+    if (frame==60 || frame==120 || (HG_CAPTURE_LAST_FRAME > 120 && frame % 20 == 0)) {
         int w,h; SDL_GL_GetDrawableSize(window,&w,&h);
         if(w<=0 || h<=0 || w>4096 || h>4096) abort();
         unsigned char *pixels=malloc((size_t)w*h*3);
@@ -26,5 +29,5 @@ void SDL_GL_SwapWindow(SDL_Window *window) {
         fprintf(stderr,"HG_CAPTURE frame=%u size=%dx%d\n",frame,w,h);
     }
     swap(window);
-    if(frame==120) { SDL_Event event={0}; event.type=SDL_WINDOWEVENT; event.window.windowID=SDL_GetWindowID(window); event.window.event=SDL_WINDOWEVENT_CLOSE; SDL_PushEvent(&event); }
+    if(frame==HG_CAPTURE_LAST_FRAME) { SDL_Event event={0}; event.type=SDL_WINDOWEVENT; event.window.windowID=SDL_GetWindowID(window); event.window.event=SDL_WINDOWEVENT_CLOSE; SDL_PushEvent(&event); }
 }

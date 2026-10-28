@@ -1,0 +1,38 @@
+{
+  "scope": "three particle groups to natural completion, shared pools, scene camera parameters; no original scene state machine or sprites",
+  "harness_sha256": "5503415535977c6567d6728f3ed131d41e4735779102246767864ff242e85341",
+  "results": [
+    {
+      "sequence": 0,
+      "exit_code": 0,
+      "visible_pixels": 35063,
+      "completions": [
+        {
+          "group": 0,
+          "end_frame": 52,
+          "peak": 45,
+          "visible_samples": 2
+        },
+        {
+          "group": 1,
+          "end_frame": 95,
+          "peak": 150,
+          "visible_samples": 2
+        },
+        {
+          "group": 2,
+          "end_frame": 143,
+          "peak": 200,
+          "visible_samples": 2
+        }
+      ],
+      "natural_completion": true,
+      "final_black": true,
+      "visible_samples": 6,
+      "all_groups_visible": true
+    }
+  ],
+  "passed": true,
+  "audio_tested": false,
+  "gameplay_tested": false
+}

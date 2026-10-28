@@ -813,3 +813,26 @@ reproduz a linha do tempo completa da cena: mantém o disparo no frame 100 e a
 captura no frame 120. Não compara os pixels com um DS nem valida o contexto de
 sprites/fundos da abertura. Os relatórios anteriores continuam como resultados
 dos respectivos modos de teste.
+
+## Encerramento natural dos três grupos
+
+A busca no GitHub por `INTRO_SCENE4_RUN_GRASS_PARTICLES` confirmou que a cena 4
+espera a contagem de emissores ativos chegar a zero antes de avançar. O modo
+`verify_spl_emitter_set.py --sequence` valida esse requisito num processo único:
+cria os grupos grama/fogo/água nessa ordem, espera cada encerramento e reutiliza
+os mesmos pools. Não chama `SPL_DeleteAll` nesse modo, não reinicia o efeito no
+frame 100 e não reinicia o RNG entre grupos; a seed inicial diagnóstica é zero.
+
+Os três grupos terminaram nos frames 52, 95 e 143, com picos de 45, 150 e 200
+partículas. Em cada transição, o teste exigiu 200 partículas e 20 emissores
+disponíveis. A captura a cada 20 frames mostrou cada grupo em duas amostras;
+após concluir os efeitos, a captura do frame 600 ficou preta. Processo com
+saída zero. Relatório: `hgss-spl-sequence-test.json` (2026-10-27).
+
+A tela principal permanece visível durante essa sequência; as trocas para o
+motor secundário continuam cobertas pelos testes anteriores. O limite de 600
+frames é configurado na compilação do interpositor de captura e seu padrão
+continua 120. O teste usa os parâmetros de câmera da cena e desenho antes da
+atualização, mas ainda substitui a máquina de estados por um encadeamento
+diagnóstico. Os frames acima não representam a duração da cena original:
+sprites, fundos, fades e passos intermediários permanecem ausentes.
