@@ -45,6 +45,12 @@ Ainda não executa a rolagem nem a máquina de estados da cena.
 
 Reutilizar os módulos originais de recursos, células, animação e transferência. Carregamento aprovado não comprova desenho.
 
+Avanço parcial em 28/10/2026: diagnóstico de células iniciais passou para as
+duas mãos, brilho e três iniciais. Usa controlador e conversão OAM do SDK,
+com imagens iguais nos dois motores e controles sem desenho inteiramente
+pretos. Relatório: [hgss-scene-sprites-test.json](hgss-scene-sprites-test.json).
+Não conclui a integração do gerenciador original nem a reprodução temporal.
+
 - [ ] Integrar gerenciadores e transferências originais.
 - [ ] Desenhar mãos/efeitos e Chikorita, Cyndaquil e Totodile.
 - [ ] Validar frames, sequências, posições, transparência e paletas.

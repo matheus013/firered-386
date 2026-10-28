@@ -105,3 +105,42 @@ gerenciadores HGSS de sprites/BG, rolagem, composição completa ou máquina de
 estados da abertura. Próxima integração: desenhar os sprites com os gerenciadores
 originais, compor a cena e executar os fades 8/9 com tarefas e HBlank. O jogo
 completo e a execução Windows continuam pendentes.
+
+## Primeiras células dos sprites — 28/10/2026
+
+A pesquisa por `NNS_G2dDrawCell` na base single screen confirmou que `sprite.c`
+usa `NNS_G2dDrawCellAnimation`. Para validar a etapa de células/OAM antes do
+gerenciador completo, `verify_scene_sprites.py` liga os loaders e os módulos
+originais `g2d_Animation`, `g2d_CellAnimation`, `g2d_SRTControl` e
+`g2d_CellTransferManager` ao diagnóstico nativo. A busca por
+`NNS_G2dMakeCellToOams` no libntrsystem não retornou resultados indexados, mas
+a implementação e a declaração existem no checkout privado fixado.
+
+O harness inicializa cada sequência pelo controlador original, obtém sua célula
+inicial, converte-a com `NNS_G2dMakeCellToOams` e envia tiles, paletas e OAM pelas
+APIs GX. As tabelas de dimensões OBJ são instanciadas pelas macros existentes
+no header do SDK; não foi introduzido um renderer substituto.
+
+Os seis casos são sequências 0/1/2 do recurso 83 (duas mãos e brilho) e sequência
+0 dos recursos 87/95/91 (Chikorita/Cyndaquil/Totodile). Cada caso executa em dois
+processos: desenho habilitado e conversão para OAM desabilitada. As capturas
+dos motores principal/secundário são idênticas, as seis imagens habilitadas
+contêm sprites visíveis e os seis controles ficam inteiramente pretos.
+As capturas foram inspecionadas visualmente. Resultado:
+[hgss-scene-sprites-test.json](hgss-scene-sprites-test.json).
+
+```sh
+python3 tools/verify_scene_sprites.py --workspace /private/validated-backgrounds --stack /private/sdk-with-animation-fix --archive /private/opening.narc --output /private/sprites-new
+```
+
+Esse comando substitui o harness e recompila o binário do workspace privado
+fornecido. O relatório e as capturas anteriores dos fundos permanecem como
+evidência histórica, mas o binário passa a executar sprites. O relatório novo
+registra o hash do harness usado. O `--stack` deve conter as correções de NCLR e
+NANR. Arquivos privados ficam vivos durante o diagnóstico; não é um teste de
+descarte do gerenciador completo.
+
+Limites: Linux/WSLg, áudio dummy, células iniciais estáticas, sem comparação
+pixel a pixel com um DS. Ainda não integra `SpriteList`, reprodução temporal,
+transformações SRT animadas, composição com BG/partículas ou fades. A issue de
+integração completa dos sprites permanece pendente.

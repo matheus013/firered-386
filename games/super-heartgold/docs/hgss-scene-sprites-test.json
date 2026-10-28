@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": 0,
+      "visible_pixels": 6464,
+      "engines_equal": true,
+      "disabled_black": true
+    },
+    {
+      "case": 1,
+      "visible_pixels": 6864,
+      "engines_equal": true,
+      "disabled_black": true
+    },
+    {
+      "case": 2,
+      "visible_pixels": 228,
+      "engines_equal": true,
+      "disabled_black": true
+    },
+    {
+      "case": 3,
+      "visible_pixels": 3324,
+      "engines_equal": true,
+      "disabled_black": true
+    },
+    {
+      "case": 4,
+      "visible_pixels": 3716,
+      "engines_equal": true,
+      "disabled_black": true
+    },
+    {
+      "case": 5,
+      "visible_pixels": 3048,
+      "engines_equal": true,
+      "disabled_black": true
+    }
+  ],
+  "dimensions": [
+    512,
+    384
+  ],
+  "platform": "linux-x86_64",
+  "scope": "static_initial_cells_not_full_sprite_manager_or_animation_playback",
+  "harness_sha256": "25c401de25687732d87d59ad5f48493e169a9ae8e31eef5f40b4a0c9b9c8c96c"
+}

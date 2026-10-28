@@ -865,3 +865,10 @@ Detalhes, comandos e limites: [referências e testes da cena 4](scene4-graphics-
 Ainda são diagnósticos isolados; sprites, composição, fades e boot do jogo não
 estão validados. O [plano de issues](github-issues-plan.md) separa esses marcos;
 a publicação como issues permanece bloqueada pela permissão da integração.
+
+O diagnóstico seguinte renderizou as células iniciais das duas mãos, brilho e
+três iniciais usando controlador de animação e conversão OAM do SDK. Os seis
+casos passaram nos dois motores em single screen, com controles sem desenho
+pretos e inspeção visual. [Relatório](hgss-scene-sprites-test.json). É uma etapa
+estática anterior à integração de SpriteList e à reprodução das animações;
+detalhes e reprodução estão no documento de referências da cena 4.

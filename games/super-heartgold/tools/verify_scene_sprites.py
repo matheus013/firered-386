@@ -1,0 +1,87 @@
+"""Reuse a private BG diagnostic build to test SDK cell/OAM rendering of intro sprites."""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+
+from prepare_hgss_message_headers import read_banks
+from prepare_hgss_opening_headers import ARCHIVE_SHA256, decompress_lz10
+from verify_hgss_renderer import pixels
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    for name in ('workspace', 'stack', 'archive', 'output'):
+        parser.add_argument('--' + name, type=Path, required=True)
+    args = parser.parse_args()
+    if not json.loads((args.workspace / 'result.json').read_text()).get('passed'):
+        raise ValueError('Require a validated background workspace')
+    raw = args.archive.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != ARCHIVE_SHA256:
+        raise ValueError('Opening archive hash differs')
+    args.output.mkdir(parents=True, exist_ok=False)
+    tools = Path(__file__).resolve().parent
+    standalone = args.workspace / 'source/standalone'
+    nns = args.stack / 'subprojects/libntrsystem'
+    shutil.copyfile(tools / 'probe_scene_sprites.c', standalone / 'main.c')
+    names = ['main.c', 'hgss_display.c']
+    units = [f'load/g2d_{name}_load.c' for name in ('NCG','NCL','NOB','NAN')]
+    units += ['load/g2d_Load.c', 'g2d_Animation.c', 'g2d_CellAnimation.c',
+              'g2d_SRTControl.c', 'g2d_CellTransferManager.c']
+    for unit in units:
+        path = nns / 'libraries/g2d/src' / unit
+        shutil.copyfile(path, standalone / path.name)
+        names.append(path.name)
+    flags = ['-ffunction-sections', '-fdata-sections', '-DNNS_FINALROM',
+             '-I' + str(nns / 'include'), '-I' + str(nns / 'libraries/g2d/include')]
+    (standalone / 'meson.build').write_text(
+        "libntr_exe = executable('libntr', sources: files(" + ', '.join(map(repr, names)) + "),\n"
+        "dependencies: [nitrosdk_dep], c_args: " + repr(flags) + ",\n"
+        "link_args: ['-Wl,--gc-sections'], native: build_target != 'arm')\n")
+    result = subprocess.run(['meson', 'compile', '-C', str(args.workspace / 'build'), '-j6'],
+                            capture_output=True, text=True, timeout=600)
+    (args.output / 'build.log').write_text(result.stdout + result.stderr)
+    result.check_returncode()
+    banks = read_banks(raw)
+    members = [81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96]
+    assets = {i: banks[i] if i in (81,85,89,93) else decompress_lz10(banks[i]) for i in members}
+    cases = []
+    for case in range(6):
+        images = {}
+        for disabled in (False, True):
+            runtime = args.output / f'case-{case}-' / ('disabled' if disabled else 'enabled')
+            runtime.mkdir(parents=True)
+            for member, data in assets.items():
+                (runtime / f'{member}.bin').write_bytes(data)
+            (runtime / 'sim_config.ini').write_text('[General]\nScreenLayout=single\nSwapScreens=true\nWindowWidth=512\nWindowHeight=384\n')
+            env = dict(os.environ, LD_PRELOAD=str(args.workspace / 'capture.so'),
+                       SDL_AUDIODRIVER='dummy', HG_SPRITE_CASE=str(case))
+            env.pop('HG_SPRITE_DISABLE_DRAW', None)
+            if disabled:
+                env['HG_SPRITE_DISABLE_DRAW'] = '1'
+            result = subprocess.run(['timeout', '-k', '3s', '30s', str(args.workspace / 'build/standalone/libntr')],
+                                    cwd=runtime, env=env, capture_output=True, text=True, timeout=40)
+            (runtime / 'run.log').write_text(result.stdout + result.stderr)
+            result.check_returncode()
+            frames = [pixels(runtime / f'libntr-frame-{f}.ppm') for f in (60,120)]
+            if frames[0] != frames[1]:
+                raise ValueError('Same static cell differs between main and sub engines')
+            images[disabled] = frames[0]
+        if any(images[True]):
+            raise ValueError('Disabled OAM conversion control is not black')
+        visible = sum(images[False][i:i+3] != bytes(3) for i in range(0,len(images[False]),3))
+        if visible < 16:
+            raise ValueError(f'No visible sprite for case {case}')
+        cases.append({'case': case, 'visible_pixels': visible, 'engines_equal': True, 'disabled_black': True})
+    report = {'passed': True, 'cases': cases, 'dimensions': [512,384],
+              'platform': 'linux-x86_64', 'scope': 'static_initial_cells_not_full_sprite_manager_or_animation_playback',
+              'harness_sha256': hashlib.sha256((tools / 'probe_scene_sprites.c').read_bytes()).hexdigest()}
+    (args.output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
+    print(json.dumps(report))
+
+
+if __name__ == '__main__':
+    main()
