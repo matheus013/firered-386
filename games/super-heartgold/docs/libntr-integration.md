@@ -790,3 +790,26 @@ Os 12 casos passaram em 2026-10-27. Resultado:
 o teste anterior de um recurso, mas não confirma fidelidade visual ao DS: câmera,
 projeção, ordem de atualização e temporização da cena original ainda precisam
 ser integradas. Áudio, campanha e execução Windows continuam fora deste teste.
+
+## Parâmetros da câmera da cena 4
+
+Busca anterior à implementação: `ParticleSystem_New` e
+`Camera_ApplyPerspectiveType` na base single screen do GitHub, revisão
+`6984a3d67592157195940049be2e4bbbf933f9ff`.
+[camera.c](https://github.com/ClickingMaster/pokeheartgold-single-screen/blob/6984a3d67592157195940049be2e4bbbf933f9ff/src/camera.c),
+[particle_system.c](https://github.com/ClickingMaster/pokeheartgold-single-screen/blob/6984a3d67592157195940049be2e4bbbf933f9ff/src/particle_system.c)
+e `intro_movie_scene_4.c` fornecem os parâmetros e a sequência utilizados.
+
+O modo `--scene-camera` de `verify_spl_emitter_set.py` executa somente os três
+grupos com olho `(0,0,4)`, alvo `(0,0,0)`, projeção ortográfica calculada com
+ângulo 8192, aspecto FX32 5461, planos próximo 1 e distante 900. Usa desenho
+antes da atualização, ordenação manual e profundidade Z, como a cena 4.
+São parâmetros reproduzidos pelo harness via API GX; as funções Camera/NNS
+originais completas ainda não estão ligadas a este executável diagnóstico.
+
+Os três grupos passaram com saída zero e troca de tela válida. Capturas
+inspecionadas; relatório em `hgss-spl-scene-camera-test.json`. Essa rodada não
+reproduz a linha do tempo completa da cena: mantém o disparo no frame 100 e a
+captura no frame 120. Não compara os pixels com um DS nem valida o contexto de
+sprites/fundos da abertura. Os relatórios anteriores continuam como resultados
+dos respectivos modos de teste.

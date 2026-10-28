@@ -65,6 +65,14 @@ void NitroMain(void) {
         !SPL_LoadTexPlttByCallbackFunction(manager, allocate_palette)) abort();
     unsigned peak = 0;
     const int disabled = getenv("HG_SPL_DISABLE_DRAW") != NULL;
+    const int scene_camera = getenv("HG_SPL_SCENE_CAMERA") != NULL;
+    if (scene_camera) {
+        /* Camera_ApplyPerspectiveType(ORTHOGRAPHIC), angle 8192, distance 4;
+         * scene 4 overrides the near plane to 1 and retains far plane 900. */
+        fx32 height = FX_Mul(FX_Div(FX_SinIdx(8192), FX_CosIdx(8192)), 4 * FX32_ONE);
+        fx32 width = FX_Mul(height, FX32_CONST(1.33333333));
+        G3_Ortho(height, -height, -width, width, FX32_ONE, 900 * FX32_ONE, NULL);
+    }
     for (unsigned frame = 1;; ++frame) {
         if (frame == 40) SingleScreen_ShowSubEngine(TRUE);
         if (frame == 80) SingleScreen_ShowSubEngine(FALSE);
@@ -81,15 +89,18 @@ void NitroMain(void) {
                 SPL_Create(manager, resource, &origin);
             }
         }
-        SPL_Calc(manager);
+        if (!scene_camera) SPL_Calc(manager);
         unsigned active = 200 - manager->ina_ptcl_list.node_num;
         if (active > peak) peak = active;
         G3X_Reset();
         VecFx32 eye = {0, 0, 8 * FX32_ONE}, at = {0, 0, 0}, up = {0, FX32_ONE, 0};
+        if (scene_camera) eye.z = 4 * FX32_ONE;
         MtxFx43 camera;
         G3_LookAt(&eye, &up, &at, &camera);
         if (!disabled) SPL_Draw(manager, &camera);
-        G3_SwapBuffers(GX_SORTMODE_AUTO, GX_BUFFERMODE_W);
+        if (scene_camera) SPL_Calc(manager);
+        G3_SwapBuffers(scene_camera ? GX_SORTMODE_MANUAL : GX_SORTMODE_AUTO,
+                       scene_camera ? GX_BUFFERMODE_Z : GX_BUFFERMODE_W);
         if (frame == 110) {
             printf("SPL_RENDER peak=%u active=%u textures=%u palettes=%u disabled=%d\n",
                    peak, active, texture_used, palette_used, disabled);

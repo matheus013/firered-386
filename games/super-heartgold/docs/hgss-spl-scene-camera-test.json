@@ -1,0 +1,44 @@
+{
+  "scope": "three original groups, scene camera parameters and draw/update order; diagnostic capture timing, Linux only",
+  "harness_sha256": "ff892f77e81ac41a41e760f96d921a4217fb8bf0e652198261af60ae7cb8d764",
+  "results": [
+    {
+      "group": 0,
+      "exit_code": 0,
+      "visible_pixels": 119365,
+      "secondary_blue": true
+    },
+    {
+      "group": 1,
+      "exit_code": 0,
+      "visible_pixels": 62333,
+      "secondary_blue": true
+    },
+    {
+      "group": 2,
+      "exit_code": 0,
+      "visible_pixels": 42888,
+      "secondary_blue": true
+    }
+  ],
+  "passed": true,
+  "audio_tested": false,
+  "gameplay_tested": false,
+  "original_camera_parameters": {
+    "eye": [
+      0,
+      0,
+      4
+    ],
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "projection": "orthographic",
+    "angle_index": 8192,
+    "near": 1,
+    "far": 900,
+    "aspect_fx32": 5461
+  }
+}

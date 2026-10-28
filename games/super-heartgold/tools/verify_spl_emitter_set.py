@@ -13,6 +13,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--workspace', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--scene-camera', action='store_true', help='Test three groups with original projection parameters and draw/update order')
     args = parser.parse_args()
     work, output = args.workspace.resolve(), args.output.resolve()
     previous = json.loads((work/'result.json').read_text())
@@ -27,6 +28,7 @@ def main():
     subprocess.run(['meson','compile','-C',str(work/'build'),'-j4'],check=True)
     results = []
     cases = [('resource', i) for i in range(9)] + [('group', i) for i in range(3)]
+    if args.scene_camera: cases = [('group', i) for i in range(3)]
     for kind, index in cases:
         run_dir = output/f'{kind}-{index}'
         run_dir.mkdir()
@@ -34,9 +36,10 @@ def main():
         shutil.copyfile(work/'runtime/sim_config.ini', run_dir/'sim_config.ini')
         env = dict(os.environ, SDL_AUDIODRIVER='dummy',
                    LD_PRELOAD=str(work/'runtime/capture.so'))
-        for key in ('HG_SPL_DISABLE_DRAW', 'HG_SPL_RESOURCE', 'HG_SPL_GROUP'):
+        for key in ('HG_SPL_DISABLE_DRAW', 'HG_SPL_RESOURCE', 'HG_SPL_GROUP', 'HG_SPL_SCENE_CAMERA'):
             env.pop(key, None)
         env['HG_SPL_RESOURCE' if kind == 'resource' else 'HG_SPL_GROUP'] = str(index)
+        if args.scene_camera: env['HG_SPL_SCENE_CAMERA'] = '1'
         result = subprocess.run(['timeout','-k','3s','30s',str(work/'build/standalone/libntr')],
                                 cwd=run_dir,env=env,capture_output=True,text=True,timeout=40)
         (run_dir/'run.log').write_text(result.stdout+result.stderr)
@@ -51,6 +54,9 @@ def main():
               'harness_sha256': hashlib.sha256(harness.read_bytes()).hexdigest(),
               'results':results, 'passed': all(x.get('visible_pixels',0) >= 16 and x.get('secondary_blue') for x in results),
               'audio_tested':False, 'gameplay_tested':False}
+    if args.scene_camera:
+        report['scope'] = 'three original groups, scene camera parameters and draw/update order; diagnostic capture timing, Linux only'
+        report['original_camera_parameters'] = {'eye':[0,0,4], 'target':[0,0,0], 'projection':'orthographic', 'angle_index':8192, 'near':1, 'far':900, 'aspect_fx32':5461}
     (output/'result.json').write_text(json.dumps(report,indent=2)+'\n')
     if not report['passed']: raise SystemExit('Some emitters failed or were not visible at the sampled frame')
 
