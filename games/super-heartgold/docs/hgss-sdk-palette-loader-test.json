@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "original_asan_failure_reproduced": true,
+  "source_sha256": "0f3084de363b5585d49b6d4c5c17a5c119383b14c7e3f3e239086122f043519c",
+  "palette_members": [
+    53,
+    81,
+    85,
+    89,
+    93
+  ],
+  "input_unchanged": true,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "gpu_tested": false
+}

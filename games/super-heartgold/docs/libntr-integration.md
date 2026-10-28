@@ -836,3 +836,18 @@ continua 120. O teste usa os parâmetros de câmera da cena e desenho antes da
 atualização, mas ainda substitui a máquina de estados por um encadeamento
 diagnóstico. Os frames acima não representam a duração da cena original:
 sprites, fundos, fades e passos intermediários permanecem ausentes.
+
+## Sprites, fundos e fades: carregamento de paletas
+
+A [pesquisa das referências da cena 4](scene4-graphics-references.md) registra
+os módulos originais e as referências PSP consultadas antes da adaptação.
+O loader NCLR apresentava uma leitura além do buffer e escrevia um ponteiro
+nativo na estrutura de disco do DS. O teste reproduziu a falha original com
+ASan e validou as cinco paletas da cena com ASan/UBSan após a correção,
+preservando integralmente os arquivos de entrada.
+
+Resultado: [teste das paletas](hgss-sdk-palette-loader-test.json). A compilação
+completa das bibliotecas SDK também passou com a adaptação integrada;
+[hgss-sdk-stack-build.json](hgss-sdk-stack-build.json) registra os hashes.
+Esta validação ocorreu em Linux x86_64. Ainda falta integrar sprites, fundos
+e fades ao desenho da cena e validar o jogo completo no Windows.

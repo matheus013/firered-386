@@ -17,6 +17,7 @@
   "platform": "linux-x86_64",
   "native_expheap_sha256": "5381f19a4bb60a16c53988b27a69a9cd8ea6ced4585dda809adb4b34a04de894",
   "native_texture_upload_sha256": "38bfd09ded9db3deb09d532f4693c5c924a3414c663574e5f1a8a31895b5d58b",
+  "native_palette_loader_sha256": "b27388da3ca665d958e33c750fcf0c2e2cb85847be3145ae3eaf35c4256388c2",
   "runtime_tested": false,
   "libraries": [
     {
@@ -27,7 +28,7 @@
     {
       "file": "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a",
       "bytes": 12018,
-      "sha256": "5367325df9ae55ee30db36c35907327c8c8813f22d73e668b7a678151d891eac"
+      "sha256": "833187495546aa2a6d8cb3b9e81fa1656c5666a16f7529014846c3aff92a6561"
     },
     {
       "file": "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a",
