@@ -7,6 +7,7 @@
 #include <nnsys/g2d/load/g2d_NCL_load.h>
 #include <nnsys/g2d/load/g2d_NCE_load.h>
 #include <nnsys/g2d/load/g2d_NAN_load.h>
+#include <nnsys/g2d/load/g2d_NSC_load.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,6 +26,32 @@ static void *load(int member) {
     if (!data || fread(data, 1, size, file) != (size_t)size) abort();
     fclose(file);
     return data;
+}
+
+static void load_backgrounds(void) {
+    /* Separate BG and OBJ banks; same BG1 layout/resources as scene 4. */
+    GX_SetBankForBG(GX_VRAM_BG_128_B);
+    GX_SetBankForSubBG(GX_VRAM_SUB_BG_128_C);
+    G2_SetBG1Control(GX_BG_SCRSIZE_TEXT_256x256, GX_BG_COLORMODE_16,
+                    GX_BG_SCRBASE_0x0000, GX_BG_CHARBASE_0x04000, GX_BG_EXTPLTT_01);
+    G2S_SetBG1Control(GX_BG_SCRSIZE_TEXT_256x256, GX_BG_COLORMODE_16,
+                     GX_BG_SCRBASE_0x0000, GX_BG_CHARBASE_0x04000, GX_BG_EXTPLTT_01);
+    G2_SetBG1Priority(1); G2S_SetBG1Priority(1);
+    NNSG2dCharacterData *chr;
+    NNSG2dPaletteData *palette;
+    NNSG2dScreenData *main_map, *sub_map;
+    if (!NNS_G2dGetUnpackedBGCharacterData(load(54), &chr) ||
+        !NNS_G2dGetUnpackedPaletteData(load(53), &palette) ||
+        !NNS_G2dGetUnpackedScreenData(load(58), &main_map) ||
+        !NNS_G2dGetUnpackedScreenData(load(57), &sub_map)) abort();
+    GX_LoadBG1Char(chr->pRawData, 0, chr->szByte);
+    GXS_LoadBG1Char(chr->pRawData, 0, chr->szByte);
+    GX_LoadBGPltt(palette->pRawData, 0, 0x80);
+    GXS_LoadBGPltt(palette->pRawData, 0, 0x80);
+    GX_LoadBG1Scr(main_map->rawData, 0, main_map->szByte);
+    GXS_LoadBG1Scr(sub_map->rawData, 0, sub_map->szByte);
+    GX_SetVisiblePlane(GX_PLANEMASK_OBJ | GX_PLANEMASK_BG1);
+    GXS_SetVisiblePlane(GX_PLANEMASK_OBJ | GX_PLANEMASK_BG1);
 }
 
 void NitroMain(void) {
@@ -73,6 +100,7 @@ void NitroMain(void) {
     GX_LoadOBJPltt(palette->pRawData, 0, palette->szByte);
     GXS_LoadOBJPltt(palette->pRawData, 0, palette->szByte);
     GX_LoadOAM(objects, 0, sizeof(objects)); GXS_LoadOAM(objects, 0, sizeof(objects));
+    if (getenv("HG_SPRITE_COMPOSE")) load_backgrounds();
     printf("SPRITE case=%u sequence=%u cell_oams=%u emitted=%u\n", selected, sequence, cell->numOAMAttrs, count);
     fflush(stdout);
     SingleScreen_ShowSubEngine(FALSE); DEMOStartDisplay();

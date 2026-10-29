@@ -10,14 +10,23 @@ import subprocess
 from prepare_hgss_message_headers import read_banks
 from prepare_hgss_opening_headers import ARCHIVE_SHA256, decompress_lz10
 from verify_hgss_renderer import pixels
+from verify_scene_backgrounds import expected_image
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--playback', action='store_true', help='Tick original sequences and apply their translations')
+    parser.add_argument('--compose', action='store_true', help='Render static cells over the scene BG1 maps')
+    parser.add_argument('--sprite-reference', type=Path, help='Passed static sprite test directory for composition comparison')
     for name in ('workspace', 'stack', 'archive', 'output'):
         parser.add_argument('--' + name, type=Path, required=True)
     args = parser.parse_args()
+    if args.compose and (args.playback or not args.sprite_reference):
+        parser.error('--compose requires --sprite-reference and excludes --playback')
+    if args.compose:
+        reference = json.loads((args.sprite_reference/'result.json').read_text())
+        if not reference.get('passed') or reference.get('scope') != 'static_initial_cells_not_full_sprite_manager_or_animation_playback':
+            raise ValueError('Require passed static sprite reference')
     if not json.loads((args.workspace / 'result.json').read_text()).get('passed'):
         raise ValueError('Require a validated background workspace')
     raw = args.archive.read_bytes()
@@ -29,7 +38,7 @@ def main():
     nns = args.stack / 'subprojects/libntrsystem'
     shutil.copyfile(tools / 'probe_scene_sprites.c', standalone / 'main.c')
     names = ['main.c', 'hgss_display.c']
-    units = [f'load/g2d_{name}_load.c' for name in ('NCG','NCL','NOB','NAN')]
+    units = [f'load/g2d_{name}_load.c' for name in ('NCG','NCL','NOB','NAN','NSC')]
     units += ['load/g2d_Load.c', 'g2d_Animation.c', 'g2d_CellAnimation.c',
               'g2d_SRTControl.c', 'g2d_CellTransferManager.c']
     for unit in units:
@@ -54,7 +63,8 @@ def main():
                         '-lSDL2', '-ldl', '-o', str(capture)], check=True)
     banks = read_banks(raw)
     members = [81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96]
-    assets = {i: banks[i] if i in (81,85,89,93) else decompress_lz10(banks[i]) for i in members}
+    if args.compose: members += [53,54,57,58]
+    assets = {i: banks[i] if i in (53,81,85,89,93) else decompress_lz10(banks[i]) for i in members}
     cases = []
     for case in range(6):
         images = {}
@@ -68,6 +78,9 @@ def main():
                        SDL_AUDIODRIVER='dummy', HG_SPRITE_CASE=str(case))
             env.pop('HG_SPRITE_DISABLE_DRAW', None)
             env.pop('HG_SPRITE_PLAYBACK', None)
+            env.pop('HG_SPRITE_COMPOSE', None)
+            if args.compose:
+                env['HG_SPRITE_COMPOSE'] = '1'
             if args.playback:
                 env['HG_SPRITE_PLAYBACK'] = '1'
             if disabled:
@@ -78,9 +91,33 @@ def main():
             result.check_returncode()
             captures = [2,4,6,8,10,*range(20,161,20)] if args.playback else (60,120)
             frames = [pixels(runtime / f'libntr-frame-{f}.ppm') for f in captures]
-            if not args.playback and frames[0] != frames[1]:
+            if not args.playback and not args.compose and frames[0] != frames[1]:
                 raise ValueError('Same static cell differs between main and sub engines')
             images[disabled] = frames
+        if args.compose:
+            reference_frame = pixels(args.sprite_reference/f'case-{case}-/enabled/libntr-frame-120.ppm')
+            for index, member in enumerate((57,58)):
+                background = expected_image(assets[53], assets[54], assets[member])
+                if images[True][index] != background:
+                    raise ValueError('Background-only control differs from tile-map oracle')
+                foreground = images[False][index]
+                colored = changed = 0
+                for offset in range(0,len(background),3):
+                    sprite = reference_frame[offset:offset+3]
+                    actual = foreground[offset:offset+3]
+                    if sprite != bytes(3):
+                        colored += 1
+                        if actual != sprite:
+                            raise ValueError('Colored sprite pixel was lost or occluded')
+                    elif actual not in (bytes(3), background[offset:offset+3]):
+                        raise ValueError('Unexpected pixel outside colored sprite footprint')
+                    changed += actual != background[offset:offset+3]
+                if changed < 16 or colored < 16:
+                    raise ValueError('No visible sprite/background composition')
+                cases.append({'case':case, 'engine':'sub' if index == 0 else 'main',
+                              'colored_sprite_pixels_matched':colored, 'changed_pixels':changed,
+                              'background_control_exact':True})
+            continue
         if any(any(frame) for frame in images[True]):
             raise ValueError('Disabled OAM conversion control is not black')
         visible = max(sum(frame[i:i+3] != bytes(3) for i in range(0,len(frame),3)) for frame in images[False])
@@ -96,6 +133,8 @@ def main():
               'harness_sha256': hashlib.sha256((tools / 'probe_scene_sprites.c').read_bytes()).hexdigest()}
     if args.playback:
         report['scope'] = '160_frame_SDK_cell_playback_with_translation_not_full_sprite_manager'
+    if args.compose:
+        report['scope'] = 'static_BG1_and_SDK_cell_composition_not_full_scene'
     (args.output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report))
 

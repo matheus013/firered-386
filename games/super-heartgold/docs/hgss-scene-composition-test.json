@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": 0,
+      "engine": "sub",
+      "colored_sprite_pixels_matched": 6464,
+      "changed_pixels": 6452,
+      "background_control_exact": true
+    },
+    {
+      "case": 0,
+      "engine": "main",
+      "colored_sprite_pixels_matched": 6464,
+      "changed_pixels": 6464,
+      "background_control_exact": true
+    },
+    {
+      "case": 1,
+      "engine": "sub",
+      "colored_sprite_pixels_matched": 6864,
+      "changed_pixels": 6836,
+      "background_control_exact": true
+    },
+    {
+      "case": 1,
+      "engine": "main",
+      "colored_sprite_pixels_matched": 6864,
+      "changed_pixels": 6864,
+      "background_control_exact": true
+    },
+    {
+      "case": 2,
+      "engine": "sub",
+      "colored_sprite_pixels_matched": 228,
+      "changed_pixels": 228,
+      "background_control_exact": true
+    },
+    {
+      "case": 2,
+      "engine": "main",
+      "colored_sprite_pixels_matched": 228,
+      "changed_pixels": 228,
+      "background_control_exact": true
+    },
+    {
+      "case": 3,
+      "engine": "sub",
+      "colored_sprite_pixels_matched": 3324,
+      "changed_pixels": 3616,
+      "background_control_exact": true
+    },
+    {
+      "case": 3,
+      "engine": "main",
+      "colored_sprite_pixels_matched": 3324,
+      "changed_pixels": 3620,
+      "background_control_exact": true
+    },
+    {
+      "case": 4,
+      "engine": "sub",
+      "colored_sprite_pixels_matched": 3716,
+      "changed_pixels": 3712,
+      "background_control_exact": true
+    },
+    {
+      "case": 4,
+      "engine": "main",
+      "colored_sprite_pixels_matched": 3716,
+      "changed_pixels": 3716,
+      "background_control_exact": true
+    },
+    {
+      "case": 5,
+      "engine": "sub",
+      "colored_sprite_pixels_matched": 3048,
+      "changed_pixels": 3048,
+      "background_control_exact": true
+    },
+    {
+      "case": 5,
+      "engine": "main",
+      "colored_sprite_pixels_matched": 3048,
+      "changed_pixels": 3048,
+      "background_control_exact": true
+    }
+  ],
+  "dimensions": [
+    512,
+    384
+  ],
+  "platform": "linux-x86_64",
+  "scope": "static_BG1_and_SDK_cell_composition_not_full_scene",
+  "harness_sha256": "7291fe89e31b7d9bdf8b1965afcc13404cc085c1aed2cd13922ed914f1acdacd"
+}

@@ -885,3 +885,10 @@ gerenciador de sprites, composição e fades à abertura original.
 A permissão de Issues foi liberada em 29/10/2026. O acompanhamento está na
 [issue #5](https://github.com/matheus013/firered-386/issues/5), com sprites na
 [issue #8](https://github.com/matheus013/firered-386/issues/8).
+
+O modo de composição estática passou em 12 casos BG1/OBJ: seis sprites nos
+dois motores. Os controles sem OBJ coincidem exatamente com os mapas; os
+pixels coloridos dos sprites coincidem com a referência isolada. Capturas
+inspecionadas. [Relatório](hgss-scene-composition-test.json). A máscara de preto
+opaco/transparência, inversão de prioridades e composição completa da abertura
+não estão cobertas; ver os limites no documento de referências da cena 4.

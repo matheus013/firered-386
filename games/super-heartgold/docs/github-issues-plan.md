@@ -61,6 +61,11 @@ controles sem desenho pretos. Ver [relatório temporal](hgss-animation-controlle
 e [relatório gráfico](hgss-scene-playback-test.json). A integração do gerenciador
 completo e a composição continuam pendentes na issue #8.
 
+Também passaram 12 casos de composição estática BG1/OBJ (seis sprites nos
+dois motores), com fundo exato no controle e pixels coloridos dos sprites
+preservados. [Relatório](hgss-scene-composition-test.json). Ainda não é a
+composição completa da cena nem a integração de SpriteList.
+
 - [ ] Integrar gerenciadores e transferências originais.
 - [ ] Desenhar mãos/efeitos e Chikorita, Cyndaquil e Totodile.
 - [ ] Validar frames, sequências, posições, transparência e paletas.

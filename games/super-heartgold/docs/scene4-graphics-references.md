@@ -193,3 +193,30 @@ playback, as capturas de cada motor ocorrem em instantes distintos e não são
 comparadas entre si. O loop completo das mãos é coberto pelo teste do controlador,
 pois sua duração excede os 160 frames do teste gráfico. Ainda faltam SpriteList,
 composição com fundos/partículas, transformações SRT completas e fades.
+
+## Composição estática BG1/OBJ — 29/10/2026
+
+A pesquisa por `IntroMovie_Scene4_EnableBgLayers` confirmou o controle das
+camadas na cena original. O modo `--compose` de `verify_scene_sprites.py` testa
+BG1 e OBJ simultâneos: BG principal usa banco B, BG secundário C, OBJ principal
+A e OBJ secundário D. BG1 mantém charbase 0x4000, screenbase 0 e prioridade 1;
+os sprites mantêm os atributos OAM dos recursos. Carrega paleta 53, tiles 54 e
+mapas 58/57, além dos recursos de cada sprite.
+
+Os 12 casos passaram (seis sprites × dois motores). Sem sprites, cada captura
+é idêntica à decodificação independente do fundo. Com sprites, todos os pixels
+coloridos da referência estática isolada permanecem iguais; os demais pixels
+devem ser fundo ou preto. Essa última regra não distingue preto opaco de
+transparência na referência de fundo preto, portanto não comprova a máscara
+completa de transparência. Capturas principais inspecionadas visualmente.
+Relatório: [hgss-scene-composition-test.json](hgss-scene-composition-test.json).
+
+```sh
+python3 tools/verify_scene_sprites.py --workspace /private/validated-backgrounds --stack /private/sdk-with-controller-fix --archive /private/opening.narc --output /private/composition-new --compose --sprite-reference /private/passed-static-sprites
+```
+
+O modo exclui `--playback` e reutiliza uma referência estática aprovada. As
+posições diagnósticas provocam sobreposição deliberada dos iniciais com o
+retrato para conferir a composição; não representam a disposição final da
+abertura. Não testa inversão de prioridade, SpriteList, múltiplos sprites
+simultâneos, BG2/BG3 compostos, partículas ou fades. A issue #8 segue aberta.
