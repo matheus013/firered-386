@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "platform": "linux-x86_64",
+  "original_capacity_failure_reproduced": true,
+  "source_sha256": "93b45857cb99ec9f69e9a8675081a8ec839a47bb0bb730ded1aefa390616e7b1",
+  "adapted_sha256": "fda43abf1303ba2063a6d57cb5d7d6e9e7dbb0b16e8c955e4adafbc00d4fe9fe",
+  "sprite_translation_unit_compiled": true,
+  "scope": "actual_type_storage_size_alignment_and_adjacent_fields_not_sprite_manager_runtime",
+  "logs": {
+    "original": "capacity=116 cell=136 transfer=144 multi=200 offset=72\nanimation storage too small for variant 0\n",
+    "native": "capacity=200 cell=136 transfer=144 multi=200 offset=72\nall three variants fit and preserve adjacent sprite fields\n"
+  }
+}

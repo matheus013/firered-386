@@ -66,6 +66,13 @@ dois motores), com fundo exato no controle e pixels coloridos dos sprites
 preservados. [Relatório](hgss-scene-composition-test.json). Ainda não é a
 composição completa da cena nem a integração de SpriteList.
 
+Na preparação de SpriteList foi corrigido o armazenamento interno de animações
+para os tipos nativos: 116 bytes originais eram insuficientes para variantes de
+136/144/200 bytes. O teste de layout/alinhamento passou e `sprite.c` completo
+compilou com o header adaptado. [Relatório](hgss-sprite-storage-test.json).
+Ainda não valida execução do gerenciador; seus consumidores precisam ser
+recompilados juntos, pois o layout de Sprite mudou no ramo nativo.
+
 - [ ] Integrar gerenciadores e transferências originais.
 - [ ] Desenhar mãos/efeitos e Chikorita, Cyndaquil e Totodile.
 - [ ] Validar frames, sequências, posições, transparência e paletas.

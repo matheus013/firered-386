@@ -4,6 +4,7 @@ from prepare_hgss_heap import prepare_game_heap, prepare_sdk_heap
 from prepare_hgss_overlay_ids import prepare_overlay_ids
 from prepare_hgss_graphics import HASHES as GRAPHICS_SOURCES, prepare_graphics
 from prepare_spl_drawing import prepare as prepare_spl_drawing
+from prepare_hgss_sprite_storage import prepare as prepare_sprite_storage
 parser=argparse.ArgumentParser(description="Compile complete HGSS translation units; does not link or validate ABI")
 parser.add_argument('--hgss',type=Path,required=True)
 parser.add_argument('--libntr',type=Path,required=True)
@@ -40,6 +41,7 @@ compat=Path(__file__).resolve().parent/'reference_compat/hgss_sdk'
 shutil.copytree(compat,out,dirs_exist_ok=True)
 headers=out/'hgss-include'
 shutil.copytree(ref/'include',headers)
+prepare_sprite_storage(ref/'include/sprite.h', headers/'sprite.h')
 # Host SDK already owns these declarations. Remove only the redundant ones
 # from a private header copy, retaining all game structs and functions.
 for filename,declarations in {

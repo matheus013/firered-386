@@ -892,3 +892,11 @@ pixels coloridos dos sprites coincidem com a referência isolada. Capturas
 inspecionadas. [Relatório](hgss-scene-composition-test.json). A máscara de preto
 opaco/transparência, inversão de prioridades e composição completa da abertura
 não estão cobertas; ver os limites no documento de referências da cena 4.
+
+A revisão do gerenciador original confirmou armazenamento de animação pequeno
+para ponteiros de 64 bits: 116 bytes disponíveis contra até 200 necessários.
+A preparação dos headers agora usa armazenamento nativo alinhado para as três
+variantes. Testes de capacidade, alinhamento e campos adjacentes passaram com
+ASan/UBSan; `sprite.c` completo compilou. [Relatório](hgss-sprite-storage-test.json).
+Recompilar todos os consumidores desse header antes de ligar o gerenciador;
+não misturar com objetos anteriores. SpriteList ainda não foi executado.

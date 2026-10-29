@@ -220,3 +220,35 @@ posições diagnósticas provocam sobreposição deliberada dos iniciais com o
 retrato para conferir a composição; não representam a disposição final da
 abertura. Não testa inversão de prioridade, SpriteList, múltiplos sprites
 simultâneos, BG2/BG3 compostos, partículas ou fades. A issue #8 segue aberta.
+
+## Armazenamento do gerenciador original — 29/10/2026
+
+A busca GitHub por `BUGFIX_SPRITE_ANIM_SIZE` encontrou a correção opcional no
+[sprite.h da base](https://github.com/ClickingMaster/pokeheartgold-single-screen/blob/6984a3d67592157195940049be2e4bbbf933f9ff/include/sprite.h).
+O mesmo padrão foi encontrado em `pret/pokeheartgold`, `ctrl-cheeb-del/pokeheartgold`
+e `PikalaxALT/pokeheartgold-speedchoice`. A consulta por
+`SPRITE_ANIMATION_DATA_WORD_COUNT` em pspoke não retornou resultado indexado.
+O comentário da base já identifica que o bloco fixo é pequeno; a opção existente
+dimensiona por `sizeof`, mas não explicita o alinhamento nativo e as três variantes.
+
+O teste com os tipos reais HGSS/SDK em Linux x86_64 mediu 116 bytes reservados
+contra 136 para animação simples, 144 com transferência e 200 para multicélulas.
+`prepare_hgss_sprite_storage.py` adapta somente o ramo SDK_PORT do header privado:
+uma união das três estruturas garante capacidade e alinhamento, preservando o
+acesso existente pelo nome `animationData`. O ramo DS permanece como estava.
+O módulo de preparação `probe_hgss_modules.py` passa a usar o header adaptado.
+Todos os módulos que compartilham Sprite devem ser recompilados com o mesmo
+header; objetos anteriores não são compatíveis com esse layout.
+
+`verify_hgss_sprite_storage.py` reproduziu a insuficiência original, validou
+capacidade/alinhamento e escrita dos três tamanhos sem alterar bytes adjacentes,
+com ASan/UBSan, e compilou a unidade original completa `sprite.c` com o header
+adaptado. O teste não executa criação, renderização ou descarte de SpriteList.
+Resultado: [hgss-sprite-storage-test.json](hgss-sprite-storage-test.json).
+
+```sh
+python3 tools/verify_hgss_sprite_storage.py --hgss /private/hgss --probe /private/compatible-hgss-module-probe --stack /private/sdk --output /private/sprite-storage-new
+```
+
+Essa correção remove um bloqueio de layout para a integração do gerenciador;
+a ligação e execução completa de SpriteList permanecem pendentes na issue #8.
