@@ -1,6 +1,10 @@
 /* Host adapters and capture boundary for the original SpriteList renderer. */
 #include "sprite.h"
 #include "gf_g2d_renderer.h"
+#ifdef HG_ORIGINAL_OAM
+#include "oam_manager.h"
+#include <nnsys/g2d/g2d_OAM.h>
+#endif
 #include <stddef.h>
 extern void WIN_CheckAndFreeAnimBank(void *, void *);
 typedef union HostAllocation { max_align_t alignment; size_t size; } HostAllocation;
@@ -49,8 +53,13 @@ static unsigned render_manager(GXOamAttr *objects, NNSG2dCharacterData *chr,
     NNSG2dRenderSurface *surface = &surfaces[sub != 0];
     NNSG2dViewRect view = {{0,0}, {256 * FX32_ONE,192 * FX32_ONE}};
     GF_InitG2dRenderer(renderer, 0);
+#ifdef HG_ORIGINAL_OAM
+    OamManager_InitRenderSurface(surface, &view,
+        sub ? NNS_G2D_VRAM_TYPE_2DSUB : NNS_G2D_VRAM_TYPE_2DMAIN, renderer);
+#else
     GF_InitG2dRenderSurface(surface, &view, capture_oam, reject_affine, NULL,
         sub ? NNS_G2D_SURFACETYPE_SUB2D : NNS_G2D_SURFACETYPE_MAIN2D, renderer);
+#endif
     NNSG2dImageProxy image;
     NNSG2dImagePaletteProxy palette;
     NNS_G2dInitImageProxy(&image);
@@ -80,7 +89,11 @@ static unsigned render_manager(GXOamAttr *objects, NNSG2dCharacterData *chr,
     SpriteAnimationData *state = (SpriteAnimationData *)sprite->animationData;
     unsigned expected = getenv("HG_SPRITE_DISABLE_DRAW") ? 0 :
         NNS_G2dGetCellAnimationCurrentCell(&state->animation)->numOAMAttrs;
+#ifndef HG_ORIGINAL_OAM
     if (count != expected) abort();
+#else
+    (void)expected;
+#endif
     if (getenv("HG_SPRITE_PLAYBACK")) {
         playback_lists[sub != 0] = list;
         Sprite_SetAnimActiveFlag(sprite, TRUE);
@@ -103,4 +116,14 @@ static void destroy_managers(void) {
         if (!SpriteList_Delete(playback_lists[i])) abort();
         playback_lists[i] = NULL;
     }
+}
+
+static void upload_manager(GXOamAttr *objects, BOOL sub) {
+#ifdef HG_ORIGINAL_OAM
+    (void)objects;
+    if (sub) OamManager_ApplyAndResetBuffers();
+#else
+    if (sub) GXS_LoadOAM(objects, 0, 128 * sizeof(*objects));
+    else GX_LoadOAM(objects, 0, 128 * sizeof(*objects));
+#endif
 }

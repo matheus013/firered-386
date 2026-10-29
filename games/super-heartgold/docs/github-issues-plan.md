@@ -176,3 +176,10 @@ ocorrências de pixels coloridos. Ambos os motores cobertos em cada caso.
 [Relatório](hgss-sprite-manager-composition-test.json). Não valida a máscara
 completa de preto/transparência, inversão de prioridades nem a cena completa.
 Próxima integração: gerenciador OAM original já localizado na base.
+
+
+Gerenciador OAM e culling originais integrados ao diagnóstico: seis animações
+por 160 frames, com 156 capturas iguais à referência anterior. Criação, registro,
+envio e reset usam código original/SDK real. [Relatório](hgss-original-oam-test.json).
+Não cobre composição BG neste modo, affine, saturação ou liberação/recriação
+OAM. Transferências originais, fades e abertura completa continuam pendentes.

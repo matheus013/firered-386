@@ -369,3 +369,33 @@ OAM do diagnóstico.
 ```sh
 python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/manager-composition --manager --playback --animated-compose --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/validated-manager-playback
 ```
+
+
+## Gerenciador OAM original (29/10/2026)
+
+Após consultar OamManager_Create e OamManager_ApplyAndResetBuffers no GitHub
+da base, o modo `--original-oam` liga `oam_manager.c`, `g2d_cell_culling.c`
+e o módulo `g2d_OAM.c` real do SDK. Reutiliza a adaptação existente que substitui
+a estrutura opaca OamInstance pela declaração nativa do SDK; a lógica original
+é preservada. As tabelas de tamanho de objetos passam a ser fornecidas pelo
+módulo OAM, evitando sua definição duplicada no diagnóstico.
+
+Criação, callbacks de registro, seleção de células visíveis, envio e reset dos
+buffers agora seguem o gerenciador original. São reservados OAMs 4–127 no motor
+principal e 0–127 no secundário, com faixas de matrizes 1–31 e 0–31. O diagnóstico
+não utiliza transformações affine nestes casos.
+
+**Seis casos por 160 frames, desenho ligado/desligado: 156 capturas idênticas**
+à referência anterior com registro OAM de diagnóstico. Todos os casos ficam
+visíveis e mudam durante a reprodução; controles sem desenho são pretos.
+Ambos os motores são selecionados em single screen. [Resultado](hgss-original-oam-test.json).
+
+Limites: Linux/WSLg, sem sanitizadores no executável gráfico; heap/IO ainda
+host. Não valida esgotamento de OAM, affine, descarte/recriação do gerenciador
+OAM, todas as geometrias de culling ou composição de fundos neste modo. Faltam
+transferências originais de recursos, fades, máquina de estados da abertura,
+Windows e boot do jogo completo.
+
+```sh
+python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/original-oam --manager --playback --original-oam --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/validated-manager-playback
+```

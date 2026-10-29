@@ -22,10 +22,13 @@ def main():
         parser.add_argument('--' + name, type=Path, required=True)
     parser.add_argument('--initial-transform', action='store_true')
     parser.add_argument('--animated-compose', action='store_true', help='Compose manager playback over BG1 using an isolated manager reference')
+    parser.add_argument('--original-oam', action='store_true')
     parser.add_argument('--manager', action='store_true')
     parser.add_argument('--hgss', type=Path)
     parser.add_argument('--probe', type=Path)
     args = parser.parse_args()
+    if args.original_oam and (not args.manager or not args.playback or args.animated_compose):
+        parser.error('--original-oam requires --manager --playback without composition')
     if args.animated_compose:
         if not args.manager or not args.playback:
             parser.error('--animated-compose requires --manager --playback')
@@ -36,7 +39,7 @@ def main():
         parser.error('--initial-transform requires standalone reference mode')
     if args.manager:
         reference = json.loads((args.sprite_reference/'result.json').read_text())
-        expected_scope = ('original_sprite_manager_160_frame_playback_matches_SDK_reference' if args.animated_compose else '160_frame_SDK_cell_playback_with_translation_not_full_sprite_manager')
+        expected_scope = ('original_sprite_manager_160_frame_playback_matches_SDK_reference' if (args.animated_compose or args.original_oam) else '160_frame_SDK_cell_playback_with_translation_not_full_sprite_manager')
         if not reference.get('passed') or (args.playback and reference.get('scope') != expected_scope) or (not args.playback and not reference.get('initial_translation_applied')):
             raise ValueError('Manager requires a passed reference with initial translation applied')
     if args.compose and not args.animated_compose and (args.playback or not args.sprite_reference):
@@ -63,6 +66,8 @@ def main():
         units += ['g2d_Image.c','g2d_Renderer.c','g2d_RendererCore.c',
                   'g2d_MultiCellAnimation.c','g2d_Node.c','g2d_OamSoftwareSpriteDraw.c',
                   'load/g2d_NMC_load.c', 'internal/g2di_Mtx32.c', 'g2d_PaletteTable.c']
+    if args.original_oam:
+        units += ['g2d_OAM.c']
     for unit in units:
         path = nns / 'libraries/g2d/src' / unit
         shutil.copyfile(path, standalone / path.name)
@@ -77,6 +82,11 @@ def main():
         shutil.copyfile(args.hgss/'src/sprite.c', standalone/'sprite.c')
         shutil.copyfile(tools/'probe_scene_sprite_manager.h', standalone/'probe_scene_sprite_manager.h')
         names += ['sprite.c','gf_g2d_renderer.c']
+        if args.original_oam:
+            prepare_graphics(args.hgss/'src/oam_manager.c', standalone/'oam_manager.c')
+            shutil.copyfile(args.hgss/'src/g2d_cell_culling.c', standalone/'g2d_cell_culling.c')
+            names += ['oam_manager.c','g2d_cell_culling.c']
+            flags += ['-DHG_ORIGINAL_OAM']
         flags += ['-DHG_SPRITE_MANAGER', '-DSOULSILVER', '-DENGLISH', '-DSDK_VERSION_MAJOR=4',
                   '-include', str(args.probe/'hgss_backup.h'), '-I'+str(standalone),
                   '-I'+str(args.probe), '-I'+str(args.probe/'hgss-include'),
@@ -215,6 +225,8 @@ def main():
                            else 'original_sprite_manager_static_rendering_matches_cell_reference')
     if args.animated_compose:
         report['scope'] = 'original_sprite_manager_playback_over_BG1_colored_pixel_comparison'
+    if args.original_oam:
+        report['scope'] = 'original_OAM_manager_and_culling_playback_matches_capture_adapter'
     (args.output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report))
 

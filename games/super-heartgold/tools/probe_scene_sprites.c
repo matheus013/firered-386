@@ -17,9 +17,11 @@
 #endif
 
 void SingleScreen_ShowSubEngine(BOOL show);
-/* The SDK exposes these tables as definition macros, without a compiled owner. */
+/* Supply size tables only when the SDK OAM module is not linked. */
+#ifndef HG_ORIGINAL_OAM
 NNS_G2D_DEFINE_NNSI_OBJSIZEWTBL;
 NNS_G2D_DEFINE_NNSI_OBJSIZEHTBL;
+#endif
 static void *load(int member) {
     char path[32]; snprintf(path, sizeof(path), "%d.bin", member);
     FILE *file = fopen(path, "rb");
@@ -112,13 +114,18 @@ void NitroMain(void) {
     GX_LoadOBJ(chr->pRawData, 0, chr->szByte); GXS_LoadOBJ(chr->pRawData, 0, chr->szByte);
     GX_LoadOBJPltt(palette->pRawData, 0, palette->szByte);
     GXS_LoadOBJPltt(palette->pRawData, 0, palette->szByte);
+#ifdef HG_ORIGINAL_OAM
+    NNS_G2dInitOamManagerModule();
+    ClearMainOAM(0); ClearSubOAM(0);
+    OamManager_Create(4, 124, 1, 31, 0, 128, 0, 32, 0);
+#endif
 #ifdef HG_SPRITE_MANAGER
     for (unsigned i = 0; i < 128; ++i) G2_SetOBJEffect(&objects[i], GX_OAM_EFFECT_NODISPLAY, 0);
     count = render_manager(objects, chr, palette, bank, animations, sequence, FALSE);
-    GX_LoadOAM(objects, 0, sizeof(objects));
+    upload_manager(objects, FALSE);
     for (unsigned i = 0; i < 128; ++i) G2_SetOBJEffect(&objects[i], GX_OAM_EFFECT_NODISPLAY, 0);
     render_manager(objects, chr, palette, bank, animations, sequence, TRUE);
-    GXS_LoadOAM(objects, 0, sizeof(objects));
+    upload_manager(objects, TRUE);
 #else
     GX_LoadOAM(objects, 0, sizeof(objects)); GXS_LoadOAM(objects, 0, sizeof(objects));
 #endif
@@ -130,9 +137,9 @@ void NitroMain(void) {
         if (getenv("HG_SPRITE_PLAYBACK")) {
 #ifdef HG_SPRITE_MANAGER
             tick_manager(objects, FALSE);
-            GX_LoadOAM(objects, 0, sizeof(objects));
+            upload_manager(objects, FALSE);
             tick_manager(objects, TRUE);
-            GXS_LoadOAM(objects, 0, sizeof(objects));
+            upload_manager(objects, TRUE);
             if (frame == 160) destroy_managers();
 #else
             NNS_G2dTickCellAnimation(&animation, FX32_ONE);

@@ -12,7 +12,7 @@ jogável do jogo. 100% significa apenas que o escopo daquela issue foi concluíd
 | [#5](https://github.com/matheus013/firered-386/issues/5) | Acompanhamento geral | 25% das entregas encerradas (2/8) | Indicador administrativo; não é percentual de conclusão do jogo. |
 | [#6](https://github.com/matheus013/firered-386/issues/6) | Carregadores Nitro 2D | 100% | Concluída: 17 recursos × 512 ciclos com sanitizadores; limites documentados. |
 | [#7](https://github.com/matheus013/firered-386/issues/7) | Seis fundos da cena 4 | 100% | Concluída: comparação pixel a pixel e alternância single screen. |
-| [#8](https://github.com/matheus013/firered-386/issues/8) | Sprites e animações | 70% | Ciclo de vida, playback de 160 frames e composição animada BG1 aprovados; falta integração completa da cena e transferências. |
+| [#8](https://github.com/matheus013/firered-386/issues/8) | Sprites e animações | 75% | Playback com gerenciador OAM original e composição animada BG1 em diagnóstico aprovados; falta integração completa da cena e transferências. |
 | [#9](https://github.com/matheus013/firered-386/issues/9) | Fades, janelas e HBlank | 10% | Referências identificadas; efeitos 8/9 ainda precisam de integração e validação. |
 | [#10](https://github.com/matheus013/firered-386/issues/10) | Abertura original e menu | 10% | Dependências investigadas; boot e chegada ao menu ainda não executados. |
 | [#11](https://github.com/matheus013/firered-386/issues/11) | Build e execução Windows | 15% | Componentes nativos testados; executável completo e fluxo single screen Windows pendentes. |
