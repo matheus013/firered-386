@@ -12,6 +12,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef HG_SPRITE_MANAGER
+#include "probe_scene_sprite_manager.h"
+#endif
+
 void SingleScreen_ShowSubEngine(BOOL show);
 /* The SDK exposes these tables as definition macros, without a compiled owner. */
 NNS_G2D_DEFINE_NNSI_OBJSIZEWTBL;
@@ -81,6 +85,14 @@ void NitroMain(void) {
     memset(objects, 0, sizeof(objects));
     for (unsigned i = 0; i < 128; ++i) G2_SetOBJEffect(&objects[i], GX_OAM_EFFECT_NODISPLAY, 0);
     NNSG2dFVec2 origin = {128 * FX32_ONE, 96 * FX32_ONE};
+    if (getenv("HG_SPRITE_INITIAL_TRANSFORM")) {
+        unsigned element = seq->animType & 255;
+        if (element == NNS_G2D_ANIMELEMENT_INDEX_T) {
+            const NNSG2dAnimDataT *value = NNS_G2dGetAnimCtrlCurrentElement(&animation.animCtrl);
+            origin.x += value->px * FX32_ONE;
+            origin.y += value->py * FX32_ONE;
+        } else if (element != NNS_G2D_ANIMELEMENT_INDEX) abort();
+    }
     unsigned count = 0;
     if (!getenv("HG_SPRITE_DISABLE_DRAW"))
         count = NNS_G2dMakeCellToOams(objects, 128, cell, NULL, &origin, 0, FALSE);
@@ -99,7 +111,16 @@ void NitroMain(void) {
     GX_LoadOBJ(chr->pRawData, 0, chr->szByte); GXS_LoadOBJ(chr->pRawData, 0, chr->szByte);
     GX_LoadOBJPltt(palette->pRawData, 0, palette->szByte);
     GXS_LoadOBJPltt(palette->pRawData, 0, palette->szByte);
+#ifdef HG_SPRITE_MANAGER
+    for (unsigned i = 0; i < 128; ++i) G2_SetOBJEffect(&objects[i], GX_OAM_EFFECT_NODISPLAY, 0);
+    count = render_manager(objects, chr, palette, bank, animations, sequence, FALSE);
+    GX_LoadOAM(objects, 0, sizeof(objects));
+    for (unsigned i = 0; i < 128; ++i) G2_SetOBJEffect(&objects[i], GX_OAM_EFFECT_NODISPLAY, 0);
+    render_manager(objects, chr, palette, bank, animations, sequence, TRUE);
+    GXS_LoadOAM(objects, 0, sizeof(objects));
+#else
     GX_LoadOAM(objects, 0, sizeof(objects)); GXS_LoadOAM(objects, 0, sizeof(objects));
+#endif
     if (getenv("HG_SPRITE_COMPOSE")) load_backgrounds();
     printf("SPRITE case=%u sequence=%u cell_oams=%u emitted=%u\n", selected, sequence, cell->numOAMAttrs, count);
     fflush(stdout);

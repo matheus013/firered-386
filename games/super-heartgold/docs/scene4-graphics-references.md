@@ -280,3 +280,35 @@ Isso não constitui boot ou jogo jogável.
 ```sh
 python3 tools/verify_hgss_sprite_manager.py --hgss /private/hgss --probe /private/compatible-hgss-module-probe --stack /private/sdk --archive /private/a/2/6/2 --output /private/sprite-manager-new
 ```
+
+## Renderização estática pelo SpriteList original (29/10/2026)
+
+Consulta prévia no GitHub confirmou `GF_InitG2dRenderer` e
+`GF_InitG2dRenderSurface` na base ClickingMaster. O novo modo `--manager` usa
+essas funções e `src/sprite.c` originais, o header nativo adaptado e as unidades
+reais de renderização do SDK. Adaptadores de heap/arquivo e registro de OAM
+permanecem explícitos; o gerenciador OAM original do jogo não é usado.
+
+Seis casos, cada um com desenho ligado/desligado, passaram no Linux/WSLg.
+Capturas de ambos os motores coincidem pixel a pixel com a conversão direta
+cell/OAM do SDK, agora incluindo a translação inicial presente no NANR.
+As três mãos aparecem (6.464, 6.864 e 228 pixels); brilho e iniciais começam
+fora da tela nesta posição diagnóstica. Esses três casos verificam emissão
+OAM e igualdade de tela vazia, não comprovam sua aparência. Controles sem
+spritem são pretos. Uma captura do gerenciador foi inspecionada visualmente.
+
+A referência anterior ignorava a translação inicial: o primeiro confronto
+falhou por posição, não por pixels faltantes. `--initial-transform` fornece
+uma referência explícita com a translação para esse teste, preservando os
+modos antigos. Ambos os motores passam pela inicialização de superfície e
+renderização original antes do upload dos OAMs capturados.
+
+[Resultado](hgss-sprite-manager-render-test.json). Sem sanitizadores neste
+executável gráfico. Não cobre playback pelo SpriteList, affine, multicell,
+transferência, composição completa da abertura, Windows ou boot do jogo.
+
+```sh
+python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/initial-reference --initial-transform
+python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/manager-render --manager --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/initial-reference
+```
+

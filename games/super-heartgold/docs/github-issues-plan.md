@@ -152,3 +152,11 @@ unidades exercitadas (ASan de globais desativado). Gerenciador original, com
 adaptadores de heap/IO/assert. Ordenação, capacidade e reutilização verificadas.
 [Relatório](hgss-sprite-manager-test.json). Renderização pelo gerenciador,
 multicell, transferência e integração da cena continuam pendentes.
+
+### Issue #8 — primeiro teste gráfico do gerenciador original
+
+Renderização estática via SpriteList e GF_InitG2dRenderer aprovada em seis
+casos nos dois motores, com controles desativados e referência cell/OAM.
+Três casos são visíveis; três começam fora da tela e validam emissão OAM e
+tela vazia. [Relatório](hgss-sprite-manager-render-test.json).
+Ainda faltam playback pelo gerenciador e composição da abertura completa.

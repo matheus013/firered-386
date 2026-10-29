@@ -907,3 +907,10 @@ com ordenação, capacidade, reutilização e descarte verificados.
 [Relatório](hgss-sprite-manager-test.json). Usa adaptadores explícitos de heap/IO;
 não executa renderização, variantes multicell/transferência nem boot do jogo.
 Limites de instrumentação e reprodução constam no documento da cena 4.
+
+O modo gráfico de SpriteList também passou: seis casos estáticos, controles
+sem desenho e ambos os motores, com comparação pixel a pixel com a conversão
+cell/OAM do SDK. Três casos começam fora da tela; sua aparência não foi
+validada neste teste. [Relatório](hgss-sprite-manager-render-test.json).
+O teste usa renderer/superfícies originais com captura de OAM e heap/IO host;
+playback, composição da cena, gerenciador OAM original e boot continuam pendentes.
