@@ -872,3 +872,16 @@ casos passaram nos dois motores em single screen, com controles sem desenho
 pretos e inspeção visual. [Relatório](hgss-scene-sprites-test.json). É uma etapa
 estática anterior à integração de SpriteList e à reprodução das animações;
 detalhes e reprodução estão no documento de referências da cena 4.
+
+Em 29/10/2026, a reprodução temporal encontrou uma leitura fora do buffer no
+fim da sequência, no ramo nativo de `g2d_Animation.c`. A adaptação remove essa
+leitura e conserva a lógica comum de parada/reinício. Passaram seis sequências,
+7.224 ticks com ASan/UBSan e a recompilação do SDK. O diagnóstico gráfico de
+160 frames também passou para os seis sprites, aplicando seus deslocamentos.
+Relatórios: [controlador](hgss-animation-controller-test.json) e
+[playback gráfico](hgss-scene-playback-test.json). Ainda falta integrar o
+gerenciador de sprites, composição e fades à abertura original.
+
+A permissão de Issues foi liberada em 29/10/2026. O acompanhamento está na
+[issue #5](https://github.com/matheus013/firered-386/issues/5), com sprites na
+[issue #8](https://github.com/matheus013/firered-386/issues/8).

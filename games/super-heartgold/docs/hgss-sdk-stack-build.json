@@ -19,22 +19,23 @@
   "native_texture_upload_sha256": "38bfd09ded9db3deb09d532f4693c5c924a3414c663574e5f1a8a31895b5d58b",
   "native_palette_loader_sha256": "b27388da3ca665d958e33c750fcf0c2e2cb85847be3145ae3eaf35c4256388c2",
   "native_animation_loader_sha256": "51fed3c64e05962c5af576a66919d1cae0d48889b91d1f20b25a61e52493b0ef",
+  "native_animation_controller_sha256": "18c148867bf69a2f9551565aa107e1afa4d38ff186823aa3d4ee5bea61452759",
   "runtime_tested": false,
   "libraries": [
     {
       "file": "subprojects/libntrsystem/libraries/fnd/libnnsfnd.a",
       "bytes": 2682,
-      "sha256": "391f187a9e145b78cfeed4637fad4116bf4a074294a238ec0d0c9d5050377ca0"
+      "sha256": "66506db0b2f372bbe66f36b6d4156488f9eebb06d93421a5ca7aa38bfcf3fec8"
     },
     {
       "file": "subprojects/libntrsystem/libraries/g2d/libnnsg2d.a",
       "bytes": 12018,
-      "sha256": "a15d1fe82022f96c8c8edd32c186cfc27c1964893f9ac56c2e2445b76fb865cf"
+      "sha256": "352712151b3d9df2c09d5001f69d83b24620c1a6aed07d9085eaa87a3bab8fc5"
     },
     {
       "file": "subprojects/libntrsystem/libraries/g3d/libnnsg3d.a",
       "bytes": 8920,
-      "sha256": "f257f76f69dc3f9bbbf55b5610ef36f063d5f5c50e1aa15963f0fcc7aa8812c7"
+      "sha256": "69aed4eef6f0565bbbeed2d1c666c5e8f8398782d5a86560ea23c2bb6c5f78b8"
     },
     {
       "file": "subprojects/libntrsystem/libraries/gfd/libnnsgfd.a",
@@ -44,12 +45,12 @@
     {
       "file": "subprojects/libntrsystem/libraries/mcs/libnnsmcs.a",
       "bytes": 1054,
-      "sha256": "824ad6ac64ea0cb985407b6c4709cad364eb0eb16ff4a996c13ab96324cd1003"
+      "sha256": "2632c66fd81311f660bc177bf10b28b3478a607d49b8afc5b2c7e2d524a9f557"
     },
     {
       "file": "subprojects/libntrsystem/libraries/snd/libnnssnd.a",
       "bytes": 7766,
-      "sha256": "570986efbc9e52ed35767e625e0c99f4eda2b1402813b7e4d37108f5a9c15b8b"
+      "sha256": "59c53f23643fff5f02a6664c5b581022c525a0184d2db6ce5dcc8fea69fb0eea"
     }
   ]
 }

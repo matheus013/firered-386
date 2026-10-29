@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "scope": "animation_controller_not_rendering",
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "log": "sequence=0 duration=1076 mode=2 passed\nsequence=1 duration=1076 mode=2 passed\nsequence=2 duration=24 mode=1 passed\nsequence=0 duration=76 mode=1 passed\nsequence=0 duration=76 mode=1 passed\nsequence=0 duration=76 mode=1 passed\nPLAYBACK sequences=6 ticks=7224\n",
+  "original_overflow_reproduced": true,
+  "original_sha256": "35c33f780ee49752679df1380613c20720d5498df3f806522cf9b92300c7a0ff",
+  "adapted_sha256": "18c148867bf69a2f9551565aa107e1afa4d38ff186823aa3d4ee5bea61452759"
+}

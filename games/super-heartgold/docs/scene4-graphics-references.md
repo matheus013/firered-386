@@ -144,3 +144,52 @@ Limites: Linux/WSLg, áudio dummy, células iniciais estáticas, sem comparaçã
 pixel a pixel com um DS. Ainda não integra `SpriteList`, reprodução temporal,
 transformações SRT animadas, composição com BG/partículas ou fades. A issue de
 integração completa dos sprites permanece pendente.
+
+## Controlador de animações — 29/10/2026
+
+A pesquisa GitHub por `NNS_G2dTickCellAnimation` confirmou o caminho de
+`Sprite_UpdateAnim` no `sprite.c` original. A consulta por
+`SequenceEdgeHandleCommon_` no libntrsystem não encontrou correção indexada.
+O teste com as sequências reais reproduziu uma leitura fora do buffer nessa
+função: o ramo SDK_PORT acessava `pCurrent->frames` depois de avançar o ponteiro
+para além do último frame, antes da normalização do índice.
+
+`prepare_sdk_animation_controller.py` remove essa leitura adicional do caminho
+nativo, deixando a lógica comum de parada/reinício e normalização de limites
+tratar o fim da sequência. Verifica o hash do fonte antes de adaptar a cópia
+privada. O build SDK aplica a adaptação; a recompilação completa passou.
+
+`verify_sdk_animation_playback.py` compila o controlador completo com o loader
+NANR corrigido e a multiplicação de ponto fixo original do SDK. Primeiro exige
+o estouro de buffer com ASan no controlador original; em seguida confere cada
+índice, elemento e estado ativo na versão adaptada contra uma linha do tempo
+calculada pelas durações dos frames. Passaram seis sequências e 7.224 ticks,
+com ASan/UBSan. As duas mãos usam loop de 1.076 ticks; brilho termina após 24;
+cada inicial termina após 76. O teste atravessa três durações completas mais
+dois ticks para cada sequência. Não cobre reprodução reversa, callbacks,
+velocidade fracionária ou sequências com duração zero.
+
+Relatório: [hgss-animation-controller-test.json](hgss-animation-controller-test.json).
+
+```sh
+python3 tools/verify_sdk_animation_playback.py --stack /private/sdk-with-nanr-fix-before-controller-fix --archive /private/opening.narc --output /private/controller-new
+```
+
+O modo `verify_scene_sprites.py --playback` executa 160 frames por processo,
+avança o controlador original e aplica os deslocamentos INDEX_T de cada frame
+antes da conversão OAM. Os seis casos tiveram capturas distintas e pixels
+visíveis, enquanto os seis controles sem desenho permaneceram pretos. Foram
+capturados os frames 2/4/6/8/10 e depois a cada 20 até 160, para não perder o
+brilho curto. As capturas iniciais foram inspecionadas visualmente. Relatório:
+[hgss-scene-playback-test.json](hgss-scene-playback-test.json).
+
+```sh
+python3 tools/verify_scene_sprites.py --workspace /private/validated-backgrounds --stack /private/sdk-with-controller-fix --archive /private/opening.narc --output /private/playback-new --playback
+```
+
+O teste visual confirma mudança e visibilidade, sem comparar cada pixel com um
+DS. A igualdade entre motores foi validada no modo estático anterior; durante
+playback, as capturas de cada motor ocorrem em instantes distintos e não são
+comparadas entre si. O loop completo das mãos é coberto pelo teste do controlador,
+pois sua duração excede os 160 frames do teste gráfico. Ainda faltam SpriteList,
+composição com fundos/partículas, transformações SRT completas e fades.

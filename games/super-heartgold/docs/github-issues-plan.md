@@ -1,6 +1,9 @@
 # Issues planejadas — Super HeartGold nativo
 
-Preparado em 28/10/2026. **Ainda não publicado como issues:** a integração GitHub retornou HTTP 403, Resource not accessible by integration. O GitHub CLI local também não está autenticado. Nenhuma issue foi criada nesta tentativa.
+Preparado em 28/10/2026 e publicado como issues em 29/10/2026 após reconectar o
+plugin GitHub. Acompanhar pela [issue principal #5](https://github.com/matheus013/firered-386/issues/5).
+As entregas abaixo correspondem, na ordem, às issues #6–#13. Carregadores (#6)
+e fundos estáticos (#7) estão encerrados; as demais permanecem abertas.
 
 ## Issue principal: acompanhar o port nativo Windows single screen
 
@@ -10,12 +13,12 @@ Estado geral: ainda não jogável. Partículas, alternância de motor e componen
 
 Marco anterior: [8c919fc](https://github.com/matheus013/firered-386/commit/8c919fc).
 As correções de animações, testes e relatórios seguintes acompanham este documento
-no Git. A criação das issues foi tentada novamente em 28/10/2026 e continuou
-retornando HTTP 403. A publicação do código no repositório não cria as issues.
+no Git. As tentativas de 28/10/2026 retornavam HTTP 403; a conexão do plugin
+permitiu publicar as nove issues em 29/10/2026.
 
 Ordem de dependência: carregadores → fundos/sprites → fades e composição → boot/menu → primeiro trecho jogável → campanha/pós-jogo. A preparação da toolchain Windows pode ocorrer em paralelo, mas a validação Windows completa depende da integração do jogo.
 
-Atualizar a issue principal com os links das oito issues abaixo após criá-las. A cada entrega, registrar commit, plataforma, comando, resultado e limites do teste. Não usar compilação ou screenshots isoladas como comprovação de campanha jogável.
+A issue principal contém os links das oito entregas. A cada entrega, registrar commit, plataforma, comando, resultado e limites do teste. Não usar compilação ou screenshots isoladas como comprovação de campanha jogável.
 
 ## 1. [Super HeartGold] Corrigir e consolidar os carregadores Nitro 2D nativos
 
@@ -50,6 +53,13 @@ duas mãos, brilho e três iniciais. Usa controlador e conversão OAM do SDK,
 com imagens iguais nos dois motores e controles sem desenho inteiramente
 pretos. Relatório: [hgss-scene-sprites-test.json](hgss-scene-sprites-test.json).
 Não conclui a integração do gerenciador original nem a reprodução temporal.
+
+Em 29/10/2026, o controlador passou por 7.224 ticks com seis sequências, após
+corrigir uma leitura fora do buffer no término. O diagnóstico gráfico passou
+também em playback de 160 frames com deslocamentos, mudanças visíveis e
+controles sem desenho pretos. Ver [relatório temporal](hgss-animation-controller-test.json)
+e [relatório gráfico](hgss-scene-playback-test.json). A integração do gerenciador
+completo e a composição continuam pendentes na issue #8.
 
 - [ ] Integrar gerenciadores e transferências originais.
 - [ ] Desenhar mãos/efeitos e Chikorita, Cyndaquil e Totodile.

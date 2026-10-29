@@ -14,6 +14,7 @@ from verify_hgss_renderer import pixels
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--playback', action='store_true', help='Tick original sequences and apply their translations')
     for name in ('workspace', 'stack', 'archive', 'output'):
         parser.add_argument('--' + name, type=Path, required=True)
     args = parser.parse_args()
@@ -45,6 +46,12 @@ def main():
                             capture_output=True, text=True, timeout=600)
     (args.output / 'build.log').write_text(result.stdout + result.stderr)
     result.check_returncode()
+    capture = args.workspace / 'capture.so'
+    if args.playback:
+        capture = args.output / 'capture.so'
+        subprocess.run(['gcc', '-shared', '-fPIC', '-DHG_CAPTURE_LAST_FRAME=160', '-DHG_CAPTURE_EARLY_FRAMES=1',
+                        str(tools/'probe_libntr_frames.c'), '-I/usr/include/SDL2',
+                        '-lSDL2', '-ldl', '-o', str(capture)], check=True)
     banks = read_banks(raw)
     members = [81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96]
     assets = {i: banks[i] if i in (81,85,89,93) else decompress_lz10(banks[i]) for i in members}
@@ -57,28 +64,38 @@ def main():
             for member, data in assets.items():
                 (runtime / f'{member}.bin').write_bytes(data)
             (runtime / 'sim_config.ini').write_text('[General]\nScreenLayout=single\nSwapScreens=true\nWindowWidth=512\nWindowHeight=384\n')
-            env = dict(os.environ, LD_PRELOAD=str(args.workspace / 'capture.so'),
+            env = dict(os.environ, LD_PRELOAD=str(capture),
                        SDL_AUDIODRIVER='dummy', HG_SPRITE_CASE=str(case))
             env.pop('HG_SPRITE_DISABLE_DRAW', None)
+            env.pop('HG_SPRITE_PLAYBACK', None)
+            if args.playback:
+                env['HG_SPRITE_PLAYBACK'] = '1'
             if disabled:
                 env['HG_SPRITE_DISABLE_DRAW'] = '1'
             result = subprocess.run(['timeout', '-k', '3s', '30s', str(args.workspace / 'build/standalone/libntr')],
                                     cwd=runtime, env=env, capture_output=True, text=True, timeout=40)
             (runtime / 'run.log').write_text(result.stdout + result.stderr)
             result.check_returncode()
-            frames = [pixels(runtime / f'libntr-frame-{f}.ppm') for f in (60,120)]
-            if frames[0] != frames[1]:
+            captures = [2,4,6,8,10,*range(20,161,20)] if args.playback else (60,120)
+            frames = [pixels(runtime / f'libntr-frame-{f}.ppm') for f in captures]
+            if not args.playback and frames[0] != frames[1]:
                 raise ValueError('Same static cell differs between main and sub engines')
-            images[disabled] = frames[0]
-        if any(images[True]):
+            images[disabled] = frames
+        if any(any(frame) for frame in images[True]):
             raise ValueError('Disabled OAM conversion control is not black')
-        visible = sum(images[False][i:i+3] != bytes(3) for i in range(0,len(images[False]),3))
+        visible = max(sum(frame[i:i+3] != bytes(3) for i in range(0,len(frame),3)) for frame in images[False])
         if visible < 16:
             raise ValueError(f'No visible sprite for case {case}')
-        cases.append({'case': case, 'visible_pixels': visible, 'engines_equal': True, 'disabled_black': True})
+        distinct = len(set(images[False]))
+        if args.playback and distinct < 2:
+            raise ValueError(f'Animation did not visibly change for case {case}')
+        cases.append({'case': case, 'visible_pixels': visible, 'engines_equal': None if args.playback else True,
+                      'distinct_captures': distinct, 'disabled_black': True})
     report = {'passed': True, 'cases': cases, 'dimensions': [512,384],
               'platform': 'linux-x86_64', 'scope': 'static_initial_cells_not_full_sprite_manager_or_animation_playback',
               'harness_sha256': hashlib.sha256((tools / 'probe_scene_sprites.c').read_bytes()).hexdigest()}
+    if args.playback:
+        report['scope'] = '160_frame_SDK_cell_playback_with_translation_not_full_sprite_manager'
     (args.output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report))
 

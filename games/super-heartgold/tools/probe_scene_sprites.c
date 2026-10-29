@@ -1,4 +1,4 @@
-/* Static cell rendering through the SDK animation, OAM conversion and GX upload. */
+/* Cell rendering through SDK animation, OAM conversion and GX upload. */
 #include <nitro.h>
 #include <nitro/demo/DEMO.h>
 #include <nnsys/g2d/g2d_CellAnimation.h>
@@ -77,6 +77,24 @@ void NitroMain(void) {
     fflush(stdout);
     SingleScreen_ShowSubEngine(FALSE); DEMOStartDisplay();
     for (unsigned frame = 1;; ++frame) {
+        if (getenv("HG_SPRITE_PLAYBACK")) {
+            NNS_G2dTickCellAnimation(&animation, FX32_ONE);
+            cell = NNS_G2dGetCellAnimationCurrentCell(&animation);
+            if (!cell || cell->numOAMAttrs > 128) abort();
+            NNSG2dFVec2 position = origin;
+            unsigned element = seq->animType & 255;
+            if (element == NNS_G2D_ANIMELEMENT_INDEX_T) {
+                const NNSG2dAnimDataT *value = NNS_G2dGetAnimCtrlCurrentElement(&animation.animCtrl);
+                position.x += value->px * FX32_ONE;
+                position.y += value->py * FX32_ONE;
+            } else if (element != NNS_G2D_ANIMELEMENT_INDEX) abort();
+            for (unsigned i = 0; i < 128; ++i)
+                G2_SetOBJEffect(&objects[i], GX_OAM_EFFECT_NODISPLAY, 0);
+            if (!getenv("HG_SPRITE_DISABLE_DRAW"))
+                NNS_G2dMakeCellToOams(objects, 128, cell, NULL, &position, 0, FALSE);
+            GX_LoadOAM(objects, 0, sizeof(objects));
+            GXS_LoadOAM(objects, 0, sizeof(objects));
+        }
         if (frame == 40) SingleScreen_ShowSubEngine(TRUE);
         if (frame == 80) SingleScreen_ShowSubEngine(FALSE);
         OS_WaitVBlankIntr();
