@@ -341,3 +341,31 @@ a prova de liberação permanece no teste separado de ciclo de vida.
 python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/playback-reference --playback --initial-transform
 python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/manager-playback --manager --playback --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/playback-reference
 ```
+
+
+## Composição animada BG1 + SpriteList (29/10/2026)
+
+O modo `--animated-compose --manager --playback` reutiliza o gerenciador original
+já validado e o BG1 da cena 4. Seis casos de 160 frames, com desenho ligado e
+sem desenho, passaram em Linux/WSLg. As 78 capturas sem sprites coincidem
+integralmente com um dos dois mapas calculados pelo comparador CPU; ambos os
+motores são identificados em cada caso. Nas 78 capturas compostas, 170.756
+ocorrências de pixels coloridos dos sprites coincidem com o playback isolado
+no mesmo frame. Uma captura foi inspecionada visualmente.
+
+[Resultado](hgss-sprite-manager-composition-test.json). O comparador exige
+igualdade dos pixels coloridos e aceita fundo ou preto no restante. Portanto,
+não distingue preto opaco de transparência e não comprova a máscara alfa
+completa. Usa OBJ à frente de BG1; inversão de prioridades não foi testada.
+Posições são diagnósticas, não a composição final da máquina de estados.
+Continua sem gerenciador OAM/transferências original, fades, boot ou teste
+Windows. Sem sanitizadores neste executável gráfico.
+
+Antes da adaptação, consultados `SpriteList_RenderAndAnimateSprites` e
+`OamManager_ApplyAndResetBuffers` na base ClickingMaster no GitHub. O segundo
+já existe e será reutilizado na próxima integração, substituindo o registro
+OAM do diagnóstico.
+
+```sh
+python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/manager-composition --manager --playback --animated-compose --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/validated-manager-playback
+```

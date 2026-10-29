@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": 0,
+      "engines": [
+        "main",
+        "sub"
+      ],
+      "captures": 13,
+      "colored_pixels_matched": 51712,
+      "changed_pixels": 50568,
+      "background_controls_exact": true
+    },
+    {
+      "case": 1,
+      "engines": [
+        "main",
+        "sub"
+      ],
+      "captures": 13,
+      "colored_pixels_matched": 54912,
+      "changed_pixels": 53944,
+      "background_controls_exact": true
+    },
+    {
+      "case": 2,
+      "engines": [
+        "main",
+        "sub"
+      ],
+      "captures": 13,
+      "colored_pixels_matched": 3604,
+      "changed_pixels": 3604,
+      "background_controls_exact": true
+    },
+    {
+      "case": 3,
+      "engines": [
+        "main",
+        "sub"
+      ],
+      "captures": 13,
+      "colored_pixels_matched": 19944,
+      "changed_pixels": 21752,
+      "background_controls_exact": true
+    },
+    {
+      "case": 4,
+      "engines": [
+        "main",
+        "sub"
+      ],
+      "captures": 13,
+      "colored_pixels_matched": 22296,
+      "changed_pixels": 22292,
+      "background_controls_exact": true
+    },
+    {
+      "case": 5,
+      "engines": [
+        "main",
+        "sub"
+      ],
+      "captures": 13,
+      "colored_pixels_matched": 18288,
+      "changed_pixels": 18288,
+      "background_controls_exact": true
+    }
+  ],
+  "dimensions": [
+    512,
+    384
+  ],
+  "platform": "linux-x86_64",
+  "scope": "original_sprite_manager_playback_over_BG1_colored_pixel_comparison",
+  "harness_sha256": "bbbe34054c43b227b5cc379ec42d63dca8d770f8b3b80a550882fa3e90167043"
+}

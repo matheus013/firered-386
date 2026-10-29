@@ -21,21 +21,27 @@ def main():
     for name in ('workspace', 'stack', 'archive', 'output'):
         parser.add_argument('--' + name, type=Path, required=True)
     parser.add_argument('--initial-transform', action='store_true')
+    parser.add_argument('--animated-compose', action='store_true', help='Compose manager playback over BG1 using an isolated manager reference')
     parser.add_argument('--manager', action='store_true')
     parser.add_argument('--hgss', type=Path)
     parser.add_argument('--probe', type=Path)
     args = parser.parse_args()
-    if args.manager and (args.compose or not args.hgss or not args.probe or not args.sprite_reference):
+    if args.animated_compose:
+        if not args.manager or not args.playback:
+            parser.error('--animated-compose requires --manager --playback')
+        args.compose = True
+    if args.manager and ((args.compose and not args.animated_compose) or not args.hgss or not args.probe or not args.sprite_reference):
         parser.error('--manager requires --hgss, --probe, --sprite-reference')
     if args.initial_transform and (args.manager or args.compose):
         parser.error('--initial-transform requires standalone reference mode')
     if args.manager:
         reference = json.loads((args.sprite_reference/'result.json').read_text())
-        if not reference.get('passed') or (args.playback and reference.get('scope') != '160_frame_SDK_cell_playback_with_translation_not_full_sprite_manager') or (not args.playback and not reference.get('initial_translation_applied')):
+        expected_scope = ('original_sprite_manager_160_frame_playback_matches_SDK_reference' if args.animated_compose else '160_frame_SDK_cell_playback_with_translation_not_full_sprite_manager')
+        if not reference.get('passed') or (args.playback and reference.get('scope') != expected_scope) or (not args.playback and not reference.get('initial_translation_applied')):
             raise ValueError('Manager requires a passed reference with initial translation applied')
-    if args.compose and (args.playback or not args.sprite_reference):
+    if args.compose and not args.animated_compose and (args.playback or not args.sprite_reference):
         parser.error('--compose requires --sprite-reference and excludes --playback')
-    if args.compose:
+    if args.compose and not args.animated_compose:
         reference = json.loads((args.sprite_reference/'result.json').read_text())
         if not reference.get('passed') or reference.get('scope') != 'static_initial_cells_not_full_sprite_manager_or_animation_playback':
             raise ValueError('Require passed static sprite reference')
@@ -126,12 +132,41 @@ def main():
             frames = [pixels(runtime / f'libntr-frame-{f}.ppm') for f in captures]
             if not args.playback and not args.compose and frames[0] != frames[1]:
                 raise ValueError('Same static cell differs between main and sub engines')
-            if args.manager:
+            if args.manager and not args.animated_compose:
                 reference_dir = args.sprite_reference / f'case-{case}-' / ('disabled' if disabled else 'enabled')
                 for f, actual in zip(captures, frames):
                     if actual != pixels(reference_dir / f'libntr-frame-{f}.ppm'):
                         raise ValueError(f'Manager/reference mismatch: case {case}, disabled {disabled}, frame {f}')
             images[disabled] = frames
+        if args.animated_compose:
+            backgrounds = {name: expected_image(assets[53], assets[54], assets[member])
+                           for name, member in (('main',58),('sub',57))}
+            colored_total = changed_total = 0
+            engines = set()
+            for index, frame_number in enumerate(captures):
+                control = images[True][index]
+                matches = [name for name, bg in backgrounds.items() if control == bg]
+                if len(matches) != 1:
+                    raise ValueError('Background control does not identify one exact engine map')
+                engines.update(matches)
+                foreground = images[False][index]
+                isolated = pixels(args.sprite_reference/f'case-{case}-/enabled'/f'libntr-frame-{frame_number}.ppm')
+                for offset in range(0,len(control),3):
+                    sprite = isolated[offset:offset+3]
+                    actual = foreground[offset:offset+3]
+                    if sprite != bytes(3):
+                        colored_total += 1
+                        if actual != sprite:
+                            raise ValueError(f'Composed animation lost sprite pixel: case {case}, frame {frame_number}')
+                    elif actual not in (bytes(3), control[offset:offset+3]):
+                        raise ValueError('Unexpected pixel outside colored animated sprite footprint')
+                    changed_total += actual != control[offset:offset+3]
+            if engines != {'main','sub'} or colored_total < 16 or changed_total < 16:
+                raise ValueError('Composition did not cover both engines and a visible sprite')
+            cases.append({'case':case, 'engines':sorted(engines), 'captures':len(captures),
+                          'colored_pixels_matched':colored_total, 'changed_pixels':changed_total,
+                          'background_controls_exact':True})
+            continue
         if args.compose:
             reference_frame = pixels(args.sprite_reference/f'case-{case}-/enabled/libntr-frame-120.ppm')
             for index, member in enumerate((57,58)):
@@ -178,6 +213,8 @@ def main():
     if args.manager:
         report['scope'] = ('original_sprite_manager_160_frame_playback_matches_SDK_reference' if args.playback
                            else 'original_sprite_manager_static_rendering_matches_cell_reference')
+    if args.animated_compose:
+        report['scope'] = 'original_sprite_manager_playback_over_BG1_colored_pixel_comparison'
     (args.output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report))
 

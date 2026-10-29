@@ -168,3 +168,11 @@ Todos os casos ficam visíveis e mudam durante o teste. Ambos os motores são
 selecionados em single screen. [Relatório](hgss-sprite-manager-playback-test.json).
 Normalizações de velocidade/primeiro tick e limites constam no documento da
 cena 4. Faltam composição completa, transferências/gerenciador OAM original e boot.
+
+
+Composição animada BG1 + SpriteList aprovada: seis casos por 160 frames,
+78 controles de fundo exatos e 78 capturas compostas preservando 170.756
+ocorrências de pixels coloridos. Ambos os motores cobertos em cada caso.
+[Relatório](hgss-sprite-manager-composition-test.json). Não valida a máscara
+completa de preto/transparência, inversão de prioridades nem a cena completa.
+Próxima integração: gerenciador OAM original já localizado na base.
