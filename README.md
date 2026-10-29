@@ -1,5 +1,28 @@
 # FireRed 386
 
+## Status do Super HeartGold nativo — 29/10/2026
+
+**Ainda não jogável.** Objetivo: engine nativa no Windows com single screen.
+Os percentuais das issues #6–#13 são estimativas de avanço dentro de cada escopo,
+baseadas nos testes e pendências documentados; não representam prazo nem parcela
+jogável do jogo. 100% significa apenas que o escopo daquela issue foi concluído.
+
+| Issue | Entrega | Progresso | Estado e evidência / próxima etapa |
+|---|---|---:|---|
+| [#5](https://github.com/matheus013/firered-386/issues/5) | Acompanhamento geral | 25% das entregas encerradas (2/8) | Indicador administrativo; não é percentual de conclusão do jogo. |
+| [#6](https://github.com/matheus013/firered-386/issues/6) | Carregadores Nitro 2D | 100% | Concluída: 17 recursos × 512 ciclos com sanitizadores; limites documentados. |
+| [#7](https://github.com/matheus013/firered-386/issues/7) | Seis fundos da cena 4 | 100% | Concluída: comparação pixel a pixel e alternância single screen. |
+| [#8](https://github.com/matheus013/firered-386/issues/8) | Sprites e animações | 60% | Ciclo de vida e desenho estático do gerenciador original aprovados; falta integração completa da cena e transferências. |
+| [#9](https://github.com/matheus013/firered-386/issues/9) | Fades, janelas e HBlank | 10% | Referências identificadas; efeitos 8/9 ainda precisam de integração e validação. |
+| [#10](https://github.com/matheus013/firered-386/issues/10) | Abertura original e menu | 10% | Dependências investigadas; boot e chegada ao menu ainda não executados. |
+| [#11](https://github.com/matheus013/firered-386/issues/11) | Build e execução Windows | 15% | Componentes nativos testados; executável completo e fluxo single screen Windows pendentes. |
+| [#12](https://github.com/matheus013/firered-386/issues/12) | Primeiro trecho jogável e save | 0% | Depende de boot/menu; percurso, batalha e retomada ainda não validados. |
+| [#13](https://github.com/matheus013/firered-386/issues/13) | Campanha e pós-jogo | 0% | Validação ponta a ponta ainda não iniciada. |
+
+[Evidências e critérios por issue](games/super-heartgold/docs/github-issues-plan.md) ·
+[Testes gráficos e limites](games/super-heartgold/docs/scene4-graphics-references.md).
+A documentação de FireRed abaixo trata de outro jogo deste repositório.
+
 O README fica na raiz; os guias, relatórios de testes e o histórico de mudanças ficam em `docs/`. Os comandos de reprodução continuam sendo executados na raiz do projeto.
 
 **Prévia atual: [v0.5.0-preview.4](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.4)** — revisão de interface, EVs desde o início no Normal, Fada e 223 golpes novos. [Correções, imagens e validação](docs/UI_REVIEW.md). A migração completa para as regras modernas continua em desenvolvimento.
