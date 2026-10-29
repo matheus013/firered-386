@@ -6,6 +6,10 @@
 #include <nnsys/g2d/g2d_OAM.h>
 #endif
 #include <stddef.h>
+#ifdef HG_ORIGINAL_TRANSFERS
+#include "obj_char_transfer.h"
+#include "obj_pltt_transfer.h"
+#endif
 extern void WIN_CheckAndFreeAnimBank(void *, void *);
 typedef union HostAllocation { max_align_t alignment; size_t size; } HostAllocation;
 void GF_AssertFail(void) { abort(); }
@@ -64,8 +68,18 @@ static unsigned render_manager(GXOamAttr *objects, NNSG2dCharacterData *chr,
     NNSG2dImagePaletteProxy palette;
     NNS_G2dInitImageProxy(&image);
     NNS_G2dInitImagePaletteProxy(&palette);
+#ifdef HG_ORIGINAL_TRANSFERS
+    int resource_id = sub ? 2 : 1;
+    ObjCharTransferTaskTemplate chars = {chr, sub ? NNS_G2D_VRAM_TYPE_2DSUB : NNS_G2D_VRAM_TYPE_2DMAIN, resource_id, FALSE};
+    ObjPlttTransferTaskTemplate colors = {pal, chars.vram, pal->szByte / 32, resource_id};
+    if (!ObjCharTransfer_CreateTaskAndDoTransferFromTemplate(&chars) ||
+        !ObjPlttTransfer_CreateTaskAndDoTransferFromTemplate_ExtPlttBanned(&colors)) abort();
+    image = *ObjCharTransfer_GetProxyPtrByResID(resource_id);
+    palette = *ObjPlttTransfer_GetPlttProxyByID(resource_id);
+#else
     NNS_G2dLoadImage1DMapping(chr, 0, sub ? NNS_G2D_VRAM_TYPE_2DSUB : NNS_G2D_VRAM_TYPE_2DMAIN, &image);
     NNS_G2dLoadPalette(pal, 0, sub ? NNS_G2D_VRAM_TYPE_2DSUB : NNS_G2D_VRAM_TYPE_2DMAIN, &palette);
+#endif
     SpriteResourcesHeader header = {0};
     header.imageProxy = &image; header.plttProxy = &palette;
     header.cellData = cells; header.cellAnim = anims;

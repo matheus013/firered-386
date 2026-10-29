@@ -399,3 +399,30 @@ Windows e boot do jogo completo.
 ```sh
 python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/original-oam --manager --playback --original-oam --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/validated-manager-playback
 ```
+
+
+## Transferências iniciais originais de OBJ (29/10/2026)
+
+Consulta ao GitHub confirmou ObjCharTransfer_CreateTaskAndDoTransferFromTemplate
+na base ClickingMaster. O novo modo `--original-transfers` compila
+`obj_char_transfer.c` com a adaptação existente do nome mappingType e
+`obj_pltt_transfer.c` original. O diagnóstico não faz upload direto de tiles ou
+paletas neste modo: inicializa dois slots de tarefas, reserva espaço pelas
+rotinas originais, transfere os recursos e obtém os proxies por ID para SpriteList.
+Usa o caminho imediato de tiles e o caminho de paletas sem extensão.
+
+O encadeamento transferências → SpriteList → gerenciador OAM original passou
+em Linux/WSLg: seis casos por 160 frames, desenho ligado/desligado, **156 capturas
+idênticas** à referência aprovada. Todos os sprites ficam visíveis e mudam;
+controles sem desenho são pretos, com seleção dos dois motores em single screen.
+[Resultado](hgss-original-transfers-test.json).
+
+Escopo: carregamento inicial, um recurso por motor, proxies e renderização.
+Não cobre fila de transferências diferidas/VBlank, substituição de recursos,
+realocação, esgotamento/fragmentação, paletas estendidas, descarte/recriação dos
+gerenciadores ou composição BG neste modo. Heap/IO ainda host; sem sanitizadores
+neste executável. Abertura completa, fades e Windows continuam pendentes.
+
+```sh
+python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/original-transfers --manager --playback --original-oam --original-transfers --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/validated-manager-playback
+```

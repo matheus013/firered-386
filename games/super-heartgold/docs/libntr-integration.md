@@ -937,3 +937,9 @@ por 160 frames, com 156 capturas iguais à referência anterior. Criação, regi
 envio e reset usam código original/SDK real. [Relatório](hgss-original-oam-test.json).
 Não cobre composição BG neste modo, affine, saturação ou liberação/recriação
 OAM. Transferências originais, fades e abertura completa continuam pendentes.
+
+
+Transferências iniciais de tiles/paletas pelos gerenciadores originais aprovadas:
+seis animações por 160 frames, com SpriteList/OAM originais e 156 capturas iguais
+à referência. [Relatório](hgss-original-transfers-test.json). Ainda faltam fila
+diferida, substituição/realocação de recursos, composição completa e fades.

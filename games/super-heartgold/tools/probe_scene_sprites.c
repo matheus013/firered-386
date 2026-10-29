@@ -111,9 +111,17 @@ void NitroMain(void) {
     G2_BlendNone(); G2S_BlendNone();
     u16 backdrop = GX_RGB(0,0,0);
     GX_LoadBGPltt(&backdrop, 0, 2); GXS_LoadBGPltt(&backdrop, 0, 2);
+#ifndef HG_ORIGINAL_TRANSFERS
     GX_LoadOBJ(chr->pRawData, 0, chr->szByte); GXS_LoadOBJ(chr->pRawData, 0, chr->szByte);
     GX_LoadOBJPltt(palette->pRawData, 0, palette->szByte);
     GXS_LoadOBJPltt(palette->pRawData, 0, palette->szByte);
+#else
+    ObjCharTransferTemplate transfers = {2, 0x10000, 0x10000, 0};
+    ObjCharTransfer_InitEx(&transfers, chr->mappingType, chr->mappingType);
+    ObjCharTransfer_ClearBuffers();
+    ObjPlttTransfer_Init(2, 0);
+    ObjPlttTransfer_Reset();
+#endif
 #ifdef HG_ORIGINAL_OAM
     NNS_G2dInitOamManagerModule();
     ClearMainOAM(0); ClearSubOAM(0);

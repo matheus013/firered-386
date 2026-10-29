@@ -22,11 +22,14 @@ def main():
         parser.add_argument('--' + name, type=Path, required=True)
     parser.add_argument('--initial-transform', action='store_true')
     parser.add_argument('--animated-compose', action='store_true', help='Compose manager playback over BG1 using an isolated manager reference')
+    parser.add_argument('--original-transfers', action='store_true')
     parser.add_argument('--original-oam', action='store_true')
     parser.add_argument('--manager', action='store_true')
     parser.add_argument('--hgss', type=Path)
     parser.add_argument('--probe', type=Path)
     args = parser.parse_args()
+    if args.original_transfers and not args.original_oam:
+        parser.error('--original-transfers requires --original-oam')
     if args.original_oam and (not args.manager or not args.playback or args.animated_compose):
         parser.error('--original-oam requires --manager --playback without composition')
     if args.animated_compose:
@@ -82,6 +85,11 @@ def main():
         shutil.copyfile(args.hgss/'src/sprite.c', standalone/'sprite.c')
         shutil.copyfile(tools/'probe_scene_sprite_manager.h', standalone/'probe_scene_sprite_manager.h')
         names += ['sprite.c','gf_g2d_renderer.c']
+        if args.original_transfers:
+            prepare_graphics(args.hgss/'src/obj_char_transfer.c', standalone/'obj_char_transfer.c')
+            shutil.copyfile(args.hgss/'src/obj_pltt_transfer.c', standalone/'obj_pltt_transfer.c')
+            names += ['obj_char_transfer.c','obj_pltt_transfer.c']
+            flags += ['-DHG_ORIGINAL_TRANSFERS']
         if args.original_oam:
             prepare_graphics(args.hgss/'src/oam_manager.c', standalone/'oam_manager.c')
             shutil.copyfile(args.hgss/'src/g2d_cell_culling.c', standalone/'g2d_cell_culling.c')
@@ -227,6 +235,8 @@ def main():
         report['scope'] = 'original_sprite_manager_playback_over_BG1_colored_pixel_comparison'
     if args.original_oam:
         report['scope'] = 'original_OAM_manager_and_culling_playback_matches_capture_adapter'
+    if args.original_transfers:
+        report['scope'] = 'original_OBJ_char_palette_transfers_and_OAM_playback'
     (args.output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report))
 
