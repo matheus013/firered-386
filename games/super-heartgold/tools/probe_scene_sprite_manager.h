@@ -32,6 +32,9 @@ void *Sys_AllocAndReadFile(enum HeapID id, const char *path) {
 }
 static GXOamAttr *captured_oams;
 static unsigned captured_count;
+static SpriteList *playback_lists[2];
+static NNSG2dRendererInstance renderers[2];
+static NNSG2dRenderSurface surfaces[2];
 static BOOL capture_oam(const GXOamAttr *oam, u16 affine, BOOL doubled) {
     (void)affine;
     if (doubled || captured_count >= 128) abort();
@@ -42,12 +45,12 @@ static u16 reject_affine(const MtxFx22 *matrix) { (void)matrix; abort(); }
 static unsigned render_manager(GXOamAttr *objects, NNSG2dCharacterData *chr,
     NNSG2dPaletteData *pal, NNSG2dCellDataBank *cells, NNSG2dAnimBankData *anims,
     unsigned sequence, BOOL sub) {
-    NNSG2dRendererInstance renderer;
-    NNSG2dRenderSurface surface;
+    NNSG2dRendererInstance *renderer = &renderers[sub != 0];
+    NNSG2dRenderSurface *surface = &surfaces[sub != 0];
     NNSG2dViewRect view = {{0,0}, {256 * FX32_ONE,192 * FX32_ONE}};
-    GF_InitG2dRenderer(&renderer, 0);
-    GF_InitG2dRenderSurface(&surface, &view, capture_oam, reject_affine, NULL,
-        sub ? NNS_G2D_SURFACETYPE_SUB2D : NNS_G2D_SURFACETYPE_MAIN2D, &renderer);
+    GF_InitG2dRenderer(renderer, 0);
+    GF_InitG2dRenderSurface(surface, &view, capture_oam, reject_affine, NULL,
+        sub ? NNS_G2D_SURFACETYPE_SUB2D : NNS_G2D_SURFACETYPE_MAIN2D, renderer);
     NNSG2dImageProxy image;
     NNSG2dImagePaletteProxy palette;
     NNS_G2dInitImageProxy(&image);
@@ -57,7 +60,7 @@ static unsigned render_manager(GXOamAttr *objects, NNSG2dCharacterData *chr,
     SpriteResourcesHeader header = {0};
     header.imageProxy = &image; header.plttProxy = &palette;
     header.cellData = cells; header.cellAnim = anims;
-    SpriteListParam param = {1, &renderer, 0};
+    SpriteListParam param = {1, renderer, 0};
     SpriteList *list = SpriteList_Create(&param);
     if (!list) abort();
     SpriteTemplate template = {0};
@@ -68,6 +71,7 @@ static unsigned render_manager(GXOamAttr *objects, NNSG2dCharacterData *chr,
     Sprite *sprite = Sprite_CreateAffine(&template);
     if (!sprite) abort();
     Sprite_SetAnimCtrlSeq(sprite, sequence);
+    Sprite_SetAnimSpeed(sprite, FX32_ONE);
     Sprite_SetAnimActiveFlag(sprite, FALSE);
     Sprite_SetDrawFlag(sprite, !getenv("HG_SPRITE_DISABLE_DRAW"));
     captured_oams = objects; captured_count = 0;
@@ -77,7 +81,26 @@ static unsigned render_manager(GXOamAttr *objects, NNSG2dCharacterData *chr,
     unsigned expected = getenv("HG_SPRITE_DISABLE_DRAW") ? 0 :
         NNS_G2dGetCellAnimationCurrentCell(&state->animation)->numOAMAttrs;
     if (count != expected) abort();
-    if (!SpriteList_Delete(list)) abort();
+    if (getenv("HG_SPRITE_PLAYBACK")) {
+        playback_lists[sub != 0] = list;
+        Sprite_SetAnimActiveFlag(sprite, TRUE);
+        /* Original manager draws before ticking. Prime one tick to match the SDK reference. */
+        Sprite_UpdateAnim(sprite, FX32_ONE);
+    } else if (!SpriteList_Delete(list)) abort();
     return count;
 }
 
+
+static void tick_manager(GXOamAttr *objects, BOOL sub) {
+    SpriteList *list = playback_lists[sub != 0];
+    if (!list) abort();
+    for (unsigned i = 0; i < 128; ++i) G2_SetOBJEffect(&objects[i], GX_OAM_EFFECT_NODISPLAY, 0);
+    captured_oams = objects; captured_count = 0;
+    SpriteList_RenderAndAnimateSprites(list);
+}
+static void destroy_managers(void) {
+    for (unsigned i = 0; i < 2; ++i) {
+        if (!SpriteList_Delete(playback_lists[i])) abort();
+        playback_lists[i] = NULL;
+    }
+}

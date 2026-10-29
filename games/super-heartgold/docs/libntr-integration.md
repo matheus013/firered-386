@@ -914,3 +914,11 @@ cell/OAM do SDK. Três casos começam fora da tela; sua aparência não foi
 validada neste teste. [Relatório](hgss-sprite-manager-render-test.json).
 O teste usa renderer/superfícies originais com captura de OAM e heap/IO host;
 playback, composição da cena, gerenciador OAM original e boot continuam pendentes.
+
+
+Playback do SpriteList original aprovado em 29/10/2026: seis casos durante
+160 frames, desenho ligado/desligado e 156 capturas idênticas à referência SDK.
+Todos os casos ficam visíveis e mudam durante o teste. Ambos os motores são
+selecionados em single screen. [Relatório](hgss-sprite-manager-playback-test.json).
+Normalizações de velocidade/primeiro tick e limites constam no documento da
+cena 4. Faltam composição completa, transferências/gerenciador OAM original e boot.

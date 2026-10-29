@@ -25,13 +25,13 @@ def main():
     parser.add_argument('--hgss', type=Path)
     parser.add_argument('--probe', type=Path)
     args = parser.parse_args()
-    if args.manager and (args.playback or args.compose or not args.hgss or not args.probe or not args.sprite_reference):
-        parser.error('--manager requires --hgss, --probe, --sprite-reference and static mode')
-    if args.initial_transform and (args.manager or args.playback or args.compose):
-        parser.error('--initial-transform requires standalone static reference mode')
+    if args.manager and (args.compose or not args.hgss or not args.probe or not args.sprite_reference):
+        parser.error('--manager requires --hgss, --probe, --sprite-reference')
+    if args.initial_transform and (args.manager or args.compose):
+        parser.error('--initial-transform requires standalone reference mode')
     if args.manager:
         reference = json.loads((args.sprite_reference/'result.json').read_text())
-        if not reference.get('passed') or not reference.get('initial_translation_applied'):
+        if not reference.get('passed') or (args.playback and reference.get('scope') != '160_frame_SDK_cell_playback_with_translation_not_full_sprite_manager') or (not args.playback and not reference.get('initial_translation_applied')):
             raise ValueError('Manager requires a passed reference with initial translation applied')
     if args.compose and (args.playback or not args.sprite_reference):
         parser.error('--compose requires --sprite-reference and excludes --playback')
@@ -176,7 +176,8 @@ def main():
     if args.initial_transform:
         report['initial_translation_applied'] = True
     if args.manager:
-        report['scope'] = 'original_sprite_manager_static_rendering_matches_cell_reference'
+        report['scope'] = ('original_sprite_manager_160_frame_playback_matches_SDK_reference' if args.playback
+                           else 'original_sprite_manager_static_rendering_matches_cell_reference')
     (args.output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report))
 

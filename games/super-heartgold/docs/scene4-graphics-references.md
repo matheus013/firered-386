@@ -312,3 +312,32 @@ python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack 
 python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/manager-render --manager --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/initial-reference
 ```
 
+
+
+## Playback pelo SpriteList original (29/10/2026)
+
+Consulta ao GitHub da base confirmou que SpriteList_RenderAndAnimateSprites
+primeiro desenha e depois atualiza a animação. O diagnóstico agora conserva
+listas, renderizadores e superfícies durante 160 frames por processo, em ambos
+os motores. Define velocidade 1 explicitamente (o padrão de Sprite_CreateAffine
+é 2) e avança um tick antes do loop para igualar a referência, que atualiza antes
+de desenhar. A referência passou a aplicar a translação NANR também na imagem
+inicial. Nenhuma dessas normalizações altera a engine original.
+
+Seis casos com desenho ligado/desligado, 13 capturas por processo (frames
+2/4/6/8/10 e 20–160 de 20 em 20): **156 capturas comparadas pixel a pixel,
+sem divergências**. Todos os seis casos têm pixels visíveis e múltiplas imagens
+distintas; os controles sem desenho são pretos. A seleção single screen alterna
+os motores nos frames 40 e 80. Não se exige igualdade entre motores capturados
+em tempos diferentes; cada captura é comparada ao mesmo frame da referência.
+
+[Resultado](hgss-sprite-manager-playback-test.json). Este teste gráfico não usa
+sanitizadores. Ainda usa heap/IO e registro OAM de diagnóstico; não valida o
+gerenciador OAM/transferências original, affine/multicell, composição completa,
+Windows ou boot. A finalização é limitada pela captura que encerra o processo;
+a prova de liberação permanece no teste separado de ciclo de vida.
+
+```sh
+python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/playback-reference --playback --initial-transform
+python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/manager-playback --manager --playback --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/playback-reference
+```

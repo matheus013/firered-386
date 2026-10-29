@@ -85,17 +85,18 @@ void NitroMain(void) {
     memset(objects, 0, sizeof(objects));
     for (unsigned i = 0; i < 128; ++i) G2_SetOBJEffect(&objects[i], GX_OAM_EFFECT_NODISPLAY, 0);
     NNSG2dFVec2 origin = {128 * FX32_ONE, 96 * FX32_ONE};
+    NNSG2dFVec2 initial_origin = origin;
     if (getenv("HG_SPRITE_INITIAL_TRANSFORM")) {
         unsigned element = seq->animType & 255;
         if (element == NNS_G2D_ANIMELEMENT_INDEX_T) {
             const NNSG2dAnimDataT *value = NNS_G2dGetAnimCtrlCurrentElement(&animation.animCtrl);
-            origin.x += value->px * FX32_ONE;
-            origin.y += value->py * FX32_ONE;
+            initial_origin.x += value->px * FX32_ONE;
+            initial_origin.y += value->py * FX32_ONE;
         } else if (element != NNS_G2D_ANIMELEMENT_INDEX) abort();
     }
     unsigned count = 0;
     if (!getenv("HG_SPRITE_DISABLE_DRAW"))
-        count = NNS_G2dMakeCellToOams(objects, 128, cell, NULL, &origin, 0, FALSE);
+        count = NNS_G2dMakeCellToOams(objects, 128, cell, NULL, &initial_origin, 0, FALSE);
     if (count && count != cell->numOAMAttrs) abort();
 
     DEMOInitCommon(); DEMOInitVRAM();
@@ -127,6 +128,13 @@ void NitroMain(void) {
     SingleScreen_ShowSubEngine(FALSE); DEMOStartDisplay();
     for (unsigned frame = 1;; ++frame) {
         if (getenv("HG_SPRITE_PLAYBACK")) {
+#ifdef HG_SPRITE_MANAGER
+            tick_manager(objects, FALSE);
+            GX_LoadOAM(objects, 0, sizeof(objects));
+            tick_manager(objects, TRUE);
+            GXS_LoadOAM(objects, 0, sizeof(objects));
+            if (frame == 160) destroy_managers();
+#else
             NNS_G2dTickCellAnimation(&animation, FX32_ONE);
             cell = NNS_G2dGetCellAnimationCurrentCell(&animation);
             if (!cell || cell->numOAMAttrs > 128) abort();
@@ -143,6 +151,7 @@ void NitroMain(void) {
                 NNS_G2dMakeCellToOams(objects, 128, cell, NULL, &position, 0, FALSE);
             GX_LoadOAM(objects, 0, sizeof(objects));
             GXS_LoadOAM(objects, 0, sizeof(objects));
+#endif
         }
         if (frame == 40) SingleScreen_ShowSubEngine(TRUE);
         if (frame == 80) SingleScreen_ShowSubEngine(FALSE);
