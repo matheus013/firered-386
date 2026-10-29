@@ -252,3 +252,31 @@ python3 tools/verify_hgss_sprite_storage.py --hgss /private/hgss --probe /privat
 
 Essa correção remove um bloqueio de layout para a integração do gerenciador;
 a ligação e execução completa de SpriteList permanecem pendentes na issue #8.
+
+## Ciclo de vida do gerenciador original (29/10/2026)
+
+Após consultar `SpriteList_Create` no GitHub da base ClickingMaster, o teste
+reutiliza `src/sprite.c` integral e controladores/carregadores nativos do SDK.
+Não há substituição das funções de SpriteList. Somente heap, leitura de arquivo
+e falhas de assert têm adaptadores explícitos no executável de teste.
+
+`verify_hgss_sprite_manager.py` passou em Linux x86_64: 64 listas criadas e
+liberadas, 448 sprites criados e 61.440 ticks. Verifica lista duplamente ligada,
+ordem por prioridade, recusa acima da capacidade, reutilização do slot excluído,
+preservação dos proxies e retorno ao número inicial de alocações.
+Usa NCER 88/NANR 87 da abertura e o NANR padrão da base; fontes e dados ficam privados.
+
+ASan/UBSan instrumentam as unidades compiladas. A instrumentação ASan de globais
+fica desativada para permitir descartar a tabela de callbacks de renderização
+não usada; heap e pilha continuam instrumentados. O arquivo precompilado de
+fallback matemático não é instrumentado. O renderer é zerado apenas para os
+campos de configuração acessados: não é inicializado nem usado para desenhar.
+
+Cobertura: variante CELL, animação inteira e ciclo de vida. Não cobre draw,
+transferência de células, multicell, cena completa, heap original ou Windows.
+Isso não constitui boot ou jogo jogável.
+[Resultado](hgss-sprite-manager-test.json).
+
+```sh
+python3 tools/verify_hgss_sprite_manager.py --hgss /private/hgss --probe /private/compatible-hgss-module-probe --stack /private/sdk --archive /private/a/2/6/2 --output /private/sprite-manager-new
+```

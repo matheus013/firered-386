@@ -899,4 +899,11 @@ A preparação dos headers agora usa armazenamento nativo alinhado para as três
 variantes. Testes de capacidade, alinhamento e campos adjacentes passaram com
 ASan/UBSan; `sprite.c` completo compilou. [Relatório](hgss-sprite-storage-test.json).
 Recompilar todos os consumidores desse header antes de ligar o gerenciador;
-não misturar com objetos anteriores. SpriteList ainda não foi executado.
+não misturar com objetos anteriores. SpriteList agora passou no teste de ciclo de vida abaixo.
+
+
+O gerenciador original passou em 64 ciclos, 448 criações e 61.440 ticks no Linux,
+com ordenação, capacidade, reutilização e descarte verificados.
+[Relatório](hgss-sprite-manager-test.json). Usa adaptadores explícitos de heap/IO;
+não executa renderização, variantes multicell/transferência nem boot do jogo.
+Limites de instrumentação e reprodução constam no documento da cena 4.

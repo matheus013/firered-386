@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "platform": "linux-x86_64",
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "asan_globals": false,
+  "prebuilt_fx_archive_instrumented": false,
+  "scope": "original_SpriteList_lifecycle_with_host_heap_and_file_adapters_no_rendering",
+  "cycles": 64,
+  "sprite_creations": 448,
+  "animation_ticks": 61440,
+  "log": "64 SpriteList cycles, 448 creates, capacity/reuse/order and 61440 ticks passed\n",
+  "sprite_source_sha256": "0f370d6f780abe5cc039e22cba22f0c7dc873b61ad028e7565078b2230912be3"
+}

@@ -144,3 +144,11 @@ Depende de boot/menu e runtime Windows. Estado atual: não validado.
 - [ ] Publicar itens aprovados, falhos e não testados.
 
 Depende do primeiro trecho jogável. Não exige Pokédex completa. Não presume que as modificações anteriores de FireRed estejam implementadas nesta base HeartGold/SoulSilver.
+
+### Evidência adicional da issue #8 — ciclo de vida de SpriteList
+
+64 ciclos, 448 criações e 61.440 ticks aprovados no Linux com ASan/UBSan nas
+unidades exercitadas (ASan de globais desativado). Gerenciador original, com
+adaptadores de heap/IO/assert. Ordenação, capacidade e reutilização verificadas.
+[Relatório](hgss-sprite-manager-test.json). Renderização pelo gerenciador,
+multicell, transferência e integração da cena continuam pendentes.
