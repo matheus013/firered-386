@@ -14,7 +14,7 @@ jogável do jogo. 100% significa apenas que o escopo daquela issue foi concluíd
 | [#7](https://github.com/matheus013/firered-386/issues/7) | Seis fundos da cena 4 | 100% | Concluída: comparação pixel a pixel e alternância single screen. |
 | [#8](https://github.com/matheus013/firered-386/issues/8) | Sprites e animações | 85% | Transferências iniciais/diferidas, troca de recursos no VBlank e SpriteList/OAM originais aprovados em diagnóstico; falta integrar e validar a cena completa. |
 | [#9](https://github.com/matheus013/firered-386/issues/9) | Fades, janelas e HBlank | 75% | Fades 8/9 com BG1 + OBJ e pan original com WIN0/WIN1 validados; faltam 3D, janela OBJ e cena completa. |
-| [#10](https://github.com/matheus013/firered-386/issues/10) | Abertura original e menu | 10% | Dependências investigadas; boot e chegada ao menu ainda não executados. |
+| [#10](https://github.com/matheus013/firered-386/issues/10) | Abertura original e menu | 10% | Scroll original de BG1 validado nas filas VBlank/principal; boot e chegada ao menu ainda não executados. |
 | [#11](https://github.com/matheus013/firered-386/issues/11) | Build e execução Windows | 15% | Componentes nativos testados; executável completo e fluxo single screen Windows pendentes. |
 | [#12](https://github.com/matheus013/firered-386/issues/12) | Primeiro trecho jogável e save | 0% | Depende de boot/menu; percurso, batalha e retomada ainda não validados. |
 | [#13](https://github.com/matheus013/firered-386/issues/13) | Campanha e pós-jogo | 0% | Validação ponta a ponta ainda não iniciada. |

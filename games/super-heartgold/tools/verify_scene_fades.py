@@ -27,6 +27,10 @@ def run(args, tools, raw):
     for key in ('HG_SPRITE_PLAYBACK','HG_SPRITE_INITIAL_TRANSFORM'): env.pop(key,None)
     result=subprocess.run(['timeout','-k','3s','30s',str(args.workspace/'build/standalone/libntr')],cwd=runtime,env=env,capture_output=True,text=True,timeout=40)
     (runtime/'run.log').write_text(result.stdout+result.stderr); result.check_returncode()
+    if args.bg_scroll:
+        from verify_scene_scroll import verify
+        verify(args,assets,runtime,result.stdout)
+        return
     for frame in (30,70,110,150):
         if f'FADE completed frame={frame}' not in result.stdout: raise ValueError('Missing completion evidence')
     palette = bytearray(assets[53])

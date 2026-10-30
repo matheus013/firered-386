@@ -24,6 +24,7 @@ def main():
     parser.add_argument('--animated-compose', action='store_true', help='Compose manager playback over BG1 using an isolated manager reference')
     parser.add_argument('--scanline-windows', action='store_true')
     parser.add_argument('--window-pan', action='store_true')
+    parser.add_argument('--bg-scroll', action='store_true')
     parser.add_argument('--fade-sprites', action='store_true')
     parser.add_argument('--fade-probe', action='store_true')
     parser.add_argument('--deferred-transfers', action='store_true')
@@ -33,6 +34,8 @@ def main():
     parser.add_argument('--hgss', type=Path)
     parser.add_argument('--probe', type=Path)
     args = parser.parse_args()
+    if args.bg_scroll and (not args.fade_probe or args.fade_sprites or args.window_pan):
+        parser.error('--bg-scroll requires --fade-probe without other fade modes')
     if args.window_pan and (not args.fade_probe or args.fade_sprites):
         parser.error('--window-pan requires --fade-probe without --fade-sprites')
     if args.fade_sprites and not args.fade_probe:
@@ -119,10 +122,17 @@ def main():
             # Retain original system interrupt functions; host file IO remains explicit.
             (standalone/'fade_system.c').write_text('#define Sys_AllocAndReadFile UnusedOriginalFileReader\n'+(args.hgss/'src/system.c').read_text())
             names += ['screen_fade_effects.c','fade_system.c']
-            if args.window_pan:
+            if args.window_pan or args.bg_scroll:
                 shutil.copyfile(args.hgss/'src/intro_movie_scenes_lib.c',standalone/'intro_movie_scenes_lib.c')
                 names += ['intro_movie_scenes_lib.c']
+            if args.window_pan:
                 flags += ['-DHG_WINDOW_PAN']
+            if args.bg_scroll:
+                shutil.copyfile(args.hgss/'src/bg_window.c',standalone/'bg_window.c')
+                shutil.copyfile(args.hgss/'src/math_util.c',standalone/'math_util.c')
+                shutil.copyfile(tools/'probe_scene_scroll.h',standalone/'probe_scene_scroll.h')
+                names += ['bg_window.c','math_util.c']
+                flags += ['-DHG_BG_SCROLL']
             flags += ['-DHG_FADE_PROBE','-DOS_IE_VBLANK=OS_IE_V_BLANK','-DOS_IE_HBLANK=OS_IE_H_BLANK']
         if args.original_transfers:
             prepare_graphics(args.hgss/'src/obj_char_transfer.c', standalone/'obj_char_transfer.c')

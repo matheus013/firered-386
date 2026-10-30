@@ -197,6 +197,9 @@ void NitroMain(void) {
 void VBlankIntr(void) {
 #ifdef HG_FADE_PROBE
     if (gSystem.vblankTaskQueue) SysTaskQueue_RunTasks(gSystem.vblankTaskQueue);
+#ifdef HG_BG_SCROLL
+    DoScheduledBgGpuUpdates(&scroll_config);
+#endif
 #endif
 #ifdef HG_DEFERRED_TRANSFERS
     GF_RunVramTransferTasks();

@@ -2,6 +2,9 @@
 #include "screen_fade.h"
 #include "system.h"
 void *Heap_AllocAtEnd(enum HeapID id, u32 size) { return Heap_Alloc(id, size); }
+#ifdef HG_BG_SCROLL
+#include "probe_scene_scroll.h"
+#endif
 #ifdef HG_WINDOW_PAN
 #include "intro_movie_internal.h"
 static IntroMovieBgWindowAnim pan_windows[2];
@@ -35,12 +38,14 @@ static void prepare_fades(void) {
         *queues[i] = SysTaskQueue_PlacementNew(32, memory);
         if (!*queues[i]) abort();
     }
-#ifdef HG_WINDOW_PAN
+#if defined(HG_WINDOW_PAN) || defined(HG_BG_SCROLL)
     u16 black=0; GX_LoadBGPltt(&black,0,2); GXS_LoadBGPltt(&black,0,2);
+#ifdef HG_WINDOW_PAN
     for (int screen=0;screen<2;++screen) {
         IntroMovie_WindowsOn_SetInsideOutsidePlanes(30,28,1,1,screen);
         IntroMovie_SetBgWindowsPosition(255,0,255,192,screen);
     }
+#endif
     SetMasterBrightnessNeutral(PM_LCD_TOP); SetMasterBrightnessNeutral(PM_LCD_BOTTOM);
 #else
     SetMasterBrightnessByColor(PM_LCD_TOP, GX_RGB(0,0,0));
@@ -48,6 +53,10 @@ static void prepare_fades(void) {
 #endif
 }
 static void update_fades(unsigned frame) {
+#ifdef HG_BG_SCROLL
+    update_scroll(frame);
+    return;
+#endif
 #ifdef HG_WINDOW_PAN
     update_window_pan(frame);
     return;

@@ -215,3 +215,6 @@ completa. Issue #9 passa a 70% estimados e permanece aberta.
 
 
 Em 30/10/2026, o pan original da abertura passou com WIN0/WIN1 e intervalos circulares: quatro fases, finais exatos e tarefas VBlank concluídas. Fixtures com sanitizadores cobrem prioridade e bordas; regressão de fades BG1 + OBJ aprovada. Issue #9 estimada em 75%, ainda aberta. [Evidências, reprodução e limites](window-pan-validation.md). O jogo completo permanece não jogável.
+
+
+Em 30/10/2026, scroll finito original de BG1 aprovado no diagnóstico Linux: 36 capturas intermediárias e quatro finais exatos contra decodificação CPU independente, com tarefas VBlank/principal e commits originais. Regressão WIN0/WIN1 aprovada. Issue #10 permanece em 10%; não houve execução do boot/menu. [Evidências e limites](bg-scroll-validation.md).

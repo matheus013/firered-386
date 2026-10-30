@@ -15,7 +15,7 @@ from prepare_hgss_opening_headers import ARCHIVE_SHA256, decompress_lz10
 from verify_hgss_renderer import pixels
 
 
-def expected_image(palette, character, screen):
+def expected_image(palette, character, screen, x_offset=0, y_offset=0):
     """Independent 4bpp text-map decoder; no SDK descriptor structures."""
     colors = palette[24 + struct.unpack_from('<I', palette, 36)[0]:][:0x80]
     tiles = character[24 + struct.unpack_from('<I', character, 44)[0]:]
@@ -24,9 +24,10 @@ def expected_image(palette, character, screen):
     for y in range(192):
         row = bytearray()
         for x in range(256):
-            entry = struct.unpack_from('<H', mapping, 2 * ((y // 8) * 32 + x // 8))[0]
-            tx = (x % 8) ^ (7 if entry & 0x400 else 0)
-            ty = (y % 8) ^ (7 if entry & 0x800 else 0)
+            sx, sy = (x+x_offset)%256, (y+y_offset)%256
+            entry = struct.unpack_from('<H', mapping, 2 * ((sy // 8) * 32 + sx // 8))[0]
+            tx = (sx % 8) ^ (7 if entry & 0x400 else 0)
+            ty = (sy % 8) ^ (7 if entry & 0x800 else 0)
             packed = tiles[(entry & 0x3ff) * 32 + ty * 4 + tx // 2]
             index = (packed >> (4 * (tx % 2))) & 15
             index = (entry >> 12) * 16 + index if index else 0
