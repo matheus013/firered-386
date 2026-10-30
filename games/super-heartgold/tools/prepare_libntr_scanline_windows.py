@@ -8,14 +8,22 @@ struct HGWindowLine {
     u16 h0, h1, v0, v1, inside, outside;
 };
 extern HGWindowLine hg_window_lines[2][192];
-// WIN0 clipping for the normal OBJ color path; other window modes are unchanged.
-static inline bool HG_ObjWindow0Pass(unsigned engine, unsigned x, unsigned y) {
+static inline bool HG_WindowRange(unsigned pos, u16 range) {
+    unsigned start = range >> 8, end = range & 255;
+    return start <= end ? pos >= start && pos < end : pos >= start || pos < end;
+}
+static inline bool HG_WindowPass(unsigned engine, unsigned x, unsigned y, unsigned plane) {
     const HGWindowLine &state = hg_window_lines[engine != 0][y];
-    if (!(state.display & (1u << 13))) return true;
-    bool inside = x >= (state.h0 >> 8) && x < (state.h0 & 255) &&
-                  y >= (state.v0 >> 8) && y < (state.v0 & 255);
-    unsigned planes = inside ? state.inside : state.outside;
-    return (planes & (1u << 4)) != 0;
+    if (!(state.display & (3u << 13))) return true;
+    unsigned planes = state.outside;
+    if ((state.display & (1u << 13)) && HG_WindowRange(x,state.h0) && HG_WindowRange(y,state.v0))
+        planes = state.inside;
+    else if ((state.display & (1u << 14)) && HG_WindowRange(x,state.h1) && HG_WindowRange(y,state.v1))
+        planes = state.inside >> 8;
+    return (planes & (1u << plane)) != 0;
+}
+static inline bool HG_ObjWindow0Pass(unsigned engine, unsigned x, unsigned y) {
+    return HG_WindowPass(engine,x,y,4);
 }
 '''
 CAPTURE = '''
@@ -46,6 +54,16 @@ def replace_once(text, before, after):
     return text.replace(before,after)
 
 
+def upgrade_bg_windows(g2):
+    import re
+    text = g2.read_text()
+    if text.count('HG_WindowPass(isSub, i, line, bgnum)') == 2: return
+    pattern = r'      u8 windowPass = TRUE;\n\n      if \(win0Enabled\) \{.*?\n      \}'
+    text, count = re.subn(pattern, '      u8 windowPass = HG_WindowPass(isSub, i, line, bgnum);', text, flags=re.S)
+    if count != 2: raise ValueError('Expected two legacy BG window checks')
+    g2.write_text(text)
+
+
 def prepare(source):
     irq=source/'include/nitro/os/common/interrupt.h'
     irq_text=irq.read_text()
@@ -65,6 +83,7 @@ def prepare(source):
             m=replace_once(m,'if (OBJLine[isSub][j]) {','if (OBJLine[isSub][j] && HG_ObjWindow0Pass(isSub, j, i)) {')
             main.write_text(m)
         (source/'include/simulator/hg_scanline_windows.h').write_text(HEADER)
+        upgrade_bg_windows(g2)
         return
     m=main.read_text(); g=g2.read_text()
     m=replace_once(m,'static void DrawEngine(BOOL isSub) {', '#include <simulator/hg_scanline_windows.h>\n'+CAPTURE+'\nstatic void DrawEngine(BOOL isSub) {')
@@ -93,6 +112,7 @@ def prepare(source):
     (source/'include/simulator/hg_scanline_windows.h').write_text(HEADER)
     m=replace_once(m,'if (OBJLine[isSub][j]) {','if (OBJLine[isSub][j] && HG_ObjWindow0Pass(isSub, j, i)) {')
     main.write_text(m);g2.write_text(g)
+    upgrade_bg_windows(g2)
 
 if __name__=='__main__':
     import argparse

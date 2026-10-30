@@ -966,3 +966,6 @@ WIN0. Baseline falhou em 540 linhas intermediárias; após a adaptação, quatro
 fases passaram sem linhas inconsistentes. [Resultado](hgss-fade-obj-test.json).
 Escopo limitado a WIN0/OBJ colorido, sem 3D, outros modos de janela ou abertura
 completa. Issue #9 passa a 70% estimados e permanece aberta.
+
+
+Em 30/10/2026, o pan original da abertura passou com WIN0/WIN1 e intervalos circulares: quatro fases, finais exatos e tarefas VBlank concluídas. Fixtures com sanitizadores cobrem prioridade e bordas; regressão de fades BG1 + OBJ aprovada. Issue #9 estimada em 75%, ainda aberta. [Evidências, reprodução e limites](window-pan-validation.md). O jogo completo permanece não jogável.

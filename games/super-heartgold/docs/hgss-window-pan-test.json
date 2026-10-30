@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "phases": [
+    {
+      "start": 0,
+      "opening": true,
+      "nonblack_pixels": [
+        0,
+        0,
+        1540,
+        17452,
+        31496,
+        32280,
+        32280,
+        32280,
+        32280
+      ],
+      "partial_states": 3,
+      "monotonic": true,
+      "invalid_rows": 0
+    },
+    {
+      "start": 40,
+      "opening": false,
+      "nonblack_pixels": [
+        32280,
+        32280,
+        23468,
+        6300,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "partial_states": 2,
+      "monotonic": true,
+      "invalid_rows": 0
+    },
+    {
+      "start": 80,
+      "opening": true,
+      "nonblack_pixels": [
+        0,
+        0,
+        3812,
+        20376,
+        21428,
+        21428,
+        21428,
+        21428,
+        21428
+      ],
+      "partial_states": 2,
+      "monotonic": true,
+      "invalid_rows": 0
+    },
+    {
+      "start": 120,
+      "opening": false,
+      "nonblack_pixels": [
+        21428,
+        21428,
+        17616,
+        1052,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "partial_states": 2,
+      "monotonic": true,
+      "invalid_rows": 0
+    }
+  ],
+  "checks": [
+    {
+      "frame": 20,
+      "expected": "58",
+      "exact": true
+    },
+    {
+      "frame": 60,
+      "expected": "black",
+      "exact": true
+    },
+    {
+      "frame": 100,
+      "expected": "57",
+      "exact": true
+    },
+    {
+      "frame": 140,
+      "expected": "black",
+      "exact": true
+    }
+  ],
+  "scope": "original_intro_window_pan_with_wrap_and_WIN1",
+  "platform": "linux-x86_64",
+  "sprites_enabled": false
+}

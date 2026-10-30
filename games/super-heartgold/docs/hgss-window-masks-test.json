@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "scope": "native_window_helper_register_fixtures",
+  "engines": 2,
+  "checks_per_engine": 270,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "limits": "No OBJ window, 3D or hardware timing validation"
+}

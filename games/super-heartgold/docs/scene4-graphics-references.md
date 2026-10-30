@@ -533,3 +533,6 @@ Para reproduzir, usar o comando de fades anterior com `--fade-sprites`.
 
 A regressão sem janela também passou: seis animações com transferências/OAM
 originais, 156 capturas iguais à referência. [Relatório](hgss-window0-obj-regression.json).
+
+
+Em 30/10/2026, o pan original da abertura passou com WIN0/WIN1 e intervalos circulares: quatro fases, finais exatos e tarefas VBlank concluídas. Fixtures com sanitizadores cobrem prioridade e bordas; regressão de fades BG1 + OBJ aprovada. Issue #9 estimada em 75%, ainda aberta. [Evidências, reprodução e limites](window-pan-validation.md). O jogo completo permanece não jogável.

@@ -50,7 +50,9 @@ def run(args, tools, raw):
         invalid_rows=0
         for offset in range(2,20,2):
             actual=pixels(runtime/f'libntr-frame-{base+offset}.ppm')
-            for row in range(384):
+            if args.window_pan:
+                invalid_rows += sum(actual[i:i+3] not in (bytes(3),background[i:i+3]) for i in range(0,len(actual),3))
+            for row in (() if args.window_pan else range(384)):
                 start=row*512*3; end=start+512*3
                 if actual[start:end] not in (bytes(512*3),background[start:end]):
                     invalid_rows += 1
@@ -61,5 +63,6 @@ def run(args, tools, raw):
                        'partial_states':partial,'monotonic':monotonic,'invalid_rows':invalid_rows})
     report={'passed':all(c['exact'] for c in checks) and all(p['partial_states']>=2 and p['monotonic'] and p['invalid_rows']==0 for p in phases),'phases':phases,'checks':checks,'scope':'original_9_8_fades_with_scanline_progression_and_task_completion','platform':'linux-x86_64'}
     report['sprites_enabled']=args.fade_sprites
+    if args.window_pan: report['scope']='original_intro_window_pan_with_wrap_and_WIN1'
     (args.output/'result.json').write_text(json.dumps(report,indent=2)+'\n'); print(json.dumps(report))
     if not report['passed']: raise ValueError('Fade endpoints mismatch')
