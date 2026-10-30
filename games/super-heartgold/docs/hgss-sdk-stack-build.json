@@ -52,5 +52,11 @@
       "bytes": 7766,
       "sha256": "59c53f23643fff5f02a6664c5b581022c525a0184d2db6ce5dcc8fea69fb0eea"
     }
-  ]
+  ],
+  "native_scanline_sources": {
+    "libraries/sim/src/sim_main.cpp": "56763698570787b4bb17fce04bffd9ec94cd294eb12f3fd1a80b018494636027",
+    "libraries/sim/src/sim_g2.cpp": "faef7e824d2c46ddb6cae6905aac998b408161d36079061dc6182d1ecd4cb85d",
+    "include/simulator/hg_scanline_windows.h": "56b1a7f44f86fe5cd691af8be7d205899250f9fe587eebcfbb3df57f731ce5e4",
+    "include/nitro/os/common/interrupt.h": "21c74d3e7a4569ddde1d9ef0678b521507ab49072df8924640590c15d188df43"
+  }
 }

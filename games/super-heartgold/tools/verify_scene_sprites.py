@@ -22,6 +22,8 @@ def main():
         parser.add_argument('--' + name, type=Path, required=True)
     parser.add_argument('--initial-transform', action='store_true')
     parser.add_argument('--animated-compose', action='store_true', help='Compose manager playback over BG1 using an isolated manager reference')
+    parser.add_argument('--scanline-windows', action='store_true')
+    parser.add_argument('--fade-probe', action='store_true')
     parser.add_argument('--deferred-transfers', action='store_true')
     parser.add_argument('--original-transfers', action='store_true')
     parser.add_argument('--original-oam', action='store_true')
@@ -29,6 +31,8 @@ def main():
     parser.add_argument('--hgss', type=Path)
     parser.add_argument('--probe', type=Path)
     args = parser.parse_args()
+    if args.fade_probe and (not args.manager or args.playback or args.compose or args.deferred_transfers):
+        parser.error('--fade-probe requires static --manager mode')
     if args.deferred_transfers and not args.original_transfers:
         parser.error('--deferred-transfers requires --original-transfers')
     if args.original_transfers and not args.original_oam:
@@ -63,6 +67,9 @@ def main():
     tools = Path(__file__).resolve().parent
     standalone = args.workspace / 'source/standalone'
     nns = args.stack / 'subprojects/libntrsystem'
+    if args.scanline_windows:
+        from prepare_libntr_scanline_windows import prepare as prepare_scanlines
+        prepare_scanlines(args.workspace/'source')
     shutil.copyfile(tools / 'probe_scene_sprites.c', standalone / 'main.c')
     names = ['main.c', 'hgss_display.c']
     units = [f'load/g2d_{name}_load.c' for name in ('NCG','NCL','NOB','NAN','NSC')]
@@ -94,6 +101,19 @@ def main():
         shutil.copyfile(args.hgss/'src/sprite.c', standalone/'sprite.c')
         shutil.copyfile(tools/'probe_scene_sprite_manager.h', standalone/'probe_scene_sprite_manager.h')
         names += ['sprite.c','gf_g2d_renderer.c']
+        if args.fade_probe:
+            shutil.copyfile(tools/'probe_scene_fades.h', standalone/'probe_scene_fades.h')
+            for module in ('screen_fade','screen_window_wipe','screen_wipe_effects','sys_task','sys_task_api'):
+                if module == 'screen_wipe_effects':
+                    prepare_graphics(args.hgss/'src'/f'{module}.c', standalone/f'{module}.c')
+                else:
+                    shutil.copyfile(args.hgss/'src'/f'{module}.c', standalone/f'{module}.c')
+                names.append(module+'.c')
+            prepare_graphics(args.hgss/'src/screen_fade_effects.c', standalone/'screen_fade_effects.c')
+            # Retain original system interrupt functions; host file IO remains explicit.
+            (standalone/'fade_system.c').write_text('#define Sys_AllocAndReadFile UnusedOriginalFileReader\n'+(args.hgss/'src/system.c').read_text())
+            names += ['screen_fade_effects.c','fade_system.c']
+            flags += ['-DHG_FADE_PROBE','-DOS_IE_VBLANK=OS_IE_V_BLANK','-DOS_IE_HBLANK=OS_IE_H_BLANK']
         if args.original_transfers:
             prepare_graphics(args.hgss/'src/obj_char_transfer.c', standalone/'obj_char_transfer.c')
             shutil.copyfile(args.hgss/'src/obj_pltt_transfer.c', standalone/'obj_pltt_transfer.c')
@@ -116,6 +136,10 @@ def main():
                             capture_output=True, text=True, timeout=600)
     (args.output / 'build.log').write_text(result.stdout + result.stderr)
     result.check_returncode()
+    if args.fade_probe:
+        from verify_scene_fades import run
+        run(args, tools, raw)
+        return
     capture = args.workspace / 'capture.so'
     if args.playback:
         capture = args.output / 'capture.so'

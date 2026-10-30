@@ -9,6 +9,7 @@ import shutil
 import subprocess
 from pathlib import Path
 from prepare_hgss_heap import prepare_sdk_heap
+from prepare_libntr_scanline_windows import prepare as prepare_scanline_windows
 from prepare_sdk_texture_upload import prepare as prepare_texture_upload
 from prepare_sdk_palette_loader import prepare as prepare_palette_loader
 from prepare_sdk_animation_loader import prepare as prepare_animation_loader
@@ -47,6 +48,7 @@ def main():
         patches.append({'name': name, 'sha256': hashlib.sha256(patch.read_bytes()).hexdigest()})
     shutil.copy2(tools / 'reference_compat/single_screen_touch.h',
                  sdk / 'include/simulator/hg_single_screen_touch.h')
+    prepare_scanline_windows(sdk)
     expheap = subprojects / 'libntrsystem/libraries/fnd/src/expheap.c'
     prepare_sdk_heap(expheap, expheap)
     texture_upload = sdk / 'libraries/gx/src/gx_load3d.c'
@@ -86,6 +88,9 @@ def main():
               'native_palette_loader_sha256': hashlib.sha256(palette_loader.read_bytes()).hexdigest(),
               'native_animation_loader_sha256': hashlib.sha256(animation_loader.read_bytes()).hexdigest(),
               'native_animation_controller_sha256': hashlib.sha256(animation_controller.read_bytes()).hexdigest(),
+              'native_scanline_sources': {name: hashlib.sha256((sdk/name).read_bytes()).hexdigest()
+                  for name in ('libraries/sim/src/sim_main.cpp','libraries/sim/src/sim_g2.cpp',
+                               'include/simulator/hg_scanline_windows.h','include/nitro/os/common/interrupt.h')},
               'runtime_tested': False, 'libraries': [
                   {'file': str(path.relative_to(build)), 'bytes': path.stat().st_size,
                    'sha256': hashlib.sha256(path.read_bytes()).hexdigest()} for path in libraries]}

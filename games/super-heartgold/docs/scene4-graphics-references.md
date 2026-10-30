@@ -455,3 +455,50 @@ pendentes; fundos não são usados neste cenário.
 ```sh
 python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/deferred --manager --playback --original-oam --original-transfers --deferred-transfers --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/validated-manager-playback
 ```
+
+
+## Fades originais 9/8 e HBlank por linha (30/10/2026)
+
+As consultas ao GitHub da base e de cybervisi0n/libntr confirmaram as rotinas
+originais de fade e dois bloqueios ainda presentes no upstream: HBlank chamado
+uma vez por quadro, após desenhar, e OS_EnableIrq retornando TRUE sem atualizar
+IME no ramo SDK_PORT. O diagnóstico inicial concluía as tarefas e chegava aos
+estados finais, mas os quadros 2/4/6/8/10 permaneciam pretos durante a abertura.
+
+`prepare_libntr_scanline_windows.py` registra a máscara de janela de cada uma
+das 192 linhas, chamando o callback HBlank com VCOUNT da linha anterior e o bit
+HBlank ativo, respeitando IME/IE/HBI. Os caminhos de BG texto 16/256 cores usam
+as máscaras registradas. OS_EnableIrq passa a atualizar IME e devolver o valor
+anterior, como Disable/Restore. Isso é uma adaptação nativa de renderização;
+não implementa temporização completa do hardware DS, DMA HBlank, rasterização
+de outros registros ou todas as janelas de OBJ/3D/affine.
+
+O teste liga screen_fade, screen_fade_effects, screen_wipe_effects,
+screen_window_wipe, sys_task, sys_task_api e as rotinas de IRQ de system.c.
+A declaração redundante/incompatível de FX_Sqrt em screen_wipe_effects é removida
+por adaptação com hash de origem; usa-se a declaração do SDK. O leitor de arquivo
+original em system.c é renomeado apenas na cópia privada de teste para manter
+o adaptador host explícito. Heap/Heap_AllocAtEnd são adaptadores host.
+
+**Quatro fases passaram:** abrir/fechar no motor principal e abrir/fechar no
+secundário, alternando single screen. A análise cobre nove quadros intermediários
+por fase: duas imagens parcialmente abertas distintas em cada fase, contagem
+de pixels visíveis monotônica, e cada linha igual à linha do fundo ou ao preto.
+Os quatro estados finais coincidem pixel a pixel com o comparador CPU. O fade
+original define a cor de fundo como preto; o comparador considera essa mudança.
+As quatro conclusões de tarefas e Enable/Disable/Restore de IRQ foram verificadas.
+Uma captura intermediária foi inspecionada visualmente.
+[Resultado](hgss-shutter-fades-test.json).
+
+A adaptação entrou em build_hgss_sdk_stack.py; uma reconstrução limpa das seis
+bibliotecas NitroSystem passou. No runtime adaptado, seis animações com
+transferências/OAM originais passaram novamente em 156 capturas contra a
+referência anterior. [Regressão](hgss-scanline-sprite-regression.json).
+
+Limites: Linux/WSLg, sem sanitizadores no executável gráfico; não é a máquina
+de estados completa da abertura nem valida fade sobre sprites/3D, todos os
+formatos de BG, interrupções concorrentes ou Windows. A issue #9 continua aberta.
+
+```sh
+python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/fades --manager --fade-probe --scanline-windows --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/validated-initial-translation
+```

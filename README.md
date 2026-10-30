@@ -13,7 +13,7 @@ jogável do jogo. 100% significa apenas que o escopo daquela issue foi concluíd
 | [#6](https://github.com/matheus013/firered-386/issues/6) | Carregadores Nitro 2D | 100% | Concluída: 17 recursos × 512 ciclos com sanitizadores; limites documentados. |
 | [#7](https://github.com/matheus013/firered-386/issues/7) | Seis fundos da cena 4 | 100% | Concluída: comparação pixel a pixel e alternância single screen. |
 | [#8](https://github.com/matheus013/firered-386/issues/8) | Sprites e animações | 85% | Transferências iniciais/diferidas, troca de recursos no VBlank e SpriteList/OAM originais aprovados em diagnóstico; falta integrar e validar a cena completa. |
-| [#9](https://github.com/matheus013/firered-386/issues/9) | Fades, janelas e HBlank | 10% | Referências identificadas; efeitos 8/9 ainda precisam de integração e validação. |
+| [#9](https://github.com/matheus013/firered-386/issues/9) | Fades, janelas e HBlank | 60% | Efeitos originais 8/9 validados em BG1 com HBlank por linha; falta composição com sprites/3D e cena completa. |
 | [#10](https://github.com/matheus013/firered-386/issues/10) | Abertura original e menu | 10% | Dependências investigadas; boot e chegada ao menu ainda não executados. |
 | [#11](https://github.com/matheus013/firered-386/issues/11) | Build e execução Windows | 15% | Componentes nativos testados; executável completo e fluxo single screen Windows pendentes. |
 | [#12](https://github.com/matheus013/firered-386/issues/12) | Primeiro trecho jogável e save | 0% | Depende de boot/menu; percurso, batalha e retomada ainda não validados. |

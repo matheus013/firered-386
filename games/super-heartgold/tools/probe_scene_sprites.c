@@ -16,6 +16,9 @@
 #include "probe_scene_sprite_manager.h"
 #endif
 
+#ifdef HG_FADE_PROBE
+#include "probe_scene_fades.h"
+#endif
 void SingleScreen_ShowSubEngine(BOOL show);
 /* Supply size tables only when the SDK OAM module is not linked. */
 #ifndef HG_ORIGINAL_OAM
@@ -143,6 +146,9 @@ void NitroMain(void) {
 #ifdef HG_DEFERRED_TRANSFERS
     prepare_deferred(chr, palette);
 #endif
+#ifdef HG_FADE_PROBE
+    prepare_fades();
+#endif
     SingleScreen_ShowSubEngine(FALSE); DEMOStartDisplay();
     for (unsigned frame = 1;; ++frame) {
         if (getenv("HG_SPRITE_PLAYBACK")) {
@@ -175,12 +181,23 @@ void NitroMain(void) {
         if ((frame == 31 || frame == 51 || frame == 91) && GF_GetNumPendingVramTransferTasks()) abort();
         schedule_deferred(frame, chr, palette);
 #endif
+#ifdef HG_FADE_PROBE
+        update_fades(frame);
+        if (frame == 80) SingleScreen_ShowSubEngine(TRUE);
+#else
         if (frame == 40) SingleScreen_ShowSubEngine(TRUE);
         if (frame == 80) SingleScreen_ShowSubEngine(FALSE);
+#endif
         OS_WaitVBlankIntr();
+#ifdef HG_FADE_PROBE
+        SysTaskQueue_RunTasks(gSystem.vwaitTaskQueue);
+#endif
     }
 }
 void VBlankIntr(void) {
+#ifdef HG_FADE_PROBE
+    if (gSystem.vblankTaskQueue) SysTaskQueue_RunTasks(gSystem.vblankTaskQueue);
+#endif
 #ifdef HG_DEFERRED_TRANSFERS
     GF_RunVramTransferTasks();
 #endif

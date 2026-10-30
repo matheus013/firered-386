@@ -950,3 +950,12 @@ troca de tiles, troca de paleta e restauração nos dois motores, seis casos e
 156 capturas conforme os estados esperados. Quantidade de tarefas e esvaziamento
 da fila verificados nos 12 processos. [Relatório](hgss-deferred-transfers-test.json).
 Não cobre realocação/saturação nem abertura completa; fundos ausentes neste teste.
+
+
+Em 30/10/2026, quatro fases dos fades originais 9/8 passaram sobre BG1 nos dois
+motores, com progressão parcial monotônica e estados finais exatos. Corrigidos
+no runtime HBlank uma vez por quadro e OS_EnableIrq sem atualizar IME. Suporte
+por linha atualmente limitado às janelas dos BGs de texto. [Resultado](hgss-shutter-fades-test.json).
+Reconstrução limpa da pilha SDK e regressão de 156 capturas de sprites passaram.
+Ainda faltam composição com sprites/3D e integração da máquina de estados;
+issue #9 permanece aberta, estimada em 60%. O jogo completo continua não jogável.
