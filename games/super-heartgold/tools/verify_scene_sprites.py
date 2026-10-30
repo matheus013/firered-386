@@ -25,6 +25,7 @@ def main():
     parser.add_argument('--scanline-windows', action='store_true')
     parser.add_argument('--window-pan', action='store_true')
     parser.add_argument('--bg-scroll', action='store_true')
+    parser.add_argument('--scene4-slide', action='store_true')
     parser.add_argument('--fade-sprites', action='store_true')
     parser.add_argument('--fade-probe', action='store_true')
     parser.add_argument('--deferred-transfers', action='store_true')
@@ -34,6 +35,8 @@ def main():
     parser.add_argument('--hgss', type=Path)
     parser.add_argument('--probe', type=Path)
     args = parser.parse_args()
+    if args.scene4_slide and not args.bg_scroll:
+        parser.error('--scene4-slide requires --bg-scroll')
     if args.bg_scroll and (not args.fade_probe or args.fade_sprites or args.window_pan):
         parser.error('--bg-scroll requires --fade-probe without other fade modes')
     if args.window_pan and (not args.fade_probe or args.fade_sprites):
@@ -133,6 +136,9 @@ def main():
                 shutil.copyfile(tools/'probe_scene_scroll.h',standalone/'probe_scene_scroll.h')
                 names += ['bg_window.c','math_util.c']
                 flags += ['-DHG_BG_SCROLL']
+                if args.scene4_slide:
+                    shutil.copyfile(tools/'probe_scene_slide.h',standalone/'probe_scene_slide.h')
+                    flags += ['-DHG_SCENE4_SLIDE']
             flags += ['-DHG_FADE_PROBE','-DOS_IE_VBLANK=OS_IE_V_BLANK','-DOS_IE_HBLANK=OS_IE_H_BLANK']
         if args.original_transfers:
             prepare_graphics(args.hgss/'src/obj_char_transfer.c', standalone/'obj_char_transfer.c')

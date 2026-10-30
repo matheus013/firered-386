@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "phases": [
+    {
+      "start": 0,
+      "engine": "main",
+      "queue": "vblank",
+      "matched_ticks": [
+        0,
+        1,
+        3,
+        5,
+        7,
+        9,
+        10,
+        10,
+        10
+      ],
+      "endpoint_exact": true,
+      "passed": true
+    },
+    {
+      "start": 40,
+      "engine": "main",
+      "queue": "vblank",
+      "matched_ticks": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        10,
+        10,
+        10
+      ],
+      "endpoint_exact": true,
+      "passed": true
+    },
+    {
+      "start": 80,
+      "engine": "sub",
+      "queue": "vblank",
+      "matched_ticks": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        10,
+        10,
+        10
+      ],
+      "endpoint_exact": true,
+      "passed": true
+    },
+    {
+      "start": 120,
+      "engine": "sub",
+      "queue": "vblank",
+      "matched_ticks": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        10,
+        10,
+        10
+      ],
+      "endpoint_exact": true,
+      "passed": true
+    }
+  ],
+  "platform": "linux-x86_64",
+  "scope": "scene4_window_and_scroll_helpers_together_without_sprites_or_state_machine",
+  "lifecycle": {
+    "cycles": 512,
+    "layers": 8,
+    "queues": 2,
+    "continuous_ticks": 6144,
+    "checks": [
+      "immediate_offset",
+      "continuous_scroll",
+      "cancel_twice",
+      "stable_after_cancel",
+      "finite_restart"
+    ]
+  },
+  "limits": "Lifecycle uses state assertions; visual checks cover finite BG1 only. No affine BGs or Windows run; capture timing may differ."
+}

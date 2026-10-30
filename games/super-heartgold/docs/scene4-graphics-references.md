@@ -539,3 +539,6 @@ Em 30/10/2026, o pan original da abertura passou com WIN0/WIN1 e intervalos circ
 
 
 Em 30/10/2026, scroll finito original de BG1 aprovado no diagnóstico Linux: 36 capturas intermediárias e quatro finais exatos contra decodificação CPU independente, com tarefas VBlank/principal e commits originais. Regressão WIN0/WIN1 aprovada. Issue #10 permanece em 10%; não houve execução do boot/menu. [Evidências e limites](bg-scroll-validation.md).
+
+
+Em 30/10/2026, os helpers originais de janela e scroll passaram juntos com os parâmetros da entrada/saída dos jogadores da cena 4: 36 capturas intermediárias e quatro finais exatos. Não inclui sprites, partículas ou a máquina de estados completa. [Relatório e limites](scene4-slide-validation.md). Issue #10 permanece em 10%; boot/menu e Windows pendentes.

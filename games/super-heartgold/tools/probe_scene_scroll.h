@@ -2,6 +2,9 @@
 #include "intro_movie_internal.h"
 static BgConfig scroll_config;
 static IntroMovieBgScrollAnim scroll_anims[8];
+#ifdef HG_SCENE4_SLIDE
+#include "probe_scene_slide.h"
+#endif
 static void verify_scroll_lifecycle(void) {
     BOOL irq=OS_DisableIrq();
     for (unsigned queue=0;queue<2;++queue) {
@@ -49,6 +52,10 @@ static void verify_scroll_lifecycle(void) {
     fflush(stdout);
 }
 static void update_scroll(unsigned frame) {
+#ifdef HG_SCENE4_SLIDE
+    update_slide(frame);
+    return;
+#endif
     const GFBgLayer layers[]={GF_BG_LYR_MAIN_1,GF_BG_LYR_SUB_1};
     if (frame==1 || frame==40 || frame==80 || frame==120) {
         int x=frame==1 ? -48 : frame==40 ? 48 : frame==80 ? 37 : -37;

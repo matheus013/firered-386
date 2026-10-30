@@ -221,3 +221,6 @@ Em 30/10/2026, scroll finito original de BG1 aprovado no diagnóstico Linux: 36 
 
 
 Ampliação em 30/10/2026: 512 ciclos de offset imediato, scroll contínuo, cancelamento repetido, estabilidade após cancelamento e reinício finito passaram nos oito slots de BG e nas filas VBlank/principal (6.144 ticks contínuos). São verificações de estado; a comparação visual continua limitada a BG1 finito e também passou. [Relatório](hgss-bg-scroll-lifecycle-test.json). Sem sanitizadores nesta execução, sem boot/menu ou validação Windows; issue #10 permanece em 10%.
+
+
+Em 30/10/2026, os helpers originais de janela e scroll passaram juntos com os parâmetros da entrada/saída dos jogadores da cena 4: 36 capturas intermediárias e quatro finais exatos. Não inclui sprites, partículas ou a máquina de estados completa. [Relatório e limites](scene4-slide-validation.md). Issue #10 permanece em 10%; boot/menu e Windows pendentes.
