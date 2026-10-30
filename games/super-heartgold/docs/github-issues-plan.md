@@ -189,3 +189,10 @@ Transferências iniciais de tiles/paletas pelos gerenciadores originais aprovada
 seis animações por 160 frames, com SpriteList/OAM originais e 156 capturas iguais
 à referência. [Relatório](hgss-original-transfers-test.json). Ainda faltam fila
 diferida, substituição/realocação de recursos, composição completa e fades.
+
+
+Em 30/10/2026 passou a fila original de transferências diferidas no VBlank:
+troca de tiles, troca de paleta e restauração nos dois motores, seis casos e
+156 capturas conforme os estados esperados. Quantidade de tarefas e esvaziamento
+da fila verificados nos 12 processos. [Relatório](hgss-deferred-transfers-test.json).
+Não cobre realocação/saturação nem abertura completa; fundos ausentes neste teste.

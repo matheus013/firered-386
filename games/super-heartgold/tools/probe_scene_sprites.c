@@ -140,6 +140,9 @@ void NitroMain(void) {
     if (getenv("HG_SPRITE_COMPOSE")) load_backgrounds();
     printf("SPRITE case=%u sequence=%u cell_oams=%u emitted=%u\n", selected, sequence, cell->numOAMAttrs, count);
     fflush(stdout);
+#ifdef HG_DEFERRED_TRANSFERS
+    prepare_deferred(chr, palette);
+#endif
     SingleScreen_ShowSubEngine(FALSE); DEMOStartDisplay();
     for (unsigned frame = 1;; ++frame) {
         if (getenv("HG_SPRITE_PLAYBACK")) {
@@ -168,9 +171,18 @@ void NitroMain(void) {
             GXS_LoadOAM(objects, 0, sizeof(objects));
 #endif
         }
+#ifdef HG_DEFERRED_TRANSFERS
+        if ((frame == 31 || frame == 51 || frame == 91) && GF_GetNumPendingVramTransferTasks()) abort();
+        schedule_deferred(frame, chr, palette);
+#endif
         if (frame == 40) SingleScreen_ShowSubEngine(TRUE);
         if (frame == 80) SingleScreen_ShowSubEngine(FALSE);
         OS_WaitVBlankIntr();
     }
 }
-void VBlankIntr(void) { OS_SetIrqCheckFlag(OS_IE_V_BLANK); }
+void VBlankIntr(void) {
+#ifdef HG_DEFERRED_TRANSFERS
+    GF_RunVramTransferTasks();
+#endif
+    OS_SetIrqCheckFlag(OS_IE_V_BLANK);
+}

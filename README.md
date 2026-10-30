@@ -1,6 +1,6 @@
 # FireRed 386
 
-## Status do Super HeartGold nativo — 29/10/2026
+## Status do Super HeartGold nativo — 30/10/2026
 
 **Ainda não jogável.** Objetivo: engine nativa no Windows com single screen.
 Os percentuais das issues #6–#13 são estimativas de avanço dentro de cada escopo,
@@ -12,7 +12,7 @@ jogável do jogo. 100% significa apenas que o escopo daquela issue foi concluíd
 | [#5](https://github.com/matheus013/firered-386/issues/5) | Acompanhamento geral | 25% das entregas encerradas (2/8) | Indicador administrativo; não é percentual de conclusão do jogo. |
 | [#6](https://github.com/matheus013/firered-386/issues/6) | Carregadores Nitro 2D | 100% | Concluída: 17 recursos × 512 ciclos com sanitizadores; limites documentados. |
 | [#7](https://github.com/matheus013/firered-386/issues/7) | Seis fundos da cena 4 | 100% | Concluída: comparação pixel a pixel e alternância single screen. |
-| [#8](https://github.com/matheus013/firered-386/issues/8) | Sprites e animações | 80% | Transferências iniciais, SpriteList/OAM originais e composição BG1 em diagnóstico aprovados; faltam transferências diferidas e integração completa da cena. |
+| [#8](https://github.com/matheus013/firered-386/issues/8) | Sprites e animações | 85% | Transferências iniciais/diferidas, troca de recursos no VBlank e SpriteList/OAM originais aprovados em diagnóstico; falta integrar e validar a cena completa. |
 | [#9](https://github.com/matheus013/firered-386/issues/9) | Fades, janelas e HBlank | 10% | Referências identificadas; efeitos 8/9 ainda precisam de integração e validação. |
 | [#10](https://github.com/matheus013/firered-386/issues/10) | Abertura original e menu | 10% | Dependências investigadas; boot e chegada ao menu ainda não executados. |
 | [#11](https://github.com/matheus013/firered-386/issues/11) | Build e execução Windows | 15% | Componentes nativos testados; executável completo e fluxo single screen Windows pendentes. |

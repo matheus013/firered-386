@@ -22,12 +22,15 @@ def main():
         parser.add_argument('--' + name, type=Path, required=True)
     parser.add_argument('--initial-transform', action='store_true')
     parser.add_argument('--animated-compose', action='store_true', help='Compose manager playback over BG1 using an isolated manager reference')
+    parser.add_argument('--deferred-transfers', action='store_true')
     parser.add_argument('--original-transfers', action='store_true')
     parser.add_argument('--original-oam', action='store_true')
     parser.add_argument('--manager', action='store_true')
     parser.add_argument('--hgss', type=Path)
     parser.add_argument('--probe', type=Path)
     args = parser.parse_args()
+    if args.deferred_transfers and not args.original_transfers:
+        parser.error('--deferred-transfers requires --original-transfers')
     if args.original_transfers and not args.original_oam:
         parser.error('--original-transfers requires --original-oam')
     if args.original_oam and (not args.manager or not args.playback or args.animated_compose):
@@ -75,8 +78,14 @@ def main():
         path = nns / 'libraries/g2d/src' / unit
         shutil.copyfile(path, standalone / path.name)
         names.append(path.name)
+    if args.deferred_transfers:
+        shutil.copyfile(nns/'libraries/gfd/src/VramTransferMan/gfd_VramTransferManager.c', standalone/'gfd_VramTransferManager.c')
+        shutil.copyfile(args.hgss/'src/vram_transfer_manager.c', standalone/'vram_transfer_manager.c')
+        names += ['gfd_VramTransferManager.c', 'vram_transfer_manager.c']
     flags = ['-ffunction-sections', '-fdata-sections', '-DNNS_FINALROM',
              '-I' + str(nns / 'include'), '-I' + str(nns / 'libraries/g2d/include')]
+    if args.deferred_transfers:
+        flags += ['-DHG_DEFERRED_TRANSFERS', '-I'+str(nns/'libraries/gfd/include')]
     if args.manager:
         from prepare_hgss_sprite_storage import prepare
         from prepare_hgss_graphics import prepare_graphics
@@ -153,7 +162,8 @@ def main():
             if args.manager and not args.animated_compose:
                 reference_dir = args.sprite_reference / f'case-{case}-' / ('disabled' if disabled else 'enabled')
                 for f, actual in zip(captures, frames):
-                    if actual != pixels(reference_dir / f'libntr-frame-{f}.ppm'):
+                    expected = (bytes(len(actual)) if args.deferred_transfers and f in (40,60,80) else pixels(reference_dir / f'libntr-frame-{f}.ppm'))
+                    if actual != expected:
                         raise ValueError(f'Manager/reference mismatch: case {case}, disabled {disabled}, frame {f}')
             images[disabled] = frames
         if args.animated_compose:
@@ -237,6 +247,9 @@ def main():
         report['scope'] = 'original_OAM_manager_and_culling_playback_matches_capture_adapter'
     if args.original_transfers:
         report['scope'] = 'original_OBJ_char_palette_transfers_and_OAM_playback'
+    if args.deferred_transfers:
+        report['scope'] = 'original_deferred_VBlank_tile_palette_replacement_and_restore'
+        report['blank_capture_frames'] = [40,60,80]
     (args.output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report))
 

@@ -426,3 +426,32 @@ neste executável. Abertura completa, fades e Windows continuam pendentes.
 ```sh
 python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/original-transfers --manager --playback --original-oam --original-transfers --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/validated-manager-playback
 ```
+
+
+## Fila original e troca de recursos no VBlank (30/10/2026)
+
+Consulta prévia ao GitHub confirmou GF_RunVramTransferTasks na base. O novo
+`--deferred-transfers` liga vram_transfer_manager.c original e o módulo
+VramTransferMan do SDK. O callback VBlank do diagnóstico executa a fila original.
+Os buffers de substituição permanecem vivos durante todo o teste.
+
+Em cada processo: no frame 30, enfileira tiles vazios nos dois motores; no
+frame 50, restaura os tiles e enfileira paletas zeradas; no frame 90, restaura
+as paletas. Verifica 2/4/2 tarefas pendentes dentro da seção com interrupções
+desabilitadas e fila vazia após o VBlank seguinte. SpriteList e gerenciadores
+de transferência/OAM originais permanecem ativos durante a troca.
+
+Seis casos por 160 frames, com desenho ligado/desligado, passaram em Linux/WSLg.
+Das 156 capturas verificadas, as dos frames 40/60/80 devem ser pretas; as demais
+coincidem pixel a pixel com a referência de playback. As verificações de fila
+passaram nos 12 processos. [Resultado](hgss-deferred-transfers-test.json).
+
+Limites: diagnóstico de substituição no mesmo espaço reservado, sem realocação,
+fragmentação/esgotamento, paletas estendidas, fila cheia ou liberação concorrente.
+Não prova ausência de tearing nem timing de hardware DS. Heap/IO são host e o
+executável gráfico não usa sanitizadores. A abertura completa e Windows seguem
+pendentes; fundos não são usados neste cenário.
+
+```sh
+python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/deferred --manager --playback --original-oam --original-transfers --deferred-transfers --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/validated-manager-playback
+```

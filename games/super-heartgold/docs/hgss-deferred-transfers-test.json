@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": 0,
+      "visible_pixels": 6464,
+      "engines_equal": null,
+      "distinct_captures": 7,
+      "disabled_black": true
+    },
+    {
+      "case": 1,
+      "visible_pixels": 6864,
+      "engines_equal": null,
+      "distinct_captures": 7,
+      "disabled_black": true
+    },
+    {
+      "case": 2,
+      "visible_pixels": 1828,
+      "engines_equal": null,
+      "distinct_captures": 4,
+      "disabled_black": true
+    },
+    {
+      "case": 3,
+      "visible_pixels": 3324,
+      "engines_equal": null,
+      "distinct_captures": 5,
+      "disabled_black": true
+    },
+    {
+      "case": 4,
+      "visible_pixels": 3716,
+      "engines_equal": null,
+      "distinct_captures": 5,
+      "disabled_black": true
+    },
+    {
+      "case": 5,
+      "visible_pixels": 3048,
+      "engines_equal": null,
+      "distinct_captures": 5,
+      "disabled_black": true
+    }
+  ],
+  "dimensions": [
+    512,
+    384
+  ],
+  "platform": "linux-x86_64",
+  "scope": "original_deferred_VBlank_tile_palette_replacement_and_restore",
+  "harness_sha256": "918fd29c214ff3eed6173ed2fab9116e236ee62634eb3e15da62f2d930a33616",
+  "blank_capture_frames": [
+    40,
+    60,
+    80
+  ]
+}

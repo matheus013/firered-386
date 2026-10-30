@@ -141,3 +141,32 @@ static void upload_manager(GXOamAttr *objects, BOOL sub) {
     else GX_LoadOAM(objects, 0, 128 * sizeof(*objects));
 #endif
 }
+
+#ifdef HG_DEFERRED_TRANSFERS
+#include "vram_transfer_manager.h"
+static NNSG2dCharacterData blank_char;
+static NNSG2dPaletteData blank_palette;
+static void prepare_deferred(NNSG2dCharacterData *chr, NNSG2dPaletteData *palette) {
+    GF_CreateVramTransferManager(16, 0);
+    blank_char = *chr; blank_palette = *palette;
+    blank_char.pRawData = calloc(1, chr->szByte);
+    blank_palette.pRawData = calloc(1, palette->szByte);
+    if (!blank_char.pRawData || !blank_palette.pRawData) abort();
+}
+static void schedule_deferred(unsigned frame, NNSG2dCharacterData *chr, NNSG2dPaletteData *palette) {
+    if (frame != 30 && frame != 50 && frame != 90) return;
+    OSIntrMode previous = OS_DisableInterrupts();
+    if (GF_GetNumPendingVramTransferTasks()) abort();
+    for (int id = 1; id <= 2; ++id) {
+        if (frame == 30) ObjCharTransfer_ReplaceGraphicsFromChardataByResID(id, &blank_char);
+        if (frame == 50) {
+            ObjCharTransfer_ReplaceGraphicsFromChardataByResID(id, chr);
+            ObjPlttTransfer_CreateTransferTask(id, &blank_palette);
+        }
+        if (frame == 90) ObjPlttTransfer_CreateTransferTask(id, palette);
+    }
+    unsigned expected = frame == 50 ? 4 : 2;
+    if (GF_GetNumPendingVramTransferTasks() != expected) abort();
+    OS_RestoreInterrupts(previous);
+}
+#endif
