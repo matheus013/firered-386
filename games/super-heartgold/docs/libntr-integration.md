@@ -972,3 +972,6 @@ Em 30/10/2026, o pan original da abertura passou com WIN0/WIN1 e intervalos circ
 
 
 Em 30/10/2026, scroll finito original de BG1 aprovado no diagnóstico Linux: 36 capturas intermediárias e quatro finais exatos contra decodificação CPU independente, com tarefas VBlank/principal e commits originais. Regressão WIN0/WIN1 aprovada. Issue #10 permanece em 10%; não houve execução do boot/menu. [Evidências e limites](bg-scroll-validation.md).
+
+
+Ampliação em 30/10/2026: 512 ciclos de offset imediato, scroll contínuo, cancelamento repetido, estabilidade após cancelamento e reinício finito passaram nos oito slots de BG e nas filas VBlank/principal (6.144 ticks contínuos). São verificações de estado; a comparação visual continua limitada a BG1 finito e também passou. [Relatório](hgss-bg-scroll-lifecycle-test.json). Sem sanitizadores nesta execução, sem boot/menu ou validação Windows; issue #10 permanece em 10%.

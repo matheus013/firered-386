@@ -6,6 +6,9 @@ from verify_scene_backgrounds import expected_image
 
 
 def verify(args,assets,runtime,stdout):
+    lifecycle='SCROLL lifecycle cycles=512 layers=8 queues=2 continuous_ticks=6144 passed'
+    if lifecycle not in stdout:
+        raise ValueError('Missing scroll lifecycle evidence')
     for frame in (30,70,110,150):
         if f'SCROLL completed frame={frame}' not in stdout:
             raise ValueError('Missing original scroll task completion')
@@ -29,7 +32,9 @@ def verify(args,assets,runtime,stdout):
                                 and len({tick for tick in matches if 0<tick<10})>=2})
     report={'passed':all(p['passed'] for p in phases),'phases':phases,'platform':'linux-x86_64',
             'scope':'original_finite_BG1_scroll_tasks_and_commits_not_full_intro',
-            'limits':'Timing may differ within capture phase; no affine BGs, infinite scroll or Windows run'}
+            'lifecycle':{'cycles':512,'layers':8,'queues':2,'continuous_ticks':6144,
+                         'checks':['immediate_offset','continuous_scroll','cancel_twice','stable_after_cancel','finite_restart']},
+            'limits':'Lifecycle uses state assertions; visual checks cover finite BG1 only. No affine BGs or Windows run; capture timing may differ.'}
     (args.output/'result.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report))
     if not report['passed']: raise ValueError('Original BG scroll differs from CPU tile-map oracle')

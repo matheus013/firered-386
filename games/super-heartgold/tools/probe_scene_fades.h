@@ -38,6 +38,9 @@ static void prepare_fades(void) {
         *queues[i] = SysTaskQueue_PlacementNew(32, memory);
         if (!*queues[i]) abort();
     }
+#ifdef HG_BG_SCROLL
+    verify_scroll_lifecycle();
+#endif
 #if defined(HG_WINDOW_PAN) || defined(HG_BG_SCROLL)
     u16 black=0; GX_LoadBGPltt(&black,0,2); GXS_LoadBGPltt(&black,0,2);
 #ifdef HG_WINDOW_PAN

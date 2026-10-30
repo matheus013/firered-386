@@ -2,6 +2,52 @@
 #include "intro_movie_internal.h"
 static BgConfig scroll_config;
 static IntroMovieBgScrollAnim scroll_anims[8];
+static void verify_scroll_lifecycle(void) {
+    BOOL irq=OS_DisableIrq();
+    for (unsigned queue=0;queue<2;++queue) {
+        SysTaskQueue *tasks=queue ? gSystem.mainTaskQueue : gSystem.vblankTaskQueue;
+        void (*start)(BgConfig *,IntroMovieBgScrollAnim *,GFBgLayer,s16,s16,int)=
+            queue ? IntroMovie_StartBgScroll_NotVBlank : IntroMovie_StartBgScroll_VBlank;
+        for (unsigned layer=0;layer<8;++layer) {
+            for (unsigned cycle=0;cycle<32;++cycle) {
+                IntroMovieBgScrollAnim *anim=&scroll_anims[layer];
+                BgSetPosTextAndCommit(&scroll_config,layer,BG_POS_OP_SET_X,0);
+                BgSetPosTextAndCommit(&scroll_config,layer,BG_POS_OP_SET_Y,0);
+                start(&scroll_config,scroll_anims,layer,13,-7,0);
+                if (anim->active || anim->task || Bg_GetXpos(&scroll_config,layer)!=13 ||
+                    Bg_GetYpos(&scroll_config,layer)!=-7) abort();
+                start(&scroll_config,scroll_anims,layer,3,-2,-1);
+                if (IntroMovie_WaitBgScrollAnim(scroll_anims,layer)) abort();
+                for (unsigned tick=0;tick<12;++tick) {
+                    SysTaskQueue_RunTasks(tasks);
+                    DoScheduledBgGpuUpdates(&scroll_config);
+                }
+                if (!anim->active || !anim->task || anim->finished ||
+                    Bg_GetXpos(&scroll_config,layer)!=49 || Bg_GetYpos(&scroll_config,layer)!=-31) abort();
+                IntroMovie_CancelBgScrollAnim(scroll_anims,layer);
+                IntroMovie_CancelBgScrollAnim(scroll_anims,layer);
+                for (unsigned tick=0;tick<4;++tick) {
+                    SysTaskQueue_RunTasks(tasks);
+                    DoScheduledBgGpuUpdates(&scroll_config);
+                }
+                if (anim->active || anim->task || !IntroMovie_WaitBgScrollAnim(scroll_anims,layer) ||
+                    Bg_GetXpos(&scroll_config,layer)!=49 || Bg_GetYpos(&scroll_config,layer)!=-31) abort();
+                start(&scroll_config,scroll_anims,layer,-9,6,3);
+                for (unsigned tick=0;tick<3;++tick) {
+                    SysTaskQueue_RunTasks(tasks);
+                    DoScheduledBgGpuUpdates(&scroll_config);
+                }
+                if (anim->active || anim->task || !anim->finished || anim->counter!=3 ||
+                    Bg_GetXpos(&scroll_config,layer)!=40 || Bg_GetYpos(&scroll_config,layer)!=-25) abort();
+            }
+            BgSetPosTextAndCommit(&scroll_config,layer,BG_POS_OP_SET_X,0);
+            BgSetPosTextAndCommit(&scroll_config,layer,BG_POS_OP_SET_Y,0);
+        }
+    }
+    OS_RestoreIrq(irq);
+    puts("SCROLL lifecycle cycles=512 layers=8 queues=2 continuous_ticks=6144 passed");
+    fflush(stdout);
+}
 static void update_scroll(unsigned frame) {
     const GFBgLayer layers[]={GF_BG_LYR_MAIN_1,GF_BG_LYR_SUB_1};
     if (frame==1 || frame==40 || frame==80 || frame==120) {

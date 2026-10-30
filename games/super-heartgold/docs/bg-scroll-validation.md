@@ -34,7 +34,7 @@ final nos dois motores. A fila principal usa o commit agendado no VBlank.
 continua aprovado após a extensão do decodificador para offsets.
 
 Este teste admite diferenças de fase entre captura e execução do loop; não
-comprova temporização idêntica ao DS. Não cobre BG afim, scroll infinito,
+comprova temporização idêntica ao DS. A comparação visual não cobre BG afim, scroll infinito,
 cancelamento, combinações simultâneas de scroll/fade/sprites, nem Windows.
 Os recursos continuam privados. A issue #10 permanece em 10%: foi validada
 mais uma dependência, mas ainda falta executar a máquina de estados e o menu.
@@ -46,3 +46,6 @@ Use `tools/verify_scene_sprites.py` com `--manager --fade-probe --bg-scroll
 `--hgss`, `--probe`, `--sprite-reference`, além de um diretório novo em `--output`.
 O modo exige compilação nativa Linux e o mesmo ambiente gráfico dos diagnósticos
 anteriores. Para a regressão, substitua `--bg-scroll` por `--window-pan`.
+
+
+Ampliação em 30/10/2026: 512 ciclos de offset imediato, scroll contínuo, cancelamento repetido, estabilidade após cancelamento e reinício finito passaram nos oito slots de BG e nas filas VBlank/principal (6.144 ticks contínuos). São verificações de estado; a comparação visual continua limitada a BG1 finito e também passou. [Relatório](hgss-bg-scroll-lifecycle-test.json). Sem sanitizadores nesta execução, sem boot/menu ou validação Windows; issue #10 permanece em 10%.
