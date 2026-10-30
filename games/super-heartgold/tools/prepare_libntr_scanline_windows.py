@@ -8,6 +8,15 @@ struct HGWindowLine {
     u16 h0, h1, v0, v1, inside, outside;
 };
 extern HGWindowLine hg_window_lines[2][192];
+// WIN0 clipping for the normal OBJ color path; other window modes are unchanged.
+static inline bool HG_ObjWindow0Pass(unsigned engine, unsigned x, unsigned y) {
+    const HGWindowLine &state = hg_window_lines[engine != 0][y];
+    if (!(state.display & (1u << 13))) return true;
+    bool inside = x >= (state.h0 >> 8) && x < (state.h0 & 255) &&
+                  y >= (state.v0 >> 8) && y < (state.v0 & 255);
+    unsigned planes = inside ? state.inside : state.outside;
+    return (planes & (1u << 4)) != 0;
+}
 '''
 CAPTURE = '''
 // Snapshot native HBlank-driven window state before rasterizing text BGs.
@@ -51,6 +60,11 @@ def prepare(source):
     g2=source/'libraries/sim/src/sim_g2.cpp'
     if 'HG_CaptureWindowLines' in main.read_text():
         if 'hg_window_lines[isSub != 0][line]' not in g2.read_text(): raise ValueError('Incomplete scanline adaptation')
+        m=main.read_text()
+        if 'HG_ObjWindow0Pass(isSub, j, i)' not in m:
+            m=replace_once(m,'if (OBJLine[isSub][j]) {','if (OBJLine[isSub][j] && HG_ObjWindow0Pass(isSub, j, i)) {')
+            main.write_text(m)
+        (source/'include/simulator/hg_scanline_windows.h').write_text(HEADER)
         return
     m=main.read_text(); g=g2.read_text()
     m=replace_once(m,'static void DrawEngine(BOOL isSub) {', '#include <simulator/hg_scanline_windows.h>\n'+CAPTURE+'\nstatic void DrawEngine(BOOL isSub) {')
@@ -77,6 +91,7 @@ def prepare(source):
     if g.count(before)!=2: raise ValueError('Expected two text BG window paths')
     g=g.replace(before,after)
     (source/'include/simulator/hg_scanline_windows.h').write_text(HEADER)
+    m=replace_once(m,'if (OBJLine[isSub][j]) {','if (OBJLine[isSub][j] && HG_ObjWindow0Pass(isSub, j, i)) {')
     main.write_text(m);g2.write_text(g)
 
 if __name__=='__main__':

@@ -23,6 +23,7 @@ def main():
     parser.add_argument('--initial-transform', action='store_true')
     parser.add_argument('--animated-compose', action='store_true', help='Compose manager playback over BG1 using an isolated manager reference')
     parser.add_argument('--scanline-windows', action='store_true')
+    parser.add_argument('--fade-sprites', action='store_true')
     parser.add_argument('--fade-probe', action='store_true')
     parser.add_argument('--deferred-transfers', action='store_true')
     parser.add_argument('--original-transfers', action='store_true')
@@ -31,6 +32,8 @@ def main():
     parser.add_argument('--hgss', type=Path)
     parser.add_argument('--probe', type=Path)
     args = parser.parse_args()
+    if args.fade_sprites and not args.fade_probe:
+        parser.error('--fade-sprites requires --fade-probe')
     if args.fade_probe and (not args.manager or args.playback or args.compose or args.deferred_transfers):
         parser.error('--fade-probe requires static --manager mode')
     if args.deferred_transfers and not args.original_transfers:

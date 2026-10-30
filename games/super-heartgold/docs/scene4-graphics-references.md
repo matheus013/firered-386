@@ -502,3 +502,34 @@ formatos de BG, interrupções concorrentes ou Windows. A issue #9 continua aber
 ```sh
 python3 tools/verify_scene_sprites.py --workspace /private/validated-bg --stack /private/sdk --archive /private/a/2/6/2 --output /private/fades --manager --fade-probe --scanline-windows --hgss /private/hgss --probe /private/compatible-hgss-module-probe --sprite-reference /private/validated-initial-translation
 ```
+
+
+## Composição dos fades com OBJ e BG1 (30/10/2026)
+
+Consulta ao GitHub de cybervisi0n/libntr confirmou o caminho DrawOBJ_Normal em
+sim_g2.cpp. A investigação do envio dos pixels em sim_main.cpp mostrou que as
+cores OBJ eram desenhadas sem consultar WIN0. O novo `--fade-sprites` reproduziu
+o problema: 540 linhas inconsistentes nos 36 quadros intermediários e sprites
+visíveis depois de fechar o fundo. [Baseline com falha](hgss-fade-obj-baseline.json).
+
+A adaptação de scanlines agora aplica o bit de habilitação OBJ da máscara
+WIN0 (dentro/fora) antes de escrever o pixel colorido. Os casos sem WIN0
+preservam o comportamento anterior. O patch pode atualizar uma cópia privada
+que já possua a adaptação anterior de HBlank.
+
+Os quatro efeitos abrir/fechar passaram com BG1 e o sprite estático da mão:
+zero linhas inconsistentes, duas imagens parcialmente abertas distintas por
+fase, progressão monotônica e telas fechadas pretas. Neste teste composto,
+os quadros abertos 20/100 da própria execução são as referências de imagem
+completa para as linhas intermediárias; sua composição não é um oracle CPU
+independente. Ambos foram também comparados com a execução anterior e ficaram
+idênticos. [Resultado](hgss-fade-obj-test.json).
+
+Limites: Linux/WSLg; apenas WIN0 com retângulo sem wrap e o caminho atual de
+cores OBJ. Não cobre WIN1, OBJ-window, sprites 3D, combinações de janelas,
+semitransparência nem todos os tipos de OBJ. Não executa a abertura completa.
+
+Para reproduzir, usar o comando de fades anterior com `--fade-sprites`.
+
+A regressão sem janela também passou: seis animações com transferências/OAM
+originais, 156 capturas iguais à referência. [Relatório](hgss-window0-obj-regression.json).

@@ -959,3 +959,10 @@ por linha atualmente limitado às janelas dos BGs de texto. [Resultado](hgss-shu
 Reconstrução limpa da pilha SDK e regressão de 156 capturas de sprites passaram.
 Ainda faltam composição com sprites/3D e integração da máquina de estados;
 issue #9 permanece aberta, estimada em 60%. O jogo completo continua não jogável.
+
+
+Fades com BG1 + OBJ validados: corrigido o caminho de pixels OBJ que ignorava
+WIN0. Baseline falhou em 540 linhas intermediárias; após a adaptação, quatro
+fases passaram sem linhas inconsistentes. [Resultado](hgss-fade-obj-test.json).
+Escopo limitado a WIN0/OBJ colorido, sem 3D, outros modos de janela ou abertura
+completa. Issue #9 passa a 70% estimados e permanece aberta.

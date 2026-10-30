@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "phases": [
+    {
+      "start": 0,
+      "opening": true,
+      "nonblack_pixels": [
+        0,
+        8332,
+        27020,
+        38688,
+        38688,
+        38688,
+        38688,
+        38688,
+        38688
+      ],
+      "partial_states": 2,
+      "monotonic": true,
+      "invalid_rows": 0
+    },
+    {
+      "start": 40,
+      "opening": false,
+      "nonblack_pixels": [
+        38688,
+        38688,
+        38688,
+        34880,
+        19724,
+        0,
+        0,
+        0,
+        0
+      ],
+      "partial_states": 2,
+      "monotonic": true,
+      "invalid_rows": 0
+    },
+    {
+      "start": 80,
+      "opening": true,
+      "nonblack_pixels": [
+        0,
+        14384,
+        24584,
+        27892,
+        27892,
+        27892,
+        27892,
+        27892,
+        27892
+      ],
+      "partial_states": 2,
+      "monotonic": true,
+      "invalid_rows": 0
+    },
+    {
+      "start": 120,
+      "opening": false,
+      "nonblack_pixels": [
+        27892,
+        27892,
+        27892,
+        25120,
+        14996,
+        0,
+        0,
+        0,
+        0
+      ],
+      "partial_states": 2,
+      "monotonic": true,
+      "invalid_rows": 0
+    }
+  ],
+  "checks": [
+    {
+      "frame": 20,
+      "expected": "58",
+      "exact": true
+    },
+    {
+      "frame": 60,
+      "expected": "black",
+      "exact": true
+    },
+    {
+      "frame": 100,
+      "expected": "57",
+      "exact": true
+    },
+    {
+      "frame": 140,
+      "expected": "black",
+      "exact": true
+    }
+  ],
+  "scope": "original_9_8_fades_with_scanline_progression_and_task_completion",
+  "platform": "linux-x86_64",
+  "sprites_enabled": true
+}
