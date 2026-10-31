@@ -38,8 +38,10 @@ int main(int argc, char **argv)
     puts("PASS: Normal EV cancel/apply, Nature/IV blocked, exit/reopen.");
     ui->deinit(ui);free(pixels);return 0;
 #else
-    Key(1); assert(Page()==2);
+    Key(1); assert(Page()==2); Shot(argv[2],"nature-neutral",pixels);
     Key(1u<<7); Shot(argv[2],"nature",pixels);
+    // Adamant, the reference example (+Atk -Sp.Atk, likes spicy), then back to Lonely.
+    Key(1u<<7); Key(1u<<7); Shot(argv[2],"nature-adamant",pixels); Key(1u<<6); Key(1u<<6);
     Key(1); assert(Page()==5); Key(1); Shot(argv[2],"applied",pixels); assert(Page()==1);
     Key(1u<<7); Key(1); assert(Page()==3);
     Key(1u<<8); Shot(argv[2],"evs",pixels);

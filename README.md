@@ -536,7 +536,10 @@ python3 games/super-fire-red/scripts/test_elite_four.py
 python3 games/super-fire-red/scripts/test_hardcore.py
 python3 games/super-fire-red/scripts/test_training.py
 python3 games/super-fire-red/scripts/test_training_ui.py
+python3 games/super-fire-red/scripts/test_natures.py
 ```
+
+`test_natures.py` confere as 25 naturezas com a tabela de referência em `games/super-fire-red/hack-data/nature_reference.json` (atributo +10%/−10%, nomes, sabores e berries de confusão). `test_ai_move_native.py` usa a mesma tabela para conferir, na ROM, os atributos calculados, as cores do editor, os sabores e a natureza em batalha.
 
 ## Créditos
 

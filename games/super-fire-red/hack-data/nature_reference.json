@@ -1,0 +1,34 @@
+{
+  "source": "Tabela de naturezas fornecida pelo usuário (linhas: atributo +10%; colunas: atributo -10%); preferências de sabor e berries de confusão do mesmo quadro.",
+  "stats": ["attack", "defense", "spatk", "spdef", "speed"],
+  "grid": [
+    ["HARDY",  "LONELY",  "ADAMANT", "NAUGHTY", "BRAVE"],
+    ["BOLD",   "DOCILE",  "IMPISH",  "LAX",     "RELAXED"],
+    ["MODEST", "MILD",    "BASHFUL", "RASH",    "QUIET"],
+    ["CALM",   "GENTLE",  "CAREFUL", "QUIRKY",  "SASSY"],
+    ["TIMID",  "HASTY",   "JOLLY",   "NAIVE",   "SERIOUS"]
+  ],
+  "flavor_by_stat": {
+    "attack": "spicy",
+    "defense": "sour",
+    "spatk": "dry",
+    "spdef": "bitter",
+    "speed": "sweet"
+  },
+  "confusion_berry_by_flavor": {
+    "spicy": "FIGY",
+    "dry": "WIKI",
+    "sweet": "MAGO",
+    "bitter": "AGUAV",
+    "sour": "IAPAPA"
+  },
+  "example": {
+    "nature": "ADAMANT",
+    "raises": "attack",
+    "lowers": "spatk",
+    "likes": "spicy",
+    "dislikes": "dry",
+    "liked_berry": "FIGY",
+    "disliked_berry": "WIKI"
+  }
+}
