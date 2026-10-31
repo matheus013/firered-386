@@ -51,6 +51,26 @@ for name,config in teams.items():
    checks += [f'BenchExpect(GetMonData({base},MON_DATA_HP_IV+{stat})==31);',f'BenchExpect(GetMonData({base},MON_DATA_HP_EV+{stat})=={mon["evs"][stat]});']
   for position,move in enumerate(mon['moves']):checks.append(f'BenchExpect(GetMonData({base},MON_DATA_MOVE1+{position})==MOVE_{move});')
 checks.append('}')
+# Every nature from the reference table: computed stats, editor colors, flavors and battle nature.
+reference=json.loads((ROOT/'games/super-fire-red/hack-data/nature_reference.json').read_text())
+stat_macro={'attack':'STAT_ATK','defense':'STAT_DEF','spatk':'STAT_SPATK','spdef':'STAT_SPDEF','speed':'STAT_SPEED'}
+checks+=['static void BenchNatureChecks(void) {','struct Pokemon *mon=&gPlayerParty[gBattlerPartyIndexes[0]];struct Pokemon saved=*mon;u16 tag,neutral[NUM_STATS];u8 i;',
+ 'CreateMon(mon,SPECIES_MEWTWO,100,31,FALSE,0,OT_ID_PLAYER_ID,0);',
+ 'tag=0xA500|NATURE_HARDY;SetMonData(mon,MON_DATA_TRAINING_NATURE,&tag);CalculateMonStats(mon);',
+ 'for(i=0;i<NUM_STATS;i++)neutral[i]=GetMonData(mon,MON_DATA_MAX_HP+i);']
+for raised,row in zip(reference['stats'],reference['grid']):
+ for lowered,nature in zip(reference['stats'],row):
+  checks+=[f'tag=0xA500|NATURE_{nature};SetMonData(mon,MON_DATA_TRAINING_NATURE,&tag);CalculateMonStats(mon);',
+   f'BenchExpect(GetNature(mon)==NATURE_{nature} && GetBattlerNature(0)==NATURE_{nature});',
+   'BenchExpect(GetMonData(mon,MON_DATA_MAX_HP)==neutral[STAT_HP]);']
+  for stat,macro in stat_macro.items():
+   effect=0 if raised==lowered else 1 if stat==raised else -1 if stat==lowered else 0
+   value=f'neutral[{macro}]*110/100' if effect>0 else f'neutral[{macro}]*90/100' if effect<0 else f'neutral[{macro}]'
+   checks+=[f'BenchExpect(GetMonData(mon,MON_DATA_MAX_HP+{macro})==({value}));',f'BenchExpect(GetNatureStatEffect(NATURE_{nature},{macro})=={effect});']
+  for flavor in ('spicy','dry','sweet','bitter','sour'):
+   relation=0 if raised==lowered else 1 if reference['flavor_by_stat'][raised]==flavor else -1 if reference['flavor_by_stat'][lowered]==flavor else 0
+   checks.append(f'BenchExpect(GetFlavorRelationByNature(NATURE_{nature},FLAVOR_{flavor.upper()})=={relation});')
+checks+=['*mon=saved;','}']
 p=fixture/'src/battle_ai_script_commands.c';p.write_text(p.read_text()+'\n#include "constants/opponents.h"\n#include "constants/items.h"\n'+(ROOT/'games/super-fire-red/scripts/ai_move_native_checks.c').read_text()+'\n'+'\n'.join(checks)+'\n')
 p=fixture/'src/battle_main.c';p.write_text(p.read_text().replace('static void HandleTurnActionSelectionState(void)','void HandleTurnActionSelectionState(void)')+'\nvoid BenchCreateGymParty(u16 trainer){CreateNPCTrainerParty(gEnemyParty,trainer);}\n')
 with (OUT/'build.log').open('w') as log:subprocess.run(['make','-j4'],cwd=fixture,stdout=log,stderr=subprocess.STDOUT,check=True)

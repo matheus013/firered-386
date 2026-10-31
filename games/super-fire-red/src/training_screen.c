@@ -12,6 +12,7 @@
 #include "task.h"
 #include "malloc.h"
 #include "string_util.h"
+#include "berry.h"
 #include "event_data.h"
 #include "script.h"
 #include "constants/pokemon.h"
@@ -65,8 +66,8 @@ static const u8 sUi16En[] = _("EVs LEFT");
 static const u8 sUi16Pt[] = _("EVs LIVRES");
 static const u8 sUi17En[] = _("Unavailable for training.");
 static const u8 sUi17Pt[] = _("Indisponível para treinar.");
-static const u8 sUi18En[] = _("UP/DOWN: CHANGE NATURE");
-static const u8 sUi18Pt[] = _("CIMA/BAIXO: MUDAR NATUREZA");
+static const u8 sUi18En[] = _("{DPAD_UPDOWN} NATURE   A: REVIEW   B: CANCEL");
+static const u8 sUi18Pt[] = _("{DPAD_UPDOWN} NATUREZA   A: REVISAR   B: CANCELAR");
 static const u8 sUi19En[] = _("EVs: 252/stat - 510 total");
 static const u8 sUi19Pt[] = _("EVs: 252/atributo - 510 total");
 static const u8 sUi20En[] = _("IVs: 0-31 per stat");
@@ -122,6 +123,31 @@ static const u8 *const sUi[][2] = {
 };
 static const u8 *T(u8 id) { return sUi[id][GameSettings_GetLanguage()]; }
 
+// Liked and disliked flavors (confusion berries) shown on the nature page.
+static const u8 sLikesEn[] = _("Likes: ");
+static const u8 sLikesPt[] = _("Gosta: ");
+static const u8 sDislikesEn[] = _("  Dislikes: ");
+static const u8 sDislikesPt[] = _("  Evita: ");
+static const u8 sSpicyEn[] = _("SPICY");
+static const u8 sSpicyPt[] = _("PICANTE");
+static const u8 sDryEn[] = _("DRY");
+static const u8 sDryPt[] = _("SECO");
+static const u8 sSweetEn[] = _("SWEET");
+static const u8 sSweetPt[] = _("DOCE");
+static const u8 sBitterEn[] = _("BITTER");
+static const u8 sBitterPt[] = _("AMARGO");
+static const u8 sSourEn[] = _("SOUR");
+static const u8 sSourPt[] = _("AZEDO");
+static const u8 *const sLikes[] = {sLikesEn, sLikesPt};
+static const u8 *const sDislikes[] = {sDislikesEn, sDislikesPt};
+static const u8 *const sFlavorNames[FLAVOR_COUNT][2] = {
+    [FLAVOR_SPICY] = {sSpicyEn, sSpicyPt},
+    [FLAVOR_DRY] = {sDryEn, sDryPt},
+    [FLAVOR_SWEET] = {sSweetEn, sSweetPt},
+    [FLAVOR_BITTER] = {sBitterEn, sBitterPt},
+    [FLAVOR_SOUR] = {sSourEn, sSourPt},
+};
+
 static const u16 sTrainingPalette[] = {
     RGB(2,4,8), RGB(3,6,12), RGB(30,31,31), RGB(1,3,7),
     RGB(8,13,20), RGB(7,26,26), RGB(5,14,22), RGB(31,23,9),
@@ -154,6 +180,27 @@ static void UpdatePortrait(void)
     if(sTraining->spriteId<MAX_SPRITES)FreeAndDestroyMonPicSprite(sTraining->spriteId);
     sTraining->spriteId=CreateMonPicSprite_HandleDeoxys(GetMonData(mon,MON_DATA_SPECIES_OR_EGG),GetMonData(mon,MON_DATA_OT_ID),GetMonData(mon,MON_DATA_PERSONALITY),TRUE,48,79,12,0xFFFF);
     sTraining->spriteSlot=sTraining->slot;
+}
+static void PrintNatureFlavors(u8 nature)
+{
+    u8 buffer[64], *end, flavor, liked = FLAVOR_COUNT, disliked = FLAVOR_COUNT, language = GameSettings_GetLanguage();
+    for (flavor = 0; flavor < FLAVOR_COUNT; flavor++)
+    {
+        if (GetFlavorRelationByNature(nature, flavor) > 0)
+            liked = flavor;
+        else if (GetFlavorRelationByNature(nature, flavor) < 0)
+            disliked = flavor;
+    }
+    if (liked == FLAVOR_COUNT || disliked == FLAVOR_COUNT)
+    {
+        PrintAt(4,128,0,10,T(UI_NEUTRAL));
+        return;
+    }
+    end = StringCopy(buffer, sLikes[language]);
+    end = StringCopy(end, sFlavorNames[liked][language]);
+    end = StringCopy(end, sDislikes[language]);
+    StringCopy(end, sFlavorNames[disliked][language]);
+    PrintAt(4,128,0,10,buffer);
 }
 static u16 PreviewStat(u8 stat)
 {
@@ -217,8 +264,9 @@ static void DrawTraining(void)
             // nature, so undoing the current nature does not look like part of the new one.
             NumberAt(192,45+i*12,PreviewStat(i),11,GetNatureStatEffect(sTraining->nature,i)>0?8:GetNatureStatEffect(sTraining->nature,i)<0?9:2);
         }
-        PrintAt(4,128,0,10,sTraining->page==PAGE_CONFIRM?T(UI_NOHEAL):T(UI_NATUREHELP));
-        PrintAt(4,140,0,2,sTraining->page==PAGE_CONFIRM?T(UI_APPLY):T(UI_REVIEW));
+        if(sTraining->page==PAGE_CONFIRM)PrintAt(4,128,0,10,T(UI_NOHEAL));
+        else PrintNatureFlavors(sTraining->nature);
+        PrintAt(4,140,0,2,sTraining->page==PAGE_CONFIRM?T(UI_APPLY):T(UI_NATUREHELP));
     }
     else
     {

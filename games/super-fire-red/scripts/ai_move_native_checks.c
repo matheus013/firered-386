@@ -4,6 +4,7 @@ IWRAM_DATA volatile u32 gDecisionDone, gDecisionChecks, gDecisionFailures;
 IWRAM_DATA volatile u32 gDecisionFailureBits;
 IWRAM_DATA volatile u32 gDecisionFirstFailure;
 static void BenchGymPartyChecks(void);
+static void BenchNatureChecks(void);
 static void BenchExpect(bool8 ok)
 {
     if (!ok) {if (!gDecisionFailures) gDecisionFirstFailure=gDecisionChecks;gDecisionFailures++;gDecisionFailureBits |= 1 << (gDecisionChecks % 32);}
@@ -226,6 +227,7 @@ void RunAIDecisionChecks(void)
         BenchExpect(GetMonData(&gEnemyParty[0],MON_DATA_HELD_ITEM)==ITEM_NONE);
         gEnemyParty[0]=saved;gBattleTypeFlags=flags;
     }
+    BenchNatureChecks();
     BenchGymPartyChecks();
     gDecisionDone=1;
 }
