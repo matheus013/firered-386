@@ -11,6 +11,10 @@
 #include "field_poison.h"
 #include "constants/battle.h"
 
+// Modern rule: walking while poisoned stops at 1 HP and cures the poison instead of fainting.
+static EWRAM_DATA u8 sPoisonSurvivors = 0;
+static const u8 sText_PkmnSurvivedPoison[] = _("{STR_VAR_1} survived the\npoisoning!\pThe poison faded away!\p");
+
 static bool32 IsMonValidSpecies(struct Pokemon *pokemon)
 {
     u16 species = GetMonData(pokemon, MON_DATA_SPECIES_OR_EGG);
@@ -59,6 +63,15 @@ static void Task_TryFieldPoisonWhiteOut(u8 taskId)
     case 0:
         for (; tPartyId < PARTY_SIZE; tPartyId++)
         {
+            if (sPoisonSurvivors & (1 << tPartyId))
+            {
+                sPoisonSurvivors &= ~(1 << tPartyId);
+                GetMonData(gPlayerParty + tPartyId, MON_DATA_NICKNAME, gStringVar1);
+                StringGet_Nickname(gStringVar1);
+                ShowFieldMessage(sText_PkmnSurvivedPoison);
+                tState++;
+                return;
+            }
             if (MonFaintedFromPoison(tPartyId))
             {
                 FaintFromFieldPoison(tPartyId);
@@ -94,27 +107,40 @@ s32 DoPoisonFieldEffect(void)
 {
     int i;
     u32 hp;
-    
+
     struct Pokemon *pokemon = gPlayerParty;
     u32 numPoisoned = 0;
     u32 numFainted = 0;
+    sPoisonSurvivors = 0;
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
         {
             hp = GetMonData(pokemon, MON_DATA_HP);
-            if (hp == 0 || --hp == 0)
-                numFainted++;
-            SetMonData(pokemon, MON_DATA_HP, &hp);
             if (hp == 0)
+            {
+                numFainted++;
                 Nuzlocke_MarkFainted(pokemon);
+            }
+            else
+            {
+                if (hp > 1)
+                    hp--;
+                SetMonData(pokemon, MON_DATA_HP, &hp);
+                if (hp == 1)
+                {
+                    u32 status = STATUS1_NONE;
+                    SetMonData(pokemon, MON_DATA_STATUS, &status);
+                    sPoisonSurvivors |= 1 << i;
+                }
+            }
             numPoisoned++;
         }
         pokemon++;
     }
     if (numFainted || numPoisoned)
         FldEffPoison_Start();
-    if (numFainted)
+    if (numFainted || sPoisonSurvivors)
         return FLDPSN_FNT;
     if (numPoisoned)
         return FLDPSN_PSN;

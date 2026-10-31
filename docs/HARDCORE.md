@@ -6,7 +6,7 @@ Idioma EN/PT-BR pode ser alterado nas opções. Saves sem os novos campos inicia
 
 ## Hardcore implementado
 
-- Após as primeiras Poké Balls de Oak, desmaiar em batalha ou por veneno no mapa causa perda permanente. Cura, Revive, Centro Pokémon e retirada do PC não removem essa condição. O Pokémon pode ficar guardado no PC.
+- Após as primeiras Poké Balls de Oak, desmaiar em batalha causa perda permanente. Cura, Revive, Centro Pokémon e retirada do PC não removem essa condição. O Pokémon pode ficar guardado no PC. Veneno no mapa não mata: para em 1 HP e é curado.
 - O primeiro selvagem elegível gasta a oportunidade da área ao iniciar a batalha. Fugir ou derrotá-lo perde a oportunidade. Pode lançar várias Balls durante esse encontro. Grama, água, pesca e encontros estáticos compartilham a cota.
 - Espécies já registradas como capturadas são puladas sem consumir a área. Considera a espécie exata, não toda a família evolutiva. Perdas e liberações não removem esse registro.
 - Shinies seguem a cota normal, sem exceção. Fantasmas não capturáveis da Torre, incluindo Marowak revelado, não consomem a cota (corrigido na v0.3.1-dev).

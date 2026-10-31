@@ -173,5 +173,6 @@
   "{B_ATK_NAME_WITH_PREFIX} was hurt\nby the SPIKY SHIELD!": "{B_ATK_NAME_WITH_PREFIX} se feriu\nno SPIKY SHIELD!",
   "{B_ATK_NAME_WITH_PREFIX} can't use\n{B_CURRENT_MOVE}!": "{B_ATK_NAME_WITH_PREFIX} não pode\nusar {B_CURRENT_MOVE}!",
   "A veil of water restored\n{B_ATK_NAME_WITH_PREFIX}'s HP!": "Um véu de água restaurou\no HP de {B_ATK_NAME_WITH_PREFIX}!",
-  "{B_ATK_NAME_WITH_PREFIX} vanished\ninstantly!": "{B_ATK_NAME_WITH_PREFIX} sumiu\nnum instante!"
+  "{B_ATK_NAME_WITH_PREFIX} vanished\ninstantly!": "{B_ATK_NAME_WITH_PREFIX} sumiu\nnum instante!",
+  "{STR_VAR_1} survived the\npoisoning!\\pThe poison faded away!\\p": "{STR_VAR_1} sobreviveu\nao veneno!\\pO veneno passou!\\p"
 }

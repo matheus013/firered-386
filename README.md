@@ -25,7 +25,7 @@ A documentação de FireRed abaixo trata de outro jogo deste repositório.
 
 O README fica na raiz; os guias, relatórios de testes e o histórico de mudanças ficam em `docs/`. Os comandos de reprodução continuam sendo executados na raiz do projeto.
 
-**Prévia atual: [v0.5.0-preview.5](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.5)** — Pickup por faixa de nível, aviso de item na captura, cores de natureza no resumo e no editor, e Pokémon selvagens sempre com item quando a espécie tem um. Mantém Fada, 223 golpes novos e EVs desde o início no Normal. [Histórico](docs/CHANGELOG.md). A migração completa para as regras modernas continua em desenvolvimento.
+**Prévia atual: [v0.5.0-preview.6](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.6)** — veneno fora de batalha para em 1 HP e é curado, sem desmaios. Inclui Pickup por faixa de nível, aviso de item na captura, cores de natureza no resumo e no editor, e Pokémon selvagens sempre com item quando a espécie tem um. Mantém Fada, 223 golpes novos e EVs desde o início no Normal. [Histórico](docs/CHANGELOG.md). A migração completa para as regras modernas continua em desenvolvimento.
 
 **Desenvolvimento após v0.4.0:** há revisão da IA/ginásios, categorias por golpe, correção de sobreposição e importação parcial dos learnsets recentes. Estas mudanças ainda não completam a geração IX nem atualizam automaticamente a Release antiga. [Estado exato, testes e pendências](docs/MODERNIZATION.md). [Revisão da IA dos líderes/E4](docs/AI_REVIEW.md).
 
@@ -48,9 +48,9 @@ No Windows, execute pela raiz com `wsl -d Ubuntu -u root -- make -C games/super-
 
 ## Download
 
-Prévia atual: **[v0.5.0-preview.5](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.5)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.5.0-preview.5/firered-386-v0.5.0-preview.5.gba). **Ainda não contém todos os golpes nem todas as TMs da geração IX.** [Testes e limites](docs/MODERNIZATION.md).
+Prévia atual: **[v0.5.0-preview.6](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.6)** — [baixar o .gba](https://github.com/matheus013/firered-386/releases/download/v0.5.0-preview.6/firered-386-v0.5.0-preview.6.gba). **Ainda não contém todos os golpes nem todas as TMs da geração IX.** [Testes e limites](docs/MODERNIZATION.md).
 
-As releases anteriores foram removidas; o código de cada versão continua nas tags (v0.1.0-dev a v0.5.0-preview.4). Veja o [histórico de versões](docs/CHANGELOG.md).
+As releases anteriores foram removidas; o código de cada versão continua nas tags (v0.1.0-dev a v0.5.0-preview.4); a v0.5.0-preview.5 continua publicada. Veja o [histórico de versões](docs/CHANGELOG.md).
 
 Baixe o **`.gba`** em [Releases](https://github.com/matheus013/firered-386/releases) e abra em um emulador de GBA. Também estão disponíveis um patch `.ips`, o patch de fontes e checksums SHA-256.
 
@@ -391,7 +391,7 @@ A revisão melhora a pontuação de ações, mas não garante decisões perfeita
 
 ### Regras do Hardcore desta versão
 
-1. **Perda permanente:** após as primeiras cinco Poké Balls de Oak, desmaios em batalha ou por veneno no mapa impedem o Pokémon de lutar novamente. Cura, Revive, Centro Pokémon e PC não desfazem a perda. Ele pode ficar guardado no PC.
+1. **Perda permanente:** após as primeiras cinco Poké Balls de Oak, desmaios em batalha impedem o Pokémon de lutar novamente. Cura, Revive, Centro Pokémon e PC não desfazem a perda. Ele pode ficar guardado no PC. Veneno no mapa não mata: para em 1 HP e é curado.
 2. **Primeiro encontro por área:** o primeiro selvagem elegível consome a oportunidade ao iniciar a batalha. Fugir ou derrotá-lo perde a captura. É permitido usar várias Poké Balls no mesmo encontro.
 3. **Cota compartilhada:** grama, água, pesca e encontros estáticos na mesma seção do mapa compartilham a oportunidade. Andares/setores com a mesma seção também compartilham a cota.
 4. **Duplicatas por espécie exata:** espécies registradas como capturadas são ignoradas sem consumir a área e não podem ser capturadas novamente. Não abrange toda a família evolutiva. Perdas e liberações não apagam o registro.
