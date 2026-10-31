@@ -1344,6 +1344,10 @@
 	various \battler, VARIOUS_WAIT_FANFARE
 	.endm
 
+	.macro showcaughtmonitem
+	various BS_TARGET, VARIOUS_SHOW_CAUGHT_MON_ITEM
+	.endm
+
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
 	setbyte sSTATCHANGER \stat | \stages << 4 | \down << 7

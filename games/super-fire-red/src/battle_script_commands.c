@@ -783,28 +783,37 @@ static const u16 sWeightToDamageTable[] =
 struct PickupItem
 {
     u16 itemId;
-    u8 chance;
+    u8 weight;
 };
 
-static const struct PickupItem sPickupItems[] =
+// One table per finder level band (Lv 1-20, 21-40, 41-60, 61-80, 81-100); weights total 100.
+static const struct PickupItem sPickupItems[PICKUP_LEVEL_TIERS][PICKUP_ITEMS_PER_TIER] =
 {
-    { ITEM_ORAN_BERRY, 15 },
-    { ITEM_CHERI_BERRY, 25 },
-    { ITEM_CHESTO_BERRY, 35 },
-    { ITEM_PECHA_BERRY, 45 },
-    { ITEM_RAWST_BERRY, 55 },
-    { ITEM_ASPEAR_BERRY, 65 },
-    { ITEM_PERSIM_BERRY, 75 },
-    { ITEM_TM10, 80 },
-    { ITEM_PP_UP, 85 },
-    { ITEM_RARE_CANDY, 90 },
-    { ITEM_NUGGET, 95 },
-    { ITEM_SPELON_BERRY, 96 },
-    { ITEM_PAMTRE_BERRY, 97 },
-    { ITEM_WATMEL_BERRY, 98 },
-    { ITEM_DURIN_BERRY, 99 },
-    { ITEM_BELUE_BERRY, 1 },
-
+    {
+        { ITEM_POTION, 20 }, { ITEM_POKE_BALL, 15 }, { ITEM_ANTIDOTE, 10 }, { ITEM_PARALYZE_HEAL, 10 },
+        { ITEM_GREAT_BALL, 10 }, { ITEM_REPEL, 10 }, { ITEM_ORAN_BERRY, 10 }, { ITEM_SUPER_POTION, 6 },
+        { ITEM_ESCAPE_ROPE, 5 }, { ITEM_RARE_CANDY, 2 }, { ITEM_NUGGET, 2 },
+    },
+    {
+        { ITEM_SUPER_POTION, 20 }, { ITEM_GREAT_BALL, 15 }, { ITEM_FULL_HEAL, 10 }, { ITEM_SUPER_REPEL, 10 },
+        { ITEM_HYPER_POTION, 10 }, { ITEM_REVIVE, 8 }, { ITEM_ETHER, 8 }, { ITEM_ULTRA_BALL, 7 },
+        { ITEM_NUGGET, 5 }, { ITEM_RARE_CANDY, 4 }, { ITEM_PP_UP, 3 },
+    },
+    {
+        { ITEM_HYPER_POTION, 20 }, { ITEM_ULTRA_BALL, 15 }, { ITEM_REVIVE, 12 }, { ITEM_FULL_HEAL, 10 },
+        { ITEM_ELIXIR, 8 }, { ITEM_MAX_REPEL, 7 }, { ITEM_FULL_RESTORE, 6 }, { ITEM_RARE_CANDY, 6 },
+        { ITEM_NUGGET, 6 }, { ITEM_PP_UP, 5 }, { ITEM_MAX_ETHER, 4 }, { ITEM_LEFTOVERS, 1 },
+    },
+    {
+        { ITEM_ULTRA_BALL, 15 }, { ITEM_HYPER_POTION, 12 }, { ITEM_MAX_POTION, 12 }, { ITEM_REVIVE, 12 },
+        { ITEM_FULL_RESTORE, 10 }, { ITEM_RARE_CANDY, 8 }, { ITEM_NUGGET, 8 }, { ITEM_PP_UP, 7 },
+        { ITEM_MAX_ELIXIR, 6 }, { ITEM_MAX_REVIVE, 5 }, { ITEM_PP_MAX, 3 }, { ITEM_LEFTOVERS, 2 },
+    },
+    {
+        { ITEM_MAX_POTION, 15 }, { ITEM_FULL_RESTORE, 15 }, { ITEM_ULTRA_BALL, 10 }, { ITEM_MAX_REVIVE, 10 },
+        { ITEM_MAX_ELIXIR, 10 }, { ITEM_RARE_CANDY, 10 }, { ITEM_NUGGET, 10 }, { ITEM_PP_UP, 8 },
+        { ITEM_PP_MAX, 5 }, { ITEM_LUCKY_EGG, 4 }, { ITEM_LEFTOVERS, 3 },
+    },
 };
 
 static const u8 sTerrainToType[] =
@@ -6382,6 +6391,19 @@ static void Cmd_various(void)
         if (!IsFanfareTaskInactive())
             return;
         break;
+    case VARIOUS_SHOW_CAUGHT_MON_ITEM:
+    {
+        u16 item = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_HELD_ITEM);
+
+        if (item != ITEM_NONE)
+        {
+            PREPARE_ITEM_BUFFER(gBattleTextBuff1, item);
+            BattleScriptPush(gBattlescriptCurrInstr + 3);
+            gBattlescriptCurrInstr = BattleScript_CaughtMonHeldItem;
+            return;
+        }
+        break;
+    }
     }
 
     gBattlescriptCurrInstr += 3;
@@ -9462,10 +9484,26 @@ static void Cmd_getsecretpowereffect(void)
     gBattlescriptCurrInstr++;
 }
 
+// roll is 0-99; picks from the level band of the Pokemon that found the item.
+u16 GetPickupItem(u8 level, u8 roll)
+{
+    u32 tier = level > 0 ? (level - 1) / 20 : 0;
+    u32 i;
+
+    if (tier >= PICKUP_LEVEL_TIERS)
+        tier = PICKUP_LEVEL_TIERS - 1;
+    for (i = 0; i < PICKUP_ITEMS_PER_TIER && sPickupItems[tier][i].weight != 0; i++)
+    {
+        if (roll < sPickupItems[tier][i].weight)
+            return sPickupItems[tier][i].itemId;
+        roll -= sPickupItems[tier][i].weight;
+    }
+    return sPickupItems[tier][0].itemId;
+}
+
 static void Cmd_pickup(void)
 {
     s32 i;
-    u32 j;
     u16 species, heldItem;
     u32 ability;
 
@@ -9477,14 +9515,10 @@ static void Cmd_pickup(void)
             ability = gSpeciesInfo[species].abilities[1];
         else
             ability = gSpeciesInfo[species].abilities[0];
-        if (ability == ABILITY_PICKUP && species != SPECIES_NONE && species != SPECIES_EGG && heldItem == ITEM_NONE && !(Random() % 10))
+        if (ability == ABILITY_PICKUP && species != SPECIES_NONE && species != SPECIES_EGG && heldItem == ITEM_NONE && Random() % 100 < PICKUP_CHANCE)
         {
-            s32 random = Random() % 100;
-
-            for (j = 0; j < 15; ++j)
-                if (sPickupItems[j].chance > random)
-                    break;
-            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &sPickupItems[j]);
+            heldItem = GetPickupItem(GetMonData(&gPlayerParty[i], MON_DATA_LEVEL), Random() % 100);
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
         }
     }
     gBattlescriptCurrInstr++;

@@ -537,9 +537,14 @@ python3 games/super-fire-red/scripts/test_hardcore.py
 python3 games/super-fire-red/scripts/test_training.py
 python3 games/super-fire-red/scripts/test_training_ui.py
 python3 games/super-fire-red/scripts/test_natures.py
+python3 games/super-fire-red/scripts/test_pickup.py
+python3 games/super-fire-red/scripts/test_capture_item.py
+python3 games/super-fire-red/scripts/test_summary_natures.py
 ```
 
 `test_natures.py` confere as 25 naturezas com a tabela de referência em `games/super-fire-red/hack-data/nature_reference.json` (atributo +10%/−10%, nomes, sabores e berries de confusão). `test_ai_move_native.py` usa a mesma tabela para conferir, na ROM, os atributos calculados, as cores do editor, os sabores e a natureza em batalha.
+
+`test_pickup.py` confere as tabelas do Pickup: 30% por batalha, cinco faixas de nível com pesos que somam 100 e só itens reais. `test_ai_move_native.py` sorteia cada valor de cada faixa na ROM. `test_capture_item.py` roda o script real de captura e confere a mensagem do item segurado em EN e PT-BR. `test_summary_natures.py` abre o resumo nas 25 naturezas e confere as cores dos atributos na tela.
 
 ## Créditos
 

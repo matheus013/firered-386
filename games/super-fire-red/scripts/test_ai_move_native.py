@@ -71,6 +71,14 @@ for raised,row in zip(reference['stats'],reference['grid']):
    relation=0 if raised==lowered else 1 if reference['flavor_by_stat'][raised]==flavor else -1 if reference['flavor_by_stat'][lowered]==flavor else 0
    checks.append(f'BenchExpect(GetFlavorRelationByNature(NATURE_{nature},FLAVOR_{flavor.upper()})=={relation});')
 checks+=['*mon=saved;','}']
+# Pickup: every roll of every level band returns the item the source table assigns to it.
+from pickup_table import pickup_tiers
+checks+=['static void BenchPickupChecks(void) {']
+for tier,items in enumerate(pickup_tiers()):
+ rolls=[item for item,weight in items for _ in range(weight)]
+ for level in (tier*20+1,tier*20+20):
+  checks+=[f'BenchExpect(GetPickupItem({level},{roll})=={item});' for roll,item in enumerate(rolls)]
+checks+=['BenchExpect(GetPickupItem(0,0)==GetPickupItem(1,0));','BenchExpect(GetPickupItem(255,99)==GetPickupItem(100,99));','}']
 p=fixture/'src/battle_ai_script_commands.c';p.write_text(p.read_text()+'\n#include "constants/opponents.h"\n#include "constants/items.h"\n'+(ROOT/'games/super-fire-red/scripts/ai_move_native_checks.c').read_text()+'\n'+'\n'.join(checks)+'\n')
 p=fixture/'src/battle_main.c';p.write_text(p.read_text().replace('static void HandleTurnActionSelectionState(void)','void HandleTurnActionSelectionState(void)')+'\nvoid BenchCreateGymParty(u16 trainer){CreateNPCTrainerParty(gEnemyParty,trainer);}\n')
 with (OUT/'build.log').open('w') as log:subprocess.run(['make','-j4'],cwd=fixture,stdout=log,stderr=subprocess.STDOUT,check=True)

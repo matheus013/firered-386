@@ -212,5 +212,6 @@
   "sharply ": "muito ",
   "rose!": "aumentou!",
   "harshly ": "muito ",
-  "fell!": "diminuiu!"
+  "fell!": "diminuiu!",
+  "{B_OPPONENT_MON1_NAME} was holding\n{B_BUFF1}!\\p": "{B_OPPONENT_MON1_NAME} estava segurando\n{B_BUFF1}!\\p"
 }

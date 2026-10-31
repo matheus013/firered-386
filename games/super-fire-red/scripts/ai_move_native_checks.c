@@ -5,6 +5,7 @@ IWRAM_DATA volatile u32 gDecisionFailureBits;
 IWRAM_DATA volatile u32 gDecisionFirstFailure;
 static void BenchGymPartyChecks(void);
 static void BenchNatureChecks(void);
+static void BenchPickupChecks(void);
 static void BenchExpect(bool8 ok)
 {
     if (!ok) {if (!gDecisionFailures) gDecisionFirstFailure=gDecisionChecks;gDecisionFailures++;gDecisionFailureBits |= 1 << (gDecisionChecks % 32);}
@@ -228,6 +229,7 @@ void RunAIDecisionChecks(void)
         gEnemyParty[0]=saved;gBattleTypeFlags=flags;
     }
     BenchNatureChecks();
+    BenchPickupChecks();
     BenchGymPartyChecks();
     gDecisionDone=1;
 }
