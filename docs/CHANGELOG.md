@@ -1,6 +1,6 @@
 # Histórico de versões
 
-## Em desenvolvimento
+## v0.5.0-preview.5 — 31/10/2026
 
 - Pickup: a chance de achar item depois de vencer uma batalha sobe de 10% para 30%, e os itens passam a depender do nível de quem achou, em cinco faixas (1–20, 21–40, 41–60, 61–80, 81–100). As faixas baixas trazem Potion, Poké Ball e Repel; as altas trazem Max Potion, Full Restore, Max Revive, PP Max, Lucky Egg e Leftovers. Rare Candy vai de 2% a 10% dos achados conforme a faixa. Antes, todo nível usava a mesma tabela, quase só de berries.
 - Captura: quando o Pokémon capturado segura um item, a batalha avisa logo depois do "Gotcha!" (por exemplo, "PIKACHU estava segurando LIGHT BALL!").

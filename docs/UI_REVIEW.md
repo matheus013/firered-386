@@ -1,6 +1,6 @@
 # Revisão da interface — 23/10/2026
 
-Revisão incluída na [v0.5.0-preview.4](https://github.com/matheus013/firered-386/releases/tag/v0.5.0-preview.4), com **577 golpes (223 novos)**, Fada e o editor. ROM: `firered-386-v0.5.0-preview.4.gba`, SHA-256 `0b8e7bda6ee3a63846317f525a4b09e3accd8b87cf0d46db0502d4898fe6f63f`.
+Revisão incluída na [v0.5.0-preview.4](https://github.com/matheus013/firered-386/tree/v0.5.0-preview.4), com **577 golpes (223 novos)**, Fada e o editor. ROM: `firered-386-v0.5.0-preview.4.gba`, SHA-256 `0b8e7bda6ee3a63846317f525a4b09e3accd8b87cf0d46db0502d4898fe6f63f`.
 
 ## Correções
 

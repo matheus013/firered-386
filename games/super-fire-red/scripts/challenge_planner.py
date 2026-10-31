@@ -18,7 +18,7 @@ EVOL={}
 for species,body in re.findall(r'\[SPECIES_(\w+)\]\s*=\s*\{(.*?)(?=\n\s*\[SPECIES_|\n\};)',(ROOT/'games/super-fire-red/src/data/pokemon/evolution.h').read_text(),re.S):
  EVOL[species]=[(int(l),s) for l,s in re.findall(r'\{EVO_LEVEL,\s*(\d+),\s*SPECIES_(\w+)\}',body)]
 CHART={}
-text=(ROOT/'games/super-fire-red/src/battle_main.c').read_text();body=text[text.index('const u8 gTypeEffectiveness[336]'):];body=body[:body.index('};')]
+text=(ROOT/'games/super-fire-red/src/battle_main.c').read_text();body=text[re.search(r'const u8 gTypeEffectiveness\[\d+\]',text).start():];body=body[:body.index('};')]
 for a,b,mult in re.findall(r'TYPE_(\w+),\s*TYPE_(\w+),\s*TYPE_MUL_(\w+)',body):CHART[a,b]={'SUPER_EFFECTIVE':2,'NOT_EFFECTIVE':0.5,'NO_EFFECT':0}[mult]
 
 def effect(typ,species,ability=None):
