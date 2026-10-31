@@ -443,7 +443,8 @@
 #define STRINGID_MODERNMOVEBLOCKED 441
 #define STRINGID_AQUARINGHEAL 442
 #define STRINGID_PHANTOMFORCEVANISHED 443
-#define BATTLESTRINGS_COUNT     444
+#define STRINGID_CAUGHTMONHELDITEM 444
+#define BATTLESTRINGS_COUNT     445
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

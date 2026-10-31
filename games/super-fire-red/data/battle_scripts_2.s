@@ -75,6 +75,7 @@ BattleScript_SuccessBallThrow::
 	incrementgamestat GAME_STAT_POKEMON_CAPTURES
 BattleScript_SafariNoIncGameStat::
 	printstring STRINGID_GOTCHAPKMNCAUGHT
+	showcaughtmonitem
 	trysetcaughtmondexflags BattleScript_CaughtPokemonSkipNewDex
 	printstring STRINGID_PKMNDATAADDEDTODEX
 	waitstate
@@ -120,6 +121,11 @@ BattleScript_TrainerBallBlock::
 	printstring STRINGID_DONTBEATHIEF
 	waitmessage B_WAIT_TIME_LONG
 	finishaction
+
+BattleScript_CaughtMonHeldItem::
+	printstring STRINGID_CAUGHTMONHELDITEM
+	waitmessage B_WAIT_TIME_LONG
+	return
 
 BattleScript_NuzlockeCaptureBlocked::
 	printstring STRINGID_NUZLOCKE_CAPTURE_BLOCKED

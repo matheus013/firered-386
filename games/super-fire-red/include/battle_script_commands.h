@@ -7,6 +7,10 @@
 #define WINDOW_CLEAR (1 << 0)
 #define WINDOW_BG1   (1 << 7)
 
+#define PICKUP_CHANCE          30 // percent per eligible Pokemon after a won battle
+#define PICKUP_LEVEL_TIERS     5
+#define PICKUP_ITEMS_PER_TIER  12
+
 void AI_CalcDmg(u8 attacker, u8 defender);
 u8 TypeCalc(u16 move, u8 attacker, u8 defender);
 u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility);
@@ -18,6 +22,7 @@ void BattleCreateYesNoCursorAt(void);
 void BufferMoveToLearnIntoBattleTextBuff2(void);
 void HandleBattleWindow(u8 xStart, u8 yStart, u8 xEnd, u8 yEnd, u8 flags);
 bool8 UproarWakeUpCheck(u8 battlerId);
+u16 GetPickupItem(u8 level, u8 roll);
 
 extern void (* const gBattleScriptingCommandsTable[])(void);
 

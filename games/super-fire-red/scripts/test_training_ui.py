@@ -1,6 +1,7 @@
 """Interact with the actual coach from the overworld and edit via buttons."""
 from pathlib import Path
-import argparse,hashlib,json,re,shutil,struct,subprocess,tempfile,zlib
+import argparse,hashlib,json,re,shutil,subprocess,tempfile
+from png_util import read_png
 root=Path(__file__).resolve().parents[3]
 parser=argparse.ArgumentParser();parser.add_argument('--language',choices=['en','ptbr'],default='en');parser.add_argument('--mode',choices=['normal','hardcore'],default='hardcore');args=parser.parse_args()
 out=root/'games/super-fire-red/output/tests'/(('training-ui' if args.language=='en' else 'training-ui-ptbr')+('-normal' if args.mode=='normal' else '')); out.mkdir(parents=True,exist_ok=True)
@@ -75,23 +76,6 @@ runner=test/'training-ui-smoke'
 subprocess.run(['gcc','-O2','-Wall','-Wextra',*(['-DNORMAL_EDITOR'] if args.mode=='normal' else []),str(root/'games/super-fire-red/scripts/training_ui_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
 with (out/'emulator.log').open('w') as log:
  subprocess.run([str(runner),str(test/'pokefirered.gba'),str(out/'coach'),*['0x'+symbols[s] for s in ('sTraining','gPlayerParty','gTrainingUiResult')]],stdout=log,stderr=subprocess.STDOUT,check=True,timeout=90)
-def read_png(path):
- data=path.read_bytes();i=8;idat=b''
- while i<len(data):
-  n=struct.unpack('>I',data[i:i+4])[0];kind=data[i+4:i+8];chunk=data[i+8:i+8+n];i+=12+n
-  if kind==b'IHDR':width,height,_,color=struct.unpack('>IIBB',chunk[:10])
-  elif kind==b'IDAT':idat+=chunk
- bpp={2:3,6:4}[color];raw=zlib.decompress(idat);stride=width*bpp;rows=[];prev=bytearray(stride);o=0
- for _ in range(height):
-  kind=raw[o];line=bytearray(raw[o+1:o+1+stride]);o+=1+stride
-  for x in range(stride):
-   a=line[x-bpp] if x>=bpp else 0;b=prev[x];c=prev[x-bpp] if x>=bpp else 0
-   if kind==1:line[x]=(line[x]+a)&255
-   elif kind==2:line[x]=(line[x]+b)&255
-   elif kind==3:line[x]=(line[x]+(a+b)//2)&255
-   elif kind==4:pa,pb,pc=abs(b-c),abs(a-c),abs(a+b-2*c);line[x]=(line[x]+(a if pa<=pb and pa<=pc else b if pb<=pc else c))&255
-  rows.append([tuple(v>>3 for v in line[x*bpp:x*bpp+3]) for x in range(width)]);prev=line
- return rows
 if args.mode!='normal':
  # Each nature page must color exactly the raised stat green and the lowered stat red (none if neutral).
  reference=json.loads((root/'games/super-fire-red/hack-data/nature_reference.json').read_text())

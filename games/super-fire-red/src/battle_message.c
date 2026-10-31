@@ -474,6 +474,7 @@ static const u8 sText_AarghAlmostHadIt[] = _("Aargh!\nAlmost had it!");
 static const u8 sText_ShootSoClose[] = _("Shoot!\nIt was so close, too!");
 static const u8 sText_ItDodgedBall2[] = _("よけられた!\nこいつは つかまりそうにないぞ!"); // Unused version of the Marowak ghost dodging text
 static const u8 sText_GotchaPkmnCaught[] = _("Gotcha!\n{B_OPPONENT_MON1_NAME} was caught!{WAIT_SE}{PLAY_BGM MUS_CAUGHT}\p");
+static const u8 sText_CaughtMonHeldItem[] = _("{B_OPPONENT_MON1_NAME} was holding\n{B_BUFF1}!\p");
 static const u8 sText_GotchaPkmnCaught2[] = _("Gotcha!\n{B_OPPONENT_MON1_NAME} was caught!{WAIT_SE}{PLAY_BGM MUS_CAUGHT}{PAUSE 127}");
 static const u8 sText_GiveNicknameCaptured[] = _("Give a nickname to the\ncaptured {B_OPPONENT_MON1_NAME}?");
 static const u8 sText_PkmnSentToPC[] = _("{B_OPPONENT_MON1_NAME} was sent to\n{B_PC_CREATOR_NAME} PC.");
@@ -603,6 +604,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_MODERNMOVEBLOCKED - BATTLESTRINGS_TABLE_START] = sText_ModernModernmoveblocked,
     [STRINGID_AQUARINGHEAL - BATTLESTRINGS_TABLE_START] = sText_ModernAquaringheal,
     [STRINGID_PHANTOMFORCEVANISHED - BATTLESTRINGS_TABLE_START] = sText_ModernPhantomforcevanished,
+    [STRINGID_CAUGHTMONHELDITEM - BATTLESTRINGS_TABLE_START] = sText_CaughtMonHeldItem,
     [STRINGID_ELECTRICTERRAINSTART - BATTLESTRINGS_TABLE_START] = sText_ModernElectricterrainstart,
     [STRINGID_GRASSYTERRAINSTART - BATTLESTRINGS_TABLE_START] = sText_ModernGrassyterrainstart,
     [STRINGID_MISTYTERRAINSTART - BATTLESTRINGS_TABLE_START] = sText_ModernMistyterrainstart,

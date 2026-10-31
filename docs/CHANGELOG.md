@@ -2,6 +2,10 @@
 
 ## Em desenvolvimento
 
+- Pickup: a chance de achar item depois de vencer uma batalha sobe de 10% para 30%, e os itens passam a depender do nível de quem achou, em cinco faixas (1–20, 21–40, 41–60, 61–80, 81–100). As faixas baixas trazem Potion, Poké Ball e Repel; as altas trazem Max Potion, Full Restore, Max Revive, PP Max, Lucky Egg e Leftovers. Rare Candy vai de 2% a 10% dos achados conforme a faixa. Antes, todo nível usava a mesma tabela, quase só de berries.
+- Captura: quando o Pokémon capturado segura um item, a batalha avisa logo depois do "Gotcha!" (por exemplo, "PIKACHU estava segurando LIGHT BALL!").
+- Resumo do Pokémon: na página de atributos, o atributo que a natureza aumenta aparece em verde e o que ela reduz em vermelho, como no editor.
+- Testes novos: tabelas do Pickup conferidas no código e na ROM (cada sorteio de cada faixa, 1.002 checks); captura pelo script real de batalha, com e sem item, em EN e PT-BR; e a página de atributos do resumo nas 25 naturezas, pelos pixels da tela.
 - Editor de natureza: a página mostra os sabores preferido e evitado da natureza escolhida (por exemplo, "Gosta: PICANTE  Evita: SECO" para Adamant), ou "Natureza neutra" quando ela não altera atributos. A dica de controles foi unida à linha de botões.
 - Testes das 25 naturezas a partir de uma tabela de referência: efeitos +10%/−10%, nomes, sabores e berries de confusão no código, e atributos, cores do editor e sabores na ROM.
 - O teste da interface do cientista percorre as 25 páginas de natureza partindo de um Pokémon Hasty e exige, pelos pixels da tela, exatamente uma linha verde (atributo que sobe) e uma vermelha (que cai), nenhuma nas neutras. A lógica de cores da v0.5.0-preview.4 reprova nele: com natureza atual não neutra, coloria pares a mais.
