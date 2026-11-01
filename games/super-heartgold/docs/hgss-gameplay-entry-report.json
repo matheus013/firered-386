@@ -1,0 +1,2003 @@
+{
+  "modules": [
+    {
+      "module": "overlay_36",
+      "compiled": true,
+      "sha256": "87af06021f54c29794beedbc28d66da080b8665d925f39a2ad1e4770b02e93e9"
+    },
+    {
+      "module": "field_system",
+      "compiled": true,
+      "sha256": "738dbcef65d3e79a6c5dca5d3908f488be007f1409be53526c01a086f652f601"
+    },
+    {
+      "module": "field_warp_tasks",
+      "compiled": true,
+      "sha256": "cc7381600ed23f9e5e719f8d25aa2761c8b5a55c5bad5b65dc55e1bee42b731f"
+    },
+    {
+      "module": "battle/battle_setup",
+      "compiled": true,
+      "sha256": "f8db703f5676bfc4a97825f2601b4ac37a81c75e2f301481049d2b2f61316c31"
+    }
+  ],
+  "all_compiled": true,
+  "relocatable_link_passed": true,
+  "executable_link_tested": false,
+  "gameplay_executed": false,
+  "runtime_sha256": "459f47b5049be901464d3cee6fa794a9bed640cf05a06f11d9c6b55ff06f17a9",
+  "direct_undefined_symbols": 284,
+  "present_in_diagnostic": 7,
+  "absent_from_diagnostic": 277,
+  "dependencies": [
+    {
+      "symbol": "AllocMonZeroed",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokemon.c"
+      ]
+    },
+    {
+      "symbol": "ApricornTrees_GrowAll",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/apricorn_tree_sys.c"
+      ]
+    },
+    {
+      "symbol": "Bag_AddItem",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/bag.c"
+      ]
+    },
+    {
+      "symbol": "BattleSetupSub134_Delete",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_warp_state.c"
+      ]
+    },
+    {
+      "symbol": "BattleSetupSub134_New",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_warp_state.c"
+      ]
+    },
+    {
+      "symbol": "BattleTower_InitSeed",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/frontier_field_support.c"
+      ]
+    },
+    {
+      "symbol": "BugContest_GetSportBallsAddr",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_misc_events.c"
+      ]
+    },
+    {
+      "symbol": "CalcMonLevelAndStats",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokemon.c"
+      ]
+    },
+    {
+      "symbol": "CallTask_FadeFromBlack",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_overworld_transition.c"
+      ]
+    },
+    {
+      "symbol": "CallTask_FadeOutAndLeaveOverworld",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_overworld_transition.c"
+      ]
+    },
+    {
+      "symbol": "CallTask_LeaveOverworld",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_overworld_transition.c"
+      ]
+    },
+    {
+      "symbol": "CallTask_RestoreOverworld",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_overworld_transition.c"
+      ]
+    },
+    {
+      "symbol": "CallTask_RestoreOverworldAndFadeIn",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_overworld_transition.c"
+      ]
+    },
+    {
+      "symbol": "Chatot_Copy",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sav_chatot.c"
+      ]
+    },
+    {
+      "symbol": "Chatot_New",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sav_chatot.c"
+      ]
+    },
+    {
+      "symbol": "CheckFlag966",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_flags.c"
+      ]
+    },
+    {
+      "symbol": "CheckMetBill",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_flags.c"
+      ]
+    },
+    {
+      "symbol": "ClearFlag966",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_flags.c"
+      ]
+    },
+    {
+      "symbol": "ClearFlag99A",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_flags.c"
+      ]
+    },
+    {
+      "symbol": "ClearTempFieldEventData",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/script_manager.c"
+      ]
+    },
+    {
+      "symbol": "CommPlayerManager_FieldUpdate",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/comm_player_sync.c"
+      ]
+    },
+    {
+      "symbol": "CommPlayerManager_IsLocalPlayerConnected",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/comm_player_sync.c"
+      ]
+    },
+    {
+      "symbol": "CommPlayerManager_RemoveAllAvatars",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/comm_player_sync.c"
+      ]
+    },
+    {
+      "symbol": "CommState_GetLinkMode",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/comm_state.c"
+      ]
+    },
+    {
+      "symbol": "Comm_CountConnected",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/communication_core.c"
+      ]
+    },
+    {
+      "symbol": "Comm_DisableKeySync",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/communication_core.c"
+      ]
+    },
+    {
+      "symbol": "Comm_EnableKeySync",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/communication_core.c"
+      ]
+    },
+    {
+      "symbol": "Comm_GetBattleSlot",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/communication_core.c"
+      ]
+    },
+    {
+      "symbol": "Comm_GetLocalNetId",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/communication_core.c"
+      ]
+    },
+    {
+      "symbol": "Comm_IsActive",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/communication_core.c"
+      ]
+    },
+    {
+      "symbol": "Comm_IsUnionRoomLinkMode",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/communication_command.c"
+      ]
+    },
+    {
+      "symbol": "CopyPokemonToPokemon",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokemon.c"
+      ]
+    },
+    {
+      "symbol": "CopyU16StringArray",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/string_util.c"
+      ]
+    },
+    {
+      "symbol": "CreateKenyaMail",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/mail.c"
+      ]
+    },
+    {
+      "symbol": "CreateMon",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokemon.c"
+      ]
+    },
+    {
+      "symbol": "DestroyMsgData",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/msgdata.c"
+      ]
+    },
+    {
+      "symbol": "FieldBGM_ClearOverride",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_bgm.c"
+      ]
+    },
+    {
+      "symbol": "FieldBGM_PlayForMapHeader",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_bgm.c"
+      ]
+    },
+    {
+      "symbol": "FieldBGM_TryFadeIn",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_bgm.c"
+      ]
+    },
+    {
+      "symbol": "FieldDrawMapName_Reset",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/draw_map_name.c"
+      ]
+    },
+    {
+      "symbol": "FieldEffect_IsActive",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_effects.c"
+      ]
+    },
+    {
+      "symbol": "FieldHookUnused_IsMovementAllowed",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_hook_unused.c"
+      ]
+    },
+    {
+      "symbol": "FieldInput_Process",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_control.c"
+      ]
+    },
+    {
+      "symbol": "FieldInput_Process_BattleTower",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_control.c"
+      ]
+    },
+    {
+      "symbol": "FieldInput_Process_Colosseum",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_control.c"
+      ]
+    },
+    {
+      "symbol": "FieldInput_Process_UnionRoom",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_control.c"
+      ]
+    },
+    {
+      "symbol": "FieldInput_Update",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_control.c"
+      ]
+    },
+    {
+      "symbol": "FieldMoveTask_CreateArrivalEnvironment",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_move_warp_tasks.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_BugContest_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_misc_events.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_ClearSafariAndRandomizeRoamers",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_warp_state.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_ClearSafariSysFlag",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_warp_state.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_CreateTask",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/task.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_DrawMapNameAnimation",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/draw_map_name.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_GetGearPhoneRingManager",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/gear_phone_ring_manager.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_GetWeather_HandleDiamondDust",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_system_rtc_weather.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_Init",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/overlay_124.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_RandomizeRoamers",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_warp_state.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_ResetStateOnFlyWarp",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_warp_state.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_ResetStateOnMapConnection",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_warp_state.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_ResetStateOnWarp",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_warp_state.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_RestoreMapObjectsFromSave",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_local_field_data.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_RunTaskFrame",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/task.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_SendBottomScreenEvent",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/bottom_screen_app.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_SetAndExecuteSignpostWindowCommand",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/signpost.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_SetTerrainQueries",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_terrain.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_StartBugContestTimer",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_time_events.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_StartWarpSpin",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/warp_spin.c"
+      ]
+    },
+    {
+      "symbol": "FieldSystem_TaskIsRunning",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/task.c"
+      ]
+    },
+    {
+      "symbol": "Field_FreeMapEvents",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_events.c"
+      ]
+    },
+    {
+      "symbol": "Field_GetTimeOfDay",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_time_events.c"
+      ]
+    },
+    {
+      "symbol": "Field_GetWarpEventI",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_events.c"
+      ]
+    },
+    {
+      "symbol": "Field_InitMapEvents",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_events.c"
+      ]
+    },
+    {
+      "symbol": "Field_InitMapObjectsFromZoneEventData",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_events.c"
+      ]
+    },
+    {
+      "symbol": "Field_PlayerAvatar_TryLeavePoketchPose",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/player_avatar_actions.c"
+      ]
+    },
+    {
+      "symbol": "FlyLanding_Delete",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_move_cut_in_effects.c"
+      ]
+    },
+    {
+      "symbol": "FlyLanding_IsDone",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_move_cut_in_effects.c"
+      ]
+    },
+    {
+      "symbol": "FlyLanding_Start",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_move_cut_in_effects.c"
+      ]
+    },
+    {
+      "symbol": "FollowMonBall_Spawn",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_follow_mon_ball.c"
+      ]
+    },
+    {
+      "symbol": "FollowMon_ChangeMon",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "FollowMon_CheckVisibleFlag",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "FollowMon_GetMapObject",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "FollowMon_GetPermissionBySpeciesAndMap",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "FollowMon_GetSpecies",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "FollowMon_InitMapObject",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "FollowMon_IsActive",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "FollowMon_IsVisible",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "FollowMon_MoveToPlayer",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "FollowMon_SetReleaseBallPending",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "GF_RTC_CopyDateTime",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/gf_rtc.c"
+      ]
+    },
+    {
+      "symbol": "GF_RTC_GetTimeOfDayByHour",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/gf_rtc.c"
+      ]
+    },
+    {
+      "symbol": "GF_SndGetFadeTimer",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sound_playback.c"
+      ]
+    },
+    {
+      "symbol": "GF_SndHandleMoveVolume",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sound_system.c"
+      ]
+    },
+    {
+      "symbol": "GearPhoneRingManager_Delete",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/gear_phone_ring_manager.c"
+      ]
+    },
+    {
+      "symbol": "GearPhoneRingManager_ResetIfActive",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/gear_phone_ring_manager.c"
+      ]
+    },
+    {
+      "symbol": "GearPhoneRingManager_SetCallTrigger",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/gear_phone_ring_manager.c"
+      ]
+    },
+    {
+      "symbol": "GetMetatileBehavior",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_terrain.c"
+      ]
+    },
+    {
+      "symbol": "GetMonData",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokemon.c"
+      ]
+    },
+    {
+      "symbol": "GetMonExpBySpeciesAndLevel",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokemon.c"
+      ]
+    },
+    {
+      "symbol": "GetUnionRoomAvatarAttrBySprite",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/union_room_avatar.c"
+      ]
+    },
+    {
+      "symbol": "HandleLoadOverlay",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/poke_overlay.c"
+      ]
+    },
+    {
+      "symbol": "Heap_Alloc",
+      "in_diagnostic": true,
+      "candidate_original_sources": [
+        "src/heap.c"
+      ]
+    },
+    {
+      "symbol": "Heap_AllocAtEnd",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/heap.c"
+      ]
+    },
+    {
+      "symbol": "Heap_Create",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/heap.c"
+      ]
+    },
+    {
+      "symbol": "Heap_Destroy",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/heap.c"
+      ]
+    },
+    {
+      "symbol": "Heap_Free",
+      "in_diagnostic": true,
+      "candidate_original_sources": [
+        "src/heap.c"
+      ]
+    },
+    {
+      "symbol": "IGTCounter_Start",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/igt_counter.c"
+      ]
+    },
+    {
+      "symbol": "InitializeMainRNG",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/main.c"
+      ]
+    },
+    {
+      "symbol": "LCRandom",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/math_util.c"
+      ]
+    },
+    {
+      "symbol": "LinkBattleRuleset_GetRuleValue",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_link_ruleset.c"
+      ]
+    },
+    {
+      "symbol": "LocalFieldData_GetDynamicWarp",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_local_field_data.c"
+      ]
+    },
+    {
+      "symbol": "LocalFieldData_GetEntrancePosition",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_local_field_data.c"
+      ]
+    },
+    {
+      "symbol": "LocalFieldData_GetPlayer",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_local_field_data.c"
+      ]
+    },
+    {
+      "symbol": "LocalFieldData_GetPreviousPosition",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_local_field_data.c"
+      ]
+    },
+    {
+      "symbol": "LocalFieldData_GetSafariBallsCounter",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_local_field_data.c"
+      ]
+    },
+    {
+      "symbol": "LocalFieldData_GetWeatherType",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_local_field_data.c"
+      ]
+    },
+    {
+      "symbol": "LocalFieldData_SetBlackoutSpawn",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_local_field_data.c"
+      ]
+    },
+    {
+      "symbol": "LocalFieldData_SetCameraType",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_local_field_data.c"
+      ]
+    },
+    {
+      "symbol": "LocalFieldData_SetWeatherType",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_local_field_data.c"
+      ]
+    },
+    {
+      "symbol": "MI_CpuCopy8",
+      "in_diagnostic": true,
+      "candidate_original_sources": []
+    },
+    {
+      "symbol": "MI_CpuFill8",
+      "in_diagnostic": true,
+      "candidate_original_sources": []
+    },
+    {
+      "symbol": "MIi_CpuClear32",
+      "in_diagnostic": true,
+      "candidate_original_sources": []
+    },
+    {
+      "symbol": "MTRandom",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/math_util.c"
+      ]
+    },
+    {
+      "symbol": "MailMsg_Init",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/mail_message.c"
+      ]
+    },
+    {
+      "symbol": "MailMsg_Init_FromTemplate",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/mail_message.c"
+      ]
+    },
+    {
+      "symbol": "Mail_SetMessage",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/mail.c"
+      ]
+    },
+    {
+      "symbol": "Mailbox_CopyMailToSlotI",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/mail.c"
+      ]
+    },
+    {
+      "symbol": "MapHeader_GetBattleBg",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_header.c"
+      ]
+    },
+    {
+      "symbol": "MapHeader_GetCameraType",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_header.c"
+      ]
+    },
+    {
+      "symbol": "MapHeader_GetMapEvolutionMethod",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_header.c"
+      ]
+    },
+    {
+      "symbol": "MapHeader_GetMapSec",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_header.c"
+      ]
+    },
+    {
+      "symbol": "MapHeader_GetSpawnIdForDeathWarp",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/spawn_warp.c"
+      ]
+    },
+    {
+      "symbol": "MapHeader_MapIsPokemonCenter",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_header.c"
+      ]
+    },
+    {
+      "symbol": "MapHeader_MapIsPokemonLeagueLobby",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_header.c"
+      ]
+    },
+    {
+      "symbol": "MapHeader_MapIsUnionRoom",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_header.c"
+      ]
+    },
+    {
+      "symbol": "MapMatrix_Free",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_matrix.c"
+      ]
+    },
+    {
+      "symbol": "MapMatrix_Load",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_matrix.c"
+      ]
+    },
+    {
+      "symbol": "MapObjectManager_Delete",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_object.c"
+      ]
+    },
+    {
+      "symbol": "MapObjectManager_Init",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_object.c"
+      ]
+    },
+    {
+      "symbol": "MapObjectManager_RemoveAllActiveObjects",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_object.c"
+      ]
+    },
+    {
+      "symbol": "MapObjectManager_SuspendMovement",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_object.c"
+      ]
+    },
+    {
+      "symbol": "MetatileBehavior_IsCaveFloor",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/metatile_behavior.c"
+      ]
+    },
+    {
+      "symbol": "MetatileBehavior_IsIce",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/metatile_behavior.c"
+      ]
+    },
+    {
+      "symbol": "MetatileBehavior_IsMud",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/metatile_behavior.c"
+      ]
+    },
+    {
+      "symbol": "MetatileBehavior_IsSand",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/metatile_behavior.c"
+      ]
+    },
+    {
+      "symbol": "MetatileBehavior_IsSnow",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/metatile_behavior.c"
+      ]
+    },
+    {
+      "symbol": "MetatileBehavior_IsSurfableWater",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/metatile_behavior.c"
+      ]
+    },
+    {
+      "symbol": "MetatileBehavior_IsTallGrass",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/metatile_behavior.c"
+      ]
+    },
+    {
+      "symbol": "MetatileBehavior_IsVeryTallGrass",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/metatile_behavior.c"
+      ]
+    },
+    {
+      "symbol": "MomGift_TryEnqueueGiftOnBalanceChange",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/mom_gift.c"
+      ]
+    },
+    {
+      "symbol": "NewMsgDataFromNarc",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/msgdata.c"
+      ]
+    },
+    {
+      "symbol": "NewString_ReadMsgData",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/msgdata.c"
+      ]
+    },
+    {
+      "symbol": "OS_ResetSystem",
+      "in_diagnostic": true,
+      "candidate_original_sources": []
+    },
+    {
+      "symbol": "Options_Copy",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/options.c"
+      ]
+    },
+    {
+      "symbol": "Options_New",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/options.c"
+      ]
+    },
+    {
+      "symbol": "Options_SetButtonModeOnMain",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/options.c"
+      ]
+    },
+    {
+      "symbol": "OverlayManager_CreateAndGetData",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/overlay_manager.c"
+      ]
+    },
+    {
+      "symbol": "OverlayManager_Delete",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/overlay_manager.c"
+      ]
+    },
+    {
+      "symbol": "OverlayManager_FreeData",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/overlay_manager.c"
+      ]
+    },
+    {
+      "symbol": "OverlayManager_GetArgs",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/overlay_manager.c"
+      ]
+    },
+    {
+      "symbol": "OverlayManager_GetData",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/overlay_manager.c"
+      ]
+    },
+    {
+      "symbol": "OverlayManager_New",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/overlay_manager.c"
+      ]
+    },
+    {
+      "symbol": "OverlayManager_Run",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/overlay_manager.c"
+      ]
+    },
+    {
+      "symbol": "PaletteFadeUntilFinished",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_overworld_transition.c"
+      ]
+    },
+    {
+      "symbol": "Party_AddMon",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/party.c"
+      ]
+    },
+    {
+      "symbol": "Party_Copy",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/party.c"
+      ]
+    },
+    {
+      "symbol": "Party_GetCount",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/party.c"
+      ]
+    },
+    {
+      "symbol": "Party_GetMonByIndex",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/party.c"
+      ]
+    },
+    {
+      "symbol": "Party_InitWithMaxSize",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/party.c"
+      ]
+    },
+    {
+      "symbol": "Party_ResetAllShayminToLandForm",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokemon.c"
+      ]
+    },
+    {
+      "symbol": "PhoneCallPersistentState_MomSavings_BalanceAction",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_pokegear.c"
+      ]
+    },
+    {
+      "symbol": "PlaceSafariZoneAreas",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_matrix.c"
+      ]
+    },
+    {
+      "symbol": "PlaySE",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sound_playback.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_CreateWithActiveMapObject",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_CreateWithParams",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_DeleteFromMap",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_FreeToHeap",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_GetFacingDirection",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_GetGender",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_GetState",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_GetXCoord",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_GetZCoord",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_MoveControl",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar_movement.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_ResetMovement",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar_movement.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_SetState",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar.c"
+      ]
+    },
+    {
+      "symbol": "PlayerAvatar_UpdateMovement",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_avatar_movement.c"
+      ]
+    },
+    {
+      "symbol": "PlayerProfile_Copy",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "PlayerProfile_GetAvatar",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "PlayerProfile_GetMoney",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "PlayerProfile_GetNamePtr",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "PlayerProfile_GetTrainerGender",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "PlayerProfile_New",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "PlayerProfile_SetAvatar",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "PlayerProfile_SetMoney",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "PlayerProfile_SetTrainerGender",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "PlayerProfile_SetTrainerID",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "PokedexResumeState_Free",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokedex_resume_state.c"
+      ]
+    },
+    {
+      "symbol": "Pokedex_Copy",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokedex.c"
+      ]
+    },
+    {
+      "symbol": "Pokedex_New",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokedex.c"
+      ]
+    },
+    {
+      "symbol": "PokemonSummary_GetDefaultUnk2C",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokemon_summary.c"
+      ]
+    },
+    {
+      "symbol": "Pokewalker_GetIrClock",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokewalker.c"
+      ]
+    },
+    {
+      "symbol": "ReadMsgDataIntoString",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/msgdata.c"
+      ]
+    },
+    {
+      "symbol": "RegisterMainOverlay",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/main.c"
+      ]
+    },
+    {
+      "symbol": "RemoveMahoganyTownAntennaTree",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_matrix.c"
+      ]
+    },
+    {
+      "symbol": "RunInitScript",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/script_manager.c"
+      ]
+    },
+    {
+      "symbol": "SafariZone_ResetAreaSetToDefaultSet",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/safari_zone.c"
+      ]
+    },
+    {
+      "symbol": "SaveArray_PCStorage_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_arrays.c"
+      ]
+    },
+    {
+      "symbol": "SaveArray_Party_Alloc",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/party.c"
+      ]
+    },
+    {
+      "symbol": "SaveArray_Party_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/party.c"
+      ]
+    },
+    {
+      "symbol": "SaveData_GetPhoneCallPersistentState",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_pokegear.c"
+      ]
+    },
+    {
+      "symbol": "SaveData_TryLoadOnContinue",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save.c"
+      ]
+    },
+    {
+      "symbol": "Save_Bag_Copy",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/bag.c"
+      ]
+    },
+    {
+      "symbol": "Save_Bag_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/bag.c"
+      ]
+    },
+    {
+      "symbol": "Save_Bag_New",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/bag.c"
+      ]
+    },
+    {
+      "symbol": "Save_BerryPotRTC_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_misc.c"
+      ]
+    },
+    {
+      "symbol": "Save_BerryPotRTC_Init",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_misc.c"
+      ]
+    },
+    {
+      "symbol": "Save_Chatot_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sav_chatot.c"
+      ]
+    },
+    {
+      "symbol": "Save_FieldApricornTrees_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_misc.c"
+      ]
+    },
+    {
+      "symbol": "Save_FollowMon_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "Save_FollowMon_SetInhibitFlagState",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_follow_mon.c"
+      ]
+    },
+    {
+      "symbol": "Save_FriendGroup_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/friend_group.c"
+      ]
+    },
+    {
+      "symbol": "Save_FriendGroup_SetGroupId",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/friend_group.c"
+      ]
+    },
+    {
+      "symbol": "Save_GameStats_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/game_stats.c"
+      ]
+    },
+    {
+      "symbol": "Save_GetGymmickPtr",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_misc.c"
+      ]
+    },
+    {
+      "symbol": "Save_GetPartyLeadAlive",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field_misc_util.c"
+      ]
+    },
+    {
+      "symbol": "Save_Gymmick_Clear",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_gymmick.c"
+      ]
+    },
+    {
+      "symbol": "Save_InitDynamicRegion",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save.c"
+      ]
+    },
+    {
+      "symbol": "Save_LocalFieldData_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_local_field_data.c"
+      ]
+    },
+    {
+      "symbol": "Save_Mailbox_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/mail.c"
+      ]
+    },
+    {
+      "symbol": "Save_PalPad_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_palpad.c"
+      ]
+    },
+    {
+      "symbol": "Save_PlayerData_GetIGTAddr",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "Save_PlayerData_GetOptionsAddr",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "Save_PlayerData_GetProfile",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "Save_Pokedex_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokedex.c"
+      ]
+    },
+    {
+      "symbol": "Save_Pokewalker_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokewalker.c"
+      ]
+    },
+    {
+      "symbol": "Save_Profile_PlayerName_Set",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/player_data.c"
+      ]
+    },
+    {
+      "symbol": "Save_SafariZone_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/safari_zone.c"
+      ]
+    },
+    {
+      "symbol": "Save_SetPositionToPlayerRoom",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/location_backup.c"
+      ]
+    },
+    {
+      "symbol": "Save_SysInfo_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sav_system_info.c"
+      ]
+    },
+    {
+      "symbol": "Save_SysInfo_InitFromSystem",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sav_system_info.c"
+      ]
+    },
+    {
+      "symbol": "Save_SysInfo_MacAddressIsMine",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sav_system_info.c"
+      ]
+    },
+    {
+      "symbol": "Save_SysInfo_RTCOffsetIsMine",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sav_system_info.c"
+      ]
+    },
+    {
+      "symbol": "Save_SysInfo_RTC_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sav_system_info.c"
+      ]
+    },
+    {
+      "symbol": "Save_SysInfo_RTC_Init",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sav_system_info.c"
+      ]
+    },
+    {
+      "symbol": "Save_VarsFlags_CheckBugContestFlag",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_flags.c"
+      ]
+    },
+    {
+      "symbol": "Save_VarsFlags_CheckMapEventKey",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_vars.c"
+      ]
+    },
+    {
+      "symbol": "Save_VarsFlags_CheckSafariSysFlag",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_flags.c"
+      ]
+    },
+    {
+      "symbol": "Save_VarsFlags_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_vars_flags.c"
+      ]
+    },
+    {
+      "symbol": "Save_VarsFlags_MomsSavingsFlagCheck",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_flags.c"
+      ]
+    },
+    {
+      "symbol": "Save_VarsFlags_SetFishingCompetitionLengthRecord",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_vars.c"
+      ]
+    },
+    {
+      "symbol": "Save_WiFiHistory_Get",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/save_wifi_history.c"
+      ]
+    },
+    {
+      "symbol": "SetFlag960",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_flags.c"
+      ]
+    },
+    {
+      "symbol": "SetFlag966",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_flags.c"
+      ]
+    },
+    {
+      "symbol": "SetLakeOfRageWaterLevel",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_matrix.c"
+      ]
+    },
+    {
+      "symbol": "SetMasterBrightnessByColor",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/screen_fade.c"
+      ]
+    },
+    {
+      "symbol": "SetMonData",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pokemon.c"
+      ]
+    },
+    {
+      "symbol": "ShouldUseAlternateLakeOfRage",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/map_matrix.c"
+      ]
+    },
+    {
+      "symbol": "StopSEByHandle",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sound_playback.c"
+      ]
+    },
+    {
+      "symbol": "String_Delete",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pm_string.c"
+      ]
+    },
+    {
+      "symbol": "String_New",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pm_string.c"
+      ]
+    },
+    {
+      "symbol": "String_cstr",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/pm_string.c"
+      ]
+    },
+    {
+      "symbol": "SysFlagDefogCheck",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_flags.c"
+      ]
+    },
+    {
+      "symbol": "SysFlagFlashCheck",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sys_flags.c"
+      ]
+    },
+    {
+      "symbol": "SysInfoRTC_HandleContinueOnNewConsole",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/sav_system_info.c"
+      ]
+    },
+    {
+      "symbol": "TaskManager_Call",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/task.c"
+      ]
+    },
+    {
+      "symbol": "TaskManager_GetEnvironment",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/task.c"
+      ]
+    },
+    {
+      "symbol": "TaskManager_GetFieldSystem",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/task.c"
+      ]
+    },
+    {
+      "symbol": "TaskManager_GetStatePtr",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/task.c"
+      ]
+    },
+    {
+      "symbol": "TaskManager_Jump",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/task.c"
+      ]
+    },
+    {
+      "symbol": "Task_FieldMoveArrival",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/field/field_move_warp_tasks.c"
+      ]
+    },
+    {
+      "symbol": "TerrainAttributes_Free",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/terrain_attributes.c"
+      ]
+    },
+    {
+      "symbol": "TerrainAttributes_New",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/terrain_attributes.c"
+      ]
+    },
+    {
+      "symbol": "TryStartMapScriptByType",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/script_manager.c"
+      ]
+    },
+    {
+      "symbol": "UnionRoomAvatarIdxToSprite",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/union_room_avatar.c"
+      ]
+    },
+    {
+      "symbol": "UnionRoomObjects_Delete",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/union_room_objects.c"
+      ]
+    },
+    {
+      "symbol": "UnionRoomObjects_New",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/union_room_objects.c"
+      ]
+    },
+    {
+      "symbol": "UnionRoom_Start",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/union_room.c"
+      ]
+    },
+    {
+      "symbol": "UnionRoom_Stop",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/union_room.c"
+      ]
+    },
+    {
+      "symbol": "UnloadOverlayByID",
+      "in_diagnostic": false,
+      "candidate_original_sources": [
+        "src/poke_overlay.c"
+      ]
+    },
+    {
+      "symbol": "_GLOBAL_OFFSET_TABLE_",
+      "in_diagnostic": false,
+      "candidate_original_sources": []
+    },
+    {
+      "symbol": "__stack_chk_fail",
+      "in_diagnostic": false,
+      "candidate_original_sources": []
+    },
+    {
+      "symbol": "gApplication_OakSpeech",
+      "in_diagnostic": false,
+      "candidate_original_sources": []
+    },
+    {
+      "symbol": "gApplication_TitleScreen",
+      "in_diagnostic": false,
+      "candidate_original_sources": []
+    },
+    {
+      "symbol": "gOverlayTemplate_FieldMap",
+      "in_diagnostic": false,
+      "candidate_original_sources": []
+    },
+    {
+      "symbol": "gSystem",
+      "in_diagnostic": true,
+      "candidate_original_sources": []
+    }
+  ],
+  "limits": "Direct undefined symbols only. Diagnostic may export host adapters. Source candidates are lexical matches; availability does not prove ABI, linking, behavior or missing implementation."
+}

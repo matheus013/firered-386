@@ -45,15 +45,18 @@ def main():
     parser.add_argument('--hgss', type=Path, required=True)
     parser.add_argument('--archive', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--modules', nargs='+', default=['message_format','msgdata'],
+                        help='Original source modules whose message indices are required')
     args = parser.parse_args()
     raw = args.archive.read_bytes()
     if hashlib.sha256(raw).hexdigest() != SS_USA_ARCHIVE_SHA256:
         raise ValueError('Unsupported message archive: expected verified SoulSilver USA data')
     banks = read_banks(raw)
-    source = '\n'.join((args.hgss / 'src' / name).read_text()
-                       for name in ('message_format.c', 'msgdata.c'))
-    bank_ids = sorted(set(map(int, re.findall(r'NARC_msg_msg_(\d{4})_bin', source))))
+    source = '\n'.join((args.hgss / 'src' / (name+'.c')).read_text()
+                       for name in args.modules)
     requested = sorted(set(re.findall(r'#include "msgdata/msg/(msg_\d{4})\.h"', source)))
+    bank_ids = sorted(set(map(int, re.findall(r'NARC_msg_msg_(\d{4})_bin', source))) |
+                      {int(name[4:]) for name in requested})
     if any(bank >= len(banks) for bank in bank_ids):
         raise ValueError('Referenced bank outside archive')
     args.output.mkdir(parents=True, exist_ok=False)
@@ -80,6 +83,7 @@ def main():
         evidence.append({'bank': name, 'count': count,
                          'gmm_sha256': hashlib.sha256(document).hexdigest()})
     report = {'pret_commit': PRET_COMMIT, 'archive_sha256': hashlib.sha256(raw).hexdigest(),
+              'source_modules': args.modules,
               'archive_members': len(banks), 'referenced_banks': len(bank_ids),
               'headers': evidence, 'runtime_tested': False}
     (args.output / 'provenance.json').write_text(json.dumps(report, indent=2) + '\n')

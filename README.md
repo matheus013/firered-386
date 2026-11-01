@@ -16,7 +16,7 @@ jogável do jogo. 100% significa apenas que o escopo daquela issue foi concluíd
 | [#9](https://github.com/matheus013/firered-386/issues/9) | Fades, janelas e HBlank | 75% | Fades 8/9 com BG1 + OBJ e pan original com WIN0/WIN1 validados; faltam 3D, janela OBJ e cena completa. |
 | [#10](https://github.com/matheus013/firered-386/issues/10) | Abertura original e menu | 10% | Janelas + scroll da cena 4 aprovados juntos em diagnóstico; boot e chegada ao menu ainda não executados. |
 | [#11](https://github.com/matheus013/firered-386/issues/11) | Build e execução Windows | 15% | Componentes nativos testados; executável completo e fluxo single screen Windows pendentes. |
-| [#12](https://github.com/matheus013/firered-386/issues/12) | Primeiro trecho jogável e save | 0% | Depende de boot/menu; percurso, batalha e retomada ainda não validados. |
+| [#12](https://github.com/matheus013/firered-386/issues/12) | Primeiro trecho jogável e save | 0% | Entrada de Nova Partida/campo/batalha compila; link executável, percurso e save/retomada pendentes. |
 | [#13](https://github.com/matheus013/firered-386/issues/13) | Campanha e pós-jogo | 0% | Validação ponta a ponta ainda não iniciada. |
 
 [Evidências e critérios por issue](games/super-heartgold/docs/github-issues-plan.md) ·

@@ -224,3 +224,6 @@ Ampliação em 30/10/2026: 512 ciclos de offset imediato, scroll contínuo, canc
 
 
 Em 30/10/2026, os helpers originais de janela e scroll passaram juntos com os parâmetros da entrada/saída dos jogadores da cena 4: 36 capturas intermediárias e quatro finais exatos. Não inclui sprites, partículas ou a máquina de estados completa. [Relatório e limites](scene4-slide-validation.md). Issue #10 permanece em 10%; boot/menu e Windows pendentes.
+
+
+Em 01/11/2026, o foco passou ao primeiro mapa. Removido bloqueio de índices de mensagens de Nova Partida; quatro módulos originais de entrada do gameplay compilam e combinam em objeto relocável. Ainda não há executável de campo ou partida executada. [Evidência e próximos passos](gameplay-entry-integration.md). Issue #12 permanece em 0% de aceite funcional.
