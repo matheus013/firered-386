@@ -21,6 +21,7 @@ jogável do jogo. 100% significa apenas que o escopo daquela issue foi concluíd
 
 [Evidências e critérios por issue](games/super-heartgold/docs/github-issues-plan.md) ·
 [Testes gráficos e limites](games/super-heartgold/docs/scene4-graphics-references.md).
+[Levantamento do mínimo jogável no Windows](games/super-heartgold/docs/minimum-playable.md): primeiro mapa, eventos, batalha e save; a cinematica completa não é requisito desse marco.
 A documentação de FireRed abaixo trata de outro jogo deste repositório.
 
 O README fica na raiz; os guias, relatórios de testes e o histórico de mudanças ficam em `docs/`. Os comandos de reprodução continuam sendo executados na raiz do projeto.
