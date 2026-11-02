@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "member": 0,
+      "dimensions": [
+        47,
+        17
+      ],
+      "exact": true,
+      "sha256": "a6012ac34ae879b5f85f21642a78afcff617112813c4cf1e6327054735c56d2d"
+    },
+    {
+      "member": 71,
+      "dimensions": [
+        1,
+        1
+      ],
+      "exact": true,
+      "sha256": "13ec0cb89c94a8a81a608dadbf803a81c1794809c2997047158ddb85a9321754"
+    },
+    {
+      "member": 72,
+      "dimensions": [
+        1,
+        1
+      ],
+      "exact": true,
+      "sha256": "d8dc23f8ccd37f81d4c2368ec3639c62b9e6d4da6e181e93e22beae27b025b0f"
+    }
+  ],
+  "reloads": 192,
+  "platform": "linux-x86_64",
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "asan_globals": false,
+  "source_sha256": "c6093f992616995bfbefc01b0ea3af5b2ebef6f5fc8e708069b26c59604f5506",
+  "scope": "original_map_matrix_loader_with_host_file_heap_and_explicit_matrix_selection",
+  "limits": "Private pinned source resources, not ROM comparison. No FieldSystem, models, collision or map-header runtime. Windows target has no sanitizers."
+}

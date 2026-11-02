@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "coordinate_cases": 64896,
+  "layouts": 6,
+  "window_sizes": 8,
+  "swap_states": 2,
+  "platform": "linux-x86_64",
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "reference_pin": "3146fb2d4d88522b12b4bf25dee74285120975e2",
+  "reference_layout_sha256": "8f88ac2e0d951cfa77720472c40cdb5799684b09950227fdaa9d79297e13601e",
+  "scope": "native_touch_coordinate_equivalence_with_external_ssrecomp_LayoutTouch",
+  "limits": "No rendering, gameplay, merged composition, SDL event loop, high-DPI conversion or Windows touch execution. Reference source remains external."
+}

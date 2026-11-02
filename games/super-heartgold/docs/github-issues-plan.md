@@ -227,3 +227,6 @@ Em 30/10/2026, os helpers originais de janela e scroll passaram juntos com os pa
 
 
 Em 01/11/2026, o foco passou ao primeiro mapa. Removido bloqueio de índices de mensagens de Nova Partida; quatro módulos originais de entrada do gameplay compilam e combinam em objeto relocável. Ainda não há executável de campo ou partida executada. [Evidência e próximos passos](gameplay-entry-integration.md). Issue #12 permanece em 0% de aceite funcional.
+
+
+Em 02/11/2026: carregador original de matrizes validado em Linux/Windows (192 recargas por plataforma); ponte nativa de toque comparada ao ssrecomp externo em 64.896 casos. Sem incorporar emulação. [Evidências e limites](reuse-map-and-touch.md). Nenhum mapa jogável integrado; percentuais funcionais inalterados.
