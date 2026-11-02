@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "members": 491,
+  "event_totals_bg_object_warp_coord": [
+    1034,
+    2667,
+    1317,
+    195
+  ],
+  "mismatched_members": [],
+  "platform": "linux-x86_64",
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "source_sha256": "ca7ae292989ee6ee51888b56acc73848a3842c83a86ac9da02e18c08a609fa3b",
+  "archive_sha256": "70815852d040ed7831830fbec2f9e9282371ff6cf544260b900b9dcd6049c020",
+  "initial_house": {
+    "MAP_NEW_BARK_PLAYER_HOUSE_1F": {
+      "map": 63,
+      "bank": 60,
+      "counts": [
+        5,
+        1,
+        2,
+        0
+      ],
+      "warps": [
+        [
+          3,
+          10,
+          60,
+          1,
+          0
+        ],
+        [
+          3,
+          3,
+          64,
+          0,
+          0
+        ]
+      ]
+    },
+    "MAP_NEW_BARK_PLAYER_HOUSE_2F": {
+      "map": 64,
+      "bank": 61,
+      "counts": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "warps": [
+        [
+          3,
+          4,
+          63,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "staircase_reciprocal_data": true,
+  "scope": "Original static event parser, getters and coordinate lookup; all private ROM event members",
+  "limits": "No Field_InitMapEvents, script execution, object creation, collision, rendering, transitions or playable FieldSystem. Windows has no sanitizers. ASan global instrumentation disabled."
+}

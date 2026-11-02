@@ -1,6 +1,6 @@
 # FireRed 386
 
-## Status do Super HeartGold nativo — 30/10/2026
+## Status do Super HeartGold nativo — 02/11/2026
 
 **Ainda não jogável.** Objetivo: engine nativa no Windows com single screen.
 Os percentuais das issues #6–#13 são estimativas de avanço dentro de cada escopo,
@@ -16,12 +16,13 @@ jogável do jogo. 100% significa apenas que o escopo daquela issue foi concluíd
 | [#9](https://github.com/matheus013/firered-386/issues/9) | Fades, janelas e HBlank | 75% | Fades 8/9 com BG1 + OBJ e pan original com WIN0/WIN1 validados; faltam 3D, janela OBJ e cena completa. |
 | [#10](https://github.com/matheus013/firered-386/issues/10) | Abertura original e menu | 10% | Janelas + scroll da cena 4 aprovados juntos em diagnóstico; boot e chegada ao menu ainda não executados. |
 | [#11](https://github.com/matheus013/firered-386/issues/11) | Build e execução Windows | 15% | Componentes nativos testados; executável completo e fluxo single screen Windows pendentes. |
-| [#12](https://github.com/matheus013/firered-386/issues/12) | Primeiro trecho jogável e save | 0% | Carregador de matrizes aprovado em Linux/Windows; integração do campo, percurso e save/retomada pendentes. |
+| [#12](https://github.com/matheus013/firered-386/issues/12) | Primeiro trecho jogável e save | 0% | Matrizes e parser dos 491 arquivos de eventos aprovados em Linux/Windows; integração do campo, percurso e save/retomada pendentes. |
 | [#13](https://github.com/matheus013/firered-386/issues/13) | Campanha e pós-jogo | 0% | Validação ponta a ponta ainda não iniciada. |
 
 [Evidências e critérios por issue](games/super-heartgold/docs/github-issues-plan.md) ·
 [Testes gráficos e limites](games/super-heartgold/docs/scene4-graphics-references.md).
 [Levantamento do mínimo jogável no Windows](games/super-heartgold/docs/minimum-playable.md): primeiro mapa, eventos, batalha e save; a cinematica completa não é requisito desse marco.
+[Validação do parser de eventos e da escada inicial](games/super-heartgold/docs/map-events-validation.md).
 A documentação de FireRed abaixo trata de outro jogo deste repositório.
 
 O README fica na raiz; os guias, relatórios de testes e o histórico de mudanças ficam em `docs/`. Os comandos de reprodução continuam sendo executados na raiz do projeto.
