@@ -39,6 +39,16 @@ Para Windows, acrescente `--target windows --sdl-include /root/.cache/super-hear
 
 As opções Windows que removem unwind tables permitem descartar funções não chamadas neste diagnóstico; não definem as opções do executável final.
 
+## Carregamento original integrado ao diagnóstico — 02/11/2026
+
+O modo `--script-archive` agora chama as funções originais `Field_AllocateMapEvents`, `Field_InitMapEvents` e `Field_FreeMapEvents` nos dois andares. São 64 alocações/liberações e 128 carregamentos alternados por plataforma, mantendo uma única alocação durante cada par de mapas. Os bancos de eventos e scripts são derivados do MapHeader original; o adaptador verifica que ambos os mapas não têm encontros selvagens.
+
+O teste verifica que a tabela de encontros fica zerada, que a cauda do cabeçalho de scripts é limpa mesmo partindo de memória preenchida com `0xA5`, e compara os bytes carregados com os membros privados da ROM. A regressão dos 491 membros continua sendo executada no mesmo teste. Linux passou com ASan/UBSan e Windows com execução efetiva do EXE, sem sanitizadores.
+
+Relatórios adicionais: [Linux](hgss-field-load-linux-test.json), [Windows](hgss-field-load-windows-test.json). Para reproduzir, acrescente `--script-archive /root/.cache/super-heartgold/private-field-scripts1/a/0/1/2` ao comando anterior e use outro diretório de saída. A extração usa o importador privado já existente, selecionando `a/0/1/2`.
+
+Os serviços de heap, arquivo e consulta de MapHeader ainda são adaptadores explícitos do diagnóstico. O teste não cobre mapas com encontros selvagens e não inicializa o FieldSystem completo. Carregar o cabeçalho não significa executar o script. Os relatórios anteriores de parser permanecem como evidência do escopo anterior.
+
 ## Próxima integração
 
-Ainda falta executar `Field_InitMapEvents` com os serviços reais de arquivos e MapHeader, carregar os cabeçalhos de scripts e encontros, criar objetos, integrar colisões e desenho ao FieldSystem e atravessar a escada com comandos do jogador. O teste atual não executa scripts, renderiza o quarto, move o personagem, salva ou retoma uma partida. A issue #12 permanece em 0% de sua entrega jogável.
+Ainda falta integrar os serviços reais de arquivos e MapHeader, executar scripts, carregar encontros de mapas externos, criar objetos, integrar colisões e desenho ao FieldSystem e atravessar a escada com comandos do jogador. O próximo consumidor dos cabeçalhos é `TryStartMapScriptByType`, em `script_manager.c`; a execução depende do contexto de scripts e das variáveis reais do save. O teste atual não renderiza o quarto, move o personagem, salva ou retoma uma partida. A issue #12 permanece em 0% de sua entrega jogável.

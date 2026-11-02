@@ -37,6 +37,8 @@ def main():
         parser.add_argument('--'+name, type=Path, required=True)
     parser.add_argument('--target', choices=['linux', 'windows'], default='linux')
     parser.add_argument('--sdl-include', type=Path)
+    parser.add_argument('--script-archive', type=Path,
+                        help='Also execute original Field_InitMapEvents for both initial-house floors')
     a = parser.parse_args()
     output = a.output.resolve()
     if any((p/'.git').exists() for p in (output, *output.parents)):
@@ -58,6 +60,34 @@ def main():
         totals = [x+y for x,y in zip(totals, counts)]
         (output/f'{i}.bin').write_bytes(raw)
         payloads.append(raw)
+    headers = (a.hgss/'src/data/map_headers.h').read_text()
+    constants = (a.hgss/'include/constants/maps.h').read_text()
+    rooms = {}
+    for name in ('MAP_NEW_BARK_PLAYER_HOUSE_1F', 'MAP_NEW_BARK_PLAYER_HOUSE_2F'):
+        body = re.search(r'\['+name+r'\]\s*=\s*\{(.*?)\}', headers, re.S)[1]
+        bank = int(re.search(r'\.eventsBank\s*=\s*NARC_zone_event_(\d+)_', body)[1])
+        map_id = int(re.search(r'#define\s+'+name+r'\s+(\d+)', constants)[1])
+        counts, warps = decode(payloads[bank])
+        rooms[name] = {'map': map_id, 'bank': bank, 'counts': counts, 'warps': warps}
+        if a.script_archive:
+            if not re.search(r'\.wildEncounterBank\s*=\s*ENCDATA_NA\s*,', body):
+                raise ValueError('Indoor no-encounter adapter does not match original header')
+            rooms[name]['script_bank'] = int(re.search(r'\.scriptHeaderBank\s*=\s*NARC_scr_seq_scr_seq_(\d+)_', body)[1])
+    script_payloads = {}
+    if a.script_archive:
+        script_archive = a.script_archive.read_bytes()
+        declarations = []
+        for room in rooms.values():
+            bank = room['script_bank']
+            raw = narc_member(script_archive, bank)
+            if not 0 < len(raw) < 0x100:
+                raise ValueError('Script header exceeds original buffer')
+            (output/f'{bank}.script').write_bytes(raw)
+            script_payloads[room['map']] = raw
+            declarations.append('{'+','.join(map(str, (room['map'],room['bank'],bank,len(payloads[room['bank']]),len(raw))))+'}')
+        (output/'field_load_cases.h').write_text(
+            'typedef struct { unsigned map,events,script,event_size,script_size; } FieldLoadCase;\n'
+            'static const FieldLoadCase field_load_cases[2] = {'+','.join(declarations)+'};\n')
     # Only macro definitions in this generated header are unused by this probe.
     header = output/'fielddata/encountdata/s_enc_data.naix'
     header.parent.mkdir(parents=True)
@@ -82,7 +112,11 @@ def main():
         includes.append(a.sdl_include)
     flags += ['-I'+str(p) for p in includes]
     binary = output/('events-test.exe' if a.target == 'windows' else 'events-test')
-    result = subprocess.run(flags+[str(Path(__file__).with_name('probe_map_events.c')), '-o', str(binary)], capture_output=True, text=True)
+    sources = [str(Path(__file__).with_name('probe_map_events.c'))]
+    if a.script_archive:
+        flags.append('-DHG_FIELD_LOAD')
+        sources.append(str(sdk/'libraries/mi/src/mi_memory.c'))
+    result = subprocess.run(flags+sources+['-o', str(binary)], capture_output=True, text=True)
     (output/'build.log').write_text(result.stdout+result.stderr)
     result.check_returncode()
     directory = str(output)
@@ -92,15 +126,11 @@ def main():
     (output/'run.log').write_text(result.stdout+result.stderr)
     result.check_returncode()
     mismatches = [i for i,raw in enumerate(payloads) if (output/f'{i}.out').read_bytes() != raw]
-    headers = (a.hgss/'src/data/map_headers.h').read_text()
-    constants = (a.hgss/'include/constants/maps.h').read_text()
-    rooms = {}
-    for name in ('MAP_NEW_BARK_PLAYER_HOUSE_1F', 'MAP_NEW_BARK_PLAYER_HOUSE_2F'):
-        body = re.search(r'\['+name+r'\]\s*=\s*\{(.*?)\}', headers, re.S)[1]
-        bank = int(re.search(r'\.eventsBank\s*=\s*NARC_zone_event_(\d+)_', body)[1])
-        map_id = int(re.search(r'#define\s+'+name+r'\s+(\d+)', constants)[1])
-        counts, warps = decode(payloads[bank])
-        rooms[name] = {'map': map_id, 'bank': bank, 'counts': counts, 'warps': warps}
+    if a.script_archive:
+        for room in rooms.values():
+            expected = payloads[room['bank']]+script_payloads[room['map']]
+            if (output/f'{room["map"]}.loaded').read_bytes() != expected:
+                raise ValueError('Field_InitMapEvents output differs from private resources')
     upper = rooms['MAP_NEW_BARK_PLAYER_HOUSE_2F']
     lower = rooms['MAP_NEW_BARK_PLAYER_HOUSE_1F']
     if len(upper['warps']) != 1:
@@ -119,6 +149,13 @@ def main():
               'initial_house': rooms, 'staircase_reciprocal_data': True,
               'scope': 'Original static event parser, getters and coordinate lookup; all private ROM event members',
               'limits': 'No Field_InitMapEvents, script execution, object creation, collision, rendering, transitions or playable FieldSystem. Windows has no sanitizers. ASan global instrumentation disabled.'}
+    if a.script_archive:
+        report['field_init'] = {'loads':128, 'allocations_and_releases':64,
+                                'script_archive_sha256':hashlib.sha256(script_archive).hexdigest(),
+                                'event_and_script_bytes_exact':True,
+                                'script_tail_and_no_encounters_zeroed':True}
+        report['scope'] += '; original Field_AllocateMapEvents/Field_InitMapEvents/Field_FreeMapEvents with explicit private-file, heap and MapHeader adapters'
+        report['limits'] = 'No script execution, object creation, collision, rendering, transitions or running FieldSystem. Only no-wild-encounter rooms covered by Field_InitMapEvents. Windows has no sanitizers. ASan global instrumentation disabled.'
     (output/'result.json').write_text(json.dumps(report, indent=2)+'\n')
     print(json.dumps(report))
     if mismatches:

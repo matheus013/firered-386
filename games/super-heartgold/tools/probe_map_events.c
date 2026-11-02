@@ -8,6 +8,66 @@ void GF_AssertFail(void) { abort(); }
 void SIM_handleAssertionFailureMsg(const char *file,unsigned line,const char *fmt,...) {
     (void)fmt; fprintf(stderr,"assert %s:%u\n",file,line); abort();
 }
+#ifdef HG_FIELD_LOAD
+#include "field_load_cases.h"
+static const char *resource_dir;
+static unsigned allocations, reads;
+static const FieldLoadCase *find_case(u32 map) {
+    for (unsigned i=0;i<2;i++) if (field_load_cases[i].map==map) return &field_load_cases[i];
+    CHECK(0); return NULL;
+}
+u16 MapHeader_GetEventsBank(u32 map) { return find_case(map)->events; }
+u16 MapHeader_GetScriptHeaderBank(u32 map) { return find_case(map)->script; }
+BOOL MapHeader_HasWildEncounters(u32 map) { find_case(map); return FALSE; }
+u8 MapHeader_GetWildEncounterBank(u32 map) { (void)map; CHECK(0); return 0; }
+void *Heap_Alloc(enum HeapID heap,u32 size) {
+    (void)heap; void *p=malloc(size); CHECK(p); memset(p,0xA5,size); allocations++; return p;
+}
+void Heap_Free(void *p) { CHECK(p && allocations); allocations--; free(p); }
+static FILE *open_member(NarcId narc,s32 member) {
+    const char *suffix;
+    if (narc==NARC_fielddata_eventdata_zone_event) suffix="bin";
+    else { CHECK(narc==NARC_fielddata_script_scr_seq); suffix="script"; }
+    BOOL allowed=FALSE;
+    for (unsigned i=0;i<2;i++)
+        if (member==(narc==NARC_fielddata_eventdata_zone_event ? field_load_cases[i].events : field_load_cases[i].script)) allowed=TRUE;
+    CHECK(allowed);
+    char path[4096]; CHECK(snprintf(path,sizeof(path),"%s/%ld.%s",resource_dir,(long)member,suffix)<sizeof(path));
+    FILE *f=fopen(path,"rb"); CHECK(f); return f;
+}
+u32 GetNarcMemberSizeByIdPair(NarcId narc,s32 member) {
+    FILE *f=open_member(narc,member); CHECK(!fseek(f,0,SEEK_END));
+    long size=ftell(f); CHECK(size>0); fclose(f); return size;
+}
+void ReadWholeNarcMemberByIdPair(void *dest,NarcId narc,s32 member) {
+    u32 size=GetNarcMemberSizeByIdPair(narc,member);
+    CHECK(size < (narc==NARC_fielddata_eventdata_zone_event ? 0x800 : 0x100));
+    FILE *f=open_member(narc,member); CHECK(fread(dest,1,size,f)==size); fclose(f); reads++;
+}
+static void verify_field_load(const char *directory) {
+    resource_dir=directory;
+    for (unsigned cycle=0;cycle<64;cycle++) {
+        FieldSystem field={0}; Field_AllocateMapEvents(&field,0); CHECK(allocations==1);
+        for (unsigned i=0;i<2;i++) {
+            const FieldLoadCase *c=&field_load_cases[i];
+            memset(field.mapEvents,0xA5,sizeof(*field.mapEvents));
+            Field_InitMapEvents(&field,c->map);
+            CHECK(allocations==1);
+            const unsigned char *enc=(void *)MapEvents_GetLoadedEncTable(&field);
+            for (unsigned j=0;j<sizeof(EncounterData);j++) CHECK(enc[j]==0);
+            unsigned char *script=MapEvents_GetScriptHeader(&field);
+            for (unsigned j=c->script_size;j<0x100;j++) CHECK(script[j]==0);
+            char path[4096]; CHECK(snprintf(path,sizeof(path),"%s/%u.loaded",directory,c->map)<sizeof(path));
+            FILE *out=fopen(path,"wb"); CHECK(out);
+            CHECK(fwrite(field.mapEvents->event_data,1,c->event_size,out)==c->event_size);
+            CHECK(fwrite(script,1,c->script_size,out)==c->script_size); CHECK(!fclose(out));
+        }
+        Field_FreeMapEvents(&field); field.mapEvents=NULL; CHECK(!allocations);
+    }
+    CHECK(reads==256);
+    puts("Field_InitMapEvents: 128 room loads, 64 allocations/releases passed");
+}
+#endif
 static void section(FILE *out, u32 count, const void *data, size_t size) {
     CHECK((count == 0) == (data == NULL));
     CHECK(fwrite(&count,4,1,out)==1);
@@ -46,5 +106,8 @@ int main(int argc,char **argv) {
             CHECK(Field_GetWarpEventAtXYPos(&field,w->x,w->z)==first);
         }
     }
+#ifdef HG_FIELD_LOAD
+    verify_field_load(argv[1]);
+#endif
     puts("original event parser/getters/warp lookup passed"); return 0;
 }
