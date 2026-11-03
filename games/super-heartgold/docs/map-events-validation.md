@@ -93,3 +93,15 @@ Nos scripts 1 e 7, o comando retorna ao interpretador, que permanece em modo byt
 Passaram Linux com ASan/UBSan (globais desativadas) e Windows com EXE executado, sem sanitizadores. Relatórios: [acompanhante inativo Linux](hgss-inactive-follower-linux-test.json), [acompanhante inativo Windows](hgss-inactive-follower-windows-test.json). As regressões de carregamento, seleção e parser continuam incluídas.
 
 O próximo bloqueio é `LockAll`: requer o ambiente de scripts e o gerenciador real dos objetos, seguido pela aplicação dos movimentos. Acompanhante ativo, travessia, diálogos, renderização e save completo permanecem sem validação. Os testes anteriores de parada no primeiro comando continuam disponíveis sem `--inactive-follower`.
+
+## LockAll com gerenciador de objetos de teste — 03/11/2026
+
+O modo `--lock-all` (exige `--inactive-follower`) liga a unidade original `map_object.c` e executa o `ScrCmd_LockAll` original, extraído sem alterações. A consulta ao GitHub confirmou [MapObjectManager_PauseAllMovement](https://github.com/ClickingMaster/pokeheartgold-single-screen/blob/6984a3d67592157195940049be2e4bbbf933f9ff/src/map_object.c). O teste usa as funções originais de pausa/despausa e de acesso ao ambiente de scripts; apenas `TaskManager_GetEnvironment` é adaptado para devolver o ambiente explícito do teste.
+
+Em cada um dos dois scripts, o gerenciador tem três slots: dois ativos e um inativo. `LockAll` adiciona o flag de pausa somente aos ativos, preserva os outros flags e retorna ao interpretador. `MapObjectManager_UnpauseAllMovement` restaura os flags iniciais. O ponteiro de bytecode avança exatamente até `ApplyMovement`, onde o diagnóstico para sem simular movimento.
+
+Passaram Linux com ASan/UBSan e execução do EXE Windows. São quatro comandos originais executados por plataforma (dois em cada script), **zero scripts completos**. O modo anterior sem `--lock-all` também passou na regressão Linux após a mudança.
+
+Relatórios: [LockAll Linux](hgss-lock-all-linux-test.json), [LockAll Windows](hgss-lock-all-windows-test.json). As funções extraídas e a unidade `map_object.c` têm hashes registrados. Dados e código extraídos permanecem privados.
+
+Limites: os slots são construídos pelo diagnóstico, não por `Field_InitMapObjectsFromZoneEventData`; não há escalonamento real do TaskManager, NPC de última interação ou acompanhante ativo. Esses ramos não são simulados como sucesso. O próximo bloqueio é a criação e execução do gerenciador de movimentos de `ApplyMovement`, com objetos reais do mapa. O campo continua não jogável.

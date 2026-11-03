@@ -55,6 +55,8 @@ def main():
                         help='Dispatch real initial-house scripts until the first unintegrated command')
     parser.add_argument('--inactive-follower', action='store_true',
                         help='Execute the original first command for an explicitly inactive follower')
+    parser.add_argument('--lock-all', action='store_true',
+                        help='Execute original LockAll against an explicit object-manager fixture')
     a = parser.parse_args()
     if a.script_selection and not a.script_archive:
         parser.error('--script-selection requires --script-archive')
@@ -62,6 +64,8 @@ def main():
         parser.error('--script-dispatch requires --script-selection')
     if a.inactive_follower and not a.script_dispatch:
         parser.error('--inactive-follower requires --script-dispatch')
+    if a.lock_all and not a.inactive_follower:
+        parser.error('--lock-all requires --inactive-follower')
     output = a.output.resolve()
     if any((p/'.git').exists() for p in (output, *output.parents)):
         raise ValueError('Private output must be outside Git repositories')
@@ -154,16 +158,25 @@ def main():
             if case['command'] != 'ScrCmd_FollowMonResetMovement' or commands[next_opcode] != 'ScrCmd_LockAll':
                 raise ValueError('Unsupported first-command sequence')
         fragments = []
-        for file,name in [('scrcmd_c.c','ScrCmd_FollowMonResetMovement'),('follow_mon.c','FollowMon_IsActive')]:
+        functions = [('scrcmd_c.c','ScrCmd_FollowMonResetMovement'),('follow_mon.c','FollowMon_IsActive')]
+        if a.lock_all:
+            functions += [('scrcmd_c.c','ScrCmd_LockAll'),('scrcmd_c.c','_WaitFollowMonPaused'),('follow_mon.c','FollowMon_GetMapObject')]
+            for case in dispatch_cases:
+                opcode, = struct.unpack_from('<H',bytecode,case['offset']+4)
+                if commands[opcode] != 'ScrCmd_ApplyMovement':
+                    raise ValueError('Unexpected command after LockAll')
+        for file,name in functions:
             source = (a.hgss/'src'/file).read_text()
-            matches = re.findall(r'^BOOL '+name+r'\([^\n]+\) \{\n.*?^\}',source,re.M|re.S)
+            matches = re.findall(r'^[A-Za-z_][\w *]*\b'+name+r'\([^\n]+\) \{\n.*?^\}',source,re.M|re.S)
             if len(matches) != 1:
                 raise ValueError('Original function boundary changed')
             fragments.append(matches[0])
             extracted_functions.append({'source':file,'function':name,'sha256':hashlib.sha256(matches[0].encode()).hexdigest()})
         includes = ['field_system.h','follow_mon.h','map_object.h','field_terrain.h','script_pokemon_util.h','constants/scrcmd.h']
         (output/'original_follower_command.c').write_text(
-            ''.join('#include "'+h+'"\n' for h in includes)+'\n\n'.join(fragments)+'\n')
+            ''.join('#include "'+h+'"\n' for h in includes)+
+            'BOOL _WaitFollowMonPaused(ScriptContext *ctx);\nBOOL ScrCmd_LockLastTalked(ScriptContext *ctx);\n'+
+            '\n\n'.join(fragments)+'\n')
     # Only macro definitions in this generated header are unused by this probe.
     header = output/'fielddata/encountdata/s_enc_data.naix'
     header.parent.mkdir(parents=True)
@@ -201,6 +214,9 @@ def main():
     if a.inactive_follower:
         flags.append('-DHG_INACTIVE_FOLLOWER')
         sources.append(str(output/'original_follower_command.c'))
+    if a.lock_all:
+        flags.append('-DHG_LOCK_ALL')
+        sources.append(str(a.hgss/'src/map_object.c'))
     result = subprocess.run(flags+sources+['-o', str(binary)], capture_output=True, text=True)
     (output/'build.log').write_text(result.stdout+result.stderr)
     result.check_returncode()
@@ -262,6 +278,14 @@ def main():
         report['script_dispatch']['next_blocked_command'] = 'ScrCmd_LockAll'
         report['script_dispatch']['private_unchanged_function_excerpts'] = extracted_functions
         report['limits'] = 'Explicit inactive-follower fixture, not full new-game state. No active follower, object movement, full script completion, rendering or running FieldSystem. Extracted unchanged functions, not whole scrcmd/follow_mon units. Windows has no sanitizers; ASan globals disabled.'
+    if a.lock_all:
+        report['script_dispatch']['boundary'] = 'First two original commands executed with inactive follower and fixture objects; stopped before ApplyMovement'
+        report['script_dispatch']['original_commands_executed'] = 4
+        report['script_dispatch']['next_blocked_command'] = 'ScrCmd_ApplyMovement'
+        report['lock_all'] = {'objects_per_case':3,'active_per_case':2,'inactive_per_case':1,
+            'active_paused_inactive_unchanged':True,'unpause_restores_flags':True,
+            'original_map_object_source_sha256':hashlib.sha256((a.hgss/'src/map_object.c').read_bytes()).hexdigest(),
+            'limits':'Fixture manager and ScriptEnvironment, not map-created objects or real TaskManager scheduling; no last-interacted NPC or active follower branch'}
     (output/'result.json').write_text(json.dumps(report, indent=2)+'\n')
     print(json.dumps(report))
     if mismatches:

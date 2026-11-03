@@ -12,10 +12,17 @@
 BOOL ScrCmd_FollowMonResetMovement(ScriptContext *ctx);
 Party *SaveArray_Party_Get(SaveData *save) { (void)save; CHECK(0); return NULL; }
 int CountAlivePokemon(Party *party) { (void)party; CHECK(0); return 0; }
+#ifndef HG_LOCK_ALL
 LocalMapObject *MapObjectManager_GetFirstActiveObjectByID(MapObjectManager *manager,u32 id) {
     (void)manager; (void)id; CHECK(0); return NULL;
 }
+#endif
 void FollowPlayerMovement_Reset(LocalMapObject *object) { (void)object; CHECK(0); }
+#ifdef HG_LOCK_ALL
+BOOL ScrCmd_LockAll(ScriptContext *ctx);
+BOOL ScrCmd_LockLastTalked(ScriptContext *ctx) { (void)ctx; CHECK(0); return FALSE; }
+static ScriptEnvironment script_environment;
+#endif
 #endif
 static unsigned dispatched, blocked_opcode;
 static BOOL stop_at_unintegrated_command(ScriptContext *ctx) {
@@ -48,6 +55,24 @@ static void verify_script_dispatch(const char *directory) {
         CHECK(dispatched==0 && ctx.mode==SCRIPT_MODE_BYTECODE);
         CHECK(ctx.script_ptr==bytecode+dispatch_cases[i].offset+2);
         CHECK(field.followMon.active==0);
+#ifdef HG_LOCK_ALL
+        LocalMapObject objects[3]={0}; MapObjectManager manager={0};
+        unsigned original_flags[3]={MAPOBJECTFLAG_ACTIVE,0,MAPOBJECTFLAG_ACTIVE | MAPOBJECTFLAG_SINGLE_MOVEMENT};
+        for (unsigned n=0;n<3;n++) objects[n].flags=original_flags[n];
+        manager.objectCount=3; manager.activeCount=2; manager.objects=objects;
+        manager.fieldSystem=&field; field.mapObjectManager=&manager;
+        memset(&script_environment,0,sizeof(script_environment));
+        field.taskman=(TaskManager *)&script_environment;
+        unsigned lock_opcode=ctx.script_ptr[0] | (ctx.script_ptr[1]<<8);
+        table[lock_opcode]=ScrCmd_LockAll;
+        CHECK(RunScriptCommand(&ctx));
+        CHECK(!dispatched && ctx.mode==SCRIPT_MODE_BYTECODE);
+        CHECK(ctx.script_ptr==bytecode+dispatch_cases[i].offset+4);
+        for (unsigned n=0;n<3;n++)
+            CHECK(objects[n].flags==(original_flags[n] | (n==1 ? 0 : MAPOBJECTFLAG_MOVEMENT_PAUSED)));
+        MapObjectManager_UnpauseAllMovement(&manager);
+        for (unsigned n=0;n<3;n++) CHECK(objects[n].flags==original_flags[n]);
+#endif
         unsigned expected_opcode=ctx.script_ptr[0] | (ctx.script_ptr[1]<<8);
 #else
         unsigned expected_opcode=dispatch_cases[i].opcode;
@@ -56,7 +81,9 @@ static void verify_script_dispatch(const char *directory) {
         CHECK(dispatched==1 && blocked_opcode==expected_opcode);
         CHECK(ctx.mode==SCRIPT_MODE_STOPPED && !RunScriptCommand(&ctx));
     }
-#ifdef HG_INACTIVE_FOLLOWER
+#ifdef HG_LOCK_ALL
+    puts("original VM: first two commands executed twice; stopped before ApplyMovement; zero scripts completed");
+#elif defined(HG_INACTIVE_FOLLOWER)
     puts("original VM: inactive-follower command executed twice; stopped before LockAll; zero scripts completed");
 #else
     puts("original VM: two real script entries dispatched; stopped at unintegrated command, not completed");
@@ -76,7 +103,11 @@ void *SaveArray_Get(SaveData *save,int id) {
     CHECK(save==(SaveData *)&save_vars && id==SAVE_FLAGS); return &save_vars;
 }
 void *TaskManager_GetEnvironment(TaskManager *task) {
+#ifdef HG_LOCK_ALL
+    CHECK(task==(TaskManager *)&script_environment); return &script_environment;
+#else
     (void)task; CHECK(0); return NULL; /* Special variables are outside this test. */
+#endif
 }
 static void verify_script_selection(FieldSystem *field,unsigned map) {
     field->saveData=(SaveData *)&save_vars;
