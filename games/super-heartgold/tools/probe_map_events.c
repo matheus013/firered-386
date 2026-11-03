@@ -16,13 +16,30 @@ static const u8 *expected_movement_data;
 static unsigned movement_requests;
 static void prepare_movement_save(FieldSystem *field);
 BOOL ScrCmd_ApplyMovement(ScriptContext *ctx);
+#ifdef HG_MOVEMENT_TASK
+#include "system.h"
+#include "sys_task.h"
+#include "map_object_movement_commands_internal.h"
+struct System gSystem;
+static EventObjectMovementMan *created_movement;
+BOOL HG_MovementMatches(EventObjectMovementMan *,LocalMapObject *,const u8 *);
+void *Heap_AllocAtEnd(enum HeapID heap,u32 size) { return Heap_Alloc(heap,size); }
+void Heap_FreeExplicit(enum HeapID heap,void *ptr) { (void)heap; Heap_Free(ptr); }
+#else
 EventObjectMovementMan *EventObjectMovementMan_Create(LocalMapObject *object,const MovementScriptCommand *data) {
     CHECK(object==expected_movement_object && (const u8 *)data==expected_movement_data);
     movement_requests++; longjmp(movement_boundary,1);
 }
+#endif
 void FollowMonDraw_ClearBob(LocalMapObject *object) { (void)object; CHECK(0); }
 void _ScheduleObjectEventMovement(FieldSystem *field,EventObjectMovementMan *movement,MovementScriptCommand *commands) {
+#ifdef HG_MOVEMENT_TASK
+    CHECK(field && commands==NULL);
+    CHECK(HG_MovementMatches(movement,expected_movement_object,expected_movement_data));
+    created_movement=movement; movement_requests++; longjmp(movement_boundary,1);
+#else
     (void)field; (void)movement; (void)commands; CHECK(0);
+#endif
 }
 #endif
 #ifdef HG_INACTIVE_FOLLOWER
@@ -52,6 +69,10 @@ static BOOL stop_at_unintegrated_command(ScriptContext *ctx) {
     return TRUE;
 }
 static void verify_script_dispatch(const char *directory) {
+#ifdef HG_MOVEMENT_TASK
+    void *queue_memory=Heap_Alloc(0,SysTaskQueue_GetArenaSize(8));
+    gSystem.mainTaskQueue=SysTaskQueue_PlacementNew(8,queue_memory);
+#endif
     unsigned char bytecode[DISPATCH_BANK_SIZE];
     char path[4096]; CHECK(snprintf(path,sizeof(path),"%s/initial-house.bytecode",directory)<sizeof(path));
     FILE *f=fopen(path,"rb"); CHECK(f);
@@ -80,6 +101,10 @@ static void verify_script_dispatch(const char *directory) {
         for (unsigned n=0;n<3;n++) objects[n].flags=original_flags[n];
         manager.objectCount=3; manager.activeCount=2; manager.objects=objects;
         manager.fieldSystem=&field; field.mapObjectManager=&manager;
+#ifdef HG_MOVEMENT_TASK
+        manager.priority=10;
+        for (unsigned n=0;n<3;n++) objects[n].manager=&manager;
+#endif
         memset(&script_environment,0,sizeof(script_environment));
         field.taskman=(TaskManager *)&script_environment;
         unsigned lock_opcode=ctx.script_ptr[0] | (ctx.script_ptr[1]<<8);
@@ -102,7 +127,25 @@ static void verify_script_dispatch(const char *directory) {
         expected_movement_object=&objects[0]; expected_movement_data=bytecode+movement_targets[i];
         movement_requests=0; table[expected_opcode]=ScrCmd_ApplyMovement;
         if (setjmp(movement_boundary)==0) { RunScriptCommand(&ctx); CHECK(0); }
-        CHECK(movement_requests==1 && script_environment.activeMovementCounter==0);
+        CHECK(movement_requests==1);
+#ifdef HG_MOVEMENT_TASK
+        CHECK(script_environment.activeMovementCounter==1);
+        CHECK(gSystem.mainTaskQueue->activeCount==1);
+        CHECK(SysTask_GetPriority((SysTask *)created_movement)==9);
+        for (unsigned tick=0;tick<16;tick++) {
+            SysTaskQueue_RunTasks(gSystem.mainTaskQueue);
+            CHECK(!EventObjectMovementMan_IsFinish(created_movement));
+        }
+        CHECK(objects[0].movementCmd==(expected_movement_data[0] | (expected_movement_data[1]<<8)));
+        CHECK(!MapObject_IsMovementPaused(&objects[0]));
+        /* Explicit cancellation: never report absent step execution as success. */
+        MapObject_ClearHeldMovement(&objects[0]);
+        EventObjectMovementMan_Delete(created_movement); created_movement=NULL;
+        script_environment.activeMovementCounter=0;
+        CHECK(gSystem.mainTaskQueue->activeCount==0);
+#else
+        CHECK(script_environment.activeMovementCounter==0);
+#endif
         StopScript(&ctx);
 #else
         CHECK(RunScriptCommand(&ctx));
@@ -110,7 +153,11 @@ static void verify_script_dispatch(const char *directory) {
 #endif
         CHECK(ctx.mode==SCRIPT_MODE_STOPPED && !RunScriptCommand(&ctx));
     }
-#ifdef HG_MOVEMENT_REQUEST
+#ifdef HG_MOVEMENT_TASK
+    CHECK(gSystem.mainTaskQueue->activeCount==0);
+    gSystem.mainTaskQueue=NULL; Heap_Free(queue_memory);
+    puts("Original movement tasks created and ticked; unfinished without step executor; cancelled explicitly");
+#elif defined(HG_MOVEMENT_REQUEST)
     puts("ApplyMovement: object and signed relative target verified; trapped before creating tasks");
 #elif defined(HG_LOCK_ALL)
     puts("original VM: first two commands executed twice; stopped before ApplyMovement; zero scripts completed");
@@ -267,6 +314,9 @@ int main(int argc,char **argv) {
 #endif
 #ifdef HG_SCRIPT_DISPATCH
     verify_script_dispatch(argv[1]);
+#ifdef HG_MOVEMENT_TASK
+    CHECK(allocations==0);
+#endif
 #endif
     puts("original event parser/getters/warp lookup passed"); return 0;
 }

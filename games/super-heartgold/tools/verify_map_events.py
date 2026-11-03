@@ -59,6 +59,8 @@ def main():
                         help='Execute original LockAll against an explicit object-manager fixture')
     parser.add_argument('--movement-request', action='store_true',
                         help='Validate ApplyMovement object/relative target before task creation')
+    parser.add_argument('--movement-task', action='store_true',
+                        help='Create and tick the original movement task up to the unintegrated step executor')
     a = parser.parse_args()
     if a.script_selection and not a.script_archive:
         parser.error('--script-selection requires --script-archive')
@@ -70,6 +72,8 @@ def main():
         parser.error('--lock-all requires --inactive-follower')
     if a.movement_request and not a.lock_all:
         parser.error('--movement-request requires --lock-all')
+    if a.movement_task and not a.movement_request:
+        parser.error('--movement-task requires --movement-request')
     output = a.output.resolve()
     if any((p/'.git').exists() for p in (output, *output.parents)):
         raise ValueError('Private output must be outside Git repositories')
@@ -248,6 +252,20 @@ def main():
         sources.append(str(a.hgss/'src/map_object.c'))
     if a.movement_request:
         flags.append('-DHG_MOVEMENT_REQUEST')
+    if a.movement_task:
+        assembly = (a.hgss/'asm/map_object_movement_commands_data.s').read_text()
+        block = assembly.split('gMovementScriptMachineStateFuncs:\n',1)[1].split('\t.public',1)[0]
+        states = re.findall(r'\.word\s+(\w+)',block)
+        if len(states) != 6 or any(not s.startswith('MovementScriptMachineSub_') for s in states):
+            raise ValueError('Movement state table changed')
+        wrapper = output/'original_movement_task.c'
+        wrapper.write_text('#include "map_object_movement_commands.c"\n'
+            'const MovementScriptStateFunc gMovementScriptMachineStateFuncs[] = {'+','.join(states)+'};\n'
+            'BOOL HG_MovementMatches(EventObjectMovementMan *man, LocalMapObject *object, const u8 *data) {\n'
+            'EventObjectMovementWork *work = SysTask_GetData((SysTask *)man);\n'
+            'return work->object == object && (const u8 *)work->command == data;\n}\n')
+        flags.append('-DHG_MOVEMENT_TASK')
+        sources += [str(wrapper),str(a.hgss/'src/sys_task.c'),str(a.hgss/'src/sys_task_api.c')]
     result = subprocess.run(flags+sources+['-o', str(binary)], capture_output=True, text=True)
     (output/'build.log').write_text(result.stdout+result.stderr)
     result.check_returncode()
@@ -325,6 +343,17 @@ def main():
         report['script_dispatch']['boundary'] = report['movement_request']['boundary']
         report['limits'] = report['limits'].replace('Extracted unchanged functions','Extracted functions with adaptations recorded')
         report['limits'] += ' ApplyMovement excerpt has an explicit signed-offset adaptation; request stops before task creation.'
+    if a.movement_task:
+        report['movement_request']['tasks_created'] = 2
+        report['movement_request']['boundary'] = 'Original task created; trap before original completion-monitor scheduling'
+        report['movement_task'] = {'passed':True,'tasks_created':2,'ticks_per_task':16,
+            'stayed_unfinished_without_step_executor':True,'explicit_cancellation_released_tasks_and_heap':True,
+            'state_table_from_original_assembly':states,
+            'source_sha256':hashlib.sha256((a.hgss/'src/map_object_movement_commands.c').read_bytes()).hexdigest(),
+            'limits':'Objects remain fixtures. No step execution, displacement, completion monitor or script completion. Cancellation is test teardown, not movement success.'}
+        report['script_dispatch']['boundary'] = report['movement_request']['boundary']
+        report['script_dispatch']['next_blocked_command'] = 'Movement step executor and _ScheduleObjectEventMovement completion monitor'
+        report['limits'] = report['limits'].replace('request stops before task creation','original movement task runs, but step execution and completion monitor are absent')
     (output/'result.json').write_text(json.dumps(report, indent=2)+'\n')
     print(json.dumps(report))
     if mismatches:

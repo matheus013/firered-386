@@ -120,3 +120,15 @@ Foi identificada uma incompatibilidade no trecho original: o deslocamento relati
 Nos dois casos, a identidade do objeto e o endereço exato do movimento conferem com uma leitura Python independente. O contador de movimentos permanece zero, pois a interrupção ocorre antes de criar/agendar a tarefa. Passaram Linux ASan/UBSan e EXE Windows; as regressões anteriores continuam incluídas. Não se trata de movimento executado nem de cena concluída.
 
 Relatórios: [requisição Linux](hgss-movement-request-linux-test.json), [requisição Windows](hgss-movement-request-windows-test.json). O próximo serviço é [EventObjectMovementMan_Create](https://github.com/ClickingMaster/pokeheartgold-single-screen/blob/6984a3d67592157195940049be2e4bbbf933f9ff/src/map_object_movement_commands.c), seguido pela fila SysTask e pela máquina de movimentos. Nenhuma tarefa foi criada neste teste.
+
+## Tarefa de movimento e fila original — 03/11/2026
+
+O modo `--movement-task` (exige `--movement-request`) agora liga `map_object_movement_commands.c`, `sys_task.c` e `sys_task_api.c` originais. A tabela de seis estados é gerada na área privada a partir dos símbolos da tabela assembly original, usando ponteiros nativos. A fila recebe uma arena real e executa suas funções originais de inserção, prioridade, processamento e remoção.
+
+Nos dois scripts, `EventObjectMovementMan_Create` cria uma tarefa vinculada ao objeto e aos dados corretos. O comando incrementa o contador de movimentos; a interrupção explícita passa a ocorrer antes do agendamento do monitor `_ScheduleObjectEventMovement`. A prioridade conferida é 9 (prioridade 10 do gerenciador menos 1).
+
+Cada tarefa passa por 16 ciclos da fila. A máquina seleciona o primeiro comando de movimento, mas permanece incompleta porque o executor dos passos ainda não está integrado. O teste exige que não haja conclusão falsa. No encerramento, cancela explicitamente o movimento, libera a tarefa pelas rotinas originais e confirma fila vazia e zero alocações pendentes. O cancelamento é limpeza do teste, não sucesso do movimento; o contador do ambiente é restaurado pelo diagnóstico.
+
+Passaram Linux com ASan/UBSan e EXE Windows, sem sanitizadores. O modo anterior de interrupção antes da criação também passou na regressão Linux. Relatórios: [tarefas Linux](hgss-movement-task-linux-test.json), [tarefas Windows](hgss-movement-task-windows-test.json).
+
+**São duas tarefas criadas por plataforma, zero movimentos completos e zero scripts concluídos.** Os objetos ainda são fixtures. Faltam executor dos passos, monitor de conclusão, objetos reais, desenho e integração ao FieldSystem. A execução da fila SysTask não significa que o TaskManager completo do campo esteja integrado.
