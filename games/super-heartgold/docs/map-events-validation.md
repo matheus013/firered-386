@@ -83,3 +83,13 @@ Relatórios: [entrada Linux](hgss-script-dispatch-linux-test.json), [entrada Win
 Durante a implementação, um filtro de nomes omitia um handler com prefixo diferente e deslocava os opcodes. O leitor agora preserva todas as posições da tabela (853 entradas nesta referência) e rejeita inicializadores que não sabe interpretar. A regressão `python3 tools/test_script_command_table.py` cobre o handler com nome diferente e a rejeição de um inicializador designado. Os relatórios publicados foram gerados depois dessa correção.
 
 O primeiro bloqueio concreto está nas dependências dos objetos/acompanhante utilizadas por `ScrCmd_FollowMonResetMovement`, seguidas pelos comandos de bloqueio e movimento dos objetos. Integrar esses serviços ao campo é necessário para demonstrar a cena; trocar os comandos por handlers vazios não atende ao marco jogável.
+
+## Primeiro comando com acompanhante inativo — 03/11/2026
+
+O modo `--inactive-follower`, junto de `--script-dispatch`, executa o ramo original de `ScrCmd_FollowMonResetMovement` com `followMon.active = 0`. As funções `ScrCmd_FollowMonResetMovement` e `FollowMon_IsActive` são extraídas sem alterações para uma unidade privada; seus hashes constam nos relatórios. Isso permite testar o ramo sem afirmar que as unidades completas `scrcmd_c.c` e `follow_mon.c` já estão integradas.
+
+Nos scripts 1 e 7, o comando retorna ao interpretador, que permanece em modo bytecode e avança exatamente dois bytes até `ScrCmd_LockAll`. São duas execuções de comando original por plataforma, com zero scripts completos. Os serviços de acesso ao time, busca do objeto acompanhante e reset de movimento abortam se forem usados: nenhum foi chamado nesse ramo inativo. O estado é uma fixture explícita; não demonstra que o boot real já constrói o FieldSystem correto.
+
+Passaram Linux com ASan/UBSan (globais desativadas) e Windows com EXE executado, sem sanitizadores. Relatórios: [acompanhante inativo Linux](hgss-inactive-follower-linux-test.json), [acompanhante inativo Windows](hgss-inactive-follower-windows-test.json). As regressões de carregamento, seleção e parser continuam incluídas.
+
+O próximo bloqueio é `LockAll`: requer o ambiente de scripts e o gerenciador real dos objetos, seguido pela aplicação dos movimentos. Acompanhante ativo, travessia, diálogos, renderização e save completo permanecem sem validação. Os testes anteriores de parada no primeiro comando continuam disponíveis sem `--inactive-follower`.

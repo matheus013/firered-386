@@ -6,6 +6,17 @@
 #define CHECK(x) do { if (!(x)) { fprintf(stderr,"check line %d\n",__LINE__); abort(); } } while (0)
 #ifdef HG_SCRIPT_DISPATCH
 #include "script_dispatch_cases.h"
+#ifdef HG_INACTIVE_FOLLOWER
+#include "party.h"
+#include "script_pokemon_util.h"
+BOOL ScrCmd_FollowMonResetMovement(ScriptContext *ctx);
+Party *SaveArray_Party_Get(SaveData *save) { (void)save; CHECK(0); return NULL; }
+int CountAlivePokemon(Party *party) { (void)party; CHECK(0); return 0; }
+LocalMapObject *MapObjectManager_GetFirstActiveObjectByID(MapObjectManager *manager,u32 id) {
+    (void)manager; (void)id; CHECK(0); return NULL;
+}
+void FollowPlayerMovement_Reset(LocalMapObject *object) { (void)object; CHECK(0); }
+#endif
 static unsigned dispatched, blocked_opcode;
 static BOOL stop_at_unintegrated_command(ScriptContext *ctx) {
     CHECK(dispatched==0);
@@ -30,11 +41,26 @@ static void verify_script_dispatch(const char *directory) {
         ScriptRunByIndex(&ctx,dispatch_cases[i].script-1);
         CHECK(ctx.script_ptr==bytecode+dispatch_cases[i].offset);
         dispatched=0; blocked_opcode=0xFFFF;
+#ifdef HG_INACTIVE_FOLLOWER
+        FieldSystem field={0}; ctx.fieldSystem=&field;
+        table[dispatch_cases[i].opcode]=ScrCmd_FollowMonResetMovement;
         CHECK(RunScriptCommand(&ctx));
-        CHECK(dispatched==1 && blocked_opcode==dispatch_cases[i].opcode);
+        CHECK(dispatched==0 && ctx.mode==SCRIPT_MODE_BYTECODE);
+        CHECK(ctx.script_ptr==bytecode+dispatch_cases[i].offset+2);
+        CHECK(field.followMon.active==0);
+        unsigned expected_opcode=ctx.script_ptr[0] | (ctx.script_ptr[1]<<8);
+#else
+        unsigned expected_opcode=dispatch_cases[i].opcode;
+#endif
+        CHECK(RunScriptCommand(&ctx));
+        CHECK(dispatched==1 && blocked_opcode==expected_opcode);
         CHECK(ctx.mode==SCRIPT_MODE_STOPPED && !RunScriptCommand(&ctx));
     }
+#ifdef HG_INACTIVE_FOLLOWER
+    puts("original VM: inactive-follower command executed twice; stopped before LockAll; zero scripts completed");
+#else
     puts("original VM: two real script entries dispatched; stopped at unintegrated command, not completed");
+#endif
 }
 #endif
 void GF_AssertFail(void) { abort(); }
