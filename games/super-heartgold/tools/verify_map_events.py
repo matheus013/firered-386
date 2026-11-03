@@ -57,6 +57,8 @@ def main():
                         help='Execute the original first command for an explicitly inactive follower')
     parser.add_argument('--lock-all', action='store_true',
                         help='Execute original LockAll against an explicit object-manager fixture')
+    parser.add_argument('--movement-request', action='store_true',
+                        help='Validate ApplyMovement object/relative target before task creation')
     a = parser.parse_args()
     if a.script_selection and not a.script_archive:
         parser.error('--script-selection requires --script-archive')
@@ -66,6 +68,8 @@ def main():
         parser.error('--inactive-follower requires --script-dispatch')
     if a.lock_all and not a.inactive_follower:
         parser.error('--lock-all requires --inactive-follower')
+    if a.movement_request and not a.lock_all:
+        parser.error('--movement-request requires --lock-all')
     output = a.output.resolve()
     if any((p/'.git').exists() for p in (output, *output.parents)):
         raise ValueError('Private output must be outside Git repositories')
@@ -151,6 +155,17 @@ def main():
             f'#define DISPATCH_COMMAND_COUNT {len(commands)}\n#define DISPATCH_BANK_SIZE {len(bytecode)}\n'
             'typedef struct { unsigned script,offset,opcode; } DispatchCase;\n'
             'static const DispatchCase dispatch_cases[2] = {'+','.join(declarations)+'};\n')
+        if a.movement_request:
+            requests = []
+            for case in dispatch_cases:
+                position = case['offset']+4
+                person,relative = struct.unpack_from('<Hi',bytecode,position+2)
+                target = position+8+relative
+                if person != 255 or not 0 <= target <= len(bytecode)-4:
+                    raise ValueError('Unexpected movement fixture or relative target')
+                requests.append({'person':person,'relative':relative,'target':target})
+            (output/'movement_request_cases.h').write_text(
+                'static const unsigned movement_targets[2] = {'+','.join(str(r['target']) for r in requests)+'};\n')
     extracted_functions = []
     if a.inactive_follower:
         for case in dispatch_cases:
@@ -165,17 +180,31 @@ def main():
                 opcode, = struct.unpack_from('<H',bytecode,case['offset']+4)
                 if commands[opcode] != 'ScrCmd_ApplyMovement':
                     raise ValueError('Unexpected command after LockAll')
+        if a.movement_request:
+            functions += [('scrcmd_c.c','ScrCmd_ApplyMovement'),('scrcmd_c.c','Script_GetMapObjectByPerson')]
         for file,name in functions:
             source = (a.hgss/'src'/file).read_text()
             matches = re.findall(r'^[A-Za-z_][\w *]*\b'+name+r'\([^\n]+\) \{\n.*?^\}',source,re.M|re.S)
             if len(matches) != 1:
                 raise ValueError('Original function boundary changed')
-            fragments.append(matches[0])
             extracted_functions.append({'source':file,'function':name,'sha256':hashlib.sha256(matches[0].encode()).hexdigest()})
+            fragment = matches[0]
+            if name == 'ScrCmd_ApplyMovement':
+                old = 'u32 offset = ScriptReadWord(ctx);'
+                if fragment.count(old) != 1:
+                    raise ValueError('ApplyMovement offset declaration changed')
+                fragment = fragment.replace(old,'s32 offset = (s32)ScriptReadWord(ctx);')
+                extracted_functions[-1]['native_sha256'] = hashlib.sha256(fragment.encode()).hexdigest()
+                extracted_functions[-1]['adaptation'] = 'Sign-extend 32-bit relative movement offset on 64-bit host'
+            fragments.append(fragment)
         includes = ['field_system.h','follow_mon.h','map_object.h','field_terrain.h','script_pokemon_util.h','constants/scrcmd.h']
+        if a.movement_request:
+            includes += ['scrcmd.h','map_object_movement_commands.h','overlay_01.h']
         (output/'original_follower_command.c').write_text(
             ''.join('#include "'+h+'"\n' for h in includes)+
             'BOOL _WaitFollowMonPaused(ScriptContext *ctx);\nBOOL ScrCmd_LockLastTalked(ScriptContext *ctx);\n'+
+            'LocalMapObject *Script_GetMapObjectByPerson(FieldSystem *, u16);\n'+
+            ('void _ScheduleObjectEventMovement(FieldSystem *, EventObjectMovementMan *, MovementScriptCommand *);\n' if a.movement_request else '')+
             '\n\n'.join(fragments)+'\n')
     # Only macro definitions in this generated header are unused by this probe.
     header = output/'fielddata/encountdata/s_enc_data.naix'
@@ -217,6 +246,8 @@ def main():
     if a.lock_all:
         flags.append('-DHG_LOCK_ALL')
         sources.append(str(a.hgss/'src/map_object.c'))
+    if a.movement_request:
+        flags.append('-DHG_MOVEMENT_REQUEST')
     result = subprocess.run(flags+sources+['-o', str(binary)], capture_output=True, text=True)
     (output/'build.log').write_text(result.stdout+result.stderr)
     result.check_returncode()
@@ -276,7 +307,7 @@ def main():
         report['script_dispatch']['boundary'] = 'Original first command executed only with follower inactive; stopped before LockAll'
         report['script_dispatch']['original_commands_executed'] = 2
         report['script_dispatch']['next_blocked_command'] = 'ScrCmd_LockAll'
-        report['script_dispatch']['private_unchanged_function_excerpts'] = extracted_functions
+        report['script_dispatch']['private_function_excerpts'] = extracted_functions
         report['limits'] = 'Explicit inactive-follower fixture, not full new-game state. No active follower, object movement, full script completion, rendering or running FieldSystem. Extracted unchanged functions, not whole scrcmd/follow_mon units. Windows has no sanitizers; ASan globals disabled.'
     if a.lock_all:
         report['script_dispatch']['boundary'] = 'First two original commands executed with inactive follower and fixture objects; stopped before ApplyMovement'
@@ -286,6 +317,14 @@ def main():
             'active_paused_inactive_unchanged':True,'unpause_restores_flags':True,
             'original_map_object_source_sha256':hashlib.sha256((a.hgss/'src/map_object.c').read_bytes()).hexdigest(),
             'limits':'Fixture manager and ScriptEnvironment, not map-created objects or real TaskManager scheduling; no last-interacted NPC or active follower branch'}
+    if a.movement_request:
+        report['movement_request'] = {'passed':True,'cases':requests,
+            'signed_relative_offset_adaptation':True,'tasks_created':0,
+            'boundary':'Trap at EventObjectMovementMan_Create after checking object identity and exact movement pointer; no task or movement simulated'}
+        report['script_dispatch']['next_blocked_command'] = 'EventObjectMovementMan_Create inside ScrCmd_ApplyMovement'
+        report['script_dispatch']['boundary'] = report['movement_request']['boundary']
+        report['limits'] = report['limits'].replace('Extracted unchanged functions','Extracted functions with adaptations recorded')
+        report['limits'] += ' ApplyMovement excerpt has an explicit signed-offset adaptation; request stops before task creation.'
     (output/'result.json').write_text(json.dumps(report, indent=2)+'\n')
     print(json.dumps(report))
     if mismatches:

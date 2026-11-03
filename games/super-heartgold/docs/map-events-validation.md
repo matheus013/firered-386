@@ -105,3 +105,18 @@ Passaram Linux com ASan/UBSan e execução do EXE Windows. São quatro comandos 
 Relatórios: [LockAll Linux](hgss-lock-all-linux-test.json), [LockAll Windows](hgss-lock-all-windows-test.json). As funções extraídas e a unidade `map_object.c` têm hashes registrados. Dados e código extraídos permanecem privados.
 
 Limites: os slots são construídos pelo diagnóstico, não por `Field_InitMapObjectsFromZoneEventData`; não há escalonamento real do TaskManager, NPC de última interação ou acompanhante ativo. Esses ramos não são simulados como sucesso. O próximo bloqueio é a criação e execução do gerenciador de movimentos de `ApplyMovement`, com objetos reais do mapa. O campo continua não jogável.
+
+## ApplyMovement: correção do deslocamento relativo em 64 bits — 03/11/2026
+
+O modo `--movement-request` (exige `--lock-all`) entra em `ScrCmd_ApplyMovement`, resolve o personagem pela função original `Script_GetMapObjectByPerson` e verifica a chamada ao criador de tarefas. A chamada é interceptada com uma interrupção explícita antes da alocação; não devolve uma tarefa fictícia nem simula sucesso.
+
+Foi identificada uma incompatibilidade no trecho original: o deslocamento relativo é lido em `u32` e somado a um ponteiro. O segundo script usa `-68`, codificado em 32 bits; em um host de 64 bits, tratá-lo como sem sinal adicionaria `4294967228`, em vez de retroceder 68 bytes. A preparação privada agora adapta apenas essa declaração para `s32 offset = (s32)ScriptReadWord(ctx);`, com hashes antes/depois registrados. O checkout original não foi alterado. Essa adaptação ainda precisa acompanhar a futura compilação da unidade completa no jogo.
+
+| Script | Personagem | Deslocamento relativo | Destino no banco |
+|---|---:|---:|---:|
+| 1 | 255 | +122 | 164 |
+| 7 | 255 | -68 | 164 |
+
+Nos dois casos, a identidade do objeto e o endereço exato do movimento conferem com uma leitura Python independente. O contador de movimentos permanece zero, pois a interrupção ocorre antes de criar/agendar a tarefa. Passaram Linux ASan/UBSan e EXE Windows; as regressões anteriores continuam incluídas. Não se trata de movimento executado nem de cena concluída.
+
+Relatórios: [requisição Linux](hgss-movement-request-linux-test.json), [requisição Windows](hgss-movement-request-windows-test.json). O próximo serviço é [EventObjectMovementMan_Create](https://github.com/ClickingMaster/pokeheartgold-single-screen/blob/6984a3d67592157195940049be2e4bbbf933f9ff/src/map_object_movement_commands.c), seguido pela fila SysTask e pela máquina de movimentos. Nenhuma tarefa foi criada neste teste.

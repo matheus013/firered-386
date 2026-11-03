@@ -6,6 +6,25 @@
 #define CHECK(x) do { if (!(x)) { fprintf(stderr,"check line %d\n",__LINE__); abort(); } } while (0)
 #ifdef HG_SCRIPT_DISPATCH
 #include "script_dispatch_cases.h"
+#ifdef HG_MOVEMENT_REQUEST
+#include <setjmp.h>
+#include "map_object_movement_commands.h"
+#include "movement_request_cases.h"
+static jmp_buf movement_boundary;
+static LocalMapObject *expected_movement_object;
+static const u8 *expected_movement_data;
+static unsigned movement_requests;
+static void prepare_movement_save(FieldSystem *field);
+BOOL ScrCmd_ApplyMovement(ScriptContext *ctx);
+EventObjectMovementMan *EventObjectMovementMan_Create(LocalMapObject *object,const MovementScriptCommand *data) {
+    CHECK(object==expected_movement_object && (const u8 *)data==expected_movement_data);
+    movement_requests++; longjmp(movement_boundary,1);
+}
+void FollowMonDraw_ClearBob(LocalMapObject *object) { (void)object; CHECK(0); }
+void _ScheduleObjectEventMovement(FieldSystem *field,EventObjectMovementMan *movement,MovementScriptCommand *commands) {
+    (void)field; (void)movement; (void)commands; CHECK(0);
+}
+#endif
 #ifdef HG_INACTIVE_FOLLOWER
 #include "party.h"
 #include "script_pokemon_util.h"
@@ -77,11 +96,23 @@ static void verify_script_dispatch(const char *directory) {
 #else
         unsigned expected_opcode=dispatch_cases[i].opcode;
 #endif
+#ifdef HG_MOVEMENT_REQUEST
+        objects[0].id=255; objects[2].id=0;
+        prepare_movement_save(&field);
+        expected_movement_object=&objects[0]; expected_movement_data=bytecode+movement_targets[i];
+        movement_requests=0; table[expected_opcode]=ScrCmd_ApplyMovement;
+        if (setjmp(movement_boundary)==0) { RunScriptCommand(&ctx); CHECK(0); }
+        CHECK(movement_requests==1 && script_environment.activeMovementCounter==0);
+        StopScript(&ctx);
+#else
         CHECK(RunScriptCommand(&ctx));
         CHECK(dispatched==1 && blocked_opcode==expected_opcode);
+#endif
         CHECK(ctx.mode==SCRIPT_MODE_STOPPED && !RunScriptCommand(&ctx));
     }
-#ifdef HG_LOCK_ALL
+#ifdef HG_MOVEMENT_REQUEST
+    puts("ApplyMovement: object and signed relative target verified; trapped before creating tasks");
+#elif defined(HG_LOCK_ALL)
     puts("original VM: first two commands executed twice; stopped before ApplyMovement; zero scripts completed");
 #elif defined(HG_INACTIVE_FOLLOWER)
     puts("original VM: inactive-follower command executed twice; stopped before LockAll; zero scripts completed");
@@ -99,6 +130,9 @@ void SIM_handleAssertionFailureMsg(const char *file,unsigned line,const char *fm
 #ifdef HG_SCRIPT_SELECTION
 #include "save_vars_flags.h"
 static SaveVarsFlags save_vars;
+#ifdef HG_MOVEMENT_REQUEST
+static void prepare_movement_save(FieldSystem *field) { field->saveData=(SaveData *)&save_vars; Save_VarsFlags_Init(&save_vars); }
+#endif
 void *SaveArray_Get(SaveData *save,int id) {
     CHECK(save==(SaveData *)&save_vars && id==SAVE_FLAGS); return &save_vars;
 }

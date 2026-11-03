@@ -1,0 +1,185 @@
+{
+  "passed": true,
+  "members": 491,
+  "event_totals_bg_object_warp_coord": [
+    1034,
+    2667,
+    1317,
+    195
+  ],
+  "mismatched_members": [],
+  "platform": "windows-x86_64",
+  "sanitizers": [],
+  "source_sha256": "ca7ae292989ee6ee51888b56acc73848a3842c83a86ac9da02e18c08a609fa3b",
+  "archive_sha256": "70815852d040ed7831830fbec2f9e9282371ff6cf544260b900b9dcd6049c020",
+  "initial_house": {
+    "MAP_NEW_BARK_PLAYER_HOUSE_1F": {
+      "map": 63,
+      "bank": 60,
+      "counts": [
+        5,
+        1,
+        2,
+        0
+      ],
+      "warps": [
+        [
+          3,
+          10,
+          60,
+          1,
+          0
+        ],
+        [
+          3,
+          3,
+          64,
+          0,
+          0
+        ]
+      ],
+      "script_bank": 618
+    },
+    "MAP_NEW_BARK_PLAYER_HOUSE_2F": {
+      "map": 64,
+      "bank": 61,
+      "counts": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "warps": [
+        [
+          3,
+          4,
+          63,
+          1,
+          0
+        ]
+      ],
+      "script_bank": 619
+    }
+  },
+  "staircase_reciprocal_data": true,
+  "scope": "Original static event parser, getters and coordinate lookup; all private ROM event members; original Field_AllocateMapEvents/Field_InitMapEvents/Field_FreeMapEvents with explicit private-file, heap and MapHeader adapters; original scene selector and original normal-variable access with isolated SaveArray adapter, not full save; original VM entry offset and first dispatch from real bytecode, stopped at explicit unintegrated-command boundary",
+  "limits": "Explicit inactive-follower fixture, not full new-game state. No active follower, object movement, full script completion, rendering or running FieldSystem. Extracted functions with adaptations recorded, not whole scrcmd/follow_mon units. Windows has no sanitizers; ASan globals disabled. ApplyMovement excerpt has an explicit signed-offset adaptation; request stops before task creation.",
+  "field_init": {
+    "loads": 128,
+    "allocations_and_releases": 64,
+    "script_archive_sha256": "bab429408b962c513d3e3ba89f67d8d74d6824563cd30fc317d473edacd05d18",
+    "event_and_script_bytes_exact": true,
+    "script_tail_and_no_encounters_zeroed": true
+  },
+  "script_selection": {
+    "passed": true,
+    "variable": "0x4106",
+    "values": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "checks_per_platform": 640,
+    "original_save_vars_flags": true,
+    "first_floor_selected_scripts": {
+      "0": 1,
+      "3": 7,
+      "other_tested_values": 65535
+    },
+    "upper_floor_has_no_automatic_scene": true,
+    "warp_suppression_tested": true,
+    "script_manager_sha256": "51913f32248c70d3f38d7a5bd0407da7a8597c90d18fa0e306fe7b3984db6bd7",
+    "save_vars_flags_sha256": "a9aeb111bf1d8fbe6c35db1e738e811aa6da527e62fda826ea7e24ae6912016d"
+  },
+  "script_dispatch": {
+    "entry_and_first_dispatch_passed": true,
+    "scripts_completed": 0,
+    "cases": [
+      {
+        "script": 1,
+        "offset": 30,
+        "opcode": 609,
+        "command": "ScrCmd_FollowMonResetMovement"
+      },
+      {
+        "script": 7,
+        "offset": 220,
+        "opcode": 609,
+        "command": "ScrCmd_FollowMonResetMovement"
+      }
+    ],
+    "boundary": "Trap at EventObjectMovementMan_Create after checking object identity and exact movement pointer; no task or movement simulated",
+    "script_c_sha256": "943601849c46d18b1d8e665d6f449b30307ba5de0dda7449a0b7941a839b6e76",
+    "bytecode_sha256": "d4b62648c1a4d2a91ce5fa9a6ca9ce970d68acfbd6b940bee282c45618c4c275",
+    "original_commands_executed": 4,
+    "next_blocked_command": "EventObjectMovementMan_Create inside ScrCmd_ApplyMovement",
+    "private_function_excerpts": [
+      {
+        "source": "scrcmd_c.c",
+        "function": "ScrCmd_FollowMonResetMovement",
+        "sha256": "5b56cd15313d27599920b6f6f5f1b2d60d94c0e11ba329b9a7b33cf3406d1d29"
+      },
+      {
+        "source": "follow_mon.c",
+        "function": "FollowMon_IsActive",
+        "sha256": "998444623a3af052a2f619ec1f04d9cd442a664e41e3754df6fb351c1695c516"
+      },
+      {
+        "source": "scrcmd_c.c",
+        "function": "ScrCmd_LockAll",
+        "sha256": "ada4b4086aba9200d5cba70c5cc7b81d6ac3b568d1c1eb5023af390e13c62955"
+      },
+      {
+        "source": "scrcmd_c.c",
+        "function": "_WaitFollowMonPaused",
+        "sha256": "bb0f29045c7ecf4d5d795f7d5a785fdf862b3a32cc196f2c38d20e895ee9216e"
+      },
+      {
+        "source": "follow_mon.c",
+        "function": "FollowMon_GetMapObject",
+        "sha256": "ba7cd3d9f29815a67b3e4daec404ac7f794469d8f6ce63c7e5bdfcebed4d62d7"
+      },
+      {
+        "source": "scrcmd_c.c",
+        "function": "ScrCmd_ApplyMovement",
+        "sha256": "a59f3caeb80a8dd3732f06009e653059cad8a19e4914270d250eba9e21e7b164",
+        "native_sha256": "2c9cb422d6dea1fb4fbae79b9cb49af3df9d7db9b8b012b3a15f942ef2564074",
+        "adaptation": "Sign-extend 32-bit relative movement offset on 64-bit host"
+      },
+      {
+        "source": "scrcmd_c.c",
+        "function": "Script_GetMapObjectByPerson",
+        "sha256": "ace9a1e3ae34ec44ce7ed2dd9a21540071d276a74786bd2348bd592962d18658"
+      }
+    ]
+  },
+  "lock_all": {
+    "objects_per_case": 3,
+    "active_per_case": 2,
+    "inactive_per_case": 1,
+    "active_paused_inactive_unchanged": true,
+    "unpause_restores_flags": true,
+    "original_map_object_source_sha256": "6a89eb180683cac262b136588bcc4f13a5700742282a2f5718bcca528aa98d37",
+    "limits": "Fixture manager and ScriptEnvironment, not map-created objects or real TaskManager scheduling; no last-interacted NPC or active follower branch"
+  },
+  "movement_request": {
+    "passed": true,
+    "cases": [
+      {
+        "person": 255,
+        "relative": 122,
+        "target": 164
+      },
+      {
+        "person": 255,
+        "relative": -68,
+        "target": 164
+      }
+    ],
+    "signed_relative_offset_adaptation": true,
+    "tasks_created": 0,
+    "boundary": "Trap at EventObjectMovementMan_Create after checking object identity and exact movement pointer; no task or movement simulated"
+  }
+}
