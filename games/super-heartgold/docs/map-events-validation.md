@@ -49,6 +49,25 @@ Relatórios adicionais: [Linux](hgss-field-load-linux-test.json), [Windows](hgss
 
 Os serviços de heap, arquivo e consulta de MapHeader ainda são adaptadores explícitos do diagnóstico. O teste não cobre mapas com encontros selvagens e não inicializa o FieldSystem completo. Carregar o cabeçalho não significa executar o script. Os relatórios anteriores de parser permanecem como evidência do escopo anterior.
 
+## Seleção de cenas com variáveis originais — 03/11/2026
+
+O modo `--script-selection`, junto de `--script-archive`, compila também as unidades originais `script_manager.c` e `save_vars_flags.c`. A consulta ao GitHub confirmou as implementações de [GetMapSceneScriptId e GetMapLoadScriptId](https://github.com/ClickingMaster/pokeheartgold-single-screen/blob/6984a3d67592157195940049be2e4bbbf933f9ff/src/script_manager.c). Cabeçalhos de índices ausentes são gerados na área privada a partir dos identificadores numerados usados pela unidade.
+
+Passaram 640 combinações por plataforma (64 ciclos × 2 mapas × 5 estados), com leitura/escrita original da variável `0x4106`, seleção original da cena e bloqueio por `warpResetSuppressed`. O bloco `SaveVarsFlags` é inicializado pela função original; `SaveArray_Get` é um adaptador explícito para esse bloco isolado. Variáveis especiais abortam o teste caso sejam acessadas inesperadamente.
+
+| Mapa | Estado testado | Resultado original |
+|---|---|---|
+| Primeiro andar | 0 | Script 1 |
+| Primeiro andar | 3 | Script 7 |
+| Primeiro andar | 1, 2, 4 | Nenhuma cena |
+| Quarto inicial | 0, 1, 2, 3, 4 | Nenhuma cena automática: cabeçalho vazio |
+
+A referência esperada é conferida contra os bytes dos dois cabeçalhos privados antes da execução. Também passaram a rejeição de escrita em um valor imediato, a leitura de valores imediatos e a ausência de scripts dos tipos 2–4. O teste dos 491 arquivos e os 128 carregamentos continuam incluídos.
+
+Relatórios: [seleção Linux](hgss-script-selection-linux-test.json), [seleção Windows](hgss-script-selection-windows-test.json). Linux usa ASan/UBSan com instrumentação de globais desativada; Windows executa o EXE sem sanitizadores. Acrescente `--script-selection` ao comando de carregamento para reproduzir.
+
+**Selecionar um script não executa seus comandos.** Não foram chamados `StartMapSceneScript`, `StartMapLoadScript` ou o loop completo do FieldSystem. Não há save completo, persistência, diálogo, movimentação ou cena demonstrados por esse teste.
+
 ## Próxima integração
 
-Ainda falta integrar os serviços reais de arquivos e MapHeader, executar scripts, carregar encontros de mapas externos, criar objetos, integrar colisões e desenho ao FieldSystem e atravessar a escada com comandos do jogador. O próximo consumidor dos cabeçalhos é `TryStartMapScriptByType`, em `script_manager.c`; a execução depende do contexto de scripts e das variáveis reais do save. O teste atual não renderiza o quarto, move o personagem, salva ou retoma uma partida. A issue #12 permanece em 0% de sua entrega jogável.
+Ainda falta integrar os serviços reais de arquivos e MapHeader, executar scripts, carregar encontros de mapas externos, criar objetos, integrar colisões e desenho ao FieldSystem e atravessar a escada com comandos do jogador. A seleção já foi validada; o próximo trecho é `StartMapSceneScript`/`CreateScriptContext`, a tabela de comandos e seu agendamento pelo TaskManager. O teste atual não renderiza o quarto, move o personagem, salva ou retoma uma partida. A issue #12 permanece em 0% de sua entrega jogável.

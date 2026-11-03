@@ -39,7 +39,11 @@ def main():
     parser.add_argument('--sdl-include', type=Path)
     parser.add_argument('--script-archive', type=Path,
                         help='Also execute original Field_InitMapEvents for both initial-house floors')
+    parser.add_argument('--script-selection', action='store_true',
+                        help='Exercise original scene selection using the original save-variable block')
     a = parser.parse_args()
+    if a.script_selection and not a.script_archive:
+        parser.error('--script-selection requires --script-archive')
     output = a.output.resolve()
     if any((p/'.git').exists() for p in (output, *output.parents)):
         raise ValueError('Private output must be outside Git repositories')
@@ -88,6 +92,22 @@ def main():
         (output/'field_load_cases.h').write_text(
             'typedef struct { unsigned map,events,script,event_size,script_size; } FieldLoadCase;\n'
             'static const FieldLoadCase field_load_cases[2] = {'+','.join(declarations)+'};\n')
+    if a.script_selection:
+        # Lock the independent fixture oracle to the two verified ROM headers.
+        # 1F: type 1, relative offset 1, terminator, (var, value, script) pairs.
+        expected_lower = struct.pack('<BI',1,1)+b'\0'+struct.pack('<HHHHHHH',0x4106,3,7,0x4106,0,1,0)
+        if script_payloads.get(63) != expected_lower or script_payloads.get(64) != bytes(4):
+            raise ValueError('Initial-house script headers differ from selection oracle')
+        manager = (a.hgss/'src/script_manager.c').read_text()
+        for prefix,path in [('scr_seq_scr_seq','fielddata/script/scr_seq.naix'),('msg_msg','msgdata/msg.naix')]:
+            names = sorted(set(re.findall(r'NARC_'+prefix+r'_\d+_\w+',manager)))
+            target = output/path
+            target.parent.mkdir(parents=True,exist_ok=True)
+            definitions = []
+            for name in names:
+                member = int(re.search(r'_(\d+)_', name)[1])
+                definitions.append(f'#define {name} {member}\n')
+            target.write_text('#pragma once\n'+''.join(definitions))
     # Only macro definitions in this generated header are unused by this probe.
     header = output/'fielddata/encountdata/s_enc_data.naix'
     header.parent.mkdir(parents=True)
@@ -116,6 +136,9 @@ def main():
     if a.script_archive:
         flags.append('-DHG_FIELD_LOAD')
         sources.append(str(sdk/'libraries/mi/src/mi_memory.c'))
+    if a.script_selection:
+        flags.append('-DHG_SCRIPT_SELECTION')
+        sources += [str(a.hgss/'src/script_manager.c'),str(a.hgss/'src/save_vars_flags.c')]
     result = subprocess.run(flags+sources+['-o', str(binary)], capture_output=True, text=True)
     (output/'build.log').write_text(result.stdout+result.stderr)
     result.check_returncode()
@@ -156,6 +179,14 @@ def main():
                                 'script_tail_and_no_encounters_zeroed':True}
         report['scope'] += '; original Field_AllocateMapEvents/Field_InitMapEvents/Field_FreeMapEvents with explicit private-file, heap and MapHeader adapters'
         report['limits'] = 'No script execution, object creation, collision, rendering, transitions or running FieldSystem. Only no-wild-encounter rooms covered by Field_InitMapEvents. Windows has no sanitizers. ASan global instrumentation disabled.'
+    if a.script_selection:
+        report['script_selection'] = {'passed':True,'variable': '0x4106','values':[0,1,2,3,4],
+            'checks_per_platform':640,'original_save_vars_flags':True,
+            'first_floor_selected_scripts':{'0':1,'3':7,'other_tested_values':65535},
+            'upper_floor_has_no_automatic_scene':True,'warp_suppression_tested':True,
+            'script_manager_sha256':hashlib.sha256((a.hgss/'src/script_manager.c').read_bytes()).hexdigest(),
+            'save_vars_flags_sha256':hashlib.sha256((a.hgss/'src/save_vars_flags.c').read_bytes()).hexdigest()}
+        report['scope'] += '; original scene selector and original normal-variable access with isolated SaveArray adapter, not full save'
     (output/'result.json').write_text(json.dumps(report, indent=2)+'\n')
     print(json.dumps(report))
     if mismatches:

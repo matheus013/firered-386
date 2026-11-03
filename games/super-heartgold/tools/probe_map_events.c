@@ -10,6 +10,35 @@ void SIM_handleAssertionFailureMsg(const char *file,unsigned line,const char *fm
 }
 #ifdef HG_FIELD_LOAD
 #include "field_load_cases.h"
+#ifdef HG_SCRIPT_SELECTION
+#include "save_vars_flags.h"
+static SaveVarsFlags save_vars;
+void *SaveArray_Get(SaveData *save,int id) {
+    CHECK(save==(SaveData *)&save_vars && id==SAVE_FLAGS); return &save_vars;
+}
+void *TaskManager_GetEnvironment(TaskManager *task) {
+    (void)task; CHECK(0); return NULL; /* Special variables are outside this test. */
+}
+static void verify_script_selection(FieldSystem *field,unsigned map) {
+    field->saveData=(SaveData *)&save_vars;
+    Save_VarsFlags_Init(&save_vars);
+    u8 *header=MapEvents_GetScriptHeader(field);
+    /* Oracle independently decoded from the private headers by the runner. */
+    for (unsigned value=0;value<5;value++) {
+        CHECK(FieldSystem_VarSet(field,0x4106,value));
+        CHECK(FieldSystem_VarGet(field,0x4106)==value);
+        CHECK(FieldSystem_VarGet(field,3)==3);
+        u16 expected=map==63 ? (value==0 ? 1 : value==3 ? 7 : 0xFFFF) : 0xFFFF;
+        CHECK(GetMapSceneScriptId(field,header,1)==expected);
+        CHECK(MapSceneScriptCheck(field)==(expected!=0xFFFF));
+        field->warpResetSuppressed=1;
+        CHECK(!MapSceneScriptCheck(field));
+        field->warpResetSuppressed=0;
+    }
+    for (unsigned type=2;type<=4;type++) CHECK(GetMapLoadScriptId(header,type)==0xFFFF);
+    CHECK(!FieldSystem_VarSet(field,3,99));
+}
+#endif
 static const char *resource_dir;
 static unsigned allocations, reads;
 static const FieldLoadCase *find_case(u32 map) {
@@ -57,6 +86,9 @@ static void verify_field_load(const char *directory) {
             for (unsigned j=0;j<sizeof(EncounterData);j++) CHECK(enc[j]==0);
             unsigned char *script=MapEvents_GetScriptHeader(&field);
             for (unsigned j=c->script_size;j<0x100;j++) CHECK(script[j]==0);
+#ifdef HG_SCRIPT_SELECTION
+            verify_script_selection(&field,c->map);
+#endif
             char path[4096]; CHECK(snprintf(path,sizeof(path),"%s/%u.loaded",directory,c->map)<sizeof(path));
             FILE *out=fopen(path,"wb"); CHECK(out);
             CHECK(fwrite(field.mapEvents->event_data,1,c->event_size,out)==c->event_size);
