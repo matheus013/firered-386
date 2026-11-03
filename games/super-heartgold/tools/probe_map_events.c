@@ -4,6 +4,39 @@
 #include <stdlib.h>
 #include <string.h>
 #define CHECK(x) do { if (!(x)) { fprintf(stderr,"check line %d\n",__LINE__); abort(); } } while (0)
+#ifdef HG_SCRIPT_DISPATCH
+#include "script_dispatch_cases.h"
+static unsigned dispatched, blocked_opcode;
+static BOOL stop_at_unintegrated_command(ScriptContext *ctx) {
+    CHECK(dispatched==0);
+    blocked_opcode=ctx->script_ptr[-2] | (ctx->script_ptr[-1]<<8);
+    dispatched++;
+    StopScript(ctx);
+    return TRUE;
+}
+static void verify_script_dispatch(const char *directory) {
+    unsigned char bytecode[DISPATCH_BANK_SIZE];
+    char path[4096]; CHECK(snprintf(path,sizeof(path),"%s/initial-house.bytecode",directory)<sizeof(path));
+    FILE *f=fopen(path,"rb"); CHECK(f);
+    CHECK(fread(bytecode,1,sizeof(bytecode),f)==sizeof(bytecode)); CHECK(fgetc(f)==EOF); fclose(f);
+    ScrCmdFunc table[DISPATCH_COMMAND_COUNT];
+    for (unsigned i=0;i<DISPATCH_COMMAND_COUNT;i++) table[i]=stop_at_unintegrated_command;
+    for (unsigned i=0;i<2;i++) {
+        ScriptContext ctx; memset(&ctx,0xA5,sizeof(ctx));
+        InitScriptContext(&ctx,table,DISPATCH_COMMAND_COUNT);
+        CHECK(ctx.mode==SCRIPT_MODE_STOPPED && ctx.stackDepth==0 && ctx.script_ptr==NULL);
+        CHECK(!RunScriptCommand(&ctx));
+        CHECK(SetupBytecodeScript(&ctx,bytecode));
+        ScriptRunByIndex(&ctx,dispatch_cases[i].script-1);
+        CHECK(ctx.script_ptr==bytecode+dispatch_cases[i].offset);
+        dispatched=0; blocked_opcode=0xFFFF;
+        CHECK(RunScriptCommand(&ctx));
+        CHECK(dispatched==1 && blocked_opcode==dispatch_cases[i].opcode);
+        CHECK(ctx.mode==SCRIPT_MODE_STOPPED && !RunScriptCommand(&ctx));
+    }
+    puts("original VM: two real script entries dispatched; stopped at unintegrated command, not completed");
+}
+#endif
 void GF_AssertFail(void) { abort(); }
 void SIM_handleAssertionFailureMsg(const char *file,unsigned line,const char *fmt,...) {
     (void)fmt; fprintf(stderr,"assert %s:%u\n",file,line); abort();
@@ -140,6 +173,9 @@ int main(int argc,char **argv) {
     }
 #ifdef HG_FIELD_LOAD
     verify_field_load(argv[1]);
+#endif
+#ifdef HG_SCRIPT_DISPATCH
+    verify_script_dispatch(argv[1]);
 #endif
     puts("original event parser/getters/warp lookup passed"); return 0;
 }

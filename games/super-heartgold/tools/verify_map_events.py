@@ -31,6 +31,16 @@ def decode(raw):
     return counts, warps
 
 
+def command_table(source):
+    """Preserve every table slot, including handlers with nonstandard names."""
+    body = source.split('gScriptCmdTable[] = {', 1)[1].split('};', 1)[0]
+    body = re.sub(r'/\*.*?\*/|//[^\n]*', '', body, flags=re.S)
+    commands = [item.strip() for item in body.split(',') if item.strip()]
+    if not commands or any(not re.fullmatch(r'[A-Za-z_]\w*', item) for item in commands):
+        raise ValueError('Unsupported command table initializer; do not guess opcode positions')
+    return commands
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('hgss', 'probe', 'stack', 'archive', 'output'):
@@ -41,9 +51,13 @@ def main():
                         help='Also execute original Field_InitMapEvents for both initial-house floors')
     parser.add_argument('--script-selection', action='store_true',
                         help='Exercise original scene selection using the original save-variable block')
+    parser.add_argument('--script-dispatch', action='store_true',
+                        help='Dispatch real initial-house scripts until the first unintegrated command')
     a = parser.parse_args()
     if a.script_selection and not a.script_archive:
         parser.error('--script-selection requires --script-archive')
+    if a.script_dispatch and not a.script_selection:
+        parser.error('--script-dispatch requires --script-selection')
     output = a.output.resolve()
     if any((p/'.git').exists() for p in (output, *output.parents)):
         raise ValueError('Private output must be outside Git repositories')
@@ -108,6 +122,27 @@ def main():
                 member = int(re.search(r'_(\d+)_', name)[1])
                 definitions.append(f'#define {name} {member}\n')
             target.write_text('#pragma once\n'+''.join(definitions))
+    dispatch_cases = []
+    if a.script_dispatch:
+        body = re.search(r'\[MAP_NEW_BARK_PLAYER_HOUSE_1F\]\s*=\s*\{(.*?)\}', headers, re.S)[1]
+        bank = int(re.search(r'\.scriptsBank\s*=\s*NARC_scr_seq_scr_seq_(\d+)_', body)[1])
+        bytecode = narc_member(script_archive, bank)
+        (output/'initial-house.bytecode').write_bytes(bytecode)
+        commands = command_table((a.hgss/'src/data/fieldmap/script_cmd_table.h').read_text())
+        for script_id in (1,7):
+            entry = 4*(script_id-1)
+            offset = entry+4+struct.unpack_from('<I',bytecode,entry)[0]
+            if not 0 <= offset <= len(bytecode)-2:
+                raise ValueError('Script entry outside bytecode bank')
+            opcode, = struct.unpack_from('<H',bytecode,offset)
+            if opcode >= len(commands):
+                raise ValueError('Unknown original opcode')
+            dispatch_cases.append({'script':script_id,'offset':offset,'opcode':opcode,'command':commands[opcode]})
+        declarations = ['{'+','.join(str(c[k]) for k in ('script','offset','opcode'))+'}' for c in dispatch_cases]
+        (output/'script_dispatch_cases.h').write_text(
+            f'#define DISPATCH_COMMAND_COUNT {len(commands)}\n#define DISPATCH_BANK_SIZE {len(bytecode)}\n'
+            'typedef struct { unsigned script,offset,opcode; } DispatchCase;\n'
+            'static const DispatchCase dispatch_cases[2] = {'+','.join(declarations)+'};\n')
     # Only macro definitions in this generated header are unused by this probe.
     header = output/'fielddata/encountdata/s_enc_data.naix'
     header.parent.mkdir(parents=True)
@@ -139,6 +174,9 @@ def main():
     if a.script_selection:
         flags.append('-DHG_SCRIPT_SELECTION')
         sources += [str(a.hgss/'src/script_manager.c'),str(a.hgss/'src/save_vars_flags.c')]
+    if a.script_dispatch:
+        flags.append('-DHG_SCRIPT_DISPATCH')
+        sources.append(str(a.hgss/'src/script.c'))
     result = subprocess.run(flags+sources+['-o', str(binary)], capture_output=True, text=True)
     (output/'build.log').write_text(result.stdout+result.stderr)
     result.check_returncode()
@@ -187,6 +225,13 @@ def main():
             'script_manager_sha256':hashlib.sha256((a.hgss/'src/script_manager.c').read_bytes()).hexdigest(),
             'save_vars_flags_sha256':hashlib.sha256((a.hgss/'src/save_vars_flags.c').read_bytes()).hexdigest()}
         report['scope'] += '; original scene selector and original normal-variable access with isolated SaveArray adapter, not full save'
+    if a.script_dispatch:
+        report['script_dispatch'] = {'entry_and_first_dispatch_passed':True,
+            'scripts_completed':0,'cases':dispatch_cases,
+            'boundary':'Diagnostic handler stops at first command; no camera or movement effect executed',
+            'script_c_sha256':hashlib.sha256((a.hgss/'src/script.c').read_bytes()).hexdigest(),
+            'bytecode_sha256':hashlib.sha256(bytecode).hexdigest()}
+        report['scope'] += '; original VM entry offset and first dispatch from real bytecode, stopped at explicit unintegrated-command boundary'
     (output/'result.json').write_text(json.dumps(report, indent=2)+'\n')
     print(json.dumps(report))
     if mismatches:

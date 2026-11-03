@@ -71,3 +71,15 @@ Relatórios: [seleção Linux](hgss-script-selection-linux-test.json), [seleçã
 ## Próxima integração
 
 Ainda falta integrar os serviços reais de arquivos e MapHeader, executar scripts, carregar encontros de mapas externos, criar objetos, integrar colisões e desenho ao FieldSystem e atravessar a escada com comandos do jogador. A seleção já foi validada; o próximo trecho é `StartMapSceneScript`/`CreateScriptContext`, a tabela de comandos e seu agendamento pelo TaskManager. O teste atual não renderiza o quarto, move o personagem, salva ou retoma uma partida. A issue #12 permanece em 0% de sua entrega jogável.
+
+## Entrada no interpretador original — 03/11/2026
+
+O modo `--script-dispatch` (exige `--script-selection --script-archive`) liga também o [interpretador original script.c](https://github.com/ClickingMaster/pokeheartgold-single-screen/blob/6984a3d67592157195940049be2e4bbbf933f9ff/src/script.c). Ele inicializa o contexto, usa `ScriptRunByIndex` original sobre o banco privado do primeiro andar e chama `RunScriptCommand` até o primeiro comando. Um handler de diagnóstico encerra explicitamente a execução nesse ponto, sem simular sucesso do comando.
+
+Nos scripts 1 e 7, os deslocamentos originais conferem com um cálculo independente: 30 e 220 bytes. Ambos chegam ao opcode 609, `ScrCmd_FollowMonResetMovement`. O contexto parado não executa novos comandos. Windows e Linux passaram, junto das regressões anteriores. **Zero scripts concluídos; nenhum efeito de comando foi executado.** `CreateScriptContext` e a tabela real de handlers ainda não estão integrados neste teste.
+
+Relatórios: [entrada Linux](hgss-script-dispatch-linux-test.json), [entrada Windows](hgss-script-dispatch-windows-test.json). Os executáveis e bytecodes permanecem privados.
+
+Durante a implementação, um filtro de nomes omitia um handler com prefixo diferente e deslocava os opcodes. O leitor agora preserva todas as posições da tabela (853 entradas nesta referência) e rejeita inicializadores que não sabe interpretar. A regressão `python3 tools/test_script_command_table.py` cobre o handler com nome diferente e a rejeição de um inicializador designado. Os relatórios publicados foram gerados depois dessa correção.
+
+O primeiro bloqueio concreto está nas dependências dos objetos/acompanhante utilizadas por `ScrCmd_FollowMonResetMovement`, seguidas pelos comandos de bloqueio e movimento dos objetos. Integrar esses serviços ao campo é necessário para demonstrar a cena; trocar os comandos por handlers vazios não atende ao marco jogável.
