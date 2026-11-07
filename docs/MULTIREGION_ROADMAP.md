@@ -164,3 +164,21 @@ slots de tiles. Portanto não é seguro remapear/copiar cegamente essas entradas
 É necessário verificar como são usadas/renderizadas antes de escolher substituição.
 Também foram identificadas diferenças de índices/rotinas de animação de portas.
 Nenhuma dessas pendências foi declarada resolvida por teste de componente.
+
+### Normalização estática das camadas de Littleroot
+
+Oito quadrantes inferiores nos metatiles Petalburg 74/75 usam paleta 14 e tiles
+fora da imagem estática. Cada quadrante correspondente superior tem 64 pixels
+opacos (nenhum índice transparente 0). O novo `scripts/normalize_region_layers.py`
+confere isso e só então substitui a entrada inferior inválida por zero, mantendo
+as entradas superiores intactas. Rejeita camada diferente de NORMAL, transparência
+ou tile superior inválido. Não normaliza indiscriminadamente outros mapas.
+
+[Evidência e hashes](map-audits/hoenn-layer-normalization.json). Resultado privado:
+`.build/region-pilots/hoenn-normalized/petalburg-metatiles.bin`.
+Isso resolve a referência inválida para composição ESTÁTICA desses quadrantes;
+não prova comportamento correto durante animações, escrita em VRAM ou efeitos.
+Ainda faltam converter os tiles/paletas e integrar callbacks de portas.
+
+Suite atual: 13 testes aprovados. A ferramenta de inspeção de pixels requer Pillow
+(execução local com Pillow 13.0.0). Nenhuma build ou release gerada.

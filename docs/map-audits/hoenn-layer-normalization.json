@@ -1,0 +1,76 @@
+{
+  "status": "STATIC_STAGING_ONLY_RUNTIME_UNVALIDATED",
+  "source_sha256": "3f2e021f25bc0ed6130956d70de833e874191349bc761188dbb716f32d8d7bae",
+  "result_sha256": "e4c162dd3fd251c35028b4a82a4a7ec39315b2b76f2abb3c489273f6c94eef0b",
+  "changes": [
+    {
+      "metatile": 74,
+      "quadrant": 0,
+      "before": 58144,
+      "after": 0,
+      "upper_entry": 33323,
+      "opaque_pixels": 64
+    },
+    {
+      "metatile": 74,
+      "quadrant": 1,
+      "before": 58145,
+      "after": 0,
+      "upper_entry": 33324,
+      "opaque_pixels": 64
+    },
+    {
+      "metatile": 74,
+      "quadrant": 2,
+      "before": 58160,
+      "after": 0,
+      "upper_entry": 33339,
+      "opaque_pixels": 64
+    },
+    {
+      "metatile": 74,
+      "quadrant": 3,
+      "before": 58161,
+      "after": 0,
+      "upper_entry": 33340,
+      "opaque_pixels": 64
+    },
+    {
+      "metatile": 75,
+      "quadrant": 0,
+      "before": 58146,
+      "after": 0,
+      "upper_entry": 33325,
+      "opaque_pixels": 64
+    },
+    {
+      "metatile": 75,
+      "quadrant": 1,
+      "before": 58147,
+      "after": 0,
+      "upper_entry": 33326,
+      "opaque_pixels": 64
+    },
+    {
+      "metatile": 75,
+      "quadrant": 2,
+      "before": 58162,
+      "after": 0,
+      "upper_entry": 33340,
+      "opaque_pixels": 64
+    },
+    {
+      "metatile": 75,
+      "quadrant": 3,
+      "before": 58163,
+      "after": 0,
+      "upper_entry": 33342,
+      "opaque_pixels": 64
+    }
+  ],
+  "pending": [
+    "animation review",
+    "tileset conversion",
+    "runtime rendering test"
+  ]
+}
