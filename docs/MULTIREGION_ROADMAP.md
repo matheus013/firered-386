@@ -47,7 +47,7 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 |---|---|---|
 | M0 | Branch isolada, escopo e fontes fixadas | Concluído |
 | M1 | Inventário técnico, classificação regional e matriz de dependências | Iniciado: inventário técnico gerado; classificação e scripts pendentes |
-| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Pendente |
+| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Iniciado: blocos e bordas convertidos isoladamente; gráficos/eventos pendentes |
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Pendente |
 | M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
 | M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Pendente |
@@ -69,6 +69,24 @@ destino inexistente, conflito de IDs e aceitação do sentinel MAP_DYNAMIC.
 
 As fontes foram clonadas fora do repositório em `../map-references/`.
 Nenhum mapa/asset original foi copiado para o Super FireRed nesta etapa.
+
+### Conversão piloto iniciada
+
+`scripts/prepare_region_pilot.py` converte blocos/bordas para a partição de metatiles
+do FireRed sem alterar colisão ou elevação. Emerald usa partição 512; FireRed e
+HNS_modern usam 640. Foi executado em NewBarkTown, Route29, LittlerootTown e Route101.
+Os arquivos intermediários ficam em `.build/region-pilots/` (ignorados pelo Git);
+não são builds, mapas registrados na engine nem mods jogáveis.
+
+Relatórios com hashes e dependências: [Johto piloto](map-audits/johto-pilot.json) e
+[Hoenn piloto](map-audits/hoenn-pilot.json). Três testes aprovados: preservação das
+64 combinações de colisão/elevação, identidade/sentinel e rejeição de dados
+truncados ou IDs que excedem a partição. O conversor não deve ser executado duas
+vezes sobre um resultado: lê exclusivamente o checkout fonte e exige saída nova.
+
+Próximo passo: converter metatiles, paletas, atributos e animações dos tilesets
+`Johto_General/NewBarkTown` e `General/Petalburg`. Ainda não importar scripts
+diretamente: flags/variáveis e constantes pertencem a engines diferentes.
 
 1. Inventariar mapas de cada região: exteriores, interiores, cavernas, andares,
    áreas especiais e mapas auxiliares. Registrar inclusões e exclusões explicitamente.

@@ -1,0 +1,171 @@
+{
+  "source_commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+  "source_partition": 640,
+  "target_partition": 640,
+  "maps": [
+    {
+      "map": "NewBarkTown",
+      "id": "MAP_NEW_BARK_TOWN",
+      "width": 30,
+      "height": 39,
+      "tilesets": [
+        "gTileset_Johto_General",
+        "gTileset_NewBarkTown"
+      ],
+      "connections": [
+        {
+          "map": "MAP_ROUTE29",
+          "offset": -5,
+          "direction": "left"
+        },
+        {
+          "map": "MAP_ROUTE27",
+          "offset": -11,
+          "direction": "right"
+        }
+      ],
+      "warps": [
+        {
+          "x": 10,
+          "y": 9,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_LAB",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 20,
+          "y": 11,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_1F",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 4,
+          "y": 21,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_HOUSE1",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 15,
+          "y": 21,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_HOUSE2",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 16,
+          "y": 7,
+          "elevation": 0,
+          "dest_map": "MAP_WORLD_HUB",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 15,
+          "y": 7,
+          "elevation": 0,
+          "dest_map": "MAP_TIN_TOWER_ROOF_DAY",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 12,
+          "y": 7,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_LAB",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "elevation": 0,
+          "dest_map": "MAP_WORLD_HUB",
+          "dest_warp_id": "0"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 2340,
+          "source_sha256": "1a469af531ea1acca360b1e0c76faa95651585cbe08bb1e61ce6de3a109ca04d",
+          "converted_sha256": "1a469af531ea1acca360b1e0c76faa95651585cbe08bb1e61ce6de3a109ca04d",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "c34f6d407aaf3e05cc544f968a14f4eca0d5f2ac99c920183ef79b505bc40c6e",
+          "converted_sha256": "c34f6d407aaf3e05cc544f968a14f4eca0d5f2ac99c920183ef79b505bc40c6e",
+          "changed_blocks": 0
+        }
+      ]
+    },
+    {
+      "map": "Route29",
+      "id": "MAP_ROUTE29",
+      "width": 70,
+      "height": 32,
+      "tilesets": [
+        "gTileset_Johto_General",
+        "gTileset_NewBarkTown"
+      ],
+      "connections": [
+        {
+          "map": "MAP_CHERRYGROVE_CITY",
+          "offset": 6,
+          "direction": "left"
+        },
+        {
+          "map": "MAP_NEW_BARK_TOWN",
+          "offset": 5,
+          "direction": "right"
+        },
+        {
+          "map": "MAP_ROUTE46",
+          "offset": 24,
+          "direction": "up"
+        }
+      ],
+      "warps": [
+        {
+          "x": 34,
+          "y": 10,
+          "elevation": 0,
+          "dest_map": "MAP_GATE_ROUTE29_ROUTE46",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 35,
+          "y": 10,
+          "elevation": 0,
+          "dest_map": "MAP_GATE_ROUTE29_ROUTE46",
+          "dest_warp_id": "1"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 4480,
+          "source_sha256": "bcf8388e595fafffefb028c23fe857536c6bcf4135859ff865f589e131e2f245",
+          "converted_sha256": "bcf8388e595fafffefb028c23fe857536c6bcf4135859ff865f589e131e2f245",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "bd05db219b1304364f4d1c265db9cece1af50fb2332d9f39357fdc8d721dc449",
+          "converted_sha256": "bd05db219b1304364f4d1c265db9cece1af50fb2332d9f39357fdc8d721dc449",
+          "changed_blocks": 0
+        }
+      ]
+    }
+  ],
+  "status": "BLOCKS_ONLY_NOT_INSTALLED",
+  "pending": [
+    "tiles/palettes",
+    "metatile attributes/behaviors",
+    "animations",
+    "scripts/events",
+    "map registration",
+    "playtesting"
+  ]
+}

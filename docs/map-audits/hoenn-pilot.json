@@ -1,0 +1,111 @@
+{
+  "source_commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+  "source_partition": 512,
+  "target_partition": 640,
+  "maps": [
+    {
+      "map": "LittlerootTown",
+      "id": "MAP_LITTLEROOT_TOWN",
+      "width": 20,
+      "height": 20,
+      "tilesets": [
+        "gTileset_General",
+        "gTileset_Petalburg"
+      ],
+      "connections": [
+        {
+          "map": "MAP_ROUTE101",
+          "offset": 0,
+          "direction": "up"
+        }
+      ],
+      "warps": [
+        {
+          "x": 14,
+          "y": 8,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 5,
+          "y": 8,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 7,
+          "y": 16,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+          "dest_warp_id": "0"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 800,
+          "source_sha256": "9bc2d52ac0f515a2af3a12483e3913aee3948531f91ca0547513f53ce92acf9d",
+          "converted_sha256": "198f96ca48943fd86dd86a695ce08c81f506f0d22cd6c3e527e29c67c3828ecb",
+          "changed_blocks": 88
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "aa298641e3346d9c7ac51454222ff057768946e61980fd82e4db65912df412fe",
+          "converted_sha256": "aa298641e3346d9c7ac51454222ff057768946e61980fd82e4db65912df412fe",
+          "changed_blocks": 0
+        }
+      ]
+    },
+    {
+      "map": "Route101",
+      "id": "MAP_ROUTE101",
+      "width": 20,
+      "height": 20,
+      "tilesets": [
+        "gTileset_General",
+        "gTileset_Petalburg"
+      ],
+      "connections": [
+        {
+          "map": "MAP_OLDALE_TOWN",
+          "offset": 0,
+          "direction": "up"
+        },
+        {
+          "map": "MAP_LITTLEROOT_TOWN",
+          "offset": 0,
+          "direction": "down"
+        }
+      ],
+      "warps": [],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 800,
+          "source_sha256": "134cf07849968c1b3415df2205e5ba771cb26ba5484cc5d78a1e8d76e52f12ed",
+          "converted_sha256": "134cf07849968c1b3415df2205e5ba771cb26ba5484cc5d78a1e8d76e52f12ed",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "aa298641e3346d9c7ac51454222ff057768946e61980fd82e4db65912df412fe",
+          "converted_sha256": "aa298641e3346d9c7ac51454222ff057768946e61980fd82e4db65912df412fe",
+          "changed_blocks": 0
+        }
+      ]
+    }
+  ],
+  "status": "BLOCKS_ONLY_NOT_INSTALLED",
+  "pending": [
+    "tiles/palettes",
+    "metatile attributes/behaviors",
+    "animations",
+    "scripts/events",
+    "map registration",
+    "playtesting"
+  ]
+}
