@@ -182,3 +182,18 @@ Ainda faltam converter os tiles/paletas e integrar callbacks de portas.
 
 Suite atual: 13 testes aprovados. A ferramenta de inspeção de pixels requer Pillow
 (execução local com Pillow 13.0.0). Nenhuma build ou release gerada.
+
+### Gráficos estáticos de Hoenn convertidos
+
+`scripts/convert_hoenn_graphics.py` prepara General/Petalburg exclusivamente para
+Littleroot/Route101: amplia a folha primária para 640 tiles, remapeia tiles
+secundários de base 512 para 640 e paletas secundárias de base 6 para 7.
+Preserva flips e valida os hashes da normalização de entrada.
+Foram preenchidos 32 metatiles primários e 48 secundários. Comparação de 40.960
+pixels (cor/transparência) antes/depois sem diferenças em relação à entrada
+estática normalizada, não em relação a capturas do jogo.
+
+Saída local: `.build/region-pilots/hoenn-static-graphics/`. Metatiles não utilizados
+pelo piloto ficam zerados: o pacote NÃO serve para outras áreas, e ainda não é
+instalável. Faltam atributos, animações e portas. [Relatório](map-audits/hoenn-static-graphics.json).
+Suite ampliada para 15 testes, incluindo flips/transparência e padding 4bpp.

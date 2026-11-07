@@ -1,0 +1,19 @@
+{
+  "status": "STATIC_PILOT_GRAPHICS_ONLY_NOT_INSTALLABLE",
+  "populated_metatiles": {
+    "gTileset_General": 32,
+    "gTileset_Petalburg": 48
+  },
+  "rgba_pixel_comparisons": 40960,
+  "pixel_mismatches": 0,
+  "tile_partition": "512 -> 640",
+  "palette_partition": "6 -> 7",
+  "pending": [
+    "attributes",
+    "animations",
+    "door graphics",
+    "unused metatiles",
+    "runtime validation"
+  ],
+  "limits": "Comparison against normalized static input, not original engine output. Zeroed unused entries are not suitable for other maps."
+}
