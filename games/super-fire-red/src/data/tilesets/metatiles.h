@@ -201,3 +201,9 @@ const u32 gMetatileAttributes_PokemonLeague[] = INCBIN_U32("data/tilesets/second
 
 const u16 gMetatiles_HallOfFame[] = INCBIN_U16("data/tilesets/secondary/hall_of_fame/metatiles.bin");
 const u32 gMetatileAttributes_HallOfFame[] = INCBIN_U32("data/tilesets/secondary/hall_of_fame/metatile_attributes.bin");
+
+const u16 gMetatiles_HoennPilotGeneral[] = INCBIN_U16("data/tilesets/primary/hoenn_pilot/metatiles.bin");
+const u32 gMetatileAttributes_HoennPilotGeneral[] = INCBIN_U32("data/tilesets/primary/hoenn_pilot/metatile_attributes.bin");
+
+const u16 gMetatiles_HoennPilotPetalburg[] = INCBIN_U16("data/tilesets/secondary/hoenn_pilot/metatiles.bin");
+const u32 gMetatileAttributes_HoennPilotPetalburg[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot/metatile_attributes.bin");

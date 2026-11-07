@@ -330,3 +330,5 @@ void InitTilesetAnim_CeladonGym(void)
     sSecondaryTilesetAnimCounterMax = 256;
     sSecondaryTilesetAnimCallback = TilesetAnim_CeladonGym;
 }
+
+#include "data/tilesets/hoenn_pilot_anims.h"

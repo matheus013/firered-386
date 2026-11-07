@@ -1407,3 +1407,43 @@ const u16 gTilesetPalettes_HallOfFame[][16] =
 	INCBIN_U16("data/tilesets/secondary/hall_of_fame/palettes/14.gbapal"),
 	INCBIN_U16("data/tilesets/secondary/hall_of_fame/palettes/15.gbapal"),
 };
+
+const u32 gTilesetTiles_HoennPilotGeneral[] = INCBIN_U32("data/tilesets/primary/hoenn_pilot/tiles.4bpp.lz");
+const u16 gTilesetPalettes_HoennPilotGeneral[][16] = {
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/12.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/13.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/14.gbapal"),
+    INCBIN_U16("data/tilesets/primary/hoenn_pilot/palettes/15.gbapal"),
+};
+
+const u32 gTilesetTiles_HoennPilotPetalburg[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot/tiles.4bpp.lz");
+const u16 gTilesetPalettes_HoennPilotPetalburg[][16] = {
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/12.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/13.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/14.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/15.gbapal"),
+};

@@ -746,3 +746,25 @@ const struct Tileset gTileset_HallOfFame =
     .callback = NULL,
 };
 
+
+const struct Tileset gTileset_HoennPilotGeneral =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_HoennPilotGeneral,
+    .palettes = gTilesetPalettes_HoennPilotGeneral,
+    .metatiles = gMetatiles_HoennPilotGeneral,
+    .metatileAttributes = gMetatileAttributes_HoennPilotGeneral,
+    .callback = InitTilesetAnim_HoennPilot,
+};
+
+const struct Tileset gTileset_HoennPilotPetalburg =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HoennPilotPetalburg,
+    .palettes = gTilesetPalettes_HoennPilotPetalburg,
+    .metatiles = gMetatiles_HoennPilotPetalburg,
+    .metatileAttributes = gMetatileAttributes_HoennPilotPetalburg,
+    .callback = InitTilesetAnim_HoennPetalburgPilot,
+};

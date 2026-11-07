@@ -4398,6 +4398,30 @@
       "secondary_tileset": "gTileset_MtEmber",
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_LITTLEROOT_TOWN",
+      "name": "Hoenn_LittlerootTown_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotPetalburg",
+      "border_filepath": "data/layouts/Hoenn_LittlerootTown/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_LittlerootTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_ROUTE101",
+      "name": "Hoenn_Route101_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotPetalburg",
+      "border_filepath": "data/layouts/Hoenn_Route101/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_Route101/map.bin"
     }
   ]
 }

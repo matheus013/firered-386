@@ -13,4 +13,7 @@ void InitTilesetAnim_CeladonGym(void);
 void InitTilesetAnim_SilphCo(void);
 void InitTilesetAnim_MtEmber(void);
 
+void InitTilesetAnim_HoennPilot(void);
+void InitTilesetAnim_HoennPetalburgPilot(void);
+
 #endif // GUARD_TILESET_ANIMS_H

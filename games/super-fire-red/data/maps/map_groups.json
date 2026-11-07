@@ -42,7 +42,8 @@
     "gMapGroup_IndoorFiveIslandRoute",
     "gMapGroup_IndoorTwoIslandRoute",
     "gMapGroup_IndoorSixIslandRoute",
-    "gMapGroup_IndoorSevenIslandRoute"
+    "gMapGroup_IndoorSevenIslandRoute",
+    "gMapGroup_Hoenn"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -618,6 +619,12 @@
     "SevenIsland_TrainerTower",
     "SevenIsland_SevaultCanyon_Entrance",
     "SevenIsland_SevaultCanyon",
-    "SevenIsland_TanobyRuins"
+    "SevenIsland_TanobyRuins",
+    "Hoenn_LittlerootTown",
+    "Hoenn_Route101"
+  ],
+  "gMapGroup_Hoenn": [
+    "Hoenn_LittlerootTown",
+    "Hoenn_Route101"
   ]
 }

@@ -1,8 +1,8 @@
-// Register imported door tables here after their tilesets and assets exist.
-// Match BOTH tilesets: door palettes depend on the whole map layout.
-// A registered table owns all door IDs for that pair; do not fall back per ID
-// to Kanto, where the same ID can refer to a completely different door.
-// Unregistered pairs keep the original FireRed table.
+// Exact pairs own their complete door table; no per-ID fallback to Kanto.
+extern const struct Tileset gTileset_HoennPilotGeneral;
+extern const struct Tileset gTileset_HoennPilotPetalburg;
+#include "hoenn_pilot_doors.h"
 static const struct DoorTilesetBinding sDoorTilesetBindings[] = {
+    {&gTileset_HoennPilotGeneral, &gTileset_HoennPilotPetalburg, sHoennPilotDoors},
     {NULL, NULL, NULL}
 };

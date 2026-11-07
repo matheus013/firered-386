@@ -1,6 +1,6 @@
 # Super FireRed: Johto e Hoenn como prioridade
 
-Pesquisa de 07/11/2026. Escopo autorizado: manter Super FireRed e acrescentar os mapas
+Pesquisa de 07/11/2026. Histórico passo a passo, com verificações e pendências: [MULTIREGION_WORKLOG.md](MULTIREGION_WORKLOG.md). Escopo autorizado: manter Super FireRed e acrescentar os mapas
 completos de Johto e Hoenn. A preservação anterior dos mapas deixa de ser uma restrição
 à expansão. Não implica remover Kanto ou trocar a engine por Emerald.
 
@@ -47,7 +47,7 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 |---|---|---|
 | M0 | Branch isolada, escopo e fontes fixadas | Concluído |
 | M1 | Inventário técnico, classificação regional e matriz de dependências | Iniciado: inventário técnico gerado; classificação e scripts pendentes |
-| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Iniciado: blocos e bordas convertidos isoladamente; gráficos/eventos pendentes |
+| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Em andamento: exteriores Littleroot/Route101 registrados na engine e testados na ROM (build isolada); interiores Hoenn e todo o piloto Johto pendentes |
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Pendente |
 | M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
 | M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Pendente |
@@ -292,3 +292,18 @@ Reprodução (diretório de saída deve ser novo):
 ```powershell
 python scripts/prepare_hoenn_animations.py --source ../map-references/pokeemerald --audit docs/map-audits/hoenn-tilesets.json --out .build/region-pilots/hoenn-animations --report docs/map-audits/hoenn-animations.json
 ```
+
+### Exteriores Hoenn registrados na engine
+
+Littleroot e Route101 estão em `gMapGroup_Hoenn` (grupo 43, mapas 0 e 1), nos tilesets
+`gTileset_HoennPilotGeneral`/`gTileset_HoennPilotPetalburg`, com portas e flores do
+piloto e conexão entre si. Só terreno: sem eventos, warps ou encontros. Route101 virou
+mapa 1, não 6 como no plano, porque os interiores ainda não podem ser registrados.
+As imagens de portas e flores instaladas estavam em branco e foram refeitas a partir
+dos `.4bpp` auditados (`scripts/export_region_png.py`).
+
+`games/super-fire-red/scripts/test_hoenn_pilot_maps.py` compila uma ROM de validação em
+diretório temporário, sem tocar na ROM distribuída. Carrega os dois mapas e Pallet
+(controle) pelo New Game e confere grupo, layout, tilesets, conexões, porta, animação
+e igualdade dos recursos com o staging. Detalhes e pendências no
+[diário](MULTIREGION_WORKLOG.md).
