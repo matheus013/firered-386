@@ -197,3 +197,18 @@ Saída local: `.build/region-pilots/hoenn-static-graphics/`. Metatiles não util
 pelo piloto ficam zerados: o pacote NÃO serve para outras áreas, e ainda não é
 instalável. Faltam atributos, animações e portas. [Relatório](map-audits/hoenn-static-graphics.json).
 Suite ampliada para 15 testes, incluindo flips/transparência e padding 4bpp.
+
+### Atributos do piloto Hoenn
+
+`scripts/convert_hoenn_attributes.py` converte os 80 atributos usados pelos dois
+exteriores para u32 do FR, com regras explícitas e rejeição de comportamentos
+desconhecidos. Preserva camadas; grama alta recebe terreno de grama e encontros
+terrestres; portas usam MB_WARP_DOOR; saltos sul preservam direção. MB_JUMP_SOUTHEAST
+não possui predicado de movimento no fonte Emerald consultado (aparece apenas na
+enumeração e tabela de flags como UNUSED), portanto o piloto o trata como terreno
+normal sem criar salto diagonal. Isso exige confirmação em jogo na validação final.
+
+[Relatório por metatile](map-audits/hoenn-attributes.json). Arquivos intermediários
+em `.build/region-pilots/hoenn-attributes/`. Entradas não utilizadas ficam zeradas;
+não reutilizar o pacote em outros mapas. Ainda faltam animações, portas, eventos
+e registro na engine. Suite: 17 testes aprovados. Nenhuma build gerada.

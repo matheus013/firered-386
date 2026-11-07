@@ -1,0 +1,490 @@
+{
+  "status": "PILOT_ATTRIBUTES_ONLY_NOT_INSTALLED",
+  "tables": {
+    "primary": [
+      {
+        "index": 1,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 3,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 4,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 536870912,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 13,
+        "source_behavior": "MB_TALL_GRASS",
+        "target_attribute": 16777730,
+        "reason": "MB_TALL_GRASS, grass terrain, land encounters"
+      },
+      {
+        "index": 110,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 536870912,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 135,
+        "source_behavior": "MB_JUMP_SOUTH",
+        "target_attribute": 536870971,
+        "reason": "south ledge; not an encounter tile in source"
+      },
+      {
+        "index": 142,
+        "source_behavior": "MB_JUMP_SOUTHEAST",
+        "target_attribute": 536870912,
+        "reason": "source has no movement predicate for this unused behavior; do not invent diagonal jumping"
+      },
+      {
+        "index": 213,
+        "source_behavior": "MB_JUMP_SOUTH",
+        "target_attribute": 536870971,
+        "reason": "south ledge; not an encounter tile in source"
+      },
+      {
+        "index": 214,
+        "source_behavior": "MB_JUMP_SOUTH",
+        "target_attribute": 536870971,
+        "reason": "south ledge; not an encounter tile in source"
+      },
+      {
+        "index": 454,
+        "source_behavior": "MB_TALL_GRASS",
+        "target_attribute": 16777730,
+        "reason": "MB_TALL_GRASS, grass terrain, land encounters"
+      },
+      {
+        "index": 455,
+        "source_behavior": "MB_TALL_GRASS",
+        "target_attribute": 16777730,
+        "reason": "MB_TALL_GRASS, grass terrain, land encounters"
+      },
+      {
+        "index": 462,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 463,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 464,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 465,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 466,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 468,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 469,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 470,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 471,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 472,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 473,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 474,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 476,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 477,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 480,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 481,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 482,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 484,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 485,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 486,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 487,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      }
+    ],
+    "secondary": [
+      {
+        "index": 1,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 536870912,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 8,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 9,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 10,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 12,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 13,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 14,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 15,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 16,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 17,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 18,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 20,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 21,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 22,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 23,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 24,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 25,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 26,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 30,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 31,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 32,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 33,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 34,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 35,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 38,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 536870912,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 39,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 536870912,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 40,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 536870912,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 41,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 536870912,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 42,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 536870912,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 43,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 536870912,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 44,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 45,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 48,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 49,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 50,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 52,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 53,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 56,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 57,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 58,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 64,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 65,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 66,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 67,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 72,
+        "source_behavior": "MB_ANIMATED_DOOR",
+        "target_attribute": 105,
+        "reason": "FR MB_WARP_DOOR; animation graphics still pending"
+      },
+      {
+        "index": 73,
+        "source_behavior": "MB_ANIMATED_DOOR",
+        "target_attribute": 105,
+        "reason": "FR MB_WARP_DOOR; animation graphics still pending"
+      },
+      {
+        "index": 74,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      },
+      {
+        "index": 75,
+        "source_behavior": "MB_NORMAL",
+        "target_attribute": 0,
+        "reason": "normal terrain, no encounter"
+      }
+    ]
+  },
+  "limits": "Unused entries zeroed. Source-grounded rules, not runtime-tested. No encounter tables or door animations installed."
+}
