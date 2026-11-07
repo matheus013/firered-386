@@ -31,6 +31,13 @@ struct DoorGraphics
     const u8 *paletteNums;
 };
 
+struct DoorTilesetBinding
+{
+    const struct Tileset *primary;
+    const struct Tileset *secondary;
+    const struct DoorGraphics *graphics;
+};
+
 static void DrawClosedDoorTiles(const struct DoorGraphics *gfx, int x, int y);
 static void CopyDoorTilesToVram(const u8 *tiles);
 static void DrawCurrentDoorAnimFrame(const struct DoorGraphics *gfx, int x, int y, const u8 *paletteNums);
@@ -287,6 +294,27 @@ static const struct DoorGraphics sDoorGraphics[] = {
     {}
 };
 
+#include "data/door_tilesets.h"
+
+static const struct DoorGraphics *SelectDoorGraphicsTable(const struct MapLayout *layout, const struct DoorTilesetBinding *bindings)
+{
+    if (layout != NULL)
+    {
+        for (; bindings->graphics != NULL; bindings++)
+        {
+            if (layout->primaryTileset == bindings->primary
+             && layout->secondaryTileset == bindings->secondary)
+                return bindings->graphics;
+        }
+    }
+    return sDoorGraphics;
+}
+
+static const struct DoorGraphics *GetCurrentDoorGraphicsTable(void)
+{
+    return SelectDoorGraphicsTable(gMapHeader.mapLayout, sDoorTilesetBindings);
+}
+
 static void DrawDoor(const struct DoorGraphics *gfx, const struct DoorAnimFrame *frames, int x, int y)
 {
     if (frames->tileOffset == CLOSED_DOOR_TILES_OFFSET)
@@ -483,27 +511,27 @@ static s8 StartDoorCloseAnimation(const struct DoorGraphics *gfx, int x, int y)
 void FieldSetDoorOpened(int x, int y)
 {
     if (MetatileBehavior_IsWarpDoor_2(MapGridGetMetatileBehaviorAt((s16)x, (s16)y)))
-        DrawOpenedDoor(sDoorGraphics, x, y);
+        DrawOpenedDoor(GetCurrentDoorGraphicsTable(), x, y);
 }
 
 void FieldSetDoorClosed(int x, int y)
 {
     if (MetatileBehavior_IsWarpDoor_2(MapGridGetMetatileBehaviorAt((s16)x, (s16)y)))
-        DrawClosedDoor(sDoorGraphics, x, y);
+        DrawClosedDoor(GetCurrentDoorGraphicsTable(), x, y);
 }
 
 s8 FieldAnimateDoorClose(int x, int y)
 {
     if (!MetatileBehavior_IsWarpDoor_2(MapGridGetMetatileBehaviorAt((s16)x, (s16)y)))
         return -1;
-    return StartDoorCloseAnimation(sDoorGraphics, x, y);
+    return StartDoorCloseAnimation(GetCurrentDoorGraphicsTable(), x, y);
 }
 
 s8 FieldAnimateDoorOpen(int x, int y)
 {
     if (!MetatileBehavior_IsWarpDoor_2(MapGridGetMetatileBehaviorAt((s16)x, (s16)y)))
         return -1;
-    return AnimateDoorOpenInternal(sDoorGraphics, x, y);
+    return AnimateDoorOpenInternal(GetCurrentDoorGraphicsTable(), x, y);
 }
 
 bool8 FieldIsDoorAnimationRunning(void)
@@ -513,7 +541,7 @@ bool8 FieldIsDoorAnimationRunning(void)
 
 u16 GetDoorSoundEffect(int x, int y)
 {
-    if (GetDoorSoundType(sDoorGraphics, x, y) == DOOR_SOUND_NORMAL)
+    if (GetDoorSoundType(GetCurrentDoorGraphicsTable(), x, y) == DOOR_SOUND_NORMAL)
         return SE_DOOR;
     else // DOOR_SOUND_SLIDING
         return SE_SLIDING_DOOR;

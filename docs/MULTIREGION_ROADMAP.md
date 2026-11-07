@@ -249,3 +249,23 @@ pendente; os assets Hoenn continuam apenas em staging local ignorado pelo Git.
 
 Reprodução do teste de C no Linux/WSL, na raiz do projeto:
 `python3 scripts/test_field_door_native.py`.
+
+### Seleção de portas por tileset
+
+`field_door.c` agora seleciona a tabela pelo par exato de ponteiros dos tilesets
+primário e secundário do layout atual. Os cinco pontos de entrada (abrir/fechar
+sem animação, animar abertura/fechamento e som) consultam o mesmo seletor.
+Isso evita mudar a estrutura binária `Tileset` ou guardar a seleção em saves.
+
+O cadastro `src/data/door_tilesets.h` permanece vazio, com sentinela: nenhum
+tileset Hoenn foi registrado antes de seus recursos existirem na engine.
+Pares não registrados mantêm a tabela FireRed. Um par registrado usa somente sua
+própria tabela, inclusive quando um ID está ausente; não mistura portas de Kanto.
+
+Segundo teste C com ASan/UBSan aprovado: ID 0x2C8 presente em duas tabelas com
+tamanhos e sons diferentes, ausência de ID na tabela importada, divergência
+isolada de cada tileset, cadastro vazio e layout nulo. Os 20 testes de conversão
+também passaram. Esses testes exercitam funções extraídas do fonte com stubs;
+não compilam o jogo completo nem validam transições entre mapas em execução.
+Próximo passo: instalar os recursos do piloto e cadastrar o par real de tilesets,
+após resolver as animações dos tilesets e os scripts necessários.

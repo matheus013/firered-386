@@ -27,6 +27,66 @@ def function(source, name):
 
 @unittest.skipUnless(os.name != 'nt' and shutil.which('cc'), 'Run in Linux/WSL with cc')
 class DoorNativeTests(unittest.TestCase):
+    def run_c(self, code):
+        with tempfile.TemporaryDirectory(prefix='firered-door-test-') as directory:
+            path = Path(directory)
+            (path / 'test.c').write_text(code)
+            subprocess.run(['cc', '-std=c99', '-Wall', '-Wextra', '-Werror',
+                            '-fsanitize=address,undefined', '-fno-omit-frame-pointer',
+                            '-g', str(path / 'test.c'), '-o', str(path / 'test')], check=True)
+            subprocess.run([str(path / 'test')], check=True)
+
+    def test_tileset_pair_routing(self):
+        source = SOURCE.read_text()
+        code = r'''
+#include <assert.h>
+#include <stddef.h>
+#include <stdint.h>
+typedef uint8_t u8;
+typedef uint16_t u16;
+struct Tileset { int marker; };
+struct MapLayout { const struct Tileset *primaryTileset, *secondaryTileset; };
+'''
+        for name in ('DoorGraphics', 'DoorTilesetBinding'):
+            code += re.search(r'struct ' + name + r'\s*\{[^}]+\};', source).group()
+        code += r'''
+static const u8 pixels[1]={0}, palette[8]={0};
+static const struct DoorGraphics sDoorGraphics[]={
+    {0x2C8,0,0,pixels,palette}, {0x123,0,0,pixels,palette}, {0,0,0,NULL,NULL}
+};
+'''
+        code += function(source, 'SelectDoorGraphicsTable')
+        code += function(source, 'GetDoorGraphics')
+        code += r'''
+int main(void) {
+    const struct Tileset primary={1}, secondary={2}, other={3};
+    const struct DoorGraphics imported[]={
+        {0x2C8,1,1,pixels,palette}, {0,0,0,NULL,NULL}
+    };
+    const struct DoorTilesetBinding bindings[]={
+        {&primary,&secondary,imported}, {NULL,NULL,NULL}
+    };
+    const struct DoorTilesetBinding empty[]={{NULL,NULL,NULL}};
+    struct MapLayout map={&primary,&secondary};
+    const struct DoorGraphics *table=SelectDoorGraphicsTable(&map,bindings);
+    assert(table==imported);
+    assert(GetDoorGraphics(table,0x2C8)->size==1);
+    assert(GetDoorGraphics(table,0x2C8)->sound==1);
+    /* Missing imported ID must never borrow a Kanto door with the same ID. */
+    assert(GetDoorGraphics(table,0x123)==NULL);
+    map.primaryTileset=&other;
+    assert(SelectDoorGraphicsTable(&map,bindings)==sDoorGraphics);
+    map.primaryTileset=&primary; map.secondaryTileset=&other;
+    assert(SelectDoorGraphicsTable(&map,bindings)==sDoorGraphics);
+    map.secondaryTileset=&secondary;
+    assert(SelectDoorGraphicsTable(&map,empty)==sDoorGraphics);
+    assert(SelectDoorGraphicsTable(NULL,bindings)==sDoorGraphics);
+    assert(GetDoorGraphics(sDoorGraphics,0x2C8)->size==0);
+    return 0;
+}
+'''
+        self.run_c(code)
+
     def test_palette_bounds_and_closed_door_lookup(self):
         source = SOURCE.read_text()
         header = r'''
@@ -71,13 +131,7 @@ int main(void) {
     return 0;
 }
 '''
-        with tempfile.TemporaryDirectory(prefix='firered-door-test-') as directory:
-            path = Path(directory)
-            (path / 'test.c').write_text(code)
-            subprocess.run(['cc', '-std=c99', '-Wall', '-Wextra', '-Werror',
-                            '-fsanitize=address,undefined', '-fno-omit-frame-pointer',
-                            '-g', str(path / 'test.c'), '-o', str(path / 'test')], check=True)
-            subprocess.run([str(path / 'test')], check=True)
+        self.run_c(code)
 
 
 if __name__ == '__main__':

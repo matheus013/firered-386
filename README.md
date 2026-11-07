@@ -19,9 +19,10 @@ builds/releases nesta fase; integração em `main` somente após validação fin
 | Integração multirregional | Pendente | Viagens, mapa regional, Fly, cura e save/reload entre regiões |
 | Eventos e progressão | Pendente | Desafios, encontros e desbloqueios sem bloqueios de campanha |
 
-Última revisão: corrigidos o redesenho de portas fechadas por tamanho e uma leitura
-fora do array de paletas em portas altas. Teste das funções C com sanitizadores
-aprovado; seleção por tileset e validação visual na engine ainda pendentes.
+Última revisão: seleção de portas por par de tilesets implementada, com fallback
+para os mapas existentes. Dois testes das funções C com sanitizadores aprovados,
+incluindo IDs coincidentes entre tabelas. Cadastro dos tilesets importados e
+validação visual na engine ainda pendentes.
 
 [Pesquisa de fontes e roadmap de mapas](docs/MULTIREGION_ROADMAP.md).
 Super Z-A e o projeto Super HeartGold/SoulSilver foram retirados desta cópia do
