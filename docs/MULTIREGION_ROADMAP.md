@@ -100,13 +100,13 @@ diretamente: flags/variáveis e constantes pertencem a engines diferentes.
   antes de remapear para as 13 paletas carregadas pelo FR. Não substituir por zero.
 - `scripts/plan_region_import.py`: amplia o piloto pelos warps de interiores e
   propõe grupo novo com nomes prefixados, sem modificar grupos/IDs existentes.
-  Plano Johto: 9 mapas, 60 referências distintas a scripts e 6 links de fronteira.
+  Plano Johto revisado: 8 mapas, 58 referências distintas a scripts e 7 links de fronteira.
   Plano Hoenn: 7 mapas, 59 scripts e 1 link de fronteira. Nenhum índice numérico
   inválido de warp identificado nesses conjuntos. Destinos via scripts não são
   descobertos automaticamente; não é prova de completude da região.
 - Planos: [Johto](map-audits/johto-import-plan.json), [Hoenn](map-audits/hoenn-import-plan.json).
   Ambos partem do mesmo hash de grupos: recalcular o segundo após registrar o primeiro.
-- Nove testes unitários aprovados. Sem builds, instalação de mapas ou alteração da engine.
+- Dez testes unitários aprovados. Sem builds, instalação de mapas ou alteração da engine.
 
 ## Backlog: progressão estendida
 
@@ -144,3 +144,23 @@ Super HeartGold/SoulSilver e seus dois workflows foram movidos para
 `C:/Users/mathe/Documents/ChatGPT/archived-projects-2026-11-07/`.
 Não foram apagadas ROMs, saves externos nem outros worktrees. As remoções locais
 de arquivos rastreados são mantidas na branch de expansão; não alteram o main remoto.
+
+### Interiores convertidos e exclusão de conteúdo doador
+
+Os blocos/bordas dos 15 mapas do piloto (8 Johto, 7 Hoenn) foram convertidos em
+área isolada. Relatórios: `map-audits/johto-interiors.json` e
+`map-audits/hoenn-interiors.json`; dependências gráficas nos correspondentes
+`*-interior-tilesets.json`. Não são builds nem mapas integrados à engine.
+
+O fechamento automático por warps incluía WorldHub, uma área própria de HNS_modern.
+O planejador agora aceita exclusões explícitas e rejeita exclusão de mapas iniciais.
+WorldHub foi excluído; o warp que leva a ele permanece listado como fronteira
+pendente, sem ser silenciosamente removido dos dados. Um teste de grafo sintético
+valida essa regra. As 117 referências a scripts do piloto ainda precisam de revisão.
+
+A análise da paleta 14 de Littleroot encontrou referências aos tiles 800–803 e
+816–819 nos metatiles secundários 74/75; a imagem estática Petalburg contém 160
+slots de tiles. Portanto não é seguro remapear/copiar cegamente essas entradas.
+É necessário verificar como são usadas/renderizadas antes de escolher substituição.
+Também foram identificadas diferenças de índices/rotinas de animação de portas.
+Nenhuma dessas pendências foi declarada resolvida por teste de componente.

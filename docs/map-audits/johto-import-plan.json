@@ -1,6 +1,9 @@
 {
   "status": "PLAN_ONLY_NOT_REGISTERED",
   "prefix": "Johto",
+  "excluded_maps": [
+    "WorldHub"
+  ],
   "base_groups_sha256": "ce296c9b54c8bb85cc35870b30a533ab017e72107fd40cf471224a42127af79a",
   "allocation": [
     {
@@ -50,12 +53,6 @@
       "target_name": "Johto_Route29",
       "group": 43,
       "number": 7
-    },
-    {
-      "source_name": "WorldHub",
-      "target_name": "Johto_WorldHub",
-      "group": 43,
-      "number": 8
     }
   ],
   "boundary_links_requiring_resolution": [
@@ -67,7 +64,17 @@
     {
       "map": "NewBarkTown",
       "kind": "warp",
+      "destination": "MAP_WORLD_HUB"
+    },
+    {
+      "map": "NewBarkTown",
+      "kind": "warp",
       "destination": "MAP_TIN_TOWER_ROOF_DAY"
+    },
+    {
+      "map": "NewBarkTown",
+      "kind": "warp",
+      "destination": "MAP_WORLD_HUB"
     },
     {
       "map": "NewBarkTown",
@@ -83,11 +90,6 @@
       "map": "Route29",
       "kind": "connection",
       "destination": "MAP_ROUTE46"
-    },
-    {
-      "map": "WorldHub",
-      "kind": "connection",
-      "destination": "MAP_WORLD_HUB2"
     }
   ],
   "warp_index_issues": [],
@@ -98,7 +100,6 @@
     "EventScript_BookShelf",
     "EventScript_CutTree",
     "EventScript_EmptyTrashCan",
-    "EventScript_RockSmash",
     "Gate_Route29_Route46_EventScript_Officer",
     "Gate_Route29_Route46_EventScript_Youngster",
     "LittlerootTown_BrendansHouse_2F_EventScript_PC",
@@ -142,7 +143,6 @@
     "NewBarkTown_PlayersHouse_2F_EventScript_NES",
     "NewBarkTown_PlayersHouse_2F_Script_ClockSetupTrigger1",
     "NewBarkTown_PlayersHouse_2F_Script_ClockSetupTrigger2",
-    "Route102_EventScript_Tiana",
     "Route29_EventScript_Boy",
     "Route29_EventScript_Girl",
     "Route29_EventScript_ItemPotion",

@@ -23,10 +23,15 @@ def allocate(groups, names, prefix):
     return result
 
 
-def plan(source, target, seeds, prefix):
+def plan(source, target, seeds, prefix, excluded=()):
     maps = {p.parent.name: json.loads(p.read_text()) for p in (source / 'data/maps').glob('*/map.json')}
     by_id = {m['id']: name for name, m in maps.items()}
     selected = set(seeds)
+    excluded = set(excluded)
+    if excluded - maps.keys():
+        raise ValueError('Unknown excluded maps')
+    if selected & excluded:
+        raise ValueError('Seed map cannot be excluded')
     if selected - maps.keys():
         raise ValueError('Unknown seed maps')
     pending = list(seeds)
@@ -34,7 +39,7 @@ def plan(source, target, seeds, prefix):
         name = pending.pop()
         for warp in maps[name].get('warp_events', []):
             dest = by_id.get(warp['dest_map'])
-            if dest and dest not in selected and maps[dest]['map_type'] not in (
+            if dest and dest not in selected and dest not in excluded and maps[dest]['map_type'] not in (
                     'MAP_TYPE_TOWN', 'MAP_TYPE_CITY', 'MAP_TYPE_ROUTE', 'MAP_TYPE_OCEAN_ROUTE'):
                 selected.add(dest)
                 pending.append(dest)
@@ -57,6 +62,7 @@ def plan(source, target, seeds, prefix):
     raw = (target / 'data/maps/map_groups.json').read_bytes()
     groups = json.loads(raw)
     return {'status': 'PLAN_ONLY_NOT_REGISTERED', 'prefix': prefix,
+            'excluded_maps': sorted(excluded),
             'base_groups_sha256': hashlib.sha256(raw).hexdigest(),
             'allocation': allocate(groups, selected, prefix),
             'boundary_links_requiring_resolution': boundaries, 'warp_index_issues': issues,
@@ -71,8 +77,9 @@ def main():
     p.add_argument('--seeds', nargs='+', required=True)
     p.add_argument('--prefix', choices=['Johto', 'Hoenn'], required=True)
     p.add_argument('--out', type=Path, required=True)
+    p.add_argument('--exclude', nargs='*', default=[])
     a = p.parse_args()
-    report = plan(a.source, a.target, a.seeds, a.prefix)
+    report = plan(a.source, a.target, a.seeds, a.prefix, a.exclude)
     a.out.write_text(json.dumps(report, indent=2) + '\n')
     print(f"{len(report['allocation'])} maps, {len(report['scripts_requiring_review'])} scripts, "
           f"{len(report['boundary_links_requiring_resolution'])} boundary links, "

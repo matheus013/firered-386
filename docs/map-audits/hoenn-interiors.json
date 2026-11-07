@@ -1,0 +1,326 @@
+{
+  "source_commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+  "source_partition": 512,
+  "target_partition": 640,
+  "maps": [
+    {
+      "map": "LittlerootTown",
+      "id": "MAP_LITTLEROOT_TOWN",
+      "width": 20,
+      "height": 20,
+      "tilesets": [
+        "gTileset_General",
+        "gTileset_Petalburg"
+      ],
+      "connections": [
+        {
+          "map": "MAP_ROUTE101",
+          "offset": 0,
+          "direction": "up"
+        }
+      ],
+      "warps": [
+        {
+          "x": 14,
+          "y": 8,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 5,
+          "y": 8,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 7,
+          "y": 16,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+          "dest_warp_id": "0"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 800,
+          "source_sha256": "9bc2d52ac0f515a2af3a12483e3913aee3948531f91ca0547513f53ce92acf9d",
+          "converted_sha256": "198f96ca48943fd86dd86a695ce08c81f506f0d22cd6c3e527e29c67c3828ecb",
+          "changed_blocks": 88
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "aa298641e3346d9c7ac51454222ff057768946e61980fd82e4db65912df412fe",
+          "converted_sha256": "aa298641e3346d9c7ac51454222ff057768946e61980fd82e4db65912df412fe",
+          "changed_blocks": 0
+        }
+      ]
+    },
+    {
+      "map": "LittlerootTown_BrendansHouse_1F",
+      "id": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+      "width": 11,
+      "height": 9,
+      "tilesets": [
+        "gTileset_Building",
+        "gTileset_BrendansMaysHouse"
+      ],
+      "connections": null,
+      "warps": [
+        {
+          "x": 9,
+          "y": 8,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 8,
+          "y": 8,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 8,
+          "y": 2,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F",
+          "dest_warp_id": "0"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 198,
+          "source_sha256": "2bda1ad1bb54eb050fb2140c7a1a9454797992ceedeff0b8ce267b11b9d9b758",
+          "converted_sha256": "cbd54f318091adac0de066111667680080ea854b46a9147742f00ae010ad9d7a",
+          "changed_blocks": 98
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "efef8d5a9f8dbe5bb218e6b0cc452583eb9d1452b615b1c7ab66ad49c82e9d70",
+          "converted_sha256": "efef8d5a9f8dbe5bb218e6b0cc452583eb9d1452b615b1c7ab66ad49c82e9d70",
+          "changed_blocks": 0
+        }
+      ]
+    },
+    {
+      "map": "LittlerootTown_BrendansHouse_2F",
+      "id": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F",
+      "width": 9,
+      "height": 8,
+      "tilesets": [
+        "gTileset_Building",
+        "gTileset_BrendansMaysHouse"
+      ],
+      "connections": null,
+      "warps": [
+        {
+          "x": 7,
+          "y": 1,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+          "dest_warp_id": "2"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 144,
+          "source_sha256": "112f73b62a84f4d870b45dc8c90918fc74851bf7643628cf70a229588a21b02c",
+          "converted_sha256": "8803ffad85f5ea9f06b6eb88bc545af6b2f200cea20933cb87f698822925c257",
+          "changed_blocks": 71
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "c844c69e831fd0ebc777262dc828d9bdc341ddc897db75c1db197722cf921d16",
+          "converted_sha256": "9c0fe49561efba10cd5e90bf0e5d4faab549185ae0cc377ab454987c9f04a0dc",
+          "changed_blocks": 4
+        }
+      ]
+    },
+    {
+      "map": "LittlerootTown_MaysHouse_1F",
+      "id": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
+      "width": 11,
+      "height": 9,
+      "tilesets": [
+        "gTileset_Building",
+        "gTileset_BrendansMaysHouse"
+      ],
+      "connections": null,
+      "warps": [
+        {
+          "x": 1,
+          "y": 8,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 2,
+          "y": 8,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
+          "dest_warp_id": "0"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 198,
+          "source_sha256": "a6c742939e54c73fe9b08e584e3531b174eec6845bdb7a26cd7f4a30d5f82605",
+          "converted_sha256": "8796f11f548758c036073840fa5238dd25d748db148e4d7f42d8597e808a3ab5",
+          "changed_blocks": 98
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "c844c69e831fd0ebc777262dc828d9bdc341ddc897db75c1db197722cf921d16",
+          "converted_sha256": "9c0fe49561efba10cd5e90bf0e5d4faab549185ae0cc377ab454987c9f04a0dc",
+          "changed_blocks": 4
+        }
+      ]
+    },
+    {
+      "map": "LittlerootTown_MaysHouse_2F",
+      "id": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
+      "width": 9,
+      "height": 8,
+      "tilesets": [
+        "gTileset_Building",
+        "gTileset_BrendansMaysHouse"
+      ],
+      "connections": null,
+      "warps": [
+        {
+          "x": 1,
+          "y": 1,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
+          "dest_warp_id": "2"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 144,
+          "source_sha256": "6c69c9a3705243ab43daa3817d007592b67894562a9dfbc0edfd7abbfde56ab9",
+          "converted_sha256": "026232fae4e47004868d509feea3af9ed96f95937252b85ce5adc89a9bbda122",
+          "changed_blocks": 71
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "c844c69e831fd0ebc777262dc828d9bdc341ddc897db75c1db197722cf921d16",
+          "converted_sha256": "9c0fe49561efba10cd5e90bf0e5d4faab549185ae0cc377ab454987c9f04a0dc",
+          "changed_blocks": 4
+        }
+      ]
+    },
+    {
+      "map": "LittlerootTown_ProfessorBirchsLab",
+      "id": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "width": 13,
+      "height": 13,
+      "tilesets": [
+        "gTileset_Building",
+        "gTileset_Lab"
+      ],
+      "connections": null,
+      "warps": [
+        {
+          "x": 6,
+          "y": 12,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN",
+          "dest_warp_id": "2"
+        },
+        {
+          "x": 7,
+          "y": 12,
+          "elevation": 0,
+          "dest_map": "MAP_LITTLEROOT_TOWN",
+          "dest_warp_id": "2"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 338,
+          "source_sha256": "dfb4b37b84e99ae5b82f822bdeb16db665ba7048acd2513522efd7d0fd776f7a",
+          "converted_sha256": "b62b0be887b6bb19b728e1383ef727f5126d705d117b41ee104b5c3934ad3bd2",
+          "changed_blocks": 169
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "9ff63640fa3b4682056532b7924b03250ccc7a832f64ccec3dea79ea8595a24d",
+          "converted_sha256": "9cd32cbd71afa405f9eb142186e5768a98cb77306d9f3ac5ab2511409abda055",
+          "changed_blocks": 4
+        }
+      ]
+    },
+    {
+      "map": "Route101",
+      "id": "MAP_ROUTE101",
+      "width": 20,
+      "height": 20,
+      "tilesets": [
+        "gTileset_General",
+        "gTileset_Petalburg"
+      ],
+      "connections": [
+        {
+          "map": "MAP_OLDALE_TOWN",
+          "offset": 0,
+          "direction": "up"
+        },
+        {
+          "map": "MAP_LITTLEROOT_TOWN",
+          "offset": 0,
+          "direction": "down"
+        }
+      ],
+      "warps": [],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 800,
+          "source_sha256": "134cf07849968c1b3415df2205e5ba771cb26ba5484cc5d78a1e8d76e52f12ed",
+          "converted_sha256": "134cf07849968c1b3415df2205e5ba771cb26ba5484cc5d78a1e8d76e52f12ed",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "aa298641e3346d9c7ac51454222ff057768946e61980fd82e4db65912df412fe",
+          "converted_sha256": "aa298641e3346d9c7ac51454222ff057768946e61980fd82e4db65912df412fe",
+          "changed_blocks": 0
+        }
+      ]
+    }
+  ],
+  "status": "BLOCKS_ONLY_NOT_INSTALLED",
+  "pending": [
+    "tiles/palettes",
+    "metatile attributes/behaviors",
+    "animations",
+    "scripts/events",
+    "map registration",
+    "playtesting"
+  ]
+}

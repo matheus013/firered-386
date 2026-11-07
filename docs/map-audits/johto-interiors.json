@@ -1,0 +1,415 @@
+{
+  "source_commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+  "source_partition": 640,
+  "target_partition": 640,
+  "maps": [
+    {
+      "map": "Gate_Route29_Route46",
+      "id": "MAP_GATE_ROUTE29_ROUTE46",
+      "width": 15,
+      "height": 12,
+      "tilesets": [
+        "gTileset_Johto_Building",
+        "gTileset_Gate_Standard"
+      ],
+      "connections": 0,
+      "warps": [
+        {
+          "x": 7,
+          "y": 1,
+          "elevation": 0,
+          "dest_map": "MAP_ROUTE46",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 7,
+          "y": 9,
+          "elevation": 0,
+          "dest_map": "MAP_ROUTE29",
+          "dest_warp_id": "0"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 360,
+          "source_sha256": "5fcc23d98eca5311d321376e920456c3de5c3cb3b60fbcc8fe6dae32c95c0444",
+          "converted_sha256": "5fcc23d98eca5311d321376e920456c3de5c3cb3b60fbcc8fe6dae32c95c0444",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "converted_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "changed_blocks": 0
+        }
+      ]
+    },
+    {
+      "map": "NewBarkTown",
+      "id": "MAP_NEW_BARK_TOWN",
+      "width": 30,
+      "height": 39,
+      "tilesets": [
+        "gTileset_Johto_General",
+        "gTileset_NewBarkTown"
+      ],
+      "connections": [
+        {
+          "map": "MAP_ROUTE29",
+          "offset": -5,
+          "direction": "left"
+        },
+        {
+          "map": "MAP_ROUTE27",
+          "offset": -11,
+          "direction": "right"
+        }
+      ],
+      "warps": [
+        {
+          "x": 10,
+          "y": 9,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_LAB",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 20,
+          "y": 11,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_1F",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 4,
+          "y": 21,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_HOUSE1",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 15,
+          "y": 21,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_HOUSE2",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 16,
+          "y": 7,
+          "elevation": 0,
+          "dest_map": "MAP_WORLD_HUB",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 15,
+          "y": 7,
+          "elevation": 0,
+          "dest_map": "MAP_TIN_TOWER_ROOF_DAY",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 12,
+          "y": 7,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_LAB",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "elevation": 0,
+          "dest_map": "MAP_WORLD_HUB",
+          "dest_warp_id": "0"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 2340,
+          "source_sha256": "1a469af531ea1acca360b1e0c76faa95651585cbe08bb1e61ce6de3a109ca04d",
+          "converted_sha256": "1a469af531ea1acca360b1e0c76faa95651585cbe08bb1e61ce6de3a109ca04d",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "c34f6d407aaf3e05cc544f968a14f4eca0d5f2ac99c920183ef79b505bc40c6e",
+          "converted_sha256": "c34f6d407aaf3e05cc544f968a14f4eca0d5f2ac99c920183ef79b505bc40c6e",
+          "changed_blocks": 0
+        }
+      ]
+    },
+    {
+      "map": "NewBarkTown_House1",
+      "id": "MAP_NEW_BARK_TOWN_HOUSE1",
+      "width": 13,
+      "height": 10,
+      "tilesets": [
+        "gTileset_Johto_Building",
+        "gTileset_House_Lab"
+      ],
+      "connections": 0,
+      "warps": [
+        {
+          "x": 4,
+          "y": 8,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN",
+          "dest_warp_id": "2"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 260,
+          "source_sha256": "38c466520804f5923f0a6c45ed0605f540f4959b527ee7f84e70fd8cc87654b7",
+          "converted_sha256": "38c466520804f5923f0a6c45ed0605f540f4959b527ee7f84e70fd8cc87654b7",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "converted_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "changed_blocks": 0
+        }
+      ]
+    },
+    {
+      "map": "NewBarkTown_House2",
+      "id": "MAP_NEW_BARK_TOWN_HOUSE2",
+      "width": 13,
+      "height": 10,
+      "tilesets": [
+        "gTileset_Johto_Building",
+        "gTileset_House_Lab"
+      ],
+      "connections": 0,
+      "warps": [
+        {
+          "x": 4,
+          "y": 8,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN",
+          "dest_warp_id": "3"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 260,
+          "source_sha256": "5135420032c1608867993c52ba9dd92a06f94dab9910c20b374866a2a88f438b",
+          "converted_sha256": "5135420032c1608867993c52ba9dd92a06f94dab9910c20b374866a2a88f438b",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "converted_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "changed_blocks": 0
+        }
+      ]
+    },
+    {
+      "map": "NewBarkTown_Lab",
+      "id": "MAP_NEW_BARK_TOWN_LAB",
+      "width": 40,
+      "height": 14,
+      "tilesets": [
+        "gTileset_Johto_Building",
+        "gTileset_House_Lab"
+      ],
+      "connections": 0,
+      "warps": [
+        {
+          "x": 6,
+          "y": 12,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN",
+          "dest_warp_id": "0"
+        },
+        {
+          "x": 25,
+          "y": 9,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN",
+          "dest_warp_id": "6"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 1120,
+          "source_sha256": "5523afed8c4bf5c7f477573aec08d826d5ee633ca8cd968564c56c713023077f",
+          "converted_sha256": "5523afed8c4bf5c7f477573aec08d826d5ee633ca8cd968564c56c713023077f",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "converted_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "changed_blocks": 0
+        }
+      ]
+    },
+    {
+      "map": "NewBarkTown_PlayersHouse_1F",
+      "id": "MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_1F",
+      "width": 17,
+      "height": 10,
+      "tilesets": [
+        "gTileset_Johto_Building",
+        "gTileset_PlayersHouse"
+      ],
+      "connections": 0,
+      "warps": [
+        {
+          "x": 9,
+          "y": 8,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 10,
+          "y": 2,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_2F",
+          "dest_warp_id": "0"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 340,
+          "source_sha256": "3f150297df6f2a2e49a4aab4526db0f52e33d103d924181e77baff086e594bfd",
+          "converted_sha256": "3f150297df6f2a2e49a4aab4526db0f52e33d103d924181e77baff086e594bfd",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "converted_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "changed_blocks": 0
+        }
+      ]
+    },
+    {
+      "map": "NewBarkTown_PlayersHouse_2F",
+      "id": "MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_2F",
+      "width": 11,
+      "height": 9,
+      "tilesets": [
+        "gTileset_Johto_Building",
+        "gTileset_PlayersHouse"
+      ],
+      "connections": 0,
+      "warps": [
+        {
+          "x": 9,
+          "y": 2,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_1F",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 1,
+          "y": 6,
+          "elevation": 0,
+          "dest_map": "MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_2F",
+          "dest_warp_id": "0"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 198,
+          "source_sha256": "4d30a7e02208292eb7a3ed21f4efefdd9fdd84cc209cef66e73192ba42f1c654",
+          "converted_sha256": "4d30a7e02208292eb7a3ed21f4efefdd9fdd84cc209cef66e73192ba42f1c654",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "converted_sha256": "e0d28e51c7e052913771ad123ea4ae85d601f22af3040d698e9b1f6a6ecb5196",
+          "changed_blocks": 0
+        }
+      ]
+    },
+    {
+      "map": "Route29",
+      "id": "MAP_ROUTE29",
+      "width": 70,
+      "height": 32,
+      "tilesets": [
+        "gTileset_Johto_General",
+        "gTileset_NewBarkTown"
+      ],
+      "connections": [
+        {
+          "map": "MAP_CHERRYGROVE_CITY",
+          "offset": 6,
+          "direction": "left"
+        },
+        {
+          "map": "MAP_NEW_BARK_TOWN",
+          "offset": 5,
+          "direction": "right"
+        },
+        {
+          "map": "MAP_ROUTE46",
+          "offset": 24,
+          "direction": "up"
+        }
+      ],
+      "warps": [
+        {
+          "x": 34,
+          "y": 10,
+          "elevation": 0,
+          "dest_map": "MAP_GATE_ROUTE29_ROUTE46",
+          "dest_warp_id": "1"
+        },
+        {
+          "x": 35,
+          "y": 10,
+          "elevation": 0,
+          "dest_map": "MAP_GATE_ROUTE29_ROUTE46",
+          "dest_warp_id": "1"
+        }
+      ],
+      "blocks": [
+        {
+          "file": "map.bin",
+          "bytes": 4480,
+          "source_sha256": "bcf8388e595fafffefb028c23fe857536c6bcf4135859ff865f589e131e2f245",
+          "converted_sha256": "bcf8388e595fafffefb028c23fe857536c6bcf4135859ff865f589e131e2f245",
+          "changed_blocks": 0
+        },
+        {
+          "file": "border.bin",
+          "bytes": 8,
+          "source_sha256": "bd05db219b1304364f4d1c265db9cece1af50fb2332d9f39357fdc8d721dc449",
+          "converted_sha256": "bd05db219b1304364f4d1c265db9cece1af50fb2332d9f39357fdc8d721dc449",
+          "changed_blocks": 0
+        }
+      ]
+    }
+  ],
+  "status": "BLOCKS_ONLY_NOT_INSTALLED",
+  "pending": [
+    "tiles/palettes",
+    "metatile attributes/behaviors",
+    "animations",
+    "scripts/events",
+    "map registration",
+    "playtesting"
+  ]
+}
