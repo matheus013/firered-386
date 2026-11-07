@@ -1,27 +1,27 @@
 # FireRed 386
 
-## Status do Super HeartGold nativo — 30/10/2026
+## Prioridade: Kanto + Johto + Hoenn — 07/11/2026
 
-**Ainda não jogável.** Objetivo: engine nativa no Windows com single screen.
-Os percentuais das issues #6–#13 são estimativas de avanço dentro de cada escopo,
-baseadas nos testes e pendências documentados; não representam prazo nem parcela
-jogável do jogo. 100% significa apenas que o escopo daquela issue foi concluído.
+O único jogo ativo deste repositório é **Super FireRed**. A prioridade inicial é
+integrar os mapas completos de **Johto e Hoenn**, preservando Kanto e as melhorias
+existentes. As novas regiões **ainda não estão integradas nem jogáveis**.
 
-| Issue | Entrega | Progresso | Estado e evidência / próxima etapa |
-|---|---|---:|---|
-| [#5](https://github.com/matheus013/firered-386/issues/5) | Acompanhamento geral | 25% das entregas encerradas (2/8) | Indicador administrativo; não é percentual de conclusão do jogo. |
-| [#6](https://github.com/matheus013/firered-386/issues/6) | Carregadores Nitro 2D | 100% | Concluída: 17 recursos × 512 ciclos com sanitizadores; limites documentados. |
-| [#7](https://github.com/matheus013/firered-386/issues/7) | Seis fundos da cena 4 | 100% | Concluída: comparação pixel a pixel e alternância single screen. |
-| [#8](https://github.com/matheus013/firered-386/issues/8) | Sprites e animações | 85% | Transferências iniciais/diferidas, troca de recursos no VBlank e SpriteList/OAM originais aprovados em diagnóstico; falta integrar e validar a cena completa. |
-| [#9](https://github.com/matheus013/firered-386/issues/9) | Fades, janelas e HBlank | 75% | Fades 8/9 com BG1 + OBJ e pan original com WIN0/WIN1 validados; faltam 3D, janela OBJ e cena completa. |
-| [#10](https://github.com/matheus013/firered-386/issues/10) | Abertura original e menu | 10% | Janelas + scroll da cena 4 aprovados juntos em diagnóstico; boot e chegada ao menu ainda não executados. |
-| [#11](https://github.com/matheus013/firered-386/issues/11) | Build e execução Windows | 15% | Componentes nativos testados; executável completo e fluxo single screen Windows pendentes. |
-| [#12](https://github.com/matheus013/firered-386/issues/12) | Primeiro trecho jogável e save | 0% | Depende de boot/menu; percurso, batalha e retomada ainda não validados. |
-| [#13](https://github.com/matheus013/firered-386/issues/13) | Campanha e pós-jogo | 0% | Validação ponta a ponta ainda não iniciada. |
+**Branch de expansão:** `codex/firered-johto-hoenn`. Desenvolvimento sem novas
+builds/releases nesta fase; integração em `main` somente após validação final.
 
-[Evidências e critérios por issue](games/super-heartgold/docs/github-issues-plan.md) ·
-[Testes gráficos e limites](games/super-heartgold/docs/scene4-graphics-references.md).
-A documentação de FireRed abaixo trata de outro jogo deste repositório.
+| Marco | Estado | Critério de conclusão |
+|---|---|---|
+| Fontes de mapas | Pesquisadas; arquivos reais conferidos | Selecionar origem, registrar créditos e dependências |
+| Inventário técnico | 518/957 mapas auditados; 13/100 IDs coincidentes | Classificar regiões e resolver dependências antes da importação |
+| Importação piloto | Pendente | New Bark/Route 29 e Littleroot/Route 101 com interiores, colisões e retorno |
+| Johto completa | Pendente | Cidades, rotas, interiores e cavernas conectados e percorríveis |
+| Hoenn completa | Pendente | Cidades, rotas, interiores, cavernas e áreas aquáticas percorríveis |
+| Integração multirregional | Pendente | Viagens, mapa regional, Fly, cura e save/reload entre regiões |
+| Eventos e progressão | Pendente | Desafios, encontros e desbloqueios sem bloqueios de campanha |
+
+[Pesquisa de fontes e roadmap de mapas](docs/MULTIREGION_ROADMAP.md).
+Super Z-A e o projeto Super HeartGold/SoulSilver foram retirados desta cópia do
+repositório e arquivados externamente. Seus workflows também foram retirados.
 
 O README fica na raiz; os guias, relatórios de testes e o histórico de mudanças ficam em `docs/`. Os comandos de reprodução continuam sendo executados na raiz do projeto.
 
@@ -29,7 +29,7 @@ O README fica na raiz; os guias, relatórios de testes e o histórico de mudanç
 
 **Desenvolvimento após v0.4.0:** há revisão da IA/ginásios, categorias por golpe, correção de sobreposição e importação parcial dos learnsets recentes. Estas mudanças ainda não completam a geração IX nem atualizam automaticamente a Release antiga. [Estado exato, testes e pendências](docs/MODERNIZATION.md). [Revisão da IA dos líderes/E4](docs/AI_REVIEW.md).
 
-Hack de Pokémon FireRed para GBA, com história e mapas preservados, foco em duplas e melhorias de qualidade de vida. **Versão de desenvolvimento, ainda incompleta.** As 386 espécies já estão distribuídas em encontros capturáveis; as demais melhorias pendentes estão listadas abaixo.
+Hack de Pokémon FireRed para GBA, com foco em duplas e melhorias de qualidade de vida. O escopo agora inclui expandir o mundo com Johto e Hoenn; a build existente ainda usa os mapas de Kanto/Sevii. **Versão de desenvolvimento, ainda incompleta.** As 386 espécies já estão distribuídas em encontros capturáveis; as demais melhorias pendentes estão listadas abaixo.
 
 Guias: [onde capturar cada uma das 386 espécies](docs/SPECIES_LOCATIONS.md) · [times dos desafios em sequência](#times-dos-desafios-em-sequência) · [encontros por rota, níveis e probabilidades](docs/ENCOUNTERS.md) · [catálogo de todos os treinadores](docs/TRAINER_REVIEW.md).
 

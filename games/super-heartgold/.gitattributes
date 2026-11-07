@@ -1,5 +1,0 @@
-* text=auto eol=lf
-tools/licenses/* -whitespace
-*.png binary
-*.zip binary
-*.exe binary
