@@ -88,6 +88,32 @@ Próximo passo: converter metatiles, paletas, atributos e animações dos tilese
 `Johto_General/NewBarkTown` e `General/Petalburg`. Ainda não importar scripts
 diretamente: flags/variáveis e constantes pertencem a engines diferentes.
 
+### Tilesets e interiores: avanço de 07/11
+
+- `scripts/region_tilesets.py`: análise dos metatiles realmente usados pelos pilotos,
+  paletas, tiles, callbacks de animação e comportamentos sem nome equivalente no FR.
+  Conversores testados de entradas gráficas (preservam flips) e atributos 16→32 bits
+  com regras explícitas; comportamentos não revisados são recusados.
+- Relatórios: [Johto](map-audits/johto-tilesets.json), [Hoenn](map-audits/hoenn-tilesets.json).
+  Headbutt, grama curta, portas e um tipo de salto precisam de adaptação semântica.
+  Há entradas usando paleta 14 em Littleroot: investigar transparência/uso efetivo
+  antes de remapear para as 13 paletas carregadas pelo FR. Não substituir por zero.
+- `scripts/plan_region_import.py`: amplia o piloto pelos warps de interiores e
+  propõe grupo novo com nomes prefixados, sem modificar grupos/IDs existentes.
+  Plano Johto: 9 mapas, 60 referências distintas a scripts e 6 links de fronteira.
+  Plano Hoenn: 7 mapas, 59 scripts e 1 link de fronteira. Nenhum índice numérico
+  inválido de warp identificado nesses conjuntos. Destinos via scripts não são
+  descobertos automaticamente; não é prova de completude da região.
+- Planos: [Johto](map-audits/johto-import-plan.json), [Hoenn](map-audits/hoenn-import-plan.json).
+  Ambos partem do mesmo hash de grupos: recalcular o segundo após registrar o primeiro.
+- Nove testes unitários aprovados. Sem builds, instalação de mapas ou alteração da engine.
+
+## Backlog: progressão estendida
+
+Nível máximo 500 e nova curva de progressão ficam adiados por solicitação do usuário.
+Limite atual: 100. Não ampliar campos de save, experiência, atributos ou regras de
+nível durante a etapa de mapas. Reavaliar depois da integração regional.
+
 1. Inventariar mapas de cada região: exteriores, interiores, cavernas, andares,
    áreas especiais e mapas auxiliares. Registrar inclusões e exclusões explicitamente.
 2. Fazer pilotos New Bark + Route29 e Littleroot + Route101, com ao menos um interior

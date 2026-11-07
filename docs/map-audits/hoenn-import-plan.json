@@ -1,0 +1,119 @@
+{
+  "status": "PLAN_ONLY_NOT_REGISTERED",
+  "prefix": "Hoenn",
+  "base_groups_sha256": "ce296c9b54c8bb85cc35870b30a533ab017e72107fd40cf471224a42127af79a",
+  "allocation": [
+    {
+      "source_name": "LittlerootTown",
+      "target_name": "Hoenn_LittlerootTown",
+      "group": 43,
+      "number": 0
+    },
+    {
+      "source_name": "LittlerootTown_BrendansHouse_1F",
+      "target_name": "Hoenn_LittlerootTown_BrendansHouse_1F",
+      "group": 43,
+      "number": 1
+    },
+    {
+      "source_name": "LittlerootTown_BrendansHouse_2F",
+      "target_name": "Hoenn_LittlerootTown_BrendansHouse_2F",
+      "group": 43,
+      "number": 2
+    },
+    {
+      "source_name": "LittlerootTown_MaysHouse_1F",
+      "target_name": "Hoenn_LittlerootTown_MaysHouse_1F",
+      "group": 43,
+      "number": 3
+    },
+    {
+      "source_name": "LittlerootTown_MaysHouse_2F",
+      "target_name": "Hoenn_LittlerootTown_MaysHouse_2F",
+      "group": 43,
+      "number": 4
+    },
+    {
+      "source_name": "LittlerootTown_ProfessorBirchsLab",
+      "target_name": "Hoenn_LittlerootTown_ProfessorBirchsLab",
+      "group": 43,
+      "number": 5
+    },
+    {
+      "source_name": "Route101",
+      "target_name": "Hoenn_Route101",
+      "group": 43,
+      "number": 6
+    }
+  ],
+  "boundary_links_requiring_resolution": [
+    {
+      "map": "Route101",
+      "kind": "connection",
+      "destination": "MAP_OLDALE_TOWN"
+    }
+  ],
+  "warp_index_issues": [],
+  "scripts_requiring_review": [
+    "0x0",
+    "LittlerootTown_BrendansHouse_1F_EventScript_GoSeeRoom",
+    "LittlerootTown_BrendansHouse_1F_EventScript_MeetRival0",
+    "LittlerootTown_BrendansHouse_1F_EventScript_MeetRival1",
+    "LittlerootTown_BrendansHouse_1F_EventScript_MeetRival2",
+    "LittlerootTown_BrendansHouse_2F_EventScript_PC",
+    "LittlerootTown_BrendansHouse_2F_EventScript_RivalsPokeBall",
+    "LittlerootTown_BrendansHouse_2F_EventScript_WallClock",
+    "LittlerootTown_EventScript_BirchsLabSign",
+    "LittlerootTown_EventScript_Boy",
+    "LittlerootTown_EventScript_BrendansHouseSign",
+    "LittlerootTown_EventScript_FatMan",
+    "LittlerootTown_EventScript_GiveRunningShoesTrigger0",
+    "LittlerootTown_EventScript_GiveRunningShoesTrigger1",
+    "LittlerootTown_EventScript_GiveRunningShoesTrigger2",
+    "LittlerootTown_EventScript_GiveRunningShoesTrigger3",
+    "LittlerootTown_EventScript_GiveRunningShoesTrigger4",
+    "LittlerootTown_EventScript_GiveRunningShoesTrigger5",
+    "LittlerootTown_EventScript_GoSaveBirchTrigger",
+    "LittlerootTown_EventScript_MaysHouseSign",
+    "LittlerootTown_EventScript_Mom",
+    "LittlerootTown_EventScript_NeedPokemonTriggerLeft",
+    "LittlerootTown_EventScript_NeedPokemonTriggerRight",
+    "LittlerootTown_EventScript_TownSign",
+    "LittlerootTown_EventScript_Twin",
+    "LittlerootTown_MaysHouse_1F_EventScript_GoSeeRoom",
+    "LittlerootTown_MaysHouse_1F_EventScript_MeetRival0",
+    "LittlerootTown_MaysHouse_1F_EventScript_MeetRival1",
+    "LittlerootTown_MaysHouse_1F_EventScript_MeetRival2",
+    "LittlerootTown_MaysHouse_2F_EventScript_PC",
+    "LittlerootTown_MaysHouse_2F_EventScript_RivalsPokeBall",
+    "LittlerootTown_MaysHouse_2F_EventScript_WallClock",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_Aide",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_Birch",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_Book",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_Chikorita",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_Cyndaquil",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_Machine",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_PC",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_Rival",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_Totodile",
+    "PlayersHouse_1F_EventScript_Mom",
+    "PlayersHouse_1F_EventScript_Vigoroth1",
+    "PlayersHouse_1F_EventScript_Vigoroth2",
+    "PlayersHouse_2F_EventScript_GameCube",
+    "PlayersHouse_2F_EventScript_Notebook",
+    "ProfBirch_EventScript_RatePokedexOrRegister",
+    "RivalsHouse_1F_EventScript_RivalMom",
+    "RivalsHouse_1F_EventScript_RivalSibling",
+    "RivalsHouse_2F_EventScript_Rival",
+    "Route101_EventScript_BirchsBag",
+    "Route101_EventScript_Boy",
+    "Route101_EventScript_PreventExitNorth",
+    "Route101_EventScript_PreventExitSouth",
+    "Route101_EventScript_PreventExitWest",
+    "Route101_EventScript_RouteSign",
+    "Route101_EventScript_StartBirchRescue",
+    "Route101_EventScript_Youngster"
+  ],
+  "limits": "One pilot group per plan. Recalculate after each registered group. Script-only destinations not traversed; dynamic warp indices require runtime review."
+}

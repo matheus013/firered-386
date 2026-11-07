@@ -13,7 +13,7 @@ builds/releases nesta fase; integração em `main` somente após validação fin
 |---|---|---|
 | Fontes de mapas | Pesquisadas; arquivos reais conferidos | Selecionar origem, registrar créditos e dependências |
 | Inventário técnico | 518/957 mapas auditados; 13/100 IDs coincidentes | Classificar regiões e resolver dependências antes da importação |
-| Importação piloto | Pendente | New Bark/Route 29 e Littleroot/Route 101 com interiores, colisões e retorno |
+| Importação piloto | Em preparação: blocos convertidos isoladamente e 16 mapas planejados com interiores | Tilesets, scripts e instalação na engine ainda pendentes |
 | Johto completa | Pendente | Cidades, rotas, interiores e cavernas conectados e percorríveis |
 | Hoenn completa | Pendente | Cidades, rotas, interiores, cavernas e áreas aquáticas percorríveis |
 | Integração multirregional | Pendente | Viagens, mapa regional, Fly, cura e save/reload entre regiões |

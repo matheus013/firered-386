@@ -1,0 +1,157 @@
+{
+  "status": "PLAN_ONLY_NOT_REGISTERED",
+  "prefix": "Johto",
+  "base_groups_sha256": "ce296c9b54c8bb85cc35870b30a533ab017e72107fd40cf471224a42127af79a",
+  "allocation": [
+    {
+      "source_name": "Gate_Route29_Route46",
+      "target_name": "Johto_Gate_Route29_Route46",
+      "group": 43,
+      "number": 0
+    },
+    {
+      "source_name": "NewBarkTown",
+      "target_name": "Johto_NewBarkTown",
+      "group": 43,
+      "number": 1
+    },
+    {
+      "source_name": "NewBarkTown_House1",
+      "target_name": "Johto_NewBarkTown_House1",
+      "group": 43,
+      "number": 2
+    },
+    {
+      "source_name": "NewBarkTown_House2",
+      "target_name": "Johto_NewBarkTown_House2",
+      "group": 43,
+      "number": 3
+    },
+    {
+      "source_name": "NewBarkTown_Lab",
+      "target_name": "Johto_NewBarkTown_Lab",
+      "group": 43,
+      "number": 4
+    },
+    {
+      "source_name": "NewBarkTown_PlayersHouse_1F",
+      "target_name": "Johto_NewBarkTown_PlayersHouse_1F",
+      "group": 43,
+      "number": 5
+    },
+    {
+      "source_name": "NewBarkTown_PlayersHouse_2F",
+      "target_name": "Johto_NewBarkTown_PlayersHouse_2F",
+      "group": 43,
+      "number": 6
+    },
+    {
+      "source_name": "Route29",
+      "target_name": "Johto_Route29",
+      "group": 43,
+      "number": 7
+    },
+    {
+      "source_name": "WorldHub",
+      "target_name": "Johto_WorldHub",
+      "group": 43,
+      "number": 8
+    }
+  ],
+  "boundary_links_requiring_resolution": [
+    {
+      "map": "Gate_Route29_Route46",
+      "kind": "warp",
+      "destination": "MAP_ROUTE46"
+    },
+    {
+      "map": "NewBarkTown",
+      "kind": "warp",
+      "destination": "MAP_TIN_TOWER_ROOF_DAY"
+    },
+    {
+      "map": "NewBarkTown",
+      "kind": "connection",
+      "destination": "MAP_ROUTE27"
+    },
+    {
+      "map": "Route29",
+      "kind": "connection",
+      "destination": "MAP_CHERRYGROVE_CITY"
+    },
+    {
+      "map": "Route29",
+      "kind": "connection",
+      "destination": "MAP_ROUTE46"
+    },
+    {
+      "map": "WorldHub",
+      "kind": "connection",
+      "destination": "MAP_WORLD_HUB2"
+    }
+  ],
+  "warp_index_issues": [],
+  "scripts_requiring_review": [
+    "0",
+    "0x0",
+    "BerryTreeScript",
+    "EventScript_BookShelf",
+    "EventScript_CutTree",
+    "EventScript_EmptyTrashCan",
+    "EventScript_RockSmash",
+    "Gate_Route29_Route46_EventScript_Officer",
+    "Gate_Route29_Route46_EventScript_Youngster",
+    "LittlerootTown_BrendansHouse_2F_EventScript_PC",
+    "LittlerootTown_BrendansHouse_2F_EventScript_WallClock",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_Machine",
+    "LittlerootTown_ProfessorBirchsLab_EventScript_PC",
+    "NULL",
+    "NewBarkTown_EventScript_Aide1",
+    "NewBarkTown_EventScript_Aide2",
+    "NewBarkTown_EventScript_Door",
+    "NewBarkTown_EventScript_ElmsHouseMailbox",
+    "NewBarkTown_EventScript_FatMan",
+    "NewBarkTown_EventScript_LabSign",
+    "NewBarkTown_EventScript_Lass",
+    "NewBarkTown_EventScript_LeaveTrigger",
+    "NewBarkTown_EventScript_PlayersHouseMailbox",
+    "NewBarkTown_EventScript_Silver",
+    "NewBarkTown_EventScript_TownSign",
+    "NewBarkTown_EventScript_Wooper",
+    "NewBarkTown_House1_EventScript_Daughter",
+    "NewBarkTown_House1_EventScript_Mother",
+    "NewBarkTown_House2_EventScript_ElmsSon",
+    "NewBarkTown_House2_EventScript_ElmsWife",
+    "NewBarkTown_Lab_EventScript_ChikoritaBall",
+    "NewBarkTown_Lab_EventScript_CyndaquilBall",
+    "NewBarkTown_Lab_EventScript_Elm",
+    "NewBarkTown_Lab_EventScript_HealingMachine1",
+    "NewBarkTown_Lab_EventScript_TotodileBall",
+    "NewBarkTown_Lab_EventScript_TriggerAideGiveBalls",
+    "NewBarkTown_Lab_EventScript_TriggerAideGivePotion",
+    "NewBarkTown_Lab_EventScript_TriggerReturnPlayer",
+    "NewBarkTown_Lab_EventScript_TriggerStartLab",
+    "NewBarkTown_Lab_EventScript_TriggerStartLabLeft",
+    "NewBarkTown_Lab_EventScript_TriggerStartLabRight",
+    "NewBarkTown_PlayersHouse_1F_EventScript_Mom",
+    "NewBarkTown_PlayersHouse_1F_EventScript_MomsFriend",
+    "NewBarkTown_PlayersHouse_1F_EventScript_MomsIntroTrigger1",
+    "NewBarkTown_PlayersHouse_1F_EventScript_MomsIntroTrigger2",
+    "NewBarkTown_PlayersHouse_2F_EventScript_ItemGBPlayer",
+    "NewBarkTown_PlayersHouse_2F_EventScript_NES",
+    "NewBarkTown_PlayersHouse_2F_Script_ClockSetupTrigger1",
+    "NewBarkTown_PlayersHouse_2F_Script_ClockSetupTrigger2",
+    "Route102_EventScript_Tiana",
+    "Route29_EventScript_Boy",
+    "Route29_EventScript_Girl",
+    "Route29_EventScript_ItemPotion",
+    "Route29_EventScript_Lass",
+    "Route29_EventScript_OldMan",
+    "Route29_EventScript_Sign",
+    "Route29_EventScript_Tuscany",
+    "Route29_EventScript_Youngster",
+    "Route29_Trigger_Monview"
+  ],
+  "limits": "One pilot group per plan. Recalculate after each registered group. Script-only destinations not traversed; dynamic warp indices require runtime review."
+}
