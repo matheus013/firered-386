@@ -212,3 +212,19 @@ normal sem criar salto diagonal. Isso exige confirmação em jogo na validação
 em `.build/region-pilots/hoenn-attributes/`. Entradas não utilizadas ficam zeradas;
 não reutilizar o pacote em outros mapas. Ainda faltam animações, portas, eventos
 e registro na engine. Suite: 17 testes aprovados. Nenhuma build gerada.
+
+### Portas de Littleroot preparadas
+
+`scripts/prepare_hoenn_doors.py` prepara as portas das casas e laboratório:
+2 imagens, 6 quadros de 16x32 pixels, 768 bytes por animação, offsets
+0/256/512 compatíveis com os quadros OpenLarge/CloseLarge do FR (DOOR_SIZE_1x2).
+IDs remapeados: 0x248/0x249 → 0x2C8/0x2C9; paletas remapeadas para o pacote Hoenn.
+O PNG Littleroot contém índices de bancos acima de 15; o conversor reproduz
+explicitamente a redução ao nibble baixo de `pokeemerald/tools/gbagfx/gfx.c`.
+São 3.072 pixels indexados conferidos após encode/decode contra essa convenção.
+
+[Relatório](map-audits/hoenn-doors.json). Arquivos e trecho C em
+`.build/region-pilots/hoenn-doors/`, fora do Git. O trecho NÃO foi instalado:
+a escolha da tabela precisa depender do tileset/região, porque IDs podem colidir
+com portas de Kanto. Falta testar redesenho da porta fechada, animação e warps na
+engine. Suite: 20 testes aprovados. Nenhuma ROM/executável compilado.

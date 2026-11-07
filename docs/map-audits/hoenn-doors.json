@@ -1,0 +1,64 @@
+{
+  "status": "DOOR_ASSETS_STAGED_NOT_INTEGRATED",
+  "doors": [
+    {
+      "door": "littleroot",
+      "source_metatile": 584,
+      "target_metatile": 712,
+      "palettes": [
+        11,
+        11,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "bytes": 768,
+      "frames": 3,
+      "frame_offsets": [
+        0,
+        256,
+        512
+      ],
+      "frame_bytes": 256,
+      "pixel_roundtrip_mismatches": 0,
+      "index_conversion": "low nibble, matching upstream gbagfx 8-bit indexed -> 4bpp",
+      "sha256": "f8527fbfda6c83aa289ea2f930a128bc2b5370d13a57400c36f730da8918064b"
+    },
+    {
+      "door": "birchs_lab",
+      "source_metatile": 585,
+      "target_metatile": 713,
+      "palettes": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "bytes": 768,
+      "frames": 3,
+      "frame_offsets": [
+        0,
+        256,
+        512
+      ],
+      "frame_bytes": 256,
+      "pixel_roundtrip_mismatches": 0,
+      "index_conversion": "low nibble, matching upstream gbagfx 8-bit indexed -> 4bpp",
+      "sha256": "8291f3174926ed403a7bd4fccc4319bb5f78f1eaf1292e4cc682ac78b3727ec5"
+    }
+  ],
+  "pending": [
+    "tileset-scoped door table selection",
+    "closed-door redraw",
+    "warp scripts",
+    "runtime tests"
+  ],
+  "limits": "Pixel roundtrip and frame offsets only; no animation played in engine."
+}
