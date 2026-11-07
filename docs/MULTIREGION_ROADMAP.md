@@ -228,3 +228,24 @@ São 3.072 pixels indexados conferidos após encode/decode contra essa convenç�
 a escolha da tabela precisa depender do tileset/região, porque IDs podem colidir
 com portas de Kanto. Falta testar redesenho da porta fechada, animação e warps na
 engine. Suite: 20 testes aprovados. Nenhuma ROM/executável compilado.
+
+### Correções na engine antes da integração das portas
+
+Revisão de `src/field_door.c`, comparada com a implementação pública de
+[pret/pokeemerald](https://github.com/pret/pokeemerald/blob/731ad5bfd6e6f265508d0efcca0ba42f9dcf5881/src/field_door.c):
+
+- `DrawClosedDoor` agora procura o metatile na tabela antes de escolher a altura
+  do redesenho. Antes usava a primeira entrada, independentemente da porta.
+- `BuildDoorTiles` usa quatro paletas por metade e as reutiliza na camada
+  transparente. Antes a metade inferior lia quatro bytes além do array de oito.
+
+`scripts/test_field_door_native.py` extrai as funções C reais, fornece stubs do
+mapa e executa um pequeno teste de host com AddressSanitizer/UndefinedBehaviorSanitizer.
+Valida ambas as metades com paletas distintas, porta de uma e duas células, e ID
+desconhecido. Passou no Ubuntu/WSL com `cc -Wall -Wextra -Werror`; os 20 testes de
+conversão de regiões também passaram. Não é uma build do jogo nem validação de
+VRAM, animação, warps ou campanha. A seleção da tabela por tileset continua
+pendente; os assets Hoenn continuam apenas em staging local ignorado pelo Git.
+
+Reprodução do teste de C no Linux/WSL, na raiz do projeto:
+`python3 scripts/test_field_door_native.py`.

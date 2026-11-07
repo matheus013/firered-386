@@ -344,14 +344,16 @@ static void BuildDoorTiles(u16 *tiles, u16 tileNum, const u8 *paletteNums)
     // Only the first 4 tiles of each metatile (bottom layer) actually use the door tiles
     for (i = 0; i < 4; i++)
     {
-        tile = *(paletteNums++) << 12;
+        tile = paletteNums[i] << 12;
         tiles[i] = tile | (tileNum + i);
     }
 
-    // The remaining tiles (top layer) always use tile 0 (with the same palette)
+    // Reuse the four palettes for the transparent top layer. A tall door's
+    // lower half passes paletteNums + 4, so consuming eight bytes reads past
+    // the eight-entry palette array.
     for (; i < 8; i++)
     {
-        tile = *(paletteNums++) << 12;
+        tile = paletteNums[i - 4] << 12;
         tiles[i] = tile;
     }
 }
@@ -434,7 +436,9 @@ static s8 StartDoorAnimationTask(const struct DoorGraphics *gfx, const struct Do
 
 static void DrawClosedDoor(const struct DoorGraphics *gfx, int x, int y)
 {
-    DrawClosedDoorTiles(gfx, x, y);
+    gfx = GetDoorGraphics(gfx, MapGridGetMetatileIdAt(x, y));
+    if (gfx != NULL)
+        DrawClosedDoorTiles(gfx, x, y);
 }
 
 static void DrawOpenedDoor(const struct DoorGraphics *gfx, int x, int y)
