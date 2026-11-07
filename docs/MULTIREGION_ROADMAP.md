@@ -269,3 +269,26 @@ também passaram. Esses testes exercitam funções extraídas do fonte com stubs
 não compilam o jogo completo nem validam transições entre mapas em execução.
 Próximo passo: instalar os recursos do piloto e cadastrar o par real de tilesets,
 após resolver as animações dos tilesets e os scripts necessários.
+
+### Animações dos dois exteriores Hoenn
+
+`scripts/prepare_hoenn_animations.py` lê as sequências, destinos e tamanhos DMA
+de `pokeemerald/src/tileset_anims.c`, confere os inicializadores e o agendamento
+esperado, e cruza as faixas de tiles com o inventário do piloto. Das cinco
+animações General, apenas Flower é referenciada: tiles 508–511, três quadros
+de 128 bytes, sequência 0/1/0/2, atualização a cada 16 ticks. O callback
+secundário Petalburg é nulo. Referência consultada:
+[implementação upstream](https://github.com/pret/pokeemerald/blob/master/src/tileset_anims.c).
+
+Arquivos locais em `.build/region-pilots/hoenn-animations/`: três `.4bpp` e um
+trecho C com callbacks separados dos de Kanto. Nenhum instalado na engine.
+Relatório com hashes em [hoenn-animations.json](map-audits/hoenn-animations.json).
+Encode/decode preservou os pixels indexados dos três quadros. A seleção por faixa,
+extração de sequência e rejeição de agendamento desconhecido têm testes;
+suite de conversão agora com 23 testes aprovados. Sem validação de DMA/VRAM ou
+animações em execução. O pacote serve somente aos exteriores Littleroot/Route101.
+
+Reprodução (diretório de saída deve ser novo):
+```powershell
+python scripts/prepare_hoenn_animations.py --source ../map-references/pokeemerald --audit docs/map-audits/hoenn-tilesets.json --out .build/region-pilots/hoenn-animations --report docs/map-audits/hoenn-animations.json
+```

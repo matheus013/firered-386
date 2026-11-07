@@ -1,0 +1,42 @@
+{
+  "status": "STAGED_NOT_INSTALLED",
+  "source_sha256": "aa89d9e3c7146cb71bc42048f66d6f98897ee0d5fdb2c971ea99b21579625518",
+  "tracks": [
+    {
+      "name": "Flower",
+      "phase": 0,
+      "start": 508,
+      "count": 4,
+      "sequence": [
+        "0",
+        "1",
+        "0",
+        "2"
+      ],
+      "frames": [
+        {
+          "file": "Flower_0.4bpp",
+          "bytes": 128,
+          "sha256": "ba3bcb36a091c5d8c03650c4e10d4c1cb438ad514d152622ed421ccaffb799b5"
+        },
+        {
+          "file": "Flower_1.4bpp",
+          "bytes": 128,
+          "sha256": "22d2457b8f993aeaa734a45f5cfdf7f17dec13789571dc37b7d0928c9d9d9f94"
+        },
+        {
+          "file": "Flower_2.4bpp",
+          "bytes": 128,
+          "sha256": "1fd5fe404db1fe3b0a5c8645dad7dabdf061d53cad5497bebe2ccb783d0530e4"
+        }
+      ]
+    }
+  ],
+  "omitted": [
+    "Water",
+    "SandWaterEdge",
+    "Waterfall",
+    "LandWaterEdge"
+  ],
+  "limits": "Indexed pixel roundtrip only. No DMA/VRAM or gameplay validation; pilot exteriors only."
+}

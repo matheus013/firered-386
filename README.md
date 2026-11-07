@@ -24,6 +24,10 @@ para os mapas existentes. Dois testes das funções C com sanitizadores aprovado
 incluindo IDs coincidentes entre tabelas. Cadastro dos tilesets importados e
 validação visual na engine ainda pendentes.
 
+Animações do piloto Hoenn: três quadros de flores convertidos e sequência original
+preparada; 23 testes de conversão aprovados. Recursos ainda em staging local,
+sem instalação dos mapas nem nova build.
+
 [Pesquisa de fontes e roadmap de mapas](docs/MULTIREGION_ROADMAP.md).
 Super Z-A e o projeto Super HeartGold/SoulSilver foram retirados desta cópia do
 repositório e arquivados externamente. Seus workflows também foram retirados.
