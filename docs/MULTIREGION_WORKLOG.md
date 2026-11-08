@@ -785,3 +785,26 @@ O caso que atravessa de Littleroot para a Route 101 agora roda com o resgate já
 - Passo 3 (Johto) e passo 4 (mães).
 - Só o caminho "sim no Treecko" foi exercitado na bolsa; os outros iniciais vêm do mesmo bloco gerado.
 - A May fala como se o jogador fosse iniciante ("I'll give you a taste…"); é a fala da fonte.
+
+## 08/11/2026 — Fase 3, passo 3: levantamento (Claude, em andamento)
+
+Ainda não há código. O que já foi apurado no HNS_modern:
+
+- **Laboratório do Elm** (`NewBarkTown_Lab`): três POKé BALLs nas posições (8,4), (9,4) e (10,4), com
+  as perguntas `ChooseChikorita`, `ChooseCyndaquil` e `ChooseTotodile`. Elas usam `{STR_VAR_2}` para a
+  categoria do Pokémon (`buffermoncategory`, que o FireRed não tem).
+  - Textos disponíveis: `ElmIntro`, `ElmAccepted`, `ElmRefused`, `ElmChooseAPokemon`, `ChoseStarter`,
+    `ReceivedStarter`, `ShouldntTouch`, `ElmResearchAmbitions`, `AideGivePotion`, `AideGiveBalls` e
+    `AideExplainBalls`.
+- **Silver:** a primeira luta (Cherrygrove) usa `RivalSeen`, `SilverWin` e `RivalAfter`. Ele leva o
+  inicial em vantagem: jogador com Chikorita → Silver com Cyndaquil, Cyndaquil → Totodile,
+  Totodile → Chikorita.
+- **Time escolhido:** o de Victory Road (`sParty_Rival_*5`, níveis 45–48, só espécies até a geração
+  III). Com +40 níveis, fica entre 85 e 88. As equipes 6 e 7 usam Ursaluna Bloodmoon, que não existe
+  no jogo.
+- **Treinador:** as vagas sem uso `TRAINER_BRENDAN`, `_2` e `_3` (59–61) podem receber o Silver. É
+  preciso importar o retrato `TRAINER_PIC_SILVER` do HNS e registrá-lo em
+  `front_pic_tables.h`/`front_pic_anims.h`. A injeção do `balance_trainers.py` também precisa passar a
+  aceitar retrato e classe.
+- **Variáveis e flags livres:** `VAR_0x402B`/`VAR_0x402C`; `FLAG_0x024`–`0x027` e `FLAG_0x07F`
+  (bolas escondidas e presentes da assistente).
