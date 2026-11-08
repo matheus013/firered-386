@@ -441,16 +441,13 @@
           "y": 16
         },
         {
-          "kind": "silver",
+          "kind": "story",
           "source_index": 2,
           "source_script": "NewBarkTown_EventScript_Silver",
           "source_sprite": "OBJ_EVENT_GFX_SILVER",
           "firered_sprite": "OBJ_EVENT_GFX_SILVER",
-          "text": [
-            "NewBarkTown_Text_Silver1",
-            "NewBarkTown_Text_Silver2"
-          ],
-          "note": "Silver: both lines and the exclamation; the push movement is left out because it only fits one approach cell",
+          "text": null,
+          "note": "Silver: HNS dialogue before the gift, then a post-League battle; no push movement",
           "x": 7,
           "y": 7
         },
@@ -722,13 +719,13 @@
           "y": 10
         },
         {
-          "kind": "silent",
+          "kind": "story",
           "source_index": 1,
           "source_script": "NewBarkTown_Lab_EventScript_Elm",
           "source_sprite": "OBJ_EVENT_GFX_PROF_ELM",
           "firered_sprite": "OBJ_EVENT_GFX_PROF_ELM",
           "text": null,
-          "note": "Prof. Elm: every source branch depends on the story (eggs, phone, gifts)",
+          "note": "Elm research request: raise one Pokemon; no egg errand outside the pilot",
           "x": 6,
           "y": 3
         },
@@ -742,6 +739,39 @@
           "note": "default branch",
           "x": 9,
           "y": 9
+        },
+        {
+          "kind": "story",
+          "source_index": 3,
+          "source_script": "NewBarkTown_Lab_EventScript_ChikoritaBall",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Chikorita gift, one starter per Johto save",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "kind": "story",
+          "source_index": 4,
+          "source_script": "NewBarkTown_Lab_EventScript_CyndaquilBall",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Cyndaquil gift, one starter per Johto save",
+          "x": 9,
+          "y": 4
+        },
+        {
+          "kind": "story",
+          "source_index": 5,
+          "source_script": "NewBarkTown_Lab_EventScript_TotodileBall",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Totodile gift, one starter per Johto save",
+          "x": 10,
+          "y": 4
         },
         {
           "kind": "sign",

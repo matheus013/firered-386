@@ -502,12 +502,25 @@ def region_pilot_trainers(parties_text, trainers_text):
         placeholder = f"static const struct TrainerMonNoItemDefaultMoves {entry['party']}[] = {{DUMMY_TRAINER_MON}};"
         if parties_text.count(placeholder) != 1:
             raise SystemExit(f"{trainer}: placeholder party {entry['party']} not found")
-        mons = "".join(f"\n    {{\n    .iv = {iv},\n    .lvl = {level + pilot['level_offset']},\n    .species = {species},\n    }}," for species, level, iv in entry["team"])
-        parties_text = parties_text.replace(placeholder, f"// Region pilot: pokeemerald {entry['source']}, levels +{pilot['level_offset']}.\n"
-                                            f"static const struct TrainerMonNoItemDefaultMoves {entry['party']}[] = {{{mons[:-1]}\n}};")
+        offset = entry.get('level_offset', pilot['level_offset'])
+        custom = isinstance(entry['team'][0], dict)
+        if custom:
+            mons = ''.join(f"\n    {{\n    .iv = {m['iv']},\n    .lvl = {m['level'] + offset},\n    .species = {m['species']},\n"
+                           f"    .heldItem = {m['item']},\n    .moves = {{{', '.join(m['moves'])}}},\n    }}," for m in entry['team'])
+        else:
+            mons = "".join(f"\n    {{\n    .iv = {iv},\n    .lvl = {level + offset},\n    .species = {species},\n    }}," for species, level, iv in entry["team"])
+        party_type = 'TrainerMonItemCustomMoves' if custom else 'TrainerMonNoItemDefaultMoves'
+        parties_text = parties_text.replace(placeholder, f"// Region pilot: {entry.get('source_repo', 'pokeemerald')} {entry['source']}, levels +{offset}.\n"
+                                            f"static const struct {party_type} {entry['party']}[] = {{{mons[:-1]}\n}};")
         match = re.search(r"    \[" + trainer + r"\] = \{(.*?)\n    \},", trainers_text, re.S)
         body = match[1].replace('.trainerName = _("")', f'.trainerName = _("{entry["name"]}")')
-        body = re.sub(r"\.aiFlags = [^,]+", ".aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY", body)
+        body = re.sub(r"\.trainerClass = [^,]+", '.trainerClass = ' + entry.get('trainer_class', 'TRAINER_CLASS_RIVAL_LATE'), body)
+        if entry.get('trainer_pic'):
+            body = re.sub(r"\.trainerPic = [^,]+", '.trainerPic = ' + entry['trainer_pic'], body)
+        if custom:
+            body = body.replace('NO_ITEM_DEFAULT_MOVES(', 'ITEM_CUSTOM_MOVES(')
+        body = re.sub(r"\.doubleBattle = \w+", '.doubleBattle = TRUE', body)
+        body = re.sub(r"\.aiFlags = [^,]+", ".aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_DOUBLE_BATTLE", body)
         trainers_text = trainers_text[:match.start(1)] + body + trainers_text[match.end(1):]
     return parties_text, trainers_text
 

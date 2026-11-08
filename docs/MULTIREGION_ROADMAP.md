@@ -51,8 +51,8 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Pendente |
 | M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
 | M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Iniciado: SEAGALLOP de Vermilion para Littleroot e New Bark após a Liga; seções com nome (IDs salvos preservados) e mapa da cidade seguro; mapa regional próprio, Fly e cura pendentes |
-| M6 | Eventos, encontros, desafios e progressão interligados | Iniciado: encontros, eventos de ambiente (fase 1) e personagens principais (fase 2) nos pilotos; história (fase 3) pendente |
-| M7 | Builds locais isoladas e percurso completo sem teleportes | Pendente |
+| M6 | Eventos, encontros, desafios e progressão interligados | Parcial: ambiente, personagens, resgate de Birch/May e pedido de Elm/iniciais/Silver nos pilotos; demais eventos e campanhas pendentes |
+| M7 | Builds locais isoladas e percurso completo sem teleportes | Builds isoladas instrumentadas em uso; percurso contínuo e campanha completa pendentes |
 | M8 | Revisão final, integração em main e publicação | Pendente |
 
 ### Evidência inicial
@@ -387,3 +387,13 @@ Resgate do Birch na Route 101 com o inicial da bolsa (Treecko, Torchic ou Mudkip
 Zigzagoon; o laboratório e a assistente mudam conforme a história; a May batalha no quarto dela com o
 time do Emerald (Lilycove) que vence o inicial escolhido, em nível pós-Liga. Detalhes no
 [diário](MULTIREGION_WORKLOG.md).
+
+## Revisão de 08/11: Elm e Silver
+
+Pedido reduzido do Elm, escolha única entre os três iniciais, tratamento de PC
+cheio e batalha de Silver integrados. May e Silver agora usam duplas e o treino
+IV/EV dos desafios. Passaram 162 casos instrumentados na ROM, 28 testes Python e
+2 testes nativos de portas. Esse conjunto posiciona cada cenário separadamente;
+a travessia contínua e as campanhas completas permanecem pendentes.
+Detalhes e limites: [diário](MULTIREGION_WORKLOG.md).
+Equipes e sequência: [desafios dos pilotos](REGION_PILOT_CHALLENGES.md).

@@ -1,34 +1,35 @@
 # FireRed 386
 
-## Prioridade: Kanto + Johto + Hoenn — 07/11/2026
+## Prioridade: Kanto + Johto + Hoenn — 08/11/2026
 
 O único jogo ativo deste repositório é **Super FireRed**. A prioridade inicial é
 integrar os mapas completos de **Johto e Hoenn**, preservando Kanto e as melhorias
-existentes. As novas regiões **ainda não estão integradas nem jogáveis**.
+existentes. **15 mapas-piloto estão integrados (7 de Hoenn e 8 de Johto); as
+regiões completas e suas campanhas ainda não estão prontas.**
 
-**Branch de expansão:** `codex/firered-johto-hoenn`. Desenvolvimento sem novas
-builds/releases nesta fase; integração em `main` somente após validação final.
+**Branch de expansão:** `codex/firered-johto-hoenn`. ROMs instrumentadas de teste
+são compiladas em cópias isoladas; a ROM distribuída e as releases não são
+atualizadas nesta fase. Integração em `main` somente após validação final.
 
 | Marco | Estado | Critério de conclusão |
 |---|---|---|
 | Fontes de mapas | Pesquisadas; arquivos reais conferidos | Selecionar origem, registrar créditos e dependências |
 | Inventário técnico | 518/957 mapas auditados; 13/100 IDs coincidentes | Classificar regiões e resolver dependências antes da importação |
-| Importação piloto | Em preparação: blocos convertidos isoladamente e 15 mapas planejados com interiores | Tilesets, scripts e instalação na engine ainda pendentes |
+| Importação piloto | 15 mapas registrados; portas, escadas, conexões, animações e encontros implementados | Completar história, persistência e percurso contínuo sem posicionamento de teste |
 | Johto completa | Pendente | Cidades, rotas, interiores e cavernas conectados e percorríveis |
 | Hoenn completa | Pendente | Cidades, rotas, interiores, cavernas e áreas aquáticas percorríveis |
-| Integração multirregional | Pendente | Viagens, mapa regional, Fly, cura e save/reload entre regiões |
-| Eventos e progressão | Pendente | Desafios, encontros e desbloqueios sem bloqueios de campanha |
+| Integração multirregional | Balsa pós-Liga e seções dos pilotos implementadas | Mapa regional próprio, Fly, cura e save/reload entre regiões |
+| Eventos e progressão | Histórias iniciais de Hoenn e Johto implementadas; May e Silver em duplas | Desafios completos e percurso de campanha sem bloqueios |
 
-Última revisão: seleção de portas por par de tilesets implementada, com fallback
-para os mapas existentes. Dois testes das funções C com sanitizadores aprovados,
-incluindo IDs coincidentes entre tabelas. Cadastro dos tilesets importados e
-validação visual na engine ainda pendentes.
-
-Animações do piloto Hoenn: três quadros de flores convertidos e sequência original
-preparada; 23 testes de conversão aprovados. Recursos ainda em staging local,
-sem instalação dos mapas nem nova build.
+Validação de 08/11: **162 casos instrumentados na ROM, 28 testes Python de regiões
+e 2 testes nativos de portas aprovados**. Inclui escolhas de iniciais, armazenamento
+cheio, May/Silver, derrotas e save/reload do presente de Johto. Cada caso posiciona
+o jogador no cenário que verifica: isso **não equivale a concluir a campanha nem
+a percorrer todas as regiões sem assistência**.
 
 [Pesquisa de fontes e roadmap de mapas](docs/MULTIREGION_ROADMAP.md).
+[Diário de implementação e testes](docs/MULTIREGION_WORKLOG.md) ·
+[Sequência e times dos desafios dos pilotos](docs/REGION_PILOT_CHALLENGES.md).
 Super Z-A e o projeto Super HeartGold/SoulSilver foram retirados desta cópia do
 repositório e arquivados externamente. Seus workflows também foram retirados.
 

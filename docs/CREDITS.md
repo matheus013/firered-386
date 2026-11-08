@@ -39,3 +39,19 @@ detalhes em `docs/map-audits/pilot-sprites.json`.
   (`graphics/object_events/pics/people/`), mesma situação de licença dos tilesets de Johto acima.
 
 Todas as importações estão em `scripts/import_pilot_sprites.sh`.
+
+## História e treinador Silver
+
+`scripts/johto_pilot_story.py` adapta os diálogos do laboratório de Elm e de Silver
+em `data/maps/NewBarkTown_Lab`, `NewBarkTown` e `CherrygroveCity` do HNS_modern.
+O pedido do piloto termina em criar um Pokémon: a missão do ovo/Mr. Pokémon não
+é oferecida enquanto seus mapas não existem aqui. Silver batalha em New Bark,
+por interação, em vez de usar o gatilho de Cherrygrove.
+
+`scripts/import_silver_pilot.py` importa o retrato do Silver que a fonte guarda
+como `graphics/trainers/front_pics/wally.png` e `palettes/wally.pal`, e os times
+`sParty_Rival_{Chikorita,Cyndaquil,Totodile}5`. Mantém espécies, golpes e itens;
+níveis +40 para o pós-Liga. A adaptação usa as regras de duplas e treino do
+Super FireRed. A situação de licença e os créditos são os mesmos de HNS acima.
+Arquivos instalados: `graphics/trainers/front_pics/johto_silver.png`,
+`graphics/trainers/palettes/johto_silver.pal` e `hack-data/region_pilot_trainers.json`.

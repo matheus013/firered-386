@@ -115,6 +115,7 @@ struct PokedexEntry
 
 void ResetPokedex(void);
 void CopyMonCategoryText(u16 species, u8 *dst);
+const u8 *GetPokedexCategoryName(u16 dexNum);
 u16 GetPokedexHeightWeight(u16 dexNum, u8 data);
 u16 GetNationalPokedexCount(u8);
 u16 GetKantoPokedexCount(u8);

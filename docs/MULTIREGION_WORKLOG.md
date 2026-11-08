@@ -808,3 +808,120 @@ Ainda não há código. O que já foi apurado no HNS_modern:
   aceitar retrato e classe.
 - **Variáveis e flags livres:** `VAR_0x402B`/`VAR_0x402C`; `FLAG_0x024`–`0x027` e `FLAG_0x07F`
   (bolas escondidas e presentes da assistente).
+
+## 08/11/2026 — Revisão e continuação da história de Johto (Codex)
+
+### Estado retomado e limites da revisão
+
+Retomada no commit `ace3a8a`, preservando os avanços registrados acima. A instalação
+parcial descrita anteriormente neste chat já havia sido resolvida por outro trabalho:
+15 mapas, eventos, viagens e Hoenn estavam no Git. O topo do README ainda dizia
+que nenhum mapa estava instalado; foi corrigido. Revisão concentrada nas mudanças
+da expansão desde `9dd3784`, nos geradores de eventos/treinadores, seções de mapas,
+balsa, armazenamento dos presentes e testes. Não é uma auditoria completa de toda
+a engine nem uma validação da campanha inteira.
+
+### Elm: pedido reduzido e inicial
+
+- `scripts/johto_pilot_story.py`, chamado pelo gerador existente de eventos:
+  Elm pede ajuda para criar um Pokémon, aceita recusa e oferece as três bolas
+  originais nas posições (8,4), (9,4), (10,4).
+- Estado em `VAR_JOHTO_STORY` (`0x402B`): 0 não aceitou; 1 pode escolher;
+  2 inicial entregue; 3 venceu Silver. `VAR_JOHTO_STARTER` (`0x402C`) registra
+  Chikorita/Cyndaquil/Totodile como 0/1/2.
+- Um presente de nível 5 por região. A escolha só é gravada depois do sucesso de
+  `givemon`; equipe cheia envia ao PC, armazenamento completamente cheio permite
+  tentar novamente. A bola escolhida desaparece (`0x024`–`0x026`), as outras não
+  podem dar outro presente.
+- Nova special `BufferMonCategory` reaproveita a categoria da Pokédex em STR_VAR_2,
+  sem alterar VAR_RESULT. Não cria uma tabela duplicada de categorias.
+- Falas originais do HNS, com PT-BR revisado. Não foi importada a missão do ovo,
+  a polícia, o telefone ou um destino ainda ausente.
+
+### Silver e correção da May
+
+- Silver usa retrato próprio (ID 148, acrescentado ao fim), os três espaços Brendan
+  sem uso e os times de Victory Road do HNS. O inicial dele tem vantagem sobre a
+  escolha do jogador. Mantidos golpes/itens; níveis provisórios 85–88 (+40).
+- Antes do inicial, conserva as falas na janela. Depois, interação inicia batalha;
+  vitória avança para estado 3 e passa à fala posterior. Não altera o rival de Kanto.
+- A revisão encontrou May fora da passagem geral de treino: a injeção tardia
+  conservava batalha simples e classe genérica. O gerador agora dá a May e Silver
+  classe RIVAL_LATE (ativa IVs perfeitos e EVs por função), batalha em dupla e
+  AI_SCRIPT_DOUBLE_BATTLE, além dos filtros de golpes já usados.
+- A tabela de treinadores do piloto aceita equipes com golpes/itens explícitos e
+  offset por treinador; as outras 636 equipes geradas continuam no mesmo fluxo.
+
+### Problemas encontrados nos testes
+
+1. A expressão regular de leitura de falas podia ficar presa em retrocesso
+   combinatório em scripts longos sem `msgbox`. Foi substituída por busca limitada
+   a cada rótulo; teste regressivo com 200 comandos sem mensagem.
+2. O driver que só apertava A não exercitava recusas. Agora detecta a janela real
+   de sim/não e envia A/B; cobre Torchic, Mudkip, recusar os três e o segundo destino
+   do marinheiro de Vermilion. Após recusa terminal usa B para não reabrir o NPC.
+3. Dois Mewtwo de teste perderam alguns confrontos após a correção de treino/duplas.
+   Isso não prova um bug de progressão: a derrota deixou o estado pendente. Foram
+   separados cenários de vitória (Latios/Soul Dew preparados, só no fixture) e
+   derrota (Magikarp com 1 HP), sem enfraquecer o treinador ou mudar o dano do jogo.
+4. O arquivo de resultados agora começa como `running`, evitando que um resultado
+   antigo aprovado seja tomado pelo resultado de uma execução interrompida.
+
+### Validação em andamento
+
+- 28 testes Python de regiões aprovados; geração de treinadores e localização
+  consistente (`--check`). 8.217 entradas traduzidas, nenhuma recusada.
+- Na execução intermediária, passaram as três escolhas do Elm, recusa, bloqueio
+  antes do pedido, bloqueio de segundo presente, envio ao PC e armazenamento cheio.
+- A execução final amplia a confirmação de duplas, IVs/EVs, derrota e save/reload
+  real dos setores do jogo. O resultado final será registrado abaixo quando terminar.
+- Tudo em cópia temporária/saídas ignoradas. Sem substituir ROM distribuída,
+  publicar release ou alterar `main`. Os casos posicionam o jogador no cenário;
+  continuam sem provar um percurso contínuo desde Kanto ou a campanha completa.
+
+Reprodução, na raiz:
+
+```powershell
+python scripts/import_silver_pilot.py --source ../map-references/HNS_modern --game games/super-fire-red
+python scripts/install_pilot_events.py --references ../map-references --game games/super-fire-red --report docs/map-audits/pilot-events.json
+python scripts/region_pilot_ptbr.py
+python games/super-fire-red/scripts/generate_locale.py
+python games/super-fire-red/scripts/balance_trainers.py
+python -m unittest discover -s scripts -p 'test_*region*.py' -q
+```
+
+No Ubuntu/WSL, executar na raiz `python3 games/super-fire-red/scripts/test_region_pilot_maps.py`.
+Resultados e logs ficam em `games/super-fire-red/output/tests/region-pilot-maps/`.
+
+### Resultado final desta etapa — 08/11/2026
+
+- **162/162 casos instrumentados aprovados** em mGBA, ROM compilada em
+  `/root/.cache/firered-386/region-pilot-ny_5vx21`. Resultado `status: passed`
+  em `games/super-fire-red/output/tests/region-pilot-maps/results.json`;
+  log completo em `games/super-fire-red/output/tests/region-story-verified.log`.
+  Essas saídas são locais e ignoradas pelo Git.
+- Passaram as três equipes de May e Silver, com conferência das espécies,
+  nível do primeiro Pokémon, duplas, IVs 31 e soma de EVs 508 em todos os membros.
+  Os cenários de vitória usam Latios preparados; contra a terceira equipe de
+  Silver, dois Kyogre nível 100 com Origin Pulse/Mystic Water. Isso é preparação
+  do fixture e não comprova balanceamento para uma equipe normal da campanha.
+- Derrotas de May e Silver preservam o estado para nova tentativa. As três escolhas
+  do Elm, recusa, bloqueios, envio ao PC e PC completamente cheio passaram.
+- Save/reload usa as rotinas reais de setores: gravou, alterou os dados em RAM e
+  recarregou escolha, Pokémon, flag da bola e localização. Não testa desligamento,
+  menu Continue nem migração de saves antigos de usuários.
+- Categoria PT-BR `FOLHA` confirmada durante a recusa do inicial. As duas escolhas
+  alternativas de Hoenn, recusa de todos os iniciais e quatro viagens de balsa
+  passaram. Portas, escadas, conexões, encontros e eventos anteriores passaram.
+- **28 testes Python** de regiões e **2 testes C nativos** de portas aprovados;
+  geradores de localização e 636 equipes consistentes em `--check`;
+  `git diff --check` sem erros de whitespace.
+- Sequência, equipes, golpes e itens documentados em
+  [REGION_PILOT_CHALLENGES.md](REGION_PILOT_CHALLENGES.md). README e tabela do
+  roadmap corrigidos para refletir os pilotos que já existem.
+
+Pendências principais: demais eventos de história dos pilotos (incluindo mães e
+presentes de assistentes), percurso contínuo sem posicionamento de teste, Continue
+com save real, compatibilidade de saves antigos, mapas regionais/Fly e expansão
+geográfica além dos 15 mapas. Johto/Hoenn completas e balanceamento final continuam
+pendentes. Teto de nível 500 permanece no backlog. Nenhuma release ou main alterada.

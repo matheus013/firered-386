@@ -12,6 +12,8 @@ Johto_NewBarkTown_EventScript_Object1::
 
 Johto_NewBarkTown_EventScript_Object2::
 	lock
+	goto_if_ge VAR_JOHTO_STORY, 3, Johto_NewBarkTown_EventScript_Object2_After
+	goto_if_eq VAR_JOHTO_STORY, 2, Johto_NewBarkTown_EventScript_Object2_Battle
 	msgbox Johto_NewBarkTown_Text_Silver1, MSGBOX_DEFAULT
 	delay 60
 	playse SE_PIN
@@ -19,6 +21,39 @@ Johto_NewBarkTown_EventScript_Object2::
 	faceplayer
 	waitmovement 0
 	msgbox Johto_NewBarkTown_Text_Silver2, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_EventScript_Object2_Battle::
+	faceplayer
+	msgbox Johto_NewBarkTown_Text_RivalSeen, MSGBOX_DEFAULT
+	closemessage
+	goto_if_eq VAR_JOHTO_STARTER, 0, Johto_NewBarkTown_EventScript_Object2_VsChikorita
+	goto_if_eq VAR_JOHTO_STARTER, 1, Johto_NewBarkTown_EventScript_Object2_VsCyndaquil
+	goto Johto_NewBarkTown_EventScript_Object2_VsTotodile
+	end
+
+Johto_NewBarkTown_EventScript_Object2_VsChikorita::
+	trainerbattle_no_intro TRAINER_BRENDAN, Johto_NewBarkTown_Text_SilverWin
+	setvar VAR_JOHTO_STORY, 3
+	goto Johto_NewBarkTown_EventScript_Object2_After
+	end
+
+Johto_NewBarkTown_EventScript_Object2_VsCyndaquil::
+	trainerbattle_no_intro TRAINER_BRENDAN_2, Johto_NewBarkTown_Text_SilverWin
+	setvar VAR_JOHTO_STORY, 3
+	goto Johto_NewBarkTown_EventScript_Object2_After
+	end
+
+Johto_NewBarkTown_EventScript_Object2_VsTotodile::
+	trainerbattle_no_intro TRAINER_BRENDAN_3, Johto_NewBarkTown_Text_SilverWin
+	setvar VAR_JOHTO_STORY, 3
+	goto Johto_NewBarkTown_EventScript_Object2_After
+	end
+
+Johto_NewBarkTown_EventScript_Object2_After::
+	faceplayer
+	msgbox Johto_NewBarkTown_Text_RivalAfter, MSGBOX_DEFAULT
 	release
 	end
 
@@ -72,6 +107,28 @@ Johto_NewBarkTown_Text_Silver1::
 @ HNS_modern data/maps/NewBarkTown/scripts.inc: NewBarkTown_Text_Silver2
 Johto_NewBarkTown_Text_Silver2::
 	.string "…What are you staring at?$"
+
+@ HNS_modern data/maps/CherrygroveCity/scripts.inc: CherrygroveCity_Text_RivalSeen
+Johto_NewBarkTown_Text_RivalSeen::
+	.string "… … … … … … … …\p"
+	.string "You got a Pokémon at the Lab.\p"
+	.string "What a waste.\n"
+	.string "A wimp like you.\p"
+	.string "… … … … … … … …\p"
+	.string "Don't you get what I'm saying?\n"
+	.string "Well, I too, have a good Pokémon.\p"
+	.string "I'll show you what I mean!$"
+
+@ HNS_modern data/maps/CherrygroveCity/scripts.inc: CherrygroveCity_Text_SilverWin
+Johto_NewBarkTown_Text_SilverWin::
+	.string "Humph. Are you happy you won?$"
+
+@ HNS_modern data/maps/CherrygroveCity/scripts.inc: CherrygroveCity_Text_RivalAfter
+Johto_NewBarkTown_Text_RivalAfter::
+	.string "… … … … … … … …\p"
+	.string "Do you want to know who I am?\p"
+	.string "I'm going to be the world's\n"
+	.string "greatest Pokémon Trainer.$"
 
 @ new text (no source)
 Johto_NewBarkTown_Text_Ferry::

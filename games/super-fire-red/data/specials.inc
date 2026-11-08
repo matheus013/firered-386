@@ -458,4 +458,5 @@ gSpecials::
 	def_special Training_CheckCenter
 	def_special Training_UseCenter
 	def_special Randomizer_PrepareStarter
+	def_special BufferMonCategory
 gSpecialsEnd::

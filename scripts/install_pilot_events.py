@@ -88,7 +88,7 @@ EVENTS = {
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
-        2: ('silver', ('NewBarkTown_Text_Silver1', 'NewBarkTown_Text_Silver2'), 'Silver: both lines and the exclamation; the push movement is left out because it only fits one approach cell')},
+        2: ('story', None, 'Silver: HNS dialogue before the gift, then a post-League battle; no push movement')},
         {0: ('sign', 'NewBarkTown_Text_Sign'), 1: ('sign', 'NewBarkTown_Text_Door'),
          3: ('sign', 'NewBarkTown_Text_ElmsHouse'), 4: ('sign', 'NewBarkTown_Text_LabSign')}),
     'Route29': (HNS, {
@@ -111,8 +111,11 @@ EVENTS = {
         0: ('npc', 'Gate_Route29_Route46_Text_Officer', ''), 1: ('npc', 'Gate_Route29_Route46_Text_Youngster', '')}, {}),
     'NewBarkTown_Lab': (HNS, {
         0: ('npc', 'NewBarkTown_Lab_Text_AideAlwaysBusy', 'source hides him during the story; always shown'),
-        1: ('silent', None, 'Prof. Elm: every source branch depends on the story (eggs, phone, gifts)'),
-        2: ('npc', 'NewBarkTown_Lab_Text_AideSave', 'default branch')},
+        1: ('story', None, 'Elm research request: raise one Pokemon; no egg errand outside the pilot'),
+        2: ('npc', 'NewBarkTown_Lab_Text_AideSave', 'default branch'),
+        3: ('story', None, 'Chikorita gift, one starter per Johto save'),
+        4: ('story', None, 'Cyndaquil gift, one starter per Johto save'),
+        5: ('story', None, 'Totodile gift, one starter per Johto save')},
         'lab'),
     'NewBarkTown_PlayersHouse_1F': (HNS, {
         0: ('silent', None, 'mother: every source line speaks to her own child'),

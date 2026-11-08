@@ -2500,6 +2500,8 @@ extern const u32 gTrainerFrontPic_RSSailor[];
 extern const u32 gTrainerFrontPic_Collector[];
 extern const u32 gTrainerFrontPic_Wally[];
 extern const u32 gTrainerFrontPic_RSBrendan1[];
+extern const u32 gTrainerFrontPic_Silver[];
+extern const u32 gTrainerPalette_Silver[];
 extern const u32 gTrainerFrontPic_RSMay1[];
 extern const u32 gTrainerFrontPic_RSPokemonBreederM[];
 extern const u32 gTrainerFrontPic_RSPokemonBreederF[];

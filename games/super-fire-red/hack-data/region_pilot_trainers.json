@@ -2,11 +2,341 @@
   "note": "Region pilot story trainers, injected by scripts/balance_trainers.py into FireRed's unused Ruby/Sapphire slots. Teams: pokeemerald src/data/trainer_parties.h sParty_MayLilycove* (the strongest May battle in the source), levels raised by 55 into the post-League band. Levels are provisional until the expansion rebalance.",
   "level_offset": 55,
   "trainers": {
-    "TRAINER_MAY": {"party": "sParty_May", "name": "MAY", "player_starter": "SPECIES_MUDKIP", "source": "sParty_MayLilycoveMudkip",
-      "team": [["SPECIES_TROPIUS", 31, 150], ["SPECIES_SLUGMA", 32, 150], ["SPECIES_PELIPPER", 32, 150], ["SPECIES_GROVYLE", 34, 200]]},
-    "TRAINER_MAY_2": {"party": "sParty_May2", "name": "MAY", "player_starter": "SPECIES_TREECKO", "source": "sParty_MayLilycoveTreecko",
-      "team": [["SPECIES_TROPIUS", 31, 150], ["SPECIES_PELIPPER", 32, 150], ["SPECIES_LUDICOLO", 32, 150], ["SPECIES_COMBUSKEN", 34, 200]]},
-    "TRAINER_MAY_3": {"party": "sParty_May3", "name": "MAY", "player_starter": "SPECIES_TORCHIC", "source": "sParty_MayLilycoveTorchic",
-      "team": [["SPECIES_TROPIUS", 31, 150], ["SPECIES_LUDICOLO", 32, 150], ["SPECIES_SLUGMA", 32, 150], ["SPECIES_MARSHTOMP", 34, 200]]}
+    "TRAINER_MAY": {
+      "party": "sParty_May",
+      "name": "MAY",
+      "player_starter": "SPECIES_MUDKIP",
+      "source": "sParty_MayLilycoveMudkip",
+      "team": [
+        [
+          "SPECIES_TROPIUS",
+          31,
+          150
+        ],
+        [
+          "SPECIES_SLUGMA",
+          32,
+          150
+        ],
+        [
+          "SPECIES_PELIPPER",
+          32,
+          150
+        ],
+        [
+          "SPECIES_GROVYLE",
+          34,
+          200
+        ]
+      ]
+    },
+    "TRAINER_MAY_2": {
+      "party": "sParty_May2",
+      "name": "MAY",
+      "player_starter": "SPECIES_TREECKO",
+      "source": "sParty_MayLilycoveTreecko",
+      "team": [
+        [
+          "SPECIES_TROPIUS",
+          31,
+          150
+        ],
+        [
+          "SPECIES_PELIPPER",
+          32,
+          150
+        ],
+        [
+          "SPECIES_LUDICOLO",
+          32,
+          150
+        ],
+        [
+          "SPECIES_COMBUSKEN",
+          34,
+          200
+        ]
+      ]
+    },
+    "TRAINER_MAY_3": {
+      "party": "sParty_May3",
+      "name": "MAY",
+      "player_starter": "SPECIES_TORCHIC",
+      "source": "sParty_MayLilycoveTorchic",
+      "team": [
+        [
+          "SPECIES_TROPIUS",
+          31,
+          150
+        ],
+        [
+          "SPECIES_LUDICOLO",
+          32,
+          150
+        ],
+        [
+          "SPECIES_SLUGMA",
+          32,
+          150
+        ],
+        [
+          "SPECIES_MARSHTOMP",
+          34,
+          200
+        ]
+      ]
+    },
+    "TRAINER_BRENDAN": {
+      "party": "sParty_Brendan",
+      "name": "SILVER",
+      "player_starter": "SPECIES_CHIKORITA",
+      "source": "sParty_Rival_Cyndaquil5",
+      "source_repo": "resetes12/HNS_modern",
+      "level_offset": 40,
+      "trainer_pic": "TRAINER_PIC_SILVER",
+      "trainer_class": "TRAINER_CLASS_RIVAL_LATE",
+      "team": [
+        {
+          "species": "SPECIES_URSARING",
+          "level": 45,
+          "iv": 100,
+          "item": "ITEM_CHESTO_BERRY",
+          "moves": [
+            "MOVE_SLASH",
+            "MOVE_FAINT_ATTACK",
+            "MOVE_ROCK_SMASH",
+            "MOVE_REST"
+          ]
+        },
+        {
+          "species": "SPECIES_GOLBAT",
+          "level": 45,
+          "iv": 100,
+          "item": "ITEM_NONE",
+          "moves": [
+            "MOVE_TOXIC",
+            "MOVE_DOUBLE_TEAM",
+            "MOVE_CONFUSE_RAY",
+            "MOVE_WING_ATTACK"
+          ]
+        },
+        {
+          "species": "SPECIES_OCTILLERY",
+          "level": 46,
+          "iv": 100,
+          "item": "ITEM_QUICK_CLAW",
+          "moves": [
+            "MOVE_SURF",
+            "MOVE_ICE_BEAM",
+            "MOVE_PSYBEAM",
+            "MOVE_HYPER_BEAM"
+          ]
+        },
+        {
+          "species": "SPECIES_VICTREEBEL",
+          "level": 46,
+          "iv": 100,
+          "item": "ITEM_NONE",
+          "moves": [
+            "MOVE_SLUDGE_BOMB",
+            "MOVE_GIGA_DRAIN",
+            "MOVE_SLEEP_POWDER",
+            "MOVE_GROWTH"
+          ]
+        },
+        {
+          "species": "SPECIES_TYPHLOSION",
+          "level": 47,
+          "iv": 100,
+          "item": "ITEM_CHARCOAL",
+          "moves": [
+            "MOVE_FLAMETHROWER",
+            "MOVE_QUICK_ATTACK",
+            "MOVE_IRON_TAIL",
+            "MOVE_THUNDER_PUNCH"
+          ]
+        },
+        {
+          "species": "SPECIES_TYRANITAR",
+          "level": 48,
+          "iv": 100,
+          "item": "ITEM_NONE",
+          "moves": [
+            "MOVE_CRUNCH",
+            "MOVE_EARTHQUAKE",
+            "MOVE_ROCK_SLIDE",
+            "MOVE_FIRE_PUNCH"
+          ]
+        }
+      ]
+    },
+    "TRAINER_BRENDAN_2": {
+      "party": "sParty_Brendan2",
+      "name": "SILVER",
+      "player_starter": "SPECIES_CYNDAQUIL",
+      "source": "sParty_Rival_Totodile5",
+      "source_repo": "resetes12/HNS_modern",
+      "level_offset": 40,
+      "trainer_pic": "TRAINER_PIC_SILVER",
+      "trainer_class": "TRAINER_CLASS_RIVAL_LATE",
+      "team": [
+        {
+          "species": "SPECIES_URSARING",
+          "level": 45,
+          "iv": 100,
+          "item": "ITEM_CHESTO_BERRY",
+          "moves": [
+            "MOVE_SLASH",
+            "MOVE_FAINT_ATTACK",
+            "MOVE_ROCK_SMASH",
+            "MOVE_REST"
+          ]
+        },
+        {
+          "species": "SPECIES_GOLBAT",
+          "level": 45,
+          "iv": 100,
+          "item": "ITEM_NONE",
+          "moves": [
+            "MOVE_TOXIC",
+            "MOVE_DOUBLE_TEAM",
+            "MOVE_CONFUSE_RAY",
+            "MOVE_WING_ATTACK"
+          ]
+        },
+        {
+          "species": "SPECIES_VICTREEBEL",
+          "level": 46,
+          "iv": 100,
+          "item": "ITEM_QUICK_CLAW",
+          "moves": [
+            "MOVE_SLUDGE_BOMB",
+            "MOVE_GIGA_DRAIN",
+            "MOVE_SLEEP_POWDER",
+            "MOVE_GROWTH"
+          ]
+        },
+        {
+          "species": "SPECIES_HOUNDOOM",
+          "level": 46,
+          "iv": 100,
+          "item": "ITEM_NONE",
+          "moves": [
+            "MOVE_FLAMETHROWER",
+            "MOVE_IRON_TAIL",
+            "MOVE_CRUNCH",
+            "MOVE_DOUBLE_TEAM"
+          ]
+        },
+        {
+          "species": "SPECIES_FERALIGATR",
+          "level": 47,
+          "iv": 100,
+          "item": "ITEM_MYSTIC_WATER",
+          "moves": [
+            "MOVE_ICE_PUNCH",
+            "MOVE_SURF",
+            "MOVE_SLASH",
+            "MOVE_BITE"
+          ]
+        },
+        {
+          "species": "SPECIES_TYRANITAR",
+          "level": 48,
+          "iv": 100,
+          "item": "ITEM_NONE",
+          "moves": [
+            "MOVE_CRUNCH",
+            "MOVE_EARTHQUAKE",
+            "MOVE_ROCK_SLIDE",
+            "MOVE_FIRE_PUNCH"
+          ]
+        }
+      ]
+    },
+    "TRAINER_BRENDAN_3": {
+      "party": "sParty_Brendan3",
+      "name": "SILVER",
+      "player_starter": "SPECIES_TOTODILE",
+      "source": "sParty_Rival_Chikorita5",
+      "source_repo": "resetes12/HNS_modern",
+      "level_offset": 40,
+      "trainer_pic": "TRAINER_PIC_SILVER",
+      "trainer_class": "TRAINER_CLASS_RIVAL_LATE",
+      "team": [
+        {
+          "species": "SPECIES_URSARING",
+          "level": 45,
+          "iv": 100,
+          "item": "ITEM_CHESTO_BERRY",
+          "moves": [
+            "MOVE_SLASH",
+            "MOVE_FAINT_ATTACK",
+            "MOVE_ROCK_SMASH",
+            "MOVE_REST"
+          ]
+        },
+        {
+          "species": "SPECIES_GOLBAT",
+          "level": 45,
+          "iv": 100,
+          "item": "ITEM_NONE",
+          "moves": [
+            "MOVE_TOXIC",
+            "MOVE_DOUBLE_TEAM",
+            "MOVE_CONFUSE_RAY",
+            "MOVE_WING_ATTACK"
+          ]
+        },
+        {
+          "species": "SPECIES_OCTILLERY",
+          "level": 46,
+          "iv": 100,
+          "item": "ITEM_QUICK_CLAW",
+          "moves": [
+            "MOVE_SURF",
+            "MOVE_ICE_BEAM",
+            "MOVE_PSYBEAM",
+            "MOVE_HYPER_BEAM"
+          ]
+        },
+        {
+          "species": "SPECIES_HOUNDOOM",
+          "level": 46,
+          "iv": 100,
+          "item": "ITEM_NONE",
+          "moves": [
+            "MOVE_FLAMETHROWER",
+            "MOVE_IRON_TAIL",
+            "MOVE_CRUNCH",
+            "MOVE_SUNNY_DAY"
+          ]
+        },
+        {
+          "species": "SPECIES_MEGANIUM",
+          "level": 47,
+          "iv": 100,
+          "item": "ITEM_MIRACLE_SEED",
+          "moves": [
+            "MOVE_SUNNY_DAY",
+            "MOVE_GIGA_DRAIN",
+            "MOVE_BODY_SLAM",
+            "MOVE_SYNTHESIS"
+          ]
+        },
+        {
+          "species": "SPECIES_TYRANITAR",
+          "level": 48,
+          "iv": 100,
+          "item": "ITEM_NONE",
+          "moves": [
+            "MOVE_CRUNCH",
+            "MOVE_EARTHQUAKE",
+            "MOVE_ROCK_SLIDE",
+            "MOVE_FIRE_PUNCH"
+          ]
+        }
+      ]
+    }
   }
 }

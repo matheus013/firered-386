@@ -87,6 +87,8 @@
 #define VAR_WONDER_NEWS_STEP_COUNTER       0x4028
 #define VAR_HOENN_STORY VAR_0x4029 // Region pilot story (scripts/pilot_story.py)
 #define VAR_HOENN_STARTER VAR_0x402A // Region pilot story (scripts/pilot_story.py)
+#define VAR_JOHTO_STORY VAR_0x402B // Region pilot story (scripts/pilot_story.py)
+#define VAR_JOHTO_STARTER VAR_0x402C // Region pilot story (scripts/pilot_story.py)
 #define VAR_0x4029                         0x4029
 #define VAR_0x402A                         0x402A
 #define VAR_0x402B                         0x402B

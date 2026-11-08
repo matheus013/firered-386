@@ -6,8 +6,140 @@ Johto_NewBarkTown_Lab_EventScript_Object0::
 	msgbox Johto_NewBarkTown_Lab_Text_AideAlwaysBusy, MSGBOX_NPC
 	end
 
+Johto_NewBarkTown_Lab_EventScript_Object1::
+	lock
+	faceplayer
+	goto_if_ge VAR_JOHTO_STORY, 2, Johto_NewBarkTown_Lab_EventScript_Object1_Research
+	goto_if_eq VAR_JOHTO_STORY, 1, Johto_NewBarkTown_Lab_EventScript_Object1_Choose
+	msgbox Johto_NewBarkTown_Lab_Text_ElmIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Johto_NewBarkTown_Lab_EventScript_Object1_Refused
+	msgbox Johto_NewBarkTown_Lab_Text_ElmAccepted, MSGBOX_DEFAULT
+	setvar VAR_JOHTO_STORY, 1
+Johto_NewBarkTown_Lab_EventScript_Object1_Choose::
+	msgbox Johto_NewBarkTown_Lab_Text_ElmChooseAPokemon, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object1_Research::
+	msgbox Johto_NewBarkTown_Lab_Text_ElmResearchAmbitions, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object1_Refused::
+	msgbox Johto_NewBarkTown_Lab_Text_ElmRefused, MSGBOX_DEFAULT
+	release
+	end
+
 Johto_NewBarkTown_Lab_EventScript_Object2::
 	msgbox Johto_NewBarkTown_Lab_Text_AideSave, MSGBOX_NPC
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object3::
+	lock
+	goto_if_ne VAR_JOHTO_STORY, 1, Johto_NewBarkTown_Lab_EventScript_Object3_Unavailable
+	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
+	setvar VAR_0x8004, SPECIES_CHIKORITA
+	special BufferMonCategory
+	msgbox Johto_NewBarkTown_Lab_Text_ChooseChikorita, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Johto_NewBarkTown_Lab_EventScript_Object3_Declined
+	setvar VAR_TEMP_1, SPECIES_CHIKORITA
+	givemon SPECIES_CHIKORITA, 5
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	copyvar VAR_0x8008, VAR_RESULT
+	setvar VAR_JOHTO_STARTER, 0
+	setvar VAR_JOHTO_STORY, 2
+	setflag FLAG_HIDE_JOHTO_CHIKORITA_BALL
+	removeobject 4
+	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
+	playfanfare MUS_LEVEL_UP
+	message Johto_NewBarkTown_Lab_Text_ReceivedStarter
+	waitmessage
+	waitfanfare
+	call_if_eq VAR_0x8008, 1, EventScript_TransferredToPC
+	msgbox Johto_NewBarkTown_Lab_Text_ChoseStarter, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object3_Declined::
+	msgbox Johto_NewBarkTown_Lab_Text_DidntChooseStarter, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object3_Unavailable::
+	msgbox Johto_NewBarkTown_Lab_Text_ShouldntTouch, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object4::
+	lock
+	goto_if_ne VAR_JOHTO_STORY, 1, Johto_NewBarkTown_Lab_EventScript_Object4_Unavailable
+	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
+	setvar VAR_0x8004, SPECIES_CYNDAQUIL
+	special BufferMonCategory
+	msgbox Johto_NewBarkTown_Lab_Text_ChooseCyndaquil, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Johto_NewBarkTown_Lab_EventScript_Object4_Declined
+	setvar VAR_TEMP_1, SPECIES_CYNDAQUIL
+	givemon SPECIES_CYNDAQUIL, 5
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	copyvar VAR_0x8008, VAR_RESULT
+	setvar VAR_JOHTO_STARTER, 1
+	setvar VAR_JOHTO_STORY, 2
+	setflag FLAG_HIDE_JOHTO_CYNDAQUIL_BALL
+	removeobject 5
+	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
+	playfanfare MUS_LEVEL_UP
+	message Johto_NewBarkTown_Lab_Text_ReceivedStarter
+	waitmessage
+	waitfanfare
+	call_if_eq VAR_0x8008, 1, EventScript_TransferredToPC
+	msgbox Johto_NewBarkTown_Lab_Text_ChoseStarter, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object4_Declined::
+	msgbox Johto_NewBarkTown_Lab_Text_DidntChooseStarter, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object4_Unavailable::
+	msgbox Johto_NewBarkTown_Lab_Text_ShouldntTouch, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object5::
+	lock
+	goto_if_ne VAR_JOHTO_STORY, 1, Johto_NewBarkTown_Lab_EventScript_Object5_Unavailable
+	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
+	setvar VAR_0x8004, SPECIES_TOTODILE
+	special BufferMonCategory
+	msgbox Johto_NewBarkTown_Lab_Text_ChooseTotodile, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Johto_NewBarkTown_Lab_EventScript_Object5_Declined
+	setvar VAR_TEMP_1, SPECIES_TOTODILE
+	givemon SPECIES_TOTODILE, 5
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	copyvar VAR_0x8008, VAR_RESULT
+	setvar VAR_JOHTO_STARTER, 2
+	setvar VAR_JOHTO_STORY, 2
+	setflag FLAG_HIDE_JOHTO_TOTODILE_BALL
+	removeobject 6
+	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
+	playfanfare MUS_LEVEL_UP
+	message Johto_NewBarkTown_Lab_Text_ReceivedStarter
+	waitmessage
+	waitfanfare
+	call_if_eq VAR_0x8008, 1, EventScript_TransferredToPC
+	msgbox Johto_NewBarkTown_Lab_Text_ChoseStarter, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object5_Declined::
+	msgbox Johto_NewBarkTown_Lab_Text_DidntChooseStarter, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object5_Unavailable::
+	msgbox Johto_NewBarkTown_Lab_Text_ShouldntTouch, MSGBOX_DEFAULT
+	release
 	end
 
 Johto_NewBarkTown_Lab_EventScript_Sign0::
@@ -115,12 +247,88 @@ Johto_NewBarkTown_Lab_Text_AideAlwaysBusy::
 	.string "There are only three of us, so\n"
 	.string "we're always busy.$"
 
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ElmIntro
+Johto_NewBarkTown_Lab_Text_ElmIntro::
+	.string "Prof. Elm: {PLAYER}! There you are!\p"
+	.string "I needed to ask you a favor.\p"
+	.string "I'm conducting new Pokémon\n"
+	.string "research right now. I was\l"
+	.string "wondering if you could help\l"
+	.string "me with it, {PLAYER}.\p"
+	.string "You see…\p"
+	.string "I'm writing a paper that I\n"
+	.string "want to present at a conference.\p"
+	.string "But there are some things I\n"
+	.string "don't quite understand yet.\p"
+	.string "So!\p"
+	.string "I'd like you to raise a\n"
+	.string "Pokémon that I recently caught.$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ElmAccepted
+Johto_NewBarkTown_Lab_Text_ElmAccepted::
+	.string "Thanks, {PLAYER}!\n"
+	.string "You're a great help!$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ElmChooseAPokemon
+Johto_NewBarkTown_Lab_Text_ElmChooseAPokemon::
+	.string "I want you to raise one of\n"
+	.string "the Pokémon contained in these Balls.\p"
+	.string "You'll be that Pokémon's\n"
+	.string "first partner, {PLAYER}!\p"
+	.string "Go on. Pick one!$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ElmResearchAmbitions
+Johto_NewBarkTown_Lab_Text_ElmResearchAmbitions::
+	.string "When I announce my findings,\n"
+	.string "I'm sure we'll delve deeper\p"
+	.string "into the many mysteries of\n"
+	.string "Pokémon.\p"
+	.string "You can count on it!$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ElmRefused
+Johto_NewBarkTown_Lab_Text_ElmRefused::
+	.string "But… Please, I need your\n"
+	.string "help!$"
+
 @ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_AideSave
 Johto_NewBarkTown_Lab_Text_AideSave::
 	.string "Don't forget to save your game\n"
 	.string "regularly!\p"
 	.string "Press the Start button, then\n"
 	.string "Save the game!$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ChooseChikorita
+Johto_NewBarkTown_Lab_Text_ChooseChikorita::
+	.string "Prof. Elm: So, you like {STR_VAR_1},\n"
+	.string "the {STR_VAR_2} Pokémon?$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ReceivedStarter
+Johto_NewBarkTown_Lab_Text_ReceivedStarter::
+	.string "{PLAYER} received {STR_VAR_1}!$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ChoseStarter
+Johto_NewBarkTown_Lab_Text_ChoseStarter::
+	.string "Prof. Elm: I think that's a great\n"
+	.string "Pokémon too!$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_DidntChooseStarter
+Johto_NewBarkTown_Lab_Text_DidntChooseStarter::
+	.string "Prof. Elm: Think it over carefully.\p"
+	.string "Your partner is important.$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ShouldntTouch
+Johto_NewBarkTown_Lab_Text_ShouldntTouch::
+	.string "Probably shouldn't touch!$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ChooseCyndaquil
+Johto_NewBarkTown_Lab_Text_ChooseCyndaquil::
+	.string "Prof. Elm: You'll take {STR_VAR_1},\n"
+	.string "the {STR_VAR_2} Pokémon?$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ChooseTotodile
+Johto_NewBarkTown_Lab_Text_ChooseTotodile::
+	.string "Prof. Elm: Do you want {STR_VAR_1},\n"
+	.string "the {STR_VAR_2} Pokémon?$"
 
 @ HNS_modern data/maps/LittlerootTown_ProfessorBirchsLab/scripts.inc: LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch
 Johto_NewBarkTown_Lab_Text_PCUsedForResearch::

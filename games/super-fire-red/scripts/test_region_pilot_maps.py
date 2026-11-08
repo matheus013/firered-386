@@ -10,6 +10,7 @@ from pathlib import Path
 import json,os,re,subprocess,tempfile
 root=Path(__file__).resolve().parents[3];game=root/'games/super-fire-red'
 out=game/'output/tests/region-pilot-maps';out.mkdir(parents=True,exist_ok=True)
+(out/'results.json').write_text(json.dumps({'status':'running','note':'No passing result for this run until every assertion finishes.'})+'\n')
 for old in out.glob('*.png'):old.unlink()
 cache=Path(os.environ.get('XDG_CACHE_HOME',Path.home()/'.cache'))/'firered-386'
 test=Path(tempfile.mkdtemp(prefix='region-pilot-',dir=cache));(out/'build-path.txt').write_text(str(test)+'\n')
@@ -60,11 +61,19 @@ LAYOUTS={l['id']:l for l in json.loads((game/'data/layouts/layouts.json').read_t
 TALKS={}
 # Story state per case: (VAR_HOENN_STORY, VAR_HOENN_STARTER); default (0, 0). See scripts/pilot_story.py.
 STORY={11:(3,0)}
+JOHTO_STORY={}
+NO_ANSWERS={}
+STOP_AFTER_PROMPT={}
 SPOTS={}
 def _pilot_texts(folder):
  text=(folder/'scripts.inc').read_text(encoding='utf-8')
  bodies={l:''.join(re.findall(r'\.string "([^"]*)"',b)) for l,b in re.findall(r'^(\w+_Text_\w+)::\n((?:\t\.string "[^"]*"\n?)+)',text,re.M)}
- shown={sc:bodies[tl] for sc,tl in re.findall(r'^(\w+)::\n(?:\t\w+[^\n]*\n)*?\tmsgbox (\w+_Text_\w+)',text,re.M)}
+ # Bound each lookup to one label. The old nested regex backtracked heavily
+ # over story branches that contain no msgbox, stalling test discovery.
+ shown={}
+ for block in re.finditer(r'^(\w+)::\n(.*?)(?=^\w+::?\n|\Z)',text,re.M|re.S):
+  message=re.search(r'^\tmsgbox (\w+_Text_\w+)',block[2],re.M)
+  if message and message[1] in bodies:shown[block[1]]=bodies[message[1]]
  return shown
 _ATTRS={name:[v for (v,) in _struct.iter_unpack('<I',(game/path).read_bytes())] for name,path in re.findall(r'const u32 (\w+)\[\] = INCBIN_U32\("([^"]+)"\)',(game/'src/data/tilesets/metatiles.h').read_text())}
 _TILESETS={name:_ATTRS[re.search(r'\.metatileAttributes = (\w+)',body)[1]] for name,body in re.findall(r'const struct Tileset (\w+) =\s*\{(.*?)\};',(game/'src/data/tilesets/headers.h').read_text(),re.S)}
@@ -96,6 +105,7 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
   SPOTS[(folder.name,kind,i)]=(header['id'],sx,sy,key)
   script=e['script']
   if (folder.name,kind,i)==('Hoenn_Route101','object',2):continue  # Birch's bag: story scene cases below
+  if folder.name=='Johto_NewBarkTown_Lab' and kind=='object' and i in (1,3,4,5):continue  # story cases below
   inc=(folder/'scripts.inc').read_text(encoding='utf-8')
   what='silent' if script=='0x0' or (folder.name,kind,i)==('Hoenn_LittlerootTown_ProfessorBirchsLab','object',1) else 'cuttree' if script=='EventScript_CutTree' else 'item' if 'finditem' in inc.split(script+'::')[-1].split('\n\n')[0] else 'heal' if f'{script}_Heal' in inc else 'text'
   setups=[0]+([1] if what=='heal' else [])
@@ -126,7 +136,7 @@ def _text(folder,label):
  return ''.join(re.findall(r'\.string "([^"]*)"',body))
 SCENES={}
 def _scene(map_,x,y,key,story,starter,expect):
- CASES.append((map_,x,y,0,0,[(key,'SCENE')],STRONG));STORY[len(CASES)]=(story,starter);SCENES[len(CASES)]=expect
+ CASES.append((map_,x,y,0,0,[(key,'SCENE')],STRONG|(128 if 'trainer' in expect else 0)));STORY[len(CASES)]=(story,starter);SCENES[len(CASES)]=expect
 _scene(HOENN+'ROUTE101',10,18,'DOWN',0,0,{'name':'rescue starts','story':1,'pos':(10,15),'party':1})
 _scene(HOENN+'ROUTE101',10,17,'DOWN',1,0,{'name':'Birch keeps the player close','story':1,'pos':(10,17),'party':1})
 _bag=SPOTS[('Hoenn_Route101','object',2)]
@@ -144,10 +154,54 @@ _talk_story((LAB,'object',1),3,_text(LAB,LAB+'_Text_MightBeGoodIdeaToGoSeeRival'
 _talk_story((LAB,'object',1),4,_text(LAB,LAB+'_Text_CountlessPokemonAwait'))
 _talk_story(('Hoenn_LittlerootTown_MaysHouse_2F','object',0),4,_text('Hoenn_LittlerootTown_MaysHouse_2F','Hoenn_LittlerootTown_MaysHouse_2F_Text_MayTimeToHeadBack'))
 _talk_story(('Hoenn_Route101','object',2),3,None,'silent')  # the bag is gone after the rescue
+# Exercise real yes/no branches, including all gifts and full storage.
+FULL_PARTY,FULL_PC=32,64
+def _johto_scene(index,state,starter,expect,setup=0,no_answers=0):
+ m,x,y,key=SPOTS[('Johto_NewBarkTown_Lab','object',index)]
+ CASES.append((m,x,y,0,0,[(key,'SCENE')],STRONG|setup|(128 if 'trainer' in expect else 0)))
+ JOHTO_STORY[len(CASES)]=(state,starter)
+ SCENES[len(CASES)]=dict(expect,johto=True)
+ NO_ANSWERS[len(CASES)]=no_answers
+ if no_answers:STOP_AFTER_PROMPT[len(CASES)]=1
+_johto_scene(1,0,0,{'name':'Elm request accepted','story':1,'party':1})
+_johto_scene(1,0,0,{'name':'Elm request refused','story':0,'party':1},no_answers=1)
+_johto_scene(3,0,0,{'name':'ball before Elm request','story':0,'party':1})
+for choice,species in enumerate(('CHIKORITA','CYNDAQUIL','TOTODILE')):
+ _johto_scene(3+choice,1,0,{'name':f'Elm gift {species}','story':2,'starter':choice,'party':2,'gift':'SPECIES_'+species,'ballflags':1<<choice})
+_johto_scene(3,1,0,{'name':'Elm gift declined','story':1,'party':1,'ballflags':0},no_answers=1)
+_johto_scene(3,1,0,{'name':'Elm PT-BR category','story':1,'party':1,'category':'FOLHA'},setup=2,no_answers=1)
+_johto_scene(4,2,0,{'name':'second Johto starter refused','story':2,'starter':0,'party':1})
+_johto_scene(5,1,0,{'name':'Elm gift sent to PC','story':2,'starter':2,'party':6,'boxed':'SPECIES_TOTODILE','ballflags':4},setup=FULL_PARTY)
+_johto_scene(4,1,0,{'name':'Elm full storage preserves choice','story':1,'starter':0,'party':6,'ballflags':0},setup=FULL_PARTY|FULL_PC)
+_johto_scene(1,2,0,{'name':'Elm research after gift','story':2,'party':1})
+_johto_scene(3,1,0,{'name':'Johto gift save reload','story':2,'starter':0,'party':2,'gift':'SPECIES_CHIKORITA','persist':True},setup=512)
+for choice,trainer in enumerate(('TRAINER_BRENDAN','TRAINER_BRENDAN_2','TRAINER_BRENDAN_3')):
+ m,x,y,key=SPOTS[('Johto_NewBarkTown','object',2)]
+ CASES.append((m,x,y,0,0,[(key,'SCENE')],STRONG|128|(1024 if choice==2 else 0)))
+ JOHTO_STORY[len(CASES)]=(2,choice)
+ SCENES[len(CASES)]={'name':f'Silver vs starter {choice}','johto':True,'story':3,'trainer':trainer}
+# Losing does not advance the rival story; this is distinct from a victory fixture.
+_scene(_may[0],_may[1],_may[2],_may[3],3,0,{'name':'May defeat keeps retry state','story':3,'trainer':'TRAINER_MAY_2','outcome':2})
+CASES[-1]=(*CASES[-1][:-1],CASES[-1][-1]|256)
+m,x,y,key=SPOTS[('Johto_NewBarkTown','object',2)]
+CASES.append((m,x,y,0,0,[(key,'SCENE')],STRONG|128|256));JOHTO_STORY[len(CASES)]=(2,0)
+SCENES[len(CASES)]={'name':'Silver defeat keeps retry state','johto':True,'story':2,'trainer':'TRAINER_BRENDAN','outcome':2}
+# Hoenn's previously untested alternatives use the same actual input driver.
+for choice,species in ((1,'TORCHIC'),(2,'MUDKIP')):
+ _scene(_bag[0],_bag[1],_bag[2],_bag[3],1,0,{'name':f'bag: {species}','story':3,'starter':choice,'party':2,'gift':'SPECIES_'+species})
+ NO_ANSWERS[len(CASES)]=(1<<choice)-1
+_scene(_bag[0],_bag[1],_bag[2],_bag[3],1,0,{'name':'bag: refuse all starters','story':1,'party':1})
+NO_ANSWERS[len(CASES)]=7
+STOP_AFTER_PROMPT[len(CASES)]=3
+# Sail to New Bark through the sailor's two questions, not a direct script call.
+CASES.append(('MAP_VERMILION_CITY',23,30,0,0,[('LEFT','TRIP')],GAME_CLEAR))
+TRIPS[len(CASES)]=('MAP_VERMILION_CITY','newbark');NO_ANSWERS[len(CASES)]=1
 CASES=[c if len(c)==7 else (*c,0) for c in CASES]
 KEYS={'UP':'DPAD_UP','DOWN':'DPAD_DOWN','LEFT':'DPAD_LEFT','RIGHT':'DPAD_RIGHT','NONE':'0'}
 MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6,'SCENE':7}
-spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}, {setup}, {STORY.get(n,(0,0))[0]}, {STORY.get(n,(0,0))[1]}}}' for n,(m,x,y,px,py,s,setup) in enumerate(CASES,1))
+spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}, {setup}, {STORY.get(n,(0,0))[0]}, {STORY.get(n,(0,0))[1]}, {JOHTO_STORY.get(n,(0,0))[0]}, {JOHTO_STORY.get(n,(0,0))[1]}}}' for n,(m,x,y,px,py,s,setup) in enumerate(CASES,1))
+answers=', '.join(str(NO_ANSWERS.get(n,0)) for n in range(1,len(CASES)+1))
+stop_prompts=', '.join(str(STOP_AFTER_PROMPT.get(n,0)) for n in range(1,len(CASES)+1))
 steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s,_setup in CASES)
 counts=', '.join(str(len(s)) for *_,s,_setup in CASES)
 hook='''
@@ -168,6 +222,9 @@ hook='''
 #include "item.h"
 #include "constants/items.h"
 #include "battle.h"
+#include "pokemon_storage_system.h"
+#include "save.h"
+bool8 PilotYesNoActive(void);
 extern const struct Tileset gTileset_General, gTileset_HoennPilotGeneral, gTileset_HoennPilotPetalburg;
 extern const struct Tileset gTileset_JohtoPilotGeneral, gTileset_JohtoPilotNewBarkTown;
 void CB2_NewGame(void);
@@ -177,13 +234,31 @@ void CB2_ReturnToField(void);
 extern const u8 EventScript_SailToDest[];
 #include "constants/seagallop.h"
 struct PilotStep { u16 keys; u8 mode; };
-const s8 gPilotSpawn[][10] = {
+const s16 gPilotSpawn[][12] = {
     SPAWNS
 };
 static const struct PilotStep sPilotSteps[][4] = {
     STEPS
 };
 static const u8 sPilotStepCount[] = {COUNTS};
+static const u8 sPilotNoAnswers[] = {ANSWERS};
+static const u8 sPilotStopPrompts[] = {STOP_PROMPTS};
+extern volatile u32 gPilotCase;
+EWRAM_DATA static u8 sPilotPrompt = 0;
+EWRAM_DATA static bool8 sPilotWasYesNo = FALSE;
+static u16 PilotDialogueKey(void)
+{
+    bool8 active = PilotYesNoActive();
+    if (active && !sPilotWasYesNo) sPilotPrompt++;
+    sPilotWasYesNo = active;
+    // Once a terminal refusal is sent, B advances closing text without talking
+    // to the object again on the frame field controls become available.
+    if (!active && sPilotStopPrompts[gPilotCase - 1] && sPilotPrompt >= sPilotStopPrompts[gPilotCase - 1])
+        return B_BUTTON;
+    if (active && sPilotPrompt <= 8 && (sPilotNoAnswers[gPilotCase - 1] & (1 << (sPilotPrompt - 1))))
+        return B_BUTTON;
+    return A_BUTTON;
+}
 EWRAM_DATA volatile u32 gPilotCase = 0, gPilotStage = 0, gPilotShot = 0;
 EWRAM_DATA volatile u16 gPilotKeys = 0;
 EWRAM_DATA u8 gPilotResult[128] = {0};
@@ -218,7 +293,7 @@ static u32 PilotFlowerSum(void)
 static void PilotDataCase(void)
 {
     u8 *r = gPilotResult;
-    const s8 *spawn = gPilotSpawn[gPilotCase - 1];
+    const s16 *spawn = gPilotSpawn[gPilotCase - 1];
     s16 px = spawn[4] + MAP_OFFSET, py = spawn[5] + MAP_OFFSET;
     const struct MapLayout *layout = gMapHeader.mapLayout;
     sPilotFrames++;
@@ -317,12 +392,27 @@ static void PilotWalkCase(void)
             t[21] = 1; PilotPut16(t + 8, GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)); t[10] = GetMonData(&gEnemyParty[0], MON_DATA_LEVEL);
             PilotPut16(t + 11, gTrainerBattleOpponent_A);
             for (i = 0; i < 4; i++) PilotPut16(t + 13 + i * 2, GetMonData(&gEnemyParty[i], MON_DATA_SPECIES));
+            t[44] = (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) != 0;
+            t[45] = t[46] = 1;
+            for (i = 0; i < PARTY_SIZE; i++)
+            {
+                u16 total = 0; u8 stat;
+                PilotPut16(t + 32 + i * 2, GetMonData(&gEnemyParty[i], MON_DATA_SPECIES));
+                if (!GetMonData(&gEnemyParty[i], MON_DATA_SPECIES)) continue;
+                for (stat = 0; stat < NUM_STATS; stat++)
+                {
+                    if (GetMonData(&gEnemyParty[i], MON_DATA_HP_IV + stat) != 31) t[45] = 0;
+                    total += GetMonData(&gEnemyParty[i], MON_DATA_HP_EV + stat);
+                }
+                if (total != 508) t[46] = 0;
+            }
         }
         if (sPilotPhase == 5 && sPilotStepFrames >= 12) { gPilotKeys = A_BUTTON; sPilotPhase = 6; sPilotStepFrames = 0; }
         else if (sPilotPhase == 6 && sPilotStepFrames >= 4) { gPilotKeys = 0; sPilotPhase = 7; sPilotStepFrames = 0; }
         else if (sPilotPhase == 7)
         {
-            gPilotKeys = busy && (sPilotStepFrames % 8) < 3 ? A_BUTTON : 0;
+            u16 key = PilotDialogueKey();
+            gPilotKeys = busy && (sPilotStepFrames % 8) < 3 ? key : 0;
             if ((sPilotStepFrames > 200 && sPilotIdle >= 60) || sPilotStepFrames >= 38000)
             {
                 gPilotKeys = 0;
@@ -332,6 +422,24 @@ static void PilotWalkCase(void)
                 t[7] = FlagGet(FLAG_HIDE_HOENN_ROUTE101_RESCUE);
                 PilotPut16(t + 22, GetMonData(&gPlayerParty[1], MON_DATA_SPECIES)); t[24] = GetMonData(&gPlayerParty[1], MON_DATA_LEVEL);
                 t[25] = gBattleOutcome; t[26] = sPilotStepFrames >= 38000;
+                t[27] = VarGet(VAR_JOHTO_STORY); t[28] = VarGet(VAR_JOHTO_STARTER);
+                t[29] = FlagGet(FLAG_HIDE_JOHTO_CHIKORITA_BALL)
+                      | FlagGet(FLAG_HIDE_JOHTO_CYNDAQUIL_BALL) << 1 | FlagGet(FLAG_HIDE_JOHTO_TOTODILE_BALL) << 2;
+                PilotPut16(t + 30, GetBoxMonDataAt(0, 0, MON_DATA_SPECIES));
+                memcpy(t + 64, gStringVar2, 32); t[95] = EOS;
+                if (gPilotSpawn[gPilotCase - 1][7] & 512)
+                {
+                    t[48] = TrySavingData(SAVE_NORMAL);
+                    VarSet(VAR_JOHTO_STORY, 0); VarSet(VAR_JOHTO_STARTER, 2);
+                    FlagClear(FLAG_HIDE_JOHTO_CHIKORITA_BALL);
+                    memset(gPlayerParty, 0, sizeof(gPlayerParty)); gPlayerPartyCount = 0;
+                    gSaveBlock1Ptr->location.mapGroup = 0; gSaveBlock1Ptr->location.mapNum = 0;
+                    t[49] = LoadGameSave(SAVE_NORMAL);
+                    t[50] = VarGet(VAR_JOHTO_STORY); t[51] = VarGet(VAR_JOHTO_STARTER);
+                    t[52] = FlagGet(FLAG_HIDE_JOHTO_CHIKORITA_BALL); t[53] = gPlayerPartyCount;
+                    t[54] = gSaveBlock1Ptr->location.mapGroup; t[55] = gSaveBlock1Ptr->location.mapNum;
+                    PilotPut16(t + 56, GetMonData(&gPlayerParty[1], MON_DATA_SPECIES));
+                }
                 gPilotShot = 1; gPilotStage = 3;
             }
         }
@@ -345,7 +453,8 @@ static void PilotWalkCase(void)
         else if (sPilotPhase == 6 && sPilotStepFrames >= 4) { gPilotKeys = 0; sPilotPhase = 7; sPilotStepFrames = 0; }
         else if (sPilotPhase == 7)
         {
-            gPilotKeys = (sPilotStepFrames % 20) < 3 ? A_BUTTON : 0;
+            u16 key = PilotDialogueKey();
+            gPilotKeys = (sPilotStepFrames % 20) < 3 ? key : 0;
             if ((moved && sPilotIdle >= 30) || sPilotStepFrames >= 4000)
             {
                 gPilotKeys = 0;
@@ -445,7 +554,7 @@ static void PilotBoot(void)
     StringCopy(gSaveBlock2Ptr->playerName, name); StringCopy(gSaveBlock1Ptr->rivalName, name);
     SetMainCallback2(CB2_NewGame);
 }
-'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts)
+'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts).replace('ANSWERS',answers).replace('STOP_PROMPTS',stop_prompts)
 main=(game/'src/main.c').read_text()
 main=main.replace('static void InitMainCallbacks(void)\n{',hook+'\nstatic void InitMainCallbacks(void)\n{').replace('SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);','SetMainCallback2(PilotBoot);')
 main=main.replace('#include "global.h"','#include "global.h"\nvoid PilotCheck(void);',1).replace('    ReadKeys();','    PilotCheck();\n    ReadKeys();')
@@ -457,11 +566,14 @@ setup='''
 #include "event_data.h"
 #include "game_settings.h"
 #include "constants/moves.h"
+#include "constants/items.h"
+#include "pokemon_storage_system.h"
+#include "elite_four.h"
 extern volatile u32 gPilotCase;
-extern const s8 gPilotSpawn[][10];
+extern const s16 gPilotSpawn[][12];
 void PilotSetup(void)
 {
-    const s8 *spawn = gPilotSpawn[gPilotCase - 1];
+    const s16 *spawn = gPilotSpawn[gPilotCase - 1];
     SetWarpDestination(spawn[0], spawn[1], -1, spawn[2], spawn[3]);
     WarpIntoMap();
     CreateMon(&gPlayerParty[0], SPECIES_BULBASAUR, spawn[6], 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
@@ -494,6 +606,43 @@ void PilotSetup(void)
     VarSet(VAR_HOENN_STARTER, spawn[9]);
     if (spawn[8] >= 3)
         FlagSet(FLAG_HIDE_HOENN_ROUTE101_RESCUE);
+    VarSet(VAR_JOHTO_STORY, spawn[10]);
+    VarSet(VAR_JOHTO_STARTER, spawn[11]);
+    if (spawn[7] & 128)
+    {
+        u16 move = MOVE_DRAGON_PULSE, item = ITEM_SOUL_DEW;
+        u16 species = SPECIES_LATIOS;
+        u8 pp = 32;
+        // Silver's Meganium/Octillery/Houndoom/Tyranitar team counters the Latios
+        // fixture. Use a rain pair for that victory path; defeat is tested apart.
+        if (spawn[7] & 1024) { species = SPECIES_KYOGRE; move = MOVE_ORIGIN_PULSE; item = ITEM_MYSTIC_WATER; }
+        CreateMon(&gPlayerParty[0], species, 100, 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
+        SetMonData(&gPlayerParty[0], MON_DATA_MOVE1, &move);
+        SetMonData(&gPlayerParty[0], MON_DATA_PP1, &pp);
+        SetMonData(&gPlayerParty[0], MON_DATA_HELD_ITEM, &item);
+        EliteFour_ApplyFacilityTraining(&gPlayerParty[0]);
+        gPlayerParty[1] = gPlayerParty[0];
+        CalculatePlayerPartyCount();
+    }
+    if (spawn[7] & 256)
+    {
+        u16 hp = 1;
+        CreateMon(&gPlayerParty[0], SPECIES_MAGIKARP, 5, 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
+        SetMonData(&gPlayerParty[0], MON_DATA_HP, &hp);
+        gPlayerParty[1] = gPlayerParty[0];
+    }
+    if (spawn[7] & 32)
+    {
+        u8 i;
+        for (i = 1; i < PARTY_SIZE; i++) gPlayerParty[i] = gPlayerParty[0];
+        CalculatePlayerPartyCount();
+    }
+    if (spawn[7] & 64)
+    {
+        u8 box, slot;
+        for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+            for (slot = 0; slot < IN_BOX_COUNT; slot++) *GetBoxedMonPtr(box, slot) = gPlayerParty[0].box;
+    }
 }
 '''
 world=(game/'src/overworld.c').read_text()
@@ -509,6 +658,8 @@ unfreeze='void UnfreezeObjectEvents(void)\n{\n    u8 i;\n'
 assert movement.count(unfreeze)==1
 movement=movement.replace(unfreeze,unfreeze+'    if (PilotKeepFrozen())\n        return;\n').replace('#include "global.h"','#include "global.h"\nbool8 PilotKeepFrozen(void);',1)
 (test/'src/event_object_movement.c').write_text(movement)
+menu=test/'src/script_menu.c'
+menu.write_text(menu.read_text()+'\nbool8 PilotYesNoActive(void) { return FuncIsActiveTask(Task_YesNoMenu_HandleInput); }\n')
 with (out/'build.log').open('w') as log:subprocess.run(['make','-j4'],cwd=test,stdout=log,stderr=subprocess.STDOUT,check=True)
 symbols={p[2]:p[0] for line in subprocess.check_output(['arm-none-eabi-nm','pokefirered.elf'],cwd=test,text=True).splitlines() if len(p:=line.split())==3}
 constants=dict(re.findall(r'#define (MAP_\w+|LAYOUT_\w+) +\(?(\d+[^)\n]*)',(test/'include/constants/maps.h').read_text()+(test/'include/constants/layouts.h').read_text()))
@@ -681,10 +832,18 @@ story_seen={}
 for case,expect in SCENES.items():
  row=rows[case];name=expect['name']
  assert not row[26],(name,'scene did not settle in time',row[:32].hex())
- assert row[4]==expect['story'],(name,'story state',row[4],expect['story'])
+ state_index,starter_index=(27,28) if expect.get('johto') else (4,5)
+ assert row[state_index]==expect['story'],(name,'story state',row[state_index],expect['story'])
  if 'pos' in expect:assert tuple(row[2:4])==expect['pos'],(name,'player position',tuple(row[2:4]))
  if 'party' in expect:assert row[6]==expect['party'],(name,'party size',row[6])
- if 'starter' in expect:assert row[5]==expect['starter'],(name,'starter choice',row[5])
+ if 'starter' in expect:assert row[starter_index]==expect['starter'],(name,'starter choice',row[starter_index])
+ if 'ballflags' in expect:assert row[29]==expect['ballflags'],(name,'ball flags',row[29])
+ if 'boxed' in expect:assert u16(row,30)==species_ids[expect['boxed']],(name,'boxed starter',u16(row,30))
+ if 'outcome' in expect:assert row[25]==expect['outcome'],(name,'battle outcome',row[25])
+ if 'category' in expect:assert decode(row[64:96])==expect['category'],(name,'category',decode(row[64:96]))
+ if expect.get('persist'):
+  assert list(row[48:56])==[1,1,2,0,1,2,JG,ELM],(name,'save roundtrip',list(row[48:56]))
+  assert u16(row,56)==species_ids['SPECIES_CHIKORITA'],(name,'saved gift missing')
  if 'gift' in expect:assert (u16(row,22),row[24])==(species_ids[expect['gift']],5),(name,'starter not given at level 5',u16(row,22),row[24])
  if 'hidden' in expect:assert row[7]==1,(name,'rescue objects not hidden afterwards')
  if 'wild' in expect:
@@ -692,10 +851,13 @@ for case,expect in SCENES.items():
  if 'trainer' in expect:
   t=pilot_trainers['trainers'][expect['trainer']]
   assert row[21] and u16(row,11)==int(trainer_ids[expect['trainer']]),(name,'trainer',u16(row,11))
-  assert [u16(row,13+i*2) for i in range(4)]==[species_ids[m[0]] for m in t['team']],(name,'team',[u16(row,13+i*2) for i in range(4)])
-  assert row[10]==t['team'][0][1]+pilot_trainers['level_offset'],(name,'lead level',row[10])
+  team=[species_ids[m['species'] if isinstance(m,dict) else m[0]] for m in t['team']]
+  assert [u16(row,32+i*2) for i in range(len(team))]==team,(name,'team',[u16(row,32+i*2) for i in range(len(team))])
+  leader=t['team'][0];level=leader['level'] if isinstance(leader,dict) else leader[1]
+  assert row[10]==level+t.get('level_offset',pilot_trainers['level_offset']),(name,'lead level',row[10])
+  assert row[44:47]==bytes([1,1,1]),(name,'double battle / perfect IVs / 508 EVs',list(row[44:47]))
  story_seen[name]='ok'
-print('Hoenn story scenes:',story_seen)
+print('Region story scenes:',story_seen)
 # Generated at build time: #define MAP_X (num | (group << 8))
 _maps={m[1]:(int(m[3]),int(m[2])) for m in re.finditer(r'#define (MAP_\w+)\s+\((\d+) \| \((\d+) << 8\)\)',(test/'include/constants/map_groups.h').read_text())}
 def _group_num(name):

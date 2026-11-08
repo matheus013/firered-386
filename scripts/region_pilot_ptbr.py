@@ -13,6 +13,21 @@ ROOT = Path(__file__).resolve().parents[1]
 GAME = ROOT / 'games/super-fire-red'
 P = r'\p'
 PT = {
+    'Johto_NewBarkTown_Text_RivalSeen': '… … … … … … … …' + P + 'Você ganhou um Pokémon no LABORATÓRIO.' + P + 'Que desperdício. Alguém tão fraco como você.' + P + '… … … … … … … …' + P + 'Não entende o que estou dizendo?' + P + 'Pois eu também tenho um bom Pokémon.' + P + 'Vou mostrar o que quero dizer!',
+    'Johto_NewBarkTown_Text_SilverWin': 'Humph. Feliz por ter vencido?',
+    'Johto_NewBarkTown_Text_RivalAfter': '… … … … … … … …' + P + 'Quer saber quem eu sou?' + P + 'Vou ser o maior Treinador Pokémon do mundo.',
+    'Johto_NewBarkTown_Lab_Text_ElmIntro': 'PROF. ELM: {PLAYER}! Aí está você!' + P + 'Preciso pedir um favor.' + P + 'Estou fazendo uma nova pesquisa sobre Pokémon. Será que você poderia me ajudar, {PLAYER}?' + P + 'Veja…' + P + 'Estou escrevendo um artigo para apresentar numa conferência.' + P + 'Mas ainda há coisas que não entendo muito bem.' + P + 'Então!' + P + 'Gostaria que você criasse um Pokémon que capturei recentemente.',
+    'Johto_NewBarkTown_Lab_Text_ElmAccepted': 'Obrigado, {PLAYER}! Você vai ajudar muito!',
+    'Johto_NewBarkTown_Lab_Text_ElmRefused': 'Mas… Por favor, preciso da sua ajuda!',
+    'Johto_NewBarkTown_Lab_Text_ElmChooseAPokemon': 'Quero que você crie um dos Pokémon destas Poké Balls.' + P + 'Você será a primeira companhia desse Pokémon, {PLAYER}!' + P + 'Vamos. Escolha um!',
+    'Johto_NewBarkTown_Lab_Text_ElmResearchAmbitions': 'Quando eu anunciar minhas descobertas, tenho certeza de que vamos entender melhor os muitos mistérios dos Pokémon.' + P + 'Pode contar com isso!',
+    'Johto_NewBarkTown_Lab_Text_ChooseChikorita': 'PROF. ELM: Então, você gosta de {STR_VAR_1}, o Pokémon {STR_VAR_2}?',
+    'Johto_NewBarkTown_Lab_Text_ChooseCyndaquil': 'PROF. ELM: Você vai escolher {STR_VAR_1}, o Pokémon {STR_VAR_2}?',
+    'Johto_NewBarkTown_Lab_Text_ChooseTotodile': 'PROF. ELM: Você quer {STR_VAR_1}, o Pokémon {STR_VAR_2}?',
+    'Johto_NewBarkTown_Lab_Text_ReceivedStarter': '{PLAYER} recebeu {STR_VAR_1}!',
+    'Johto_NewBarkTown_Lab_Text_ChoseStarter': 'PROF. ELM: Também acho esse Pokémon ótimo!',
+    'Johto_NewBarkTown_Lab_Text_DidntChooseStarter': 'PROF. ELM: Pense com cuidado.' + P + 'Sua parceria é importante.',
+    'Johto_NewBarkTown_Lab_Text_ShouldntTouch': 'É melhor não mexer!',
     'Hoenn_LittlerootTown_Text_GoodLuckCatchingPokemon': 'Você vai capturar Pokémon? Boa sorte!',
     'Hoenn_LittlerootTown_Text_CanUsePCToStoreItems': 'Com um PC, dá para guardar itens e Pokémon.' + P + 'O poder da ciência é impressionante!',
     'Hoenn_LittlerootTown_Text_BirchSpendsDaysInLab': 'O PROF. BIRCH passa dias estudando no LABORATÓRIO e, de repente, sai pela natureza para pesquisar mais…' + P + 'Quando será que o PROF. BIRCH fica em casa?',
@@ -113,6 +128,8 @@ def main():
         if en[label] in rows and rows[en[label]] != pt:
             raise SystemExit(f'Same English text translated two ways: {en[label]!r}')
         rows[en[label]] = pt
+    # BufferMonCategory reads these directly from the Pokédex (not map text labels).
+    rows.update({'LEAF': 'FOLHA', 'FIRE MOUSE': 'RATO DE FOGO', 'BIG JAW': 'MANDIBULA'})
     out = GAME / 'hack-data/localization/region_pilot_ptbr.json'
     out.write_text(json.dumps(dict(sorted(rows.items())), ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(f'{len(rows)} PT-BR entries for {len(en)} pilot texts -> {out.name}')

@@ -18,9 +18,12 @@ also after a blackout), 3 Birch rescued, 4 May beaten. VAR_HOENN_STARTER: 0 Tree
 """
 import re
 from pathlib import Path
+import johto_pilot_story
 
 VARS = {'VAR_HOENN_STORY': 'VAR_0x4029', 'VAR_HOENN_STARTER': 'VAR_0x402A'}
 FLAGS = {'FLAG_HIDE_HOENN_ROUTE101_RESCUE': 'FLAG_0x022', 'FLAG_HIDE_HOENN_BIRCH_LAB_BIRCH': 'FLAG_0x023'}
+VARS.update(johto_pilot_story.VARS)
+FLAGS.update(johto_pilot_story.FLAGS)
 ZIGZAGOON_LEVEL = 84  # post-League band (provisional until the expansion rebalance)
 STARTERS = [('TREECKO', 'TRAINER_MAY_2'), ('TORCHIC', 'TRAINER_MAY_3'), ('MUDKIP', 'TRAINER_MAY')]  # May's team per player starter
 SUBSTITUTIONS = {'{RIVAL}': 'MAY'}
@@ -34,6 +37,7 @@ OBJECTS = {
     'LittlerootTown_ProfessorBirchsLab': {0: '0', 1: 'FLAG_HIDE_HOENN_BIRCH_LAB_BIRCH'},
     'LittlerootTown_MaysHouse_2F': {0: '0'},
 }
+OBJECTS.update(johto_pilot_story.OBJECTS)
 # Emerald Route101 triggers: start the rescue, then keep the player near Birch until it is over.
 COORDS = {'Route101': [(10, 19, 0, 'StartRescue'), (11, 19, 0, 'StartRescue')]
           + [(x, y, v, side) for v in (1, 2) for x, y, side in
@@ -55,6 +59,8 @@ def install_constants(game: Path):
 def object_script(source_map, index, name, text, local_id):
     """Script for a story object; text(label) brings in a source text, local_id(source index) its local id."""
     n = name
+    if source_map in johto_pilot_story.OBJECTS:
+        return johto_pilot_story.object_script(source_map, index, name, text, local_id)
     if source_map == 'Route101':
         if index != 2:
             return None  # Birch and the Zigzagoon only take part in the scene

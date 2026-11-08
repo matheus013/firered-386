@@ -26,6 +26,7 @@
 #include "script_menu.h"
 #include "data.h"
 #include "pokedex.h"
+#include "localization.h"
 #include "text_window.h"
 #include "menu.h"
 #include "mystery_gift.h"
@@ -2538,6 +2539,15 @@ void LoopWingFlapSound(void)
     // 8005 = Frame delay between flaps
     CreateTask(Task_WingFlapSound, 8);
     PlaySE(SE_M_WING_ATTACK);
+}
+
+// HNS's buffermoncategory equivalent for the region starter dialogue.
+// Input: VAR_0x8004 species. Output: STR_VAR_2, without changing VAR_RESULT.
+void BufferMonCategory(void)
+{
+    gStringVar2[0] = EOS;
+    if (gSpecialVar_0x8004 > SPECIES_NONE && gSpecialVar_0x8004 < NUM_SPECIES)
+        StringCopy(gStringVar2, L10n_GetText(GetPokedexCategoryName(SpeciesToNationalPokedexNum(gSpecialVar_0x8004))));
 }
 
 static void Task_WingFlapSound(u8 taskId)

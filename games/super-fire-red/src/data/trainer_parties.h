@@ -79,9 +79,141 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BoarderM[] = {DUMMY_TRAI
 static const struct TrainerMonNoItemDefaultMoves sParty_BoarderF[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_Collector[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_Wally[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_Brendan[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_Brendan2[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_Brendan3[] = {DUMMY_TRAINER_MON};
+// Region pilot: resetes12/HNS_modern sParty_Rival_Cyndaquil5, levels +40.
+static const struct TrainerMonItemCustomMoves sParty_Brendan[] = {
+    {
+    .iv = 100,
+    .lvl = 85,
+    .species = SPECIES_URSARING,
+    .heldItem = ITEM_CHESTO_BERRY,
+    .moves = {MOVE_SLASH, MOVE_FAINT_ATTACK, MOVE_ROCK_SMASH, MOVE_REST},
+    },
+    {
+    .iv = 100,
+    .lvl = 85,
+    .species = SPECIES_GOLBAT,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_TOXIC, MOVE_DOUBLE_TEAM, MOVE_CONFUSE_RAY, MOVE_WING_ATTACK},
+    },
+    {
+    .iv = 100,
+    .lvl = 86,
+    .species = SPECIES_OCTILLERY,
+    .heldItem = ITEM_QUICK_CLAW,
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_PSYBEAM, MOVE_HYPER_BEAM},
+    },
+    {
+    .iv = 100,
+    .lvl = 86,
+    .species = SPECIES_VICTREEBEL,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_GIGA_DRAIN, MOVE_SLEEP_POWDER, MOVE_GROWTH},
+    },
+    {
+    .iv = 100,
+    .lvl = 87,
+    .species = SPECIES_TYPHLOSION,
+    .heldItem = ITEM_CHARCOAL,
+    .moves = {MOVE_FLAMETHROWER, MOVE_QUICK_ATTACK, MOVE_IRON_TAIL, MOVE_THUNDER_PUNCH},
+    },
+    {
+    .iv = 100,
+    .lvl = 88,
+    .species = SPECIES_TYRANITAR,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_FIRE_PUNCH},
+    }
+};
+// Region pilot: resetes12/HNS_modern sParty_Rival_Totodile5, levels +40.
+static const struct TrainerMonItemCustomMoves sParty_Brendan2[] = {
+    {
+    .iv = 100,
+    .lvl = 85,
+    .species = SPECIES_URSARING,
+    .heldItem = ITEM_CHESTO_BERRY,
+    .moves = {MOVE_SLASH, MOVE_FAINT_ATTACK, MOVE_ROCK_SMASH, MOVE_REST},
+    },
+    {
+    .iv = 100,
+    .lvl = 85,
+    .species = SPECIES_GOLBAT,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_TOXIC, MOVE_DOUBLE_TEAM, MOVE_CONFUSE_RAY, MOVE_WING_ATTACK},
+    },
+    {
+    .iv = 100,
+    .lvl = 86,
+    .species = SPECIES_VICTREEBEL,
+    .heldItem = ITEM_QUICK_CLAW,
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_GIGA_DRAIN, MOVE_SLEEP_POWDER, MOVE_GROWTH},
+    },
+    {
+    .iv = 100,
+    .lvl = 86,
+    .species = SPECIES_HOUNDOOM,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_FLAMETHROWER, MOVE_IRON_TAIL, MOVE_CRUNCH, MOVE_DOUBLE_TEAM},
+    },
+    {
+    .iv = 100,
+    .lvl = 87,
+    .species = SPECIES_FERALIGATR,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .moves = {MOVE_ICE_PUNCH, MOVE_SURF, MOVE_SLASH, MOVE_BITE},
+    },
+    {
+    .iv = 100,
+    .lvl = 88,
+    .species = SPECIES_TYRANITAR,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_FIRE_PUNCH},
+    }
+};
+// Region pilot: resetes12/HNS_modern sParty_Rival_Chikorita5, levels +40.
+static const struct TrainerMonItemCustomMoves sParty_Brendan3[] = {
+    {
+    .iv = 100,
+    .lvl = 85,
+    .species = SPECIES_URSARING,
+    .heldItem = ITEM_CHESTO_BERRY,
+    .moves = {MOVE_SLASH, MOVE_FAINT_ATTACK, MOVE_ROCK_SMASH, MOVE_REST},
+    },
+    {
+    .iv = 100,
+    .lvl = 85,
+    .species = SPECIES_GOLBAT,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_TOXIC, MOVE_DOUBLE_TEAM, MOVE_CONFUSE_RAY, MOVE_WING_ATTACK},
+    },
+    {
+    .iv = 100,
+    .lvl = 86,
+    .species = SPECIES_OCTILLERY,
+    .heldItem = ITEM_QUICK_CLAW,
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_PSYBEAM, MOVE_HYPER_BEAM},
+    },
+    {
+    .iv = 100,
+    .lvl = 86,
+    .species = SPECIES_HOUNDOOM,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_FLAMETHROWER, MOVE_IRON_TAIL, MOVE_CRUNCH, MOVE_SUNNY_DAY},
+    },
+    {
+    .iv = 100,
+    .lvl = 87,
+    .species = SPECIES_MEGANIUM,
+    .heldItem = ITEM_MIRACLE_SEED,
+    .moves = {MOVE_SUNNY_DAY, MOVE_GIGA_DRAIN, MOVE_BODY_SLAM, MOVE_SYNTHESIS},
+    },
+    {
+    .iv = 100,
+    .lvl = 88,
+    .species = SPECIES_TYRANITAR,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_FIRE_PUNCH},
+    }
+};
 // Region pilot: pokeemerald sParty_MayLilycoveMudkip, levels +55.
 static const struct TrainerMonNoItemDefaultMoves sParty_May[] = {
     {
