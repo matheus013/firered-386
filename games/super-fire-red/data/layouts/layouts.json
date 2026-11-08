@@ -4422,6 +4422,66 @@
       "secondary_tileset": "gTileset_HoennPilotPetalburg",
       "border_filepath": "data/layouts/Hoenn_Route101/border.bin",
       "blockdata_filepath": "data/layouts/Hoenn_Route101/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+      "name": "Hoenn_LittlerootTown_BrendansHouse_1F_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotBuilding",
+      "secondary_tileset": "gTileset_HoennPilotBrendansMaysHouse",
+      "border_filepath": "data/layouts/Hoenn_LittlerootTown_BrendansHouse_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_LittlerootTown_BrendansHouse_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F",
+      "name": "Hoenn_LittlerootTown_BrendansHouse_2F_Layout",
+      "width": 9,
+      "height": 8,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotBuilding",
+      "secondary_tileset": "gTileset_HoennPilotBrendansMaysHouse",
+      "border_filepath": "data/layouts/Hoenn_LittlerootTown_BrendansHouse_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_LittlerootTown_BrendansHouse_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
+      "name": "Hoenn_LittlerootTown_MaysHouse_1F_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotBuilding",
+      "secondary_tileset": "gTileset_HoennPilotBrendansMaysHouse",
+      "border_filepath": "data/layouts/Hoenn_LittlerootTown_MaysHouse_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_LittlerootTown_MaysHouse_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
+      "name": "Hoenn_LittlerootTown_MaysHouse_2F_Layout",
+      "width": 9,
+      "height": 8,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotBuilding",
+      "secondary_tileset": "gTileset_HoennPilotBrendansMaysHouse",
+      "border_filepath": "data/layouts/Hoenn_LittlerootTown_MaysHouse_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_LittlerootTown_MaysHouse_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "name": "Hoenn_LittlerootTown_ProfessorBirchsLab_Layout",
+      "width": 13,
+      "height": 13,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotBuilding",
+      "secondary_tileset": "gTileset_HoennPilotLab",
+      "border_filepath": "data/layouts/Hoenn_LittlerootTown_ProfessorBirchsLab/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_LittlerootTown_ProfessorBirchsLab/map.bin"
     }
   ]
 }

@@ -120,9 +120,109 @@ Reprodução (WSL/Linux, na raiz): `python3 games/super-fire-red/scripts/test_ho
 
 - Andar de um mapa para o outro pela conexão, em jogo. O teste confere a conexão nos
   dados carregados, mas não atravessa a fronteira.
-- Abrir as portas: não há warps, porque os interiores não foram importados.
+- Abrir as portas: não há warps, porque os interiores não foram importados. (Resolvido na entrada seguinte.)
 - Encontros na grama alta da Route101: não há tabela em `wild_encounters.json`, então
   hoje não aparecem Pokémon.
 - Mapa regional, Fly e nome do local para as seções Hoenn (marco M5).
 - Build nativa para PC com os mapas novos.
 - O piloto de Johto (New Bark/Route29) ainda não foi instalado na engine.
+
+## 07/11/2026 — Interiores de Littleroot (Claude)
+
+Pedido do usuário: seguir com os interiores Hoenn. Os cinco mapas do plano foram
+convertidos, instalados e ligados às portas de Littleroot: casa do Brendan 1F/2F,
+casa da May 1F/2F e laboratório do Prof. Birch.
+
+### Tilesets: conversão com empacotamento
+
+Novo `scripts/convert_hoenn_interiors.py`, que reusa as funções de conversão do Codex
+(`convert_hoenn_graphics.py`, `region_tilesets.py`, `normalize_region_layers.py`).
+Converte três tilesets do Emerald:
+
+| Emerald | FireRed | Situação |
+|---|---|---|
+| `gTileset_Building` (primário) | `gTileset_HoennPilotBuilding` | 2 metatiles usados; tiles com o mesmo número (512 cabem em 640) |
+| `gTileset_BrendansMaysHouse` (secundário) | `gTileset_HoennPilotBrendansMaysHouse` | 149 metatiles; 480 tiles na fonte, **211 empacotados** |
+| `gTileset_Lab` (secundário) | `gTileset_HoennPilotLab` | 67 metatiles; 512 tiles na fonte, **138 empacotados** |
+
+**Por que empacotar:** o FireRed tem 640 tiles primários e só 384 livres para o secundário.
+O deslocamento simples usado nos exteriores (512 → 640) jogaria 49 tiles da casa e 84 do
+laboratório para além do tile 1023, fora da VRAM. O conversor guarda só os tiles que os
+metatiles usados referenciam, na ordem original, e renumera as referências.
+Paletas secundárias 6–11 → 7–12, como nos exteriores. Foram comparados 111.616 pixels
+(cor e transparência, com espelhamentos) contra as folhas originais: nenhuma diferença.
+Sem animações: o callback do Building anima a TV nos tiles 496–499 (conferido em
+`pokeemerald/src/tileset_anims.c`), e os metatiles usados só referenciam os tiles 0–36.
+Relatório com hashes: [hoenn-interior-graphics.json](map-audits/hoenn-interior-graphics.json).
+
+### Comportamentos sem equivalente de mesmo nome
+
+| Emerald | FireRed | Motivo |
+|---|---|---|
+| `MB_TELEVISION`, `MB_REGION_MAP`, `MB_SOUTH_ARROW_WARP` | mesmo nome (0x86, 0x85, 0x65) | — |
+| `MB_NON_ANIMATED_DOOR` (escadas das casas) | `MB_CAVE_DOOR` (0x60) | é o valor que `MetatileBehavior_IsNonAnimDoor` do FireRed aceita: warp ao pisar, sem animação, como no Emerald |
+| `MB_IMPASSABLE_SOUTH_AND_NORTH` | **novo** `0xD2` | célula do quarto (1,4) no 2F: colisão 0, só a regra impede norte/sul. Sem ela o jogador atravessaria |
+| `MB_HOLDS_SMALL/LARGE_DECORATION` | `MB_NORMAL` | espaços de decoração das bases secretas, que não existem no FireRed; a passagem fica por conta da colisão |
+
+Mudança na engine (única desta etapa): `MB_IMPASSABLE_SOUTH_AND_NORTH 0xD2` em
+`include/constants/metatile_behaviors.h` e incluído em `MetatileBehavior_IsNorthBlocked`
+e `MetatileBehavior_IsSouthBlocked` (`src/metatile_behavior.c`), exatamente como no Emerald.
+O FireRed define comportamentos até 0xD1 e reserva até 0xF0. Conferido: nenhum dos 73
+tilesets do FireRed usa 0xD2, então Kanto não muda.
+
+A TV e o mapa na parede respondem com os textos/telas do FireRed (o mapa mostra Kanto).
+
+### Instalação e warps
+
+Novo `scripts/install_hoenn_interiors.py` (idempotente; rodado duas vezes sem duplicar):
+
+- copia os tilesets de `.build/region-pilots/hoenn-interior-graphics/` e os blocos de
+  `.build/region-pilots/hoenn-interiors/<mapa>/`;
+- acrescenta os símbolos C em `graphics.h`, `metatiles.h` e `headers.h`;
+- cria os cinco layouts e mapas (grupo 43, mapas 2 a 6, nesta ordem: Brendan 1F, Brendan 2F,
+  May 1F, May 2F, laboratório) com cabeçalhos do Emerald. Música: `MUS_LITTLEROOT` →
+  `MUS_PALLET` e `MUS_BIRCH_LAB` → `MUS_OAK_LAB`, que não existem no FireRed;
+- copia os warps do Emerald trocando o prefixo do destino (`MAP_LITTLEROOT_TOWN…` →
+  `MAP_HOENN_LITTLEROOT_TOWN…`); recusa qualquer warp que saia do piloto. Os índices de
+  warp ficam iguais aos do Emerald;
+- acrescenta os três warps de porta de Littleroot.
+
+Só terreno e warps: personagens, scripts da história e eventos de coordenada do
+Emerald não foram importados.
+
+### Teste na ROM: andar pelos warps
+
+`test_hoenn_pilot_maps.py` foi ampliado de 3 para 10 casos, com um runner novo,
+`games/super-fire-red/scripts/hoenn_pilot_smoke.c`, em que o próprio jogo escolhe
+as teclas e pede capturas. Os casos novos seguram o direcional como um jogador:
+
+| Caso | Percurso | Resultado |
+|---|---|---|
+| 4 | Littleroot (5,9) ↑ porta do Brendan → capacho ↓ | Brendan 1F (8,8) → Littleroot (5,9) |
+| 5 | Littleroot (14,9) ↑ porta da May → capacho ↓ | May 1F (2,8) → Littleroot (14,9) |
+| 6 | Littleroot (7,17) ↑ laboratório → capacho ↓ | Lab (6,12) → Littleroot (7,17) |
+| 7 | Brendan 1F (8,3) ↑ escada → ↓ um passo → ↑ escada | 2F (7,2) → (7,3) → 1F (8,3) |
+| 8 | May 1F (2,3) ↑ escada → ↓ → ↑ | 2F (1,2) → (1,3) → 1F (2,3) |
+| 9 | Brendan 2F (1,3) segurando ↓ | continua em (1,3): a célula (1,4) bloqueia entrada pelo norte |
+| 10 | Brendan 2F (2,4) ← → ↑ → ↓ → → | entra em (1,4) pelo lado; ↑ e ↓ não saem; → volta a (2,4) |
+
+Ao sair por uma porta ou pela escada, o FireRed põe o jogador um passo fora da célula
+de chegada; o teste exige as posições exatas acima. Também confere que os tilesets e
+blocos instalados são iguais ao staging. Capturas em `output/tests/hoenn-pilot-maps/`:
+sala com mesa e cozinha, quarto com cama, PC e console, laboratório com máquinas e
+plantas, quarto da May; todos desenhados corretamente.
+
+### Outras verificações
+
+- 27 testes de regiões, incluindo o novo `scripts/test_region_interiors.py`
+  (empacotamento preserva os tiles escolhidos e a ordem; regras usam valores válidos do FireRed): OK.
+- `scripts/test_field_door_native.py`: OK.
+- ROM publicada intacta: `output/firered-386-dev.gba` com o SHA-1 da v0.5.0-preview.6.
+
+### Pendente
+
+- Atravessar a conexão Littleroot ↔ Route101 andando (só conferida nos dados).
+- Encontros na Route101; mapa regional, Fly e nomes das seções Hoenn (M5).
+- Personagens e eventos dos interiores (mãe, assistente, Birch); TV e mapa usam os textos do FireRed.
+- Build nativa para PC com os mapas novos.
+- Piloto de Johto (New Bark/Route29).

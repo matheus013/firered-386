@@ -565,7 +565,8 @@ bool8 MetatileBehavior_IsNorthBlocked(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_IMPASSABLE_NORTH
      || metatileBehavior == MB_IMPASSABLE_NORTHEAST
-     || metatileBehavior == MB_IMPASSABLE_NORTHWEST)
+     || metatileBehavior == MB_IMPASSABLE_NORTHWEST
+     || metatileBehavior == MB_IMPASSABLE_SOUTH_AND_NORTH)
             return TRUE;
     else
         return FALSE;
@@ -575,7 +576,8 @@ bool8 MetatileBehavior_IsSouthBlocked(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_IMPASSABLE_SOUTH
      || metatileBehavior == MB_IMPASSABLE_SOUTHEAST
-     || metatileBehavior == MB_IMPASSABLE_SOUTHWEST)
+     || metatileBehavior == MB_IMPASSABLE_SOUTHWEST
+     || metatileBehavior == MB_IMPASSABLE_SOUTH_AND_NORTH)
             return TRUE;
     else
         return FALSE;

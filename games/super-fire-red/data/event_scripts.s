@@ -514,6 +514,11 @@ gStdScriptsEnd::
 	.include "data/maps/SevenIsland_SevaultCanyon_House/scripts.inc"
 	.include "data/maps/Hoenn_LittlerootTown/scripts.inc"
 	.include "data/maps/Hoenn_Route101/scripts.inc"
+	.include "data/maps/Hoenn_LittlerootTown_BrendansHouse_1F/scripts.inc"
+	.include "data/maps/Hoenn_LittlerootTown_BrendansHouse_2F/scripts.inc"
+	.include "data/maps/Hoenn_LittlerootTown_MaysHouse_1F/scripts.inc"
+	.include "data/maps/Hoenn_LittlerootTown_MaysHouse_2F/scripts.inc"
+	.include "data/maps/Hoenn_LittlerootTown_ProfessorBirchsLab/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

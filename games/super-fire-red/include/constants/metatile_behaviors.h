@@ -127,6 +127,8 @@
 //
 #define MB_CYCLING_ROAD_PULL_DOWN 0xD0
 #define MB_CYCLING_ROAD_PULL_DOWN_GRASS 0xD1
+// Imported from Emerald (Hoenn interiors): blocks north and south, passable east-west.
+#define MB_IMPASSABLE_SOUTH_AND_NORTH 0xD2
 //
 #define NUM_METATILE_BEHAVIORS 0xF0
 

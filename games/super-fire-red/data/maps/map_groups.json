@@ -625,6 +625,11 @@
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
-    "Hoenn_Route101"
+    "Hoenn_Route101",
+    "Hoenn_LittlerootTown_BrendansHouse_1F",
+    "Hoenn_LittlerootTown_BrendansHouse_2F",
+    "Hoenn_LittlerootTown_MaysHouse_1F",
+    "Hoenn_LittlerootTown_MaysHouse_2F",
+    "Hoenn_LittlerootTown_ProfessorBirchsLab"
   ]
 }

@@ -768,3 +768,37 @@ const struct Tileset gTileset_HoennPilotPetalburg =
     .metatileAttributes = gMetatileAttributes_HoennPilotPetalburg,
     .callback = InitTilesetAnim_HoennPetalburgPilot,
 };
+
+// Hoenn pilot interiors (scripts/install_hoenn_interiors.py)
+const struct Tileset gTileset_HoennPilotBuilding =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_HoennPilotBuilding,
+    .palettes = gTilesetPalettes_HoennPilotBuilding,
+    .metatiles = gMetatiles_HoennPilotBuilding,
+    .metatileAttributes = gMetatileAttributes_HoennPilotBuilding,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_HoennPilotBrendansMaysHouse =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HoennPilotBrendansMaysHouse,
+    .palettes = gTilesetPalettes_HoennPilotBrendansMaysHouse,
+    .metatiles = gMetatiles_HoennPilotBrendansMaysHouse,
+    .metatileAttributes = gMetatileAttributes_HoennPilotBrendansMaysHouse,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_HoennPilotLab =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HoennPilotLab,
+    .palettes = gTilesetPalettes_HoennPilotLab,
+    .metatiles = gMetatiles_HoennPilotLab,
+    .metatileAttributes = gMetatileAttributes_HoennPilotLab,
+    .callback = NULL,
+};

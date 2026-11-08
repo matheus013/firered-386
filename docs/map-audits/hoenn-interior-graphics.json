@@ -1,0 +1,120 @@
+{
+  "status": "INTERIOR_PILOT_STAGED_NOT_GENERAL",
+  "tilesets": {
+    "gTileset_Building": {
+      "metatiles_populated": 2,
+      "tiles": 640,
+      "behaviors": {
+        "MB_NORMAL": 1,
+        "MB_TELEVISION": 1
+      },
+      "tile_partition": "identity (512 in 640)",
+      "animation": "none: TV animation tiles 496-499 unused by these metatiles",
+      "sha256": {
+        "tiles.png": "1995526479df57a0e2fc51b798fa44c3b7d734c79d250aa5241aad601a4bdfc0",
+        "metatiles.bin": "6fe44e95ae8827441f7215751e0cee4aa571035d4af0de920501c6a03ecaa519",
+        "metatile_attributes.bin": "b13281c98e12c527d2d959cef820c1367e64b94e82bfbf8b175a3d0957f88bb9"
+      }
+    },
+    "gTileset_BrendansMaysHouse": {
+      "metatiles_populated": 149,
+      "metatile_slots": 196,
+      "source_tiles": 480,
+      "packed_tiles": 211,
+      "behaviors": {
+        "MB_NORMAL": 124,
+        "MB_SOUTH_ARROW_WARP": 2,
+        "MB_NON_ANIMATED_DOOR": 2,
+        "MB_REGION_MAP": 1,
+        "MB_IMPASSABLE_SOUTH_AND_NORTH": 2,
+        "MB_HOLDS_SMALL_DECORATION": 16,
+        "MB_HOLDS_LARGE_DECORATION": 2
+      },
+      "tile_partition": "packed 512+n -> 640+rank",
+      "palette_partition": "6..11 -> 7..12",
+      "animation": "none (NULL in Emerald)",
+      "sha256": {
+        "tiles.png": "5850b0e5bcbf0eb320a0cfd5e0a15cd57b47b8e91c57ef1f88494d126486a615",
+        "metatiles.bin": "61c58ba1469e5a183f02d851e5e63460f29fbed38e9e7c16357369e73f60e5b0",
+        "metatile_attributes.bin": "dbd76634d91335ae4d172606de22e64b97a56e62e097b1cd514338ab99cd8cd0"
+      }
+    },
+    "gTileset_Lab": {
+      "metatiles_populated": 67,
+      "metatile_slots": 158,
+      "source_tiles": 512,
+      "packed_tiles": 138,
+      "behaviors": {
+        "MB_NORMAL": 65,
+        "MB_SOUTH_ARROW_WARP": 2
+      },
+      "tile_partition": "packed 512+n -> 640+rank",
+      "palette_partition": "6..11 -> 7..12",
+      "animation": "none (NULL in Emerald)",
+      "sha256": {
+        "tiles.png": "a079630a8eb1de8f18f5740a824d0a49ce38478a93408f7f8f7ee63f31b4c69f",
+        "metatiles.bin": "b8d4e20a0f79637819f9ef692976ab101b103a6ba89cdaa0646076b928a76b74",
+        "metatile_attributes.bin": "769df2dc4369092bd7cded3934a641a086f37aba41a2e0291b9698f7befb7c1c"
+      }
+    }
+  },
+  "behavior_rules": {
+    "MB_NORMAL": {
+      "firered_behavior": "0x0",
+      "reason": "normal"
+    },
+    "MB_TELEVISION": {
+      "firered_behavior": "0x86",
+      "reason": "same name in FireRed"
+    },
+    "MB_REGION_MAP": {
+      "firered_behavior": "0x85",
+      "reason": "same name in FireRed; shows the FireRed region map"
+    },
+    "MB_SOUTH_ARROW_WARP": {
+      "firered_behavior": "0x65",
+      "reason": "same name in FireRed: doormat exit"
+    },
+    "MB_NON_ANIMATED_DOOR": {
+      "firered_behavior": "0x60",
+      "reason": "FR MB_CAVE_DOOR: the value FireRed MetatileBehavior_IsNonAnimDoor accepts (step-on warp, no animation)"
+    },
+    "MB_IMPASSABLE_SOUTH_AND_NORTH": {
+      "firered_behavior": "0xd2",
+      "reason": "added to FireRed as 0xD2 and to IsNorthBlocked/IsSouthBlocked, as in Emerald"
+    },
+    "MB_HOLDS_SMALL_DECORATION": {
+      "firered_behavior": "0x0",
+      "reason": "secret-base decoration slot; FireRed has no decorations, walkability comes from collision"
+    },
+    "MB_HOLDS_LARGE_DECORATION": {
+      "firered_behavior": "0x0",
+      "reason": "secret-base decoration slot; FireRed has no decorations, walkability comes from collision"
+    }
+  },
+  "map_tilesets": {
+    "LittlerootTown_BrendansHouse_1F": [
+      "gTileset_Building",
+      "gTileset_BrendansMaysHouse"
+    ],
+    "LittlerootTown_BrendansHouse_2F": [
+      "gTileset_Building",
+      "gTileset_BrendansMaysHouse"
+    ],
+    "LittlerootTown_MaysHouse_1F": [
+      "gTileset_Building",
+      "gTileset_BrendansMaysHouse"
+    ],
+    "LittlerootTown_MaysHouse_2F": [
+      "gTileset_Building",
+      "gTileset_BrendansMaysHouse"
+    ],
+    "LittlerootTown_ProfessorBirchsLab": [
+      "gTileset_Building",
+      "gTileset_Lab"
+    ]
+  },
+  "rgba_pixel_comparisons": 111616,
+  "pixel_mismatches": 0,
+  "limits": "Static comparison against Emerald source sheets; not a capture of either engine. Zeroed unused metatiles: do not reuse outside these five maps."
+}

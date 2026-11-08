@@ -207,3 +207,13 @@ const u32 gMetatileAttributes_HoennPilotGeneral[] = INCBIN_U32("data/tilesets/pr
 
 const u16 gMetatiles_HoennPilotPetalburg[] = INCBIN_U16("data/tilesets/secondary/hoenn_pilot/metatiles.bin");
 const u32 gMetatileAttributes_HoennPilotPetalburg[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot/metatile_attributes.bin");
+
+// Hoenn pilot interiors (scripts/install_hoenn_interiors.py)
+const u16 gMetatiles_HoennPilotBuilding[] = INCBIN_U16("data/tilesets/primary/hoenn_pilot_building/metatiles.bin");
+const u32 gMetatileAttributes_HoennPilotBuilding[] = INCBIN_U32("data/tilesets/primary/hoenn_pilot_building/metatile_attributes.bin");
+
+const u16 gMetatiles_HoennPilotBrendansMaysHouse[] = INCBIN_U16("data/tilesets/secondary/hoenn_pilot_brendans_mays_house/metatiles.bin");
+const u32 gMetatileAttributes_HoennPilotBrendansMaysHouse[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot_brendans_mays_house/metatile_attributes.bin");
+
+const u16 gMetatiles_HoennPilotLab[] = INCBIN_U16("data/tilesets/secondary/hoenn_pilot_lab/metatiles.bin");
+const u32 gMetatileAttributes_HoennPilotLab[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot_lab/metatile_attributes.bin");

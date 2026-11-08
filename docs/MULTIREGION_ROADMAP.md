@@ -47,7 +47,7 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 |---|---|---|
 | M0 | Branch isolada, escopo e fontes fixadas | Concluído |
 | M1 | Inventário técnico, classificação regional e matriz de dependências | Iniciado: inventário técnico gerado; classificação e scripts pendentes |
-| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Em andamento: exteriores Littleroot/Route101 registrados na engine e testados na ROM (build isolada); interiores Hoenn e todo o piloto Johto pendentes |
+| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Piloto Hoenn na engine: Littleroot, Route101 e os 5 interiores, com portas, capachos e escadas testados andando na ROM (build isolada). Piloto Johto pendente |
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Pendente |
 | M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
 | M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Pendente |
@@ -307,3 +307,13 @@ diretório temporário, sem tocar na ROM distribuída. Carrega os dois mapas e P
 (controle) pelo New Game e confere grupo, layout, tilesets, conexões, porta, animação
 e igualdade dos recursos com o staging. Detalhes e pendências no
 [diário](MULTIREGION_WORKLOG.md).
+
+### Interiores Hoenn na engine
+
+Casa do Brendan 1F/2F, casa da May 1F/2F e laboratório entraram como mapas 2 a 6 do
+grupo 43, ligados às três portas de Littleroot. As folhas secundárias do Emerald (480 e 512
+tiles) não cabem nos 384 tiles do FireRed: `scripts/convert_hoenn_interiors.py` guarda só os
+tiles usados (211 e 138) e confere 111.616 pixels contra a fonte. Escadas usam `MB_CAVE_DOOR`;
+a célula do quarto que só deixa passar de lado ganhou o comportamento novo
+`MB_IMPASSABLE_SOUTH_AND_NORTH` (0xD2) na engine, como no Emerald. O teste da ROM agora
+anda por portas, capachos e escadas nos dois sentidos. Detalhes no [diário](MULTIREGION_WORKLOG.md).
