@@ -47,7 +47,7 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 |---|---|---|
 | M0 | Branch isolada, escopo e fontes fixadas | Concluído |
 | M1 | Inventário técnico, classificação regional e matriz de dependências | Iniciado: inventário técnico gerado; classificação e scripts pendentes |
-| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Concluído na engine: Hoenn (Littleroot, Route 101, 5 interiores; grupo 43) e Johto (New Bark, Route 29, 6 interiores; grupo 44), testados andando na ROM (build isolada). Faltam eventos, encontros e M5 |
+| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Concluído na engine: Hoenn (Littleroot, Route 101, 5 interiores; grupo 43) e Johto (New Bark, Route 29, 6 interiores; grupo 44), testados andando na ROM (build isolada), com encontros selvagens nas duas rotas e na água de New Bark. Faltam eventos e M5 |
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Pendente |
 | M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
 | M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Pendente |
@@ -327,3 +327,12 @@ convertidos por regra. Importado com créditos por decisão do usuário, pois a 
 tem licença: [CREDITS.md](CREDITS.md). Warps e conexões para fora do piloto foram
 descartados e renumerados. O teste da ROM (21 casos) anda por todas as portas, escadas,
 portão e pelas duas conexões. Detalhes no [diário](MULTIREGION_WORKLOG.md).
+
+### Encontros selvagens dos pilotos
+
+Route 101 (Emerald), Route 29 e água/pesca de New Bark (HNS, tabela do dia) vêm de
+`hack-data/region_pilot_encounters.json` (gerado por `scripts/import_region_encounters.py`) e são
+acrescentadas por `balance_encounters.py` depois da distribuição das 386 espécies, sem mudar
+nenhum slot de Kanto/Sevii nem os guias. O teste da ROM inicia batalhas reais nas duas rotas.
+No Hardcore, Route 29 e New Bark contam como uma área só até o M5. Detalhes no
+[diário](MULTIREGION_WORKLOG.md).

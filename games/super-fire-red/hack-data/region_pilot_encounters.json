@@ -1,0 +1,259 @@
+{
+  "scope": "Region pilot maps only; appended by balance_encounters.py",
+  "tables": [
+    {
+      "source": {
+        "repository": "pokeemerald",
+        "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+        "label": "gRoute101",
+        "map": "MAP_ROUTE101",
+        "note": "Emerald table unchanged"
+      },
+      "row": {
+        "map": "MAP_HOENN_ROUTE101",
+        "base_label": "gHoennRoute101_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_WURMPLE"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_POOCHYENA"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_WURMPLE"
+            },
+            {
+              "min_level": 3,
+              "max_level": 3,
+              "species": "SPECIES_WURMPLE"
+            },
+            {
+              "min_level": 3,
+              "max_level": 3,
+              "species": "SPECIES_POOCHYENA"
+            },
+            {
+              "min_level": 3,
+              "max_level": 3,
+              "species": "SPECIES_POOCHYENA"
+            },
+            {
+              "min_level": 3,
+              "max_level": 3,
+              "species": "SPECIES_WURMPLE"
+            },
+            {
+              "min_level": 3,
+              "max_level": 3,
+              "species": "SPECIES_POOCHYENA"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_ZIGZAGOON"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_ZIGZAGOON"
+            },
+            {
+              "min_level": 3,
+              "max_level": 3,
+              "species": "SPECIES_ZIGZAGOON"
+            },
+            {
+              "min_level": 3,
+              "max_level": 3,
+              "species": "SPECIES_ZIGZAGOON"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gRoute29",
+        "map": "MAP_ROUTE29",
+        "note": "day table (FireRed has no day/night); Rock Smash left out: its rocks are object events, not imported"
+      },
+      "row": {
+        "map": "MAP_JOHTO_ROUTE29",
+        "base_label": "gJohtoRoute29_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 2,
+              "max_level": 3,
+              "species": "SPECIES_PIDGEY"
+            },
+            {
+              "min_level": 2,
+              "max_level": 3,
+              "species": "SPECIES_PIDGEY"
+            },
+            {
+              "min_level": 2,
+              "max_level": 3,
+              "species": "SPECIES_PIDGEY"
+            },
+            {
+              "min_level": 2,
+              "max_level": 3,
+              "species": "SPECIES_SENTRET"
+            },
+            {
+              "min_level": 2,
+              "max_level": 3,
+              "species": "SPECIES_SENTRET"
+            },
+            {
+              "min_level": 2,
+              "max_level": 3,
+              "species": "SPECIES_HOPPIP"
+            },
+            {
+              "min_level": 2,
+              "max_level": 3,
+              "species": "SPECIES_HOPPIP"
+            },
+            {
+              "min_level": 2,
+              "max_level": 3,
+              "species": "SPECIES_SENTRET"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_RATTATA"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_HOOTHOOT"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_RATTATA"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_HOPPIP"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gNewBarkTown",
+        "map": "MAP_NEW_BARK_TOWN",
+        "note": "day table; HNS has 12 water slots, all Tentacool 25-29, FireRed has 5; empty land table and Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_NEW_BARK_TOWN",
+        "base_label": "gJohtoNewBarkTown_Pilot",
+        "water_mons": {
+          "encounter_rate": 7,
+          "mons": [
+            {
+              "min_level": 25,
+              "max_level": 29,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 25,
+              "max_level": 29,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 25,
+              "max_level": 29,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 25,
+              "max_level": 29,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 25,
+              "max_level": 29,
+              "species": "SPECIES_TENTACOOL"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_CHINCHOU"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_CHINCHOU"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_TENTACRUEL"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_LANTURN"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

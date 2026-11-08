@@ -22,7 +22,9 @@ LITTLEROOT,ROUTE101,B1F,B2F,M1F,M2F,BIRCH=range(7)           # gMapGroup_Hoenn
 NEWBARK,ROUTE29,P1F,P2F,HOUSE1,HOUSE2,ELM,GATE=range(8)       # gMapGroup_Johto
 HOENN,JOHTO='MAP_HOENN_','MAP_JOHTO_'
 # (map, spawn x, spawn y, probe x, probe y, steps). No steps = data case.
-# Step modes: MAP = hold until the map changes, POS = hold until the player steps, HOLD = hold 48 frames.
+# Step modes: MAP = hold until the map changes, POS = hold until the player steps, HOLD = hold 48 frames,
+# BATTLE = walk back and forth until a wild Pokemon appears. Battle cases lead with a level-5 Pokemon; all
+# other cases lead with level 100 under Repel, so the grass on the pilot routes cannot interrupt them.
 CASES=[
  (HOENN+'LITTLEROOT_TOWN',10,8,5,8,[]),
  (HOENN+'ROUTE101',10,8,5,8,[]),
@@ -45,10 +47,12 @@ CASES=[
  (JOHTO+'NEW_BARK_TOWN_PLAYERS_HOUSE_2F',10,2,0,0,[('LEFT','MAP')]),   # down-left stairs fire moving west
  (JOHTO+'ROUTE29',34,11,0,0,[('UP','MAP'),('DOWN','MAP')]),            # Route 46 gate and back
  (JOHTO+'NEW_BARK_TOWN',0,12,0,0,[('LEFT','MAP'),('RIGHT','MAP')]),    # walk west into Route 29 and back
+ (HOENN+'ROUTE101',3,3,0,0,[('RIGHT','BATTLE')]),                    # zig-zag in tall grass until a wild battle
+ (JOHTO+'ROUTE29',3,3,0,0,[('RIGHT','BATTLE')]),
 ]
 KEYS={'UP':'DPAD_UP','DOWN':'DPAD_DOWN','LEFT':'DPAD_LEFT','RIGHT':'DPAD_RIGHT'}
-MODES={'MAP':0,'POS':1,'HOLD':2}
-spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}}}' for m,x,y,px,py,_ in CASES)
+MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3}
+spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}}}' for m,x,y,px,py,s in CASES)
 steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s in CASES)
 counts=', '.join(str(len(s)) for *_,s in CASES)
 hook='''
@@ -59,12 +63,14 @@ hook='''
 #include "field_player_avatar.h"
 #include "constants/maps.h"
 #include "string_util.h"
+#include "wild_encounter.h"
+#include "pokemon.h"
 extern const struct Tileset gTileset_General, gTileset_HoennPilotGeneral, gTileset_HoennPilotPetalburg;
 extern const struct Tileset gTileset_JohtoPilotGeneral, gTileset_JohtoPilotNewBarkTown;
 void CB2_NewGame(void);
 void CB1_Overworld(void);
 struct PilotStep { u16 keys; u8 mode; };
-const s8 gPilotSpawn[][6] = {
+const s8 gPilotSpawn[][7] = {
     SPAWNS
 };
 static const struct PilotStep sPilotSteps[][4] = {
@@ -108,6 +114,17 @@ static void PilotDataCase(void)
         r[17] = PilotFlowerSum() != sPilotFlower;
         r[24] = MapGridGetCollisionAt(spawn[2] + MAP_OFFSET, spawn[3] + MAP_OFFSET);
         r[25] = gMapHeader.regionMapSectionId;
+        {
+            const struct WildPokemonHeader *h = gWildMonHeaders;
+            while (h->mapGroup != MAP_GROUP(MAP_UNDEFINED) && !(h->mapGroup == r[0] && h->mapNum == r[1])) h++;
+            if (h->mapGroup != MAP_GROUP(MAP_UNDEFINED))
+            {
+                r[26] = (h->landMonsInfo != NULL) | (h->waterMonsInfo != NULL) << 1 | (h->rockSmashMonsInfo != NULL) << 2 | (h->fishingMonsInfo != NULL) << 3;
+                if (h->landMonsInfo) { r[27] = h->landMonsInfo->wildPokemon[0].species; r[28] = h->landMonsInfo->wildPokemon[0].species >> 8; r[33] = h->landMonsInfo->encounterRate; }
+                if (h->waterMonsInfo) { r[29] = h->waterMonsInfo->wildPokemon[0].species; r[30] = h->waterMonsInfo->wildPokemon[0].species >> 8; r[34] = h->waterMonsInfo->encounterRate; }
+                if (h->fishingMonsInfo) { r[31] = h->fishingMonsInfo->wildPokemon[0].species; r[32] = h->fishingMonsInfo->wildPokemon[0].species >> 8; r[35] = h->fishingMonsInfo->encounterRate; }
+            }
+        }
         gPilotStage = 3;
     }
 }
@@ -124,6 +141,15 @@ static void PilotWalkCase(void)
     sPilotX = x; sPilotY = y;
     sPilotStepFrames++;
     moved = gSaveBlock1Ptr->location.mapGroup != sPilotStartGroup || gSaveBlock1Ptr->location.mapNum != sPilotStartMap;
+    // A wild encounter fills gEnemyParty (zeroed by New Game) before the battle transition.
+    if (step->mode == 3 && sPilotPhase == 1 && GetMonData(&gEnemyParty[0], MON_DATA_SPECIES))
+    {
+        u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
+        r[0] = gSaveBlock1Ptr->location.mapGroup; r[1] = gSaveBlock1Ptr->location.mapNum;
+        r[2] = species; r[3] = species >> 8; r[4] = GetMonData(&gEnemyParty[0], MON_DATA_LEVEL);
+        gPilotKeys = 0; gPilotShot = 1; gPilotStage = 3;
+        return;
+    }
     if (sPilotPhase == 0)
     {
         if (sPilotIdle < 30) return;
@@ -133,10 +159,15 @@ static void PilotWalkCase(void)
     }
     else if (sPilotPhase == 1)
     {
+        if (step->mode == 3 && (x != sPilotStartX || y != sPilotStartY))
+        {
+            gPilotKeys = gPilotKeys == DPAD_RIGHT ? DPAD_LEFT : DPAD_RIGHT;
+            sPilotStartX = x; sPilotStartY = y;
+        }
         if ((step->mode == 0 && (!field || moved))
          || (step->mode == 1 && (x != sPilotStartX || y != sPilotStartY))
          || (step->mode == 2 && sPilotStepFrames >= 48)
-         || sPilotStepFrames >= 600)
+         || (step->mode == 3 ? sPilotStepFrames >= 3000 : sPilotStepFrames >= 600))
         {
             gPilotKeys = 0; sPilotPhase = 2; sPilotIdle = 0; sPilotStepFrames = 0;
         }
@@ -176,13 +207,19 @@ assert 'PilotCheck();' in main and 'PilotBoot);' in main
 (test/'src/main.c').write_text(main)
 # Same entry as test_shops.py: right after NewGameInitData, warp straight onto the map under test.
 setup='''
+#include "pokemon.h"
+#include "event_data.h"
 extern volatile u32 gPilotCase;
-extern const s8 gPilotSpawn[][6];
+extern const s8 gPilotSpawn[][7];
 void PilotSetup(void)
 {
     const s8 *spawn = gPilotSpawn[gPilotCase - 1];
     SetWarpDestination(spawn[0], spawn[1], -1, spawn[2], spawn[3]);
     WarpIntoMap();
+    CreateMon(&gPlayerParty[0], SPECIES_BULBASAUR, spawn[6], 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    CalculatePlayerPartyCount();
+    if (spawn[6] >= 100)
+        VarSet(VAR_REPEL_STEP_COUNT, 250);
 }
 '''
 world=(game/'src/overworld.c').read_text()
@@ -278,8 +315,27 @@ at(18,[(JG,P2F,{(9,2)})])   # FireRed stairs: arrive on the stair cell
 at(19,[(JG,P1F,{(10,2)})])
 at(20,[(JG,GATE,{(7,9)}),(JG,ROUTE29,{(34,11)})])
 at(21,[(JG,ROUTE29,{(69,17)}),(JG,NEWBARK,{(0,12)})])
+pilot={t['row']['map']:t['row'] for t in json.loads((game/'hack-data/region_pilot_encounters.json').read_text())['tables']}
+species_ids={name:int(v,0) for name,v in re.findall(r'#define (SPECIES_\w+)\s+(\d+|0x[0-9A-Fa-f]+)\b',(test/'include/constants/species.h').read_text())}
+def u16(row,i):return row[i]|row[i+1]<<8
+LAND,WATER,ROCK,FISH=1,2,4,8
+assert little[26]==0,'Littleroot has no wild table'
+for name,row,mapid in (('Route101',route,'MAP_HOENN_ROUTE101'),('Route29',route29,'MAP_JOHTO_ROUTE29'),('New Bark',newbark,'MAP_JOHTO_NEW_BARK_TOWN')):
+ t=pilot[mapid];want=(LAND if 'land_mons' in t else 0)|(WATER if 'water_mons' in t else 0)|(FISH if 'fishing_mons' in t else 0)
+ assert row[26]==want,(name,'tables attached',bin(row[26]),bin(want))
+ for field,(i,rate) in {'land_mons':(27,33),'water_mons':(29,34),'fishing_mons':(31,35)}.items():
+  if field in t:assert (u16(row,i),row[rate])==(species_ids[t[field]['mons'][0]['species']],t[field]['encounter_rate']),(name,field)
+battles={}
+for case,mapid,where in ((22,'MAP_HOENN_ROUTE101',(HG,ROUTE101)),(23,'MAP_JOHTO_ROUTE29',(JG,ROUTE29))):
+ row=rows[case];species=u16(row,2);level=row[4]
+ table=[(species_ids[m['species']],m['min_level'],m['max_level']) for m in pilot[mapid]['land_mons']['mons']]
+ assert any(species==s and lo<=level<=hi for s,lo,hi in table),(mapid,'wild battle species/level not in its table',species,level)
+ assert tuple(row[:2])==where,(mapid,'battle on the wrong map',row[:2])
+ battles[mapid]={'species':next(n for n,v in species_ids.items() if v==species),'level':level}
+print('Wild battles:',battles)
 print('PASS: Hoenn and Johto pilots load on their own tilesets with doors, animation and connections; every door, '
       'doormat, staircase and the Route 29 gate warp both ways; both connections cross on foot; the Hoenn bedroom cell '
-      'blocks north/south only; assets match their sources; Pallet unchanged.')
+      'blocks north/south only; wild tables are attached and both pilot routes start real wild battles from them; '
+      'assets match their sources; Pallet unchanged.')
 (out/'results.json').write_text(json.dumps({'status':'passed','build':str(test),'cases':{str(k):v.hex() for k,v in rows.items()},
-                                            'walks':{str(k):walked(k) for k in rows if CASES[k-1][5]}},indent=2)+'\n')
+                                            'walks':{str(k):walked(k) for k in rows if CASES[k-1][5] and CASES[k-1][5][0][1]!='BATTLE'},'battles':battles},indent=2)+'\n')

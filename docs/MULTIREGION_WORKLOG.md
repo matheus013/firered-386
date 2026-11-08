@@ -334,3 +334,71 @@ Com isso, a travessia Littleroot ↔ Route 101, pendente desde a primeira entrad
 - Personagens e eventos (Elm, mãe, rival) não importados.
 - Fronteiras abertas: Route 27, Cherrygrove, Route 46, Oldale.
 - Build nativa para PC com os mapas novos.
+
+## 07/11/2026 — Encontros selvagens dos pilotos (Claude)
+
+Pedido do usuário: encontros selvagens. A Route 101, a Route 29 e a água de New Bark agora
+têm tabelas; Littleroot não tem (como no Emerald).
+
+### Por que não editar `wild_encounters.json` direto
+
+O arquivo é gerado por `balance_encounters.py`, que parte das tabelas originais do FireRed e
+distribui as 386 espécies nos slots existentes. Uma edição manual quebraria o `--check` ou
+sumiria na próxima geração. As tabelas dos pilotos agora vêm de um arquivo de dados próprio e
+são **acrescentadas depois** da distribuição, fora dela: nenhum slot de Kanto ou Sevii mudou
+(o diff de `wild_encounters.json` só acrescenta linhas), e `encounter_distribution.json`
+continua idêntico.
+
+- Novo `scripts/import_region_encounters.py`: lê as fontes fixadas e grava
+  `games/super-fire-red/hack-data/region_pilot_encounters.json`, com repositório, commit,
+  rótulo de origem e motivo de cada escolha. O balanceador lê esse arquivo, então o
+  `--check` não depende dos checkouts externos.
+- `balance_encounters.py`: acrescenta as linhas no fim e confere mapa existente, espécies
+  entre as 386 e número de slots igual ao do FireRed.
+- Rótulos terminam em `_Pilot` (sem "FireRed"/"LeafGreen"): o template compila nas duas
+  versões, e os guias do jogador, auditorias e o planejador, que só leem linhas `*_FireRed`,
+  deixam os pilotos de fora enquanto eles não são alcançáveis no jogo normal.
+  `generate_guides.py --check` e `balance_encounters.py --check`: OK, guias inalterados.
+
+| Mapa | Fonte | Tabelas | Observação |
+|---|---|---|---|
+| Route 101 | pokeemerald `gRoute101` | grama (taxa 20): Wurmple, Poochyena, Zigzagoon, nv. 2–3 | igual ao Emerald |
+| Route 29 | HNS_modern `gRoute29` | grama (taxa 20): Pidgey, Sentret, Hoppip, Rattata, Hoothoot, nv. 2–3 | tabela do dia; o FireRed não tem dia/noite |
+| New Bark | HNS_modern `gNewBarkTown` | água (taxa 7): Tentacool 25–29; pesca (taxa 30): Magikarp, Tentacool, Chinchou, Shellder, Tentacruel, Lanturn | o HNS tem 12 slots de água, todos iguais; o FireRed tem 5 |
+
+Ficaram de fora: Rock Smash da Route 29 e de New Bark (as pedras são objetos de evento, não
+importados) e a tabela de grama vazia de New Bark. Os níveis são os das fontes; o ritmo de
+progressão entre regiões fica para o marco M6.
+
+**Limitação no Hardcore:** a regra "só o primeiro encontro de cada área" usa a seção de mapa.
+A Route 101 tem a sua (`MAPSEC_ROUTE_101`), mas a Route 29 e a água de New Bark usam
+`MAPSEC_NONE` e contariam como uma área só. Resolve-se com as seções de Johto no M5.
+
+### Teste na ROM
+
+`test_region_pilot_maps.py` passou de 21 para 23 casos:
+
+- os casos de dados agora conferem, em `gWildMonHeaders`, quais tabelas estão ligadas a cada
+  mapa, a primeira espécie e a taxa de cada uma: Littleroot sem tabela; Route 101 e Route 29
+  com grama; New Bark com água e pesca;
+- casos 22 e 23: o jogador anda para lá e para cá na grama alta até aparecer um Pokémon e o
+  teste confere espécie e nível contra a tabela. Resultado nesta execução: **Wurmple nv. 2**
+  na Route 101 e **Pidgey nv. 3** na Route 29;
+- para os outros casos não serem interrompidos por batalhas, o jogador começa com um Pokémon
+  nv. 100 e Repel ativo (bloqueia tudo até nv. 29); nos casos de batalha, nv. 5 sem Repel.
+  Antes o New Game do teste não tinha Pokémon nenhum.
+
+Surf e pesca não foram exercitados em jogo (precisam do golpe e da vara); só a ligação das
+tabelas foi conferida.
+
+### Outras verificações
+
+- 27 testes de regiões: OK. Planejador de desafios (WSL): carrega 2.176 fontes e nenhuma
+  linha de piloto. No Windows ele falha ao ler um arquivo por codificação, com ou sem esta
+  mudança (conferido com `git stash`): problema anterior, não desta etapa.
+- ROM publicada intacta (SHA-1 da v0.5.0-preview.6).
+
+### Pendente
+
+- Seções de mapa de Johto (M5), que também separam as áreas do Hardcore.
+- Rock Smash e eventos dos pilotos; Surf e pesca testados em jogo.

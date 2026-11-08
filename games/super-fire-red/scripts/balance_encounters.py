@@ -241,6 +241,16 @@ def generate():
         if species in LEGENDS:assert all(x['stage']==9 and x['weight']==1 for x in found)
         report.append({'national_dex':number,'species':species,'bst':cat.info[species]['bst'],'minimum_stage':cat.minimum(species),'encounters':found})
     payload={'version':'v0.3.0-dev','species_count':386,'legendary_mythical_count':len(LEGENDS),'scope':'direct wild capture in Normal; Hardcore quotas remain','species':report}
+    # Region pilot maps (Hoenn/Johto) keep their source tables, outside the distribution above.
+    pilots=json.loads(read(ROOT/'games/super-fire-red/hack-data/region_pilot_encounters.json'))['tables']
+    for table in pilots:
+        row=table['row']
+        assert row['map'] in cat.maps and not row['base_label'].endswith(('_FireRed','_LeafGreen')),row['base_label']
+        for field,value in row.items():
+            if field in fields:
+                assert len(value['mons'])==len(fields[field]['encounter_rates']),(row['base_label'],field)
+                assert all(m['species'].removeprefix('SPECIES_') in cat.names for m in value['mons']),(row['base_label'],field)
+        group['encounters'].append(row)
     return original,payload
 
 
