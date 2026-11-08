@@ -53,11 +53,60 @@ CASES=[
  (JOHTO+'NEW_BARK_TOWN',10,10,0,0,[('NONE','TOWNMAP')]),
  ('MAP_PALLET_TOWN',10,8,0,0,[('NONE','TOWNMAP')]),                   # control: Kanto section
 ]
+# TALK: stand next to every pilot event (object or sign), turn to it, press A and read the text shown.
+# Setup bits: 1 = has received a Pokemon (FLAG_SYS_POKEMON_GET) with the lead at 1 HP, 2 = PT-BR language.
+import struct as _struct
+LAYOUTS={l['id']:l for l in json.loads((game/'data/layouts/layouts.json').read_text())['layouts'] if 'id' in l}
+TALKS={}
+def _pilot_texts(folder):
+ text=(folder/'scripts.inc').read_text(encoding='utf-8')
+ bodies={l:''.join(re.findall(r'\.string "([^"]*)"',b)) for l,b in re.findall(r'^(\w+_Text_\w+)::\n((?:\t\.string "[^"]*"\n?)+)',text,re.M)}
+ shown={sc:bodies[tl] for sc,tl in re.findall(r'^(\w+)::\n(?:\t\w+[^\n]*\n)*?\tmsgbox (\w+_Text_\w+)',text,re.M)}
+ return shown
+_ATTRS={name:[v for (v,) in _struct.iter_unpack('<I',(game/path).read_bytes())] for name,path in re.findall(r'const u32 (\w+)\[\] = INCBIN_U32\("([^"]+)"\)',(game/'src/data/tilesets/metatiles.h').read_text())}
+_TILESETS={name:_ATTRS[re.search(r'\.metatileAttributes = (\w+)',body)[1]] for name,body in re.findall(r'const struct Tileset (\w+) =\s*\{(.*?)\};',(game/'src/data/tilesets/headers.h').read_text(),re.S)}
+MB_COUNTER=0x80
+def _spot(events,collision,behavior,width,height,x,y,north_only):
+ """A free cell facing the event; across a counter (MB_COUNTER) the player talks from the far side."""
+ taken={(o['x'],o['y']) for o in events}
+ options=[(0,1,'UP'),(0,-1,'DOWN'),(-1,0,'RIGHT'),(1,0,'LEFT')]
+ for dx,dy,key in options[:1] if north_only else options:
+  for reach in (1,2):
+   sx,sy=x+dx*reach,y+dy*reach
+   if not (0<=sx<width and 0<=sy<height):break
+   if reach==2 and behavior[(y+dy)*width+x+dx]!=MB_COUNTER:break
+   if collision[sy*width+sx]==0 and (sx,sy) not in taken:return sx,sy,key
+ return None
+for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/maps').glob('Johto_*'))):
+ header=json.loads((folder/'map.json').read_text());layout=LAYOUTS[header['layout']]
+ objs=header.get('object_events') or [];bgs=header.get('bg_events') or []
+ if not objs and not bgs:continue
+ blocks=[v for (v,) in _struct.iter_unpack('<H',(game/layout['blockdata_filepath']).read_bytes())]
+ cells=[(v>>10)&3 for v in blocks]
+ behavior=[(_TILESETS[layout['primary_tileset']][v&0x3ff] if v&0x3ff<640 else _TILESETS[layout['secondary_tileset']][(v&0x3ff)-640])&0x1ff for v in blocks]
+ shown=_pilot_texts(folder)
+ targets=[('object',i,o) for i,o in enumerate(objs)]+[('sign',i,b) for i,b in enumerate(bgs)]
+ for kind,i,e in targets:
+  spot=_spot(objs,cells,behavior,layout['width'],layout['height'],e['x'],e['y'],kind=='sign' and e.get('player_facing_dir')=='BG_EVENT_PLAYER_FACING_NORTH')
+  assert spot,(folder.name,kind,i,'no free cell next to this event')
+  sx,sy,key=spot
+  script=e['script']
+  inc=(folder/'scripts.inc').read_text(encoding='utf-8')
+  what='cuttree' if script=='EventScript_CutTree' else 'item' if 'finditem' in inc.split(script+'::')[-1].split('\n\n')[0] else 'heal' if f'{script}_Heal' in inc else 'text'
+  setups=[0]+([1] if what=='heal' else [])
+  for setup in setups:
+   CASES.append((header['id'],sx,sy,0,0,[(key,'TALK')],setup))
+   TALKS[len(CASES)]={'map':folder.name,'kind':kind,'index':i,'script':script,'what':what,'setup':setup,'expected':shown.get(script)}
+# Two PT-BR readings: a Hoenn sign and a Johto townsperson.
+for case,info in list(TALKS.items()):
+ if (info['map'],info['kind'],info['index']) in {('Hoenn_LittlerootTown','sign',1),('Johto_NewBarkTown','object',1)} and info['setup']==0:
+  m,sx,sy,_,_,steps,_=CASES[case-1];CASES.append((m,sx,sy,0,0,steps,2));TALKS[len(CASES)]=dict(info,setup=2)
+CASES=[c if len(c)==7 else (*c,0) for c in CASES]
 KEYS={'UP':'DPAD_UP','DOWN':'DPAD_DOWN','LEFT':'DPAD_LEFT','RIGHT':'DPAD_RIGHT','NONE':'0'}
-MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4}
-spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}}}' for m,x,y,px,py,s in CASES)
-steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s in CASES)
-counts=', '.join(str(len(s)) for *_,s in CASES)
+MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5}
+spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}, {setup}}}' for m,x,y,px,py,s,setup in CASES)
+steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s,_setup in CASES)
+counts=', '.join(str(len(s)) for *_,s,_setup in CASES)
 hook='''
 #include "overworld.h"
 #include "fieldmap.h"
@@ -71,6 +120,10 @@ hook='''
 #include "field_weather.h"
 #include "constants/region_map_sections.h"
 #include "pokemon.h"
+#include "event_object_movement.h"
+#include "event_data.h"
+#include "item.h"
+#include "constants/items.h"
 extern const struct Tileset gTileset_General, gTileset_HoennPilotGeneral, gTileset_HoennPilotPetalburg;
 extern const struct Tileset gTileset_JohtoPilotGeneral, gTileset_JohtoPilotNewBarkTown;
 void CB2_NewGame(void);
@@ -78,7 +131,7 @@ void CB1_Overworld(void);
 void CleanupOverworldWindowsAndTilemaps(void);
 void CB2_ReturnToField(void);
 struct PilotStep { u16 keys; u8 mode; };
-const s8 gPilotSpawn[][7] = {
+const s8 gPilotSpawn[][8] = {
     SPAWNS
 };
 static const struct PilotStep sPilotSteps[][4] = {
@@ -87,11 +140,21 @@ static const struct PilotStep sPilotSteps[][4] = {
 static const u8 sPilotStepCount[] = {COUNTS};
 EWRAM_DATA volatile u32 gPilotCase = 0, gPilotStage = 0, gPilotShot = 0;
 EWRAM_DATA volatile u16 gPilotKeys = 0;
-EWRAM_DATA u8 gPilotResult[64] = {0};
+EWRAM_DATA u8 gPilotResult[128] = {0};
 EWRAM_DATA static u32 sPilotFrames = 0, sPilotFlower = 0, sPilotIdle = 0, sPilotStepFrames = 0;
 EWRAM_DATA static u8 sPilotStep = 0, sPilotPhase = 0, sPilotStartGroup = 0, sPilotStartMap = 0;
 EWRAM_DATA static MainCallback sPilotFieldCallback = NULL;
 EWRAM_DATA static s16 sPilotX = 0, sPilotY = 0, sPilotStartX = 0, sPilotStartY = 0;
+static bool8 PilotIsTalkCase(void)
+{
+    return sPilotStepCount[gPilotCase - 1] && sPilotSteps[gPilotCase - 1][0].mode == 5;
+}
+// Called right after New Game loads the map, before any object moves.
+void PilotAfterLoad(void)
+{
+    if (PilotIsTalkCase())
+        FreezeObjectEventsExceptOne(gPlayerAvatar.objectEventId);
+}
 static u32 PilotFlowerSum(void)
 {
     const u32 *tile = (const u32 *)(BG_VRAM + 508 * 32);
@@ -162,6 +225,33 @@ static void PilotWalkCase(void)
         gPilotKeys = 0; gPilotShot = 1; gPilotStage = 3;
         return;
     }
+    // Talk: tap toward the event, press A, read the text, then keep pressing A until the script ends.
+    if (step->mode == 5 && sPilotPhase >= 5)
+    {
+        u8 *t = gPilotResult;
+        if (sPilotPhase == 5 && sPilotStepFrames >= 4) { gPilotKeys = A_BUTTON; sPilotPhase = 6; sPilotStepFrames = 0; }
+        else if (sPilotPhase == 6 && sPilotStepFrames >= 4) { gPilotKeys = 0; sPilotPhase = 7; sPilotStepFrames = 0; }
+        else if (sPilotPhase == 7 && sPilotStepFrames == 60)
+        {
+            t[0] = gSaveBlock1Ptr->location.mapGroup; t[1] = gSaveBlock1Ptr->location.mapNum;
+            t[2] = x - MAP_OFFSET; t[3] = y - MAP_OFFSET; t[4] = ArePlayerFieldControlsLocked();
+            memcpy(t + 8, gStringVar4, 120);
+            gPilotShot = 1;
+        }
+        else if (sPilotPhase == 7 && sPilotStepFrames > 60)
+        {
+            gPilotKeys = (sPilotStepFrames % 20) < 3 ? A_BUTTON : 0;
+            if (sPilotStepFrames >= 420)
+            {
+                gPilotKeys = 0;
+                t[5] = GetMonData(&gPlayerParty[0], MON_DATA_HP) == GetMonData(&gPlayerParty[0], MON_DATA_MAX_HP);
+                t[6] = CheckBagHasItem(ITEM_POTION, 1);
+                t[7] = FlagGet(FLAG_HIDE_JOHTO_ROUTE29_POTION);
+                gPilotStage = 3;
+            }
+        }
+        return;
+    }
     // Town Map: fade, clean up the field and open the region map as the item does, then keep running.
     if (step->mode == 4 && sPilotPhase >= 5)
     {
@@ -182,6 +272,11 @@ static void PilotWalkCase(void)
     if (sPilotPhase == 0)
     {
         if (sPilotIdle < 30) return;
+        if (step->mode == 5)
+        {
+            gPilotKeys = step->keys; sPilotPhase = 5; sPilotStepFrames = 0;
+            return;
+        }
         if (step->mode == 4)
         {
             FadeScreen(FADE_TO_BLACK, 0);
@@ -221,6 +316,9 @@ void PilotCheck(void)
 {
     if (gPilotStage == 0 || gPilotStage == 3) return;
     if (gMain.callback1 != CB1_Overworld && sPilotFrames == 0 && sPilotPhase == 0 && sPilotStep == 0) return;
+    // Talk cases keep everyone but the player frozen until A is pressed, so wanderers stay on their cell.
+    if (PilotIsTalkCase() && sPilotPhase < 6)
+        FreezeObjectEventsExceptOne(gPlayerAvatar.objectEventId);
     if (sPilotStepCount[gPilotCase - 1] == 0) PilotDataCase();
     else PilotWalkCase();
 }
@@ -244,8 +342,9 @@ assert 'PilotCheck();' in main and 'PilotBoot);' in main
 setup='''
 #include "pokemon.h"
 #include "event_data.h"
+#include "game_settings.h"
 extern volatile u32 gPilotCase;
-extern const s8 gPilotSpawn[][7];
+extern const s8 gPilotSpawn[][8];
 void PilotSetup(void)
 {
     const s8 *spawn = gPilotSpawn[gPilotCase - 1];
@@ -255,12 +354,23 @@ void PilotSetup(void)
     CalculatePlayerPartyCount();
     if (spawn[6] >= 100)
         VarSet(VAR_REPEL_STEP_COUNT, 250);
+    if (spawn[7] & 1)
+    {
+        u16 hp = 1;
+        FlagSet(FLAG_SYS_POKEMON_GET);
+        SetMonData(&gPlayerParty[0], MON_DATA_HP, &hp);
+    }
+    if (spawn[7] & 2)
+        GameSettings_SetLanguage(GAME_LANGUAGE_PTBR);
 }
 '''
 world=(game/'src/overworld.c').read_text()
 anchor='    NewGameInitData();\n    ResetInitialPlayerAvatarState();'
 assert anchor in world
-world=world.replace(anchor,'    NewGameInitData();\n    PilotSetup();\n    ResetInitialPlayerAvatarState();').replace('#include "global.h"','#include "global.h"\nvoid PilotSetup(void);',1)
+world=world.replace(anchor,'    NewGameInitData();\n    PilotSetup();\n    ResetInitialPlayerAvatarState();')
+load='    gFieldCallback2 = NULL;\n    DoMapLoadLoop(&gMain.state);\n'
+assert world.count(load)==1
+world=world.replace(load,load+'    PilotAfterLoad();\n').replace('#include "global.h"','#include "global.h"\nvoid PilotAfterLoad(void);',1).replace('#include "global.h"','#include "global.h"\nvoid PilotSetup(void);',1)
 (test/'src/overworld.c').write_text(world+setup)
 with (out/'build.log').open('w') as log:subprocess.run(['make','-j4'],cwd=test,stdout=log,stderr=subprocess.STDOUT,check=True)
 symbols={p[2]:p[0] for line in subprocess.check_output(['arm-none-eabi-nm','pokefirered.elf'],cwd=test,text=True).splitlines() if len(p:=line.split())==3}
@@ -393,10 +503,43 @@ assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1
 for case in (24,25,26):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 print('Map sections:',sections)
+CODES={0xFE:'\n',0xFB:'\\p',0xFA:'\\l'}
+TOKENS={m[1]:int(m[2],16) for m in re.finditer(r'^([A-Z_0-9]+)\s*=\s*([0-9A-F]{2})\s*$',(game/'charmap.txt').read_text(encoding='utf-8'),re.M)}
+for line in (game/'charmap.txt').read_text(encoding='utf-8').splitlines():
+ m=re.match(r'^([A-Z_0-9]+)\s*=\s*([0-9A-F]{2})\s*$',line)
+ if m and int(m[2],16) not in chars:chars[int(m[2],16)]='{'+m[1]+'}'
+def shown_text(data):
+ out=''
+ for byte in data:
+  if byte==0xFF:break
+  out+=CODES.get(byte) or chars.get(byte,f'<{byte:02x}>')
+ return out
+talked={'text':0,'item':0,'cuttree':0,'heal':0,'ptbr':0}
+for case,info in TALKS.items():
+ row=rows[case];got=shown_text(row[8:128]).replace('’',"'")  # the apostrophe byte has two charmap names
+ where=(info['map'],info['kind'],info['index'],info['setup'])
+ assert row[4]==1,(where,'pressing A did not start the event script')
+ if info['setup']&2:
+  assert got and got!=shown_text(rows[next(c for c,i in TALKS.items() if i['map']==info['map'] and i['kind']==info['kind'] and i['index']==info['index'] and i['setup']==0)][8:128]),(where,'PT-BR shows the English text',got)
+  assert got.startswith(('LABORATÓRIO','Ah! Seu')),(where,got);talked['ptbr']+=1;continue
+ if info['what']=='item':
+  assert row[6] and row[7],(where,'Potion not in the bag or flag not set',row[6],row[7]);talked['item']+=1;continue
+ if info['what']=='cuttree':
+  assert got.startswith('This tree'),(where,got);talked['cuttree']+=1;continue
+ if info['what']=='heal' and info['setup']&1:
+  assert row[5],(where,'healing machine did not restore the party');talked['heal']+=1;continue
+ want=info['expected'].replace('{PLAYER}','TEST').replace('\\n','\n')
+ # One-byte tokens such as {UP_ARROW} decode as whatever character the charmap lists first for that byte.
+ want=re.sub(r'\{(\w+)\}',lambda m:chars.get(TOKENS[m[1]],m[0]) if m[1] in TOKENS else m[0],want)
+ want=want[:-1] if want.endswith('$') else want
+ assert got and want.startswith(got.rstrip('\\')) or got.startswith(want),(where,'text differs',got,want)
+ talked['text']+=1
+print('Talked to pilot events:',talked)
 print('PASS: Hoenn and Johto pilots load on their own tilesets with doors, animation and connections; every door, '
       'doormat, staircase and the Route 29 gate warp both ways; both connections cross on foot; the Hoenn bedroom cell '
       'blocks north/south only; wild tables are attached and both pilot routes start real wild battles from them; '
       'pilot maps carry named sections (popup, met location) and the Town Map opens on them; '
+      'every ambient event answers A with its source text, the Potion is picked up, the lab machine heals, PT-BR shows; '
       'assets match their sources; Pallet unchanged.')
 (out/'results.json').write_text(json.dumps({'status':'passed','build':str(test),'cases':{str(k):v.hex() for k,v in rows.items()},
                                             'walks':{str(k):walked(k) for k in rows if CASES[k-1][5] and CASES[k-1][5][0][1] not in ('BATTLE','TOWNMAP')},'sections':sections,'battles':battles},indent=2)+'\n')

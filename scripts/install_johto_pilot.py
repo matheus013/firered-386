@@ -239,9 +239,14 @@ def main():
                'allow_running': header['allow_running'], 'show_map_name': header['show_map_name'], 'floor_number': 0,
                'battle_scene': header['battle_scene'], 'connections': connections or None,
                'object_events': [], 'warp_events': warps, 'coord_events': [], 'bg_events': []}
+        # Events come from install_pilot_events.py; a rerun of this installer keeps them.
+        if (g / f'data/maps/{name}/map.json').exists():
+            previous = json.loads((g / f'data/maps/{name}/map.json').read_text(encoding='utf-8'))
+            for key in ('object_events', 'coord_events', 'bg_events'):
+                out[key] = previous.get(key) or []
         (g / f'data/maps/{name}').mkdir(parents=True, exist_ok=True)
         (g / f'data/maps/{name}/map.json').write_text(json.dumps(out, indent=2) + '\n', encoding='utf-8', newline='\n')
-        (g / f'data/maps/{name}/scripts.inc').write_text(
+        if not (g / f'data/maps/{name}/scripts.inc').exists(): (g / f'data/maps/{name}/scripts.inc').write_text(
             f'@ Terrain-only pilot. HNS events are not imported.\n{name}_MapScripts::\n\t.byte 0\n', encoding='utf-8', newline='\n')
         if connections and name not in groups['connections_include_order']:
             groups['connections_include_order'].append(name)

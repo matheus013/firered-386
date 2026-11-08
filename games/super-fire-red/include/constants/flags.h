@@ -47,6 +47,7 @@
 #define FLAG_0x021               0x021
 #define FLAG_EXP_SHARE_UNLOCKED  FLAG_0x020
 #define FLAG_EXP_SHARE_DISABLED  FLAG_0x021
+#define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
 #define FLAG_0x022               0x022
 #define FLAG_0x023               0x023
 #define FLAG_0x024               0x024

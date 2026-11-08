@@ -2923,3 +2923,43 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne = {
     .images = sPicTable_SSAnne,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
+
+// pokeemerald 731ad5b graphics/object_events/pics/people/twin.png; redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_WHITE.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Twin = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_4,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = gObjectEventSpriteOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Twin,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+// HNS_modern bf25b6e graphics/object_events/pics/people/scientist_f.png; redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_PINK.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ScientistF = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = gObjectEventSpriteOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_ScientistF,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};

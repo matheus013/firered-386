@@ -51,7 +51,7 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Pendente |
 | M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
 | M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Iniciado: seções com nome para os pilotos (IDs salvos preservados) e mapa da cidade seguro neles; mapa regional próprio, Fly e cura pendentes |
-| M6 | Eventos, encontros, desafios e progressão interligados | Pendente |
+| M6 | Eventos, encontros, desafios e progressão interligados | Iniciado: encontros e eventos de ambiente (fase 1) nos pilotos; personagens principais e história pendentes |
 | M7 | Builds locais isoladas e percurso completo sem teleportes | Pendente |
 | M8 | Revisão final, integração em main e publicação | Pendente |
 
@@ -345,4 +345,14 @@ sem mover nenhum ID salvo. Só cabem 56 seções novas antes dos valores reserva
 suficiente para Johto inteira. Nome ao entrar, local de encontro e áreas do Hardcore funcionam
 nos pilotos. O mapa da cidade abre em Kanto (cursor em Pallet) fora de Kanto/Sevii; antes
 podia travar ou ler fora das tabelas. Mapa regional próprio, Fly e cura continuam pendentes.
+Detalhes no [diário](MULTIREGION_WORKLOG.md).
+
+### Eventos de ambiente dos pilotos (fase 1)
+
+77 eventos em 12 mapas: placas, moradores com as falas das fontes, estantes/PCs/máquinas, a Potion
+da Route 29, uma árvore de Cut e a máquina de cura do Elm (`scripts/install_pilot_events.py`).
+Sprites ausentes no FireRed são importados por `scripts/import_npc_sprite.py`, redesenhados numa
+das quatro paletas de moradores, como o FireRed fez com o Brendan de Ruby/Sapphire (Twin e
+cientista nesta fase). Traduções revisadas em `region_pilot_ptbr.json`. O teste da ROM fala com
+cada evento e confere o texto. Fases 2 (personagens principais) e 3 (história) pendentes.
 Detalhes no [diário](MULTIREGION_WORKLOG.md).

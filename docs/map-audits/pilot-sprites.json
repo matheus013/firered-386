@@ -1,0 +1,32 @@
+{
+  "sprites": {
+    "OBJ_EVENT_GFX_TWIN": {
+      "source": "pokeemerald 731ad5b graphics/object_events/pics/people/twin.png",
+      "source_png": "pokeemerald/graphics/object_events/pics/people/twin.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_WHITE",
+      "frames_in_source": 9,
+      "mean_squared_rgb_error_per_pixel": 1868.94,
+      "worst_colour_distance": 92.4,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 2823789,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 5120850,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 3482178,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 2752949
+      }
+    },
+    "OBJ_EVENT_GFX_SCIENTIST_F": {
+      "source": "HNS_modern bf25b6e graphics/object_events/pics/people/scientist_f.png",
+      "source_png": "HNS_modern/graphics/object_events/pics/people/scientist_f.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_PINK",
+      "frames_in_source": 10,
+      "mean_squared_rgb_error_per_pixel": 327.45,
+      "worst_colour_distance": 47.8,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 1897117,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 613310,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 3746322,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 1339114
+      }
+    }
+  }
+}

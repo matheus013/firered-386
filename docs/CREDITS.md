@@ -27,3 +27,12 @@ e o README só lista créditos. A importação com créditos foi decisão do man
 07/11/2026. Se algum autor pedir remoção ou condições diferentes, os arquivos ficam isolados em
 `data/tilesets/*/johto_pilot_*`, `data/layouts/Johto_*`, `data/maps/Johto_*` e
 `graphics/door_anims/johto/`, e o instalador pode ser revertido.
+
+## Sprites de personagens
+
+Importados por `scripts/import_npc_sprite.py` e redesenhados numa paleta de moradores do FireRed;
+detalhes em `docs/map-audits/pilot-sprites.json`.
+
+- Twin: pret/pokeemerald (`graphics/object_events/pics/people/twin.png`).
+- Cientista (`SCIENTIST_F`): resetes12/HNS_modern (`graphics/object_events/pics/people/scientist_f.png`),
+  mesma situação de licença dos tilesets de Johto acima.

@@ -478,3 +478,99 @@ próprio de Hoenn/Johto precisa de gráficos novos e fica para depois.
 - Build nativa para PC com estas mudanças.
 - Limitação do Hardcore registrada na etapa de encontros (Route 29 e New Bark como uma área
   só): **resolvida**, agora são seções diferentes.
+
+## 08/11/2026 — Eventos dos pilotos, fase 1: ambiente (Claude)
+
+Pedido do usuário: **todos** os eventos, com sprites importados do Emerald e do HNS quando o
+FireRed não tiver. Codex pausado. "Todos" foi dividido em fases para não misturar coisas de
+natureza diferente:
+
+1. **Ambiente (esta entrada):** placas, moradores com suas falas, estantes/PCs/máquinas, item,
+   árvore de Cut e a máquina de cura do laboratório do Elm.
+2. **Personagens principais:** mães, Birch, Elm, rivais, Silver (e seus sprites).
+3. **História:** caminhão, resgate do Birch, escolha de iniciais, batalhas de rival. Mexe na
+   progressão do FireRed e vai precisar de decisões do usuário.
+
+### Sprites
+
+Regra: se o FireRed tem o mesmo tipo de personagem (Fat Man, Boy, Youngster, Lass, Woman 1–3,
+Old Man, Little Boy, Scientist, Policeman, árvore de Cut, Poké Ball), usa o do FireRed; senão,
+importa. Nesta fase foram importados dois:
+
+| Sprite | Fonte | Paleta do FireRed | Erro de cor |
+|---|---|---|---|
+| `OBJ_EVENT_GFX_TWIN` (152) | pokeemerald `twin.png` | `NPC_WHITE` | maior distância 92 |
+| `OBJ_EVENT_GFX_SCIENTIST_F` (153) | HNS_modern `scientist_f.png` | `NPC_PINK` | maior distância 48 |
+
+Novo `scripts/import_npc_sprite.py`. O FireRed desenha moradores com 4 paletas fixas (azul,
+rosa, verde, branca) e só um espaço de paleta especial por mapa; o próprio FireRed redesenhou o
+Brendan de Ruby/Sapphire na paleta branca. O importador faz o mesmo: escolhe a paleta com menor
+erro e leva cada cor à mais próxima, com o erro registrado em
+[pilot-sprites.json](map-audits/pilot-sprites.json). Comparação lado a lado:
+[pilot-sprites.png](map-audits/pilot-sprites.png). A cientista ficou quase idêntica; a Twin
+perdeu o vermelho do laço e o amarelo do vestido (ficaram puxados para o marrom), porque nenhuma
+das quatro paletas tem esses tons. Folhas de 9 quadros ganham um 10º (cópia do 0), porque a
+tabela de animação do FireRed usa o quadro 9 (levantar a mão). IDs de sprite: o FireRed tinha
+152 e reserva até 239; foram acrescentados no fim.
+
+### Eventos
+
+Novo `scripts/install_pilot_events.py` (idempotente): 77 eventos em 12 mapas, com relatório em
+[pilot-events.json](map-audits/pilot-events.json) (origem, sprite, texto e motivo de cada um).
+
+- **Textos copiados das fontes**, conferidos contra o charmap do FireRed (aspas curvas e
+  `{UP_ARROW}` existem). Rótulos com o prefixo do mapa (`Hoenn_…`, `Johto_…`), porque o HNS reusa
+  os rótulos do laboratório do Emerald e haveria conflito.
+- **Ramos fixados** onde o script original depende da história, escolhendo o que faz sentido
+  para quem chega de fora: Twin "boa sorte" (pós-aventura); assistente do Birch "o PROF. está em
+  trabalho de campo" (o Birch só entra na fase 2); Fat Man e Lass de New Bark em falas neutras;
+  velho e garoto da Route 29 nas falas do dia; ajudantes do Elm "sempre ocupados" e "salve o jogo".
+- Personagens que o original esconde durante a introdução (vizinha, menino da Route 101,
+  assistente do Elm) ficam sempre visíveis.
+- **Potion** da Route 29: `finditem` com a flag nova `FLAG_HIDE_JOHTO_ROUTE29_POTION`, apelido de
+  `FLAG_0x077` (sem uso no FireRed nem no hack). **Árvore de Cut:** script do próprio FireRed.
+  **Máquina de cura** do Elm: com Pokémon recebido, cura a equipe (fanfarra e
+  `HealPlayerParty`); sem, mostra o texto da máquina, como no HNS.
+- Ficaram para as fases 2 e 3: placas "casa de {PLAYER}" e caixas de correio do jogador (dependem
+  de quem é o jogador), PC e relógio do quarto (gênero e relógio de tempo real), Poké Balls dos
+  iniciais, presente de dia da semana da Tuscany, árvore de berry e Pokémon andando do HNS.
+- `install_hoenn_interiors.py` e `install_johto_pilot.py` agora preservam eventos e
+  `scripts.inc` existentes ao serem executados de novo.
+
+### Tradução PT-BR
+
+Novo `scripts/region_pilot_ptbr.py` gera `hack-data/localization/region_pilot_ptbr.json`:
+38 traduções revisadas para os 45 textos (os outros são só nomes de lugar, iguais em PT). A
+chave em inglês é lida do próprio `scripts.inc`, para nunca divergir do que o jogo mostra.
+`generate_locale.py` passou a ler esse arquivo e a tratá-lo como fala de mapa (quebra de linha
+automática). Termos seguem as traduções existentes: CENTRO POKéMON, SALVAR, nomes de lugar em
+inglês, PROF. Resultado: 8.177 entradas, 0 recusadas.
+
+### Teste na ROM
+
+`test_region_pilot_maps.py` passou de 26 para **107 casos**, todos aprovados. Os 81 novos
+falam de verdade com cada evento: o jogador nasce numa célula livre ao lado (do outro lado do
+balcão, no caso do guarda do portão), os outros personagens ficam congelados até o A, ele vira
+para o evento, aperta A e o teste lê o texto mostrado (`gStringVar4`):
+
+- 75 textos iguais aos da fonte;
+- Potion vai para a mochila e a flag é marcada;
+- árvore de Cut responde com o texto do FireRed;
+- as duas máquinas de cura restauram a equipe (e sem Pokémon mostram o texto da máquina);
+- 2 leituras em PT-BR (placa do laboratório do Birch e a Lass de New Bark) saem em português.
+
+Problemas do próprio teste, resolvidos no caminho: a Twin anda e escapava antes do congelamento
+(agora congela logo após o carregamento e a cada quadro até o A); o guarda do portão está atrás
+de um balcão (o teste agora fala por cima do balcão, como o jogo permite); o decodificador
+confundia caracteres que o charmap mapeia no mesmo byte (apóstrofo reto/curvo, `{UP_ARROW}`).
+
+### Outras verificações
+
+- 27 testes de regiões, `balance_encounters.py --check`, `generate_guides.py --check`: OK.
+- ROM publicada intacta (SHA-1 da v0.5.0-preview.6).
+
+### Pendente
+
+- Fases 2 (personagens principais) e 3 (história).
+- A Twin com cores aproximadas; se quiser cores exatas, dá para usar o espaço de paleta especial
+  enquanto não houver outro personagem com paleta própria no mesmo mapa.

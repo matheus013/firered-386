@@ -105,9 +105,14 @@ def main():
                'allow_running': header['allow_running'], 'show_map_name': False, 'floor_number': 0,
                'battle_scene': header['battle_scene'], 'connections': None,
                'object_events': [], 'warp_events': warps, 'coord_events': [], 'bg_events': []}
+        # Events come from install_pilot_events.py; a rerun of this installer keeps them.
+        if (map_path).exists():
+            previous = json.loads((map_path).read_text(encoding='utf-8'))
+            for key in ('object_events', 'coord_events', 'bg_events'):
+                out[key] = previous.get(key) or []
         map_path.parent.mkdir(parents=True, exist_ok=True)
         map_path.write_text(json.dumps(out, indent=2) + '\n', encoding='utf-8', newline='\n')
-        (map_path.parent / 'scripts.inc').write_text(
+        if not (map_path.parent / 'scripts.inc').exists(): (map_path.parent / 'scripts.inc').write_text(
             f'@ Terrain-only pilot. Emerald story events are not imported.\n{name}_MapScripts::\n\t.byte 0\n',
             encoding='utf-8', newline='\n')
         if name not in groups['gMapGroup_Hoenn']:

@@ -99,6 +99,8 @@ for item in items:
   rows.setdefault(en,{'en':en,'pt':en,'sources':['src/data/items.json']})
   overrides[en]=wrap_description(item_texts[item['itemId']])
 for en,pt in overrides.items():rows[en]={'en':en,'pt':pt,'sources':rows.get(en,{}).get('sources',[]),'reviewed':True}
+# Region pilot maps: reviewed texts are map dialogue, wrapped like the other map rows.
+for en,pt in json.loads((folder/'region_pilot_ptbr.json').read_text(encoding='utf-8')).items():rows[en]={'en':en,'pt':pt,'sources':['data/maps/region_pilot'],'reviewed':True}
 accepted={};skipped=[]
 direct_pt=set()
 for path in (root/'games/super-fire-red/src').rglob('*.c'):

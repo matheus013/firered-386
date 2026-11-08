@@ -230,3 +230,7 @@ const u16 gFieldEffectObjectPic_Bubbles[] = INCBIN_U16("graphics/field_effects/p
 const u16 gFieldEffectObjectPic_SmallSparkle[] = INCBIN_U16("graphics/field_effects/pics/small_sparkle.4bpp");
 const u16 gFieldEffectPal_SmallSparkle[] = INCBIN_U16("graphics/field_effects/palettes/small_sparkle.gbapal");
 const u16 gFieldEffectObjectPic_Bird[] = INCBIN_U16("graphics/field_effects/pics/bird.4bpp");
+
+const u16 gObjectEventPic_Twin[] = INCBIN_U16("graphics/object_events/pics/people/twin.4bpp"); // pokeemerald 731ad5b graphics/object_events/pics/people/twin.png
+
+const u16 gObjectEventPic_ScientistF[] = INCBIN_U16("graphics/object_events/pics/people/scientist_f.4bpp"); // HNS_modern bf25b6e graphics/object_events/pics/people/scientist_f.png

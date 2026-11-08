@@ -29,7 +29,7 @@ int main(int argc, char **argv)
         }
         if (stage < 3) { char label[32]; snprintf(label, sizeof label, "case%u-stuck", test); Shot(argv[2], label, pixels); }
         printf("case=%u stage=%u text=", test, stage);
-        for (unsigned i = 0; i < 64; i++) printf("%02x", core->busRead8(core, addrResult + i));
+        for (unsigned i = 0; i < 128; i++) printf("%02x", core->busRead8(core, addrResult + i));
         printf("\n");
     }
     core->deinit(core); free(pixels); return 0;
