@@ -5290,7 +5290,13 @@ static bool32 CurrentMonIsFromGBA(void)
 
 static bool32 MapSecIsInKantoOrSevii(u8 mapSec)
 {
+    u8 version;
     if (mapSec >= KANTO_MAPSEC_START && mapSec < MAPSEC_NONE)
+        return TRUE;
+    // Named Hoenn pilot sections share Emerald's IDs: only Pokemon met in this game use the name,
+    // so Ruby/Sapphire/Emerald trades keep their original summary text.
+    version = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_GAME);
+    if (RegionMap_HasHoennName(mapSec) && (version == VERSION_FIRE_RED || version == VERSION_LEAF_GREEN))
         return TRUE;
     return FALSE;
 }

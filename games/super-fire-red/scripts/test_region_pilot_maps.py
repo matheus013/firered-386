@@ -49,9 +49,12 @@ CASES=[
  (JOHTO+'NEW_BARK_TOWN',0,12,0,0,[('LEFT','MAP'),('RIGHT','MAP')]),    # walk west into Route 29 and back
  (HOENN+'ROUTE101',3,3,0,0,[('RIGHT','BATTLE')]),                    # zig-zag in tall grass until a wild battle
  (JOHTO+'ROUTE29',3,3,0,0,[('RIGHT','BATTLE')]),
+ (HOENN+'LITTLEROOT_TOWN',10,8,0,0,[('NONE','TOWNMAP')]),             # open the Town Map like the item does
+ (JOHTO+'NEW_BARK_TOWN',10,10,0,0,[('NONE','TOWNMAP')]),
+ ('MAP_PALLET_TOWN',10,8,0,0,[('NONE','TOWNMAP')]),                   # control: Kanto section
 ]
-KEYS={'UP':'DPAD_UP','DOWN':'DPAD_DOWN','LEFT':'DPAD_LEFT','RIGHT':'DPAD_RIGHT'}
-MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3}
+KEYS={'UP':'DPAD_UP','DOWN':'DPAD_DOWN','LEFT':'DPAD_LEFT','RIGHT':'DPAD_RIGHT','NONE':'0'}
+MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4}
 spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}}}' for m,x,y,px,py,s in CASES)
 steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s in CASES)
 counts=', '.join(str(len(s)) for *_,s in CASES)
@@ -64,11 +67,16 @@ hook='''
 #include "constants/maps.h"
 #include "string_util.h"
 #include "wild_encounter.h"
+#include "region_map.h"
+#include "field_weather.h"
+#include "constants/region_map_sections.h"
 #include "pokemon.h"
 extern const struct Tileset gTileset_General, gTileset_HoennPilotGeneral, gTileset_HoennPilotPetalburg;
 extern const struct Tileset gTileset_JohtoPilotGeneral, gTileset_JohtoPilotNewBarkTown;
 void CB2_NewGame(void);
 void CB1_Overworld(void);
+void CleanupOverworldWindowsAndTilemaps(void);
+void CB2_ReturnToField(void);
 struct PilotStep { u16 keys; u8 mode; };
 const s8 gPilotSpawn[][7] = {
     SPAWNS
@@ -82,6 +90,7 @@ EWRAM_DATA volatile u16 gPilotKeys = 0;
 EWRAM_DATA u8 gPilotResult[64] = {0};
 EWRAM_DATA static u32 sPilotFrames = 0, sPilotFlower = 0, sPilotIdle = 0, sPilotStepFrames = 0;
 EWRAM_DATA static u8 sPilotStep = 0, sPilotPhase = 0, sPilotStartGroup = 0, sPilotStartMap = 0;
+EWRAM_DATA static MainCallback sPilotFieldCallback = NULL;
 EWRAM_DATA static s16 sPilotX = 0, sPilotY = 0, sPilotStartX = 0, sPilotStartY = 0;
 static u32 PilotFlowerSum(void)
 {
@@ -114,6 +123,9 @@ static void PilotDataCase(void)
         r[17] = PilotFlowerSum() != sPilotFlower;
         r[24] = MapGridGetCollisionAt(spawn[2] + MAP_OFFSET, spawn[3] + MAP_OFFSET);
         r[25] = gMapHeader.regionMapSectionId;
+        r[37] = gMapHeader.showMapName; r[38] = gMapHeader.regionMapSectionId;
+        r[39] = GetMonData(&gPlayerParty[0], MON_DATA_MET_LOCATION);
+        GetMapNameGeneric(r + 40, gMapHeader.regionMapSectionId); r[63] = EOS;
         {
             const struct WildPokemonHeader *h = gWildMonHeaders;
             while (h->mapGroup != MAP_GROUP(MAP_UNDEFINED) && !(h->mapGroup == r[0] && h->mapNum == r[1])) h++;
@@ -150,9 +162,32 @@ static void PilotWalkCase(void)
         gPilotKeys = 0; gPilotShot = 1; gPilotStage = 3;
         return;
     }
+    // Town Map: fade, clean up the field and open the region map as the item does, then keep running.
+    if (step->mode == 4 && sPilotPhase >= 5)
+    {
+        if (sPilotPhase == 5 && !gPaletteFade.active)
+        {
+            sPilotFieldCallback = gMain.callback2;
+            CleanupOverworldWindowsAndTilemaps();
+            InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, CB2_ReturnToField);
+            sPilotPhase = 6; sPilotStepFrames = 0;
+        }
+        else if (sPilotPhase == 6 && sPilotStepFrames >= 240)
+        {
+            r[0] = gMain.callback2 != sPilotFieldCallback; r[1] = !gPaletteFade.active;
+            gPilotShot = 1; gPilotStage = 3;
+        }
+        return;
+    }
     if (sPilotPhase == 0)
     {
         if (sPilotIdle < 30) return;
+        if (step->mode == 4)
+        {
+            FadeScreen(FADE_TO_BLACK, 0);
+            sPilotPhase = 5;
+            return;
+        }
         sPilotStartGroup = gSaveBlock1Ptr->location.mapGroup; sPilotStartMap = gSaveBlock1Ptr->location.mapNum;
         sPilotStartX = x; sPilotStartY = y;
         gPilotKeys = step->keys; sPilotPhase = 1; sPilotStepFrames = 0;
@@ -333,9 +368,35 @@ for case,mapid,where in ((22,'MAP_HOENN_ROUTE101',(HG,ROUTE101)),(23,'MAP_JOHTO_
  assert tuple(row[:2])==where,(mapid,'battle on the wrong map',row[:2])
  battles[mapid]={'species':next(n for n,v in species_ids.items() if v==species),'level':level}
 print('Wild battles:',battles)
+chars={}
+for line in (game/'charmap.txt').read_text(encoding='utf-8').splitlines():
+ m=re.match(r"^'((?:\\.|[^'])*)'\s*=\s*([0-9A-F]{2})\s*$",line)
+ if m:chars.setdefault(int(m[2],16),m[1].replace("\\'","'"))
+def decode(data):
+ text=''
+ for byte in data:
+  if byte==0xFF:break
+  text+=chars.get(byte,f'<{byte:02x}>')
+ return text
+order=[s['id'] for s in json.loads((game/'src/data/region_map/region_map_sections.json').read_text(encoding='utf-8'))['map_sections']]
+sections={}
+for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LITTLEROOT TOWN'),('Route101',route,'MAPSEC_ROUTE_101','ROUTE 101'),
+                               ('New Bark',newbark,'MAPSEC_NEW_BARK_TOWN','NEW BARK TOWN'),('Route29',route29,'MAPSEC_ROUTE_29','ROUTE 29'),('Pallet',pallet,'MAPSEC_PALLET_TOWN','PALLET TOWN')):
+ shown=decode(row[40:64])
+ assert row[38]==order.index(section),(name,'section id',row[38],order.index(section))
+ assert shown==label,(name,'map name',shown)
+ assert row[39]==row[38],(name,'Pokemon created here should record this section as met location',row[39])
+ if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
+ sections[name]={'id':row[38],'name':shown}
+# Existing IDs keep their place: the Johto sections come after the last FireRed one.
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-1]=='MAPSEC_ROUTE_29'
+for case in (24,25,26):
+ assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
+print('Map sections:',sections)
 print('PASS: Hoenn and Johto pilots load on their own tilesets with doors, animation and connections; every door, '
       'doormat, staircase and the Route 29 gate warp both ways; both connections cross on foot; the Hoenn bedroom cell '
       'blocks north/south only; wild tables are attached and both pilot routes start real wild battles from them; '
+      'pilot maps carry named sections (popup, met location) and the Town Map opens on them; '
       'assets match their sources; Pallet unchanged.')
 (out/'results.json').write_text(json.dumps({'status':'passed','build':str(test),'cases':{str(k):v.hex() for k,v in rows.items()},
-                                            'walks':{str(k):walked(k) for k in rows if CASES[k-1][5] and CASES[k-1][5][0][1]!='BATTLE'},'battles':battles},indent=2)+'\n')
+                                            'walks':{str(k):walked(k) for k in rows if CASES[k-1][5] and CASES[k-1][5][0][1] not in ('BATTLE','TOWNMAP')},'sections':sections,'battles':battles},indent=2)+'\n')

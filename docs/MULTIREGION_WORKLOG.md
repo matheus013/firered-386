@@ -402,3 +402,79 @@ tabelas foi conferida.
 
 - Seções de mapa de Johto (M5), que também separam as áreas do Hardcore.
 - Rock Smash e eventos dos pilotos; Surf e pesca testados em jogo.
+
+## 07/11/2026 — Seções de mapa dos pilotos (M5, Claude)
+
+Pedido do usuário: seções de mapa (marco M5). Littleroot, Route 101, New Bark e Route 29
+agora têm nome no jogo: aparece o nome ao entrar no mapa, o local de encontro (met location)
+de um Pokémon capturado ali fica registrado com o nome certo, e o Hardcore passa a separar as
+áreas. Os interiores herdam a seção da cidade, sem nome ao entrar, como nas fontes.
+
+### Como o FireRed organiza as seções e por que a solução ficou assim
+
+As seções são um byte, guardado no save (local de encontro de cada Pokémon e quotas do
+Hardcore). O FireRed tem três faixas:
+
+| Faixa | IDs | Situação original |
+|---|---|---|
+| Hoenn (`MAPSEC_LITTLEROOT_TOWN`…) | 0–87 | sem nome nem dados; existem para Pokémon trocados com Ruby/Sapphire/Emerald |
+| Kanto e Sevii | 88–196 | com nome; do `MAPSEC_ONE_ISLAND` em diante o mapa regional trata como ilha |
+| `MAPSEC_NONE`, `MAPSEC_COUNT` | 197, 198 | marcadores |
+
+0xFD–0xFF são reservados (ovo, troca, encontro especial), então só cabem 56 seções novas.
+
+- **Hoenn:** nomeadas as seções que já existem, com os mesmos IDs do Emerald. Seções novas
+  no fim não caberiam para a Hoenn inteira. Novo campo `hoenn_name` no
+  `region_map_sections.json` (LITTLEROOT TOWN, ROUTE 101), nova tabela `sHoennMapNames` gerada
+  pelos templates, e `GetMapName` passou a usá-la. No resumo do Pokémon, o nome Hoenn só vale
+  para Pokémon encontrados no FireRed/LeafGreen: trocas de Ruby/Sapphire/Emerald continuam com
+  o texto original ("trade").
+- **Johto:** `MAPSEC_NEW_BARK_TOWN` (197) e `MAPSEC_ROUTE_29` (198) acrescentadas **depois** da
+  última seção do FireRed; nenhum ID existente mudou (Pallet continua 88). `MAPSEC_NONE` passou
+  a 199. Novo `JOHTO_MAPSEC_START`. Regra registrada no template: nunca inserir seções antes
+  delas, para não mudar locais de encontro já salvos. Johto inteira cabe nos 56 IDs livres.
+  Os nomes são os mesmos do HNS, então `install_johto_pilot.py` agora copia a seção e a
+  opção de nome da fonte.
+- `show_map_name` ligado nos exteriores (Littleroot, Route 101, New Bark, Route 29), como no
+  Emerald e no HNS; interiores e portão sem nome ao entrar, também como nas fontes.
+
+### Mapa da cidade (Town Map) e Fly: travamento corrigido
+
+Abrir o mapa da cidade ou o Fly num mapa piloto não era seguro:
+
+- seções Hoenn (antes de Kanto) geravam índice negativo nas tabelas do mapa regional;
+- `MAPSEC_NONE` (Johto antes desta etapa) tinha largura 0 e dividia por zero;
+- seções Johto no fim da lista cairiam na faixa "Sevii", e a busca em `sSeviiMapsecs`, num
+  `while` sem saída, nunca terminaria.
+
+Correção em `src/region_map.c`: novo `IsMapsecOnRegionMaps` (Kanto até antes de Johto). Fora
+disso, o mapa abre em Kanto com o cursor em Pallet Town, sem tocar as tabelas fora dos limites.
+A tabela de destinos do Fly ganhou entradas para as seções Johto, só para ficar nos limites:
+como Johto ainda não tem célula no mapa regional, o Fly nunca as oferece. Mapa regional
+próprio de Hoenn/Johto precisa de gráficos novos e fica para depois.
+
+### Teste na ROM
+
+`test_region_pilot_maps.py` passou de 23 para 26 casos, todos aprovados:
+
+- os casos de dados conferem ID da seção, nome (`GetMapNameGeneric`), opção de nome ao entrar e
+  o local de encontro gravado num Pokémon criado no mapa: LITTLEROOT TOWN (0), ROUTE 101 (16),
+  NEW BARK TOWN (197), ROUTE 29 (198) e PALLET TOWN (88, controle);
+- casos 24–26: abrem o mapa da cidade como o item faz (escurece, limpa o campo, abre) em
+  Littleroot, New Bark e Pallet, e exigem que ele abra e o jogo continue rodando. Capturas:
+  mapa de Kanto com o cursor em Pallet nos três;
+- as capturas dos casos de dados mostram a placa "LITTLEROOT TOWN" e "NEW BARK TOWN" ao entrar.
+
+### Outras verificações
+
+- 27 testes de regiões, `balance_encounters.py --check` e `generate_guides.py --check`: OK.
+- ROM publicada intacta (SHA-1 da v0.5.0-preview.6).
+
+### Não verificado / pendente
+
+- A tela de resumo não foi aberta no teste: o texto do local de encontro de um Pokémon de
+  Littleroot foi conferido pela regra do código, não pela tela.
+- Mapa regional próprio de Hoenn e Johto, Fly e pontos de cura (resto do M5).
+- Build nativa para PC com estas mudanças.
+- Limitação do Hardcore registrada na etapa de encontros (Route 29 e New Bark como uma área
+  só): **resolvida**, agora são seções diferentes.

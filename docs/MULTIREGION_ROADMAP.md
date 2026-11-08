@@ -47,10 +47,10 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 |---|---|---|
 | M0 | Branch isolada, escopo e fontes fixadas | Concluído |
 | M1 | Inventário técnico, classificação regional e matriz de dependências | Iniciado: inventário técnico gerado; classificação e scripts pendentes |
-| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Concluído na engine: Hoenn (Littleroot, Route 101, 5 interiores; grupo 43) e Johto (New Bark, Route 29, 6 interiores; grupo 44), testados andando na ROM (build isolada), com encontros selvagens nas duas rotas e na água de New Bark. Faltam eventos e M5 |
+| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Concluído na engine: Hoenn (Littleroot, Route 101, 5 interiores; grupo 43) e Johto (New Bark, Route 29, 6 interiores; grupo 44), testados andando na ROM (build isolada), com encontros selvagens nas duas rotas e na água de New Bark e seções com nome. Faltam eventos e o resto do M5 |
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Pendente |
 | M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
-| M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Pendente |
+| M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Iniciado: seções com nome para os pilotos (IDs salvos preservados) e mapa da cidade seguro neles; mapa regional próprio, Fly e cura pendentes |
 | M6 | Eventos, encontros, desafios e progressão interligados | Pendente |
 | M7 | Builds locais isoladas e percurso completo sem teleportes | Pendente |
 | M8 | Revisão final, integração em main e publicação | Pendente |
@@ -334,5 +334,15 @@ Route 101 (Emerald), Route 29 e água/pesca de New Bark (HNS, tabela do dia) vê
 `hack-data/region_pilot_encounters.json` (gerado por `scripts/import_region_encounters.py`) e são
 acrescentadas por `balance_encounters.py` depois da distribuição das 386 espécies, sem mudar
 nenhum slot de Kanto/Sevii nem os guias. O teste da ROM inicia batalhas reais nas duas rotas.
-No Hardcore, Route 29 e New Bark contam como uma área só até o M5. Detalhes no
+No Hardcore, Route 29 e New Bark passaram a ser áreas separadas com as seções do M5. Detalhes no
 [diário](MULTIREGION_WORKLOG.md).
+
+### Seções de mapa dos pilotos (M5)
+
+Hoenn usa as seções que o FireRed já reserva (IDs 0–87, os mesmos do Emerald), agora com nome
+via `hoenn_name`; Johto ganhou seções no fim da lista (`JOHTO_MAPSEC_START`, IDs 197 e 198),
+sem mover nenhum ID salvo. Só cabem 56 seções novas antes dos valores reservados 0xFD–0xFF,
+suficiente para Johto inteira. Nome ao entrar, local de encontro e áreas do Hardcore funcionam
+nos pilotos. O mapa da cidade abre em Kanto (cursor em Pallet) fora de Kanto/Sevii; antes
+podia travar ou ler fora das tabelas. Mapa regional próprio, Fly e cura continuam pendentes.
+Detalhes no [diário](MULTIREGION_WORKLOG.md).

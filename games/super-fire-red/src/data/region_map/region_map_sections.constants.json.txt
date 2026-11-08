@@ -16,6 +16,10 @@ enum {
 // Values starting from SEVII_MAPSEC_START are assumed to have data in sSeviiMapsecs.
 #define SEVII_MAPSEC_START   MAPSEC_ONE_ISLAND
 
+// Johto expansion sections are appended after the FireRed list so no saved ID moves.
+// They have names but no region map cell yet; never insert sections before them.
+#define JOHTO_MAPSEC_START   MAPSEC_NEW_BARK_TOWN
+
 // Special location IDs that use the same value space as MAPSECs.
 #define METLOC_SPECIAL_EGG         0xFD
 #define METLOC_IN_GAME_TRADE       0xFE

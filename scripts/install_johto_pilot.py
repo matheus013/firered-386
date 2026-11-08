@@ -231,11 +231,12 @@ def main():
                        for c in header.get('connections') or [] if c['map'] in source_ids]
         out = {'id': map_constant[m], 'name': name, 'layout': layout_id,
                'music': MUSIC.get(header['music'], header['music']),
-               'region_map_section': 'MAPSEC_NONE',  # FireRed has no Johto sections yet (roadmap M5)
+               # Johto sections are appended to FireRed's list (JOHTO_MAPSEC_START); same names as HNS.
+               'region_map_section': header['region_map_section'],
                'requires_flash': header['requires_flash'], 'weather': header['weather'],
                'map_type': 'MAP_TYPE_INDOOR' if header['map_type'] == 'MAP_TYPE_NONE' else header['map_type'],
                'allow_cycling': header['allow_cycling'], 'allow_escaping': header['allow_escaping'],
-               'allow_running': header['allow_running'], 'show_map_name': False, 'floor_number': 0,
+               'allow_running': header['allow_running'], 'show_map_name': header['show_map_name'], 'floor_number': 0,
                'battle_scene': header['battle_scene'], 'connections': connections or None,
                'object_events': [], 'warp_events': warps, 'coord_events': [], 'bg_events': []}
         (g / f'data/maps/{name}').mkdir(parents=True, exist_ok=True)

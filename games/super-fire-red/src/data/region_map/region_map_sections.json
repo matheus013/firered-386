@@ -1,7 +1,8 @@
 {
   "map_sections": [
     {
-      "id": "MAPSEC_LITTLEROOT_TOWN"
+      "id": "MAPSEC_LITTLEROOT_TOWN",
+      "hoenn_name": "LITTLEROOT TOWN"
     },
     {
       "id": "MAPSEC_OLDALE_TOWN"
@@ -49,7 +50,8 @@
       "id": "MAPSEC_EVER_GRANDE_CITY"
     },
     {
-      "id": "MAPSEC_ROUTE_101"
+      "id": "MAPSEC_ROUTE_101",
+      "hoenn_name": "ROUTE 101"
     },
     {
       "id": "MAPSEC_ROUTE_102"
@@ -1139,6 +1141,22 @@
       "y": 0,
       "width": 0,
       "height": 0
+    },
+    {
+      "id": "MAPSEC_NEW_BARK_TOWN",
+      "name": "NEW BARK TOWN",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_29",
+      "name": "ROUTE 29",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
     }
   ]
 }

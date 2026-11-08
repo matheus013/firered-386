@@ -934,7 +934,20 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_RIXY_CHAMBER        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_VIAPOIS_CHAMBER     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_EMBER_SPA           - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
+    // Johto has no region map cell yet, so Fly never offers these; the entries keep the table in bounds.
+    [MAPSEC_NEW_BARK_TOWN       - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_NEW_BARK_TOWN),                   HEAL_LOCATION_NONE},
+    [MAPSEC_ROUTE_29            - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_ROUTE29),                         HEAL_LOCATION_NONE},
 };
+
+static bool8 IsMapsecOnRegionMaps(u16 mapsec)
+{
+    return mapsec >= KANTO_MAPSEC_START && mapsec < JOHTO_MAPSEC_START;
+}
+
+bool8 RegionMap_HasHoennName(u16 mapsec)
+{
+    return mapsec < KANTO_MAPSEC_START && sHoennMapNames[mapsec] != NULL;
+}
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
 {
@@ -1029,7 +1042,8 @@ static void InitRegionMapType(void)
         sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
-    if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
+    // Hoenn and Johto sections have no cell on these maps; searching sSeviiMapsecs for them never ends.
+    if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START && IsMapsecOnRegionMaps(gMapHeader.regionMapSectionId))
     {
         // Mapsec is in Sevii Islands, determine which map to use
         while (region == REGIONMAP_KANTO)
@@ -3154,6 +3168,13 @@ static void GetPlayerPositionOnRegionMap(void)
         break;
     }
 
+    // Off-map regions start the cursor on Pallet Town instead of indexing outside the section tables.
+    if (!IsMapsecOnRegionMaps(sMapCursor->selectedMapsec))
+    {
+        sMapCursor->selectedMapsec = MAPSEC_PALLET_TOWN;
+        width = height = 1;
+        x = y = 0;
+    }
     sMapCursor->selectedMapsec -= KANTO_MAPSEC_START;
     divisor = width / sMapSectionDimensions[sMapCursor->selectedMapsec][0];
     if (divisor == 0)
@@ -3809,6 +3830,10 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
             dst = StringCopy(dst0, sMapsecName_CELADON_DEPT_);
         else
             dst = StringCopy(dst0, sMapNames[idx]);
+    }
+    else if (RegionMap_HasHoennName(mapsec))
+    {
+        dst = StringCopy(dst0, sHoennMapNames[mapsec]);
     }
     else
     {
