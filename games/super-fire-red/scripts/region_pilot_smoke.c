@@ -1,4 +1,4 @@
-// Runs Hoenn pilot cases; the ROM hook chooses the held keys and asks for screenshots.
+// Runs region pilot cases; the ROM hook chooses the held keys and asks for screenshots.
 #define TRAINING_UI_FIXTURE
 #include "hardcore_smoke.c"
 #undef main

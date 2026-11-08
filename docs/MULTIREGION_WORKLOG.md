@@ -226,3 +226,111 @@ plantas, quarto da May; todos desenhados corretamente.
 - Personagens e eventos dos interiores (mãe, assistente, Birch); TV e mapa usam os textos do FireRed.
 - Build nativa para PC com os mapas novos.
 - Piloto de Johto (New Bark/Route29).
+
+## 07/11/2026 — Piloto de Johto (Claude)
+
+Pedido do usuário: piloto de Johto. Instalados New Bark Town, Route 29 e seis interiores
+(casa do jogador 1F/2F, duas casas, laboratório do Prof. Elm e o portão Route 29/46),
+como grupo 44 (`gMapGroup_Johto`, mapas 0 a 7 nesta ordem: New Bark, Route 29, casa 1F,
+casa 2F, casa 1, casa 2, laboratório, portão). O plano previa grupo 43, já usado por Hoenn.
+
+### Licença: decisão do usuário
+
+Os tilesets de Johto no HNS_modern são arte de fãs (Kertra/Crystal Advance, Ekat99,
+TheDeadHeroAlistair, Johto Redrawn Team), e o repositório de origem não tem licença
+(GitHub: `null`). Este repositório é **público**. Perguntei antes de importar; o usuário
+escolheu **importar com créditos**. Créditos completos e situação de licença em
+[CREDITS.md](CREDITS.md), com link no README. Os arquivos ficam isolados para remoção
+fácil se algum autor pedir.
+
+### Por que não houve conversão de gráficos
+
+O HNS_modern já usa a partição do FireRed (640 tiles e metatiles primários, 7 paletas
+primárias, 1024 no total). Tiles, paletas, metatiles e blocos são copiados sem mudança; o
+teste confere byte a byte contra a fonte. Só os atributos (16 bits, formato Emerald) são
+convertidos para os 32 bits do FireRed, com regra explícita por comportamento; metatiles
+que nenhum mapa ou borda instalada usa ficam zerados. Secundários do HNS têm 13 paletas
+(00–12), e só essas são declaradas.
+
+### Instalação
+
+Novo `scripts/install_johto_pilot.py` (idempotente; segunda execução sem duplicar).
+Relatório com hashes, comportamentos e warps descartados:
+[johto-pilot-install.json](map-audits/johto-pilot-install.json).
+
+Atributos: cada comportamento recebe os bits extras (terreno e tipo de encontro) que os
+próprios tilesets do FireRed mais usam para ele. Exemplos: água `0x02000415` (terreno
+água, encontros na água), grama alta `0x01000202`.
+
+| HNS | FireRed | Motivo |
+|---|---|---|
+| areia, água, desníveis, pedra-escada, balcão, estante, PC, TV, bloqueios, capacho, escadas do FireRed | mesmo nome | — |
+| `MB_ANIMATED_DOOR` | `MB_WARP_DOOR` (0x69) | portas animadas, tabela registrada para o par New Bark |
+| `MB_NON_ANIMATED_DOOR` | `MB_CAVE_DOOR` (0x60) | entrada do portão; como nos interiores Hoenn |
+| `MB_SHORT_GRASS` | normal | no HNS é só efeito visual ao andar; o FireRed não tem |
+| `MB_HEADBUTT_TREE` | normal | o FireRed não tem Headbutt; a árvore mantém a colisão |
+| decoração, `MB_SECRET_BASE_SPOT_TREE_RIGHT` | normal | bases secretas não existem no FireRed |
+| `MB_UNUSED_81`, `MB_SLOT_MACHINE` | normal | nenhum código do HNS usa esses valores |
+| `MB_SIDEWAYS_STAIRS_LEFT_SIDE_TOP` | normal | o FireRed não tem escadas laterais; anda em linha reta |
+
+Animação: o callback `TilesetAnim_JohtoGeneral` do HNS executa quatro animações; só duas
+tocam tiles usados pelo piloto e foram reproduzidas com o mesmo agendamento: borda
+areia/água (18 tiles a partir do 416, 8 quadros) e flores (tiles 508–511, 5 quadros).
+A cachoeira não é usada; a borda terra/água está desligada no próprio HNS (`return;`).
+
+Portas: azul (0x2CB, que no HNS reaproveita `cerulean.png`, paleta 7) e amarela
+(0x309, paleta 5), formato 1x1 igual nos dois motores; cadastradas para o par
+`gTileset_JohtoPilotGeneral`/`gTileset_JohtoPilotNewBarkTown` em `src/data/door_tilesets.h`.
+
+Mapas: cabeçalhos do HNS com músicas trocadas (`MUS_HG_NEW_BARK` → `MUS_PALLET`,
+`MUS_HG_ROUTE29` → `MUS_ROUTE1`, `MUS_HG_ELM_LAB` → `MUS_OAK_LAB`); o laboratório vinha
+como `MAP_TYPE_NONE` e virou `MAP_TYPE_INDOOR`. Seção de mapa: `MAPSEC_NONE`, porque o
+FireRed não tem seções de Johto; seções depois de Kanto cairiam na faixa de Sevii ou
+mudariam IDs salvos. O jogo trata `MAPSEC_NONE` como "sem nome", igual às seções Hoenn.
+
+Warps e conexões que saem do piloto foram descartados, e os índices restantes
+renumerados em todos os mapas que apontam para eles (o warp 6 de New Bark virou 4):
+
+- New Bark: dois warps para `WORLD_HUB` e um para `TIN_TOWER_ROOF_DAY` (áreas do HNS);
+- portão: o warp para a Route 46;
+- conexões: New Bark → Route 27; Route 29 → Cherrygrove e Route 46.
+
+Mantido por fidelidade: o warp de New Bark (12,7) fica sobre um tile normal com colisão;
+no HNS ele só serve de ponto de chegada da saída dos fundos do laboratório. O 2F da casa
+tem um warp (1,6) que leva ao próprio 2F, também vindo do HNS.
+
+### Teste renomeado e ampliado
+
+`test_hoenn_pilot_maps.py` virou `test_region_pilot_maps.py` e `hoenn_pilot_smoke.c`
+virou `region_pilot_smoke.c`, pois cobrem as duas regiões. 21 casos, todos aprovados:
+
+| Caso | O que confere | Resultado |
+|---|---|---|
+| 1–3 | Littleroot, Route 101 e Pallet (controle), como antes | OK |
+| 4–10 | portas, capachos, escadas e célula do quarto em Hoenn, como antes | OK |
+| 11 | **andar** de Littleroot (10,0) para o norte e voltar | Route 101 (10,19) → Littleroot (10,0) |
+| 12 | dados de New Bark: grupo 44/mapa 0, tilesets Johto, conexão oeste para a Route 29, porta azul 0x2CB, animação | OK |
+| 13 | dados da Route 29: conexão leste; a entrada do portão é warp ao pisar | OK |
+| 14–17 | as quatro portas de New Bark e volta pelo capacho | laboratório (6,12), casa (9,8), casas 1 e 2 (4,8) → de volta à frente de cada porta |
+| 18–19 | escadas da casa do jogador (estilo FireRed: sobe andando para a direita, desce para a esquerda) | 2F (9,2) e 1F (10,2) |
+| 20 | portão da Route 46 e volta | portão (7,9) → Route 29 (34,11) |
+| 21 | **andar** de New Bark (0,12) para o oeste e voltar | Route 29 (69,17) → New Bark (0,12) |
+
+O teste também confere que os arquivos Johto instalados são idênticos aos do HNS_modern
+(tiles, metatiles, paletas, blocos, quadros da animação e portas). Capturas em
+`output/tests/region-pilot-maps/`: New Bark com o laboratório, flores e cercas; Route 29;
+laboratório com estantes; quarto com escada; portão. Todos desenhados corretamente.
+Com isso, a travessia Littleroot ↔ Route 101, pendente desde a primeira entrada, foi testada.
+
+### Outras verificações
+
+- 27 testes de regiões: OK. `scripts/test_field_door_native.py`: OK.
+- ROM publicada intacta (SHA-1 da v0.5.0-preview.6).
+
+### Pendente
+
+- Seções de mapa, nomes, mapa regional e Fly de Johto e Hoenn (M5).
+- Encontros selvagens (Route 29 e Route 101 não têm tabelas).
+- Personagens e eventos (Elm, mãe, rival) não importados.
+- Fronteiras abertas: Route 27, Cherrygrove, Route 46, Oldale.
+- Build nativa para PC com os mapas novos.

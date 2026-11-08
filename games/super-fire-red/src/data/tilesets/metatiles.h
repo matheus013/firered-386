@@ -217,3 +217,22 @@ const u32 gMetatileAttributes_HoennPilotBrendansMaysHouse[] = INCBIN_U32("data/t
 
 const u16 gMetatiles_HoennPilotLab[] = INCBIN_U16("data/tilesets/secondary/hoenn_pilot_lab/metatiles.bin");
 const u32 gMetatileAttributes_HoennPilotLab[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot_lab/metatile_attributes.bin");
+
+// Johto pilot (scripts/install_johto_pilot.py)
+const u16 gMetatiles_JohtoPilotGeneral[] = INCBIN_U16("data/tilesets/primary/johto_pilot_general/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotGeneral[] = INCBIN_U32("data/tilesets/primary/johto_pilot_general/metatile_attributes.bin");
+
+const u16 gMetatiles_JohtoPilotNewBarkTown[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_new_bark_town/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotNewBarkTown[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_new_bark_town/metatile_attributes.bin");
+
+const u16 gMetatiles_JohtoPilotBuilding[] = INCBIN_U16("data/tilesets/primary/johto_pilot_building/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotBuilding[] = INCBIN_U32("data/tilesets/primary/johto_pilot_building/metatile_attributes.bin");
+
+const u16 gMetatiles_JohtoPilotPlayersHouse[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_players_house/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotPlayersHouse[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_players_house/metatile_attributes.bin");
+
+const u16 gMetatiles_JohtoPilotHouseLab[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_house_lab/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotHouseLab[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_house_lab/metatile_attributes.bin");
+
+const u16 gMetatiles_JohtoPilotGateStandard[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_gate_standard/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotGateStandard[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_gate_standard/metatile_attributes.bin");

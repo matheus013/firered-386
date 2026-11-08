@@ -47,7 +47,7 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 |---|---|---|
 | M0 | Branch isolada, escopo e fontes fixadas | Concluído |
 | M1 | Inventário técnico, classificação regional e matriz de dependências | Iniciado: inventário técnico gerado; classificação e scripts pendentes |
-| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Piloto Hoenn na engine: Littleroot, Route101 e os 5 interiores, com portas, capachos e escadas testados andando na ROM (build isolada). Piloto Johto pendente |
+| M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Concluído na engine: Hoenn (Littleroot, Route 101, 5 interiores; grupo 43) e Johto (New Bark, Route 29, 6 interiores; grupo 44), testados andando na ROM (build isolada). Faltam eventos, encontros e M5 |
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Pendente |
 | M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
 | M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Pendente |
@@ -302,7 +302,7 @@ mapa 1, não 6 como no plano, porque os interiores ainda não podem ser registra
 As imagens de portas e flores instaladas estavam em branco e foram refeitas a partir
 dos `.4bpp` auditados (`scripts/export_region_png.py`).
 
-`games/super-fire-red/scripts/test_hoenn_pilot_maps.py` compila uma ROM de validação em
+`games/super-fire-red/scripts/test_region_pilot_maps.py` (antes `test_hoenn_pilot_maps.py`) compila uma ROM de validação em
 diretório temporário, sem tocar na ROM distribuída. Carrega os dois mapas e Pallet
 (controle) pelo New Game e confere grupo, layout, tilesets, conexões, porta, animação
 e igualdade dos recursos com o staging. Detalhes e pendências no
@@ -317,3 +317,13 @@ tiles usados (211 e 138) e confere 111.616 pixels contra a fonte. Escadas usam `
 a célula do quarto que só deixa passar de lado ganhou o comportamento novo
 `MB_IMPASSABLE_SOUTH_AND_NORTH` (0xD2) na engine, como no Emerald. O teste da ROM agora
 anda por portas, capachos e escadas nos dois sentidos. Detalhes no [diário](MULTIREGION_WORKLOG.md).
+
+### Piloto de Johto na engine
+
+New Bark Town, Route 29 e seis interiores (grupo 44), instalados por
+`scripts/install_johto_pilot.py` a partir do HNS_modern, que já usa a partição do
+FireRed: tiles, paletas, metatiles e blocos entram sem conversão; só os atributos são
+convertidos por regra. Importado com créditos por decisão do usuário, pois a fonte não
+tem licença: [CREDITS.md](CREDITS.md). Warps e conexões para fora do piloto foram
+descartados e renumerados. O teste da ROM (21 casos) anda por todas as portas, escadas,
+portão e pelas duas conexões. Detalhes no [diário](MULTIREGION_WORKLOG.md).

@@ -43,7 +43,8 @@
     "gMapGroup_IndoorTwoIslandRoute",
     "gMapGroup_IndoorSixIslandRoute",
     "gMapGroup_IndoorSevenIslandRoute",
-    "gMapGroup_Hoenn"
+    "gMapGroup_Hoenn",
+    "gMapGroup_Johto"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -621,7 +622,9 @@
     "SevenIsland_SevaultCanyon",
     "SevenIsland_TanobyRuins",
     "Hoenn_LittlerootTown",
-    "Hoenn_Route101"
+    "Hoenn_Route101",
+    "Johto_NewBarkTown",
+    "Johto_Route29"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -631,5 +634,15 @@
     "Hoenn_LittlerootTown_MaysHouse_1F",
     "Hoenn_LittlerootTown_MaysHouse_2F",
     "Hoenn_LittlerootTown_ProfessorBirchsLab"
+  ],
+  "gMapGroup_Johto": [
+    "Johto_NewBarkTown",
+    "Johto_Route29",
+    "Johto_NewBarkTown_PlayersHouse_1F",
+    "Johto_NewBarkTown_PlayersHouse_2F",
+    "Johto_NewBarkTown_House1",
+    "Johto_NewBarkTown_House2",
+    "Johto_NewBarkTown_Lab",
+    "Johto_Gate_Route29_Route46"
   ]
 }

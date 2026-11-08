@@ -559,6 +559,8 @@ python3 games/super-fire-red/scripts/test_summary_natures.py
 
 Base: [pret/pokefirered](https://github.com/pret/pokefirered). Compilador: [pret/agbcc](https://github.com/pret/agbcc). Testes de execução: [mGBA](https://mgba.io/). Pokémon pertence aos seus respectivos titulares. Projeto de fãs, sem afiliação oficial.
 
+Mapas regionais em desenvolvimento: Hoenn a partir de [pret/pokeemerald](https://github.com/pret/pokeemerald); Johto a partir de [HNS_modern](https://github.com/resetes12/HNS_modern), com tilesets de Kertra (Crystal Advance), Ekat99, TheDeadHeroAlistair e Johto Redrawn Team. [Créditos completos e situação de licença](docs/CREDITS.md).
+
 ## Testes de equipes e dificuldade
 
 [Testes dos 35 desafios e classificação por modo](docs/CHALLENGE_BALANCE_TESTS.md) e [equipes testadas, golpes e origens](docs/CHALLENGE_TEAMS_TESTED.md).

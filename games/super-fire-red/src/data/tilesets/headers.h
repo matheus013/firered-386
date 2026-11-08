@@ -802,3 +802,70 @@ const struct Tileset gTileset_HoennPilotLab =
     .metatileAttributes = gMetatileAttributes_HoennPilotLab,
     .callback = NULL,
 };
+
+// Johto pilot (scripts/install_johto_pilot.py)
+const struct Tileset gTileset_JohtoPilotGeneral =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_JohtoPilotGeneral,
+    .palettes = gTilesetPalettes_JohtoPilotGeneral,
+    .metatiles = gMetatiles_JohtoPilotGeneral,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotGeneral,
+    .callback = InitTilesetAnim_JohtoPilot,
+};
+
+const struct Tileset gTileset_JohtoPilotNewBarkTown =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotNewBarkTown,
+    .palettes = gTilesetPalettes_JohtoPilotNewBarkTown,
+    .metatiles = gMetatiles_JohtoPilotNewBarkTown,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotNewBarkTown,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_JohtoPilotBuilding =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_JohtoPilotBuilding,
+    .palettes = gTilesetPalettes_JohtoPilotBuilding,
+    .metatiles = gMetatiles_JohtoPilotBuilding,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotBuilding,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_JohtoPilotPlayersHouse =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotPlayersHouse,
+    .palettes = gTilesetPalettes_JohtoPilotPlayersHouse,
+    .metatiles = gMetatiles_JohtoPilotPlayersHouse,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotPlayersHouse,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_JohtoPilotHouseLab =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotHouseLab,
+    .palettes = gTilesetPalettes_JohtoPilotHouseLab,
+    .metatiles = gMetatiles_JohtoPilotHouseLab,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotHouseLab,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_JohtoPilotGateStandard =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotGateStandard,
+    .palettes = gTilesetPalettes_JohtoPilotGateStandard,
+    .metatiles = gMetatiles_JohtoPilotGateStandard,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotGateStandard,
+    .callback = NULL,
+};

@@ -16,4 +16,6 @@ void InitTilesetAnim_MtEmber(void);
 void InitTilesetAnim_HoennPilot(void);
 void InitTilesetAnim_HoennPetalburgPilot(void);
 
+void InitTilesetAnim_JohtoPilot(void);
+
 #endif // GUARD_TILESET_ANIMS_H

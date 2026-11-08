@@ -4482,6 +4482,102 @@
       "secondary_tileset": "gTileset_HoennPilotLab",
       "border_filepath": "data/layouts/Hoenn_LittlerootTown_ProfessorBirchsLab/border.bin",
       "blockdata_filepath": "data/layouts/Hoenn_LittlerootTown_ProfessorBirchsLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_NEW_BARK_TOWN",
+      "name": "Johto_NewBarkTown_Layout",
+      "width": 30,
+      "height": 39,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotNewBarkTown",
+      "border_filepath": "data/layouts/Johto_NewBarkTown/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_NewBarkTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE29",
+      "name": "Johto_Route29_Layout",
+      "width": 70,
+      "height": 32,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotNewBarkTown",
+      "border_filepath": "data/layouts/Johto_Route29/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route29/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_NEW_BARK_TOWN_PLAYERS_HOUSE_1F",
+      "name": "Johto_NewBarkTown_PlayersHouse_1F_Layout",
+      "width": 17,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotPlayersHouse",
+      "border_filepath": "data/layouts/Johto_NewBarkTown_PlayersHouse_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_NewBarkTown_PlayersHouse_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_NEW_BARK_TOWN_PLAYERS_HOUSE_2F",
+      "name": "Johto_NewBarkTown_PlayersHouse_2F_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotPlayersHouse",
+      "border_filepath": "data/layouts/Johto_NewBarkTown_PlayersHouse_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_NewBarkTown_PlayersHouse_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_NEW_BARK_TOWN_HOUSE1",
+      "name": "Johto_NewBarkTown_House1_Layout",
+      "width": 13,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotHouseLab",
+      "border_filepath": "data/layouts/Johto_NewBarkTown_House1/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_NewBarkTown_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_NEW_BARK_TOWN_HOUSE2",
+      "name": "Johto_NewBarkTown_House2_Layout",
+      "width": 13,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotHouseLab",
+      "border_filepath": "data/layouts/Johto_NewBarkTown_House2/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_NewBarkTown_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_NEW_BARK_TOWN_LAB",
+      "name": "Johto_NewBarkTown_Lab_Layout",
+      "width": 40,
+      "height": 14,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotHouseLab",
+      "border_filepath": "data/layouts/Johto_NewBarkTown_Lab/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_NewBarkTown_Lab/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_GATE_ROUTE29_ROUTE46",
+      "name": "Johto_Gate_Route29_Route46_Layout",
+      "width": 15,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotGateStandard",
+      "border_filepath": "data/layouts/Johto_Gate_Route29_Route46/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Gate_Route29_Route46/map.bin"
     }
   ]
 }

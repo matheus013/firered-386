@@ -332,3 +332,4 @@ void InitTilesetAnim_CeladonGym(void)
 }
 
 #include "data/tilesets/hoenn_pilot_anims.h"
+#include "data/tilesets/johto_pilot_anims.h"
