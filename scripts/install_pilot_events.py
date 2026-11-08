@@ -26,7 +26,22 @@ SPRITES = {
     'OBJ_EVENT_GFX_POLICEMAN': 'OBJ_EVENT_GFX_POLICEMAN', 'OBJ_EVENT_GFX_SCIENTIST_1': 'OBJ_EVENT_GFX_SCIENTIST',
     'OBJ_EVENT_GFX_SCIENTIST_M': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_CUTTABLE_TREE': 'OBJ_EVENT_GFX_CUT_TREE',
     'OBJ_EVENT_GFX_POKE_BALL': 'OBJ_EVENT_GFX_ITEM_BALL',
+    # Phase 2: main characters. FireRed already has the Ruby/Sapphire Brendan and May.
+    'OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL': 'OBJ_EVENT_GFX_RS_BRENDAN', 'OBJ_EVENT_GFX_RIVAL_MAY_NORMAL': 'OBJ_EVENT_GFX_RS_MAY',
+    'OBJ_EVENT_GFX_WOMAN_4': 'OBJ_EVENT_GFX_WOMAN_4', 'OBJ_EVENT_GFX_NINJA_BOY': 'OBJ_EVENT_GFX_NINJA_BOY',
+    'OBJ_EVENT_GFX_PROF_BIRCH': 'OBJ_EVENT_GFX_PROF_BIRCH', 'OBJ_EVENT_GFX_PROF_ELM': 'OBJ_EVENT_GFX_PROF_ELM',
+    'OBJ_EVENT_GFX_SILVER': 'OBJ_EVENT_GFX_SILVER',
+    'OBJ_EVENT_GFX_VIGOROTH_CARRYING_BOX': 'OBJ_EVENT_GFX_VIGOROTH_CARRYING_BOX',
+    'OBJ_EVENT_GFX_VIGOROTH_FACING_AWAY': 'OBJ_EVENT_GFX_VIGOROTH_FACING_AWAY',
 }
+# Positions the source map script sets on load (setobjectxyperm/setobjectmovementtype); the map.json
+# coordinates are the cutscene entry point, on top of the stair warp.
+POSITIONS = {
+    ('LittlerootTown_BrendansHouse_2F', 0): (0, 2, 'MOVEMENT_TYPE_FACE_UP', 'LittlerootTown_BrendansHouse_2F_EventScript_TryUpdateBrendanPos'),
+    ('LittlerootTown_MaysHouse_2F', 0): (8, 2, 'MOVEMENT_TYPE_FACE_UP', 'LittlerootTown_MaysHouse_2F_EventScript_TryUpdateMayPos'),
+}
+# Same source name, different person: Emerald's mother and HNS's Johto mother.
+REPO_SPRITES = {('pokeemerald', 'OBJ_EVENT_GFX_MOM'): 'OBJ_EVENT_GFX_EM_MOM', ('HNS_modern', 'OBJ_EVENT_GFX_MOM'): 'OBJ_EVENT_GFX_JOHTO_MOM'}
 # map -> (source repo, objects {index: (kind, text label or None, note)}, signs {index: (kind, text label)})
 # kinds: npc, sign, item (Potion), cuttree, heal (Elm's machine: heals once the player has a Pokemon)
 EVENTS = {
@@ -40,13 +55,28 @@ EVENTS = {
         5: ('npc', 'Route101_Text_WildPokemonInTallGrass', 'source hides him until Birch is rescued; always shown')},
         {0: ('sign', 'Route101_Text_RouteSign')}),
     'LittlerootTown_ProfessorBirchsLab': (EMERALD, {
-        0: ('npc', 'LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork', 'aide: Birch is not imported yet')},
+        0: ('npc', 'LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork', 'aide: AideAlreadyMet branch, consistent with Birch in the lab'),
+        1: ('npc', 'LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait', 'Birch: post-starter branch (VAR_BIRCH_LAB_STATE 5)')},
         'lab'),
-    'LittlerootTown_BrendansHouse_2F': (EMERALD, {}, {1: ('sign', 'PlayersHouse_2F_Text_Notebook'), 3: ('sign', 'PlayersHouse_2F_Text_ItsAGameCube')}),
-    'LittlerootTown_MaysHouse_2F': (EMERALD, {}, {0: ('sign', 'PlayersHouse_2F_Text_ItsAGameCube'), 1: ('sign', 'PlayersHouse_2F_Text_Notebook')}),
+    # Family choice (user, 08/11/2026): May is Birch's daughter. May's house = Birch family,
+    # Brendan's house = Norman family, as in Emerald with a male player. Cutscene-only objects stay out.
+    'LittlerootTown_BrendansHouse_1F': (EMERALD, {
+        0: ('silent', None, 'Brendan\'s mother: every source line speaks to her own child'),
+        1: ('cry', ('SPECIES_VIGOROTH', 'PlayersHouse_1F_Text_Vigoroth2'), 'mover'),
+        2: ('cry', ('SPECIES_VIGOROTH', 'PlayersHouse_1F_Text_Vigoroth1'), 'mover')}, {}),
+    'LittlerootTown_BrendansHouse_2F': (EMERALD, {
+        0: ('npc', 'RivalsHouse_2F_Text_BrendanGettingReady', 'Brendan: getting-ready branch')},
+        {1: ('sign', 'PlayersHouse_2F_Text_Notebook'), 3: ('sign', 'PlayersHouse_2F_Text_ItsAGameCube')}),
+    'LittlerootTown_MaysHouse_1F': (EMERALD, {
+        3: ('npc', 'RivalsHouse_1F_Text_ShouldGoHomeEverySoOften', 'Birch\'s wife: branch for a travelling trainer'),
+        5: ('npc', 'RivalsHouse_1F_Text_DoYouHavePokemon', 'May\'s little brother')}, {}),
+    'LittlerootTown_MaysHouse_2F': (EMERALD, {
+        0: ('npc', 'RivalsHouse_2F_Text_MayGettingReady', 'May: getting-ready branch')},
+        {0: ('sign', 'PlayersHouse_2F_Text_ItsAGameCube'), 1: ('sign', 'PlayersHouse_2F_Text_Notebook')}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
-        1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon')},
+        1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
+        2: ('silver', ('NewBarkTown_Text_Silver1', 'NewBarkTown_Text_Silver2'), 'Silver: both lines and the exclamation; the push movement is left out because it only fits one approach cell')},
         {0: ('sign', 'NewBarkTown_Text_Sign'), 1: ('sign', 'NewBarkTown_Text_Door'),
          3: ('sign', 'NewBarkTown_Text_ElmsHouse'), 4: ('sign', 'NewBarkTown_Text_LabSign')}),
     'Route29': (HNS, {
@@ -69,8 +99,12 @@ EVENTS = {
         0: ('npc', 'Gate_Route29_Route46_Text_Officer', ''), 1: ('npc', 'Gate_Route29_Route46_Text_Youngster', '')}, {}),
     'NewBarkTown_Lab': (HNS, {
         0: ('npc', 'NewBarkTown_Lab_Text_AideAlwaysBusy', 'source hides him during the story; always shown'),
+        1: ('silent', None, 'Prof. Elm: every source branch depends on the story (eggs, phone, gifts)'),
         2: ('npc', 'NewBarkTown_Lab_Text_AideSave', 'default branch')},
         'lab'),
+    'NewBarkTown_PlayersHouse_1F': (HNS, {
+        0: ('silent', None, 'mother: every source line speaks to her own child'),
+        1: ('npc', 'NewBarkTown_PlayersHouse_1F_Text_MomsFriend', 'source shows her only during the intro; always shown')}, {}),
     'NewBarkTown_PlayersHouse_2F': (HNS, {}, {2: ('sign', 'NewBarkTown_PlayersHouse_2F_Text_NES'),
                                              3: ('sign', 'Text_BookShelf'), 4: ('sign', 'Text_BookShelf')}),
 }
@@ -152,21 +186,34 @@ def main():
 
         for index, (kind, label, note) in sorted(objects.items()):
             o = header['object_events'][index]
-            gfx = SPRITES[o['graphics_id']]
+            gfx = REPO_SPRITES.get((repo_name, o['graphics_id'])) or SPRITES[o['graphics_id']]
             script, flag = f'{name}_EventScript_Object{index}', '0'
             if kind == 'npc':
                 scripts.append(f'{script}::\n\tmsgbox {text_label(label)}, MSGBOX_NPC\n\tend\n')
+            elif kind == 'silent':
+                script = '0x0'
+            elif kind == 'cry':  # Vigoroth: cry, then its line
+                species, line = label
+                scripts.append(f'{script}::\n\tlock\n\tfaceplayer\n\twaitse\n\tplaymoncry {species}, CRY_MODE_NORMAL\n'
+                               f'\tmsgbox {text_label(line)}, MSGBOX_DEFAULT\n\twaitmoncry\n\trelease\n\tend\n')
+            elif kind == 'silver':  # HNS NewBarkTown_EventScript_Silver without the push
+                first, second = label
+                scripts.append(f'{script}::\n\tlock\n\tmsgbox {text_label(first)}, MSGBOX_DEFAULT\n\tdelay 60\n\tplayse SE_PIN\n'
+                               f'\tapplymovement VAR_LAST_TALKED, Common_Movement_ExclamationMark\n\tfaceplayer\n\twaitmovement 0\n'
+                               f'\tmsgbox {text_label(second)}, MSGBOX_DEFAULT\n\trelease\n\tend\n')
             elif kind == 'item':
                 scripts.append(f'{script}::\n\tfinditem ITEM_POTION\n\tend\n')
                 flag = FLAG_POTION
             elif kind == 'cuttree':
                 script, flag = 'EventScript_CutTree', o['flag']
-            obj_events.append({'type': 'object', 'graphics_id': gfx, 'x': o['x'], 'y': o['y'], 'elevation': o['elevation'],
-                               'movement_type': o['movement_type'], 'movement_range_x': o['movement_range_x'],
+            x, y, movement, placed_by = POSITIONS.get((source_map, index), (o['x'], o['y'], o['movement_type'], None))
+            obj_events.append({'type': 'object', 'graphics_id': gfx, 'x': x, 'y': y, 'elevation': o['elevation'],
+                               'movement_type': movement, 'movement_range_x': o['movement_range_x'],
                                'movement_range_y': o['movement_range_y'], 'trainer_type': 'TRAINER_TYPE_NONE',
                                'trainer_sight_or_berry_tree_id': '0', 'script': script, 'flag': flag})
             rows.append({'kind': kind, 'source_index': index, 'source_script': o.get('script'), 'source_sprite': o['graphics_id'],
-                         'firered_sprite': gfx, 'text': label, 'note': note, 'x': o['x'], 'y': o['y']})
+                         'firered_sprite': gfx, 'text': label, 'note': note, 'x': x, 'y': y,
+                         **({'placed_by': placed_by} if placed_by else {})})
         for index, (kind, label) in sorted(signs.items()):
             b = source_bgs[index]
             script = f'{name}_EventScript_Sign{index}'

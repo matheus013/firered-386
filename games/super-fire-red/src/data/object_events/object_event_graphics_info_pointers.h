@@ -153,6 +153,15 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Twin;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ScientistF;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EmMom;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Woman4;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NinjaBoy;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfBirch;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VigorothCarryingBox;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VigorothFacingAway;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoMom;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfElm;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Silver;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
@@ -309,4 +318,13 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SS_ANNE]                  = &gObjectEventGraphicsInfo_SSAnne,
     [OBJ_EVENT_GFX_TWIN] = &gObjectEventGraphicsInfo_Twin,
     [OBJ_EVENT_GFX_SCIENTIST_F] = &gObjectEventGraphicsInfo_ScientistF,
+    [OBJ_EVENT_GFX_EM_MOM] = &gObjectEventGraphicsInfo_EmMom,
+    [OBJ_EVENT_GFX_WOMAN_4] = &gObjectEventGraphicsInfo_Woman4,
+    [OBJ_EVENT_GFX_NINJA_BOY] = &gObjectEventGraphicsInfo_NinjaBoy,
+    [OBJ_EVENT_GFX_PROF_BIRCH] = &gObjectEventGraphicsInfo_ProfBirch,
+    [OBJ_EVENT_GFX_VIGOROTH_CARRYING_BOX] = &gObjectEventGraphicsInfo_VigorothCarryingBox,
+    [OBJ_EVENT_GFX_VIGOROTH_FACING_AWAY] = &gObjectEventGraphicsInfo_VigorothFacingAway,
+    [OBJ_EVENT_GFX_JOHTO_MOM] = &gObjectEventGraphicsInfo_JohtoMom,
+    [OBJ_EVENT_GFX_PROF_ELM] = &gObjectEventGraphicsInfo_ProfElm,
+    [OBJ_EVENT_GFX_SILVER] = &gObjectEventGraphicsInfo_Silver,
 };

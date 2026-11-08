@@ -51,7 +51,7 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Pendente |
 | M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
 | M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Iniciado: seções com nome para os pilotos (IDs salvos preservados) e mapa da cidade seguro neles; mapa regional próprio, Fly e cura pendentes |
-| M6 | Eventos, encontros, desafios e progressão interligados | Iniciado: encontros e eventos de ambiente (fase 1) nos pilotos; personagens principais e história pendentes |
+| M6 | Eventos, encontros, desafios e progressão interligados | Iniciado: encontros, eventos de ambiente (fase 1) e personagens principais (fase 2) nos pilotos; história (fase 3) pendente |
 | M7 | Builds locais isoladas e percurso completo sem teleportes | Pendente |
 | M8 | Revisão final, integração em main e publicação | Pendente |
 
@@ -356,3 +356,12 @@ das quatro paletas de moradores, como o FireRed fez com o Brendan de Ruby/Sapphi
 cientista nesta fase). Traduções revisadas em `region_pilot_ptbr.json`. O teste da ROM fala com
 cada evento e confere o texto. Fases 2 (personagens principais) e 3 (história) pendentes.
 Detalhes no [diário](MULTIREGION_WORKLOG.md).
+
+### Personagens principais dos pilotos (fase 2)
+
+Decisões do usuário: a May é filha do Birch (casa da May = família Birch, casa do Brendan =
+família Norman) e só falas das fontes. Entraram Birch, a família Birch, Brendan, os Vigoroths,
+Silver e a amiga da mãe de New Bark, com falas originais; as mães e o Elm aparecem em silêncio,
+porque todas as falas deles dependem da história. Sprites importados de Emerald e HNS e
+redesenhados nas paletas do FireRed. O teste da ROM tem 119 casos. Detalhes no
+[diário](MULTIREGION_WORKLOG.md).

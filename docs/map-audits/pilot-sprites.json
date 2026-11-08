@@ -27,6 +27,132 @@
         "OBJ_EVENT_PAL_TAG_NPC_GREEN": 3746322,
         "OBJ_EVENT_PAL_TAG_NPC_WHITE": 1339114
       }
+    },
+    "OBJ_EVENT_GFX_EM_MOM": {
+      "source": "pokeemerald 731ad5b graphics/object_events/pics/people/mom.png",
+      "source_png": "pokeemerald/graphics/object_events/pics/people/mom.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_PINK",
+      "frames_in_source": 9,
+      "mean_squared_rgb_error_per_pixel": 243.98,
+      "worst_colour_distance": 42.0,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 782925,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 496248,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 1288836,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 819762
+      }
+    },
+    "OBJ_EVENT_GFX_WOMAN_4": {
+      "source": "pokeemerald 731ad5b graphics/object_events/pics/people/woman_4.png",
+      "source_png": "pokeemerald/graphics/object_events/pics/people/woman_4.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_WHITE",
+      "frames_in_source": 9,
+      "mean_squared_rgb_error_per_pixel": 543.13,
+      "worst_colour_distance": 63.9,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 2995773,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 3313360,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 3684412,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 1158498
+      }
+    },
+    "OBJ_EVENT_GFX_NINJA_BOY": {
+      "source": "pokeemerald 731ad5b graphics/object_events/pics/people/ninja_boy.png",
+      "source_png": "pokeemerald/graphics/object_events/pics/people/ninja_boy.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_PINK",
+      "frames_in_source": 9,
+      "mean_squared_rgb_error_per_pixel": 592.31,
+      "worst_colour_distance": 50.0,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 1159863,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 713730,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 1279623,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 718304
+      }
+    },
+    "OBJ_EVENT_GFX_PROF_BIRCH": {
+      "source": "pokeemerald 731ad5b graphics/object_events/pics/people/prof_birch.png",
+      "source_png": "pokeemerald/graphics/object_events/pics/people/prof_birch.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_WHITE",
+      "frames_in_source": 9,
+      "mean_squared_rgb_error_per_pixel": 273.05,
+      "worst_colour_distance": 98.8,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 4219257,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 6777685,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 5541349,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 618720
+      }
+    },
+    "OBJ_EVENT_GFX_VIGOROTH_CARRYING_BOX": {
+      "source": "pokeemerald 731ad5b graphics/object_events/pics/pokemon/vigoroth.png (frames 0-2)",
+      "source_png": "pokeemerald/graphics/object_events/pics/pokemon/vigoroth.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_WHITE",
+      "frames_in_source": 5,
+      "mean_squared_rgb_error_per_pixel": 1012.11,
+      "worst_colour_distance": 54.9,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 6205727,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 3188172,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 6417366,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 2813654
+      }
+    },
+    "OBJ_EVENT_GFX_VIGOROTH_FACING_AWAY": {
+      "source": "pokeemerald 731ad5b graphics/object_events/pics/pokemon/vigoroth.png (frames 3-4)",
+      "source_png": "pokeemerald/graphics/object_events/pics/pokemon/vigoroth.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_WHITE",
+      "frames_in_source": 5,
+      "mean_squared_rgb_error_per_pixel": 1012.11,
+      "worst_colour_distance": 54.9,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 6205727,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 3188172,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 6417366,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 2813654
+      }
+    },
+    "OBJ_EVENT_GFX_JOHTO_MOM": {
+      "source": "HNS_modern bf25b6e graphics/object_events/pics/people/mom.png",
+      "source_png": "HNS_modern/graphics/object_events/pics/people/mom.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_GREEN",
+      "frames_in_source": 9,
+      "mean_squared_rgb_error_per_pixel": 808.22,
+      "worst_colour_distance": 66.9,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 2734947,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 3736096,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 1654422,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 1711221
+      }
+    },
+    "OBJ_EVENT_GFX_PROF_ELM": {
+      "source": "HNS_modern bf25b6e graphics/object_events/pics/people/special/elm.png",
+      "source_png": "HNS_modern/graphics/object_events/pics/people/special/elm.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_WHITE",
+      "frames_in_source": 9,
+      "mean_squared_rgb_error_per_pixel": 750.85,
+      "worst_colour_distance": 53.5,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 3103563,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 2051341,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 2792061,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 1595561
+      }
+    },
+    "OBJ_EVENT_GFX_SILVER": {
+      "source": "HNS_modern bf25b6e graphics/object_events/pics/people/special/silver.png",
+      "source_png": "HNS_modern/graphics/object_events/pics/people/special/silver.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_BLUE",
+      "frames_in_source": 9,
+      "mean_squared_rgb_error_per_pixel": 1163.46,
+      "worst_colour_distance": 45.5,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 2450247,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 5187474,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 4830690,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 2595745
+      }
     }
   }
 }

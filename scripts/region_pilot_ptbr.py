@@ -22,7 +22,15 @@ PT = {
     'Hoenn_LittlerootTown_BrendansHouse_2F_Text_ItsAGameCube': 'É um Nintendo GameCube.' + P + 'Um Game Boy Advance está conectado para servir de controle.',
     'Hoenn_LittlerootTown_MaysHouse_2F_Text_Notebook': '{PLAYER} abriu o caderno.' + P + 'REGRA DE AVENTURA 1: abra o MENU com START.' + P + 'REGRA DE AVENTURA 2: registre seu progresso com SALVAR.' + P + 'As outras páginas estão em branco…',
     'Hoenn_LittlerootTown_MaysHouse_2F_Text_ItsAGameCube': 'É um Nintendo GameCube.' + P + 'Um Game Boy Advance está conectado para servir de controle.',
-    'Hoenn_LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork': 'Hã? PROF. BIRCH?' + P + 'O PROF. está em trabalho de campo. Ou seja, não está aqui.' + P + 'Ah, deixe eu explicar o que é trabalho de campo.' + P + 'É estudar as coisas no ambiente natural, como campos e montanhas, em vez de num laboratório.' + P + 'O PROF. não é de trabalhar sentado à mesa. Ele prefere sair e viver as coisas a ler sobre elas aqui.',
+    'Hoenn_LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork': 'O PROF. não é de trabalhar sentado à mesa. Ele prefere sair e viver as coisas a ler sobre elas aqui.',
+    'Hoenn_LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait': 'PROF. BIRCH: Inúmeros Pokémon esperam por você!' + P + 'Ah, estou louco para sair e fazer trabalho de campo de novo!',
+    'Hoenn_LittlerootTown_BrendansHouse_2F_Text_BrendanGettingReady': 'Pokémon totalmente recuperados… Itens todos guardados, e…',
+    'Hoenn_LittlerootTown_MaysHouse_1F_Text_ShouldGoHomeEverySoOften': 'Acho maravilhoso as pessoas viajarem com Pokémon.' + P + 'Mas você deveria voltar para casa de vez em quando, para sua mãe saber que você está bem.' + P + 'Ela pode não dizer, mas tenho certeza de que se preocupa com você, {PLAYER}{KUN}.',
+    'Hoenn_LittlerootTown_MaysHouse_1F_Text_DoYouHavePokemon': 'Oi, vizinho!' + P + 'Você já tem seus próprios Pokémon?',
+    'Hoenn_LittlerootTown_MaysHouse_2F_Text_MayGettingReady': 'Pokémon totalmente recuperados! Itens prontos, e…',
+    'Johto_NewBarkTown_Text_Silver1': '. . .' + P + 'Então este é o famoso Laboratório Pokémon do Elm…',
+    'Johto_NewBarkTown_Text_Silver2': '…Tá olhando o quê?',
+    'Johto_NewBarkTown_PlayersHouse_1F_Text_MomsFriend': 'Oi, {PLAYER}!' + P + 'Vim fazer uma visita!' + P + 'Ficou sabendo?' + P + 'Minha filha está decidida a ser assistente do Prof. Elm.' + P + 'Ela adora Pokémon!',
     'Hoenn_LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine': 'É uma máquina de aparência séria. O PROF. deve usá-la nas pesquisas.',
     'Hoenn_LittlerootTown_ProfessorBirchsLab_Text_BookTooHardToRead': 'É um livro difícil demais de ler.',
     'Hoenn_LittlerootTown_ProfessorBirchsLab_Text_CrammedWithBooksOnPokemon': 'Está cheia de livros sobre Pokémon.',
@@ -57,7 +65,8 @@ PT = {
     'Johto_Route29_Text_Girl': 'Queria fazer uma pausa, então salvei para registrar meu progresso.',
     'Johto_Route29_Text_Lass': 'Está vendo aqueles desníveis? Dá medo pular deles.' + P + 'Mas dá para ir até New Bark sem passar pela grama.',
 }
-SAME_IN_PT = {'Hoenn_Route101_Text_RouteSign', 'Johto_Route29_Text_Sign1'}  # names only
+SAME_IN_PT = {'Hoenn_Route101_Text_RouteSign', 'Johto_Route29_Text_Sign1',  # names only
+              'Hoenn_LittlerootTown_BrendansHouse_1F_Text_Vigoroth1', 'Hoenn_LittlerootTown_BrendansHouse_1F_Text_Vigoroth2'}  # Vigoroth cries
 
 
 def english(game=GAME):

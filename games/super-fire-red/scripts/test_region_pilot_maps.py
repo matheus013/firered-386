@@ -92,7 +92,7 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
   sx,sy,key=spot
   script=e['script']
   inc=(folder/'scripts.inc').read_text(encoding='utf-8')
-  what='cuttree' if script=='EventScript_CutTree' else 'item' if 'finditem' in inc.split(script+'::')[-1].split('\n\n')[0] else 'heal' if f'{script}_Heal' in inc else 'text'
+  what='silent' if script=='0x0' else 'cuttree' if script=='EventScript_CutTree' else 'item' if 'finditem' in inc.split(script+'::')[-1].split('\n\n')[0] else 'heal' if f'{script}_Heal' in inc else 'text'
   setups=[0]+([1] if what=='heal' else [])
   for setup in setups:
    CASES.append((header['id'],sx,sy,0,0,[(key,'TALK')],setup))
@@ -154,6 +154,12 @@ void PilotAfterLoad(void)
 {
     if (PilotIsTalkCase())
         FreezeObjectEventsExceptOne(gPlayerAvatar.objectEventId);
+}
+// The warp fade-in unfreezes objects, and a walker can start a step in that same frame. Until A is
+// pressed, talk cases ignore that unfreeze (test copy only); the event script's release then works.
+bool8 PilotKeepFrozen(void)
+{
+    return gPilotCase && PilotIsTalkCase() && sPilotPhase < 6;
 }
 static u32 PilotFlowerSum(void)
 {
@@ -372,6 +378,11 @@ load='    gFieldCallback2 = NULL;\n    DoMapLoadLoop(&gMain.state);\n'
 assert world.count(load)==1
 world=world.replace(load,load+'    PilotAfterLoad();\n').replace('#include "global.h"','#include "global.h"\nvoid PilotAfterLoad(void);',1).replace('#include "global.h"','#include "global.h"\nvoid PilotSetup(void);',1)
 (test/'src/overworld.c').write_text(world+setup)
+movement=(test/'src/event_object_movement.c').read_text()
+unfreeze='void UnfreezeObjectEvents(void)\n{\n    u8 i;\n'
+assert movement.count(unfreeze)==1
+movement=movement.replace(unfreeze,unfreeze+'    if (PilotKeepFrozen())\n        return;\n').replace('#include "global.h"','#include "global.h"\nbool8 PilotKeepFrozen(void);',1)
+(test/'src/event_object_movement.c').write_text(movement)
 with (out/'build.log').open('w') as log:subprocess.run(['make','-j4'],cwd=test,stdout=log,stderr=subprocess.STDOUT,check=True)
 symbols={p[2]:p[0] for line in subprocess.check_output(['arm-none-eabi-nm','pokefirered.elf'],cwd=test,text=True).splitlines() if len(p:=line.split())==3}
 constants=dict(re.findall(r'#define (MAP_\w+|LAYOUT_\w+) +\(?(\d+[^)\n]*)',(test/'include/constants/maps.h').read_text()+(test/'include/constants/layouts.h').read_text()))
@@ -518,6 +529,9 @@ talked={'text':0,'item':0,'cuttree':0,'heal':0,'ptbr':0}
 for case,info in TALKS.items():
  row=rows[case];got=shown_text(row[8:128]).replace('’',"'")  # the apostrophe byte has two charmap names
  where=(info['map'],info['kind'],info['index'],info['setup'])
+ if info['what']=='silent':
+  # Characters with no neutral source line stand there; A starts nothing.
+  assert row[4]==0,(where,'a silent character started a script');talked['silent']=talked.get('silent',0)+1;continue
  assert row[4]==1,(where,'pressing A did not start the event script')
  if info['setup']&2:
   assert got and got!=shown_text(rows[next(c for c,i in TALKS.items() if i['map']==info['map'] and i['kind']==info['kind'] and i['index']==info['index'] and i['setup']==0)][8:128]),(where,'PT-BR shows the English text',got)

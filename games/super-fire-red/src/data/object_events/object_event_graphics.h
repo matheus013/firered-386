@@ -234,3 +234,21 @@ const u16 gFieldEffectObjectPic_Bird[] = INCBIN_U16("graphics/field_effects/pics
 const u16 gObjectEventPic_Twin[] = INCBIN_U16("graphics/object_events/pics/people/twin.4bpp"); // pokeemerald 731ad5b graphics/object_events/pics/people/twin.png
 
 const u16 gObjectEventPic_ScientistF[] = INCBIN_U16("graphics/object_events/pics/people/scientist_f.4bpp"); // HNS_modern bf25b6e graphics/object_events/pics/people/scientist_f.png
+
+const u16 gObjectEventPic_EmMom[] = INCBIN_U16("graphics/object_events/pics/people/em_mom.4bpp"); // pokeemerald 731ad5b graphics/object_events/pics/people/mom.png
+
+const u16 gObjectEventPic_Woman4[] = INCBIN_U16("graphics/object_events/pics/people/woman_4.4bpp"); // pokeemerald 731ad5b graphics/object_events/pics/people/woman_4.png
+
+const u16 gObjectEventPic_NinjaBoy[] = INCBIN_U16("graphics/object_events/pics/people/ninja_boy.4bpp"); // pokeemerald 731ad5b graphics/object_events/pics/people/ninja_boy.png
+
+const u16 gObjectEventPic_ProfBirch[] = INCBIN_U16("graphics/object_events/pics/people/prof_birch.4bpp"); // pokeemerald 731ad5b graphics/object_events/pics/people/prof_birch.png
+
+const u16 gObjectEventPic_VigorothCarryingBox[] = INCBIN_U16("graphics/object_events/pics/people/vigoroth_carrying_box.4bpp"); // pokeemerald 731ad5b graphics/object_events/pics/pokemon/vigoroth.png (frames 0-2)
+
+const u16 gObjectEventPic_VigorothFacingAway[] = INCBIN_U16("graphics/object_events/pics/people/vigoroth_facing_away.4bpp"); // pokeemerald 731ad5b graphics/object_events/pics/pokemon/vigoroth.png (frames 3-4)
+
+const u16 gObjectEventPic_JohtoMom[] = INCBIN_U16("graphics/object_events/pics/people/johto_mom.4bpp"); // HNS_modern bf25b6e graphics/object_events/pics/people/mom.png
+
+const u16 gObjectEventPic_ProfElm[] = INCBIN_U16("graphics/object_events/pics/people/prof_elm.4bpp"); // HNS_modern bf25b6e graphics/object_events/pics/people/special/elm.png
+
+const u16 gObjectEventPic_Silver[] = INCBIN_U16("graphics/object_events/pics/people/silver.4bpp"); // HNS_modern bf25b6e graphics/object_events/pics/people/special/silver.png

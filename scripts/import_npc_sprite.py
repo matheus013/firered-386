@@ -23,10 +23,12 @@ PALETTES = {  # FireRed tag -> (palette file, slot)
 
 def jasc(path):
     lines = Path(path).read_text().split()
-    if lines[:3] != ['JASC-PAL', '0100', '16']:
-        raise ValueError(f'Not a 16-colour JASC palette: {path}')
-    values = list(map(int, lines[3:3 + 48]))
-    return [tuple(values[i:i + 3]) for i in range(0, 48, 3)]
+    if lines[:2] != ['JASC-PAL', '0100'] or not 1 <= int(lines[2]) <= 16:
+        raise ValueError(f'Not a JASC palette of up to 16 colours: {path}')
+    count = int(lines[2])
+    values = list(map(int, lines[3:3 + count * 3]))
+    # Shorter palettes (HNS Silver has 15) are padded; remap() refuses pixels using a missing index.
+    return [tuple(values[i:i + 3]) for i in range(0, count * 3, 3)] + [None] * (16 - count)
 
 
 def remap(image, source, target):
@@ -38,6 +40,8 @@ def remap(image, source, target):
     for index, count in counts.items():
         if index == 0:
             continue
+        if source[index] is None:
+            raise ValueError(f'Pixel index {index} has no colour in the source palette')
         r, g, b = source[index]
         best = min(range(1, 16), key=lambda i: (target[i][0] - r) ** 2 + (target[i][1] - g) ** 2 + (target[i][2] - b) ** 2)
         distance = ((target[best][0] - r) ** 2 + (target[best][1] - g) ** 2 + (target[best][2] - b) ** 2) ** 0.5
@@ -70,19 +74,30 @@ def main():
     p.add_argument('--source', required=True, help='provenance note')
     p.add_argument('--game', type=Path, required=True)
     p.add_argument('--report', type=Path, required=True)
+    p.add_argument('--size', default='16x32', choices=['16x16', '16x32', '32x32'], help='frame size in pixels')
+    p.add_argument('--frames', help='sheet frame for each animation frame, e.g. 0,0,0,1,2,1,2,1,2 (Emerald Vigoroth)')
     a = p.parse_args()
     g = a.game
+    width, height = map(int, a.size.split('x'))
     image = Image.open(a.png)
-    if image.mode != 'P' or image.height != 32 or image.width % 16 or max(image.get_flattened_data()) > 15:
-        raise ValueError('Expected a 4bpp indexed 16x32 frame sheet')
-    frames = image.width // 16
-    if frames == 9:
-        sheet = Image.new('P', (160, 32))
+    if image.mode != 'P' or image.height != height or image.width % width or max(image.get_flattened_data()) > 15:
+        raise ValueError(f'Expected a 4bpp indexed {a.size} frame sheet')
+    frames = image.width // width
+    if a.frames:
+        # Explicit map onto the sheet as it is; FireRed's frame 9 (raise hand) reuses frame 0.
+        order = [int(i) for i in a.frames.split(',')]
+        order += [order[0]] * (10 - len(order))
+        if len(order) != 10 or max(order) >= frames:
+            raise ValueError(f'Frame map {order} does not fit a {frames}-frame sheet')
+    elif frames == 9:
+        sheet = Image.new('P', (width * 10, height))
         sheet.paste(image, (0, 0))
-        sheet.paste(image.crop((0, 0, 16, 32)), (144, 0))
-        image = sheet
-    elif frames != 10:
-        raise ValueError(f'{frames} frames; expected 9 or 10')
+        sheet.paste(image.crop((0, 0, width, height)), (width * 9, 0))
+        image, order = sheet, list(range(10))
+    elif frames == 10:
+        order = list(range(10))
+    else:
+        raise ValueError(f'{frames} frames; expected 9 or 10, or pass --frames')
     source = jasc(a.pal)
     choices = {}
     for tag, (file, slot) in PALETTES.items():
@@ -109,22 +124,22 @@ def main():
                 f'const u16 gObjectEventPic_{sym}[] = INCBIN_U16("graphics/object_events/pics/people/{a.name}.4bpp"); // {a.source}')
     insert_once(data / 'object_event_pic_tables.h', f'sPicTable_{sym}[]',
                 f'static const struct SpriteFrameImage sPicTable_{sym}[] = {{\n'
-                + ''.join(f'    overworld_frame(gObjectEventPic_{sym}, 2, 4, {i}),\n' for i in range(10)) + '};')
+                + ''.join(f'    overworld_frame(gObjectEventPic_{sym}, {width // 8}, {height // 8}, {i}),\n' for i in order) + '};')
     insert_once(data / 'object_event_graphics_info.h', f'gObjectEventGraphicsInfo_{sym} =',
                 f'// {a.source}; redrawn on FireRed palette {tag}.\n'
                 f'const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_{sym} = {{\n'
                 f'    .tileTag = TAG_NONE,\n    .paletteTag = {tag},\n    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,\n'
-                f'    .size = 256,\n    .width = 16,\n    .height = 32,\n    .paletteSlot = {slot},\n'
+                f'    .size = {width * height // 2},\n    .width = {width},\n    .height = {height},\n    .paletteSlot = {slot},\n'
                 f'    .shadowSize = SHADOW_SIZE_M,\n    .inanimate = FALSE,\n    .disableReflectionPaletteLoad = FALSE,\n'
-                f'    .tracks = TRACKS_FOOT,\n    .oam = &gObjectEventBaseOam_16x32,\n'
-                f'    .subspriteTables = gObjectEventSpriteOamTables_16x32,\n    .anims = sAnimTable_Standard,\n'
+                f'    .tracks = TRACKS_FOOT,\n    .oam = &gObjectEventBaseOam_{a.size},\n'
+                f'    .subspriteTables = gObjectEventSpriteOamTables_{a.size},\n    .anims = sAnimTable_Standard,\n'
                 f'    .images = sPicTable_{sym},\n    .affineAnims = gDummySpriteAffineAnimTable,\n}};')
     pointers = data / 'object_event_graphics_info_pointers.h'
     insert_once(pointers, f'gObjectEventGraphicsInfo_{sym};', f'const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_{sym};\n',
                 anchor='\nconst struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers')
     insert_once(pointers, f'[{const}]', f'    [{const}] = &gObjectEventGraphicsInfo_{sym},\n', anchor='};', before=True)
     insert_once(g / 'spritesheet_rules.mk', f'people/{a.name}.4bpp',
-                f'$(OBJEVENTGFXDIR)/people/{a.name}.4bpp: %.4bpp: %.png\n\t$(GFX) $< $@ -mwidth 2 -mheight 4')
+                f'$(OBJEVENTGFXDIR)/people/{a.name}.4bpp: %.4bpp: %.png\n\t$(GFX) $< $@ -mwidth {width // 8} -mheight {height // 8}')
 
     report = json.loads(a.report.read_text(encoding='utf-8')) if a.report.exists() else {'sprites': {}}
     report['sprites'][const] = {

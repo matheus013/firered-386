@@ -2963,3 +2963,183 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ScientistF = {
     .images = sPicTable_ScientistF,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
+
+// pokeemerald 731ad5b graphics/object_events/pics/people/mom.png; redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_PINK.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EmMom = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = gObjectEventSpriteOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_EmMom,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+// pokeemerald 731ad5b graphics/object_events/pics/people/woman_4.png; redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_WHITE.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Woman4 = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_4,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = gObjectEventSpriteOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Woman4,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+// pokeemerald 731ad5b graphics/object_events/pics/people/ninja_boy.png; redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_PINK.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NinjaBoy = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 128,
+    .width = 16,
+    .height = 16,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x16,
+    .subspriteTables = gObjectEventSpriteOamTables_16x16,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_NinjaBoy,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+// pokeemerald 731ad5b graphics/object_events/pics/people/prof_birch.png; redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_WHITE.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfBirch = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_4,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = gObjectEventSpriteOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_ProfBirch,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+// pokeemerald 731ad5b graphics/object_events/pics/pokemon/vigoroth.png (frames 0-2); redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_WHITE.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VigorothCarryingBox = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_4,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_VigorothCarryingBox,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+// pokeemerald 731ad5b graphics/object_events/pics/pokemon/vigoroth.png (frames 3-4); redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_WHITE.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VigorothFacingAway = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_4,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_VigorothFacingAway,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+// HNS_modern bf25b6e graphics/object_events/pics/people/mom.png; redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_GREEN.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoMom = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_GREEN,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_3,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = gObjectEventSpriteOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_JohtoMom,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+// HNS_modern bf25b6e graphics/object_events/pics/people/special/elm.png; redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_WHITE.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfElm = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_4,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = gObjectEventSpriteOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_ProfElm,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+// HNS_modern bf25b6e graphics/object_events/pics/people/special/silver.png; redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_BLUE.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Silver = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_1,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = gObjectEventSpriteOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Silver,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};

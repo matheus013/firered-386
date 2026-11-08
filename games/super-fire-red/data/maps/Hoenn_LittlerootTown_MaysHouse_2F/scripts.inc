@@ -2,6 +2,10 @@
 Hoenn_LittlerootTown_MaysHouse_2F_MapScripts::
 	.byte 0
 
+Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0::
+	msgbox Hoenn_LittlerootTown_MaysHouse_2F_Text_MayGettingReady, MSGBOX_NPC
+	end
+
 Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Sign0::
 	msgbox Hoenn_LittlerootTown_MaysHouse_2F_Text_ItsAGameCube, MSGBOX_SIGN
 	end
@@ -9,6 +13,11 @@ Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Sign0::
 Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Sign1::
 	msgbox Hoenn_LittlerootTown_MaysHouse_2F_Text_Notebook, MSGBOX_SIGN
 	end
+
+@ pokeemerald data/maps/LittlerootTown_MaysHouse_2F/scripts.inc: RivalsHouse_2F_Text_MayGettingReady
+Hoenn_LittlerootTown_MaysHouse_2F_Text_MayGettingReady::
+	.string "POKéMON fully restored!\n"
+	.string "Items ready, and…$"
 
 @ pokeemerald data/maps/LittlerootTown_BrendansHouse_2F/scripts.inc: PlayersHouse_2F_Text_ItsAGameCube
 Hoenn_LittlerootTown_MaysHouse_2F_Text_ItsAGameCube::

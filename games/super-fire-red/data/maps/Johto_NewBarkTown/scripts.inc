@@ -10,6 +10,18 @@ Johto_NewBarkTown_EventScript_Object1::
 	msgbox Johto_NewBarkTown_Text_LassState3, MSGBOX_NPC
 	end
 
+Johto_NewBarkTown_EventScript_Object2::
+	lock
+	msgbox Johto_NewBarkTown_Text_Silver1, MSGBOX_DEFAULT
+	delay 60
+	playse SE_PIN
+	applymovement VAR_LAST_TALKED, Common_Movement_ExclamationMark
+	faceplayer
+	waitmovement 0
+	msgbox Johto_NewBarkTown_Text_Silver2, MSGBOX_DEFAULT
+	release
+	end
+
 Johto_NewBarkTown_EventScript_Sign0::
 	msgbox Johto_NewBarkTown_Text_Sign, MSGBOX_SIGN
 	end
@@ -36,6 +48,16 @@ Johto_NewBarkTown_Text_FatManState3::
 Johto_NewBarkTown_Text_LassState3::
 	.string "Oh! Your Pokémon is adorable!\n"
 	.string "I wish I had one!$"
+
+@ HNS_modern data/maps/NewBarkTown/scripts.inc: NewBarkTown_Text_Silver1
+Johto_NewBarkTown_Text_Silver1::
+	.string ". . .\p"
+	.string "So this is the famous Elm\n"
+	.string "Pokémon Lab…$"
+
+@ HNS_modern data/maps/NewBarkTown/scripts.inc: NewBarkTown_Text_Silver2
+Johto_NewBarkTown_Text_Silver2::
+	.string "…What are you staring at?$"
 
 @ HNS_modern data/maps/NewBarkTown/scripts.inc: NewBarkTown_Text_Sign
 Johto_NewBarkTown_Text_Sign::

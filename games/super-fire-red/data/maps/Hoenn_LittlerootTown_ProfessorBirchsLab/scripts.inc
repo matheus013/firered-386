@@ -3,7 +3,11 @@ Hoenn_LittlerootTown_ProfessorBirchsLab_MapScripts::
 	.byte 0
 
 Hoenn_LittlerootTown_ProfessorBirchsLab_EventScript_Object0::
-	msgbox Hoenn_LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork, MSGBOX_NPC
+	msgbox Hoenn_LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork, MSGBOX_NPC
+	end
+
+Hoenn_LittlerootTown_ProfessorBirchsLab_EventScript_Object1::
+	msgbox Hoenn_LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait, MSGBOX_NPC
 	end
 
 Hoenn_LittlerootTown_ProfessorBirchsLab_EventScript_Sign0::
@@ -66,19 +70,19 @@ Hoenn_LittlerootTown_ProfessorBirchsLab_EventScript_Sign14::
 	msgbox Hoenn_LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch, MSGBOX_SIGN
 	end
 
-@ pokeemerald data/maps/LittlerootTown_ProfessorBirchsLab/scripts.inc: LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork
-Hoenn_LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork::
-	.string "Hunh? PROF. BIRCH?\p"
-	.string "The PROF's away on fieldwork.\n"
-	.string "Ergo, he isn't here.\p"
-	.string "Oh, let me explain what fieldwork is.\p"
-	.string "It is to study things in the natural\n"
-	.string "environment, like fields and mountains,\l"
-	.string "instead of a laboratory.\p"
+@ pokeemerald data/maps/LittlerootTown_ProfessorBirchsLab/scripts.inc: LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork
+Hoenn_LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork::
 	.string "The PROF isn't one for doing desk work.\n"
 	.string "He's the type of person who would\l"
 	.string "rather go outside and experience\l"
 	.string "things than read about them here.$"
+
+@ pokeemerald data/maps/LittlerootTown_ProfessorBirchsLab/scripts.inc: LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait
+Hoenn_LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait::
+	.string "PROF. BIRCH: Countless POKéMON\n"
+	.string "await you!\p"
+	.string "Argh, I'm getting the itch to get out\n"
+	.string "and do fieldwork again!$"
 
 @ pokeemerald data/maps/LittlerootTown_ProfessorBirchsLab/scripts.inc: LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine
 Hoenn_LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine::

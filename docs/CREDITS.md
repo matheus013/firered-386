@@ -33,6 +33,9 @@ e o README só lista créditos. A importação com créditos foi decisão do man
 Importados por `scripts/import_npc_sprite.py` e redesenhados numa paleta de moradores do FireRed;
 detalhes em `docs/map-audits/pilot-sprites.json`.
 
-- Twin: pret/pokeemerald (`graphics/object_events/pics/people/twin.png`).
-- Cientista (`SCIENTIST_F`): resetes12/HNS_modern (`graphics/object_events/pics/people/scientist_f.png`),
-  mesma situação de licença dos tilesets de Johto acima.
+- pret/pokeemerald: Twin, mãe (`EM_MOM`), `WOMAN_4`, `NINJA_BOY`, Prof. Birch e Vigoroth
+  (`graphics/object_events/pics/people/` e `pics/pokemon/vigoroth.png`).
+- resetes12/HNS_modern: cientista (`SCIENTIST_F`), mãe de Johto (`JOHTO_MOM`), Prof. Elm e Silver
+  (`graphics/object_events/pics/people/`), mesma situação de licença dos tilesets de Johto acima.
+
+Todas as importações estão em `scripts/import_pilot_sprites.sh`.

@@ -574,3 +574,82 @@ confundia caracteres que o charmap mapeia no mesmo byte (apóstrofo reto/curvo, 
 - Fases 2 (personagens principais) e 3 (história).
 - A Twin com cores aproximadas; se quiser cores exatas, dá para usar o espaço de paleta especial
   enquanto não houver outro personagem com paleta própria no mesmo mapa.
+
+## 08/11/2026 — Eventos dos pilotos, fase 2: personagens principais (Claude)
+
+Pedido do usuário: fase 2. Duas decisões do usuário antes de começar:
+
+- **Famílias em Littleroot:** a May é filha do Prof. Birch, como no Emerald com jogador menino.
+  Casa da May = família Birch (esposa, irmãozinho, May); casa do Brendan = família Norman
+  (mãe, Vigoroths, Brendan).
+- **Falas:** só falas das fontes. Personagem sem fala neutra aparece, mas não conversa.
+
+Regra adicional, tirada das próprias fontes: entram só personagens que ficam no mapa no estado
+normal do jogo original. Ficam de fora os que só existem em cenas: Norman em casa, a mãe na rua e
+no quarto, os caminhões, o rival no laboratório, o Birch com o Zigzagoon, o policial do Elm.
+
+### Personagens
+
+| Personagem | Onde | Fala (da fonte) |
+|---|---|---|
+| Esposa do Birch | casa da May, 1F | "I think it's wonderful for people to travel with POKéMON…" (ramo de quem viaja) |
+| Irmãozinho | casa da May, 1F | "Hi, neighbor! Do you already have your own POKéMON?" |
+| May | quarto da May | "POKéMON fully restored! Items ready, and…" |
+| Brendan | quarto do Brendan | "POKéMON fully restored… Items all packed, and…" |
+| 2 Vigoroths | casa do Brendan, 1F | "Fugiiiiih!" / "Huggoh, uggo uggo…", com o grito |
+| Prof. Birch | laboratório | "Countless POKéMON await you! … the itch to get out and do fieldwork again!" |
+| Silver | janela do laboratório do Elm | ". . . So this is the famous Elm Pokémon Lab…" / "…What are you staring at?" |
+| Amiga da mãe | casa do jogador em New Bark, 1F | "Hi, {PLAYER}! I'm visiting!…" |
+| Mãe do Brendan, mãe de New Bark, Prof. Elm | — | **em silêncio**: todas as falas falam com o próprio filho ou dependem da história (ovo, telefone, Kimono Girls) |
+
+Ajustes, todos registrados em [pilot-events.json](map-audits/pilot-events.json):
+
+- **Assistente do Birch:** com o Birch no laboratório, a fala da fase 1 ("o PROF. está em trabalho
+  de campo") virou outro ramo original dela, "o PROF. não é de trabalho de mesa", coerente com o
+  Birch dizendo que quer voltar ao campo.
+- **Brendan e May** ficam onde o script do quarto os põe ao carregar (`TryUpdateBrendanPos` /
+  `TryUpdateMayPos`: (0,2) e (8,2), de frente para o PC). As coordenadas do `map.json` são o ponto de
+  entrada da cena, em cima da escada: o primeiro teste pegou isso, o Brendan bloqueava a descida.
+- **Silver:** as duas falas, o ponto de exclamação e ele virando para o jogador. O empurrão do
+  original ficou de fora: os movimentos são fixos e só funcionam vindo de uma célula específica; de
+  outro lado jogariam o jogador dentro de paredes.
+- Brendan e May usam os sprites que o FireRed já tem (`RS_BRENDAN`, `RS_MAY`).
+
+### Sprites importados nesta fase
+
+`scripts/import_npc_sprite.py` agora aceita 16x16 e 32x32, um mapa de quadros (`--frames`, para a
+folha de 5 quadros do Vigoroth) e paletas com menos de 16 cores (a do Silver tem 15). Todas as
+importações ficam em `scripts/import_pilot_sprites.sh` (idempotente; Twin e cientista não mudaram ao
+rodar de novo).
+
+| Sprite | Fonte | Paleta | Maior distância de cor |
+|---|---|---|---|
+| `EM_MOM` | pokeemerald | rosa | 42 |
+| `WOMAN_4` (esposa do Birch) | pokeemerald | branca | 64 |
+| `NINJA_BOY` (16x16) | pokeemerald | rosa | 50 |
+| `PROF_BIRCH` | pokeemerald | branca | 99 |
+| `VIGOROTH_CARRYING_BOX`, `VIGOROTH_FACING_AWAY` (32x32) | pokeemerald | branca | 55 |
+| `JOHTO_MOM` | HNS_modern | verde | 67 |
+| `PROF_ELM` | HNS_modern | branca | 54 |
+| `SILVER` | HNS_modern | azul | 46 |
+
+Comparação lado a lado: [pilot-sprites-phase2.png](map-audits/pilot-sprites-phase2.png). Ficaram fiéis
+a mãe, a esposa, o irmãozinho, o Birch, os Vigoroths e a mãe de Johto; o cabelo do Elm ficou mais
+loiro e o do Silver mais escuro. São 162 sprites agora (de 239 possíveis).
+
+### Tradução e teste
+
+- 46 traduções revisadas para os 55 textos (os demais são nomes de lugar e gritos do Vigoroth);
+  8.185 entradas, 0 recusadas.
+- `test_region_pilot_maps.py`: **119 casos**, todos aprovados. 84 textos iguais aos da fonte; os 3
+  personagens em silêncio não iniciam script ao apertar A; item, Cut, cura e PT-BR como antes.
+- Ajuste do teste: o Vigoroth anda o tempo todo e dava um passo no mesmo quadro em que o fade-in do
+  warp descongela os personagens. Na cópia de teste, `UnfreezeObjectEvents` fica sem efeito até o A;
+  depois o `release` do script funciona normalmente.
+- 27 testes de regiões: OK. ROM publicada intacta.
+
+### Pendente
+
+- Fase 3 (história): iniciais, resgate do Birch, batalhas de rival, presente da Tuscany, Poké Balls
+  dos quartos e laboratórios, placas "casa de {PLAYER}", PC e relógio do quarto.
+- Personagens em silêncio (mães, Elm) ganham falas quando a história da fase 3 der contexto.
