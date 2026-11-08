@@ -22,6 +22,20 @@ Johto_NewBarkTown_EventScript_Object2::
 	release
 	end
 
+Johto_NewBarkTown_EventScript_Ferry::
+	lock
+	faceplayer
+	msgbox Johto_NewBarkTown_Text_Ferry, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Johto_NewBarkTown_EventScript_Ferry_Stay
+	setvar VAR_0x8004, SEAGALLOP_NEW_BARK
+	setvar VAR_0x8006, SEAGALLOP_VERMILION_CITY
+	goto EventScript_SailToDest
+	end
+
+Johto_NewBarkTown_EventScript_Ferry_Stay::
+	release
+	end
+
 Johto_NewBarkTown_EventScript_Sign0::
 	msgbox Johto_NewBarkTown_Text_Sign, MSGBOX_SIGN
 	end
@@ -58,6 +72,12 @@ Johto_NewBarkTown_Text_Silver1::
 @ HNS_modern data/maps/NewBarkTown/scripts.inc: NewBarkTown_Text_Silver2
 Johto_NewBarkTown_Text_Silver2::
 	.string "…What are you staring at?$"
+
+@ new text (no source)
+Johto_NewBarkTown_Text_Ferry::
+	.string "The SEAGALLOP can take you back\n"
+	.string "to VERMILION CITY in KANTO.\p"
+	.string "Do you want to set sail?$"
 
 @ HNS_modern data/maps/NewBarkTown/scripts.inc: NewBarkTown_Text_Sign
 Johto_NewBarkTown_Text_Sign::

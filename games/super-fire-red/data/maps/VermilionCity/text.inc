@@ -129,3 +129,18 @@ VermilionCity_Text_Route2AideHasPackageForYou::
     .string "If you're in the ROUTE 2 area,\n"
     .string "please look for him.$"
 
+
+@ Region pilots (new text, not from a source game; see docs/MULTIREGION_WORKLOG.md).
+VermilionCity_Text_RegionSailorLittleroot::
+    .string "Now that you've beaten the POKéMON\n"
+    .string "LEAGUE, the SEAGALLOP also sails to\l"
+    .string "faraway lands.\p"
+    .string "Shall we head for LITTLEROOT TOWN\n"
+    .string "in HOENN?$"
+
+VermilionCity_Text_RegionSailorNewBark::
+    .string "Then how about NEW BARK TOWN\n"
+    .string "in JOHTO?$"
+
+VermilionCity_Text_RegionSailorAnytime::
+    .string "Come back anytime you want to sail!$"

@@ -23,6 +23,39 @@ VermilionCity_Movement_ExitSSAnne::
 VermilionCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_VERMILION_CITY
 	call_if_set FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION, VermilionCity_EventScript_HideOaksAide
+	call_if_unset FLAG_SYS_GAME_CLEAR, VermilionCity_EventScript_HideRegionSailor
+	call_if_set FLAG_SYS_GAME_CLEAR, VermilionCity_EventScript_ShowRegionSailor
+	end
+
+@ Region pilots: after the first Hall of Fame, a SEAGALLOP sailor sails to Littleroot and New Bark.
+VermilionCity_EventScript_HideRegionSailor::
+	setflag FLAG_HIDE_VERMILION_CITY_REGION_SAILOR
+	return
+
+VermilionCity_EventScript_ShowRegionSailor::
+	clearflag FLAG_HIDE_VERMILION_CITY_REGION_SAILOR
+	return
+
+VermilionCity_EventScript_RegionSailor::
+	lock
+	faceplayer
+	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
+	msgbox VermilionCity_Text_RegionSailorLittleroot, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, VermilionCity_EventScript_SailToLittleroot
+	msgbox VermilionCity_Text_RegionSailorNewBark, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, VermilionCity_EventScript_SailToNewBark
+	msgbox VermilionCity_Text_RegionSailorAnytime
+	release
+	end
+
+VermilionCity_EventScript_SailToLittleroot::
+	setvar VAR_0x8006, SEAGALLOP_LITTLEROOT
+	goto EventScript_SailToDest
+	end
+
+VermilionCity_EventScript_SailToNewBark::
+	setvar VAR_0x8006, SEAGALLOP_NEW_BARK
+	goto EventScript_SailToDest
 	end
 
 VermilionCity_EventScript_HideOaksAide::

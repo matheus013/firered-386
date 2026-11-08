@@ -14,6 +14,20 @@ Hoenn_LittlerootTown_EventScript_Object2::
 	msgbox Hoenn_LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC
 	end
 
+Hoenn_LittlerootTown_EventScript_Ferry::
+	lock
+	faceplayer
+	msgbox Hoenn_LittlerootTown_Text_Ferry, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Hoenn_LittlerootTown_EventScript_Ferry_Stay
+	setvar VAR_0x8004, SEAGALLOP_LITTLEROOT
+	setvar VAR_0x8006, SEAGALLOP_VERMILION_CITY
+	goto EventScript_SailToDest
+	end
+
+Hoenn_LittlerootTown_EventScript_Ferry_Stay::
+	release
+	end
+
 Hoenn_LittlerootTown_EventScript_Sign0::
 	msgbox Hoenn_LittlerootTown_Text_TownSign, MSGBOX_SIGN
 	end
@@ -40,6 +54,12 @@ Hoenn_LittlerootTown_Text_BirchSpendsDaysInLab::
 	.string "the wild to do more research…\p"
 	.string "When does PROF. BIRCH spend time\n"
 	.string "at home?$"
+
+@ new text (no source)
+Hoenn_LittlerootTown_Text_Ferry::
+	.string "The SEAGALLOP can take you back\n"
+	.string "to VERMILION CITY in KANTO.\p"
+	.string "Do you want to set sail?$"
 
 @ pokeemerald data/maps/LittlerootTown/scripts.inc: LittlerootTown_Text_TownSign
 Hoenn_LittlerootTown_Text_TownSign::

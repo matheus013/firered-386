@@ -101,9 +101,21 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
 for case,info in list(TALKS.items()):
  if (info['map'],info['kind'],info['index']) in {('Hoenn_LittlerootTown','sign',1),('Johto_NewBarkTown','object',1)} and info['setup']==0:
   m,sx,sy,_,_,steps,_=CASES[case-1];CASES.append((m,sx,sy,0,0,steps,2));TALKS[len(CASES)]=dict(info,setup=2)
+# SEAGALLOP access (setup bit 4 = first Hall of Fame done, bit 8 = sail Vermilion -> New Bark directly).
+GAME_CLEAR,DIRECT_NEW_BARK=4,8
+CASES.append(('MAP_VERMILION_CITY',23,30,0,0,[('LEFT','TALK')],0))
+TALKS[len(CASES)]={'map':'VermilionCity','kind':'object','index':'region sailor','script':'VermilionCity_EventScript_RegionSailor','what':'silent','setup':0,'expected':None}
+CASES.append(('MAP_VERMILION_CITY',23,30,0,0,[('LEFT','TALK')],GAME_CLEAR))
+_vermilion=(game/'data/maps/VermilionCity/text.inc').read_text(encoding='utf-8')
+TALKS[len(CASES)]={'map':'VermilionCity','kind':'object','index':'region sailor','script':'VermilionCity_EventScript_RegionSailor','what':'text','setup':GAME_CLEAR,
+ 'expected':''.join(re.findall(r'\.string "([^"]*)"',_vermilion.split('VermilionCity_Text_RegionSailorLittleroot::')[1].split('\n\n')[0]))}
+TRIPS={}
+for start,sx,sy,key,setup,dest in [('MAP_VERMILION_CITY',23,30,'LEFT',GAME_CLEAR,'littleroot'),('MAP_VERMILION_CITY',23,30,'LEFT',GAME_CLEAR|DIRECT_NEW_BARK,'newbark'),
+                                   (HOENN+'LITTLEROOT_TOWN',10,14,'UP',GAME_CLEAR,'vermilion'),(JOHTO+'NEW_BARK_TOWN',24,13,'UP',GAME_CLEAR,'vermilion')]:
+ CASES.append((start,sx,sy,0,0,[(key,'TRIP')],setup));TRIPS[len(CASES)]=(start,dest)
 CASES=[c if len(c)==7 else (*c,0) for c in CASES]
 KEYS={'UP':'DPAD_UP','DOWN':'DPAD_DOWN','LEFT':'DPAD_LEFT','RIGHT':'DPAD_RIGHT','NONE':'0'}
-MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5}
+MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6}
 spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}, {setup}}}' for m,x,y,px,py,s,setup in CASES)
 steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s,_setup in CASES)
 counts=', '.join(str(len(s)) for *_,s,_setup in CASES)
@@ -130,6 +142,8 @@ void CB2_NewGame(void);
 void CB1_Overworld(void);
 void CleanupOverworldWindowsAndTilemaps(void);
 void CB2_ReturnToField(void);
+extern const u8 EventScript_SailToDest[];
+#include "constants/seagallop.h"
 struct PilotStep { u16 keys; u8 mode; };
 const s8 gPilotSpawn[][8] = {
     SPAWNS
@@ -258,6 +272,25 @@ static void PilotWalkCase(void)
         }
         return;
     }
+    // Trip: talk to the SEAGALLOP sailor and keep pressing A (YES is the default) until a new map is up.
+    if (step->mode == 6 && sPilotPhase >= 5)
+    {
+        u8 *t = gPilotResult;
+        if (sPilotPhase == 5 && sPilotStepFrames >= 4) { gPilotKeys = A_BUTTON; sPilotPhase = 6; sPilotStepFrames = 0; }
+        else if (sPilotPhase == 6 && sPilotStepFrames >= 4) { gPilotKeys = 0; sPilotPhase = 7; sPilotStepFrames = 0; }
+        else if (sPilotPhase == 7)
+        {
+            gPilotKeys = (sPilotStepFrames % 20) < 3 ? A_BUTTON : 0;
+            if ((moved && sPilotIdle >= 30) || sPilotStepFrames >= 4000)
+            {
+                gPilotKeys = 0;
+                t[0] = gSaveBlock1Ptr->location.mapGroup; t[1] = gSaveBlock1Ptr->location.mapNum;
+                t[2] = x - MAP_OFFSET; t[3] = y - MAP_OFFSET; t[4] = moved;
+                gPilotShot = 1; gPilotStage = 3;
+            }
+        }
+        return;
+    }
     // Town Map: fade, clean up the field and open the region map as the item does, then keep running.
     if (step->mode == 4 && sPilotPhase >= 5)
     {
@@ -278,8 +311,17 @@ static void PilotWalkCase(void)
     if (sPilotPhase == 0)
     {
         if (sPilotIdle < 30) return;
-        if (step->mode == 5)
+        if (step->mode == 5 || step->mode == 6)
         {
+            sPilotStartGroup = gSaveBlock1Ptr->location.mapGroup; sPilotStartMap = gSaveBlock1Ptr->location.mapNum;
+            if (step->mode == 6 && (gPilotSpawn[gPilotCase - 1][7] & 8))
+            {
+                gSpecialVar_0x8004 = SEAGALLOP_VERMILION_CITY;
+                gSpecialVar_0x8006 = SEAGALLOP_NEW_BARK;
+                ScriptContext_SetupScript(EventScript_SailToDest);
+                sPilotPhase = 7; sPilotStepFrames = 0;
+                return;
+            }
             gPilotKeys = step->keys; sPilotPhase = 5; sPilotStepFrames = 0;
             return;
         }
@@ -368,6 +410,8 @@ void PilotSetup(void)
     }
     if (spawn[7] & 2)
         GameSettings_SetLanguage(GAME_LANGUAGE_PTBR);
+    if (spawn[7] & 4)
+        FlagSet(FLAG_SYS_GAME_CLEAR);
 }
 '''
 world=(game/'src/overworld.c').read_text()
@@ -549,11 +593,21 @@ for case,info in TALKS.items():
  assert got and want.startswith(got.rstrip('\\')) or got.startswith(want),(where,'text differs',got,want)
  talked['text']+=1
 print('Talked to pilot events:',talked)
+# Generated at build time: #define MAP_X (num | (group << 8))
+_maps={m[1]:(int(m[3]),int(m[2])) for m in re.finditer(r'#define (MAP_\w+)\s+\((\d+) \| \((\d+) << 8\)\)',(test/'include/constants/map_groups.h').read_text())}
+def _group_num(name):
+ return _maps[name]
+ARRIVAL={'littleroot':((HG,LITTLEROOT),(11,14)),'newbark':((JG,NEWBARK),(24,13)),'vermilion':(_group_num('MAP_VERMILION_CITY'),(23,32))}
+for case,(start,dest) in TRIPS.items():
+ row=rows[case];where_,cell=ARRIVAL[dest]
+ assert row[4]==1 and tuple(row[:2])==where_ and tuple(row[2:4])==cell,(start,'->',dest,'ferry arrival',list(row[:4]),where_,cell)
+print('SEAGALLOP trips:',{f"{s.replace('MAP_','')}->{d}":'ok' for s,d in TRIPS.values()})
 print('PASS: Hoenn and Johto pilots load on their own tilesets with doors, animation and connections; every door, '
       'doormat, staircase and the Route 29 gate warp both ways; both connections cross on foot; the Hoenn bedroom cell '
       'blocks north/south only; wild tables are attached and both pilot routes start real wild battles from them; '
       'pilot maps carry named sections (popup, met location) and the Town Map opens on them; '
       'every ambient event answers A with its source text, the Potion is picked up, the lab machine heals, PT-BR shows; '
+      'the SEAGALLOP sails Vermilion <-> Littleroot/New Bark only after the League; '
       'assets match their sources; Pallet unchanged.')
 (out/'results.json').write_text(json.dumps({'status':'passed','build':str(test),'cases':{str(k):v.hex() for k,v in rows.items()},
                                             'walks':{str(k):walked(k) for k in rows if CASES[k-1][5] and CASES[k-1][5][0][1] not in ('BATTLE','TOWNMAP')},'sections':sections,'battles':battles},indent=2)+'\n')

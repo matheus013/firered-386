@@ -36,6 +36,11 @@ SPRITES = {
 }
 # Positions the source map script sets on load (setobjectxyperm/setobjectmovementtype); the map.json
 # coordinates are the cutscene entry point, on top of the stair warp.
+# Objects that do not come from a source game: the SEAGALLOP sailors that take the player back to
+# Vermilion City (access chosen by the maintainer: ship from Vermilion after the first Hall of Fame).
+# Their text is new; region_pilot_ptbr.py translates it.
+FERRY_TEXT = ['The SEAGALLOP can take you back\\n', 'to VERMILION CITY in KANTO.\\p', 'Do you want to set sail?$']
+FERRIES = {'LittlerootTown': ('SEAGALLOP_LITTLEROOT', 10, 13), 'NewBarkTown': ('SEAGALLOP_NEW_BARK', 24, 12)}
 POSITIONS = {
     ('LittlerootTown_BrendansHouse_2F', 0): (0, 2, 'MOVEMENT_TYPE_FACE_UP', 'LittlerootTown_BrendansHouse_2F_EventScript_TryUpdateBrendanPos'),
     ('LittlerootTown_MaysHouse_2F', 0): (8, 2, 'MOVEMENT_TYPE_FACE_UP', 'LittlerootTown_MaysHouse_2F_EventScript_TryUpdateMayPos'),
@@ -214,6 +219,20 @@ def main():
             rows.append({'kind': kind, 'source_index': index, 'source_script': o.get('script'), 'source_sprite': o['graphics_id'],
                          'firered_sprite': gfx, 'text': label, 'note': note, 'x': x, 'y': y,
                          **({'placed_by': placed_by} if placed_by else {})})
+        if source_map in FERRIES:
+            port, x, y = FERRIES[source_map]
+            script = f'{name}_EventScript_Ferry'
+            scripts.append(f'{script}::\n\tlock\n\tfaceplayer\n\tmsgbox {name}_Text_Ferry, MSGBOX_YESNO\n'
+                           f'\tgoto_if_eq VAR_RESULT, NO, {script}_Stay\n\tsetvar VAR_0x8004, {port}\n'
+                           f'\tsetvar VAR_0x8006, SEAGALLOP_VERMILION_CITY\n\tgoto EventScript_SailToDest\n\tend\n\n'
+                           f'{script}_Stay::\n\trelease\n\tend\n')
+            texts[f'{name}_Text_Ferry'] = (FERRY_TEXT, 'new text (no source)', 'Ferry')
+            obj_events.append({'type': 'object', 'graphics_id': 'OBJ_EVENT_GFX_SAILOR', 'x': x, 'y': y, 'elevation': 3,
+                               'movement_type': 'MOVEMENT_TYPE_FACE_DOWN', 'movement_range_x': 1, 'movement_range_y': 1,
+                               'trainer_type': 'TRAINER_TYPE_NONE', 'trainer_sight_or_berry_tree_id': '0',
+                               'script': script, 'flag': '0'})
+            rows.append({'kind': 'ferry', 'source_index': None, 'firered_sprite': 'OBJ_EVENT_GFX_SAILOR', 'x': x, 'y': y,
+                         'note': f'new: SEAGALLOP back to Vermilion City ({port})'})
         for index, (kind, label) in sorted(signs.items()):
             b = source_bgs[index]
             script = f'{name}_EventScript_Sign{index}'
@@ -235,7 +254,8 @@ def main():
                 f'{name}_MapScripts::', '\t.byte 0', '']
         body += scripts
         for local, (lines, where, label) in texts.items():
-            body.append(f'@ {repo_name} {where}: {label}\n{local}::\n' + ''.join(f'\t.string "{l}"\n' for l in lines))
+            origin = where if where.startswith('new text') else f'{repo_name} {where}: {label}'
+            body.append(f'@ {origin}\n{local}::\n' + ''.join(f'\t.string "{l}"\n' for l in lines))
         (map_path.parent / 'scripts.inc').write_text('\n'.join(body), encoding='utf-8', newline='\n')
         report['maps'][name] = {'source': f'{repo_name}/{source_map}', 'events': rows}
     a.report.write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')

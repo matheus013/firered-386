@@ -653,3 +653,57 @@ loiro e o do Silver mais escuro. São 162 sprites agora (de 239 possíveis).
 - Fase 3 (história): iniciais, resgate do Birch, batalhas de rival, presente da Tuscany, Poké Balls
   dos quartos e laboratórios, placas "casa de {PLAYER}", PC e relógio do quarto.
 - Personagens em silêncio (mães, Elm) ganham falas quando a história da fase 3 der contexto.
+
+## 08/11/2026 — Fase 3, passo 1: acesso pelo SEAGALLOP (Claude)
+
+Decisões do usuário para a fase 3 (história):
+
+- **Acesso:** navio em Vermilion depois da primeira Liga.
+- **Iniciais:** um presente por região (Birch: Treecko/Torchic/Mudkip; Elm: Chikorita/Cyndaquil/Totodile).
+- **Cenas:** resgate do Birch, batalhas de rival, pedido do Elm (versão reduzida) e falas das mães e
+  do Elm conforme a história.
+
+A fase 3 é entregue em passos testados: (1) acesso, (2) história de Hoenn, (3) história de Johto,
+(4) mães. Este é o passo 1.
+
+### Como funciona
+
+O FireRed já tem a balsa SEAGALLOP (Vermilion e Sevii), com animação e tabela de destinos. Foram
+acrescentados dois destinos e usado o script comum `EventScript_SailToDest`, que mostra a mensagem
+de embarque do próprio FireRed e roda a animação:
+
+- `SEAGALLOP_LITTLEROOT` (11) chega em Littleroot (11,14); `SEAGALLOP_NEW_BARK` (12) chega na margem
+  de New Bark (24,13), ao lado do mar. Littleroot não tem porto; a chegada fica no centro da cidade.
+- Direção da viagem (`sTravelDirectionMatrix`): Hoenn e Johto ficam a oeste de Kanto, então a ida sai
+  de Vermilion para oeste e a volta para leste. A tabela passou de 11 para 13 bits por linha.
+- **Vermilion:** um marinheiro novo no píer (22,30), na borda esquerda, sem bloquear o caminho do
+  S.S. Anne. Fica escondido por `FLAG_HIDE_VERMILION_CITY_REGION_SAILOR` (apelido de `FLAG_0x078`, sem
+  uso), que o script de entrada de Vermilion marca enquanto `FLAG_SYS_GAME_CLEAR` não estiver ligado e
+  desmarca depois. Ele pergunta Littleroot (sim/não) e depois New Bark (sim/não), sem criar menus novos.
+- **Volta:** um marinheiro em Littleroot (10,13) e outro em New Bark (24,12), criados pelo
+  `install_pilot_events.py`, perguntam se quer voltar a Vermilion.
+
+### Textos novos
+
+As perguntas dos marinheiros são **textos novos** (não existem no Emerald nem no HNS); a regra "só
+falas das fontes" vale para os personagens, e este é o acesso escolhido pelo usuário. As mensagens de
+embarque são as do próprio FireRed. Traduções em `region_pilot_ptbr.json` (50 entradas; 8.189 no
+total, 0 recusadas); a pergunta evita gênero ("agora que você venceu a LIGA POKéMON").
+
+### Teste
+
+`test_region_pilot_maps.py`, 127 casos, todos aprovados. Novos:
+
+- Vermilion antes da Liga: o marinheiro não existe (A não inicia nada);
+- depois da Liga: ele aparece e pergunta por Littleroot;
+- viagens completas pelo SEAGALLOP: Vermilion → Littleroot (pelo menu do marinheiro), Vermilion → New
+  Bark (pela balsa diretamente; a segunda pergunta exigiria responder "não" e depois "sim"),
+  Littleroot → Vermilion e New Bark → Vermilion, conferindo mapa e célula de chegada.
+
+O teste pegou um erro de posição: o marinheiro estava em (21,32), que é água sem colisão ao lado do
+píer. Foi para (22,30), em cima do píer.
+
+### Pendente
+
+- Passos 2 (Hoenn), 3 (Johto) e 4 (mães).
+- Vermilion → New Bark pelo menu (resposta "não" + "sim") não foi exercitado; a tabela de chegada foi.

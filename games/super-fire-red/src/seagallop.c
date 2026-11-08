@@ -71,7 +71,9 @@ static const s8 sSeag[][4] = {
     [SEAGALLOP_SEVEN_ISLAND]    = {MAP(MAP_SEVEN_ISLAND_HARBOR), 0x08, 0x05},
     [SEAGALLOP_CINNABAR_ISLAND] = {MAP(MAP_CINNABAR_ISLAND),     0x15, 0x07},
     [SEAGALLOP_NAVEL_ROCK]      = {MAP(MAP_NAVEL_ROCK_HARBOR),   0x08, 0x05},
-    [SEAGALLOP_BIRTH_ISLAND]    = {MAP(MAP_BIRTH_ISLAND_HARBOR), 0x08, 0x05}
+    [SEAGALLOP_BIRTH_ISLAND]    = {MAP(MAP_BIRTH_ISLAND_HARBOR), 0x08, 0x05},
+    [SEAGALLOP_LITTLEROOT]      = {MAP(MAP_HOENN_LITTLEROOT_TOWN), 11, 14},
+    [SEAGALLOP_NEW_BARK]        = {MAP(MAP_JOHTO_NEW_BARK_TOWN),   24, 13}
 };
 
 // Bitpacked array.  In the commented section, right-most bit is the
@@ -95,7 +97,11 @@ static const u16 sTravelDirectionMatrix[] = {
     [SEAGALLOP_SEVEN_ISLAND]    = 0x440, // 10001000000
     [SEAGALLOP_CINNABAR_ISLAND] = 0x7ff, // 11111111111
     [SEAGALLOP_NAVEL_ROCK]      = 0x6e0, // 11011100000
-    [SEAGALLOP_BIRTH_ISLAND]    = 0x000  // 00000000000
+    [SEAGALLOP_BIRTH_ISLAND]    = 0x000, // 00000000000
+    // Hoenn and Johto lie west of Kanto: westbound out of Vermilion (bits 11-12 clear above),
+    // eastbound back to it.
+    [SEAGALLOP_LITTLEROOT]      = 0x001, // 0000000000001
+    [SEAGALLOP_NEW_BARK]        = 0x001  // 0000000000001
 };
 
 static const union AnimCmd sSpriteAnims_Ferry_WB[] = {

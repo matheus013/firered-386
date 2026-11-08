@@ -38,6 +38,14 @@
           "y": 17
         },
         {
+          "kind": "ferry",
+          "source_index": null,
+          "firered_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "x": 10,
+          "y": 13,
+          "note": "new: SEAGALLOP back to Vermilion City (SEAGALLOP_LITTLEROOT)"
+        },
+        {
           "kind": "sign",
           "source_index": 0,
           "source_script": "LittlerootTown_EventScript_TownSign",
@@ -412,6 +420,14 @@
           "note": "Silver: both lines and the exclamation; the push movement is left out because it only fits one approach cell",
           "x": 7,
           "y": 7
+        },
+        {
+          "kind": "ferry",
+          "source_index": null,
+          "firered_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "x": 24,
+          "y": 12,
+          "note": "new: SEAGALLOP back to Vermilion City (SEAGALLOP_NEW_BARK)"
         },
         {
           "kind": "sign",

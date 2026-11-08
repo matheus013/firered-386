@@ -12,6 +12,9 @@
 #define SEAGALLOP_CINNABAR_ISLAND  8
 #define SEAGALLOP_NAVEL_ROCK       9
 #define SEAGALLOP_BIRTH_ISLAND    10
+// Region pilots, reached from Vermilion City after the first Hall of Fame.
+#define SEAGALLOP_LITTLEROOT      11
+#define SEAGALLOP_NEW_BARK        12
 
 #define SEAGALLOP_MORE           254
 

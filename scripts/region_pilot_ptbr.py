@@ -64,6 +64,12 @@ PT = {
     'Johto_Route29_Text_Boy_WaitingForDay': 'Estou esperando Pokémon que só aparecem mais tarde no dia.',
     'Johto_Route29_Text_Girl': 'Queria fazer uma pausa, então salvei para registrar meu progresso.',
     'Johto_Route29_Text_Lass': 'Está vendo aqueles desníveis? Dá medo pular deles.' + P + 'Mas dá para ir até New Bark sem passar pela grama.',
+    # SEAGALLOP to the pilots (new texts, no source game).
+    'VermilionCity_Text_RegionSailorLittleroot': 'Agora que você venceu a LIGA POKéMON, o SEAGALLOP também navega para terras distantes.' + P + 'Vamos para LITTLEROOT TOWN, em HOENN?',
+    'VermilionCity_Text_RegionSailorNewBark': 'Então que tal NEW BARK TOWN, em JOHTO?',
+    'VermilionCity_Text_RegionSailorAnytime': 'Volte quando quiser navegar!',
+    'Hoenn_LittlerootTown_Text_Ferry': 'O SEAGALLOP pode levar você de volta a VERMILION CITY, em KANTO.' + P + 'Quer zarpar?',
+    'Johto_NewBarkTown_Text_Ferry': 'O SEAGALLOP pode levar você de volta a VERMILION CITY, em KANTO.' + P + 'Quer zarpar?',
 }
 SAME_IN_PT = {'Hoenn_Route101_Text_RouteSign', 'Johto_Route29_Text_Sign1',  # names only
               'Hoenn_LittlerootTown_BrendansHouse_1F_Text_Vigoroth1', 'Hoenn_LittlerootTown_BrendansHouse_1F_Text_Vigoroth2'}  # Vigoroth cries
@@ -72,9 +78,13 @@ SAME_IN_PT = {'Hoenn_Route101_Text_RouteSign', 'Johto_Route29_Text_Sign1',  # na
 def english(game=GAME):
     """label -> English key exactly as generate_locale stores it (real newline for \\n, no final $)."""
     out = {}
-    for path in sorted(list((game / 'data/maps').glob('Hoenn_*/scripts.inc')) + list((game / 'data/maps').glob('Johto_*/scripts.inc'))):
+    paths = sorted(list((game / 'data/maps').glob('Hoenn_*/scripts.inc')) + list((game / 'data/maps').glob('Johto_*/scripts.inc')))
+    paths.append(game / 'data/maps/VermilionCity/text.inc')  # the SEAGALLOP sailor to the pilots
+    for path in paths:
         text = path.read_text(encoding='utf-8')
-        for label, body in re.findall(r'^(\w+_Text_\w+)::\n((?:\t\.string "[^"]*"\n?)+)', text, re.M):
+        for label, body in re.findall(r'^(\w+_Text_\w+)::\n((?:[ \t]*\.string "[^"]*"\n?)+)', text, re.M):
+            if path.parent.name == 'VermilionCity' and not label.startswith('VermilionCity_Text_RegionSailor'):
+                continue
             en = ''.join(re.findall(r'\.string "([^"]*)"', body)).replace('\\n', '\n')
             out[label] = en[:-1] if en.endswith('$') else en
     return out
