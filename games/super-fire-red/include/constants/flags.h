@@ -48,6 +48,8 @@
 #define FLAG_EXP_SHARE_UNLOCKED  FLAG_0x020
 #define FLAG_EXP_SHARE_DISABLED  FLAG_0x021
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE101_RESCUE FLAG_0x022 // Region pilot story (scripts/pilot_story.py)
+#define FLAG_HIDE_HOENN_BIRCH_LAB_BIRCH FLAG_0x023 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_HIDE_VERMILION_CITY_REGION_SAILOR FLAG_0x078 // Set on entry until the first Hall of Fame
 #define FLAG_0x022               0x022
 #define FLAG_0x023               0x023

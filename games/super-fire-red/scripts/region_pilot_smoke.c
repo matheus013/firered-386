@@ -17,7 +17,7 @@ int main(int argc, char **argv)
         core->reset(core); for (int i = 0; i < 400; i++) core->runFrame(core);
         core->busWrite32(core, addrCase, test);
         unsigned stage = 0;
-        for (unsigned f = 0; f < 12000 && stage < 3; f++) {
+        for (unsigned f = 0; f < 40000 && stage < 3; f++) {
             core->setKeys(core, core->busRead16(core, addrKeys));
             core->runFrame(core);
             unsigned shot = core->busRead32(core, addrShot);

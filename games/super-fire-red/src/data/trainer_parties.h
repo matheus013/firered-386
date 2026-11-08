@@ -82,9 +82,75 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Wally[] = {DUMMY_TRAINER
 static const struct TrainerMonNoItemDefaultMoves sParty_Brendan[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_Brendan2[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_Brendan3[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_May[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_May2[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_May3[] = {DUMMY_TRAINER_MON};
+// Region pilot: pokeemerald sParty_MayLilycoveMudkip, levels +55.
+static const struct TrainerMonNoItemDefaultMoves sParty_May[] = {
+    {
+    .iv = 150,
+    .lvl = 86,
+    .species = SPECIES_TROPIUS,
+    },
+    {
+    .iv = 150,
+    .lvl = 87,
+    .species = SPECIES_SLUGMA,
+    },
+    {
+    .iv = 150,
+    .lvl = 87,
+    .species = SPECIES_PELIPPER,
+    },
+    {
+    .iv = 200,
+    .lvl = 89,
+    .species = SPECIES_GROVYLE,
+    }
+};
+// Region pilot: pokeemerald sParty_MayLilycoveTreecko, levels +55.
+static const struct TrainerMonNoItemDefaultMoves sParty_May2[] = {
+    {
+    .iv = 150,
+    .lvl = 86,
+    .species = SPECIES_TROPIUS,
+    },
+    {
+    .iv = 150,
+    .lvl = 87,
+    .species = SPECIES_PELIPPER,
+    },
+    {
+    .iv = 150,
+    .lvl = 87,
+    .species = SPECIES_LUDICOLO,
+    },
+    {
+    .iv = 200,
+    .lvl = 89,
+    .species = SPECIES_COMBUSKEN,
+    }
+};
+// Region pilot: pokeemerald sParty_MayLilycoveTorchic, levels +55.
+static const struct TrainerMonNoItemDefaultMoves sParty_May3[] = {
+    {
+    .iv = 150,
+    .lvl = 86,
+    .species = SPECIES_TROPIUS,
+    },
+    {
+    .iv = 150,
+    .lvl = 87,
+    .species = SPECIES_LUDICOLO,
+    },
+    {
+    .iv = 150,
+    .lvl = 87,
+    .species = SPECIES_SLUGMA,
+    },
+    {
+    .iv = 200,
+    .lvl = 89,
+    .species = SPECIES_MARSHTOMP,
+    }
+};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSPkmnBreederM[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSPkmnBreederF[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSPkmnRangerM[] = {DUMMY_TRAINER_MON_IV};

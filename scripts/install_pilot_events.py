@@ -13,6 +13,8 @@ import json
 from pathlib import Path
 import re
 
+import pilot_story
+
 EMERALD, HNS = 'pokeemerald', 'HNS_modern'
 FLAG_POTION = 'FLAG_HIDE_JOHTO_ROUTE29_POTION'
 # FireRed sprite for each source sprite. Imported ones come from import_npc_sprite.py.
@@ -33,6 +35,8 @@ SPRITES = {
     'OBJ_EVENT_GFX_SILVER': 'OBJ_EVENT_GFX_SILVER',
     'OBJ_EVENT_GFX_VIGOROTH_CARRYING_BOX': 'OBJ_EVENT_GFX_VIGOROTH_CARRYING_BOX',
     'OBJ_EVENT_GFX_VIGOROTH_FACING_AWAY': 'OBJ_EVENT_GFX_VIGOROTH_FACING_AWAY',
+    # Phase 3: Birch rescue
+    'OBJ_EVENT_GFX_ZIGZAGOON_1': 'OBJ_EVENT_GFX_ZIGZAGOON', 'OBJ_EVENT_GFX_BIRCHS_BAG': 'OBJ_EVENT_GFX_BIRCHS_BAG',
 }
 # Positions the source map script sets on load (setobjectxyperm/setobjectmovementtype); the map.json
 # coordinates are the cutscene entry point, on top of the stair warp.
@@ -57,11 +61,14 @@ EVENTS = {
         {0: ('sign', 'LittlerootTown_Text_TownSign'), 1: ('sign', 'LittlerootTown_Text_ProfBirchsLab')}),
     'Route101': (EMERALD, {
         0: ('npc', 'Route101_Text_TakeTiredPokemonToPokeCenter', ''),
+        1: ('story', None, 'Birch in the rescue scene (pilot_story.py)'),
+        2: ('story', None, "Birch's bag: starter gift and Zigzagoon battle (pilot_story.py)"),
+        3: ('story', None, 'Zigzagoon in the rescue scene (pilot_story.py)'),
         5: ('npc', 'Route101_Text_WildPokemonInTallGrass', 'source hides him until Birch is rescued; always shown')},
         {0: ('sign', 'Route101_Text_RouteSign')}),
     'LittlerootTown_ProfessorBirchsLab': (EMERALD, {
-        0: ('npc', 'LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork', 'aide: AideAlreadyMet branch, consistent with Birch in the lab'),
-        1: ('npc', 'LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait', 'Birch: post-starter branch (VAR_BIRCH_LAB_STATE 5)')},
+        0: ('story', None, 'aide: BirchAwayOnFieldwork before the rescue, BirchIsntOneForDeskWork after (pilot_story.py)'),
+        1: ('story', None, 'Birch: shown after the rescue; go see May, then CountlessPokemonAwait (pilot_story.py)')},
         'lab'),
     # Family choice (user, 08/11/2026): May is Birch's daughter. May's house = Birch family,
     # Brendan's house = Norman family, as in Emerald with a male player. Cutscene-only objects stay out.
@@ -76,7 +83,7 @@ EVENTS = {
         3: ('npc', 'RivalsHouse_1F_Text_ShouldGoHomeEverySoOften', 'Birch\'s wife: branch for a travelling trainer'),
         5: ('npc', 'RivalsHouse_1F_Text_DoYouHavePokemon', 'May\'s little brother')}, {}),
     'LittlerootTown_MaysHouse_2F': (EMERALD, {
-        0: ('npc', 'RivalsHouse_2F_Text_MayGettingReady', 'May: getting-ready branch')},
+        0: ('story', None, 'May: getting ready before the rescue, then the battle (pilot_story.py)')},
         {0: ('sign', 'PlayersHouse_2F_Text_ItsAGameCube'), 1: ('sign', 'PlayersHouse_2F_Text_Notebook')}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
@@ -168,6 +175,7 @@ def main():
                             '#define FLAG_EXP_SHARE_DISABLED  FLAG_0x021\n'
                             f'#define {FLAG_POTION} FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)\n', 1)
         flags.write_text(text, encoding='utf-8', newline='\n')
+    pilot_story.install_constants(g)
     report = {'status': 'AMBIENT_EVENTS_PHASE_1', 'maps': {}}
     for source_map, (repo_name, objects, signs) in EVENTS.items():
         repo = a.references / repo_name
@@ -188,6 +196,17 @@ def main():
                 check_charmap(''.join(lines), charmap, label)
                 texts[local] = (lines, where, label)
             return local
+
+        order = sorted(objects)
+
+        def story_text(label):
+            local = text_label(label)
+            lines, where, source = texts[local]
+            texts[local] = (pilot_story.substitute(lines), where, source)
+            return local
+
+        def add_text(local, lines):
+            texts[local] = (lines, 'new text (no source; pilot_story.py)', local)
 
         for index, (kind, label, note) in sorted(objects.items()):
             o = header['object_events'][index]
@@ -211,6 +230,13 @@ def main():
                 flag = FLAG_POTION
             elif kind == 'cuttree':
                 script, flag = 'EventScript_CutTree', o['flag']
+            elif kind == 'story':
+                story_script = pilot_story.object_script(source_map, index, name, story_text, lambda i: order.index(i) + 1)
+                if story_script is None:
+                    script = '0x0'
+                else:
+                    scripts.append(story_script)
+                flag = pilot_story.OBJECTS[source_map][index]
             x, y, movement, placed_by = POSITIONS.get((source_map, index), (o['x'], o['y'], o['movement_type'], None))
             obj_events.append({'type': 'object', 'graphics_id': gfx, 'x': x, 'y': y, 'elevation': o['elevation'],
                                'movement_type': movement, 'movement_range_x': o['movement_range_x'],
@@ -246,12 +272,15 @@ def main():
             bg_events.append({'type': 'sign', 'x': b['x'], 'y': b['y'], 'elevation': b['elevation'],
                               'player_facing_dir': b.get('player_facing_dir', 'BG_EVENT_PLAYER_FACING_ANY'), 'script': script})
             rows.append({'kind': kind, 'source_index': index, 'source_script': b['script'], 'text': label, 'x': b['x'], 'y': b['y']})
+        map_header, story_scripts, coords = pilot_story.map_extras(source_map, name, story_text, add_text)
+        scripts += story_scripts
         map_path = g / f'data/maps/{name}/map.json'
         current = json.loads(map_path.read_text(encoding='utf-8'))
         current['object_events'], current['bg_events'] = obj_events, bg_events
+        current['coord_events'] = coords
         map_path.write_text(json.dumps(current, indent=2) + '\n', encoding='utf-8', newline='\n')
         body = [f'@ Region pilot, phase 1 (ambient). Generated by scripts/install_pilot_events.py from {repo_name}.',
-                f'{name}_MapScripts::', '\t.byte 0', '']
+                *(map_header or [f'{name}_MapScripts::', '\t.byte 0', ''])]
         body += scripts
         for local, (lines, where, label) in texts.items():
             origin = where if where.startswith('new text') else f'{repo_name} {where}: {label}'

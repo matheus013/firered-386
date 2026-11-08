@@ -1,0 +1,12 @@
+{
+  "note": "Region pilot story trainers, injected by scripts/balance_trainers.py into FireRed's unused Ruby/Sapphire slots. Teams: pokeemerald src/data/trainer_parties.h sParty_MayLilycove* (the strongest May battle in the source), levels raised by 55 into the post-League band. Levels are provisional until the expansion rebalance.",
+  "level_offset": 55,
+  "trainers": {
+    "TRAINER_MAY": {"party": "sParty_May", "name": "MAY", "player_starter": "SPECIES_MUDKIP", "source": "sParty_MayLilycoveMudkip",
+      "team": [["SPECIES_TROPIUS", 31, 150], ["SPECIES_SLUGMA", 32, 150], ["SPECIES_PELIPPER", 32, 150], ["SPECIES_GROVYLE", 34, 200]]},
+    "TRAINER_MAY_2": {"party": "sParty_May2", "name": "MAY", "player_starter": "SPECIES_TREECKO", "source": "sParty_MayLilycoveTreecko",
+      "team": [["SPECIES_TROPIUS", 31, 150], ["SPECIES_PELIPPER", 32, 150], ["SPECIES_LUDICOLO", 32, 150], ["SPECIES_COMBUSKEN", 34, 200]]},
+    "TRAINER_MAY_3": {"party": "sParty_May3", "name": "MAY", "player_starter": "SPECIES_TORCHIC", "source": "sParty_MayLilycoveTorchic",
+      "team": [["SPECIES_TROPIUS", 31, 150], ["SPECIES_LUDICOLO", 32, 150], ["SPECIES_SLUGMA", 32, 150], ["SPECIES_MARSHTOMP", 34, 200]]}
+  }
+}

@@ -3,7 +3,45 @@ Hoenn_LittlerootTown_MaysHouse_2F_MapScripts::
 	.byte 0
 
 Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0::
-	msgbox Hoenn_LittlerootTown_MaysHouse_2F_Text_MayGettingReady, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_eq VAR_HOENN_STORY, 3, Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_Battle
+	goto_if_ge VAR_HOENN_STORY, 4, Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_After
+	msgbox Hoenn_LittlerootTown_MaysHouse_2F_Text_MayGettingReady, MSGBOX_DEFAULT
+	release
+	end
+
+Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_Battle::
+	msgbox Hoenn_LittlerootTown_MaysHouse_2F_Text_MayLetsBattle, MSGBOX_DEFAULT
+	closemessage
+	goto_if_eq VAR_HOENN_STARTER, 0, Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_VsTreecko
+	goto_if_eq VAR_HOENN_STARTER, 1, Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_VsTorchic
+	goto Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_VsMudkip
+	end
+
+Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_VsTreecko::
+	trainerbattle_no_intro TRAINER_MAY_2, Hoenn_LittlerootTown_MaysHouse_2F_Text_MayDefeated
+	goto Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_Beaten
+	end
+
+Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_VsTorchic::
+	trainerbattle_no_intro TRAINER_MAY_3, Hoenn_LittlerootTown_MaysHouse_2F_Text_MayDefeated
+	goto Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_Beaten
+	end
+
+Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_VsMudkip::
+	trainerbattle_no_intro TRAINER_MAY, Hoenn_LittlerootTown_MaysHouse_2F_Text_MayDefeated
+	goto Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_Beaten
+	end
+
+Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_Beaten::
+	setvar VAR_HOENN_STORY, 4
+	goto Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_After
+	end
+
+Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Object0_After::
+	msgbox Hoenn_LittlerootTown_MaysHouse_2F_Text_MayTimeToHeadBack, MSGBOX_DEFAULT
+	release
 	end
 
 Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Sign0::
@@ -18,6 +56,32 @@ Hoenn_LittlerootTown_MaysHouse_2F_EventScript_Sign1::
 Hoenn_LittlerootTown_MaysHouse_2F_Text_MayGettingReady::
 	.string "POKéMON fully restored!\n"
 	.string "Items ready, and…$"
+
+@ pokeemerald data/maps/Route103/scripts.inc: Route103_Text_MayLetsBattle
+Hoenn_LittlerootTown_MaysHouse_2F_Text_MayLetsBattle::
+	.string "Oh, hi, {PLAYER}{KUN}!\p"
+	.string "…Oh, I see, my dad gave you\n"
+	.string "a POKéMON as a gift.\p"
+	.string "Since we're here, let's have a quick\n"
+	.string "battle!\p"
+	.string "I'll give you a taste of what being\n"
+	.string "a TRAINER is like.$"
+
+@ pokeemerald data/maps/Route103/scripts.inc: Route103_Text_MayDefeated
+Hoenn_LittlerootTown_MaysHouse_2F_Text_MayDefeated::
+	.string "Wow! That's great!\n"
+	.string "{PLAYER}{KUN}, you're pretty good!$"
+
+@ pokeemerald data/maps/Route103/scripts.inc: Route103_Text_MayTimeToHeadBack
+Hoenn_LittlerootTown_MaysHouse_2F_Text_MayTimeToHeadBack::
+	.string "MAY: I think I know why my dad has\n"
+	.string "an eye out for you now.\p"
+	.string "I mean, you just got that POKéMON,\n"
+	.string "but it already likes you.\p"
+	.string "You might be able to befriend any\n"
+	.string "kind of POKéMON easily.\p"
+	.string "Well, it's time to head back to\n"
+	.string "the LAB.$"
 
 @ pokeemerald data/maps/LittlerootTown_BrendansHouse_2F/scripts.inc: PlayersHouse_2F_Text_ItsAGameCube
 Hoenn_LittlerootTown_MaysHouse_2F_Text_ItsAGameCube::

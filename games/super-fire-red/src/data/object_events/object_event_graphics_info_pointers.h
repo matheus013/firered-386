@@ -162,6 +162,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VigorothFacingAway
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JohtoMom;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfElm;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Silver;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Zigzagoon;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BirchsBag;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
@@ -327,4 +329,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_JOHTO_MOM] = &gObjectEventGraphicsInfo_JohtoMom,
     [OBJ_EVENT_GFX_PROF_ELM] = &gObjectEventGraphicsInfo_ProfElm,
     [OBJ_EVENT_GFX_SILVER] = &gObjectEventGraphicsInfo_Silver,
+    [OBJ_EVENT_GFX_ZIGZAGOON] = &gObjectEventGraphicsInfo_Zigzagoon,
+    [OBJ_EVENT_GFX_BIRCHS_BAG] = &gObjectEventGraphicsInfo_BirchsBag,
 };

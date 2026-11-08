@@ -166,8 +166,10 @@
 #define OBJ_EVENT_GFX_JOHTO_MOM 160
 #define OBJ_EVENT_GFX_PROF_ELM 161
 #define OBJ_EVENT_GFX_SILVER 162
+#define OBJ_EVENT_GFX_ZIGZAGOON 163
+#define OBJ_EVENT_GFX_BIRCHS_BAG 164
 
-#define NUM_OBJ_EVENT_GFX     163
+#define NUM_OBJ_EVENT_GFX     165
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.

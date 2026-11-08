@@ -21,3 +21,6 @@ run --png $E/pics/pokemon/vigoroth.png --pal $E/palettes/vigoroth.pal --name vig
 run --png $H/pics/people/mom.png --pal $H/palettes/npc_3.pal --name johto_mom --const JOHTO_MOM --symbol JohtoMom --source "$HN graphics/object_events/pics/people/mom.png"
 run --png $H/pics/people/special/elm.png --pal $H/palettes/elm.pal --name prof_elm --const PROF_ELM --symbol ProfElm --source "$HN graphics/object_events/pics/people/special/elm.png"
 run --png $H/pics/people/special/silver.png --pal $H/palettes/silver.pal --name silver --const SILVER --symbol Silver --source "$HN graphics/object_events/pics/people/special/silver.png"
+# Phase 3: Birch rescue on Route 101
+run --png $E/pics/pokemon/zigzagoon.png --pal $E/palettes/npc_1.pal --name zigzagoon --const ZIGZAGOON --symbol Zigzagoon --size 16x16 --frames 0,1,2,0,0,1,1,2,2 --source "$EM graphics/object_events/pics/pokemon/zigzagoon.png"
+run --png $E/pics/misc/birchs_bag.png --pal $E/palettes/npc_2.pal --name birchs_bag --const BIRCHS_BAG --symbol BirchsBag --size 16x16 --frames 0,0,0,0,0,0,0,0,0 --source "$EM graphics/object_events/pics/misc/birchs_bag.png"

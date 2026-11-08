@@ -6,6 +6,74 @@ Hoenn_Route101_EventScript_Object0::
 	msgbox Hoenn_Route101_Text_TakeTiredPokemonToPokeCenter, MSGBOX_NPC
 	end
 
+Hoenn_Route101_EventScript_Object2::
+	lock
+	goto_if_eq VAR_HOENN_STORY, 2, Hoenn_Route101_EventScript_ZigzagoonBattle
+	bufferspeciesname STR_VAR_1, SPECIES_TREECKO
+	msgbox Hoenn_Route101_Text_ChooseStarter, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Hoenn_Route101_EventScript_TakeTreecko
+	bufferspeciesname STR_VAR_1, SPECIES_TORCHIC
+	msgbox Hoenn_Route101_Text_ChooseStarter, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Hoenn_Route101_EventScript_TakeTorchic
+	bufferspeciesname STR_VAR_1, SPECIES_MUDKIP
+	msgbox Hoenn_Route101_Text_ChooseStarter, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Hoenn_Route101_EventScript_TakeMudkip
+	release
+	end
+
+Hoenn_Route101_EventScript_TakeTreecko::
+	setvar VAR_HOENN_STARTER, 0
+	setvar VAR_TEMP_1, SPECIES_TREECKO
+	givemon SPECIES_TREECKO, 5
+	goto Hoenn_Route101_EventScript_ReceivedStarter
+	end
+
+Hoenn_Route101_EventScript_TakeTorchic::
+	setvar VAR_HOENN_STARTER, 1
+	setvar VAR_TEMP_1, SPECIES_TORCHIC
+	givemon SPECIES_TORCHIC, 5
+	goto Hoenn_Route101_EventScript_ReceivedStarter
+	end
+
+Hoenn_Route101_EventScript_TakeMudkip::
+	setvar VAR_HOENN_STARTER, 2
+	setvar VAR_TEMP_1, SPECIES_MUDKIP
+	givemon SPECIES_MUDKIP, 5
+	goto Hoenn_Route101_EventScript_ReceivedStarter
+	end
+
+Hoenn_Route101_EventScript_ReceivedStarter::
+	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
+	copyvar VAR_0x8008, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_TEMP_1
+	playfanfare MUS_LEVEL_UP
+	message Hoenn_Route101_Text_ReceivedStarter
+	waitmessage
+	waitfanfare
+	call_if_eq VAR_0x8008, 1, EventScript_TransferredToPC
+	setvar VAR_HOENN_STORY, 2
+	goto Hoenn_Route101_EventScript_ZigzagoonBattle
+	end
+
+Hoenn_Route101_EventScript_ZigzagoonBattle::
+	closemessage
+	setwildbattle SPECIES_ZIGZAGOON, 84
+	dowildbattle
+	applymovement 2, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Hoenn_Route101_Text_YouSavedMe, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_HIDE_HOENN_ROUTE101_RESCUE
+	removeobject 2
+	removeobject 4
+	removeobject 3
+	setvar VAR_HOENN_STORY, 3
+	special HealPlayerParty
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
 Hoenn_Route101_EventScript_Object5::
 	msgbox Hoenn_Route101_Text_WildPokemonInTallGrass, MSGBOX_NPC
 	end
@@ -14,12 +82,83 @@ Hoenn_Route101_EventScript_Sign0::
 	msgbox Hoenn_Route101_Text_RouteSign, MSGBOX_SIGN
 	end
 
+Hoenn_Route101_EventScript_StartRescue::
+	lockall
+	msgbox Hoenn_Route101_Text_HelpMe, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Hoenn_Route101_Movement_EnterScene
+	waitmovement 0
+	msgbox Hoenn_Route101_Text_PleaseHelp, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_HOENN_STORY, 1
+	releaseall
+	end
+
+Hoenn_Route101_EventScript_PreventExitSouth::
+	lockall
+	msgbox Hoenn_Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Hoenn_Route101_Movement_PreventExitSouth
+	waitmovement 0
+	releaseall
+	end
+
+Hoenn_Route101_Movement_PreventExitSouth:
+	walk_up
+	step_end
+
+Hoenn_Route101_EventScript_PreventExitWest::
+	lockall
+	msgbox Hoenn_Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Hoenn_Route101_Movement_PreventExitWest
+	waitmovement 0
+	releaseall
+	end
+
+Hoenn_Route101_Movement_PreventExitWest:
+	walk_right
+	step_end
+
+Hoenn_Route101_EventScript_PreventExitNorth::
+	lockall
+	msgbox Hoenn_Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Hoenn_Route101_Movement_PreventExitNorth
+	waitmovement 0
+	releaseall
+	end
+
+Hoenn_Route101_Movement_PreventExitNorth:
+	walk_down
+	step_end
+
+Hoenn_Route101_Movement_EnterScene:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_in_place_faster_left
+	step_end
+
 @ pokeemerald data/maps/Route101/scripts.inc: Route101_Text_TakeTiredPokemonToPokeCenter
 Hoenn_Route101_Text_TakeTiredPokemonToPokeCenter::
 	.string "If POKéMON get tired, take them to\n"
 	.string "a POKéMON CENTER.\p"
 	.string "There's a POKéMON CENTER in OLDALE\n"
 	.string "TOWN right close by.$"
+
+@ pokeemerald data/maps/Route101/scripts.inc: Route101_Text_YouSavedMe
+Hoenn_Route101_Text_YouSavedMe::
+	.string "PROF. BIRCH: Whew…\p"
+	.string "I was in the tall grass studying wild\n"
+	.string "POKéMON when I was jumped.\p"
+	.string "You saved me.\n"
+	.string "Thanks a lot!\p"
+	.string "Oh?\p"
+	.string "Hi, you're {PLAYER}{KUN}!\p"
+	.string "This is not the place to chat, so come\n"
+	.string "by my POKéMON LAB later, okay?$"
 
 @ pokeemerald data/maps/Route101/scripts.inc: Route101_Text_WildPokemonInTallGrass
 Hoenn_Route101_Text_WildPokemonInTallGrass::
@@ -32,3 +171,27 @@ Hoenn_Route101_Text_WildPokemonInTallGrass::
 Hoenn_Route101_Text_RouteSign::
 	.string "ROUTE 101\n"
 	.string "{UP_ARROW} OLDALE TOWN$"
+
+@ new text (no source; pilot_story.py)
+Hoenn_Route101_Text_ChooseStarter::
+	.string "Do you choose {STR_VAR_1}?$"
+
+@ new text (no source; pilot_story.py)
+Hoenn_Route101_Text_ReceivedStarter::
+	.string "{PLAYER} received the {STR_VAR_1}!$"
+
+@ pokeemerald data/maps/Route101/scripts.inc: Route101_Text_HelpMe
+Hoenn_Route101_Text_HelpMe::
+	.string "H-help me!$"
+
+@ pokeemerald data/maps/Route101/scripts.inc: Route101_Text_PleaseHelp
+Hoenn_Route101_Text_PleaseHelp::
+	.string "Hello! You over there!\n"
+	.string "Please! Help!\p"
+	.string "In my BAG!\n"
+	.string "There's a POKé BALL!$"
+
+@ pokeemerald data/maps/Route101/scripts.inc: Route101_Text_DontLeaveMe
+Hoenn_Route101_Text_DontLeaveMe::
+	.string "Wh-Where are you going?!\n"
+	.string "Don't leave me like this!$"

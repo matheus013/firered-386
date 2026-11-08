@@ -1895,3 +1895,29 @@ static const struct SpriteFrameImage sPicTable_Silver[] = {
     overworld_frame(gObjectEventPic_Silver, 2, 4, 8),
     overworld_frame(gObjectEventPic_Silver, 2, 4, 9),
 };
+
+static const struct SpriteFrameImage sPicTable_Zigzagoon[] = {
+    overworld_frame(gObjectEventPic_Zigzagoon, 2, 2, 0),
+    overworld_frame(gObjectEventPic_Zigzagoon, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Zigzagoon, 2, 2, 2),
+    overworld_frame(gObjectEventPic_Zigzagoon, 2, 2, 0),
+    overworld_frame(gObjectEventPic_Zigzagoon, 2, 2, 0),
+    overworld_frame(gObjectEventPic_Zigzagoon, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Zigzagoon, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Zigzagoon, 2, 2, 2),
+    overworld_frame(gObjectEventPic_Zigzagoon, 2, 2, 2),
+    overworld_frame(gObjectEventPic_Zigzagoon, 2, 2, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_BirchsBag[] = {
+    overworld_frame(gObjectEventPic_BirchsBag, 2, 2, 0),
+    overworld_frame(gObjectEventPic_BirchsBag, 2, 2, 0),
+    overworld_frame(gObjectEventPic_BirchsBag, 2, 2, 0),
+    overworld_frame(gObjectEventPic_BirchsBag, 2, 2, 0),
+    overworld_frame(gObjectEventPic_BirchsBag, 2, 2, 0),
+    overworld_frame(gObjectEventPic_BirchsBag, 2, 2, 0),
+    overworld_frame(gObjectEventPic_BirchsBag, 2, 2, 0),
+    overworld_frame(gObjectEventPic_BirchsBag, 2, 2, 0),
+    overworld_frame(gObjectEventPic_BirchsBag, 2, 2, 0),
+    overworld_frame(gObjectEventPic_BirchsBag, 2, 2, 0),
+};

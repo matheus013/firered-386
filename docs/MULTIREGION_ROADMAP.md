@@ -114,6 +114,15 @@ Nível máximo 500 e nova curva de progressão ficam adiados por solicitação d
 Limite atual: 100. Não ampliar campos de save, experiência, atributos ou regras de
 nível durante a etapa de mapas. Reavaliar depois da integração regional.
 
+Decisões de 08/11/2026:
+
+- **Level cap 255:** projeto separado, feito depois na `main`, fora desta branch. Exige revisar
+  `MAX_LEVEL` (26 usos em 10 arquivos), a tabela de experiência e o campo `metLevel` do save, que
+  hoje guarda até 127.
+- **Rebalanceamento geral ao fechar a expansão:** os níveis da história dos pilotos (Zigzagoon 84,
+  May 86–89, faixa pós-Liga) são provisórios e serão revistos junto com todo o jogo quando Johto e
+  Hoenn estiverem completas.
+
 1. Inventariar mapas de cada região: exteriores, interiores, cavernas, andares,
    áreas especiais e mapas auxiliares. Registrar inclusões e exclusões explicitamente.
 2. Fazer pilotos New Bark + Route29 e Littleroot + Route101, com ao menos um interior
@@ -371,3 +380,10 @@ redesenhados nas paletas do FireRed. O teste da ROM tem 119 casos. Detalhes no
 Depois da primeira Liga, um marinheiro no píer de Vermilion leva a Littleroot e a New Bark pela balsa
 SEAGALLOP do próprio FireRed (dois destinos novos), e marinheiros nas duas cidades trazem de volta.
 Antes da Liga ele não aparece. Detalhes no [diário](MULTIREGION_WORKLOG.md).
+
+### História de Hoenn (fase 3, passo 2)
+
+Resgate do Birch na Route 101 com o inicial da bolsa (Treecko, Torchic ou Mudkip) e batalha contra o
+Zigzagoon; o laboratório e a assistente mudam conforme a história; a May batalha no quarto dela com o
+time do Emerald (Lilycove) que vence o inicial escolhido, em nível pós-Liga. Detalhes no
+[diário](MULTIREGION_WORKLOG.md).

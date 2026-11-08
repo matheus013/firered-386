@@ -707,3 +707,81 @@ píer. Foi para (22,30), em cima do píer.
 
 - Passos 2 (Hoenn), 3 (Johto) e 4 (mães).
 - Vermilion → New Bark pelo menu (resposta "não" + "sim") não foi exercitado; a tabela de chegada foi.
+
+## 08/11/2026 — Fase 3, passo 2: história de Hoenn (Claude)
+
+Cenas do Emerald adaptadas aos mapas-piloto, com as falas das fontes. Novo `scripts/pilot_story.py`,
+chamado pelo `install_pilot_events.py` (tipo de evento `story`).
+
+### Estado da história
+
+- `VAR_HOENN_STORY` (`VAR_0x4029`, sem uso no FireRed): 0 nada, 1 resgate começou, 2 inicial escolhido
+  (batalha pendente, inclusive depois de desmaiar), 3 Birch resgatado, 4 May vencida.
+- `VAR_HOENN_STARTER` (`VAR_0x402A`): 0 Treecko, 1 Torchic, 2 Mudkip.
+- `FLAG_HIDE_HOENN_ROUTE101_RESCUE` (`FLAG_0x022`) esconde Birch, Zigzagoon e bolsa depois do resgate;
+  `FLAG_HIDE_HOENN_BIRCH_LAB_BIRCH` (`FLAG_0x023`) esconde o Birch do laboratório até o resgate (marcada
+  no script de entrada do laboratório conforme o estado).
+
+### Route 101: resgate
+
+- Gatilhos do Emerald em (10,19)/(11,19): "H-help me!", o jogador sobe 4 passos como em
+  `Route101_Movement_EnterScene` e o Birch pede ajuda (`Route101_Text_PleaseHelp`). Os gatilhos de
+  "Don't leave me like this!" (sul, oeste e norte) seguram o jogador enquanto o estado é 1 ou 2.
+- Birch e Zigzagoon ficam correndo no lugar onde o mapa do Emerald os coloca; a perseguição em
+  círculos ficou de fora.
+- **Bolsa do Birch:** o FireRed não tem o seletor gráfico do Emerald (`ChooseStarter`), então a bolsa
+  pergunta sim/não para Treecko, Torchic e Mudkip, em ordem. Inicial no nível 5; com o time cheio vai
+  para o PC (script do próprio FireRed). Pergunta e mensagem de recebimento são **textos novos**.
+- Batalha contra Zigzagoon selvagem **nível 84** (pós-Liga). O jogador luta com o próprio time. Depois,
+  `Route101_Text_YouSavedMe`, tela escurece, os três somem, o time é curado e o estado vira 3.
+- Sprites novos importados do Emerald: Zigzagoon (paleta branca) e bolsa do Birch (rosa).
+
+### Laboratório e casa da May
+
+- Assistente: `BirchAwayOnFieldwork` antes do resgate, `BirchIsntOneForDeskWork` depois.
+- Birch aparece a partir do estado 3: `MightBeGoodIdeaToGoSeeRival`, e `CountlessPokemonAwait` depois
+  da batalha da May. No Emerald `{RIVAL}` é o vizinho; no FireRed é o rival de Kanto, então o texto
+  diz MAY.
+- May no quarto: "getting ready" antes do resgate; no estado 3, `Route103_Text_MayLetsBattle`, batalha,
+  `MayDefeated` e `MayTimeToHeadBack`. As falas são da Route 103 (as que citam o presente do pai); a
+  batalha acontece no quarto porque a Route 103 não faz parte do piloto.
+
+### Times da May
+
+`hack-data/region_pilot_trainers.json`, aplicado pelo `balance_trainers.py` nos espaços sem uso
+`TRAINER_MAY`, `TRAINER_MAY_2` e `TRAINER_MAY_3` (nome "MAY", retrato RS May, IA com
+TRY_TO_FAINT/CHECK_VIABILITY). Times de `sParty_MayLilycove*` do Emerald, o confronto mais forte dela,
+com **+55 níveis** (86–89):
+
+| Inicial do jogador | Treinador | Time |
+|---|---|---|
+| Treecko | `TRAINER_MAY_2` | Tropius, Pelipper, Ludicolo, Combusken |
+| Torchic | `TRAINER_MAY_3` | Tropius, Ludicolo, Slugma, Marshtomp |
+| Mudkip | `TRAINER_MAY` | Tropius, Slugma, Pelipper, Grovyle |
+
+`balance_trainers.py --check` continua passando. Os níveis são provisórios até o rebalanceamento geral.
+
+### Traduções
+
+11 entradas novas em `region_pilot_ptbr.json` (61 no total; 8.200 entradas geradas, 0 recusadas),
+evitando gênero para o jogador.
+
+### Teste
+
+`test_region_pilot_maps.py`: **141 casos, todos aprovados**. Novo modo `SCENE` (aperta a direção, A, e
+continua apertando A só enquanto há script, mensagem ou batalha), com time de teste forte (Mewtwo com
+Psychic, estilo SET, texto rápido). Cenas verificadas:
+
+- o gatilho inicia o resgate e o jogador termina em (10,15); o gatilho sul o devolve;
+- bolsa: Treecko nível 5 entra no time, batalha contra Zigzagoon 84, vitória, estado 3, objetos escondidos;
+- depois de desmaiar (estado 2) a bolsa leva direto à batalha;
+- May contra cada inicial: treinador e time certos, nível do líder 86, vitória, estado 4;
+- falas por estado: assistente depois do resgate, Birch (2 estados), May depois da batalha, bolsa sumida.
+
+O caso que atravessa de Littleroot para a Route 101 agora roda com o resgate já feito.
+
+### Pendente
+
+- Passo 3 (Johto) e passo 4 (mães).
+- Só o caminho "sim no Treecko" foi exercitado na bolsa; os outros iniciais vêm do mesmo bloco gerado.
+- A May fala como se o jogador fosse iniciante ("I'll give you a taste…"); é a fala da fonte.

@@ -495,6 +495,23 @@ def tower_teams(data):
     return block_re.sub(replace_block, text), records
 
 
+def region_pilot_trainers(parties_text, trainers_text):
+    """Fill the unused Ruby/Sapphire slots used by the region pilot story (hack-data/region_pilot_trainers.json)."""
+    pilot = json.loads((ROOT / "games/super-fire-red/hack-data/region_pilot_trainers.json").read_text(encoding="utf-8"))
+    for trainer, entry in pilot["trainers"].items():
+        placeholder = f"static const struct TrainerMonNoItemDefaultMoves {entry['party']}[] = {{DUMMY_TRAINER_MON}};"
+        if parties_text.count(placeholder) != 1:
+            raise SystemExit(f"{trainer}: placeholder party {entry['party']} not found")
+        mons = "".join(f"\n    {{\n    .iv = {iv},\n    .lvl = {level + pilot['level_offset']},\n    .species = {species},\n    }}," for species, level, iv in entry["team"])
+        parties_text = parties_text.replace(placeholder, f"// Region pilot: pokeemerald {entry['source']}, levels +{pilot['level_offset']}.\n"
+                                            f"static const struct TrainerMonNoItemDefaultMoves {entry['party']}[] = {{{mons[:-1]}\n}};")
+        match = re.search(r"    \[" + trainer + r"\] = \{(.*?)\n    \},", trainers_text, re.S)
+        body = match[1].replace('.trainerName = _("")', f'.trainerName = _("{entry["name"]}")')
+        body = re.sub(r"\.aiFlags = [^,]+", ".aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY", body)
+        trainers_text = trainers_text[:match.start(1)] + body + trainers_text[match.end(1):]
+    return parties_text, trainers_text
+
+
 def outputs():
     data = Data()
     parties_text, trainers_text, originals, trainers = parse()
@@ -515,6 +532,7 @@ def outputs():
         return f"    [{match[1]}] = {{{body}\n    }},"
 
     trainers_text = TRAINER_RE.sub(replace_trainer, trainers_text)
+    parties_text, trainers_text = region_pilot_trainers(parties_text, trainers_text)
     report = ["# Revisão dos treinadores para duplas", "", f"{len(results)} equipes regulares revisadas; três variantes da primeira luta preservadas em singles. Também revisados {len(tower)} elencos internos da Torre de Treinadores.", "", "Base de golpes, tipos e regras: motor atual de geração III. Necessário revisar após a migração moderna. As equipes regulares abaixo não têm EVs/naturezas competitivos configurados nem comprovam decisões perfeitas da IA. Dados externos de e-Reader não fazem parte desta revisão. Na Torre, a seleção de golpes usa nível 50 como referência, e os adversários continuam escalando ao nível da equipe do jogador; os EVs, IVs e naturezas originais foram preservados.", "", "## Critérios", "", "- Duas a seis criaturas; líderes e Elite Four com seis.", "- Suporte na abertura quando disponível, golpes legais por nível/TM e cobertura de tipos.", "- Sem OHKO ou spam de evasão; Earthquake somente nos ginásios curados com parceiros imunes e cobertura alternativa.", "- Níveis recalibrados por etapa da campanha; berries e IVs progressivos, sem lendários adicionados.", "- Líderes e Elite Four respeitam seu tipo de especialidade.", ""]
     report[4] = "Motor de FireRed em migração: categorias e dados numéricos modernos; efeitos ainda parcialmente de geração III. Líderes, rivais (incluindo o laboratório), chefes Rocket, Koichi, sequência dos Bikers, Elite Four e sua revanche, Campeão e Torre recebem IVs 31 e EVs treinados. E4/Campeão mantêm seus spreads definidos; os demais desafios usam função ofensiva/bulk/suporte. Os campos IV/EV das tabelas-base não substituem esse ajuste na criação do adversário. Treinadores comuns mantêm suas regras próprias. Dados externos e-Reader não foram enumerados, mas adversários criados pelo fluxo da Torre também recebem o treino. Times desta página correspondem ao randomizer desligado; ligado, espécies e golpes mudam por save, com novo treino por função."
     report = [line.replace("sem lendários adicionados.", "com lendários das referências históricas na Elite Four.").replace("Líderes e Elite Four respeitam seu tipo de especialidade.", "Líderes mantêm especialidade; Elite Four combina integrantes temáticos com parceiros dos times campeões.") for line in report]

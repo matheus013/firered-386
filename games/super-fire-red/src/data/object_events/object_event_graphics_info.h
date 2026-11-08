@@ -3143,3 +3143,43 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Silver = {
     .images = sPicTable_Silver,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
+
+// pokeemerald 731ad5b graphics/object_events/pics/pokemon/zigzagoon.png; redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_WHITE.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Zigzagoon = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 128,
+    .width = 16,
+    .height = 16,
+    .paletteSlot = PALSLOT_NPC_4,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x16,
+    .subspriteTables = gObjectEventSpriteOamTables_16x16,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Zigzagoon,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+// pokeemerald 731ad5b graphics/object_events/pics/misc/birchs_bag.png; redrawn on FireRed palette OBJ_EVENT_PAL_TAG_NPC_PINK.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BirchsBag = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 128,
+    .width = 16,
+    .height = 16,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x16,
+    .subspriteTables = gObjectEventSpriteOamTables_16x16,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_BirchsBag,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};

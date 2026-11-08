@@ -153,6 +153,34 @@
         "OBJ_EVENT_PAL_TAG_NPC_GREEN": 4830690,
         "OBJ_EVENT_PAL_TAG_NPC_WHITE": 2595745
       }
+    },
+    "OBJ_EVENT_GFX_ZIGZAGOON": {
+      "source": "pokeemerald 731ad5b graphics/object_events/pics/pokemon/zigzagoon.png",
+      "source_png": "pokeemerald/graphics/object_events/pics/pokemon/zigzagoon.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_WHITE",
+      "frames_in_source": 3,
+      "mean_squared_rgb_error_per_pixel": 192.24,
+      "worst_colour_distance": 26.2,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 688155,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 948417,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 649680,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 77857
+      }
+    },
+    "OBJ_EVENT_GFX_BIRCHS_BAG": {
+      "source": "pokeemerald 731ad5b graphics/object_events/pics/misc/birchs_bag.png",
+      "source_png": "pokeemerald/graphics/object_events/pics/misc/birchs_bag.png",
+      "palette_tag": "OBJ_EVENT_PAL_TAG_NPC_PINK",
+      "frames_in_source": 1,
+      "mean_squared_rgb_error_per_pixel": 181.95,
+      "worst_colour_distance": 38.0,
+      "alternatives": {
+        "OBJ_EVENT_PAL_TAG_NPC_BLUE": 32022,
+        "OBJ_EVENT_PAL_TAG_NPC_PINK": 28566,
+        "OBJ_EVENT_PAL_TAG_NPC_GREEN": 43272,
+        "OBJ_EVENT_PAL_TAG_NPC_WHITE": 28872
+      }
     }
   }
 }

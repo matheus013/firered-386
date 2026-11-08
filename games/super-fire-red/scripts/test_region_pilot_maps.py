@@ -36,7 +36,7 @@ CASES=[
  (HOENN+'LITTLEROOT_TOWN_MAYS_HOUSE_1F',2,3,0,0,[('UP','MAP'),('DOWN','POS'),('UP','MAP')]),
  (HOENN+'LITTLEROOT_TOWN_BRENDANS_HOUSE_2F',1,3,0,0,[('DOWN','HOLD')]),  # (1,4) blocks entry from the north
  (HOENN+'LITTLEROOT_TOWN_BRENDANS_HOUSE_2F',2,4,0,0,[('LEFT','POS'),('UP','HOLD'),('DOWN','HOLD'),('RIGHT','POS')]),
- (HOENN+'LITTLEROOT_TOWN',10,0,0,0,[('UP','MAP'),('DOWN','MAP')]),     # walk north into Route 101 and back
+ (HOENN+'LITTLEROOT_TOWN',10,0,0,0,[('UP','MAP'),('DOWN','MAP')]),     # walk north into Route 101 and back (story state 3)
  (JOHTO+'NEW_BARK_TOWN',10,10,10,9,[]),
  (JOHTO+'ROUTE29',34,11,34,10,[]),
  (JOHTO+'NEW_BARK_TOWN',10,10,0,0,[('UP','MAP'),('DOWN','MAP')]),      # Elm's lab
@@ -58,6 +58,9 @@ CASES=[
 import struct as _struct
 LAYOUTS={l['id']:l for l in json.loads((game/'data/layouts/layouts.json').read_text())['layouts'] if 'id' in l}
 TALKS={}
+# Story state per case: (VAR_HOENN_STORY, VAR_HOENN_STARTER); default (0, 0). See scripts/pilot_story.py.
+STORY={11:(3,0)}
+SPOTS={}
 def _pilot_texts(folder):
  text=(folder/'scripts.inc').read_text(encoding='utf-8')
  bodies={l:''.join(re.findall(r'\.string "([^"]*)"',b)) for l,b in re.findall(r'^(\w+_Text_\w+)::\n((?:\t\.string "[^"]*"\n?)+)',text,re.M)}
@@ -90,9 +93,11 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
   spot=_spot(objs,cells,behavior,layout['width'],layout['height'],e['x'],e['y'],kind=='sign' and e.get('player_facing_dir')=='BG_EVENT_PLAYER_FACING_NORTH')
   assert spot,(folder.name,kind,i,'no free cell next to this event')
   sx,sy,key=spot
+  SPOTS[(folder.name,kind,i)]=(header['id'],sx,sy,key)
   script=e['script']
+  if (folder.name,kind,i)==('Hoenn_Route101','object',2):continue  # Birch's bag: story scene cases below
   inc=(folder/'scripts.inc').read_text(encoding='utf-8')
-  what='silent' if script=='0x0' else 'cuttree' if script=='EventScript_CutTree' else 'item' if 'finditem' in inc.split(script+'::')[-1].split('\n\n')[0] else 'heal' if f'{script}_Heal' in inc else 'text'
+  what='silent' if script=='0x0' or (folder.name,kind,i)==('Hoenn_LittlerootTown_ProfessorBirchsLab','object',1) else 'cuttree' if script=='EventScript_CutTree' else 'item' if 'finditem' in inc.split(script+'::')[-1].split('\n\n')[0] else 'heal' if f'{script}_Heal' in inc else 'text'
   setups=[0]+([1] if what=='heal' else [])
   for setup in setups:
    CASES.append((header['id'],sx,sy,0,0,[(key,'TALK')],setup))
@@ -113,10 +118,36 @@ TRIPS={}
 for start,sx,sy,key,setup,dest in [('MAP_VERMILION_CITY',23,30,'LEFT',GAME_CLEAR,'littleroot'),('MAP_VERMILION_CITY',23,30,'LEFT',GAME_CLEAR|DIRECT_NEW_BARK,'newbark'),
                                    (HOENN+'LITTLEROOT_TOWN',10,14,'UP',GAME_CLEAR,'vermilion'),(JOHTO+'NEW_BARK_TOWN',24,13,'UP',GAME_CLEAR,'vermilion')]:
  CASES.append((start,sx,sy,0,0,[(key,'TRIP')],setup));TRIPS[len(CASES)]=(start,dest)
+# Hoenn story (pilot_story.py). Setup bit 16 = strong lead (Mewtwo with Psychic), SET battle style, fast
+# text, no animations and no Exp. Share, so A-pressing wins the battles quickly.
+STRONG=16
+def _text(folder,label):
+ body=(game/'data/maps'/folder/'scripts.inc').read_text(encoding='utf-8').split(f'\n{label}::\n')[1].split('\n\n')[0]
+ return ''.join(re.findall(r'\.string "([^"]*)"',body))
+SCENES={}
+def _scene(map_,x,y,key,story,starter,expect):
+ CASES.append((map_,x,y,0,0,[(key,'SCENE')],STRONG));STORY[len(CASES)]=(story,starter);SCENES[len(CASES)]=expect
+_scene(HOENN+'ROUTE101',10,18,'DOWN',0,0,{'name':'rescue starts','story':1,'pos':(10,15),'party':1})
+_scene(HOENN+'ROUTE101',10,17,'DOWN',1,0,{'name':'Birch keeps the player close','story':1,'pos':(10,17),'party':1})
+_bag=SPOTS[('Hoenn_Route101','object',2)]
+_scene(_bag[0],_bag[1],_bag[2],_bag[3],1,0,{'name':'bag: Treecko, then Zigzagoon','story':3,'starter':0,'party':2,'gift':'SPECIES_TREECKO','wild':('SPECIES_ZIGZAGOON',84),'hidden':1})
+_scene(_bag[0],_bag[1],_bag[2],_bag[3],2,0,{'name':'bag after a blackout: battle again','story':3,'party':1,'wild':('SPECIES_ZIGZAGOON',84),'hidden':1})
+_may=SPOTS[('Hoenn_LittlerootTown_MaysHouse_2F','object',0)]
+for _starter,_trainer in ((0,'TRAINER_MAY_2'),(1,'TRAINER_MAY_3'),(2,'TRAINER_MAY')):
+ _scene(_may[0],_may[1],_may[2],_may[3],3,_starter,{'name':f'May vs starter {_starter}','story':4,'trainer':_trainer})
+def _talk_story(where,story,expected,what='text'):
+ m,sx,sy,key=SPOTS[where];CASES.append((m,sx,sy,0,0,[(key,'TALK')],0));STORY[len(CASES)]=(story,0)
+ TALKS[len(CASES)]={'map':where[0],'kind':where[1],'index':where[2],'script':'story','what':what,'setup':0,'expected':expected,'story':story}
+LAB='Hoenn_LittlerootTown_ProfessorBirchsLab'
+_talk_story((LAB,'object',0),3,_text(LAB,LAB+'_Text_BirchIsntOneForDeskWork'))
+_talk_story((LAB,'object',1),3,_text(LAB,LAB+'_Text_MightBeGoodIdeaToGoSeeRival'))
+_talk_story((LAB,'object',1),4,_text(LAB,LAB+'_Text_CountlessPokemonAwait'))
+_talk_story(('Hoenn_LittlerootTown_MaysHouse_2F','object',0),4,_text('Hoenn_LittlerootTown_MaysHouse_2F','Hoenn_LittlerootTown_MaysHouse_2F_Text_MayTimeToHeadBack'))
+_talk_story(('Hoenn_Route101','object',2),3,None,'silent')  # the bag is gone after the rescue
 CASES=[c if len(c)==7 else (*c,0) for c in CASES]
 KEYS={'UP':'DPAD_UP','DOWN':'DPAD_DOWN','LEFT':'DPAD_LEFT','RIGHT':'DPAD_RIGHT','NONE':'0'}
-MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6}
-spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}, {setup}}}' for m,x,y,px,py,s,setup in CASES)
+MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6,'SCENE':7}
+spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}, {setup}, {STORY.get(n,(0,0))[0]}, {STORY.get(n,(0,0))[1]}}}' for n,(m,x,y,px,py,s,setup) in enumerate(CASES,1))
 steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s,_setup in CASES)
 counts=', '.join(str(len(s)) for *_,s,_setup in CASES)
 hook='''
@@ -136,6 +167,7 @@ hook='''
 #include "event_data.h"
 #include "item.h"
 #include "constants/items.h"
+#include "battle.h"
 extern const struct Tileset gTileset_General, gTileset_HoennPilotGeneral, gTileset_HoennPilotPetalburg;
 extern const struct Tileset gTileset_JohtoPilotGeneral, gTileset_JohtoPilotNewBarkTown;
 void CB2_NewGame(void);
@@ -145,7 +177,7 @@ void CB2_ReturnToField(void);
 extern const u8 EventScript_SailToDest[];
 #include "constants/seagallop.h"
 struct PilotStep { u16 keys; u8 mode; };
-const s8 gPilotSpawn[][8] = {
+const s8 gPilotSpawn[][10] = {
     SPAWNS
 };
 static const struct PilotStep sPilotSteps[][4] = {
@@ -163,6 +195,7 @@ static bool8 PilotIsTalkCase(void)
 {
     return sPilotStepCount[gPilotCase - 1] && sPilotSteps[gPilotCase - 1][0].mode == 5;
 }
+static void PilotPut16(u8 *t, u16 v) { t[0] = v; t[1] = v >> 8; }
 // Called right after New Game loads the map, before any object moves.
 void PilotAfterLoad(void)
 {
@@ -272,6 +305,38 @@ static void PilotWalkCase(void)
         }
         return;
     }
+    // Scene: hold the key (a step or a turn), press A, then press A only while a script, message or
+    // battle runs; done once the player is free and still for 60 frames.
+    if (step->mode == 7 && sPilotPhase >= 5)
+    {
+        u8 *t = gPilotResult;
+        bool8 busy = gMain.callback1 != CB1_Overworld || ArePlayerFieldControlsLocked() || gPaletteFade.active || gMain.inBattle;
+        if (!t[21] && GetMonData(&gEnemyParty[0], MON_DATA_SPECIES))
+        {
+            u8 i;
+            t[21] = 1; PilotPut16(t + 8, GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)); t[10] = GetMonData(&gEnemyParty[0], MON_DATA_LEVEL);
+            PilotPut16(t + 11, gTrainerBattleOpponent_A);
+            for (i = 0; i < 4; i++) PilotPut16(t + 13 + i * 2, GetMonData(&gEnemyParty[i], MON_DATA_SPECIES));
+        }
+        if (sPilotPhase == 5 && sPilotStepFrames >= 12) { gPilotKeys = A_BUTTON; sPilotPhase = 6; sPilotStepFrames = 0; }
+        else if (sPilotPhase == 6 && sPilotStepFrames >= 4) { gPilotKeys = 0; sPilotPhase = 7; sPilotStepFrames = 0; }
+        else if (sPilotPhase == 7)
+        {
+            gPilotKeys = busy && (sPilotStepFrames % 8) < 3 ? A_BUTTON : 0;
+            if ((sPilotStepFrames > 200 && sPilotIdle >= 60) || sPilotStepFrames >= 38000)
+            {
+                gPilotKeys = 0;
+                t[0] = gSaveBlock1Ptr->location.mapGroup; t[1] = gSaveBlock1Ptr->location.mapNum;
+                t[2] = x - MAP_OFFSET; t[3] = y - MAP_OFFSET;
+                t[4] = VarGet(VAR_HOENN_STORY); t[5] = VarGet(VAR_HOENN_STARTER); t[6] = gPlayerPartyCount;
+                t[7] = FlagGet(FLAG_HIDE_HOENN_ROUTE101_RESCUE);
+                PilotPut16(t + 22, GetMonData(&gPlayerParty[1], MON_DATA_SPECIES)); t[24] = GetMonData(&gPlayerParty[1], MON_DATA_LEVEL);
+                t[25] = gBattleOutcome; t[26] = sPilotStepFrames >= 38000;
+                gPilotShot = 1; gPilotStage = 3;
+            }
+        }
+        return;
+    }
     // Trip: talk to the SEAGALLOP sailor and keep pressing A (YES is the default) until a new map is up.
     if (step->mode == 6 && sPilotPhase >= 5)
     {
@@ -311,7 +376,7 @@ static void PilotWalkCase(void)
     if (sPilotPhase == 0)
     {
         if (sPilotIdle < 30) return;
-        if (step->mode == 5 || step->mode == 6)
+        if (step->mode == 5 || step->mode == 6 || step->mode == 7)
         {
             sPilotStartGroup = gSaveBlock1Ptr->location.mapGroup; sPilotStartMap = gSaveBlock1Ptr->location.mapNum;
             if (step->mode == 6 && (gPilotSpawn[gPilotCase - 1][7] & 8))
@@ -391,8 +456,9 @@ setup='''
 #include "pokemon.h"
 #include "event_data.h"
 #include "game_settings.h"
+#include "constants/moves.h"
 extern volatile u32 gPilotCase;
-extern const s8 gPilotSpawn[][8];
+extern const s8 gPilotSpawn[][10];
 void PilotSetup(void)
 {
     const s8 *spawn = gPilotSpawn[gPilotCase - 1];
@@ -412,6 +478,22 @@ void PilotSetup(void)
         GameSettings_SetLanguage(GAME_LANGUAGE_PTBR);
     if (spawn[7] & 4)
         FlagSet(FLAG_SYS_GAME_CLEAR);
+    if (spawn[7] & 16)
+    {
+        u16 move = MOVE_PSYCHIC; u8 pp = 16, bonus = 0xFF;
+        CreateMon(&gPlayerParty[0], SPECIES_MEWTWO, 100, 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
+        SetMonData(&gPlayerParty[0], MON_DATA_MOVE1, &move); SetMonData(&gPlayerParty[0], MON_DATA_PP_BONUSES, &bonus);
+        SetMonData(&gPlayerParty[0], MON_DATA_PP1, &pp);
+        gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
+        gSaveBlock2Ptr->optionsBattleSceneOff = TRUE;
+        gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
+        FlagSet(FLAG_SYS_POKEMON_GET);
+        FlagSet(FLAG_EXP_SHARE_DISABLED);
+    }
+    VarSet(VAR_HOENN_STORY, spawn[8]);
+    VarSet(VAR_HOENN_STARTER, spawn[9]);
+    if (spawn[8] >= 3)
+        FlagSet(FLAG_HIDE_HOENN_ROUTE101_RESCUE);
 }
 '''
 world=(game/'src/overworld.c').read_text()
@@ -593,6 +675,27 @@ for case,info in TALKS.items():
  assert got and want.startswith(got.rstrip('\\')) or got.startswith(want),(where,'text differs',got,want)
  talked['text']+=1
 print('Talked to pilot events:',talked)
+trainer_ids=dict(re.findall(r'#define (TRAINER_\w+)\s+(\d+)',(test/'include/constants/opponents.h').read_text()))
+pilot_trainers=json.loads((game/'hack-data/region_pilot_trainers.json').read_text(encoding='utf-8'))
+story_seen={}
+for case,expect in SCENES.items():
+ row=rows[case];name=expect['name']
+ assert not row[26],(name,'scene did not settle in time',row[:32].hex())
+ assert row[4]==expect['story'],(name,'story state',row[4],expect['story'])
+ if 'pos' in expect:assert tuple(row[2:4])==expect['pos'],(name,'player position',tuple(row[2:4]))
+ if 'party' in expect:assert row[6]==expect['party'],(name,'party size',row[6])
+ if 'starter' in expect:assert row[5]==expect['starter'],(name,'starter choice',row[5])
+ if 'gift' in expect:assert (u16(row,22),row[24])==(species_ids[expect['gift']],5),(name,'starter not given at level 5',u16(row,22),row[24])
+ if 'hidden' in expect:assert row[7]==1,(name,'rescue objects not hidden afterwards')
+ if 'wild' in expect:
+  sp,lv=expect['wild'];assert row[21] and (u16(row,8),row[10])==(species_ids[sp],lv),(name,'wild battle',u16(row,8),row[10])
+ if 'trainer' in expect:
+  t=pilot_trainers['trainers'][expect['trainer']]
+  assert row[21] and u16(row,11)==int(trainer_ids[expect['trainer']]),(name,'trainer',u16(row,11))
+  assert [u16(row,13+i*2) for i in range(4)]==[species_ids[m[0]] for m in t['team']],(name,'team',[u16(row,13+i*2) for i in range(4)])
+  assert row[10]==t['team'][0][1]+pilot_trainers['level_offset'],(name,'lead level',row[10])
+ story_seen[name]='ok'
+print('Hoenn story scenes:',story_seen)
 # Generated at build time: #define MAP_X (num | (group << 8))
 _maps={m[1]:(int(m[3]),int(m[2])) for m in re.finditer(r'#define (MAP_\w+)\s+\((\d+) \| \((\d+) << 8\)\)',(test/'include/constants/map_groups.h').read_text())}
 def _group_num(name):
@@ -608,6 +711,7 @@ print('PASS: Hoenn and Johto pilots load on their own tilesets with doors, anima
       'pilot maps carry named sections (popup, met location) and the Town Map opens on them; '
       'every ambient event answers A with its source text, the Potion is picked up, the lab machine heals, PT-BR shows; '
       'the SEAGALLOP sails Vermilion <-> Littleroot/New Bark only after the League; '
+      'Birch is rescued on Route 101 (starter gift, Zigzagoon battle), his lab follows the story and May battles with the counter team; '
       'assets match their sources; Pallet unchanged.')
 (out/'results.json').write_text(json.dumps({'status':'passed','build':str(test),'cases':{str(k):v.hex() for k,v in rows.items()},
                                             'walks':{str(k):walked(k) for k in rows if CASES[k-1][5] and CASES[k-1][5][0][1] not in ('BATTLE','TOWNMAP')},'sections':sections,'battles':battles},indent=2)+'\n')

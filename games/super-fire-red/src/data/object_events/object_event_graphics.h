@@ -252,3 +252,7 @@ const u16 gObjectEventPic_JohtoMom[] = INCBIN_U16("graphics/object_events/pics/p
 const u16 gObjectEventPic_ProfElm[] = INCBIN_U16("graphics/object_events/pics/people/prof_elm.4bpp"); // HNS_modern bf25b6e graphics/object_events/pics/people/special/elm.png
 
 const u16 gObjectEventPic_Silver[] = INCBIN_U16("graphics/object_events/pics/people/silver.4bpp"); // HNS_modern bf25b6e graphics/object_events/pics/people/special/silver.png
+
+const u16 gObjectEventPic_Zigzagoon[] = INCBIN_U16("graphics/object_events/pics/people/zigzagoon.4bpp"); // pokeemerald 731ad5b graphics/object_events/pics/pokemon/zigzagoon.png
+
+const u16 gObjectEventPic_BirchsBag[] = INCBIN_U16("graphics/object_events/pics/people/birchs_bag.4bpp"); // pokeemerald 731ad5b graphics/object_events/pics/misc/birchs_bag.png
