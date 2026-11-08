@@ -94,7 +94,7 @@
       "source_repo": "resetes12/HNS_modern",
       "level_offset": 40,
       "trainer_pic": "TRAINER_PIC_SILVER",
-      "trainer_class": "TRAINER_CLASS_RIVAL_LATE",
+      "trainer_class": "TRAINER_CLASS_PKMN_TRAINER",
       "team": [
         {
           "species": "SPECIES_URSARING",
@@ -178,7 +178,7 @@
       "source_repo": "resetes12/HNS_modern",
       "level_offset": 40,
       "trainer_pic": "TRAINER_PIC_SILVER",
-      "trainer_class": "TRAINER_CLASS_RIVAL_LATE",
+      "trainer_class": "TRAINER_CLASS_PKMN_TRAINER",
       "team": [
         {
           "species": "SPECIES_URSARING",
@@ -262,7 +262,7 @@
       "source_repo": "resetes12/HNS_modern",
       "level_offset": 40,
       "trainer_pic": "TRAINER_PIC_SILVER",
-      "trainer_class": "TRAINER_CLASS_RIVAL_LATE",
+      "trainer_class": "TRAINER_CLASS_PKMN_TRAINER",
       "team": [
         {
           "species": "SPECIES_URSARING",

@@ -222,6 +222,8 @@ hook='''
 #include "item.h"
 #include "constants/items.h"
 #include "battle.h"
+#include "data.h"
+#include "constants/trainers.h"
 #include "pokemon_storage_system.h"
 #include "save.h"
 bool8 PilotYesNoActive(void);
@@ -394,6 +396,11 @@ static void PilotWalkCase(void)
             for (i = 0; i < 4; i++) PilotPut16(t + 13 + i * 2, GetMonData(&gEnemyParty[i], MON_DATA_SPECIES));
             t[44] = (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) != 0;
             t[45] = t[46] = 1;
+            // Battle text prints the Kanto rival's name for the RIVAL/CHAMPION classes; pilot rivals keep their own.
+            t[47] = gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RIVAL_EARLY
+                 && gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RIVAL_LATE
+                 && gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_CHAMPION;
+            memcpy(t + 96, gTrainers[gTrainerBattleOpponent_A].trainerName, 8);
             for (i = 0; i < PARTY_SIZE; i++)
             {
                 u16 total = 0; u8 stat;
@@ -856,6 +863,7 @@ for case,expect in SCENES.items():
   leader=t['team'][0];level=leader['level'] if isinstance(leader,dict) else leader[1]
   assert row[10]==level+t.get('level_offset',pilot_trainers['level_offset']),(name,'lead level',row[10])
   assert row[44:47]==bytes([1,1,1]),(name,'double battle / perfect IVs / 508 EVs',list(row[44:47]))
+  assert row[47]==1 and decode(row[96:104])==t['name'],(name,'battle shows the Kanto rival name instead of',t['name'],row[47],decode(row[96:104]))
  story_seen[name]='ok'
 print('Region story scenes:',story_seen)
 # Generated at build time: #define MAP_X (num | (group << 8))

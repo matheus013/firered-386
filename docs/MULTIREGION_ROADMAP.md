@@ -110,7 +110,7 @@ diretamente: flags/variáveis e constantes pertencem a engines diferentes.
 
 ## Backlog: progressão estendida
 
-Nível máximo 500 e nova curva de progressão ficam adiados por solicitação do usuário.
+Nível máximo (antes 500; decisão de 08/11: 255) e nova curva de progressão ficam adiados por solicitação do usuário.
 Limite atual: 100. Não ampliar campos de save, experiência, atributos ou regras de
 nível durante a etapa de mapas. Reavaliar depois da integração regional.
 

@@ -583,7 +583,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_DEFAULT_MOVES(sParty_Wally),
     },
     [TRAINER_BRENDAN] = {
-        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_SILVER,
         .trainerName = _("SILVER"),
@@ -593,7 +593,7 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_Brendan),
     },
     [TRAINER_BRENDAN_2] = {
-        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_SILVER,
         .trainerName = _("SILVER"),
@@ -603,7 +603,7 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_Brendan2),
     },
     [TRAINER_BRENDAN_3] = {
-        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_SILVER,
         .trainerName = _("SILVER"),
@@ -613,7 +613,7 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_Brendan3),
     },
     [TRAINER_MAY] = {
-        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_RS_MAY_1,
         .trainerName = _("MAY"),
@@ -623,7 +623,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_DEFAULT_MOVES(sParty_May),
     },
     [TRAINER_MAY_2] = {
-        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_RS_MAY_1,
         .trainerName = _("MAY"),
@@ -633,7 +633,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_DEFAULT_MOVES(sParty_May2),
     },
     [TRAINER_MAY_3] = {
-        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_RS_MAY_1,
         .trainerName = _("MAY"),

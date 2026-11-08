@@ -514,7 +514,7 @@ def region_pilot_trainers(parties_text, trainers_text):
                                             f"static const struct {party_type} {entry['party']}[] = {{{mons[:-1]}\n}};")
         match = re.search(r"    \[" + trainer + r"\] = \{(.*?)\n    \},", trainers_text, re.S)
         body = match[1].replace('.trainerName = _("")', f'.trainerName = _("{entry["name"]}")')
-        body = re.sub(r"\.trainerClass = [^,]+", '.trainerClass = ' + entry.get('trainer_class', 'TRAINER_CLASS_RIVAL_LATE'), body)
+        body = re.sub(r"\.trainerClass = [^,]+", '.trainerClass = ' + entry.get('trainer_class', 'TRAINER_CLASS_PKMN_TRAINER'), body)
         if entry.get('trainer_pic'):
             body = re.sub(r"\.trainerPic = [^,]+", '.trainerPic = ' + entry['trainer_pic'], body)
         if custom:

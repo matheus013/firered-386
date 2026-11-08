@@ -847,7 +847,7 @@ a engine nem uma validação da campanha inteira.
   vitória avança para estado 3 e passa à fala posterior. Não altera o rival de Kanto.
 - A revisão encontrou May fora da passagem geral de treino: a injeção tardia
   conservava batalha simples e classe genérica. O gerador agora dá a May e Silver
-  classe RIVAL_LATE (ativa IVs perfeitos e EVs por função), batalha em dupla e
+  classe RIVAL_LATE (depois trocada; ver revisão abaixo), batalha em dupla e
   AI_SCRIPT_DOUBLE_BATTLE, além dos filtros de golpes já usados.
 - A tabela de treinadores do piloto aceita equipes com golpes/itens explícitos e
   offset por treinador; as outras 636 equipes geradas continuam no mesmo fluxo.
@@ -924,4 +924,28 @@ Pendências principais: demais eventos de história dos pilotos (incluindo mães
 presentes de assistentes), percurso contínuo sem posicionamento de teste, Continue
 com save real, compatibilidade de saves antigos, mapas regionais/Fly e expansão
 geográfica além dos 15 mapas. Johto/Hoenn completas e balanceamento final continuam
-pendentes. Teto de nível 500 permanece no backlog. Nenhuma release ou main alterada.
+pendentes. Teto de nível: a decisão de 08/11 é 255, em projeto separado na `main` (ver roadmap). Nenhuma release ou main alterada.
+
+## 08/11/2026 — Revisão do passo 3 do Codex (Claude)
+
+Revisado o commit `2df2c07`. A ROM de teste foi refeita do zero e confirmou os 162 casos; os 28 testes
+Python também passaram. O trabalho segue o levantamento: pedido reduzido do Elm, três bolas com uma
+escolha só, PC cheio, recusas, save/reload e Silver com o time de Victory Road +40 (85–88), retrato
+próprio e as vagas sem uso do Brendan.
+
+**Erro corrigido:** May e Silver tinham recebido a classe `TRAINER_CLASS_RIVAL_LATE` para ativar o
+treino de IVs/EVs dos desafios. Nessa classe, o texto de batalha do FireRed (`battle_message.c`) troca
+o nome do treinador pelo do rival de Kanto, e a tela mostraria "RIVAL" com o nome que o jogador deu
+ao rival de Kanto. Agora:
+
+- os dois usam `TRAINER_CLASS_PKMN_TRAINER`;
+- `EliteFour_IsChallenge` reconhece os seis IDs (`TRAINER_MAY*` e `TRAINER_BRENDAN*`), então o treino
+  continua igual;
+- o teste confere que a classe não é de rival e que o nome do oponente é MAY/SILVER, além de duplas,
+  IVs 31 e EVs 508.
+
+Resultado: **162/162 casos aprovados** com a correção.
+
+Também mantido da revisão do Codex: May e Silver em batalha dupla, como os demais treinadores do jogo.
+
+A nota "teto de nível 500" foi corrigida para a decisão de 08/11: 255, em projeto separado na `main`.

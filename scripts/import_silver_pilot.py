@@ -37,7 +37,7 @@ def main():
         payload['trainers']['TRAINER_BRENDAN' + (f'_{i+1}' if i else '')] = dict(
             party='sParty_Brendan' + (str(i+1) if i else ''), name='SILVER',
             player_starter='SPECIES_' + player, source=label, source_repo='resetes12/HNS_modern',
-            level_offset=40, trainer_pic='TRAINER_PIC_SILVER', trainer_class='TRAINER_CLASS_RIVAL_LATE', team=team)
+            level_offset=40, trainer_pic='TRAINER_PIC_SILVER', trainer_class='TRAINER_CLASS_PKMN_TRAINER', team=team)
     portrait = source / 'graphics/trainers/front_pics/wally.png'
     with Image.open(portrait) as image:
         if image.mode != 'P' or image.size != (64,64) or max(image.get_flattened_data()) > 15:

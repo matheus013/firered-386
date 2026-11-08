@@ -21,6 +21,10 @@ bool8 EliteFour_IsChallenge(u16 trainer)
     case TRAINER_CUE_BALL_PAXTON:
     case TRAINER_TEAM_ROCKET_ADMIN: case TRAINER_TEAM_ROCKET_ADMIN_2:
     case TRAINER_SCIENTIST_GIDEON:
+    // Region pilot rivals (May, Silver): challenge training without the RIVAL class,
+    // whose battle text would print the Kanto rival's name.
+    case TRAINER_MAY: case TRAINER_MAY_2: case TRAINER_MAY_3:
+    case TRAINER_BRENDAN: case TRAINER_BRENDAN_2: case TRAINER_BRENDAN_3:
         return TRUE;
     }
     return FALSE;
