@@ -1104,7 +1104,6 @@ O conversor passou a aceitar só as seções da própria região: o HNS usa `MAP
 FireRed é um ID de Hoenn. As paletas são gravadas em bytes com LF. O erro do `gbagfx` vinha de um CR
 solto: a primeira versão escrevia CR+CR+LF. CRLF, que o pokefirered usa nas paletas, também funciona.
 
-
 **Teste:** 169 casos aprovados.
 
 - Os casos do mapa em Littleroot e New Bark agora abrem as páginas de Hoenn e Johto.
