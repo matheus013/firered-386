@@ -54,6 +54,10 @@ CASES=[
  (JOHTO+'NEW_BARK_TOWN',10,10,0,0,[('NONE','TOWNMAP')]),
  ('MAP_PALLET_TOWN',10,8,0,0,[('NONE','TOWNMAP')]),                   # control: Kanto section
 ]
+# Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
+PAGE_SCROLL={}
+for _m,_x,_y,_key,_page,_start,_end in ((HOENN+'LITTLEROOT_TOWN',10,8,'RIGHT','hoenn',0,6),(JOHTO+'NEW_BARK_TOWN',10,10,'LEFT','johto',3,0)):
+ CASES.append((_m,_x,_y,0,0,[(_key,'TOWNMAP')]));PAGE_SCROLL[len(CASES)]=(_page,_start,_end)
 # TALK: stand next to every pilot event (object or sign), turn to it, press A and read the text shown.
 # Setup bits: 1 = has received a Pokemon (FLAG_SYS_POKEMON_GET) with the lead at 1 HP, 2 = PT-BR language.
 import struct as _struct
@@ -496,8 +500,31 @@ static void PilotWalkCase(void)
         }
         else if (sPilotPhase == 6 && sPilotStepFrames >= 240)
         {
-            r[0] = gMain.callback2 != sPilotFieldCallback; r[1] = !gPaletteFade.active;
-            gPilotShot = 1; gPilotStage = 3;
+            // BG0 tilemap (screen block 30): screen tile (10, 12), before and after holding the key.
+            const u16 *bg0 = (const u16 *)(BG_VRAM + 30 * 0x800);
+            if (sPilotStepFrames == 240)
+            {
+                r[0] = gMain.callback2 != sPilotFieldCallback; r[1] = !gPaletteFade.active;
+                r[2] = bg0[12 * 32 + 10]; r[3] = bg0[12 * 32 + 10] >> 8;
+            }
+            if (step->keys == 0)
+            {
+                gPilotShot = 1; gPilotStage = 3;
+            }
+            else if (sPilotStepFrames < 700)
+            {
+                gPilotKeys = step->keys; // hold: the cursor walks to the edge, then the page scrolls
+            }
+            else if (sPilotStepFrames >= 760)
+            {
+                gPilotKeys = 0;
+                r[4] = bg0[12 * 32 + 10]; r[5] = bg0[12 * 32 + 10] >> 8;
+                gPilotShot = 1; gPilotStage = 3;
+            }
+            else
+            {
+                gPilotKeys = 0;
+            }
         }
         return;
     }
@@ -809,8 +836,18 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
 assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-1]=='MAPSEC_ROUTE_29'
-for case in (24,25,26):
+for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
+# Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.
+import struct as _st
+scrolls={}
+for case,(page,start,end) in PAGE_SCROLL.items():
+ data=(game/f'graphics/region_map/{page}_page.bin').read_bytes();words=_st.unpack(f'<{len(data)//2}H',data);cols=len(words)//20
+ before,after=u16(rows[case],2),u16(rows[case],4)
+ assert before==words[12*cols+start+10],(page,'page did not open at scroll',start,hex(before),hex(words[12*cols+start+10]))
+ assert after==words[12*cols+end+10],(page,'page did not scroll to',end,hex(after),hex(words[12*cols+end+10]))
+ scrolls[page]=f'{start}->{end}'
+print('Region map page scroll:',scrolls)
 print('Map sections:',sections)
 CODES={0xFE:'\n',0xFB:'\\p',0xFA:'\\l'}
 TOKENS={m[1]:int(m[2],16) for m in re.finditer(r'^([A-Z_0-9]+)\s*=\s*([0-9A-F]{2})\s*$',(game/'charmap.txt').read_text(encoding='utf-8'),re.M)}

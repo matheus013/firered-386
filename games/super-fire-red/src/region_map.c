@@ -31,8 +31,17 @@ enum {
     REGIONMAP_SEVII123,
     REGIONMAP_SEVII45,
     REGIONMAP_SEVII67,
+    REGIONMAP_HOENN, // region pilot pages: wider than the screen, scrolled one column at a time
+    REGIONMAP_JOHTO,
     REGIONMAP_COUNT
 };
+
+// Hoenn/Johto pages (scripts/convert_region_map_pages.py): BG0 tiles from REGIONMAP_PAGE_TILE on, after
+// the open animation's tiles in char block 1. A page tilemap has PAGE_COLUMNS(width) columns: grid
+// column c sits on page tile column c + 4, like FireRed's screen tile of grid column c.
+#define REGIONMAP_PAGE_TILE 576
+#define PAGE_COLUMNS(width) ((width) + 9)
+#define MAP_VISIBLE_COLUMNS MAP_WIDTH // screen columns 0-21; column 21 also holds the buttons
 
 enum {
     MAPSECTYPE_NONE,
@@ -100,8 +109,10 @@ struct RegionMap
     u16 bgTilemapBuffers[3][BG_SCREEN_SIZE];
     u8 type; // REGIONMAP_TYPE_*
     bool8 permissions[MAPPERM_COUNT];
-    u8 selectedRegion; // REGIONMAP_KANTO, REGIONMAP_SEVII*
+    u8 selectedRegion; // REGIONMAP_KANTO, REGIONMAP_SEVII*, REGIONMAP_HOENN, REGIONMAP_JOHTO
     u8 playersRegion;
+    u8 scroll[REGIONMAP_COUNT]; // first page column on screen (pages only)
+    u8 loadedPage;              // page whose tiles are in VRAM (REGIONMAP_COUNT = none)
     u8 ALIGNED(4) mainState;
     u8 ALIGNED(4) openState;
     u8 ALIGNED(4) loadGfxState;
@@ -209,6 +220,7 @@ struct MapCursor
 {
     s16 x;
     s16 y;
+    s8 scrollMove; // page scroll queued by the current move (pages only)
     u16 spriteX;
     u16 spriteY;
     s16 horizontalMove;
@@ -237,7 +249,8 @@ struct PlayerIcon
 
 struct MapIconSprite
 {
-    u32 unused;
+    s16 pageX; // grid position on its page (pages scroll)
+    s16 pageY;
     u8 region;
     struct Sprite *sprite;
     u16 tileTag;
@@ -387,6 +400,7 @@ static void Task_FlyMap(u8);
 static void InitFlyMap(void);
 static void FreeFlyMap(u8);
 static void SetFlyWarpDestination(u16);
+static void ScrollRegionMapPage(s8);
 
 #include "data/region_map/region_map_entry_strings.h"
 
@@ -824,6 +838,128 @@ static const u8 sTextColors[] = {TEXT_DYNAMIC_COLOR_6, TEXT_COLOR_WHITE, TEXT_CO
 #include "data/region_map/region_map_layout_sevii_123.h"
 #include "data/region_map/region_map_layout_sevii_45.h"
 #include "data/region_map/region_map_layout_sevii_67.h"
+#include "data/region_map/region_map_layout_hoenn.h"
+#include "data/region_map/region_map_layout_johto.h"
+
+static const u32 sHoennPage_Gfx0[] = INCBIN_U32("graphics/region_map/hoenn_page_0.4bpp");
+static const u32 sHoennPage_Gfx1[] = INCBIN_U32("graphics/region_map/hoenn_page_1.4bpp");
+static const u32 sHoennPage_Gfx2[] = INCBIN_U32("graphics/region_map/hoenn_page_2.4bpp");
+static const u32 sHoennPage_Gfx3[] = INCBIN_U32("graphics/region_map/hoenn_page_3.4bpp");
+static const u16 sHoennPage_Pal0[] = INCBIN_U16("graphics/region_map/hoenn_page_0.gbapal");
+static const u16 sHoennPage_Pal1[] = INCBIN_U16("graphics/region_map/hoenn_page_1.gbapal");
+static const u16 sHoennPage_Pal2[] = INCBIN_U16("graphics/region_map/hoenn_page_2.gbapal");
+static const u16 sHoennPage_Pal3[] = INCBIN_U16("graphics/region_map/hoenn_page_3.gbapal");
+static const u16 sHoennPage_Tilemap[] = INCBIN_U16("graphics/region_map/hoenn_page.bin");
+static const u32 sJohtoPage_Gfx0[] = INCBIN_U32("graphics/region_map/johto_page_0.4bpp");
+static const u32 sJohtoPage_Gfx1[] = INCBIN_U32("graphics/region_map/johto_page_1.4bpp");
+static const u16 sJohtoPage_Pal0[] = INCBIN_U16("graphics/region_map/johto_page_0.gbapal");
+static const u16 sJohtoPage_Pal1[] = INCBIN_U16("graphics/region_map/johto_page_1.gbapal");
+static const u16 sJohtoPage_Tilemap[] = INCBIN_U16("graphics/region_map/johto_page.bin");
+
+struct RegionMapPageGfx
+{
+    const u32 *tiles;
+    u32 size;
+};
+
+static const struct RegionMapPageGfx sHoennPageGfx[] = {
+    {sHoennPage_Gfx0, sizeof(sHoennPage_Gfx0)}, {sHoennPage_Gfx1, sizeof(sHoennPage_Gfx1)},
+    {sHoennPage_Gfx2, sizeof(sHoennPage_Gfx2)}, {sHoennPage_Gfx3, sizeof(sHoennPage_Gfx3)},
+};
+static const struct RegionMapPageGfx sJohtoPageGfx[] = {
+    {sJohtoPage_Gfx0, sizeof(sJohtoPage_Gfx0)}, {sJohtoPage_Gfx1, sizeof(sJohtoPage_Gfx1)},
+};
+
+static bool8 IsRegionMapPage(u8 region)
+{
+    return region == REGIONMAP_HOENN || region == REGIONMAP_JOHTO;
+}
+
+static u8 GetRegionMapWidth(u8 region)
+{
+    switch (region)
+    {
+    case REGIONMAP_HOENN:
+        return REGIONMAP_HOENN_WIDTH;
+    case REGIONMAP_JOHTO:
+        return REGIONMAP_JOHTO_WIDTH;
+    default:
+        return MAP_WIDTH;
+    }
+}
+
+static u8 GetRegionMapMaxScroll(u8 region)
+{
+    return GetRegionMapWidth(region) - MAP_VISIBLE_COLUMNS;
+}
+
+static u8 GetRegionMapScroll(u8 region)
+{
+    return IsRegionMapPage(region) ? sRegionMap->scroll[region] : 0;
+}
+
+// Scroll that keeps page column x near the middle of the screen.
+static u8 GetRegionMapScrollFor(u8 region, s16 x)
+{
+    s16 scroll = x - MAP_VISIBLE_COLUMNS / 2;
+    if (!IsRegionMapPage(region) || scroll < 0)
+        return 0;
+    if (scroll > GetRegionMapMaxScroll(region))
+        return GetRegionMapMaxScroll(region);
+    return scroll;
+}
+
+// Page tiles go to VRAM on demand: both pages together would not fit after REGIONMAP_PAGE_TILE.
+static void LoadRegionMapPage(u8 region)
+{
+    const struct RegionMapPageGfx *gfx;
+    u8 i, count;
+    u16 tile = REGIONMAP_PAGE_TILE;
+    if (sRegionMap->loadedPage == region)
+        return;
+    if (region == REGIONMAP_HOENN)
+        gfx = sHoennPageGfx, count = NELEMS(sHoennPageGfx);
+    else
+        gfx = sJohtoPageGfx, count = NELEMS(sJohtoPageGfx);
+    for (i = 0; i < count; i++)
+    {
+        LoadBgTiles(0, gfx[i].tiles, gfx[i].size, tile);
+        tile += gfx[i].size / TILE_SIZE_4BPP;
+    }
+    sRegionMap->loadedPage = region;
+}
+
+static void LoadRegionMapPagePalettes(void)
+{
+    LoadPalette(sHoennPage_Pal0, BG_PLTT_ID(5), PLTT_SIZE_4BPP);
+    LoadPalette(sHoennPage_Pal1, BG_PLTT_ID(6), PLTT_SIZE_4BPP);
+    LoadPalette(sHoennPage_Pal2, BG_PLTT_ID(7), PLTT_SIZE_4BPP);
+    LoadPalette(sHoennPage_Pal3, BG_PLTT_ID(8), PLTT_SIZE_4BPP);
+    LoadPalette(sJohtoPage_Pal0, BG_PLTT_ID(9), PLTT_SIZE_4BPP);
+    LoadPalette(sJohtoPage_Pal1, BG_PLTT_ID(10), PLTT_SIZE_4BPP);
+}
+
+static void CopyRegionMapPageToBuffer(u16 *buffer, u8 region)
+{
+    const u16 *page = region == REGIONMAP_HOENN ? sHoennPage_Tilemap : sJohtoPage_Tilemap;
+    u8 columns = PAGE_COLUMNS(GetRegionMapWidth(region));
+    u8 scroll = GetRegionMapScroll(region);
+    s16 i, j;
+    const u16 *frame = sRegionMap->layouts[REGIONMAP_KANTO];
+    LoadRegionMapPage(region);
+    // The page art fills the map window (tiles 3-26, rows 2-19); the frame, the top rows and the
+    // Cancel button (tiles 24-26, rows 16-18) come from FireRed's Kanto background.
+    for (i = 0; i < 20; i++)
+    {
+        for (j = 0; j < 32; j++)
+        {
+            if (i >= 2 && j >= 3 && j <= 26 && !(i >= 16 && i <= 18 && j >= 24))
+                buffer[32 * i + j] = page[columns * i + scroll + j];
+            else
+                buffer[32 * i + j] = frame[30 * i + (j < 30 ? j : 0)];
+        }
+    }
+}
 
 static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_PALLET_TOWN         - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_PALLET_TOWN},
@@ -1059,6 +1195,17 @@ static void InitRegionMapType(void)
             j++;
         }
     }
+    // Region pilot pages: Hoenn sections keep Emerald's IDs below KANTO_MAPSEC_START, Johto's come last.
+    if (gMapHeader.regionMapSectionId < KANTO_MAPSEC_START)
+        region = REGIONMAP_HOENN;
+    else if (gMapHeader.regionMapSectionId >= JOHTO_MAPSEC_START && gMapHeader.regionMapSectionId < MAPSEC_NONE)
+        region = REGIONMAP_JOHTO;
+    sRegionMap->loadedPage = REGIONMAP_COUNT;
+    // Open the player's page scrolled to the current section, before the background is drawn.
+    if (region == REGIONMAP_HOENN)
+        sRegionMap->scroll[region] = GetRegionMapScrollFor(region, sHoennMapSectionTopLeftCorners[gMapHeader.regionMapSectionId][0]);
+    else if (region == REGIONMAP_JOHTO)
+        sRegionMap->scroll[region] = GetRegionMapScrollFor(region, sMapSectionTopLeftCorners[gMapHeader.regionMapSectionId - KANTO_MAPSEC_START][0]);
     sRegionMap->selectedRegion = region;
     sRegionMap->playersRegion = region;
 }
@@ -1124,6 +1271,7 @@ static bool8 LoadRegionMapGfx(void)
     case 1:
         LoadPalette(sRegionMap_Pal, 0, sizeof(sRegionMap_Pal));
         TintMapEdgesPalette();
+        LoadRegionMapPagePalettes();
         if (sRegionMap->type != REGIONMAP_TYPE_NORMAL)
         {
             LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(0), sizeof(sTopBar_Pal[15]));
@@ -1512,14 +1660,25 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
     s16 j;
     u8 whichMap;
     u16 *buffer = sRegionMap->bgTilemapBuffers[bg];
-    for (i = 0; i < 20; i++)
+    if (sSwitchMapMenu != NULL)
+        whichMap = sSwitchMapMenu->currentSelection;
+    else
+        whichMap = sRegionMap->selectedRegion;
+    if (bg == 0 && IsRegionMapPage(whichMap))
     {
-        for (j = 0; j < 32; j++)
+        CopyRegionMapPageToBuffer(buffer, whichMap);
+    }
+    else
+    {
+        for (i = 0; i < 20; i++)
         {
-            if (j < 30)
-                buffer[32 * i + j] = map[30 * i + j];
-            else
-                buffer[32 * i + j] = map[0];
+            for (j = 0; j < 32; j++)
+            {
+                if (j < 30)
+                    buffer[32 * i + j] = map[30 * i + j];
+                else
+                    buffer[32 * i + j] = map[0];
+            }
         }
     }
     if (sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] == TRUE)
@@ -1528,10 +1687,6 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
         WriteSequenceToBgTilemapBuffer(0, 0x100, 0x18, 15, 3, 1, 0x3, 0x001);
         WriteSequenceToBgTilemapBuffer(0, 0x110, 0x18, 16, 3, 1, 0x3, 0x001);
     }
-    if (sSwitchMapMenu != NULL)
-        whichMap = sSwitchMapMenu->currentSelection;
-    else
-        whichMap = sRegionMap->selectedRegion;
     if (whichMap == REGIONMAP_SEVII45 && !FlagGet(FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR))
         FillBgTilemapBufferRect_Palette0(0, 0x003, 13, 11, 3, 2);
     if (whichMap == REGIONMAP_SEVII67 && !FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR))
@@ -2787,9 +2942,17 @@ static u8 HandleRegionMapInput(void)
             input = MAP_INPUT_MOVE_START;
         }
     }
+    sMapCursor->scrollMove = 0;
     if (JOY_HELD(DPAD_RIGHT))
     {
-        if (sMapCursor->x < MAP_WIDTH - 1)
+        // Pages scroll when the cursor reaches the last map column before the buttons.
+        if (IsRegionMapPage(GetSelectedRegionMap()) && sMapCursor->x == MAP_VISIBLE_COLUMNS - 2
+         && GetRegionMapScroll(GetSelectedRegionMap()) < GetRegionMapMaxScroll(GetSelectedRegionMap()))
+        {
+            sMapCursor->scrollMove = 1;
+            input = MAP_INPUT_MOVE_START;
+        }
+        else if (sMapCursor->x < MAP_WIDTH - 1)
         {
             sMapCursor->horizontalMove = 2;
             input = MAP_INPUT_MOVE_START;
@@ -2797,7 +2960,12 @@ static u8 HandleRegionMapInput(void)
     }
     if (JOY_HELD(DPAD_LEFT))
     {
-        if (sMapCursor->x > 0)
+        if (IsRegionMapPage(GetSelectedRegionMap()) && sMapCursor->x == 0 && GetRegionMapScroll(GetSelectedRegionMap()) > 0)
+        {
+            sMapCursor->scrollMove = -1;
+            input = MAP_INPUT_MOVE_START;
+        }
+        else if (sMapCursor->x > 0)
         {
             sMapCursor->horizontalMove = -2;
             input = MAP_INPUT_MOVE_START;
@@ -2859,6 +3027,8 @@ static u8 MoveMapCursor(void)
         sMapCursor->y++;
     if (sMapCursor->verticalMove < 0)
         sMapCursor->y--;
+    if (sMapCursor->scrollMove != 0)
+        ScrollRegionMapPage(sMapCursor->scrollMove);
     sMapCursor->selectedMapsec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_MAP, sMapCursor->y, sMapCursor->x);
     sMapCursor->selectedMapsecType = GetMapsecType(sMapCursor->selectedMapsec);
     sMapCursor->selectedDungeonType = GetDungeonMapsecType(GetSelectedMapSection(GetSelectedRegionMap(), LAYER_DUNGEON, sMapCursor->y, sMapCursor->x));
@@ -2888,6 +3058,7 @@ static void SnapToIconOrButton(void)
         {
         case 0:
         default:
+            ScrollRegionMapPage(0);
             sMapCursor->x = GetPlayerIconX();
             sMapCursor->y = GetPlayerIconY();
             break;
@@ -2909,6 +3080,7 @@ static void SnapToIconOrButton(void)
         {
         case 0:
         default:
+            ScrollRegionMapPage(0);
             sMapCursor->x = GetPlayerIconX();
             sMapCursor->y = GetPlayerIconY();
             break;
@@ -3107,6 +3279,45 @@ static u16 GetPlayerCurrentMapSectionId(void)
     return Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum)->regionMapSectionId;
 }
 
+// Scroll the shown page by delta columns (0 = bring the player icon on screen) and move what is
+// drawn over it: the background, the player icon and the Fly icons.
+static void ScrollRegionMapPage(s8 delta)
+{
+    u8 region = GetSelectedRegionMap(), i;
+    s16 scroll, iconColumn;
+    if (!IsRegionMapPage(region))
+        return;
+    scroll = GetRegionMapScroll(region);
+    iconColumn = sPlayerIcon->x + scroll; // player icon: screen column -> page column
+    if (delta == 0)
+    {
+        if (region != GetRegionMapPlayerIsOn())
+            return;
+        scroll = GetRegionMapScrollFor(region, iconColumn);
+    }
+    else
+    {
+        scroll += delta;
+    }
+    if (scroll < 0 || scroll > GetRegionMapMaxScroll(region) || scroll == GetRegionMapScroll(region))
+        return;
+    sRegionMap->scroll[region] = scroll;
+    BufferRegionMapBg(0, sRegionMap->layouts[region]);
+    CopyBgTilemapBufferToVram(0);
+    sPlayerIcon->x = iconColumn - scroll;
+    sPlayerIcon->sprite->x = 8 * sPlayerIcon->x + 36;
+    if (region == GetRegionMapPlayerIsOn())
+        sPlayerIcon->sprite->invisible = sPlayerIcon->x < 0 || sPlayerIcon->x >= MAP_VISIBLE_COLUMNS;
+    for (i = 0; i < NELEMS(sMapIcons->flyIcons); i++)
+    {
+        if (sMapIcons->flyIcons[i].sprite == NULL || sMapIcons->flyIcons[i].region != region)
+            continue;
+        sMapIcons->flyIcons[i].sprite->x = 8 * (sMapIcons->flyIcons[i].pageX - scroll) + 36;
+        sMapIcons->flyIcons[i].sprite->invisible = sMapIcons->flyIcons[i].pageX - scroll < 0
+                                                || sMapIcons->flyIcons[i].pageX - scroll >= MAP_VISIBLE_COLUMNS;
+    }
+}
+
 static void GetPlayerPositionOnRegionMap(void)
 {
     u16 width;
@@ -3168,6 +3379,40 @@ static void GetPlayerPositionOnRegionMap(void)
         break;
     }
 
+    if (IsRegionMapPage(GetRegionMapPlayerIsOn()))
+    {
+        u16 mapsec = sMapCursor->selectedMapsec, left, top, w, h;
+        if (mapsec < KANTO_MAPSEC_START)
+        {
+            left = sHoennMapSectionTopLeftCorners[mapsec][0], top = sHoennMapSectionTopLeftCorners[mapsec][1];
+            w = sHoennMapSectionDimensions[mapsec][0], h = sHoennMapSectionDimensions[mapsec][1];
+        }
+        else
+        {
+            left = sMapSectionTopLeftCorners[mapsec - KANTO_MAPSEC_START][0], top = sMapSectionTopLeftCorners[mapsec - KANTO_MAPSEC_START][1];
+            w = sMapSectionDimensions[mapsec - KANTO_MAPSEC_START][0], h = sMapSectionDimensions[mapsec - KANTO_MAPSEC_START][1];
+        }
+        if (w == 0)
+            w = 1;
+        if (h == 0)
+            h = 1;
+        divisor = width / w;
+        x /= divisor ? divisor : 1;
+        if (x >= w)
+            x = w - 1;
+        divisor = height / h;
+        y /= divisor ? divisor : 1;
+        if (y >= h)
+            y = h - 1;
+        // Page column -> screen column (InitRegionMapType scrolled the page to this section).
+        sMapCursor->x = left + x - GetRegionMapScroll(GetRegionMapPlayerIsOn());
+        if (sMapCursor->x < 0)
+            sMapCursor->x = 0;
+        if (sMapCursor->x >= MAP_VISIBLE_COLUMNS)
+            sMapCursor->x = MAP_VISIBLE_COLUMNS - 1;
+        sMapCursor->y = top + y;
+        return;
+    }
     // Off-map regions start the cursor on Pallet Town instead of indexing outside the section tables.
     if (!IsMapsecOnRegionMaps(sMapCursor->selectedMapsec))
     {
@@ -3372,8 +3617,20 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
     sMapCursor->selectedMapsec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_MAP, sMapCursor->y, sMapCursor->x);
 }
 
-static u8 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
+// Section at page column x (equal to the screen column on the 22-column maps).
+static u8 GetPageMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
 {
+    u8 mapsec;
+    if (IsRegionMapPage(whichMap))
+    {
+        // Pages have no dungeon layer; unnamed sections (not in the pilots) show nothing.
+        if (layer != LAYER_MAP || y < 0 || y >= MAP_HEIGHT || x < 0 || x >= GetRegionMapWidth(whichMap))
+            return MAPSEC_NONE;
+        mapsec = whichMap == REGIONMAP_HOENN ? sRegionMapSections_Hoenn[y][x] : sRegionMapSections_Johto[y][x];
+        if (mapsec < KANTO_MAPSEC_START && !RegionMap_HasHoennName(mapsec))
+            return MAPSEC_NONE;
+        return mapsec;
+    }
     switch (whichMap)
     {
     case REGIONMAP_KANTO:
@@ -3387,6 +3644,12 @@ static u8 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
     default:
         return MAPSEC_NONE;
     }
+}
+
+// Section at screen column x of whichMap.
+static u8 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
+{
+    return GetPageMapSection(whichMap, layer, y, x + GetRegionMapScroll(whichMap));
 }
 
 static void CreatePlayerIcon(u16 tileTag, u16 palTag)
@@ -3532,10 +3795,12 @@ static void CreateFlyIconSprite(u8 whichMap, u8 numIcons, u16 x, u16 y, u8 tileT
 
     LoadSpriteSheet(&spriteSheet);
     LoadSpritePalette(&spritePalette);
-    spriteId = CreateSprite(&template, 8 * x + 36, 8 * y + 36, 1);
+    spriteId = CreateSprite(&template, 8 * (x - GetRegionMapScroll(whichMap)) + 36, 8 * y + 36, 1);
     sMapIcons->flyIcons[numIcons].sprite = &gSprites[spriteId];
     gSprites[spriteId].invisible = TRUE;
     sMapIcons->flyIcons[numIcons].region = whichMap;
+    sMapIcons->flyIcons[numIcons].pageX = x;
+    sMapIcons->flyIcons[numIcons].pageY = y;
 }
 
 static void CreateDungeonIconSprite(u8 whichMap, u8 numIcons, u16 x, u16 y, u8 tileTag, u8 palTag)
@@ -3586,9 +3851,9 @@ static void CreateFlyIcons(void)
         {
             for (y = 0; y < MAP_HEIGHT; y++)
             {
-                for (x = 0; x < MAP_WIDTH; x++)
+                for (x = 0; x < GetRegionMapWidth(i); x++)
                 {
-                    if (GetMapsecType(GetSelectedMapSection(i, LAYER_MAP, y, x)) == MAPSECTYPE_VISITED)
+                    if (numIcons < NELEMS(sMapIcons->flyIcons) && GetMapsecType(GetPageMapSection(i, LAYER_MAP, y, x)) == MAPSECTYPE_VISITED)
                     {
                         CreateFlyIconSprite(i, numIcons, x, y, numIcons + 10, 10);
                         numIcons++;
@@ -3606,6 +3871,8 @@ static void CreateDungeonIcons(void)
     u8 mapsec;
     for (i = 0; i < REGIONMAP_COUNT; i++)
     {
+        if (IsRegionMapPage(i))
+            continue; // pages have no dungeon layer
         for (y = 0; y < MAP_HEIGHT; y++)
         {
             for (x = 0; x < MAP_WIDTH; x++)
@@ -3635,7 +3902,11 @@ static void SetFlyIconInvisibility(u8 whichMap, u8 iconNum, bool8 invisible)
         for (i = 0; i < NELEMS(sMapIcons->flyIcons); i++)
         {
             if (sMapIcons->flyIcons[i].region == whichMap || whichMap == 0xFF)
-                sMapIcons->flyIcons[i].sprite->invisible = invisible;
+            {
+                s16 column = sMapIcons->flyIcons[i].pageX - GetRegionMapScroll(sMapIcons->flyIcons[i].region);
+                // On a scrolled page an icon outside the visible columns stays hidden.
+                sMapIcons->flyIcons[i].sprite->invisible = invisible || column < 0 || column >= MAP_VISIBLE_COLUMNS;
+            }
         }
     }
     else

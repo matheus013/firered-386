@@ -1074,3 +1074,45 @@ Resultado (`docs/map-audits/region-map-pages.json`):
 Teste novo: `scripts/test_region_map_pages.py` (3 casos). Ele redesenha as páginas a partir dos
 arquivos gerados e compara pixel a pixel com a fonte. Também confere o limite do BG0, as paletas
 livres e a grade.
+
+### Passo 2: páginas no motor com rolagem (09/11)
+
+Mudanças em `src/region_map.c`:
+
+- **Novas regiões:** `REGIONMAP_HOENN` e `REGIONMAP_JOHTO`. O mapa abre na página da região onde o
+  jogador está (IDs de Hoenn abaixo de `KANTO_MAPSEC_START`; os de Johto, depois de
+  `JOHTO_MAPSEC_START`).
+- **Abertura:** a página já abre rolada até a seção atual.
+- **Tiles e paletas:** os tiles da página vão para a VRAM só quando ela aparece, porque as duas juntas
+  não cabem a partir do tile 576. As paletas (5–10) carregam ao abrir.
+- **Fundo:** a arte da página preenche a janela do mapa (tiles 3–26, linhas 2–19). A moldura, as
+  linhas de cima e o botão "cancelar" vêm do fundo de Kanto do FireRed, como nas outras páginas.
+- **Rolagem:** é uma coluna por passo, no mesmo ritmo do cursor. Ao chegar na coluna 20 indo para a
+  direita, ou na coluna 0 indo para a esquerda, a página rola em vez de o cursor andar.
+  - O fundo é recopiado a cada passo.
+  - O ícone do jogador e os de Fly guardam a posição na página e somem quando saem da tela.
+  - Start leva o cursor ao jogador e rola a página até ele.
+- **Seções:** `GetSelectedMapSection` usa coluna da tela + deslocamento, e `GetPageMapSection` usa
+  coluna da página.
+  - As páginas não têm camada de cavernas.
+  - Seções sem nome no FireRed (fora dos pilotos) não mostram nada.
+- **Posição do jogador:** vem dos novos campos `hoenn_x`/`hoenn_y`/`hoenn_width`/`hoenn_height`
+  (tabelas `sHoennMapSection*`) e, em Johto, de `x`/`y`. O conversor os calcula a partir da grade de
+  cada página.
+
+O conversor passou a aceitar só as seções da própria região: o HNS usa `MAPSEC_SAFARI_ZONE`, que no
+FireRed é um ID de Hoenn. As paletas saem com quebra de linha LF, porque o `gbagfx` não aceita CRLF,
+e `*.pal` ganhou `eol=lf` no `.gitattributes`.
+
+**Teste:** 169 casos aprovados.
+
+- Os casos do mapa em Littleroot e New Bark agora abrem as páginas de Hoenn e Johto.
+- Dois casos novos seguram a direção com o mapa aberto e conferem o tile da tela antes e depois:
+  Hoenn rola de 0 para 6 e Johto de 3 para 0.
+- Capturas em `docs/map-audits/region-map-hoenn-open.png`, `region-map-hoenn-scrolled.png` e
+  `region-map-johto-scrolled.png`.
+
+Ainda falta neste marco:
+
+- Hoenn e Johto no menu de troca;
+- Fly e locais de cura.

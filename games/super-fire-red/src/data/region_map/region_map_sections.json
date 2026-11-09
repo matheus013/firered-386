@@ -2,155 +2,355 @@
   "map_sections": [
     {
       "id": "MAPSEC_LITTLEROOT_TOWN",
-      "hoenn_name": "LITTLEROOT TOWN"
+      "hoenn_name": "LITTLEROOT TOWN",
+      "hoenn_x": 4,
+      "hoenn_y": 11,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_OLDALE_TOWN"
+      "id": "MAPSEC_OLDALE_TOWN",
+      "hoenn_x": 4,
+      "hoenn_y": 9,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_DEWFORD_TOWN"
+      "id": "MAPSEC_DEWFORD_TOWN",
+      "hoenn_x": 2,
+      "hoenn_y": 14,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_LAVARIDGE_TOWN"
+      "id": "MAPSEC_LAVARIDGE_TOWN",
+      "hoenn_x": 5,
+      "hoenn_y": 3,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_FALLARBOR_TOWN"
+      "id": "MAPSEC_FALLARBOR_TOWN",
+      "hoenn_x": 3,
+      "hoenn_y": 0,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_VERDANTURF_TOWN"
+      "id": "MAPSEC_VERDANTURF_TOWN",
+      "hoenn_x": 4,
+      "hoenn_y": 6,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_PACIFIDLOG_TOWN"
+      "id": "MAPSEC_PACIFIDLOG_TOWN",
+      "hoenn_x": 17,
+      "hoenn_y": 10,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_PETALBURG_CITY"
+      "id": "MAPSEC_PETALBURG_CITY",
+      "hoenn_x": 1,
+      "hoenn_y": 9,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_SLATEPORT_CITY"
+      "id": "MAPSEC_SLATEPORT_CITY",
+      "hoenn_x": 8,
+      "hoenn_y": 10,
+      "hoenn_width": 1,
+      "hoenn_height": 2
     },
     {
-      "id": "MAPSEC_MAUVILLE_CITY"
+      "id": "MAPSEC_MAUVILLE_CITY",
+      "hoenn_x": 8,
+      "hoenn_y": 6,
+      "hoenn_width": 2,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_RUSTBORO_CITY"
+      "id": "MAPSEC_RUSTBORO_CITY",
+      "hoenn_x": 0,
+      "hoenn_y": 5,
+      "hoenn_width": 1,
+      "hoenn_height": 2
     },
     {
-      "id": "MAPSEC_FORTREE_CITY"
+      "id": "MAPSEC_FORTREE_CITY",
+      "hoenn_x": 12,
+      "hoenn_y": 0,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_LILYCOVE_CITY"
+      "id": "MAPSEC_LILYCOVE_CITY",
+      "hoenn_x": 18,
+      "hoenn_y": 3,
+      "hoenn_width": 2,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_MOSSDEEP_CITY"
+      "id": "MAPSEC_MOSSDEEP_CITY",
+      "hoenn_x": 24,
+      "hoenn_y": 5,
+      "hoenn_width": 2,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_SOOTOPOLIS_CITY"
+      "id": "MAPSEC_SOOTOPOLIS_CITY",
+      "hoenn_x": 21,
+      "hoenn_y": 7,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_EVER_GRANDE_CITY"
+      "id": "MAPSEC_EVER_GRANDE_CITY",
+      "hoenn_x": 27,
+      "hoenn_y": 8,
+      "hoenn_width": 1,
+      "hoenn_height": 2
     },
     {
       "id": "MAPSEC_ROUTE_101",
-      "hoenn_name": "ROUTE 101"
+      "hoenn_name": "ROUTE 101",
+      "hoenn_x": 4,
+      "hoenn_y": 10,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_102"
+      "id": "MAPSEC_ROUTE_102",
+      "hoenn_x": 2,
+      "hoenn_y": 9,
+      "hoenn_width": 2,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_103"
+      "id": "MAPSEC_ROUTE_103",
+      "hoenn_x": 4,
+      "hoenn_y": 8,
+      "hoenn_width": 4,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_104"
+      "id": "MAPSEC_ROUTE_104",
+      "hoenn_x": 0,
+      "hoenn_y": 7,
+      "hoenn_width": 1,
+      "hoenn_height": 3
     },
     {
-      "id": "MAPSEC_ROUTE_105"
+      "id": "MAPSEC_ROUTE_105",
+      "hoenn_x": 0,
+      "hoenn_y": 10,
+      "hoenn_width": 1,
+      "hoenn_height": 3
     },
     {
-      "id": "MAPSEC_ROUTE_106"
+      "id": "MAPSEC_ROUTE_106",
+      "hoenn_x": 0,
+      "hoenn_y": 13,
+      "hoenn_width": 3,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_107"
+      "id": "MAPSEC_ROUTE_107",
+      "hoenn_x": 3,
+      "hoenn_y": 14,
+      "hoenn_width": 3,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_108"
+      "id": "MAPSEC_ROUTE_108",
+      "hoenn_x": 6,
+      "hoenn_y": 14,
+      "hoenn_width": 2,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_109"
+      "id": "MAPSEC_ROUTE_109",
+      "hoenn_x": 8,
+      "hoenn_y": 12,
+      "hoenn_width": 1,
+      "hoenn_height": 3
     },
     {
-      "id": "MAPSEC_ROUTE_110"
+      "id": "MAPSEC_ROUTE_110",
+      "hoenn_x": 8,
+      "hoenn_y": 7,
+      "hoenn_width": 1,
+      "hoenn_height": 3
     },
     {
-      "id": "MAPSEC_ROUTE_111"
+      "id": "MAPSEC_ROUTE_111",
+      "hoenn_x": 8,
+      "hoenn_y": 0,
+      "hoenn_width": 1,
+      "hoenn_height": 6
     },
     {
-      "id": "MAPSEC_ROUTE_112"
+      "id": "MAPSEC_ROUTE_112",
+      "hoenn_x": 6,
+      "hoenn_y": 3,
+      "hoenn_width": 2,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_113"
+      "id": "MAPSEC_ROUTE_113",
+      "hoenn_x": 4,
+      "hoenn_y": 0,
+      "hoenn_width": 4,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_114"
+      "id": "MAPSEC_ROUTE_114",
+      "hoenn_x": 1,
+      "hoenn_y": 0,
+      "hoenn_width": 2,
+      "hoenn_height": 3
     },
     {
-      "id": "MAPSEC_ROUTE_115"
+      "id": "MAPSEC_ROUTE_115",
+      "hoenn_x": 0,
+      "hoenn_y": 2,
+      "hoenn_width": 1,
+      "hoenn_height": 3
     },
     {
-      "id": "MAPSEC_ROUTE_116"
+      "id": "MAPSEC_ROUTE_116",
+      "hoenn_x": 1,
+      "hoenn_y": 5,
+      "hoenn_width": 4,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_117"
+      "id": "MAPSEC_ROUTE_117",
+      "hoenn_x": 5,
+      "hoenn_y": 6,
+      "hoenn_width": 3,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_118"
+      "id": "MAPSEC_ROUTE_118",
+      "hoenn_x": 10,
+      "hoenn_y": 6,
+      "hoenn_width": 2,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_119"
+      "id": "MAPSEC_ROUTE_119",
+      "hoenn_x": 11,
+      "hoenn_y": 0,
+      "hoenn_width": 1,
+      "hoenn_height": 6
     },
     {
-      "id": "MAPSEC_ROUTE_120"
+      "id": "MAPSEC_ROUTE_120",
+      "hoenn_x": 13,
+      "hoenn_y": 0,
+      "hoenn_width": 1,
+      "hoenn_height": 4
     },
     {
-      "id": "MAPSEC_ROUTE_121"
+      "id": "MAPSEC_ROUTE_121",
+      "hoenn_x": 14,
+      "hoenn_y": 3,
+      "hoenn_width": 4,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_122"
+      "id": "MAPSEC_ROUTE_122",
+      "hoenn_x": 16,
+      "hoenn_y": 4,
+      "hoenn_width": 1,
+      "hoenn_height": 2
     },
     {
-      "id": "MAPSEC_ROUTE_123"
+      "id": "MAPSEC_ROUTE_123",
+      "hoenn_x": 12,
+      "hoenn_y": 6,
+      "hoenn_width": 5,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_124"
+      "id": "MAPSEC_ROUTE_124",
+      "hoenn_x": 20,
+      "hoenn_y": 3,
+      "hoenn_width": 4,
+      "hoenn_height": 3
     },
     {
-      "id": "MAPSEC_ROUTE_125"
+      "id": "MAPSEC_ROUTE_125",
+      "hoenn_x": 24,
+      "hoenn_y": 3,
+      "hoenn_width": 2,
+      "hoenn_height": 2
     },
     {
-      "id": "MAPSEC_ROUTE_126"
+      "id": "MAPSEC_ROUTE_126",
+      "hoenn_x": 20,
+      "hoenn_y": 6,
+      "hoenn_width": 3,
+      "hoenn_height": 3
     },
     {
-      "id": "MAPSEC_ROUTE_127"
+      "id": "MAPSEC_ROUTE_127",
+      "hoenn_x": 23,
+      "hoenn_y": 6,
+      "hoenn_width": 3,
+      "hoenn_height": 3
     },
     {
-      "id": "MAPSEC_ROUTE_128"
+      "id": "MAPSEC_ROUTE_128",
+      "hoenn_x": 23,
+      "hoenn_y": 9,
+      "hoenn_width": 4,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_129"
+      "id": "MAPSEC_ROUTE_129",
+      "hoenn_x": 24,
+      "hoenn_y": 10,
+      "hoenn_width": 2,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_130"
+      "id": "MAPSEC_ROUTE_130",
+      "hoenn_x": 21,
+      "hoenn_y": 10,
+      "hoenn_width": 3,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_131"
+      "id": "MAPSEC_ROUTE_131",
+      "hoenn_x": 18,
+      "hoenn_y": 10,
+      "hoenn_width": 3,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_132"
+      "id": "MAPSEC_ROUTE_132",
+      "hoenn_x": 15,
+      "hoenn_y": 10,
+      "hoenn_width": 2,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_133"
+      "id": "MAPSEC_ROUTE_133",
+      "hoenn_x": 12,
+      "hoenn_y": 10,
+      "hoenn_width": 3,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_ROUTE_134"
+      "id": "MAPSEC_ROUTE_134",
+      "hoenn_x": 9,
+      "hoenn_y": 10,
+      "hoenn_width": 3,
+      "hoenn_height": 1
     },
     {
       "id": "MAPSEC_UNDERWATER_124"
@@ -171,13 +371,25 @@
       "id": "MAPSEC_GRANITE_CAVE"
     },
     {
-      "id": "MAPSEC_MT_CHIMNEY"
+      "id": "MAPSEC_MT_CHIMNEY",
+      "hoenn_x": 6,
+      "hoenn_y": 1,
+      "hoenn_width": 2,
+      "hoenn_height": 2
     },
     {
-      "id": "MAPSEC_SAFARI_ZONE"
+      "id": "MAPSEC_SAFARI_ZONE",
+      "hoenn_x": 16,
+      "hoenn_y": 2,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_BATTLE_FRONTIER"
+      "id": "MAPSEC_BATTLE_FRONTIER",
+      "hoenn_x": 22,
+      "hoenn_y": 12,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
       "id": "MAPSEC_PETALBURG_WOODS"
@@ -222,7 +434,11 @@
       "id": "MAPSEC_CAVE_OF_ORIGIN"
     },
     {
-      "id": "MAPSEC_SOUTHERN_ISLAND"
+      "id": "MAPSEC_SOUTHERN_ISLAND",
+      "hoenn_x": 12,
+      "hoenn_y": 14,
+      "hoenn_width": 1,
+      "hoenn_height": 1
     },
     {
       "id": "MAPSEC_FIERY_PATH"
@@ -1145,17 +1361,17 @@
     {
       "id": "MAPSEC_NEW_BARK_TOWN",
       "name": "NEW BARK TOWN",
-      "x": 0,
-      "y": 0,
+      "x": 19,
+      "y": 10,
       "width": 1,
       "height": 1
     },
     {
       "id": "MAPSEC_ROUTE_29",
       "name": "ROUTE 29",
-      "x": 0,
-      "y": 0,
-      "width": 1,
+      "x": 15,
+      "y": 10,
+      "width": 4,
       "height": 1
     }
   ]

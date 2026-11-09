@@ -132,9 +132,9 @@ def convert(references, game, region, report):
             for k, v in enumerate(t):
                 px[ox + k % 8, oy + k // 8] = v
         img.save(out / f'{region}_page_{i}.png')
-        (out / f'{region}_page_{i}.pal').write_text(
-            'JASC-PAL\r\n0100\r\n16\r\n' + ''.join(f'{r << 3} {g << 3} {b << 3}\r\n' for r, g, b in pal + [(0, 0, 0)] * (16 - len(pal))),
-            encoding='ascii')
+        # gbagfx reads JASC palettes with LF line endings only.
+        (out / f'{region}_page_{i}.pal').write_bytes(
+            ('JASC-PAL\n0100\n16\n' + ''.join(f'{r << 3} {g << 3} {b << 3}\n' for r, g, b in pal + [(0, 0, 0)] * (16 - len(pal)))).encode('ascii'))
     words = []
     for (p, local), flip, pal_index in entries:
         words.append((starts[p] + local) | (flip << 10) | ((first_pal + pal_index) << 12))
@@ -143,7 +143,10 @@ def convert(references, game, region, report):
     text = (src / layout_h).read_text(encoding='utf-8')
     body = text.split(array)[1]
     rows = [[c.strip() for c in r.split(',') if c.strip()] for r in re.findall(r'\{(MAPSEC_[^{}]*)\}', body)][:GRID_ROWS]
-    known = set(re.findall(r'"id": "(MAPSEC_\w+)"', (game / 'src/data/region_map/region_map_sections.json').read_text(encoding='utf-8')))
+    # Only the region's own IDs: Hoenn's come before MAPSEC_PALLET_TOWN (KANTO_MAPSEC_START), Johto's after
+    # MAPSEC_SPECIAL_AREA. HNS reuses some Hoenn names (MAPSEC_SAFARI_ZONE) for Johto places.
+    ids = [e['id'] for e in json.loads((game / 'src/data/region_map/region_map_sections.json').read_text(encoding='utf-8'))['map_sections']]
+    known = set(ids[:ids.index('MAPSEC_PALLET_TOWN')] if region == 'hoenn' else ids[ids.index('MAPSEC_SPECIAL_AREA') + 1:])
     grid = [[c if c in known else 'MAPSEC_NONE' for c in r[:width]] for r in rows]
     dropped = sorted({c for r in rows for c in r[:width]} - known - {'MAPSEC_NONE'})
     name = f'sRegionMapSections_{region.title()}'
@@ -157,6 +160,33 @@ def convert(references, game, region, report):
     report[region] = {'source': f'{repo} {png}, {tilemap}, {layout_h}', 'grid_width': width, 'page_columns': cols,
                       'tiles': counts, 'first_tile': TILE_BASE, 'palettes': len(palettes), 'first_palette': first_pal,
                       'colours': [len(p) - 1 for p in palettes], 'sections_dropped': dropped}
+    return grid
+
+
+def section_boxes(grid):
+    """Bounding box (x, y, width, height) of every section on a page grid."""
+    boxes = {}
+    for y, row in enumerate(grid):
+        for x, mapsec in enumerate(row):
+            if mapsec == 'MAPSEC_NONE':
+                continue
+            x0, y0, x1, y1 = boxes.get(mapsec, (x, y, x, y))
+            boxes[mapsec] = (min(x0, x), min(y0, y), max(x1, x), max(y1, y))
+    return {m: (x0, y0, x1 - x0 + 1, y1 - y0 + 1) for m, (x0, y0, x1, y1) in boxes.items()}
+
+
+def update_section_positions(game, grids):
+    """Write each page section's position into region_map_sections.json, where the player icon reads it.
+    Hoenn IDs come before KANTO_MAPSEC_START and use their own table (hoenn_x/...); Johto ones use x/y."""
+    path = game / 'src/data/region_map/region_map_sections.json'
+    data = json.loads(path.read_text(encoding='utf-8'))
+    for region, grid in grids.items():
+        prefix = 'hoenn_' if region == 'hoenn' else ''
+        for entry in data['map_sections']:
+            box = section_boxes(grid).get(entry['id'])
+            if box:
+                entry.update({prefix + k: v for k, v in zip(('x', 'y', 'width', 'height'), box)})
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n', encoding='utf-8', newline='\n')
 
 
 def main():
@@ -166,8 +196,8 @@ def main():
     p.add_argument('--report', type=Path, required=True)
     a = p.parse_args()
     report = {}
-    for region in PAGES:
-        convert(a.references, a.game, region, report)
+    grids = {region: convert(a.references, a.game, region, report) for region in PAGES}
+    update_section_positions(a.game, grids)
     a.report.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report))
 
