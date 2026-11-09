@@ -1101,8 +1101,9 @@ Mudanças em `src/region_map.c`:
   cada página.
 
 O conversor passou a aceitar só as seções da própria região: o HNS usa `MAPSEC_SAFARI_ZONE`, que no
-FireRed é um ID de Hoenn. As paletas saem com quebra de linha LF, porque o `gbagfx` não aceita CRLF,
-(o erro era um CR solto, de uma escrita que gerava `
+FireRed é um ID de Hoenn. As paletas são gravadas em bytes com LF. O erro do `gbagfx` vinha de um CR
+solto: a primeira versão escrevia CR+CR+LF. CRLF, que o pokefirered usa nas paletas, também funciona.
+
 `; CRLF, que o pokefirered usa nas paletas, funciona).
 
 **Teste:** 169 casos aprovados.
