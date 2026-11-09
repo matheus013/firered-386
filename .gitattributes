@@ -21,4 +21,3 @@ games/super-fire-red/tools/agbcc/** -text -whitespace
 # Preserve pinned upstream bytes and manifest hashes.
 games/super-fire-red/hack-data/upstream/pokeapi/*.csv -text -whitespace
 games/super-fire-red/hack-data/upstream/pokefirered-base.tar.gz binary
-*.pal text eol=lf
