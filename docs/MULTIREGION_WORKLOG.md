@@ -1006,3 +1006,71 @@ Os passos 1 a 4 estão concluídos. Pendências da expansão continuam no roadma
 - percurso contínuo;
 - geografia completa;
 - rebalanceamento geral e level cap 255.
+
+## 09/11/2026 — M5: mapa regional e Fly, plano (Claude)
+
+Decisões do usuário:
+
+- **Arte original com rolagem:** a arte do Emerald (Hoenn) e do HNS (Johto) é convertida para o
+  formato do mapa do FireRed, e essas páginas rolam para os lados;
+- **Menu de troca do FireRed:** Hoenn e Johto entram no menu que já troca Kanto/Sevii, aparecendo só
+  depois de visitar cada região.
+
+O que o levantamento mostrou:
+
+- **Grade e tela:** o FireRed mostra 21 colunas de mapa mais a coluna dos botões, nas células de tela
+  4 a 25. A coluna 21 da grade tem os botões "trocar" (21,11) e "cancelar" (21,13). Hoenn usa 28
+  colunas e Johto 25 (colunas 0–24 do HNS).
+- **Origem da arte:** as fontes guardam o mapa como fundo *affine* 8bpp (tilemap 64×64 de 1 byte). A
+  célula (c,r) da grade fica no tile (c+1, r+2).
+- **Tamanho da arte:** Hoenn tem 233 tiles e 27 cores; Johto, 250 tiles e 18 cores. Nenhum tile passa
+  de 9 cores, então cada região cabe em duas paletas de 15 cores.
+- **VRAM:** o BG0 do mapa usa os tiles 0–319 (FireRed). Os tiles 512–575 recebem a animação de
+  abertura (BG1) e os tiles 512–516 o fundo do modo Fly. As páginas novas ficam a partir do tile 576,
+  com 448 espaços livres.
+- **Rolagem em passos de célula:** a cada coluna, o buffer do BG0 é recopiado da página larga,
+  mantendo os botões fixos. Cursor, ícone do jogador e ícones de Fly usam "coluna da página =
+  coluna da tela + deslocamento".
+- **Fly:** no FireRed o modo Fly não tem botão de troca e mostra a página da região onde o jogador
+  está. Então, em Hoenn, o Fly mostra Hoenn. Littleroot e New Bark precisam de *heal locations* e de
+  flags de "visitado".
+- **Menu de troca:** as opções são miniaturas das regiões (`switch_map_menu.png`), não texto. Hoenn e
+  Johto precisam de miniaturas próprias.
+
+Passos:
+
+1. conversor da arte (tiles, paletas, tilemap largo, grade de seções);
+2. páginas no motor com rolagem;
+3. menu de troca;
+4. Fly e locais de cura;
+5. teste na ROM.
+
+### Passo 1: conversão da arte (09/11)
+
+Novo `scripts/convert_region_map_pages.py`. Ele lê o mapa *affine* 8bpp de cada fonte e gera:
+
+- `graphics/region_map/<região>_page_<n>.png`/`.pal`: uma folha 4bpp por paleta, com um tile por linha
+  para que a numeração continue contígua sem tiles de enchimento;
+- `<região>_page.bin`: tilemap de 20 linhas, com as colunas da grade mais 4 à esquerda e 5 à direita.
+  Os tiles começam em 576 e as paletas em 5 (Hoenn) e 9 (Johto);
+- `src/data/region_map/region_map_layout_<região>.h`: a grade de seções, com
+  `REGIONMAP_<REGIÃO>_WIDTH`.
+
+Resultado (`docs/map-audits/region-map-pages.json`):
+
+| Região | Colunas da grade | Colunas da página | Tiles | Paletas |
+|---|---:|---:|---:|---|
+| Hoenn | 28 | 37 | 232 | 4 (slots 5–8) |
+| Johto | 25 | 34 | 245 | 2 (slots 9–10) |
+
+- **Cores:** todas são opacas e exatas na precisão do GBA. O índice 0 de cada paleta, que é
+  transparente no hardware, fica sem uso.
+- **Tiles repetidos:** são deduplicados também por espelhamento.
+- **Fora da arte original:** entra o mar aberto da própria fonte.
+- **Paletas de Hoenn:** são 4, porque as 27 cores não se dividem em dois grupos de 15.
+- **Seções de Johto:** só New Bark e Route 29 existem no FireRed. As outras 53 seções do HNS ficam
+  `MAPSEC_NONE` (a arte aparece, mas sem nome). Em Hoenn todas as seções existem no FireRed.
+
+Teste novo: `scripts/test_region_map_pages.py` (3 casos). Ele redesenha as páginas a partir dos
+arquivos gerados e compara pixel a pixel com a fonte. Também confere o limite do BG0, as paletas
+livres e a grade.

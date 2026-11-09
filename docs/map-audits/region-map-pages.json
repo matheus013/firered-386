@@ -1,0 +1,93 @@
+{
+  "hoenn": {
+    "source": "pokeemerald graphics/pokenav/region_map/map.png, graphics/pokenav/region_map/map.bin, src/data/region_map/region_map_layout.h",
+    "grid_width": 28,
+    "page_columns": 37,
+    "tiles": [
+      106,
+      38,
+      87,
+      1
+    ],
+    "first_tile": 576,
+    "palettes": 4,
+    "first_palette": 5,
+    "colours": [
+      15,
+      15,
+      15,
+      4
+    ],
+    "sections_dropped": []
+  },
+  "johto": {
+    "source": "HNS_modern graphics/pokenav/region_map/johtomap.png, graphics/pokenav/region_map/johtomap.bin, src/data/region_map/region_map_layout_johto.h",
+    "grid_width": 25,
+    "page_columns": 34,
+    "tiles": [
+      75,
+      170
+    ],
+    "first_tile": 576,
+    "palettes": 2,
+    "first_palette": 9,
+    "colours": [
+      15,
+      9
+    ],
+    "sections_dropped": [
+      "MAPSEC_AZALEA_TOWN",
+      "MAPSEC_BLACKTHORN_CITY",
+      "MAPSEC_BURNED_TOWER",
+      "MAPSEC_CHERRYGROVE_CITY",
+      "MAPSEC_CIANWOOD_CITY",
+      "MAPSEC_CLIFF_CAVE",
+      "MAPSEC_DARK_CAVE",
+      "MAPSEC_DRAGONS_DEN",
+      "MAPSEC_ECRUTEAK_CITY",
+      "MAPSEC_EMBEDDED_TOWER",
+      "MAPSEC_GOLDENROD_CITY",
+      "MAPSEC_ICE_PATH",
+      "MAPSEC_ILEX_FOREST",
+      "MAPSEC_LAKE_OF_RAGE",
+      "MAPSEC_MAHOGANY_TOWN",
+      "MAPSEC_MT_MORTAR",
+      "MAPSEC_MT_SILVER",
+      "MAPSEC_NATIONAL_PARK",
+      "MAPSEC_OLIVINE_CITY",
+      "MAPSEC_OLIVINE_LIGHTHOUSE",
+      "MAPSEC_ROUTE_26",
+      "MAPSEC_ROUTE_27",
+      "MAPSEC_ROUTE_28",
+      "MAPSEC_ROUTE_30",
+      "MAPSEC_ROUTE_31",
+      "MAPSEC_ROUTE_32",
+      "MAPSEC_ROUTE_33",
+      "MAPSEC_ROUTE_34",
+      "MAPSEC_ROUTE_35",
+      "MAPSEC_ROUTE_36",
+      "MAPSEC_ROUTE_37",
+      "MAPSEC_ROUTE_38",
+      "MAPSEC_ROUTE_39",
+      "MAPSEC_ROUTE_40",
+      "MAPSEC_ROUTE_41",
+      "MAPSEC_ROUTE_42",
+      "MAPSEC_ROUTE_43",
+      "MAPSEC_ROUTE_44",
+      "MAPSEC_ROUTE_45",
+      "MAPSEC_ROUTE_46",
+      "MAPSEC_ROUTE_47",
+      "MAPSEC_ROUTE_48",
+      "MAPSEC_RUINS_OF_ALPH",
+      "MAPSEC_SAFARI_ZONE_GATE",
+      "MAPSEC_SLOWPOKE_WELL",
+      "MAPSEC_SPROUT_TOWER",
+      "MAPSEC_TIN_TOWER",
+      "MAPSEC_TOHJO_FALLS",
+      "MAPSEC_TRAINER_HILL",
+      "MAPSEC_UNION_CAVE",
+      "MAPSEC_VIOLET_CITY",
+      "MAPSEC_WHIRL_ISLANDS"
+    ]
+  }
+}
