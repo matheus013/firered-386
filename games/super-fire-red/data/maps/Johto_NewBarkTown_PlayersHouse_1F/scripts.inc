@@ -2,9 +2,21 @@
 Johto_NewBarkTown_PlayersHouse_1F_MapScripts::
 	.byte 0
 
+Johto_NewBarkTown_PlayersHouse_1F_EventScript_Object0::
+	msgbox Johto_NewBarkTown_PlayersHouse_1F_Text_MomLeaving2, MSGBOX_NPC
+	end
+
 Johto_NewBarkTown_PlayersHouse_1F_EventScript_Object1::
 	msgbox Johto_NewBarkTown_PlayersHouse_1F_Text_MomsFriend, MSGBOX_NPC
 	end
+
+@ HNS_modern data/maps/NewBarkTown_PlayersHouse_1F/scripts.inc: NewBarkTown_PlayersHouse_1F_Text_MomLeaving2
+Johto_NewBarkTown_PlayersHouse_1F_Text_MomLeaving2::
+	.string "Just be careful.\p"
+	.string "Pokémon are your friends.\n"
+	.string "You need to work as a team.\p"
+	.string "Now, go on!\n"
+	.string "I'm behind you all the way!$"
 
 @ HNS_modern data/maps/NewBarkTown_PlayersHouse_1F/scripts.inc: NewBarkTown_PlayersHouse_1F_Text_MomsFriend
 Johto_NewBarkTown_PlayersHouse_1F_Text_MomsFriend::

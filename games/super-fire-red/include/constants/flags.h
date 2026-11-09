@@ -48,6 +48,8 @@
 #define FLAG_EXP_SHARE_UNLOCKED  FLAG_0x020
 #define FLAG_EXP_SHARE_DISABLED  FLAG_0x021
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
+#define FLAG_GOT_JOHTO_AIDE_POTION FLAG_0x027 // Region pilot story (scripts/pilot_story.py)
+#define FLAG_GOT_JOHTO_AIDE_BALLS FLAG_0x07F // Region pilot story (scripts/pilot_story.py)
 #define FLAG_HIDE_JOHTO_CHIKORITA_BALL FLAG_0x024 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_HIDE_JOHTO_CYNDAQUIL_BALL FLAG_0x025 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_HIDE_JOHTO_TOTODILE_BALL FLAG_0x026 // Region pilot story (scripts/pilot_story.py)

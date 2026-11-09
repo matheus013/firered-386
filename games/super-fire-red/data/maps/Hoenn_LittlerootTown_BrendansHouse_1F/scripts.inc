@@ -2,6 +2,20 @@
 Hoenn_LittlerootTown_BrendansHouse_1F_MapScripts::
 	.byte 0
 
+Hoenn_LittlerootTown_BrendansHouse_1F_EventScript_Object0::
+	lock
+	faceplayer
+	msgbox Hoenn_LittlerootTown_BrendansHouse_1F_Text_YouShouldRestABit, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	fadescreen FADE_FROM_BLACK
+	msgbox Hoenn_LittlerootTown_BrendansHouse_1F_Text_TakeCareHoney, MSGBOX_DEFAULT
+	release
+	end
+
 Hoenn_LittlerootTown_BrendansHouse_1F_EventScript_Object1::
 	lock
 	faceplayer
@@ -21,6 +35,16 @@ Hoenn_LittlerootTown_BrendansHouse_1F_EventScript_Object2::
 	waitmoncry
 	release
 	end
+
+@ pokeemerald data/maps/LittlerootTown_BrendansHouse_1F/scripts.inc: PlayersHouse_1F_Text_YouShouldRestABit
+Hoenn_LittlerootTown_BrendansHouse_1F_Text_YouShouldRestABit::
+	.string "How are you doing, {PLAYER}?\n"
+	.string "You look a little tired.\p"
+	.string "I think you should rest a bit.$"
+
+@ pokeemerald data/maps/LittlerootTown_BrendansHouse_1F/scripts.inc: PlayersHouse_1F_Text_TakeCareHoney
+Hoenn_LittlerootTown_BrendansHouse_1F_Text_TakeCareHoney::
+	.string "Take care!$"
 
 @ pokeemerald data/maps/LittlerootTown_BrendansHouse_1F/scripts.inc: PlayersHouse_1F_Text_Vigoroth2
 Hoenn_LittlerootTown_BrendansHouse_1F_Text_Vigoroth2::

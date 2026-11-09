@@ -949,3 +949,60 @@ Resultado: **162/162 casos aprovados** com a correção.
 Também mantido da revisão do Codex: May e Silver em batalha dupla, como os demais treinadores do jogo.
 
 A nota "teto de nível 500" foi corrigida para a decisão de 08/11: 255, em projeto separado na `main`.
+
+## 09/11/2026 — Fase 3, passo 4: mães e presentes da assistente do Elm (Claude)
+
+Decisões do usuário: **adaptar as falas da fonte** para as mães e **incluir** os presentes da
+assistente do Elm.
+
+### Mães
+
+- **Mãe da casa do Brendan (Hoenn):** usa o ramo `MomHealsParty` do Emerald.
+  - Diz `PlayersHouse_1F_Text_YouShouldRestABit`, a tela escurece, toca a música de cura, o time é
+    curado e ela se despede com `PlayersHouse_1F_Text_TakeCareHoney`.
+  - Adaptação: saiu o prefixo "MOM: " e o ", honey" ("Take care, honey!" → "Take care!"). Regra
+    `ADAPTATIONS` em `pilot_story.py`, aplicada só nas falas da história.
+- **Mãe de New Bark (Johto):** usa a segunda página da despedida do HNS
+  (`NewBarkTown_PlayersHouse_1F_Text_MomLeaving2`, "Just be careful… I'm behind you all the way!"). O
+  texto é **sem alteração**, porque não chama o jogador de filho.
+
+### Assistente do Elm
+
+`johto_pilot_story.py`, objeto 0 do laboratório, com as falas do HNS:
+
+- antes do inicial: `AideAlwaysBusy`;
+- depois do inicial: `AideGivePotion` e uma Poção (`FLAG_GOT_JOHTO_AIDE_POTION`, `FLAG_0x027`);
+- depois de vencer o Silver: `AideGiveBalls`, 5 Poké Balls e `AideExplainBalls`
+  (`FLAG_GOT_JOHTO_AIDE_BALLS`, `FLAG_0x07F`);
+- com a bolsa cheia, aparece a mensagem do próprio FireRed e o presente pode ser recebido depois.
+
+No HNS a assistente vai até o jogador na saída do laboratório. Aqui ela entrega quando o jogador fala
+com ela, para não depender da célula de entrada.
+
+### Traduções
+
+6 entradas novas (85 no total; 8.223 geradas, 0 recusadas), evitando gênero do jogador.
+
+### Teste
+
+`test_region_pilot_maps.py`: **167 casos, todos aprovados**. Casos novos:
+
+- a mãe de Hoenn cura um time com 1 HP;
+- assistente antes do inicial (nada);
+- Poção depois do inicial;
+- espera pelo Silver quando a Poção já foi entregue;
+- Poké Balls depois do Silver.
+
+Ajustes no teste:
+
+- os casos de cura por conversa esperam 900 quadros, por causa do texto, da fanfarra e dos fades;
+- o texto esperado de um NPC com ramos vem do ramo padrão (`_Busy`).
+
+### Estado da fase 3
+
+Os passos 1 a 4 estão concluídos. Pendências da expansão continuam no roadmap:
+
+- mapa regional, Fly e cura;
+- percurso contínuo;
+- geografia completa;
+- rebalanceamento geral e level cap 255.

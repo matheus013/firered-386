@@ -3,7 +3,32 @@ Johto_NewBarkTown_Lab_MapScripts::
 	.byte 0
 
 Johto_NewBarkTown_Lab_EventScript_Object0::
-	msgbox Johto_NewBarkTown_Lab_Text_AideAlwaysBusy, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_lt VAR_JOHTO_STORY, 2, Johto_NewBarkTown_Lab_EventScript_Object0_Busy
+	goto_if_unset FLAG_GOT_JOHTO_AIDE_POTION, Johto_NewBarkTown_Lab_EventScript_Object0_Potion
+	goto_if_lt VAR_JOHTO_STORY, 3, Johto_NewBarkTown_Lab_EventScript_Object0_Busy
+	goto_if_unset FLAG_GOT_JOHTO_AIDE_BALLS, Johto_NewBarkTown_Lab_EventScript_Object0_Balls
+Johto_NewBarkTown_Lab_EventScript_Object0_Busy::
+	msgbox Johto_NewBarkTown_Lab_Text_AideAlwaysBusy, MSGBOX_DEFAULT
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object0_Potion::
+	msgbox Johto_NewBarkTown_Lab_Text_AideGivePotion, MSGBOX_DEFAULT
+	giveitem ITEM_POTION
+	goto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull
+	setflag FLAG_GOT_JOHTO_AIDE_POTION
+	release
+	end
+
+Johto_NewBarkTown_Lab_EventScript_Object0_Balls::
+	msgbox Johto_NewBarkTown_Lab_Text_AideGiveBalls, MSGBOX_DEFAULT
+	giveitem ITEM_POKE_BALL, 5
+	goto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull
+	setflag FLAG_GOT_JOHTO_AIDE_BALLS
+	msgbox Johto_NewBarkTown_Lab_Text_AideExplainBalls, MSGBOX_DEFAULT
+	release
 	end
 
 Johto_NewBarkTown_Lab_EventScript_Object1::
@@ -246,6 +271,24 @@ Johto_NewBarkTown_Lab_EventScript_Sign18::
 Johto_NewBarkTown_Lab_Text_AideAlwaysBusy::
 	.string "There are only three of us, so\n"
 	.string "we're always busy.$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_AideGivePotion
+Johto_NewBarkTown_Lab_Text_AideGivePotion::
+	.string "{PLAYER}, I want you to have\n"
+	.string "this for your errand.$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_AideGiveBalls
+Johto_NewBarkTown_Lab_Text_AideGiveBalls::
+	.string "{PLAYER}!\p"
+	.string "Use these on your Pokédex\n"
+	.string "quest!$"
+
+@ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_AideExplainBalls
+Johto_NewBarkTown_Lab_Text_AideExplainBalls::
+	.string "To add to your Pokédex, you\n"
+	.string "have to catch Pokémon.\p"
+	.string "Throw Poké Balls at wild\n"
+	.string "Pokémon to get them.$"
 
 @ HNS_modern data/maps/NewBarkTown_Lab/scripts.inc: NewBarkTown_Lab_Text_ElmIntro
 Johto_NewBarkTown_Lab_Text_ElmIntro::

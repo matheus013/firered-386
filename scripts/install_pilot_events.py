@@ -73,7 +73,7 @@ EVENTS = {
     # Family choice (user, 08/11/2026): May is Birch's daughter. May's house = Birch family,
     # Brendan's house = Norman family, as in Emerald with a male player. Cutscene-only objects stay out.
     'LittlerootTown_BrendansHouse_1F': (EMERALD, {
-        0: ('silent', None, 'Brendan\'s mother: every source line speaks to her own child'),
+        0: ('story', None, "Brendan's mother: Emerald's rest-and-heal lines, adapted for a visitor (pilot_story.py)"),
         1: ('cry', ('SPECIES_VIGOROTH', 'PlayersHouse_1F_Text_Vigoroth2'), 'mover'),
         2: ('cry', ('SPECIES_VIGOROTH', 'PlayersHouse_1F_Text_Vigoroth1'), 'mover')}, {}),
     'LittlerootTown_BrendansHouse_2F': (EMERALD, {
@@ -110,7 +110,7 @@ EVENTS = {
     'Gate_Route29_Route46': (HNS, {
         0: ('npc', 'Gate_Route29_Route46_Text_Officer', ''), 1: ('npc', 'Gate_Route29_Route46_Text_Youngster', '')}, {}),
     'NewBarkTown_Lab': (HNS, {
-        0: ('npc', 'NewBarkTown_Lab_Text_AideAlwaysBusy', 'source hides him during the story; always shown'),
+        0: ('story', None, 'aide: Potion after the starter, Poke Balls after Silver, then AideAlwaysBusy (johto_pilot_story.py)'),
         1: ('story', None, 'Elm research request: raise one Pokemon; no egg errand outside the pilot'),
         2: ('npc', 'NewBarkTown_Lab_Text_AideSave', 'default branch'),
         3: ('story', None, 'Chikorita gift, one starter per Johto save'),
@@ -118,7 +118,7 @@ EVENTS = {
         5: ('story', None, 'Totodile gift, one starter per Johto save')},
         'lab'),
     'NewBarkTown_PlayersHouse_1F': (HNS, {
-        0: ('silent', None, 'mother: every source line speaks to her own child'),
+        0: ('npc', 'NewBarkTown_PlayersHouse_1F_Text_MomLeaving2', 'mother: the farewell page, which fits any trainer'),
         1: ('npc', 'NewBarkTown_PlayersHouse_1F_Text_MomsFriend', 'source shows her only during the intro; always shown')}, {}),
     'NewBarkTown_PlayersHouse_2F': (HNS, {}, {2: ('sign', 'NewBarkTown_PlayersHouse_2F_Text_NES'),
                                              3: ('sign', 'Text_BookShelf'), 4: ('sign', 'Text_BookShelf')}),

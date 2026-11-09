@@ -111,7 +111,11 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
   setups=[0]+([1] if what=='heal' else [])
   for setup in setups:
    CASES.append((header['id'],sx,sy,0,0,[(key,'TALK')],setup))
-   TALKS[len(CASES)]={'map':folder.name,'kind':kind,'index':i,'script':script,'what':what,'setup':setup,'expected':shown.get(script)}
+   TALKS[len(CASES)]={'map':folder.name,'kind':kind,'index':i,'script':script,'what':what,'setup':setup,'expected':shown.get(script) or shown.get(script+'_Busy')}  # story NPCs branch to their default line
+# Brendan's mother rests the party (step 4), like Emerald's MomHealsParty branch.
+for case,info in list(TALKS.items()):
+ if (info['map'],info['kind'],info['index'],info['setup'])==('Hoenn_LittlerootTown_BrendansHouse_1F','object',0,0):
+  m,sx,sy,_,_,steps,_=CASES[case-1];CASES.append((m,sx,sy,0,0,steps,1));TALKS[len(CASES)]=dict(info,setup=1,what='heal')
 # Two PT-BR readings: a Hoenn sign and a Johto townsperson.
 for case,info in list(TALKS.items()):
  if (info['map'],info['kind'],info['index']) in {('Hoenn_LittlerootTown','sign',1),('Johto_NewBarkTown','object',1)} and info['setup']==0:
@@ -174,6 +178,12 @@ _johto_scene(4,2,0,{'name':'second Johto starter refused','story':2,'starter':0,
 _johto_scene(5,1,0,{'name':'Elm gift sent to PC','story':2,'starter':2,'party':6,'boxed':'SPECIES_TOTODILE','ballflags':4},setup=FULL_PARTY)
 _johto_scene(4,1,0,{'name':'Elm full storage preserves choice','story':1,'starter':0,'party':6,'ballflags':0},setup=FULL_PARTY|FULL_PC)
 _johto_scene(1,2,0,{'name':'Elm research after gift','story':2,'party':1})
+# Elm's aide (step 4): Potion once the starter is given, Poke Balls once Silver is beaten.
+AIDE_POTION_GIVEN=1024
+_johto_scene(0,1,0,{'name':'aide before the starter','story':1,'gifts':(0,0,0,0)})
+_johto_scene(0,2,0,{'name':'aide gives the Potion','story':2,'gifts':(1,0,1,0)})
+_johto_scene(0,2,0,{'name':'aide waits for Silver','story':2,'gifts':(0,0,1,0)},setup=AIDE_POTION_GIVEN)
+_johto_scene(0,3,0,{'name':'aide gives the Poke Balls','story':3,'gifts':(0,1,1,1)},setup=AIDE_POTION_GIVEN)
 _johto_scene(3,1,0,{'name':'Johto gift save reload','story':2,'starter':0,'party':2,'gift':'SPECIES_CHIKORITA','persist':True},setup=512)
 for choice,trainer in enumerate(('TRAINER_BRENDAN','TRAINER_BRENDAN_2','TRAINER_BRENDAN_3')):
  m,x,y,key=SPOTS[('Johto_NewBarkTown','object',2)]
@@ -371,7 +381,7 @@ static void PilotWalkCase(void)
         else if (sPilotPhase == 7 && sPilotStepFrames > 60)
         {
             gPilotKeys = (sPilotStepFrames % 20) < 3 ? A_BUTTON : 0;
-            if (sPilotStepFrames >= 420)
+            if (sPilotStepFrames >= ((gPilotSpawn[gPilotCase - 1][7] & 1) ? 900 : 420))  // heal cases: text, fanfare and fades first
             {
                 gPilotKeys = 0;
                 t[5] = GetMonData(&gPlayerParty[0], MON_DATA_HP) == GetMonData(&gPlayerParty[0], MON_DATA_MAX_HP);
@@ -434,6 +444,8 @@ static void PilotWalkCase(void)
                       | FlagGet(FLAG_HIDE_JOHTO_CYNDAQUIL_BALL) << 1 | FlagGet(FLAG_HIDE_JOHTO_TOTODILE_BALL) << 2;
                 PilotPut16(t + 30, GetBoxMonDataAt(0, 0, MON_DATA_SPECIES));
                 memcpy(t + 64, gStringVar2, 32); t[95] = EOS;
+                t[104] = CheckBagHasItem(ITEM_POTION, 1); t[105] = CheckBagHasItem(ITEM_POKE_BALL, 5);
+                t[106] = FlagGet(FLAG_GOT_JOHTO_AIDE_POTION); t[107] = FlagGet(FLAG_GOT_JOHTO_AIDE_BALLS);
                 if (gPilotSpawn[gPilotCase - 1][7] & 512)
                 {
                     t[48] = TrySavingData(SAVE_NORMAL);
@@ -631,6 +643,8 @@ void PilotSetup(void)
         gPlayerParty[1] = gPlayerParty[0];
         CalculatePlayerPartyCount();
     }
+    if (spawn[7] & 1024)
+        FlagSet(FLAG_GOT_JOHTO_AIDE_POTION);
     if (spawn[7] & 256)
     {
         u16 hp = 1;
@@ -845,6 +859,7 @@ for case,expect in SCENES.items():
  if 'party' in expect:assert row[6]==expect['party'],(name,'party size',row[6])
  if 'starter' in expect:assert row[starter_index]==expect['starter'],(name,'starter choice',row[starter_index])
  if 'ballflags' in expect:assert row[29]==expect['ballflags'],(name,'ball flags',row[29])
+ if 'gifts' in expect:assert tuple(row[104:108])==expect['gifts'],(name,'aide gifts: Potion, 5 Poke Balls, Potion flag, Balls flag',tuple(row[104:108]))
  if 'boxed' in expect:assert u16(row,30)==species_ids[expect['boxed']],(name,'boxed starter',u16(row,30))
  if 'outcome' in expect:assert row[25]==expect['outcome'],(name,'battle outcome',row[25])
  if 'category' in expect:assert decode(row[64:96])==expect['category'],(name,'category',decode(row[64:96]))

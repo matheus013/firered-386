@@ -10,9 +10,11 @@ FLAGS = {
     'FLAG_HIDE_JOHTO_CHIKORITA_BALL': 'FLAG_0x024',
     'FLAG_HIDE_JOHTO_CYNDAQUIL_BALL': 'FLAG_0x025',
     'FLAG_HIDE_JOHTO_TOTODILE_BALL': 'FLAG_0x026',
+    'FLAG_GOT_JOHTO_AIDE_POTION': 'FLAG_0x027',
+    'FLAG_GOT_JOHTO_AIDE_BALLS': 'FLAG_0x07F',
 }
 STARTERS = ('CHIKORITA', 'CYNDAQUIL', 'TOTODILE')
-OBJECTS = {'NewBarkTown_Lab': {1: '0', **{
+OBJECTS = {'NewBarkTown_Lab': {0: '0', 1: '0', **{
     i + 3: f'FLAG_HIDE_JOHTO_{species}_BALL' for i, species in enumerate(STARTERS)}},
     'NewBarkTown': {2: '0'}}
 
@@ -44,6 +46,19 @@ def object_script(source_map, index, name, text, local_id):
     s = f'{name}_EventScript_Object{index}'
     def line(label):
         return text('NewBarkTown_Lab_Text_' + label)
+    if index == 0:
+        # Aide: HNS gives these by walking up to the player at the exit; here he gives them when talked to.
+        return (f'{s}::\n\tlock\n\tfaceplayer\n'
+            f'\tgoto_if_lt VAR_JOHTO_STORY, 2, {s}_Busy\n'
+            f'\tgoto_if_unset FLAG_GOT_JOHTO_AIDE_POTION, {s}_Potion\n'
+            f'\tgoto_if_lt VAR_JOHTO_STORY, 3, {s}_Busy\n'
+            f'\tgoto_if_unset FLAG_GOT_JOHTO_AIDE_BALLS, {s}_Balls\n'
+            f'{s}_Busy::\n\tmsgbox {line("AideAlwaysBusy")}, MSGBOX_DEFAULT\n\trelease\n\tend\n\n'
+            f'{s}_Potion::\n\tmsgbox {line("AideGivePotion")}, MSGBOX_DEFAULT\n\tgiveitem ITEM_POTION\n'
+            f'\tgoto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull\n\tsetflag FLAG_GOT_JOHTO_AIDE_POTION\n\trelease\n\tend\n\n'
+            f'{s}_Balls::\n\tmsgbox {line("AideGiveBalls")}, MSGBOX_DEFAULT\n\tgiveitem ITEM_POKE_BALL, 5\n'
+            f'\tgoto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull\n\tsetflag FLAG_GOT_JOHTO_AIDE_BALLS\n'
+            f'\tmsgbox {line("AideExplainBalls")}, MSGBOX_DEFAULT\n\trelease\n\tend\n')
     if index == 1:
         return (f'{s}::\n\tlock\n\tfaceplayer\n'
             f'\tgoto_if_ge VAR_JOHTO_STORY, 2, {s}_Research\n'

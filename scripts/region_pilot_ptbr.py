@@ -55,6 +55,13 @@ PT = {
     'Hoenn_LittlerootTown_MaysHouse_2F_Text_MayLetsBattle': 'Ah, oi, {PLAYER}{KUN}!' + P + '…Ah, entendi, meu pai te deu um Pokémon de presente.' + P + 'Já que estamos aqui, vamos batalhar rapidinho!' + P + 'Vou te mostrar como é ser TREINADOR.',
     'Hoenn_LittlerootTown_MaysHouse_2F_Text_MayDefeated': 'Uau! Que demais! {PLAYER}{KUN}, você manda muito bem!',
     'Hoenn_LittlerootTown_MaysHouse_2F_Text_MayTimeToHeadBack': 'MAY: Acho que entendo por que meu pai está de olho em você.' + P + 'Quer dizer, você acabou de ganhar esse Pokémon, e ele já gosta de você.' + P + 'Você deve conseguir fazer amizade com qualquer tipo de Pokémon.' + P + 'Bom, hora de voltar para o LABORATÓRIO.',
+    # Phase 3, step 4: mothers (adapted for a visitor) and Elm's aide gifts
+    'Hoenn_LittlerootTown_BrendansHouse_1F_Text_YouShouldRestABit': 'Como vai, {PLAYER}? Parece que o cansaço bateu um pouco.' + P + 'Acho que você deveria descansar um pouco.',
+    'Hoenn_LittlerootTown_BrendansHouse_1F_Text_TakeCareHoney': 'Se cuide!',
+    'Johto_NewBarkTown_PlayersHouse_1F_Text_MomLeaving2': 'Tome cuidado.' + P + 'Os Pokémon são seus amigos. Vocês precisam trabalhar em equipe.' + P + 'Agora vá!' + P + 'Estou torcendo por você!',
+    'Johto_NewBarkTown_Lab_Text_AideGivePotion': '{PLAYER}, quero que você leve isto para a sua missão.',
+    'Johto_NewBarkTown_Lab_Text_AideGiveBalls': '{PLAYER}!' + P + 'Use estas na sua missão da Pokédex!',
+    'Johto_NewBarkTown_Lab_Text_AideExplainBalls': 'Para completar a Pokédex, você tem que capturar Pokémon.' + P + 'Jogue Poké Balls nos Pokémon selvagens para pegá-los.',
     'Johto_NewBarkTown_Text_Silver1': '. . .' + P + 'Então este é o famoso Laboratório Pokémon do Elm…',
     'Johto_NewBarkTown_Text_Silver2': '…Tá olhando o quê?',
     'Johto_NewBarkTown_PlayersHouse_1F_Text_MomsFriend': 'Oi, {PLAYER}!' + P + 'Vim fazer uma visita!' + P + 'Ficou sabendo?' + P + 'Minha filha está decidida a ser assistente do Prof. Elm.' + P + 'Ela adora Pokémon!',

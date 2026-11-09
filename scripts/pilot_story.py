@@ -27,6 +27,8 @@ FLAGS.update(johto_pilot_story.FLAGS)
 ZIGZAGOON_LEVEL = 84  # post-League band (provisional until the expansion rebalance)
 STARTERS = [('TREECKO', 'TRAINER_MAY_2'), ('TORCHIC', 'TRAINER_MAY_3'), ('MUDKIP', 'TRAINER_MAY')]  # May's team per player starter
 SUBSTITUTIONS = {'{RIVAL}': 'MAY'}
+# Mother lines adapted for a visiting player: the speaker tag and the pet names for her own child go.
+ADAPTATIONS = {'MOM: ': '', ', honey!': '!'}
 NEW_TEXTS = {
     'ChooseStarter': ['Do you choose {STR_VAR_1}?$'],
     'ReceivedStarter': ['{PLAYER} received the {STR_VAR_1}!$'],
@@ -36,6 +38,7 @@ OBJECTS = {
     'Route101': {1: 'FLAG_HIDE_HOENN_ROUTE101_RESCUE', 2: 'FLAG_HIDE_HOENN_ROUTE101_RESCUE', 3: 'FLAG_HIDE_HOENN_ROUTE101_RESCUE'},
     'LittlerootTown_ProfessorBirchsLab': {0: '0', 1: 'FLAG_HIDE_HOENN_BIRCH_LAB_BIRCH'},
     'LittlerootTown_MaysHouse_2F': {0: '0'},
+    'LittlerootTown_BrendansHouse_1F': {0: '0'},
 }
 OBJECTS.update(johto_pilot_story.OBJECTS)
 # Emerald Route101 triggers: start the rescue, then keep the player near Birch until it is over.
@@ -93,6 +96,11 @@ def object_script(source_map, index, name, text, local_id):
         return (f'{s}::\n\tlock\n\tfaceplayer\n\tgoto_if_ge VAR_HOENN_STORY, {later}, {s}_Later\n'
                 f'\tmsgbox {text(before)}, MSGBOX_DEFAULT\n\trelease\n\tend\n\n'
                 f'{s}_Later::\n\tmsgbox {text(after)}, MSGBOX_DEFAULT\n\trelease\n\tend\n')
+    if source_map == 'LittlerootTown_BrendansHouse_1F' and index == 0:
+        s = f'{n}_EventScript_Object0'
+        return (f'{s}::\n\tlock\n\tfaceplayer\n\tmsgbox {text("PlayersHouse_1F_Text_YouShouldRestABit")}, MSGBOX_DEFAULT\n'
+                f'\tclosemessage\n\tfadescreen FADE_TO_BLACK\n\tplayfanfare MUS_HEAL\n\twaitfanfare\n\tspecial HealPlayerParty\n'
+                f'\tfadescreen FADE_FROM_BLACK\n\tmsgbox {text("PlayersHouse_1F_Text_TakeCareHoney")}, MSGBOX_DEFAULT\n\trelease\n\tend\n')
     if source_map == 'LittlerootTown_MaysHouse_2F':
         s = f'{n}_EventScript_Object0'
         out = [f'{s}::\n\tlock\n\tfaceplayer\n\tgoto_if_eq VAR_HOENN_STORY, 3, {s}_Battle\n\tgoto_if_ge VAR_HOENN_STORY, 4, {s}_After\n'
@@ -138,7 +146,7 @@ def map_extras(source_map, name, text, add_text):
 def substitute(lines):
     out = []
     for line in lines:
-        for old, new in SUBSTITUTIONS.items():
+        for old, new in {**SUBSTITUTIONS, **ADAPTATIONS}.items():
             line = line.replace(old, new)
         out.append(line)
     return out
