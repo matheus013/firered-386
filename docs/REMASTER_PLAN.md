@@ -2,6 +2,9 @@
 
 Rascunho de 12/11/2026. **Decisão do usuário: o remaster é feito em Godot.**
 
+**Quando começar (decisão do usuário, 12/11/2026): depois da expansão Johto/Hoenn.** Nenhuma fase,
+nem o G1, começa antes da expansão fechar.
+
 Skills usadas:
 
 - `router`: projeto existente em engine próprio (decomp `pokefirered` em C); frontend novo em Godot 4.7;
@@ -204,7 +207,7 @@ remaster/                  (repositório privado)
 
 - A expansão continua no GBA e no PC atual: ela produz a lógica e os dados que o Godot vai
   desenhar.
-- O G1 e o G2 podem começar em paralelo, porque não mudam regras nem dados, só leem.
+- Decidido: o remaster só começa depois da expansão (G1 e G2 também esperam).
 - A produção de arte (G5) faz mais sentido depois que a expansão definir os mapas finais, junto
   com o rebalanceamento geral e o level cap 255 (já no backlog).
 
@@ -214,4 +217,4 @@ remaster/                  (repositório privado)
 2. **Origem da arte:** desenhar/comissionar, rascunho por IA com limpeza manual, ou misto?
 3. **Tile:** 32 px (proposto) ou 48 px (mais detalhe e muito mais arte)?
 4. **Visual alvo:** só 2D HD, ou 2D HD agora e HD-2D (G6) como meta?
-5. **Começo:** G1 em paralelo à expansão agora, ou só depois?
+5. ~~**Começo:**~~ decidido: depois da expansão.

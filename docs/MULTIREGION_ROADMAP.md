@@ -119,6 +119,8 @@ Decisões de 08/11/2026:
 - **Level cap 255:** projeto separado, feito depois na `main`, fora desta branch. Exige revisar
   `MAX_LEVEL` (26 usos em 10 arquivos), a tabela de experiência e o campo `metLevel` do save, que
   hoje guarda até 127.
+- **Remaster para desktop em Godot:** depois de fechar a expansão (plano em
+  [REMASTER_PLAN.md](REMASTER_PLAN.md)).
 - **Rebalanceamento geral ao fechar a expansão:** os níveis da história dos pilotos (Zigzagoon 84,
   May 86–89, faixa pós-Liga) são provisórios e serão revistos junto com todo o jogo quando Johto e
   Hoenn estiverem completas.
