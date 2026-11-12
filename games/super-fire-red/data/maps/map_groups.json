@@ -631,7 +631,8 @@
     "Hoenn_PetalburgCity",
     "Johto_CherrygroveCity",
     "Johto_Route30",
-    "Johto_Route31"
+    "Johto_Route31",
+    "Johto_VioletCity"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -663,6 +664,10 @@
     "Johto_Route30",
     "Johto_Route31",
     "Johto_CherrygroveCity_PokemonCenter_1F",
-    "Johto_CherrygroveCity_Mart"
+    "Johto_CherrygroveCity_Mart",
+    "Johto_VioletCity",
+    "Johto_Gate_Route31_VioletCity",
+    "Johto_VioletCity_PokemonCenter_1F",
+    "Johto_VioletCity_Mart"
   ]
 }

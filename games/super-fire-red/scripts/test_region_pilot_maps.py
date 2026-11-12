@@ -71,7 +71,12 @@ for _m,_x,_y,_steps,_want in (
   (JOHTO+'CHERRYGROVE_CITY',34,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE30',{(25,57)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(34,0)})]),
   (JOHTO+'ROUTE30',22,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE31',{(32,22)}),('MAP_JOHTO_ROUTE30',{(22,0)})]),
   (JOHTO+'CHERRYGROVE_CITY',47,8,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(47,8)})]),
-  (JOHTO+'CHERRYGROVE_CITY',41,8,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY_MART',{(4,7)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(41,8)})])):
+  (JOHTO+'CHERRYGROVE_CITY',41,8,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY_MART',{(4,7)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(41,8)})]),
+  # Johto batch 2: Route 31 -> gate -> Violet City (the map edge is scenery only, like HGSS), and Violet's doors.
+  (JOHTO+'ROUTE31',5,10,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_GATE_ROUTE31_VIOLET_CITY',None),('MAP_JOHTO_ROUTE31',None)]),
+  (JOHTO+'GATE_ROUTE31_VIOLET_CITY',2,5,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_VIOLET_CITY',None),('MAP_JOHTO_GATE_ROUTE31_VIOLET_CITY',None)]),
+  (JOHTO+'VIOLET_CITY',39,46,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_VIOLET_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_VIOLET_CITY',{(39,46)})]),
+  (JOHTO+'VIOLET_CITY',16,36,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_VIOLET_CITY_MART',{(4,7)}),('MAP_JOHTO_VIOLET_CITY',{(16,36)})])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -142,7 +147,7 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
  shown=_pilot_texts(folder)
  targets=[('object',i,o) for i,o in enumerate(objs)]+[('sign',i,b) for i,b in enumerate(bgs)]
  for kind,i,e in targets:
-  spot=_spot(objs,cells,behavior,layout['width'],layout['height'],e['x'],e['y'],kind=='sign' and e.get('player_facing_dir')=='BG_EVENT_PLAYER_FACING_NORTH',elevs,int(e.get('elevation',0)) if kind=='object' else 0)
+  spot=_spot(objs,cells,behavior,layout['width'],layout['height'],e['x'],e['y'],kind=='sign' and e.get('player_facing_dir')=='BG_EVENT_PLAYER_FACING_NORTH',elevs,(int(e.get('elevation',0)) or elevs[e['y']*layout['width']+e['x']]) if kind=='object' else 0)  # elevation 0 = the tile's
   assert spot,(folder.name,kind,i,'no free cell next to this event')
   sx,sy,key=spot
   SPOTS[(folder.name,kind,i)]=(header['id'],sx,sy,key)
@@ -1000,6 +1005,7 @@ assert 'PilotCheck();' in main and 'PilotBoot);' in main
 # Same entry as test_shops.py: right after NewGameInitData, warp straight onto the map under test.
 setup='''
 #include "pokemon.h"
+#include "constants/heal_locations.h"
 #include "event_data.h"
 #include "game_settings.h"
 #include "constants/moves.h"
@@ -1013,6 +1019,7 @@ void PilotSetup(void)
 {
     const s16 *spawn = gPilotSpawn[gPilotCase - 1];
     SetWarpDestination(spawn[0], spawn[1], -1, spawn[2], spawn[3]);
+    SetLastHealLocationWarp(HEAL_LOCATION_PALLET_TOWN);  // New Game's respawn; a blackout read past the heal table without it
     WarpIntoMap();
     CreateMon(&gPlayerParty[0], SPECIES_BULBASAUR, spawn[6], 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
     CalculatePlayerPartyCount();
@@ -1241,7 +1248,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-4:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31']
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-5:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.

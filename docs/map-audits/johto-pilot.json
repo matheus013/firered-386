@@ -4,29 +4,29 @@
   "tilesets": {
     "gTileset_Johto_General": {
       "firered": "gTileset_JohtoPilotGeneral",
-      "metatiles_converted": 278,
+      "metatiles_converted": 311,
       "behaviors": {
-        "MB_SHORT_GRASS": 15,
-        "MB_NORMAL": 155,
+        "MB_SHORT_GRASS": 16,
+        "MB_NORMAL": 181,
         "MB_HEADBUTT_TREE": 6,
         "MB_TALL_GRASS": 3,
+        "MB_ANIMATED_DOOR": 3,
         "MB_OCEAN_WATER": 30,
-        "MB_ANIMATED_DOOR": 1,
         "MB_JUMP_WEST": 2,
         "MB_JUMP_EAST": 2,
         "MB_JUMP_SOUTH": 9,
         "MB_ROCK_STAIRS": 2,
         "MB_NON_ANIMATED_DOOR": 2,
         "MB_SAND": 24,
-        "MB_SHALLOW_WATER": 12,
+        "MB_SHALLOW_WATER": 13,
         "MB_WEST_ARROW_WARP": 1,
-        "MB_POND_WATER": 12,
+        "MB_POND_WATER": 15,
         "MB_INTERIOR_DEEP_WATER": 2
       },
       "sha256": {
         "tiles.png": "edaec57f44a8525de7d4f1d781e07be738648a0752e3ac70d1cbdf0090065580",
         "metatiles.bin": "a1cb8665ee3ba79b71ca36f97d4f3cbb936fa5b835a2042287890fb152dc12c0",
-        "metatile_attributes.bin": "018002f0a6c9bf9a1e3d2ede738598534ba3876d5cb1ac85cfd853bf9ce5a39f"
+        "metatile_attributes.bin": "0c6527e2f9d765474af5f8b19cfbaf7d0faaeddc9e56461af1f4e7f7dc92dba9"
       }
     },
     "gTileset_NewBarkTown": {
@@ -101,17 +101,19 @@
     },
     "gTileset_Gate_Standard": {
       "firered": "gTileset_JohtoPilotGateStandard",
-      "metatiles_converted": 41,
+      "metatiles_converted": 73,
       "behaviors": {
-        "MB_NORMAL": 37,
-        "MB_COUNTER": 2,
+        "MB_NORMAL": 66,
+        "MB_COUNTER": 3,
         "MB_NON_ANIMATED_DOOR": 1,
-        "MB_SOUTH_ARROW_WARP": 1
+        "MB_SOUTH_ARROW_WARP": 1,
+        "MB_WEST_ARROW_WARP": 1,
+        "MB_EAST_ARROW_WARP": 1
       },
       "sha256": {
         "tiles.png": "498e300ad907d03cee16b7e6d6499d43732d0493ad6e739badecb9290a3e1a76",
         "metatiles.bin": "4c0a689aaeb0cad31784ec7a179346a9804b381edbc34705f8f775ed5aa24291",
-        "metatile_attributes.bin": "7b3ae650f2ddad3795bc95792cd38b9accef190d924890120e168c525fb02dcc"
+        "metatile_attributes.bin": "cba5993383a0040d7f4864c10ae32d01cd43a0796122e998c92fad94e71ee97f"
       }
     },
     "gTileset_CherrygroveCity": {
@@ -128,6 +130,23 @@
         "tiles.png": "6ae286448e50ac740d31bf881f630818481fb4d14544ec022e07b4ac8929408b",
         "metatiles.bin": "5cccbfd5839311fc985303ecf0d6b451a4a710f77c1719f671f530c2ec2ab14b",
         "metatile_attributes.bin": "61c7385943c6aa3ee8b54162501dec06106cb235421423a84d969cfa27b0e87f"
+      }
+    },
+    "gTileset_VioletCity": {
+      "firered": "gTileset_JohtoPilotVioletCity",
+      "metatiles_converted": 266,
+      "behaviors": {
+        "MB_NORMAL": 251,
+        "MB_ROCK_STAIRS": 3,
+        "MB_SHORT_GRASS": 8,
+        "MB_ANIMATED_DOOR": 1,
+        "MB_EAST_ARROW_WARP": 1,
+        "MB_POND_WATER": 2
+      },
+      "sha256": {
+        "tiles.png": "48593c95a26f1e5bb6db8c040835b06ee4c8e58ad58d48d5c25cb17906910866",
+        "metatiles.bin": "5697f65434512750b9bbc5efd4da64951a11bfe9e854a302d1d09a514c7fc0ef",
+        "metatile_attributes.bin": "f6320cd13f878ee326a8e6294b3821a6341426cc1163f9d114f9174ff48be9a8"
       }
     }
   },
@@ -217,11 +236,53 @@
       "destination": "MAP_DARK_CAVE_SOUTH_SIDE"
     },
     {
-      "map": "Route31",
+      "map": "VioletCity",
       "index": 1,
-      "x": 4,
-      "y": 10,
-      "destination": "MAP_GATE_ROUTE31_VIOLET_CITY"
+      "x": 30,
+      "y": 13,
+      "destination": "MAP_SPROUT_TOWER_1F"
+    },
+    {
+      "map": "VioletCity",
+      "index": 2,
+      "x": 39,
+      "y": 45,
+      "destination": "MAP_VIOLET_CITY_POKEMON_CENTER"
+    },
+    {
+      "map": "VioletCity",
+      "index": 3,
+      "x": 16,
+      "y": 35,
+      "destination": "MAP_VIOLET_CITY_MART"
+    },
+    {
+      "map": "VioletCity",
+      "index": 4,
+      "x": 29,
+      "y": 47,
+      "destination": "MAP_VIOLET_CITY_HOUSE1"
+    },
+    {
+      "map": "VioletCity",
+      "index": 5,
+      "x": 6,
+      "y": 32,
+      "destination": "MAP_VIOLET_CITY_HOUSE2"
+    },
+    {
+      "map": "VioletCity",
+      "index": 6,
+      "x": 39,
+      "y": 36,
+      "destination": "MAP_VIOLET_CITY_TRAINER_SCHOOL"
+    },
+    {
+      "map": "VioletCity",
+      "index": 7,
+      "x": 23,
+      "y": 36,
+      "destination": "MAP_VIOLET_CITY_GYM"
     }
   ],
   "behavior_rules": {
@@ -251,7 +312,11 @@
     },
     "MB_WEST_ARROW_WARP": {
       "firered_attribute": "0x63",
-      "reason": "same name (its Violet gate warp is dropped)"
+      "reason": "same name (Route 31 -> Violet gate)"
+    },
+    "MB_EAST_ARROW_WARP": {
+      "firered_attribute": "0x62",
+      "reason": "same name (Violet -> Route 31 gate)"
     },
     "MB_SAND": {
       "firered_attribute": "0x21",
@@ -402,6 +467,14 @@
     "Johto_Route31": {
       "id": "MAP_JOHTO_ROUTE31",
       "number": 10
+    },
+    "Johto_VioletCity": {
+      "id": "MAP_JOHTO_VIOLET_CITY",
+      "number": 11
+    },
+    "Johto_Gate_Route31_VioletCity": {
+      "id": "MAP_JOHTO_GATE_ROUTE31_VIOLET_CITY",
+      "number": 12
     }
   }
 }

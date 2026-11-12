@@ -55,6 +55,9 @@
 #define FLAG_HIDE_JOHTO_ROUTE31_POKE_BALL FLAG_0x0B4 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_ROUTE31_ANTIDOTE FLAG_0x0B5 // Region item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_MYSTIC_WATER FLAG_0x0B6 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_VIOLET_PECHA_BERRY FLAG_0x0B7 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_VIOLET_HYPER_POTION FLAG_0x0B8 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_VIOLET_RARE_CANDY FLAG_0x0B9 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_AIDE_POTION FLAG_0x027 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_GOT_JOHTO_AIDE_BALLS FLAG_0x07F // Region pilot story (scripts/pilot_story.py)
@@ -1485,6 +1488,7 @@
 #define FLAG_WORLD_MAP_OLDALE_TOWN                                 FLAG_0x8C5
 #define FLAG_WORLD_MAP_PETALBURG_CITY                              FLAG_0x8C6
 #define FLAG_WORLD_MAP_CHERRYGROVE_CITY                            FLAG_0x8C7
+#define FLAG_WORLD_MAP_VIOLET_CITY                                 FLAG_0x8C8
 
 #define FLAG_0x8C3                                                  (SYS_FLAGS + 0xC3)
 #define FLAG_0x8C4                                                  (SYS_FLAGS + 0xC4)

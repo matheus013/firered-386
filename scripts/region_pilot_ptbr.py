@@ -185,6 +185,14 @@ PT = {
     'Johto_Route31_Text_SleepyMan': '… Hnuurg… Hã?' + P + 'Andei demais hoje procurando Pokémon.' + P + 'Meus pés doem e estou com sono…' + P + 'Se eu fosse um Pokémon selvagem, seria fácil de capturar…' + P + '…Zzzz…',
     'Johto_Route31_Text_Youngster': 'Achei um Pokémon bom na Dark Cave.' + P + 'Vou treiná-lo para enfrentar o Falkner.' + P + 'Ele é o líder do Ginásio de Violet City.',
     'Johto_Route31_Text_Sign': 'Route 31' + P + 'Violet City - Cherrygrove City',
+    # Johto batch 2 (Violet City and the Route 31 gate)
+    'Johto_VioletCity_Text_Lass': 'Dizem que aparecem fantasmas na Sprout Tower.' + P + 'Dizem que golpes do tipo Fantasma passam pelas defesas' + P + 'de Pokémon resistentes como Onix e Geodude.',
+    'Johto_VioletCity_Text_Boy': 'Ei, você é um Treinador Pokémon?' + P + 'Se for à Academia, pode aprender algo novo!',
+    'Johto_VioletCity_Text_Gramps': 'O Falkner, do Ginásio Pokémon de Violet, é um ótimo Treinador!' + P + 'Ele herdou o Ginásio do pai e está fazendo um ótimo trabalho.',
+    'Johto_VioletCity_Text_Youngster': 'Eu vi uma árvore que se mexe lá na frente!' + P + 'Se você encostar, ela se contorce e dança! Que legal!',
+    'Johto_VioletCity_Text_GymSign': 'Ginásio Pokémon de Violet City' + P + 'Líder: Falkner' + P + 'O Mestre Elegante dos Pokémon Voadores',
+    'Johto_Gate_Route31_VioletCity_Text_Policeman': 'Olá! Você visitou a Sprout Tower?',
+    'Johto_Gate_Route31_VioletCity_Text_CooltrainerF': 'Eu vi o Pokémon mais fofo lá fora.' + P + 'Ele parecia muito com um Pikachu!',
     # SEAGALLOP to the pilots (new texts, no source game).
     'VermilionCity_Text_RegionSailorLittleroot': 'Agora que você venceu a LIGA POKéMON, o SEAGALLOP também navega para terras distantes.' + P + 'Vamos para LITTLEROOT TOWN, em HOENN?',
     'VermilionCity_Text_RegionSailorNewBark': 'Então que tal NEW BARK TOWN, em JOHTO?',

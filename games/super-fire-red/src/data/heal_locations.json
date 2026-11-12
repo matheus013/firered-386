@@ -199,6 +199,14 @@
       "y": 8,
       "respawn_map": "MAP_JOHTO_CHERRYGROVE_CITY_POKEMON_CENTER_1F",
       "respawn_npc": 1
+    },
+    {
+      "id": "HEAL_LOCATION_VIOLET_CITY",
+      "map": "MAP_JOHTO_VIOLET_CITY",
+      "x": 39,
+      "y": 46,
+      "respawn_map": "MAP_JOHTO_VIOLET_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": 1
     }
   ]
 }

@@ -238,3 +238,5 @@ const u16 gMetatiles_JohtoPilotGateStandard[] = INCBIN_U16("data/tilesets/second
 const u32 gMetatileAttributes_JohtoPilotGateStandard[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_gate_standard/metatile_attributes.bin");
 const u16 gMetatiles_JohtoPilotCherrygroveCity[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_cherrygrove_city/metatiles.bin");
 const u32 gMetatileAttributes_JohtoPilotCherrygroveCity[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_cherrygrove_city/metatile_attributes.bin");
+const u16 gMetatiles_JohtoPilotVioletCity[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_violet_city/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotVioletCity[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_violet_city/metatile_attributes.bin");

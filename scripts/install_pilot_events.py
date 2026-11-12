@@ -42,7 +42,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_POKEFAN_M': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_BLACK_BELT': 'OBJ_EVENT_GFX_BLACK_BELT',
     'OBJ_EVENT_GFX_MAN_5': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_SWIMMER_F': 'OBJ_EVENT_GFX_SWIMMER_F_WATER',
     'OBJ_EVENT_GFX_SWIMMER_M': 'OBJ_EVENT_GFX_SWIMMER_M_WATER', 'OBJ_EVENT_GFX_GENTLEMAN': 'OBJ_EVENT_GFX_GENTLEMAN',
-    'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER',
+    'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     # Phase 3: Birch rescue
     'OBJ_EVENT_GFX_ZIGZAGOON_1': 'OBJ_EVENT_GFX_ZIGZAGOON', 'OBJ_EVENT_GFX_BIRCHS_BAG': 'OBJ_EVENT_GFX_BIRCHS_BAG',
 }
@@ -193,11 +193,22 @@ EVENTS = {
         4: ('itemflag', None, 'Poke Ball'), 5: ('itemflag', None, 'Antidote'),
         6: ('cuttree', None, 'FireRed EventScript_CutTree')},
         {0: ('sign', 'Route31_Text_Sign'), 1: ('sign', 'Route31_Text_DarkCaveSign')}),
+    # Johto batch 2. Left out: Earl's walk into the Trainer School (story scene, school closed), the
+    # Kimono Girl, Elm's call, the overworld Pokemon, the night light sprites and the berry tree.
+    'VioletCity': (HNS, {
+        0: ('npc', 'VioletCity_Text_Lass', ''), 1: ('npc', 'VioletCity_Text_Boy', ''),
+        2: ('npc', 'VioletCity_Text_Gramps', ''), 4: ('npc', 'VioletCity_Text_Youngster', ''),
+        5: ('itemflag', None, 'Pecha Berry'), 6: ('itemflag', None, 'Hyper Potion'), 27: ('itemflag', None, 'Rare Candy'),
+        7: ('cuttree', None, 'FireRed EventScript_CutTree')},
+        {0: ('sign', 'VioletCity_Text_GymSign')}),
+    'Gate_Route31_VioletCity': (HNS, {
+        0: ('npc', 'Gate_Route31_VioletCity_Text_Policeman', ''),
+        1: ('npc', 'Gate_Route31_VioletCity_Text_CooltrainerF', 'HNS Battle Girl sprite; FireRed Cooltrainer F')}, {}),
 }
 # Towns that are Fly destinations: world map flag set on entry (include/constants/flags.h).
 WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkTown': 'FLAG_WORLD_MAP_NEW_BARK_TOWN',
                    'OldaleTown': 'FLAG_WORLD_MAP_OLDALE_TOWN', 'PetalburgCity': 'FLAG_WORLD_MAP_PETALBURG_CITY',
-                   'CherrygroveCity': 'FLAG_WORLD_MAP_CHERRYGROVE_CITY'}
+                   'CherrygroveCity': 'FLAG_WORLD_MAP_CHERRYGROVE_CITY', 'VioletCity': 'FLAG_WORLD_MAP_VIOLET_CITY'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -206,6 +217,9 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('PetalburgCity', 6): ('ITEM_ETHER', 'FLAG_HIDE_HOENN_PETALBURG_ETHER', 'FLAG_0x0B3'),
               ('Route31', 4): ('ITEM_POKE_BALL', 'FLAG_HIDE_JOHTO_ROUTE31_POKE_BALL', 'FLAG_0x0B4'),
               ('Route31', 5): ('ITEM_ANTIDOTE', 'FLAG_HIDE_JOHTO_ROUTE31_ANTIDOTE', 'FLAG_0x0B5'),
+              ('VioletCity', 5): ('ITEM_PECHA_BERRY', 'FLAG_HIDE_JOHTO_VIOLET_PECHA_BERRY', 'FLAG_0x0B7'),
+              ('VioletCity', 6): ('ITEM_HYPER_POTION', 'FLAG_HIDE_JOHTO_VIOLET_HYPER_POTION', 'FLAG_0x0B8'),
+              ('VioletCity', 27): ('ITEM_RARE_CANDY', 'FLAG_HIDE_JOHTO_VIOLET_RARE_CANDY', 'FLAG_0x0B9'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.

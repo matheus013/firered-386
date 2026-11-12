@@ -1371,3 +1371,59 @@ precisam de Surf. São 14 casos: a batalha dupla de Amy e Liv conta uma vez.
   caracteres.
 
 **Resultado:** 277 casos aprovados (eram 263), com as 14 batalhas vencidas e as flags marcadas.
+
+## Johto, lote 2: Violet City
+
+**Mapas novos:** Violet City e o portão entre a Route 31 e Violet. Como no HGSS, a borda entre os dois
+mapas é só cenário, e a passagem é pelo portão. O secundário `gTileset_JohtoPilotVioletCity` vem do
+HNS sem alteração. O arquivo `bellchime_12.pal` ficou de fora: é uma paleta de animação que não
+entra no tileset. Violet tem Centro Pokémon e Mart com os interiores do FireRed. O Mart vende a lista
+do HGSS (Poké Ball, Potion, Escape Rope, Antidote, Paralyze Heal, Awakening, X Defend, X Attack e
+X Speed), sem a Flower Mail, que o FireRed não tem. Violet também ganhou destino de Fly, heal location
+em (39,46) e a flag `FLAG_WORLD_MAP_VIOLET_CITY` (0x8C8).
+
+- **`install_johto_pilot.py`:**
+  - inclui Violet e o portão (mapas 13 e 14);
+  - ganhou a regra da seta para leste;
+  - a porta deslizante agora tem uma tabela por par de tilesets (Cherrygrove e Violet).
+- **`install_johto_batch1.py`:** passou a tratar cidades numa lista (`TOWNS`). As portas do
+  Centro e do Mart entram depois dos warps que o instalador do piloto mantém, como o do portão.
+- **Eventos:**
+  - quatro moradores e a placa do Ginásio;
+  - Pecha Berry, Hyper Potion e Rare Candy no chão;
+  - uma árvore de Cut;
+  - o policial e a moça do portão;
+  - 7 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** só pesca. A tabela de grama do HNS está vazia, e a de água tem 12 vagas.
+
+**Fica para depois:**
+
+- o passeio do Earl até a Escola de Treinadores;
+- a Kimono Girl e a ligação do Elm;
+- o Ginásio do Falkner, a Sprout Tower, a escola e as casas (portas fechadas);
+- as Routes 32 e 36.
+
+**Problema encontrado e corrigido:** o `install_johto_pilot.py` reescrevia a lista do grupo de
+Johto inteira, e isso tirava os interiores de Cherrygrove (mapas 11 e 12). Agora ele mantém a ordem
+existente e só acrescenta os mapas novos, então os números dos mapas não mudam entre lotes.
+
+**Problemas encontrados no teste e corrigidos:**
+
+- **Tela preta nas derrotas da May e do Silver:** a configuração do teste nunca definia o
+  último ponto de cura (no jogo normal, o quarto do jogador faz isso). No "blackout", o FireRed
+  procura esse ponto na tabela de heal locations e, sem o BUGFIX, lê fora dela quando não o acha.
+  Antes, o lixo lido funcionava por acaso. Com a heal location de Violet, a tabela mudou e o jogador
+  ia para lugar nenhum. O teste agora chama `SetLastHealLocationWarp(HEAL_LOCATION_PALLET_TOWN)`.
+  Achei a causa com um runner de diagnóstico que roda um caso só, com capturas a cada 1.500 quadros.
+- **Célula de conversa:** o menino de Violet tem elevação 0 ("qualquer") no HNS, e o filtro de
+  elevação não agia. O teste escolhia a água abaixo dele. Agora, para objetos com elevação 0, vale a
+  elevação do tile onde eles estão.
+
+**Teste da ROM:**
+
+- Route 31 → portão → Violet, ida e volta;
+- as portas do Centro e do Mart;
+- conversas com os eventos novos;
+- a checagem das seções de mapa inclui Violet.
+
+**Resultado:** 294 casos aprovados (eram 277).

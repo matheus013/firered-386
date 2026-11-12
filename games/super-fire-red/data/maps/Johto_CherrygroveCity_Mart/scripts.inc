@@ -1,4 +1,4 @@
-@ Johto batch 1: FireRed Mart layout; HGSS Cherrygrove Mart list.
+@ Johto geography: FireRed Mart layout; HGSS CherrygroveCity Mart list.
 Johto_CherrygroveCity_Mart_MapScripts::
 	.byte 0
 

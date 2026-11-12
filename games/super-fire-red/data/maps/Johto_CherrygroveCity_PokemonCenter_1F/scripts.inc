@@ -1,4 +1,4 @@
-@ Johto batch 1: FireRed Pokemon Center layout (scripts/install_johto_batch1.py).
+@ Johto geography: FireRed Pokemon Center layout (scripts/install_johto_batch1.py).
 Johto_CherrygroveCity_PokemonCenter_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Johto_CherrygroveCity_PokemonCenter_1F_OnTransition
 	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume

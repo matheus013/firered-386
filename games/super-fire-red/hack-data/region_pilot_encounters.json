@@ -927,6 +927,74 @@
           ]
         }
       }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gVioletCity",
+        "map": "MAP_VIOLET_CITY",
+        "note": "day table; empty land table; water left out (12 HNS slots, FireRed has 5); Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_VIOLET_CITY",
+        "base_label": "gJohtoVioletCity_Pilot",
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWHIRL"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWAG"
+            }
+          ]
+        }
+      }
     }
   ]
 }

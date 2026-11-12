@@ -18,6 +18,11 @@
       "map": "MAP_JOHTO_ROUTE30",
       "offset": 10,
       "direction": "down"
+    },
+    {
+      "map": "MAP_JOHTO_VIOLET_CITY",
+      "offset": -36,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -120,7 +125,15 @@
       "flag": "FLAG_TEMP_1"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_GATE_ROUTE31_VIOLET_CITY",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {

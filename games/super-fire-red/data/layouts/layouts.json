@@ -4662,6 +4662,30 @@
       "secondary_tileset": "gTileset_JohtoPilotCherrygroveCity",
       "border_filepath": "data/layouts/Johto_Route31/border.bin",
       "blockdata_filepath": "data/layouts/Johto_Route31/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_VIOLET_CITY",
+      "name": "Johto_VioletCity_Layout",
+      "width": 54,
+      "height": 55,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotVioletCity",
+      "border_filepath": "data/layouts/Johto_VioletCity/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_VioletCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_GATE_ROUTE31_VIOLET_CITY",
+      "name": "Johto_Gate_Route31_VioletCity_Layout",
+      "width": 13,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotGateStandard",
+      "border_filepath": "data/layouts/Johto_Gate_Route31_VioletCity/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Gate_Route31_VioletCity/map.bin"
     }
   ]
 }

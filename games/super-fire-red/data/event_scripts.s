@@ -540,6 +540,10 @@ gStdScriptsEnd::
 	.include "data/maps/Johto_Route31/scripts.inc"
 	.include "data/maps/Johto_CherrygroveCity_PokemonCenter_1F/scripts.inc"
 	.include "data/maps/Johto_CherrygroveCity_Mart/scripts.inc"
+	.include "data/maps/Johto_VioletCity/scripts.inc"
+	.include "data/maps/Johto_Gate_Route31_VioletCity/scripts.inc"
+	.include "data/maps/Johto_VioletCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Johto_VioletCity_Mart/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

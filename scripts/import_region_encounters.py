@@ -37,6 +37,10 @@ TABLES = [
     ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gCherrygroveCity', 'MAP_CHERRYGROVE_CITY',
      'MAP_JOHTO_CHERRYGROVE_CITY', 'gJohtoCherrygroveCity_Pilot', ['fishing_mons'],
      'day table; water left out (12 HNS slots with Tentacruel in 4, FireRed has 5); Rock Smash left out'),
+    # Johto batch 2
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gVioletCity', 'MAP_VIOLET_CITY',
+     'MAP_JOHTO_VIOLET_CITY', 'gJohtoVioletCity_Pilot', ['fishing_mons'],
+     'day table; empty land table; water left out (12 HNS slots, FireRed has 5); Rock Smash left out'),
 ]
 
 

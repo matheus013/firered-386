@@ -1,24 +1,36 @@
-"""Johto batch 1: Cherrygrove City's Pokemon Center and Mart, its Fly destination and respawn. Idempotent.
+"""Johto geography batches: each town's Pokemon Center and Mart, Fly destination and respawn. Idempotent.
 
-Run after scripts/install_johto_pilot.py, which installs the Cherrygrove City, Route 30 and Route 31
-exteriors from HNS_modern (and drops every warp to a map outside the installed set). This script puts
-back the two Cherrygrove doors that lead to FireRed's own Pokemon Center and Mart layouts
-(LAYOUT_POKEMON_CENTER_1F / LAYOUT_MART), like the Hoenn batch: a nurse who sets the respawn, and a
-clerk with the HGSS Cherrygrove Mart list (HNS only stocks Potion and Antidote before the Pokedex).
-The houses, Mr. Pokemon's house, Route 30's house, Dark Cave and the Violet gate stay closed.
+Run after scripts/install_johto_pilot.py, which installs the exteriors from HNS_modern and drops every
+warp to a map outside the installed set. This script puts back each town's two doors to FireRed's own
+Pokemon Center and Mart layouts (LAYOUT_POKEMON_CENTER_1F / LAYOUT_MART), like the Hoenn batch: a nurse
+who sets the respawn, and a clerk with the HGSS Mart list of that town. Warps the pilot installer kept
+(e.g. Violet's gate to Route 31) stay first, so their indices do not move.
+
+Batch 1: Cherrygrove City (HNS only stocks Potion and Antidote there before the Pokedex; HGSS list used).
+Batch 2: Violet City (HGSS list without Flower Mail, which FireRed does not have).
+Houses, gyms, schools, towers, Mr. Pokemon's house and Dark Cave stay closed.
 """
 import argparse
 import json
 from pathlib import Path
 import re
 
-TOWN, TOWN_ID = 'Johto_CherrygroveCity', 'MAP_JOHTO_CHERRYGROVE_CITY'
-# door (x, y) on the exterior -> interior; the interior warps back to this door's index.
-DOORS = [((47, 7), 'PokemonCenter_1F'), ((41, 7), 'Mart')]
-MART = ['ITEM_POKE_BALL', 'ITEM_POTION', 'ITEM_ANTIDOTE', 'ITEM_PARALYZE_HEAL', 'ITEM_AWAKENING']
-HEAL = ('HEAL_LOCATION_CHERRYGROVE_CITY', 47, 8)
-FLAG = ('FLAG_WORLD_MAP_CHERRYGROVE_CITY', 'FLAG_0x8C7')
-SECTION = 'MAPSEC_CHERRYGROVE_CITY'
+TOWNS = [
+    {'town': 'CherrygroveCity', 'doors': [((47, 7), 'PokemonCenter_1F'), ((41, 7), 'Mart')],
+     'mart': ['ITEM_POKE_BALL', 'ITEM_POTION', 'ITEM_ANTIDOTE', 'ITEM_PARALYZE_HEAL', 'ITEM_AWAKENING'],
+     'heal': (47, 8), 'flag': 'FLAG_0x8C7',
+     'closed': ['CherrygroveCity_House1', 'CherrygroveCity_House2', 'CherrygroveCity_House3', 'Route30_House',
+                'Route30_MrPokemonsHouse', 'DarkCave_SouthSide']},
+    {'town': 'VioletCity', 'doors': [((39, 45), 'PokemonCenter_1F'), ((16, 35), 'Mart')],
+     'mart': ['ITEM_POKE_BALL', 'ITEM_POTION', 'ITEM_ESCAPE_ROPE', 'ITEM_ANTIDOTE', 'ITEM_PARALYZE_HEAL',
+              'ITEM_AWAKENING', 'ITEM_X_DEFEND', 'ITEM_X_ATTACK', 'ITEM_X_SPEED'],
+     'heal': (39, 46), 'flag': 'FLAG_0x8C8',
+     'closed': ['SproutTower_1F', 'VioletCity_House1', 'VioletCity_House2', 'VioletCity_TrainerSchool', 'VioletCity_Gym']},
+]
+
+
+def snake(name):
+    return re.sub(r'(?<=[a-z])(?=[A-Z])', '_', name).upper()
 
 
 def write_json(path, data):
@@ -33,55 +45,97 @@ def replace_once(text, anchor, new, marker):
     return text.replace(anchor, anchor + new)
 
 
-def main():
-    p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    p.add_argument('--game', type=Path, required=True)
-    p.add_argument('--report', type=Path, required=True)
-    a = p.parse_args()
-    g = a.game
-    report = {'maps': {}, 'closed_doors': []}
+def install_town(g, cfg, groups, report):
+    town = 'Johto_' + cfg['town']
+    town_id = 'MAP_JOHTO_' + snake(cfg['town'])
+    section = 'MAPSEC_' + snake(cfg['town'])
+    heal_id = 'HEAL_LOCATION_' + snake(cfg['town'])
+    interiors = {kind: f'{town_id}_{snake(kind)}' for _cell, kind in cfg['doors']}
 
-    # Exterior: the two doors, to the middle of each doormat (warp 1) like FireRed's towns.
-    ext_path = g / f'data/maps/{TOWN}/map.json'
+    # Exterior: keep the other warps first, then the two doors (to the middle of each doormat, warp 1).
+    ext_path = g / f'data/maps/{town}/map.json'
     ext = json.loads(ext_path.read_text(encoding='utf-8'))
-    ext['warp_events'] = [{'x': x, 'y': y, 'elevation': 0, 'dest_map': f'{TOWN_ID}_{re.sub(r"(?<=[a-z])(?=[A-Z])", "_", kind).upper()}',
-                           'dest_warp_id': '1'} for (x, y), kind in DOORS]
+    kept = [w for w in ext['warp_events'] if w['dest_map'] not in interiors.values()]
+    door_index = {}
+    for (x, y), kind in cfg['doors']:
+        door_index[kind] = len(kept)
+        kept.append({'x': x, 'y': y, 'elevation': 0, 'dest_map': interiors[kind], 'dest_warp_id': '1'})
+    ext['warp_events'] = kept
     write_json(ext_path, ext)
 
-    groups_path = g / 'data/maps/map_groups.json'
-    groups = json.loads(groups_path.read_text(encoding='utf-8'))
-    for door_index, ((_x, _y), kind) in enumerate(DOORS):
-        name = f'{TOWN}_{kind}'
-        mid = f'{TOWN_ID}_{re.sub(r"(?<=[a-z])(?=[A-Z])", "_", kind).upper()}'
+    for _cell, kind in cfg['doors']:
+        name, mid = f'{town}_{kind}', interiors[kind]
         center = kind.startswith('Pokemon')
         layout, cells = ('LAYOUT_POKEMON_CENTER_1F', [(6, 8), (7, 8), (8, 8)]) if center else ('LAYOUT_MART', [(3, 7), (4, 7), (5, 7)])
         npc = ('OBJ_EVENT_GFX_NURSE', 7, 2, f'{name}_EventScript_Nurse') if center else ('OBJ_EVENT_GFX_CLERK', 2, 3, f'{name}_EventScript_Clerk')
-        header = {'id': mid, 'name': name, 'layout': layout, 'music': 'MUS_POKE_CENTER', 'region_map_section': SECTION,
+        header = {'id': mid, 'name': name, 'layout': layout, 'music': 'MUS_POKE_CENTER', 'region_map_section': section,
                   'requires_flash': False, 'weather': 'WEATHER_NONE', 'map_type': 'MAP_TYPE_INDOOR', 'allow_cycling': False,
                   'allow_escaping': False, 'allow_running': False, 'show_map_name': False, 'floor_number': 0,
                   'battle_scene': 'MAP_BATTLE_SCENE_NORMAL', 'connections': None,
                   'object_events': [{'type': 'object', 'graphics_id': npc[0], 'x': npc[1], 'y': npc[2], 'elevation': 3,
                                      'movement_type': 'MOVEMENT_TYPE_FACE_DOWN', 'movement_range_x': 0, 'movement_range_y': 0,
                                      'trainer_type': 'TRAINER_TYPE_NONE', 'trainer_sight_or_berry_tree_id': '0', 'script': npc[3], 'flag': '0'}],
-                  'warp_events': [{'x': x, 'y': y, 'elevation': 3, 'dest_map': TOWN_ID, 'dest_warp_id': str(door_index)} for x, y in cells],
+                  'warp_events': [{'x': x, 'y': y, 'elevation': 3, 'dest_map': town_id, 'dest_warp_id': str(door_index[kind])} for x, y in cells],
                   'coord_events': [], 'bg_events': []}
         folder = g / 'data/maps' / name
         folder.mkdir(parents=True, exist_ok=True)
         write_json(folder / 'map.json', header)
         if center:
-            script = (f'@ Johto batch 1: FireRed Pokemon Center layout (scripts/install_johto_batch1.py).\n{name}_MapScripts::\n'
+            script = (f'@ Johto geography: FireRed Pokemon Center layout (scripts/install_johto_batch1.py).\n{name}_MapScripts::\n'
                       f'\tmap_script MAP_SCRIPT_ON_TRANSITION, {name}_OnTransition\n\tmap_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume\n\t.byte 0\n\n'
-                      f'{name}_OnTransition::\n\tsetrespawn {HEAL[0]}\n\tend\n\n'
+                      f'{name}_OnTransition::\n\tsetrespawn {heal_id}\n\tend\n\n'
                       f'{name}_EventScript_Nurse::\n\tlock\n\tfaceplayer\n\tcall EventScript_PkmnCenterNurse\n\trelease\n\tend\n')
         else:
-            items = ''.join(f'\t.2byte {i}\n' for i in MART)
-            script = (f'@ Johto batch 1: FireRed Mart layout; HGSS Cherrygrove Mart list.\n{name}_MapScripts::\n\t.byte 0\n\n'
+            items = ''.join(f'\t.2byte {i}\n' for i in cfg['mart'])
+            script = (f'@ Johto geography: FireRed Mart layout; HGSS {cfg["town"]} Mart list.\n{name}_MapScripts::\n\t.byte 0\n\n'
                       f'{name}_EventScript_Clerk::\n\tgoto_if_questlog EventScript_ReleaseEnd\n\tlock\n\tfaceplayer\n\tmessage Text_MayIHelpYou\n\twaitmessage\n'
                       f'\tpokemart {name}_Items\n\tmsgbox Text_PleaseComeAgain\n\trelease\n\tend\n\n\t.align 2\n{name}_Items::\n{items}\t.2byte ITEM_NONE\n\trelease\n\tend\n')
         (folder / 'scripts.inc').write_text(script, encoding='utf-8', newline='\n')
         if name not in groups['gMapGroup_Johto']:
             groups['gMapGroup_Johto'].append(name)
-        report['maps'][name] = {'layout': layout, 'npc': npc[0], **({'heal_location': HEAL[0]} if center else {'items': MART})}
+        report['maps'][name] = {'layout': layout, 'npc': npc[0], **({'heal_location': heal_id} if center else {'items': cfg['mart']})}
+
+    # Heal location in front of the Pokemon Center; respawn by the nurse.
+    heal_path = g / 'src/data/heal_locations.json'
+    heals = json.loads(heal_path.read_text(encoding='utf-8'))
+    if heal_id not in {h['id'] for h in heals['heal_locations']}:
+        heals['heal_locations'].append({'id': heal_id, 'map': town_id, 'x': cfg['heal'][0], 'y': cfg['heal'][1],
+                                        'respawn_map': f'{town_id}_POKEMON_CENTER_1F', 'respawn_npc': 1})
+    write_json(heal_path, heals)
+
+    # World map flag (set on entry by install_pilot_events.py) and the Fly destination.
+    flag = 'FLAG_WORLD_MAP_' + snake(cfg['town'])
+    flags = g / 'include/constants/flags.h'
+    t = flags.read_text(encoding='utf-8')
+    if f'#define {flag} ' not in t:
+        last = max(re.findall(r'#define FLAG_WORLD_MAP_\w+ +FLAG_0x8C\w\n', t), key=t.index)
+        t = t.replace(last, last + f'#define {flag:<58} {cfg["flag"]}\n', 1)
+    flags.write_text(t, encoding='utf-8', newline='\n')
+    rm = g / 'src/region_map.c'
+    t = rm.read_text(encoding='utf-8')
+    row = f'    [{section:<27}- KANTO_MAPSEC_START] = {{MAP({town_id}),'
+    if row not in t:
+        anchor = '    [MAPSEC_ROUTE_29            - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_ROUTE29),                         HEAL_LOCATION_NONE},\n'
+        assert t.count(anchor) == 1
+        t = t.replace(anchor, anchor + f'{row:<93} {heal_id}}},\n')
+    t = replace_once(t, '    case MAPSEC_NEW_BARK_TOWN:\n        return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;\n',
+                     f'    case {section}:\n        return FlagGet({flag}) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;\n', f'    case {section}:\n')
+    rm.write_text(t, encoding='utf-8', newline='\n')
+    report['towns'][cfg['town']] = {'heal_location': {'id': heal_id, 'x': cfg['heal'][0], 'y': cfg['heal'][1]},
+                                    'world_map_flag': flag, 'closed_doors': cfg['closed']}
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    p.add_argument('--game', type=Path, required=True)
+    p.add_argument('--report', type=Path, required=True)
+    a = p.parse_args()
+    g = a.game
+    report = {'maps': {}, 'towns': {}}
+    groups_path = g / 'data/maps/map_groups.json'
+    groups = json.loads(groups_path.read_text(encoding='utf-8'))
+    for cfg in TOWNS:
+        install_town(g, cfg, groups, report)
     write_json(groups_path, groups)
 
     # event_scripts.s includes, after the last Johto map.
@@ -93,38 +147,8 @@ def main():
             last = max((l for l in t.splitlines(True) if l.startswith('\t.include "data/maps/Johto_')), key=t.index)
             t = t.replace(last, last + line, 1)
     es.write_text(t, encoding='utf-8', newline='\n')
-
-    # Heal location in front of the Pokemon Center; respawn by the nurse.
-    heal_path = g / 'src/data/heal_locations.json'
-    heals = json.loads(heal_path.read_text(encoding='utf-8'))
-    if HEAL[0] not in {h['id'] for h in heals['heal_locations']}:
-        heals['heal_locations'].append({'id': HEAL[0], 'map': TOWN_ID, 'x': HEAL[1], 'y': HEAL[2],
-                                        'respawn_map': f'{TOWN_ID}_POKEMON_CENTER_1F', 'respawn_npc': 1})
-    write_json(heal_path, heals)
-
-    # World map flag (set on entry by install_pilot_events.py) and the Fly destination.
-    flags = g / 'include/constants/flags.h'
-    t = flags.read_text(encoding='utf-8')
-    t = replace_once(t, '#define FLAG_WORLD_MAP_PETALBURG_CITY                              FLAG_0x8C6\n',
-                     f'#define {FLAG[0]:<58} {FLAG[1]}\n', f'#define {FLAG[0]} ')
-    flags.write_text(t, encoding='utf-8', newline='\n')
-    rm = g / 'src/region_map.c'
-    t = rm.read_text(encoding='utf-8')
-    t = replace_once(t, '    [MAPSEC_ROUTE_29            - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_ROUTE29),                         HEAL_LOCATION_NONE},\n',
-                     '    [MAPSEC_CHERRYGROVE_CITY    - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_CHERRYGROVE_CITY),                HEAL_LOCATION_CHERRYGROVE_CITY},\n'
-                     '    [MAPSEC_ROUTE_30            - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_ROUTE30),                         HEAL_LOCATION_NONE},\n'
-                     '    [MAPSEC_ROUTE_31            - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_ROUTE31),                         HEAL_LOCATION_NONE},\n',
-                     '[MAPSEC_CHERRYGROVE_CITY    - KANTO_MAPSEC_START]')
-    t = replace_once(t, '    case MAPSEC_NEW_BARK_TOWN:\n        return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;\n',
-                     f'    case {SECTION}:\n        return FlagGet({FLAG[0]}) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;\n',
-                     f'    case {SECTION}:\n')
-    rm.write_text(t, encoding='utf-8', newline='\n')
-    report['heal_location'] = dict(zip(('id', 'x', 'y'), HEAL))
-    report['world_map_flag'] = FLAG[0]
-    report['closed_doors'] = ['CherrygroveCity_House1', 'CherrygroveCity_House2', 'CherrygroveCity_House3', 'Route30_House',
-                              'Route30_MrPokemonsHouse', 'DarkCave_SouthSide', 'Gate_Route31_VioletCity']
     write_json(a.report, report)
-    print(json.dumps({k: len(v) if isinstance(v, (list, dict)) else v for k, v in report.items()}))
+    print(json.dumps({k: list(v) for k, v in report.items()}))
 
 
 if __name__ == '__main__':

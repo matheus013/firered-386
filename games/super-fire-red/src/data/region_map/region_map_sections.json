@@ -1401,6 +1401,14 @@
       "y": 4,
       "width": 2,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_VIOLET_CITY",
+      "name": "VIOLET CITY",
+      "x": 12,
+      "y": 4,
+      "width": 1,
+      "height": 1
     }
   ]
 }

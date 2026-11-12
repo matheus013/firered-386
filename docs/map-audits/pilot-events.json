@@ -1793,6 +1793,134 @@
           "y": 10
         }
       ]
+    },
+    "Johto_VioletCity": {
+      "source": "HNS_modern/VioletCity",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "VioletCity_EventScript_Lass",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": "VioletCity_Text_Lass",
+          "note": "",
+          "x": 32,
+          "y": 48
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "VioletCity_EventScript_Boy",
+          "source_sprite": "OBJ_EVENT_GFX_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "VioletCity_Text_Boy",
+          "note": "",
+          "x": 28,
+          "y": 25
+        },
+        {
+          "kind": "npc",
+          "source_index": 2,
+          "source_script": "VioletCity_EventScript_Gramps",
+          "source_sprite": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_MAN_2",
+          "text": "VioletCity_Text_Gramps",
+          "note": "",
+          "x": 28,
+          "y": 36
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "VioletCity_EventScript_Youngster",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": "VioletCity_Text_Youngster",
+          "note": "",
+          "x": 10,
+          "y": 27
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 5,
+          "source_script": "VioletCity_EventScript_ItemPechaBerry",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Pecha Berry",
+          "x": 34,
+          "y": 12
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 6,
+          "source_script": "VioletCity_EventScript_ItemHyperPotion",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Hyper Potion",
+          "x": 17,
+          "y": 12
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 7,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "FireRed EventScript_CutTree",
+          "x": 43,
+          "y": 38
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 27,
+          "source_script": "VioletCity_EventScript_ItemRareCandy",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Rare Candy",
+          "x": 46,
+          "y": 33
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "VioletCity_EventScript_GymSign",
+          "text": "VioletCity_Text_GymSign",
+          "x": 25,
+          "y": 36
+        }
+      ]
+    },
+    "Johto_Gate_Route31_VioletCity": {
+      "source": "HNS_modern/Gate_Route31_VioletCity",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "Gate_Route31_VioletCity_EventScript_Policeman",
+          "source_sprite": "OBJ_EVENT_GFX_POLICEMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_POLICEMAN",
+          "text": "Gate_Route31_VioletCity_Text_Policeman",
+          "note": "",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "Gate_Route31_VioletCity_EventScript_CooltrainerF",
+          "source_sprite": "OBJ_EVENT_GFX_BATTLE_GIRL",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": "Gate_Route31_VioletCity_Text_CooltrainerF",
+          "note": "HNS Battle Girl sprite; FireRed Cooltrainer F",
+          "x": 8,
+          "y": 4
+        }
+      ]
     }
   }
 }

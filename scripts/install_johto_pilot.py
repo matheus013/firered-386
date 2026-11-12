@@ -21,7 +21,9 @@ from region_tilesets import behavior_names, convert_attributes
 MAPS = ['NewBarkTown', 'Route29', 'NewBarkTown_PlayersHouse_1F', 'NewBarkTown_PlayersHouse_2F',
         'NewBarkTown_House1', 'NewBarkTown_House2', 'NewBarkTown_Lab', 'Gate_Route29_Route46',
         # Johto batch 1 (exteriors; FireRed Pokemon Center and Mart from install_johto_batch1.py)
-        'CherrygroveCity', 'Route30', 'Route31']
+        'CherrygroveCity', 'Route30', 'Route31',
+        # Johto batch 2
+        'VioletCity', 'Gate_Route31_VioletCity']
 TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animation init)
     'gTileset_Johto_General': ('JohtoPilotGeneral', 'primary/johto_general', 'primary/johto_pilot_general', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_NewBarkTown': ('JohtoPilotNewBarkTown', 'secondary/new_bark_town', 'secondary/johto_pilot_new_bark_town', 'NULL'),
@@ -30,6 +32,7 @@ TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animati
     'gTileset_House_Lab': ('JohtoPilotHouseLab', 'secondary/house_lab', 'secondary/johto_pilot_house_lab', 'NULL'),
     'gTileset_Gate_Standard': ('JohtoPilotGateStandard', 'secondary/gate_standard', 'secondary/johto_pilot_gate_standard', 'NULL'),
     'gTileset_CherrygroveCity': ('JohtoPilotCherrygroveCity', 'secondary/cherrygrove_city', 'secondary/johto_pilot_cherrygrove_city', 'NULL'),
+    'gTileset_VioletCity': ('JohtoPilotVioletCity', 'secondary/violet_city', 'secondary/johto_pilot_violet_city', 'NULL'),
 }
 # FireRed attribute without layer bits: behavior | terrain << 9 | encounter << 24, taken from the pattern
 # FireRed's own tilesets use most for that behavior.
@@ -40,7 +43,8 @@ RULES = {
     'MB_POND_WATER': (0x02000410, 'pond water, water terrain, water encounters'),
     'MB_SHALLOW_WATER': (0x00000017, 'same name (walkable, splash)'),
     'MB_INTERIOR_DEEP_WATER': (0x02000410, 'FireRed has no interior deep water; surfable pond water like the tiles around it'),
-    'MB_WEST_ARROW_WARP': (0x00000063, 'same name (its Violet gate warp is dropped)'),
+    'MB_WEST_ARROW_WARP': (0x00000063, 'same name (Route 31 -> Violet gate)'),
+    'MB_EAST_ARROW_WARP': (0x00000062, 'same name (Violet -> Route 31 gate)'),
     'MB_SAND': (0x00000021, 'same name'),
     'MB_JUMP_EAST': (0x00000038, 'same name'), 'MB_JUMP_WEST': (0x00000039, 'same name'),
     'MB_JUMP_SOUTH': (0x0000003B, 'same name'),
@@ -64,14 +68,16 @@ RULES = {
     'MB_SIDEWAYS_STAIRS_LEFT_SIDE_TOP': (0x00000000, 'FireRed has no sideways stairs; walks straight'),
 }
 MUSIC = {'MUS_HG_NEW_BARK': 'MUS_PALLET', 'MUS_HG_ROUTE29': 'MUS_ROUTE1', 'MUS_HG_ELM_LAB': 'MUS_OAK_LAB',
-         'MUS_HG_CHERRYGROVE': 'MUS_VERMILLION', 'MUS_HG_ROUTE30': 'MUS_ROUTE24'}
+         'MUS_HG_CHERRYGROVE': 'MUS_VERMILLION', 'MUS_HG_ROUTE30': 'MUS_ROUTE24',
+         'MUS_HG_VIOLET': 'MUS_FUCHSIA'}
 DOORS = [  # metatile, HNS door image, FireRed name, palette (all 8 entries), sound, secondary tileset
     (0x2CB, 'cerulean.png', 'new_bark_blue', 7, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),
     (0x309, 'NewBarkTown_Door_Yellow.png', 'new_bark_yellow', 5, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),
     # METATILE_Johto_General_Door_Sliding: Cherrygrove's Pokemon Center and Mart (HNS sDoorAnimPalettes_PokeCenter)
-    (0x062, 'johtopokecenter.png', 'sliding', 3, 'DOOR_SOUND_SLIDING', 'CherrygroveCity'),
+    (0x062, 'johtopokecenter.png', 'sliding', 3, 'DOOR_SOUND_SLIDING', ('CherrygroveCity', 'VioletCity')),
 ]
-DOOR_TABLES = {'NewBarkTown': 'sJohtoPilotDoors', 'CherrygroveCity': 'sJohtoPilotDoors_Cherrygrove'}
+DOOR_TABLES = {'NewBarkTown': 'sJohtoPilotDoors', 'CherrygroveCity': 'sJohtoPilotDoors_Cherrygrove',
+               'VioletCity': 'sJohtoPilotDoors_Violet'}
 MARK = '// Johto pilot (scripts/install_johto_pilot.py)'
 
 
@@ -136,7 +142,7 @@ def main():
         shutil.copyfile(source / 'tiles.png', target / 'tiles.png')
         shutil.copyfile(source / 'metatiles.bin', target / 'metatiles.bin')
         # HNS ships 16 palettes for primaries and 13 for secondaries; FireRed loads at most slots 0-12.
-        palettes = sorted(int(f.stem) for f in (source / 'palettes').glob('*.pal'))
+        palettes = sorted(int(f.stem) for f in (source / 'palettes').glob('*.pal') if f.stem.isdigit())  # Violet also ships bellchime_12.pal (an animation palette)
         if palettes != list(range(len(palettes))) or len(palettes) < 13:
             raise ValueError(f'{symbol}: unexpected palette files {palettes}')
         for i in palettes:
@@ -211,7 +217,7 @@ def main():
     for pair, table in DOOR_TABLES.items():
         lines.append(f'static const struct DoorGraphics {table}[] = {{')
         lines += [f'    {{{hex(m).upper().replace("X", "x")}, {snd}, DOOR_SIZE_1x1, sJohtoDoorTiles_{n}, sJohtoDoorPalettes_{n}}},'
-                  for m, _, n, _, snd, p in DOORS if p == pair]
+                  for m, _, n, _, snd, p in DOORS if pair in (p if isinstance(p, tuple) else (p,))]
         lines += ['    {}', '};']
     (g / 'src/data/johto_pilot_doors.h').write_text('\n'.join(lines) + '\n', encoding='utf-8', newline='\n')
     doors = g / 'src/data/door_tilesets.h'
@@ -220,9 +226,12 @@ def main():
         text = text.replace('#include "hoenn_pilot_doors.h"\n', '#include "hoenn_pilot_doors.h"\nextern const struct Tileset gTileset_JohtoPilotGeneral;\n'
                             'extern const struct Tileset gTileset_JohtoPilotNewBarkTown;\n#include "johto_pilot_doors.h"\n')
         text = text.replace('    {NULL, NULL, NULL}', '    {&gTileset_JohtoPilotGeneral, &gTileset_JohtoPilotNewBarkTown, sJohtoPilotDoors},\n    {NULL, NULL, NULL}')
-    if 'sJohtoPilotDoors_Cherrygrove' not in text:
-        text = text.replace('#include "johto_pilot_doors.h"\n', 'extern const struct Tileset gTileset_JohtoPilotCherrygroveCity;\n#include "johto_pilot_doors.h"\n')
-        text = text.replace('    {NULL, NULL, NULL}', '    {&gTileset_JohtoPilotGeneral, &gTileset_JohtoPilotCherrygroveCity, sJohtoPilotDoors_Cherrygrove},\n    {NULL, NULL, NULL}')
+    for pair, table in DOOR_TABLES.items():  # later batches: one binding per secondary tileset
+        if pair == 'NewBarkTown' or f' {table}}}' in text:
+            continue
+        secondary = 'gTileset_' + TILESETS['gTileset_' + pair][0]
+        text = text.replace('#include "johto_pilot_doors.h"\n', f'extern const struct Tileset {secondary};\n#include "johto_pilot_doors.h"\n')
+        text = text.replace('    {NULL, NULL, NULL}', f'    {{&gTileset_JohtoPilotGeneral, &{secondary}, {table}}},\n    {{NULL, NULL, NULL}}')
     doors.write_text(text, encoding='utf-8', newline='\n')
 
     # Layouts, maps, group 44, script includes.
@@ -233,7 +242,7 @@ def main():
     groups = json.loads(groups_path.read_text(encoding='utf-8'))
     if 'gMapGroup_Johto' not in groups['group_order']:
         groups['group_order'].append('gMapGroup_Johto')
-    groups['gMapGroup_Johto'] = [target_map(m) for m in MAPS]
+    groups['gMapGroup_Johto'] = groups.get('gMapGroup_Johto', []) + [target_map(m) for m in MAPS if target_map(m) not in groups.get('gMapGroup_Johto', [])]  # map numbers stay stable across batches
     scripts_path = g / 'data/event_scripts.s'
     scripts = scripts_path.read_text(encoding='utf-8')
     for m in MAPS:
