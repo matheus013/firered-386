@@ -62,6 +62,12 @@ SWITCHES={}
 for _m,_x,_y,_key,_setup,_page in (('MAP_PALLET_TOWN',10,8,'RIGHT',2048|8192,'hoenn'),(HOENN+'LITTLEROOT_TOWN',10,8,'DOWN',8192,'johto')):
  CASES.append((_m,_x,_y,0,0,[(_key,'SWITCH')],_setup));SWITCHES[len(CASES)]=(_m,_page)
 # Fly (M5 step 4): open the Fly map like the party menu does, optionally move, press A; record the landing.
+# Save and Continue (M5): save on a pilot map, wipe the location in RAM, load the save and go through
+# CB2_ContinueSavedGame like the main menu's Continue; the player must be back on the same map and cell,
+# with the region's tilesets.
+CONTINUES={}
+for _m,_x,_y,_tiles in ((HOENN+'LITTLEROOT_TOWN',10,8,'hoenn'),(JOHTO+'ROUTE29',34,11,'johto'),(HOENN+'LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB',6,8,'hoenn_interior')):
+ CASES.append((_m,_x,_y,0,0,[('NONE','CONTINUE')],0));CONTINUES[len(CASES)]=(_m,_x,_y,_tiles)
 FLIGHTS={}
 for _m,_x,_y,_key,_setup,_land in ((HOENN+'LITTLEROOT_TOWN',10,8,'NONE',0,(5,9)),(JOHTO+'NEW_BARK_TOWN',10,10,'NONE',0,(20,12)),
                                    (HOENN+'ROUTE101',10,10,'DOWN',2048,(5,9))):
@@ -222,7 +228,7 @@ CASES.append(('MAP_VERMILION_CITY',23,30,0,0,[('LEFT','TRIP')],GAME_CLEAR))
 TRIPS[len(CASES)]=('MAP_VERMILION_CITY','newbark');NO_ANSWERS[len(CASES)]=1
 CASES=[c if len(c)==7 else (*c,0) for c in CASES]
 KEYS={'UP':'DPAD_UP','DOWN':'DPAD_DOWN','LEFT':'DPAD_LEFT','RIGHT':'DPAD_RIGHT','NONE':'0'}
-MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6,'SCENE':7,'FLY':8,'SWITCH':9}
+MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6,'SCENE':7,'FLY':8,'SWITCH':9,'CONTINUE':10}
 spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}, {setup}, {STORY.get(n,(0,0))[0]}, {STORY.get(n,(0,0))[1]}, {JOHTO_STORY.get(n,(0,0))[0]}, {JOHTO_STORY.get(n,(0,0))[1]}}}' for n,(m,x,y,px,py,s,setup) in enumerate(CASES,1))
 answers=', '.join(str(NO_ANSWERS.get(n,0)) for n in range(1,len(CASES)+1))
 stop_prompts=', '.join(str(STOP_AFTER_PROMPT.get(n,0)) for n in range(1,len(CASES)+1))
@@ -252,7 +258,7 @@ hook='''
 #include "save.h"
 bool8 PilotYesNoActive(void);
 extern const struct Tileset gTileset_General, gTileset_HoennPilotGeneral, gTileset_HoennPilotPetalburg;
-extern const struct Tileset gTileset_JohtoPilotGeneral, gTileset_JohtoPilotNewBarkTown;
+extern const struct Tileset gTileset_JohtoPilotGeneral, gTileset_JohtoPilotNewBarkTown, gTileset_HoennPilotBuilding;
 void CB2_NewGame(void);
 void CB1_Overworld(void);
 void CleanupOverworldWindowsAndTilemaps(void);
@@ -499,6 +505,32 @@ static void PilotWalkCase(void)
         return;
     }
     // Town Map: fade, clean up the field and open the region map as the item does, then keep running.
+    // Continue: save, wipe the location, load the save, continue; record where the player is.
+    if (step->mode == 10 && sPilotPhase >= 5)
+    {
+        const struct MapLayout *layout = gMapHeader.mapLayout;
+        if (sPilotPhase == 5)
+        {
+            r[8] = TrySavingData(SAVE_NORMAL);
+            gSaveBlock1Ptr->location.mapGroup = 0; gSaveBlock1Ptr->location.mapNum = 0;
+            gSaveBlock1Ptr->pos.x = gSaveBlock1Ptr->pos.y = 0;
+            r[9] = LoadGameSave(SAVE_NORMAL);
+            SetMainCallback1(NULL);
+            SetMainCallback2(CB2_ContinueSavedGame);
+            sPilotPhase = 6; sPilotStepFrames = 0;
+        }
+        else if (sPilotPhase == 6 && ((field && sPilotIdle >= 60) || sPilotStepFrames >= 2000))
+        {
+            r[0] = gSaveBlock1Ptr->location.mapGroup; r[1] = gSaveBlock1Ptr->location.mapNum;
+            r[2] = x - MAP_OFFSET; r[3] = y - MAP_OFFSET; r[5] = sPilotStepFrames >= 2000;
+            r[4] = (layout->primaryTileset == &gTileset_HoennPilotGeneral) | (layout->secondaryTileset == &gTileset_HoennPilotPetalburg) << 1
+                 | (layout->primaryTileset == &gTileset_General) << 2
+                 | (layout->primaryTileset == &gTileset_JohtoPilotGeneral) << 3 | (layout->secondaryTileset == &gTileset_JohtoPilotNewBarkTown) << 4
+                 | (layout->primaryTileset == &gTileset_HoennPilotBuilding) << 5;
+            gPilotShot = 1; gPilotStage = 3;
+        }
+        return;
+    }
     // Switch menu: open the Town Map, Start (switch button), A, the step key, A; then read BG0.
     if (step->mode == 9 && sPilotPhase >= 5)
     {
@@ -612,6 +644,11 @@ static void PilotWalkCase(void)
                 return;
             }
             gPilotKeys = step->keys; sPilotPhase = 5; sPilotStepFrames = 0;
+            return;
+        }
+        if (step->mode == 10)
+        {
+            sPilotPhase = 5; sPilotStepFrames = 0;
             return;
         }
         if (step->mode == 4 || step->mode == 8 || step->mode == 9)
@@ -1015,6 +1052,17 @@ for case,(start,dest) in TRIPS.items():
  row=rows[case];where_,cell=ARRIVAL[dest]
  assert row[4]==1 and tuple(row[:2])==where_ and tuple(row[2:4])==cell,(start,'->',dest,'ferry arrival',list(row[:4]),where_,cell)
 print('SEAGALLOP trips:',{f"{s.replace('MAP_','')}->{d}":'ok' for s,d in TRIPS.values()})
+continued={}
+_continue_tiles={'hoenn':0b00011,'johto':0b01000,'hoenn_interior':0b100000}
+for case,(start,x0,y0,tiles) in CONTINUES.items():
+ row=rows[case];want=_group_num(start) if start in _maps else None
+ assert row[8]==1 and row[9]==1,(start,'save or load failed',row[8],row[9])
+ assert not row[5],(start,'Continue never reached a free field',list(row[:6]))
+ assert want is None or tuple(row[:2])==want,(start,'Continue loaded another map',list(row[:2]),want)
+ assert tuple(row[2:4])==(x0,y0),(start,'Continue moved the player',tuple(row[2:4]))
+ assert row[4]&_continue_tiles[tiles]==_continue_tiles[tiles],(start,'region tilesets missing after Continue',bin(row[4]))
+ continued[start.replace('MAP_','')]=f'{x0},{y0}'
+print('Save and Continue:',continued)
 print('PASS: Hoenn and Johto pilots load on their own tilesets with doors, animation and connections; every door, '
       'doormat, staircase and the Route 29 gate warp both ways; both connections cross on foot; the Hoenn bedroom cell '
       'blocks north/south only; wild tables are attached and both pilot routes start real wild battles from them; '
@@ -1022,6 +1070,7 @@ print('PASS: Hoenn and Johto pilots load on their own tilesets with doors, anima
       'every ambient event answers A with its source text, the Potion is picked up, the lab machine heals, PT-BR shows; '
       'the SEAGALLOP sails Vermilion <-> Littleroot/New Bark only after the League; '
       'the region map shows scrolling Hoenn/Johto pages, the switch menu reaches them and Fly lands in Littleroot/New Bark; '
+      'a save made in Hoenn or Johto continues on the same map and cell; '
       'Birch is rescued on Route 101 (starter gift, Zigzagoon battle), his lab follows the story and May battles with the counter team; '
       'assets match their sources; Pallet unchanged.')
 (out/'results.json').write_text(json.dumps({'status':'passed','build':str(test),'cases':{str(k):v.hex() for k,v in rows.items()},

@@ -1168,3 +1168,24 @@ Ainda pendente no M5:
 - save/reload entre regiões;
 - as demais cidades, quando a geografia crescer;
 - voar entre regiões, se for desejado; hoje se vai pelo SEAGALLOP.
+
+### Salvar e continuar entre regiões (12/11, Claude)
+
+O teste da ROM ganhou o modo `CONTINUE`. Ele grava o save com a rotina real (`TrySavingData`), zera a
+localização na RAM, recarrega (`LoadGameSave`) e entra por `CB2_ContinueSavedGame`, o mesmo caminho do
+"Continuar" do menu principal. Depois confere mapa, célula e os tilesets da região.
+
+Passaram os três casos:
+
+- Littleroot (10,8), com os tilesets de Hoenn;
+- Route 29 (34,11), com os de Johto;
+- laboratório do Birch (6,8), com o tileset de interiores de Hoenn.
+
+Ao voltar, aparece a placa com o nome do mapa, como no FireRed (`docs/map-audits/region-continue-route29.png`).
+Nenhuma mudança no motor foi necessária. **177 casos aprovados.**
+
+O teste não cobre:
+
+- desligar o console de verdade (o save é recarregado na mesma sessão do emulador);
+- a reprodução do "quest log" que o FireRed mostra antes de continuar;
+- saves de versões antigas do hack.
