@@ -13,7 +13,8 @@
       "hoenn_x": 4,
       "hoenn_y": 9,
       "hoenn_width": 1,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "OLDALE TOWN"
     },
     {
       "id": "MAPSEC_DEWFORD_TOWN",
@@ -55,7 +56,8 @@
       "hoenn_x": 1,
       "hoenn_y": 9,
       "hoenn_width": 1,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "PETALBURG CITY"
     },
     {
       "id": "MAPSEC_SLATEPORT_CITY",
@@ -126,14 +128,16 @@
       "hoenn_x": 2,
       "hoenn_y": 9,
       "hoenn_width": 2,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "ROUTE 102"
     },
     {
       "id": "MAPSEC_ROUTE_103",
       "hoenn_x": 4,
       "hoenn_y": 8,
       "hoenn_width": 4,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "ROUTE 103"
     },
     {
       "id": "MAPSEC_ROUTE_104",

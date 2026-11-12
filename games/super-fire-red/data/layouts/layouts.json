@@ -4578,6 +4578,54 @@
       "secondary_tileset": "gTileset_JohtoPilotGateStandard",
       "border_filepath": "data/layouts/Johto_Gate_Route29_Route46/border.bin",
       "blockdata_filepath": "data/layouts/Johto_Gate_Route29_Route46/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_OLDALE_TOWN",
+      "name": "Hoenn_OldaleTown_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotPetalburg",
+      "border_filepath": "data/layouts/Hoenn_OldaleTown/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_OldaleTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_ROUTE102",
+      "name": "Hoenn_Route102_Layout",
+      "width": 50,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotPetalburg",
+      "border_filepath": "data/layouts/Hoenn_Route102/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_Route102/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_ROUTE103",
+      "name": "Hoenn_Route103_Layout",
+      "width": 80,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotPetalburg",
+      "border_filepath": "data/layouts/Hoenn_Route103/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_Route103/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_PETALBURG_CITY",
+      "name": "Hoenn_PetalburgCity_Layout",
+      "width": 30,
+      "height": 30,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotPetalburg",
+      "border_filepath": "data/layouts/Hoenn_PetalburgCity/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_PetalburgCity/map.bin"
     }
   ]
 }

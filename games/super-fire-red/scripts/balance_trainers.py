@@ -499,6 +499,22 @@ def region_pilot_trainers(parties_text, trainers_text):
     """Fill the unused Ruby/Sapphire slots used by the region pilot story (hack-data/region_pilot_trainers.json)."""
     pilot = json.loads((ROOT / "games/super-fire-red/hack-data/region_pilot_trainers.json").read_text(encoding="utf-8"))
     for trainer, entry in pilot["trainers"].items():
+        if entry.get('new'):
+            # Region geography trainers: new IDs after the FireRed ones (include/constants/opponents.h).
+            offset = entry.get('level_offset', pilot['level_offset'])
+            mons = "".join(f"\n    {{\n    .iv = {iv},\n    .lvl = {level + offset},\n    .species = {species},\n    }}," for species, level, iv in entry["team"])
+            parties_text = parties_text.rstrip('\n') + (f"\n\n// Region geography: {entry.get('source_repo', 'pokeemerald')} {entry['source']}, levels +{offset}.\n"
+                                                         f"static const struct TrainerMonNoItemDefaultMoves {entry['party']}[] = {{{mons[:-1]}\n}};\n")
+            double = 'TRUE' if entry.get('double') else 'FALSE'
+            ai = 'AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY' + (' | AI_SCRIPT_DOUBLE_BATTLE' if entry.get('double') else '')
+            block = (f"    [{trainer}] = {{\n        .trainerClass = {entry['trainer_class']},\n"
+                     f"        .encounterMusic_gender = {entry.get('music', 'TRAINER_ENCOUNTER_MUSIC_MALE')},\n"
+                     f"        .trainerPic = {entry['trainer_pic']},\n        .trainerName = _(\"{entry['name']}\"),\n"
+                     f"        .items = {{}},\n        .doubleBattle = {double},\n        .aiFlags = {ai},\n"
+                     f"        .party = NO_ITEM_DEFAULT_MOVES({entry['party']}),\n    }},\n")
+            end = trainers_text.rstrip().rfind('};')
+            trainers_text = trainers_text[:end] + block + trainers_text[end:]
+            continue
         placeholder = f"static const struct TrainerMonNoItemDefaultMoves {entry['party']}[] = {{DUMMY_TRAINER_MON}};"
         if parties_text.count(placeholder) != 1:
             raise SystemExit(f"{trainer}: placeholder party {entry['party']} not found")

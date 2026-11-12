@@ -1238,3 +1238,53 @@ Treecko e Chikorita) e a flag da Poção marcada. **178 casos aprovados.** Captu
 - uma campanha desde o início do jogo (o ponto de partida já tem a Liga vencida);
 - times normais de campanha (o time de teste é forte);
 - a geografia completa de Johto e Hoenn, que ainda não existe.
+
+## Hoenn, lote 1: Oldale, Route 102, Route 103 e Petalburg
+
+**Mapas novos:** Oldale Town, Route 102, Route 103 e Petalburg City, ligados a partir da Route 101.
+Oldale e Petalburg têm Centro Pokémon e Mart, com os interiores do FireRed (enfermeira em 7,2 e
+vendedor em 2,3). A enfermeira grava o ponto de retorno de cada cidade. O Mart vende a lista do
+Emerald.
+
+- **Instalação:** `scripts/install_hoenn_batch1.py` copia os layouts preparados por
+  `scripts/prepare_region_pilot.py`, registra os mapas em `gMapGroup_Hoenn` (mapas 7 a 14) e cria as
+  portas animadas do Centro e do Mart em `src/data/hoenn_pilot_doors.h`. Relatório em
+  `docs/map-audits/hoenn-batch1.json`.
+- **Músicas provisórias:** Oldale usa a de Pewter, as rotas usam a da Route 3 e Petalburg usa a de
+  Celadon.
+- **Voo e mapa:** Oldale e Petalburg entram no mapa de Hoenn como destinos de Fly, com flags de mapa
+  próprias (0x8C5 e 0x8C6).
+- **Eventos:** NPCs, placas e itens do chão vêm do Emerald via `scripts/install_pilot_events.py`.
+  Os textos têm 59 traduções para PT-BR.
+- **Treinadores:** 12 treinadores das rotas 102 e 103, com os times originais e +60 níveis
+  (provisório, até o rebalanceamento). Inclui a batalha dupla das gêmeas Amy e Liv.
+- **Pokémon selvagens:** grama e pesca nas rotas 102 e 103, e pesca em Petalburg.
+
+**Fica para depois:** casas, Ginásio e casa do Wally (portas fechadas), Rare Candy escondido,
+árvores de berry e encontros na água (a tabela do Emerald tem outro número de vagas).
+
+**Teste da ROM:**
+
+- 8 caminhadas novas entre os mapas e pelas portas do Centro e do Mart;
+- conversa com cada NPC, placa e item (os treinadores começam vencidos e mostram a fala pós-batalha);
+- a enfermeira cura um time com 1 HP;
+- o Mart abre.
+
+**Resultado:** 234 casos aprovados (eram 178), incluindo a jornada contínua (M7) e o salvar/continuar.
+
+**Problemas encontrados e corrigidos:**
+
+- **Atributos dos tilesets:** só os metatiles de Littleroot e da Route 101 tinham atributos
+  convertidos; os outros estavam zerados. Por isso, as portas do Centro e do Mart não abriam, e a
+  água e os desníveis para leste não funcionavam. `scripts/convert_hoenn_batch1_attributes.py`
+  preenche só as entradas zeradas que os mapas do lote usam. Ele usa o comportamento do Emerald e o
+  valor que o próprio FireRed usa: porta, água do mar, lago, desnível para leste e topo de
+  montanha. Ficaram sem comportamento: solo de berry, parede de base secreta e desníveis diagonais.
+  Relatório em `docs/map-audits/hoenn-batch1-attributes.json`.
+- **Célula de conversa:** o teste escolhia uma célula de água ao lado do menino do lago e da Poké
+  Ball do norte de Petalburg. Agora a célula de onde o jogador fala precisa ter a mesma elevação do
+  objeto.
+- **Saída do Centro e do Mart:** as portas mandavam o jogador para a ponta do tapete (warp 0), e
+  apertar para baixo ali não saía. Agora vão para o meio do tapete (warp 1), como no FireRed.
+- **Poção da Route 102:** a checagem da Poção só lia a flag da Poção da Route 29. Agora aceita as
+  duas.

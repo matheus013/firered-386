@@ -54,6 +54,19 @@ CASES=[
  (JOHTO+'NEW_BARK_TOWN',10,10,0,0,[('NONE','TOWNMAP')]),
  ('MAP_PALLET_TOWN',10,8,0,0,[('NONE','TOWNMAP')]),                   # control: Kanto section
 ]
+# Hoenn batch 1 (Oldale, Routes 102/103, Petalburg): connections both ways and FireRed Pokemon Center /
+# Mart doors in and out. Expected (map, cells) per step; map numbers resolved after the build.
+BATCH_WALKS={}
+for _m,_x,_y,_steps,_want in (
+  (HOENN+'ROUTE101',10,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_OLDALE_TOWN',{(10,19)}),('MAP_HOENN_ROUTE101',{(10,0)})]),
+  (HOENN+'OLDALE_TOWN',0,10,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_HOENN_ROUTE102',{(49,10)}),('MAP_HOENN_OLDALE_TOWN',{(0,10)})]),
+  (HOENN+'OLDALE_TOWN',10,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_ROUTE103',{(10,21)}),('MAP_HOENN_OLDALE_TOWN',{(10,0)})]),
+  (HOENN+'ROUTE102',0,7,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_HOENN_PETALBURG_CITY',None),('MAP_HOENN_ROUTE102',{(0,7)})]),
+  (HOENN+'OLDALE_TOWN',6,17,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_OLDALE_TOWN_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_OLDALE_TOWN',{(6,17)})]),
+  (HOENN+'OLDALE_TOWN',14,7,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_OLDALE_TOWN_MART',{(4,7)}),('MAP_HOENN_OLDALE_TOWN',{(14,7)})]),
+  (HOENN+'PETALBURG_CITY',20,17,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_PETALBURG_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_PETALBURG_CITY',{(20,17)})]),
+  (HOENN+'PETALBURG_CITY',25,13,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_PETALBURG_CITY_MART',{(4,7)}),('MAP_HOENN_PETALBURG_CITY',{(25,13)})])):
+ CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
 # Switch menu (M5 step 3): Start puts the cursor on the switch button, A opens the menu, the key picks
@@ -85,6 +98,9 @@ JOHTO_STORY={}
 NO_ANSWERS={}
 STOP_AFTER_PROMPT={}
 SPOTS={}
+def _pilot_texts_all(folder):
+ text=(folder/'scripts.inc').read_text(encoding='utf-8')
+ return {l:''.join(re.findall(r'\.string "([^"]*)"',b)) for l,b in re.findall(r'^(\w+_Text_\w+)::\n((?:\t\.string "[^"]*"\n?)+)',text,re.M)}
 def _pilot_texts(folder):
  text=(folder/'scripts.inc').read_text(encoding='utf-8')
  bodies={l:''.join(re.findall(r'\.string "([^"]*)"',b)) for l,b in re.findall(r'^(\w+_Text_\w+)::\n((?:\t\.string "[^"]*"\n?)+)',text,re.M)}
@@ -98,7 +114,7 @@ def _pilot_texts(folder):
 _ATTRS={name:[v for (v,) in _struct.iter_unpack('<I',(game/path).read_bytes())] for name,path in re.findall(r'const u32 (\w+)\[\] = INCBIN_U32\("([^"]+)"\)',(game/'src/data/tilesets/metatiles.h').read_text())}
 _TILESETS={name:_ATTRS[re.search(r'\.metatileAttributes = (\w+)',body)[1]] for name,body in re.findall(r'const struct Tileset (\w+) =\s*\{(.*?)\};',(game/'src/data/tilesets/headers.h').read_text(),re.S)}
 MB_COUNTER=0x80
-def _spot(events,collision,behavior,width,height,x,y,north_only):
+def _spot(events,collision,behavior,width,height,x,y,north_only,elev=None,want=0):
  """A free cell facing the event; across a counter (MB_COUNTER) the player talks from the far side."""
  taken={(o['x'],o['y']) for o in events}
  options=[(0,1,'UP'),(0,-1,'DOWN'),(-1,0,'RIGHT'),(1,0,'LEFT')]
@@ -107,6 +123,7 @@ def _spot(events,collision,behavior,width,height,x,y,north_only):
    sx,sy=x+dx*reach,y+dy*reach
    if not (0<=sx<width and 0<=sy<height):break
    if reach==2 and behavior[(y+dy)*width+x+dx]!=MB_COUNTER:break
+   if elev and want and elev[sy*width+sx] not in (0,want):continue  # e.g. water (1) beside a land NPC: unreachable without Surf
    if collision[sy*width+sx]==0 and (sx,sy) not in taken:return sx,sy,key
  return None
 for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/maps').glob('Johto_*'))):
@@ -114,12 +131,12 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
  objs=header.get('object_events') or [];bgs=header.get('bg_events') or []
  if not objs and not bgs:continue
  blocks=[v for (v,) in _struct.iter_unpack('<H',(game/layout['blockdata_filepath']).read_bytes())]
- cells=[(v>>10)&3 for v in blocks]
+ cells=[(v>>10)&3 for v in blocks];elevs=[v>>12 for v in blocks]
  behavior=[(_TILESETS[layout['primary_tileset']][v&0x3ff] if v&0x3ff<640 else _TILESETS[layout['secondary_tileset']][(v&0x3ff)-640])&0x1ff for v in blocks]
  shown=_pilot_texts(folder)
  targets=[('object',i,o) for i,o in enumerate(objs)]+[('sign',i,b) for i,b in enumerate(bgs)]
  for kind,i,e in targets:
-  spot=_spot(objs,cells,behavior,layout['width'],layout['height'],e['x'],e['y'],kind=='sign' and e.get('player_facing_dir')=='BG_EVENT_PLAYER_FACING_NORTH')
+  spot=_spot(objs,cells,behavior,layout['width'],layout['height'],e['x'],e['y'],kind=='sign' and e.get('player_facing_dir')=='BG_EVENT_PLAYER_FACING_NORTH',elevs,int(e.get('elevation',0)) if kind=='object' else 0)
   assert spot,(folder.name,kind,i,'no free cell next to this event')
   sx,sy,key=spot
   SPOTS[(folder.name,kind,i)]=(header['id'],sx,sy,key)
@@ -127,6 +144,32 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
   if (folder.name,kind,i)==('Hoenn_Route101','object',2):continue  # Birch's bag: story scene cases below
   if folder.name=='Johto_NewBarkTown_Lab' and kind=='object' and i in (1,3,4,5):continue  # story cases below
   inc=(folder/'scripts.inc').read_text(encoding='utf-8')
+  body_=inc.split(script+'::')[-1].split('\n\n')[0] if script+'::' in inc else ''
+  if 'SWIMMER' in e.get('graphics_id',''):continue  # on water: needs Surf to reach
+  if 'trainerbattle' in body_:
+   args=re.search(r'(trainerbattle_\w+) \w+, ([^\n]*)',body_)
+   # Talk cases start with the region trainers beaten (PilotSetup), so A shows the post-battle line;
+   # otherwise a trainer would spot the player on load. Battles are tested on their own.
+   intro=re.search(r'msgbox (\w+)',body_)[1]
+   CASES.append((header['id'],sx,sy,0,0,[(key,'TALK')],0))
+   TALKS[len(CASES)]={'map':folder.name,'kind':kind,'index':i,'script':script,'what':'text','setup':0,'expected':_pilot_texts_all(folder).get(intro)}
+   continue
+  if 'EventScript_PkmnCenterNurse' in body_:  # FireRed nurse in the region Pokemon Centers: heals a 1 HP lead
+   CASES.append((header['id'],sx,sy,0,0,[(key,'TALK')],1))
+   TALKS[len(CASES)]={'map':folder.name,'kind':kind,'index':i,'script':script,'what':'heal','setup':1,'expected':None}
+   continue
+  if 'pokemart ' in body_:  # FireRed clerk: the shop opens
+   CASES.append((header['id'],sx,sy,0,0,[(key,'TALK')],0))
+   TALKS[len(CASES)]={'map':folder.name,'kind':kind,'index':i,'script':script,'what':'started','setup':0,'expected':None}
+   continue
+  if script.startswith('EventScript_Poke'):  # FireRed's own Pokemon Center / Mart signs
+   CASES.append((header['id'],sx,sy,0,0,[(key,'TALK')],0))
+   TALKS[len(CASES)]={'map':folder.name,'kind':kind,'index':i,'script':script,'what':'started','setup':0,'expected':None}
+   continue
+  if 'finditem' in body_ and 'ITEM_POTION' not in body_:
+   CASES.append((header['id'],sx,sy,0,0,[(key,'TALK')],0))
+   TALKS[len(CASES)]={'map':folder.name,'kind':kind,'index':i,'script':script,'what':'started','setup':0,'expected':None}
+   continue
   what='silent' if script=='0x0' or (folder.name,kind,i)==('Hoenn_LittlerootTown_ProfessorBirchsLab','object',1) else 'cuttree' if script=='EventScript_CutTree' else 'item' if 'finditem' in inc.split(script+'::')[-1].split('\n\n')[0] else 'heal' if f'{script}_Heal' in inc else 'text'
   setups=[0]+([1] if what=='heal' else [])
   for setup in setups:
@@ -499,7 +542,7 @@ static void PilotWalkCase(void)
                 gPilotKeys = 0;
                 t[5] = GetMonData(&gPlayerParty[0], MON_DATA_HP) == GetMonData(&gPlayerParty[0], MON_DATA_MAX_HP);
                 t[6] = CheckBagHasItem(ITEM_POTION, 1);
-                t[7] = FlagGet(FLAG_HIDE_JOHTO_ROUTE29_POTION);
+                t[7] = FlagGet(FLAG_HIDE_JOHTO_ROUTE29_POTION) | FlagGet(FLAG_HIDE_HOENN_ROUTE102_POTION) << 1;  // either region Potion ball
                 gPilotStage = 3;
             }
         }
@@ -983,6 +1026,11 @@ void PilotSetup(void)
     }
     if (spawn[7] & 4096)
         FlagSet(FLAG_GOT_JOHTO_AIDE_POTION);
+    {
+        u16 t;
+        for (t = TRAINER_HOENN_CALVIN; t < NUM_TRAINERS; t++)
+            FlagSet(TRAINER_FLAGS_START + t); // region route trainers start beaten (see the talk cases)
+    }
     if (spawn[7] & 2048)
         FlagSet(FLAG_WORLD_MAP_LITTLEROOT_TOWN);
     if (spawn[7] & 16384)
@@ -1084,7 +1132,7 @@ for name,row,tiles in (('Littleroot',little,HOENN_TILES),('Route101',route,HOENN
  assert row[17],(name,'tile animation did not update VRAM tile 508')
 assert pallet[4]==KANTO_TILES,'Pallet Town no longer uses the FireRed tilesets'
 assert little[7]==1 and tuple(little[8:11])==(UP,HG,ROUTE101),('Littleroot must connect north to Route101',list(little[7:11]))
-assert route[7]==1 and tuple(route[8:11])==(DOWN,HG,LITTLEROOT),('Route101 must connect south to Littleroot',list(route[7:11]))
+assert route[7]>=1 and tuple(route[8:11])==(DOWN,HG,LITTLEROOT),('Route101 must connect south to Littleroot (and north to Oldale)',list(route[7:11]))
 assert newbark[7]==1 and tuple(newbark[8:11])==(LEFT,JG,ROUTE29),('New Bark must connect west to Route29',list(newbark[7:11]))
 assert route29[7]==1 and tuple(route29[8:11])==(RIGHT,JG,NEWBARK),('Route29 must connect east to New Bark',list(route29[7:11]))
 assert little[11]|little[12]<<8==0x2C8 and little[13]==WARP_DOOR and little[14],('Littleroot door cell',little[11:15].hex())
@@ -1201,6 +1249,8 @@ for case,info in TALKS.items():
  if info['setup']&2:
   assert got and got!=shown_text(rows[next(c for c,i in TALKS.items() if i['map']==info['map'] and i['kind']==info['kind'] and i['index']==info['index'] and i['setup']==0)][8:128]),(where,'PT-BR shows the English text',got)
   assert got.startswith(('LABORATÓRIO','Ah! Seu')),(where,got);talked['ptbr']+=1;continue
+ if info['what']=='started':
+  talked['started']=talked.get('started',0)+1;continue  # row[4] (script started) was checked above
  if info['what']=='item':
   assert row[6] and row[7],(where,'Potion not in the bag or flag not set',row[6],row[7]);talked['item']+=1;continue
  if info['what']=='cuttree':
@@ -1257,6 +1307,12 @@ for case,(start,dest) in TRIPS.items():
  row=rows[case];where_,cell=ARRIVAL[dest]
  assert row[4]==1 and tuple(row[:2])==where_ and tuple(row[2:4])==cell,(start,'->',dest,'ferry arrival',list(row[:4]),where_,cell)
 print('SEAGALLOP trips:',{f"{s.replace('MAP_','')}->{d}":'ok' for s,d in TRIPS.values()})
+batch_walked={}
+for case,want in BATCH_WALKS.items():
+ for i,(g,(mapname,cells)) in enumerate(zip(walked(case),want)):
+  assert (g[0],g[1])==_group_num(mapname) and (cells is None or (g[2],g[3]) in cells),(CASES[case-1][0],'step',i,'got',g,'expected',mapname,cells)
+ batch_walked[CASES[case-1][0].replace('MAP_HOENN_','')+'->'+want[0][0].replace('MAP_HOENN_','')]='ok'
+print('Hoenn batch 1 walks:',batch_walked)
 jrow=rows[JOURNEY_CASE];jdone=u16(jrow,0)
 assert jrow[2]==0 and jdone==len(JOURNEY),('journey stopped at op',jdone,'of',len(JOURNEY),'phase',jrow[2]-1,'map',list(jrow[3:5]),'cell',list(jrow[5:7]),'busy',jrow[7],
   'next',JOURNEY[jdone] if jdone<len(JOURNEY) else None,'previous',JOURNEY[jdone-1] if jdone else None,'last check',JOURNEY_CHECKS[max([a for o,a,*_ in JOURNEY[:jdone] if o==J_CHECK] or [0])])

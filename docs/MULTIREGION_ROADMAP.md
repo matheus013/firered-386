@@ -49,7 +49,7 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 | M1 | Inventário técnico, classificação regional e matriz de dependências | Iniciado: inventário técnico gerado; classificação e scripts pendentes |
 | M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Concluído na engine: Hoenn (Littleroot, Route 101, 5 interiores; grupo 43) e Johto (New Bark, Route 29, 6 interiores; grupo 44), testados andando na ROM (build isolada), com encontros selvagens nas duas rotas e na água de New Bark e seções com nome. Faltam eventos e o resto do M5 |
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Pendente |
-| M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
+| M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Em andamento (lote 1: Oldale, Routes 102/103, Petalburg) |
 | M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Parcial: SEAGALLOP pós-Liga; seções com nome; mapa regional com páginas roláveis de Hoenn/Johto (arte original), menu de troca em duas colunas e Fly para Littleroot/New Bark. save e Continuar testados em Hoenn e Johto. Pendente: demais cidades, quest log e saves antigos |
 | M6 | Eventos, encontros, desafios e progressão interligados | Parcial: ambiente, personagens, resgate de Birch/May e pedido de Elm/iniciais/Silver nos pilotos; demais eventos e campanhas pendentes |
 | M7 | Builds locais isoladas e percurso completo sem teleportes | Parcial: percurso contínuo dos pilotos testado na ROM (Vermilion → Hoenn → Vermilion → Johto → Vermilion só com comandos simulados, 245 operações). Pendente: o mesmo para a geografia completa e uma campanha desde o início |

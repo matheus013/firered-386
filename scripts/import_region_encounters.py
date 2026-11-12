@@ -21,6 +21,13 @@ TABLES = [
     ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gNewBarkTown', 'MAP_NEW_BARK_TOWN',
      'MAP_JOHTO_NEW_BARK_TOWN', 'gJohtoNewBarkTown_Pilot', ['water_mons', 'fishing_mons'],
      'day table; HNS has 12 water slots, all Tentacool 25-29, FireRed has 5; empty land table and Rock Smash left out'),
+    # Hoenn batch 1 (scripts/install_hoenn_batch1.py)
+    ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gRoute102', 'MAP_ROUTE102',
+     'MAP_HOENN_ROUTE102', 'gHoennRoute102_Pilot', ['land_mons', 'fishing_mons'], 'Emerald tables unchanged; water left out (slot layout differs)'),
+    ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gRoute103', 'MAP_ROUTE103',
+     'MAP_HOENN_ROUTE103', 'gHoennRoute103_Pilot', ['land_mons', 'fishing_mons'], 'Emerald tables unchanged; water left out (slot layout differs)'),
+    ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gPetalburgCity', 'MAP_PETALBURG_CITY',
+     'MAP_HOENN_PETALBURG_CITY', 'gHoennPetalburgCity_Pilot', ['fishing_mons'], 'Emerald fishing table; water left out (slot layout differs)'),
 ]
 
 

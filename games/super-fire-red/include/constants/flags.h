@@ -47,6 +47,11 @@
 #define FLAG_0x021               0x021
 #define FLAG_EXP_SHARE_UNLOCKED  FLAG_0x020
 #define FLAG_EXP_SHARE_DISABLED  FLAG_0x021
+#define FLAG_HIDE_HOENN_ROUTE102_POTION FLAG_0x0AF // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC FLAG_0x0B0 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE103_PP_UP FLAG_0x0B1 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_PETALBURG_MAX_REVIVE FLAG_0x0B2 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_PETALBURG_ETHER FLAG_0x0B3 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_AIDE_POTION FLAG_0x027 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_GOT_JOHTO_AIDE_BALLS FLAG_0x07F // Region pilot story (scripts/pilot_story.py)
@@ -1474,6 +1479,8 @@
 // Region pilot towns, set on entry; Fly destinations (scripts/install_pilot_events.py).
 #define FLAG_WORLD_MAP_LITTLEROOT_TOWN                              FLAG_0x8C3
 #define FLAG_WORLD_MAP_NEW_BARK_TOWN                               FLAG_0x8C4
+#define FLAG_WORLD_MAP_OLDALE_TOWN                                 FLAG_0x8C5
+#define FLAG_WORLD_MAP_PETALBURG_CITY                              FLAG_0x8C6
 
 #define FLAG_0x8C3                                                  (SYS_FLAGS + 0xC3)
 #define FLAG_0x8C4                                                  (SYS_FLAGS + 0xC4)

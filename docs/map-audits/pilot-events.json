@@ -415,6 +415,554 @@
         }
       ]
     },
+    "Hoenn_OldaleTown": {
+      "source": "pokeemerald/OldaleTown",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "OldaleTown_EventScript_Girl",
+          "source_sprite": "OBJ_EVENT_GFX_GIRL_3",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": "OldaleTown_Text_SavingMyProgress",
+          "note": "",
+          "x": 16,
+          "y": 11
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "OldaleTown_EventScript_MartEmployee",
+          "source_sprite": "OBJ_EVENT_GFX_MART_EMPLOYEE",
+          "firered_sprite": "OBJ_EVENT_GFX_CLERK",
+          "text": "OldaleTown_Text_ThisIsAPokemonMart",
+          "note": "Mart employee: explanation branch; the Potion sample is a new-trainer gift",
+          "x": 13,
+          "y": 7
+        },
+        {
+          "kind": "npc",
+          "source_index": 2,
+          "source_script": "OldaleTown_EventScript_FootprintsMan",
+          "source_sprite": "OBJ_EVENT_GFX_MANIAC",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "OldaleTown_Text_FinishedSketchingFootprints",
+          "note": "branch after the rival scene",
+          "x": 8,
+          "y": 9
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "OldaleTown_EventScript_TownSign",
+          "text": "OldaleTown_Text_TownSign",
+          "x": 11,
+          "y": 9
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 1,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 7,
+          "y": 16
+        },
+        {
+          "kind": "martsign",
+          "source_index": 2,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 15,
+          "y": 6
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 3,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 8,
+          "y": 16
+        },
+        {
+          "kind": "martsign",
+          "source_index": 4,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 16,
+          "y": 6
+        }
+      ]
+    },
+    "Hoenn_Route102": {
+      "source": "pokeemerald/Route102",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "Route102_EventScript_LittleBoy",
+          "source_sprite": "OBJ_EVENT_GFX_LITTLE_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_LITTLE_BOY",
+          "text": "Route102_Text_ImNotVeryTall",
+          "note": "",
+          "x": 18,
+          "y": 11
+        },
+        {
+          "kind": "trainer",
+          "source_index": 1,
+          "source_script": "Route102_EventScript_Calvin",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": [
+            "TRAINER_HOENN_CALVIN",
+            "Route102_Text_CalvinIntro",
+            "Route102_Text_CalvinDefeated",
+            "Route102_Text_CalvinPostBattle"
+          ],
+          "note": "no Match Call",
+          "x": 33,
+          "y": 14
+        },
+        {
+          "kind": "trainer",
+          "source_index": 2,
+          "source_script": "Route102_EventScript_Rick",
+          "source_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "firered_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "text": [
+            "TRAINER_HOENN_RICK",
+            "Route102_Text_RickIntro",
+            "Route102_Text_RickDefeated",
+            "Route102_Text_RickPostBattle"
+          ],
+          "note": "",
+          "x": 25,
+          "y": 15
+        },
+        {
+          "kind": "trainer",
+          "source_index": 3,
+          "source_script": "Route102_EventScript_Tiana",
+          "source_sprite": "OBJ_EVENT_GFX_LASS",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_TIANA",
+            "Route102_Text_TianaIntro",
+            "Route102_Text_TianaDefeated",
+            "Route102_Text_TianaPostBattle"
+          ],
+          "note": "",
+          "x": 8,
+          "y": 7
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "Route102_EventScript_Boy",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_1",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "Route102_Text_CatchWholeBunchOfPokemon",
+          "note": "",
+          "x": 37,
+          "y": 4
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 5,
+          "source_script": "Route102_EventScript_ItemPotion",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Potion",
+          "x": 11,
+          "y": 15
+        },
+        {
+          "kind": "trainer",
+          "source_index": 8,
+          "source_script": "Route102_EventScript_Allen",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": [
+            "TRAINER_HOENN_ALLEN",
+            "Route102_Text_AllenIntro",
+            "Route102_Text_AllenDefeated",
+            "Route102_Text_AllenPostBattle"
+          ],
+          "note": "",
+          "x": 19,
+          "y": 4
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route102_EventScript_RouteSignPetalburg",
+          "text": "Route102_Text_RouteSignPetalburg",
+          "x": 17,
+          "y": 2
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "Route102_EventScript_RouteSignOldale",
+          "text": "Route102_Text_RouteSignOldale",
+          "x": 40,
+          "y": 9
+        }
+      ]
+    },
+    "Hoenn_Route103": {
+      "source": "pokeemerald/Route103",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "Route103_EventScript_Man",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_3",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "Route103_Text_ShortcutToOldale",
+          "note": "",
+          "x": 49,
+          "y": 12
+        },
+        {
+          "kind": "trainer",
+          "source_index": 2,
+          "source_script": "Route103_EventScript_Daisy",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": [
+            "TRAINER_HOENN_DAISY",
+            "Route103_Text_DaisyIntro",
+            "Route103_Text_DaisyDefeated",
+            "Route103_Text_DaisyPostBattle"
+          ],
+          "note": "",
+          "x": 71,
+          "y": 11
+        },
+        {
+          "kind": "trainer",
+          "source_index": 3,
+          "source_script": "Route103_EventScript_Liv",
+          "source_sprite": "OBJ_EVENT_GFX_TWIN",
+          "firered_sprite": "OBJ_EVENT_GFX_TWIN",
+          "text": [
+            "TRAINER_HOENN_AMY_AND_LIV",
+            "Route103_Text_LivIntro",
+            "Route103_Text_LivDefeated",
+            "Route103_Text_LivPostBattle",
+            "Route103_Text_LivNotEnoughPokemon"
+          ],
+          "note": "double battle",
+          "x": 65,
+          "y": 12
+        },
+        {
+          "kind": "trainer",
+          "source_index": 4,
+          "source_script": "Route103_EventScript_Amy",
+          "source_sprite": "OBJ_EVENT_GFX_TWIN",
+          "firered_sprite": "OBJ_EVENT_GFX_TWIN",
+          "text": [
+            "TRAINER_HOENN_AMY_AND_LIV",
+            "Route103_Text_AmyIntro",
+            "Route103_Text_AmyDefeated",
+            "Route103_Text_AmyPostBattle",
+            "Route103_Text_AmyNotEnoughPokemon"
+          ],
+          "note": "double battle",
+          "x": 64,
+          "y": 12
+        },
+        {
+          "kind": "trainer",
+          "source_index": 5,
+          "source_script": "Route103_EventScript_Andrew",
+          "source_sprite": "OBJ_EVENT_GFX_FISHERMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FISHER",
+          "text": [
+            "TRAINER_HOENN_ANDREW",
+            "Route103_Text_AndrewIntro",
+            "Route103_Text_AndrewDefeated",
+            "Route103_Text_AndrewPostBattle"
+          ],
+          "note": "",
+          "x": 50,
+          "y": 8
+        },
+        {
+          "kind": "npc",
+          "source_index": 9,
+          "source_script": "Route103_EventScript_Boy",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_1",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "Route103_Text_ShouldHaveBroughtPotion",
+          "note": "",
+          "x": 20,
+          "y": 10
+        },
+        {
+          "kind": "trainer",
+          "source_index": 11,
+          "source_script": "Route103_EventScript_Miguel",
+          "source_sprite": "OBJ_EVENT_GFX_POKEFAN_M",
+          "firered_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "text": [
+            "TRAINER_HOENN_MIGUEL",
+            "Route103_Text_MiguelIntro",
+            "Route103_Text_MiguelDefeated",
+            "Route103_Text_MiguelPostBattle"
+          ],
+          "note": "no Match Call",
+          "x": 56,
+          "y": 13
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 12,
+          "source_script": "Route103_EventScript_ItemGuardSpec",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Guard Spec.",
+          "x": 50,
+          "y": 5
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 13,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "FireRed EventScript_CutTree",
+          "x": 67,
+          "y": 7
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 14,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "FireRed EventScript_CutTree",
+          "x": 72,
+          "y": 8
+        },
+        {
+          "kind": "trainer",
+          "source_index": 15,
+          "source_script": "Route103_EventScript_Rhett",
+          "source_sprite": "OBJ_EVENT_GFX_BLACK_BELT",
+          "firered_sprite": "OBJ_EVENT_GFX_BLACK_BELT",
+          "text": [
+            "TRAINER_HOENN_RHETT",
+            "Route103_Text_RhettIntro",
+            "Route103_Text_RhettDefeated",
+            "Route103_Text_RhettPostBattle"
+          ],
+          "note": "",
+          "x": 67,
+          "y": 5
+        },
+        {
+          "kind": "trainer",
+          "source_index": 16,
+          "source_script": "Route103_EventScript_Marcos",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_ROCKER",
+          "text": [
+            "TRAINER_HOENN_MARCOS",
+            "Route103_Text_MarcosIntro",
+            "Route103_Text_MarcosDefeated",
+            "Route103_Text_MarcosPostBattle"
+          ],
+          "note": "",
+          "x": 67,
+          "y": 9
+        },
+        {
+          "kind": "trainer",
+          "source_index": 17,
+          "source_script": "Route103_EventScript_Isabelle",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "text": [
+            "TRAINER_HOENN_ISABELLE",
+            "Route103_Text_IsabelleIntro",
+            "Route103_Text_IsabelleDefeated",
+            "Route103_Text_IsabellePostBattle"
+          ],
+          "note": "on water: Surf",
+          "x": 36,
+          "y": 6
+        },
+        {
+          "kind": "trainer",
+          "source_index": 18,
+          "source_script": "Route103_EventScript_Pete",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_M",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "text": [
+            "TRAINER_HOENN_PETE",
+            "Route103_Text_PeteIntro",
+            "Route103_Text_PeteDefeated",
+            "Route103_Text_PetePostBattle"
+          ],
+          "note": "on water: Surf",
+          "x": 36,
+          "y": 13
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 19,
+          "source_script": "Route103_EventScript_ItemPPUp",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "PP Up",
+          "x": 64,
+          "y": 7
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route103_EventScript_RouteSign",
+          "text": "Route103_Text_RouteSign",
+          "x": 11,
+          "y": 9
+        }
+      ]
+    },
+    "Hoenn_PetalburgCity": {
+      "source": "pokeemerald/PetalburgCity",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "PetalburgCity_EventScript_WallysMom",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_4",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_4",
+          "text": "PetalburgCity_Text_WhereIsWally",
+          "note": "Wally's mother",
+          "x": 16,
+          "y": 18
+        },
+        {
+          "kind": "npc",
+          "source_index": 2,
+          "source_script": "PetalburgCity_EventScript_Boy",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_1",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "PetalburgCity_Text_WaterReflection",
+          "note": "",
+          "x": 8,
+          "y": 22
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "PetalburgCity_EventScript_Gentleman",
+          "source_sprite": "OBJ_EVENT_GFX_GENTLEMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_GENTLEMAN",
+          "text": "PetalburgCity_Text_FullPartyExplanation",
+          "note": "",
+          "x": 20,
+          "y": 10
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 5,
+          "source_script": "PetalburgCity_EventScript_ItemMaxRevive",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Max Revive",
+          "x": 19,
+          "y": 2
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 6,
+          "source_script": "PetalburgCity_EventScript_ItemEther",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Ether",
+          "x": 3,
+          "y": 28
+        },
+        {
+          "kind": "npc",
+          "source_index": 7,
+          "source_script": "PetalburgCity_EventScript_GymBoy",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_2",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "PetalburgCity_Text_AreYouRookieTrainer",
+          "note": "Gym boy",
+          "x": 12,
+          "y": 15
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "PetalburgCity_EventScript_GymSign",
+          "text": "PetalburgCity_Text_GymSign",
+          "x": 17,
+          "y": 10
+        },
+        {
+          "kind": "martsign",
+          "source_index": 1,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 26,
+          "y": 12
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 2,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 21,
+          "y": 16
+        },
+        {
+          "kind": "sign",
+          "source_index": 3,
+          "source_script": "PetalburgCity_EventScript_CitySign",
+          "text": "PetalburgCity_Text_CitySign",
+          "x": 17,
+          "y": 16
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 4,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 22,
+          "y": 16
+        },
+        {
+          "kind": "martsign",
+          "source_index": 5,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 27,
+          "y": 12
+        },
+        {
+          "kind": "sign",
+          "source_index": 6,
+          "source_script": "PetalburgCity_EventScript_WallyHouseSign",
+          "text": "PetalburgCity_Text_WallyHouseSign",
+          "x": 8,
+          "y": 9
+        }
+      ]
+    },
     "Johto_NewBarkTown": {
       "source": "HNS_modern/NewBarkTown",
       "events": [

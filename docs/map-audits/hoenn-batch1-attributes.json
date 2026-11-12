@@ -1,0 +1,220 @@
+{
+  "layouts": [
+    "LAYOUT_HOENN_OLDALE_TOWN",
+    "LAYOUT_HOENN_ROUTE102",
+    "LAYOUT_HOENN_ROUTE103",
+    "LAYOUT_HOENN_PETALBURG_CITY"
+  ],
+  "entries": [
+    {
+      "metatile": "0x013",
+      "source_behavior": "MB_SECRET_BASE_WALL",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x021",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x00000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x041",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x061",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x071",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x086",
+      "source_behavior": "MB_JUMP_EAST",
+      "attribute": "0x20000038",
+      "reason": "east ledge"
+    },
+    {
+      "metatile": "0x08d",
+      "source_behavior": "MB_JUMP_SOUTHWEST",
+      "attribute": "0x00000000",
+      "reason": "source has no movement for diagonal jumps"
+    },
+    {
+      "metatile": "0x0a1",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0b0",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0b1",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0b2",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0b8",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0ba",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0c0",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0c2",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0ff",
+      "source_behavior": "MB_JUMP_EAST",
+      "attribute": "0x20000038",
+      "reason": "east ledge"
+    },
+    {
+      "metatile": "0x14c",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x170",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x178",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x179",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x181",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x188",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x189",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x18a",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x190",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x192",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x193",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x42000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x198",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x19a",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x1cd",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x1fe",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x42000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x1ff",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x42000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2fb",
+      "source_behavior": "MB_JUMP_SOUTHEAST",
+      "attribute": "0x00000000",
+      "reason": "source has no movement for diagonal jumps"
+    },
+    {
+      "metatile": "0x307",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x30d",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    }
+  ]
+}

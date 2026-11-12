@@ -27,7 +27,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_LITTLE_BOY': 'OBJ_EVENT_GFX_LITTLE_BOY',
     'OBJ_EVENT_GFX_POLICEMAN': 'OBJ_EVENT_GFX_POLICEMAN', 'OBJ_EVENT_GFX_SCIENTIST_1': 'OBJ_EVENT_GFX_SCIENTIST',
     'OBJ_EVENT_GFX_SCIENTIST_M': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_CUTTABLE_TREE': 'OBJ_EVENT_GFX_CUT_TREE',
-    'OBJ_EVENT_GFX_POKE_BALL': 'OBJ_EVENT_GFX_ITEM_BALL',
+    'OBJ_EVENT_GFX_POKE_BALL': 'OBJ_EVENT_GFX_ITEM_BALL', 'OBJ_EVENT_GFX_ITEM_BALL': 'OBJ_EVENT_GFX_ITEM_BALL',
     # Phase 2: main characters. FireRed already has the Ruby/Sapphire Brendan and May.
     'OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL': 'OBJ_EVENT_GFX_RS_BRENDAN', 'OBJ_EVENT_GFX_RIVAL_MAY_NORMAL': 'OBJ_EVENT_GFX_RS_MAY',
     'OBJ_EVENT_GFX_WOMAN_4': 'OBJ_EVENT_GFX_WOMAN_4', 'OBJ_EVENT_GFX_NINJA_BOY': 'OBJ_EVENT_GFX_NINJA_BOY',
@@ -35,6 +35,13 @@ SPRITES = {
     'OBJ_EVENT_GFX_SILVER': 'OBJ_EVENT_GFX_SILVER',
     'OBJ_EVENT_GFX_VIGOROTH_CARRYING_BOX': 'OBJ_EVENT_GFX_VIGOROTH_CARRYING_BOX',
     'OBJ_EVENT_GFX_VIGOROTH_FACING_AWAY': 'OBJ_EVENT_GFX_VIGOROTH_FACING_AWAY',
+    # Hoenn batch 1
+    'OBJ_EVENT_GFX_GIRL_3': 'OBJ_EVENT_GFX_LASS', 'OBJ_EVENT_GFX_MART_EMPLOYEE': 'OBJ_EVENT_GFX_CLERK',
+    'OBJ_EVENT_GFX_MANIAC': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_3': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_BOY_1': 'OBJ_EVENT_GFX_BOY',
+    'OBJ_EVENT_GFX_BUG_CATCHER': 'OBJ_EVENT_GFX_BUG_CATCHER', 'OBJ_EVENT_GFX_FISHERMAN': 'OBJ_EVENT_GFX_FISHER',
+    'OBJ_EVENT_GFX_POKEFAN_M': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_BLACK_BELT': 'OBJ_EVENT_GFX_BLACK_BELT',
+    'OBJ_EVENT_GFX_MAN_5': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_SWIMMER_F': 'OBJ_EVENT_GFX_SWIMMER_F_WATER',
+    'OBJ_EVENT_GFX_SWIMMER_M': 'OBJ_EVENT_GFX_SWIMMER_M_WATER', 'OBJ_EVENT_GFX_GENTLEMAN': 'OBJ_EVENT_GFX_GENTLEMAN',
     # Phase 3: Birch rescue
     'OBJ_EVENT_GFX_ZIGZAGOON_1': 'OBJ_EVENT_GFX_ZIGZAGOON', 'OBJ_EVENT_GFX_BIRCHS_BAG': 'OBJ_EVENT_GFX_BIRCHS_BAG',
 }
@@ -85,6 +92,42 @@ EVENTS = {
     'LittlerootTown_MaysHouse_2F': (EMERALD, {
         0: ('story', None, 'May: getting ready before the rescue, then the battle (pilot_story.py)')},
         {0: ('sign', 'PlayersHouse_2F_Text_ItsAGameCube'), 1: ('sign', 'PlayersHouse_2F_Text_Notebook')}),
+    # Hoenn batch 1 (scripts/install_hoenn_batch1.py terrain). Story-only objects (rivals, Birch, Wally,
+    # Scott) and berry trees (no berry system in FireRed) stay out.
+    'OldaleTown': (EMERALD, {
+        0: ('npc', 'OldaleTown_Text_SavingMyProgress', ''),
+        1: ('npc', 'OldaleTown_Text_ThisIsAPokemonMart', 'Mart employee: explanation branch; the Potion sample is a new-trainer gift'),
+        2: ('npc', 'OldaleTown_Text_FinishedSketchingFootprints', 'branch after the rival scene')},
+        {0: ('sign', 'OldaleTown_Text_TownSign'), 1: ('pcsign', None), 2: ('martsign', None), 3: ('pcsign', None), 4: ('martsign', None)}),
+    'Route102': (EMERALD, {
+        0: ('npc', 'Route102_Text_ImNotVeryTall', ''), 4: ('npc', 'Route102_Text_CatchWholeBunchOfPokemon', ''),
+        5: ('itemflag', None, 'Potion'),
+        1: ('trainer', ('TRAINER_HOENN_CALVIN', 'Route102_Text_CalvinIntro', 'Route102_Text_CalvinDefeated', 'Route102_Text_CalvinPostBattle'), 'no Match Call'),
+        2: ('trainer', ('TRAINER_HOENN_RICK', 'Route102_Text_RickIntro', 'Route102_Text_RickDefeated', 'Route102_Text_RickPostBattle'), ''),
+        3: ('trainer', ('TRAINER_HOENN_TIANA', 'Route102_Text_TianaIntro', 'Route102_Text_TianaDefeated', 'Route102_Text_TianaPostBattle'), ''),
+        8: ('trainer', ('TRAINER_HOENN_ALLEN', 'Route102_Text_AllenIntro', 'Route102_Text_AllenDefeated', 'Route102_Text_AllenPostBattle'), '')},
+        {0: ('sign', 'Route102_Text_RouteSignPetalburg'), 1: ('sign', 'Route102_Text_RouteSignOldale')}),
+    'Route103': (EMERALD, {
+        0: ('npc', 'Route103_Text_ShortcutToOldale', ''), 9: ('npc', 'Route103_Text_ShouldHaveBroughtPotion', ''),
+        12: ('itemflag', None, 'Guard Spec.'), 19: ('itemflag', None, 'PP Up'),
+        13: ('cuttree', None, 'FireRed EventScript_CutTree'), 14: ('cuttree', None, 'FireRed EventScript_CutTree'),
+        2: ('trainer', ('TRAINER_HOENN_DAISY', 'Route103_Text_DaisyIntro', 'Route103_Text_DaisyDefeated', 'Route103_Text_DaisyPostBattle'), ''),
+        3: ('trainer', ('TRAINER_HOENN_AMY_AND_LIV', 'Route103_Text_LivIntro', 'Route103_Text_LivDefeated', 'Route103_Text_LivPostBattle', 'Route103_Text_LivNotEnoughPokemon'), 'double battle'),
+        4: ('trainer', ('TRAINER_HOENN_AMY_AND_LIV', 'Route103_Text_AmyIntro', 'Route103_Text_AmyDefeated', 'Route103_Text_AmyPostBattle', 'Route103_Text_AmyNotEnoughPokemon'), 'double battle'),
+        5: ('trainer', ('TRAINER_HOENN_ANDREW', 'Route103_Text_AndrewIntro', 'Route103_Text_AndrewDefeated', 'Route103_Text_AndrewPostBattle'), ''),
+        11: ('trainer', ('TRAINER_HOENN_MIGUEL', 'Route103_Text_MiguelIntro', 'Route103_Text_MiguelDefeated', 'Route103_Text_MiguelPostBattle'), 'no Match Call'),
+        15: ('trainer', ('TRAINER_HOENN_RHETT', 'Route103_Text_RhettIntro', 'Route103_Text_RhettDefeated', 'Route103_Text_RhettPostBattle'), ''),
+        16: ('trainer', ('TRAINER_HOENN_MARCOS', 'Route103_Text_MarcosIntro', 'Route103_Text_MarcosDefeated', 'Route103_Text_MarcosPostBattle'), ''),
+        17: ('trainer', ('TRAINER_HOENN_ISABELLE', 'Route103_Text_IsabelleIntro', 'Route103_Text_IsabelleDefeated', 'Route103_Text_IsabellePostBattle'), 'on water: Surf'),
+        18: ('trainer', ('TRAINER_HOENN_PETE', 'Route103_Text_PeteIntro', 'Route103_Text_PeteDefeated', 'Route103_Text_PetePostBattle'), 'on water: Surf')},
+        {0: ('sign', 'Route103_Text_RouteSign')}),
+    'PetalburgCity': (EMERALD, {
+        0: ('npc', 'PetalburgCity_Text_WhereIsWally', "Wally's mother"),
+        2: ('npc', 'PetalburgCity_Text_WaterReflection', ''), 3: ('npc', 'PetalburgCity_Text_FullPartyExplanation', ''),
+        7: ('npc', 'PetalburgCity_Text_AreYouRookieTrainer', 'Gym boy'),
+        5: ('itemflag', None, 'Max Revive'), 6: ('itemflag', None, 'Ether')},
+        {0: ('sign', 'PetalburgCity_Text_GymSign'), 1: ('martsign', None), 2: ('pcsign', None), 3: ('sign', 'PetalburgCity_Text_CitySign'),
+         4: ('pcsign', None), 5: ('martsign', None), 6: ('sign', 'PetalburgCity_Text_WallyHouseSign')}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -124,7 +167,14 @@ EVENTS = {
                                              3: ('sign', 'Text_BookShelf'), 4: ('sign', 'Text_BookShelf')}),
 }
 # Towns that are Fly destinations: world map flag set on entry (include/constants/flags.h).
-WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkTown': 'FLAG_WORLD_MAP_NEW_BARK_TOWN'}
+WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkTown': 'FLAG_WORLD_MAP_NEW_BARK_TOWN',
+                   'OldaleTown': 'FLAG_WORLD_MAP_OLDALE_TOWN', 'PetalburgCity': 'FLAG_WORLD_MAP_PETALBURG_CITY'}
+# Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
+ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
+              ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
+              ('Route103', 19): ('ITEM_PP_UP', 'FLAG_HIDE_HOENN_ROUTE103_PP_UP', 'FLAG_0x0B1'),
+              ('PetalburgCity', 5): ('ITEM_MAX_REVIVE', 'FLAG_HIDE_HOENN_PETALBURG_MAX_REVIVE', 'FLAG_0x0B2'),
+              ('PetalburgCity', 6): ('ITEM_ETHER', 'FLAG_HIDE_HOENN_PETALBURG_ETHER', 'FLAG_0x0B3')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.
 LAB_SIGNS = {
     'LittlerootTown_ProfessorBirchsLab_EventScript_Machine': ('sign', 'LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine'),
@@ -181,6 +231,12 @@ def main():
                             f'#define {FLAG_POTION} FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)\n', 1)
         flags.write_text(text, encoding='utf-8', newline='\n')
     pilot_story.install_constants(g)
+    text = flags.read_text(encoding='utf-8')
+    added = ''.join(f'#define {alias} {real} // Region item (scripts/install_pilot_events.py)\n'
+                    for _item, alias, real in ITEM_FLAGS.values() if f'#define {alias} ' not in text)
+    if added:
+        text = text.replace(f'#define {FLAG_POTION} FLAG_0x077', added + f'#define {FLAG_POTION} FLAG_0x077', 1)
+        flags.write_text(text, encoding='utf-8', newline='\n')
     report = {'status': 'AMBIENT_EVENTS_PHASE_1', 'maps': {}}
     for source_map, (repo_name, objects, signs) in EVENTS.items():
         repo = a.references / repo_name
@@ -235,6 +291,14 @@ def main():
                 flag = FLAG_POTION
             elif kind == 'cuttree':
                 script, flag = 'EventScript_CutTree', o['flag']
+            elif kind == 'itemflag':
+                item, flag, _real = ITEM_FLAGS[(source_map, index)]
+                scripts.append(f'{script}::\n\tfinditem {item}\n\tend\n')
+            elif kind == 'trainer':
+                trainer, intro, defeat, post, *not_enough = label
+                battle = (f'trainerbattle_double {trainer}, {text_label(intro)}, {text_label(defeat)}, {text_label(not_enough[0])}'
+                          if not_enough else f'trainerbattle_single {trainer}, {text_label(intro)}, {text_label(defeat)}')
+                scripts.append(f'{script}::\n\t{battle}\n\tmsgbox {text_label(post)}, MSGBOX_AUTOCLOSE\n\tend\n')
             elif kind == 'story':
                 story_script = pilot_story.object_script(source_map, index, name, story_text, lambda i: order.index(i) + 1)
                 if story_script is None:
@@ -245,8 +309,10 @@ def main():
             x, y, movement, placed_by = POSITIONS.get((source_map, index), (o['x'], o['y'], o['movement_type'], None))
             obj_events.append({'type': 'object', 'graphics_id': gfx, 'x': x, 'y': y, 'elevation': o['elevation'],
                                'movement_type': movement, 'movement_range_x': o['movement_range_x'],
-                               'movement_range_y': o['movement_range_y'], 'trainer_type': 'TRAINER_TYPE_NONE',
-                               'trainer_sight_or_berry_tree_id': '0', 'script': script, 'flag': flag})
+                               'movement_range_y': o['movement_range_y'],
+                               'trainer_type': o['trainer_type'] if kind == 'trainer' else 'TRAINER_TYPE_NONE',
+                               'trainer_sight_or_berry_tree_id': o['trainer_sight_or_berry_tree_id'] if kind == 'trainer' else '0',
+                               'script': script, 'flag': flag})
             rows.append({'kind': kind, 'source_index': index, 'source_script': o.get('script'), 'source_sprite': o['graphics_id'],
                          'firered_sprite': gfx, 'text': label, 'note': note, 'x': x, 'y': y,
                          **({'placed_by': placed_by} if placed_by else {})})
@@ -272,6 +338,8 @@ def main():
                                f'\tmsgbox {text_label(label)}, MSGBOX_DEFAULT\n\treleaseall\n\tend\n\n'
                                f'{script}_Heal::\n\tfadescreen FADE_TO_BLACK\n\tplayfanfare MUS_HEAL\n\twaitfanfare\n'
                                f'\tspecial HealPlayerParty\n\tfadescreen FADE_FROM_BLACK\n\treleaseall\n\tend\n')
+            elif kind in ('pcsign', 'martsign'):
+                script = 'EventScript_PokecenterSign' if kind == 'pcsign' else 'EventScript_PokemartSign'  # FireRed's own
             else:
                 scripts.append(f'{script}::\n\tmsgbox {text_label(label)}, MSGBOX_SIGN\n\tend\n')
             bg_events.append({'type': 'sign', 'x': b['x'], 'y': b['y'], 'elevation': b['elevation'],

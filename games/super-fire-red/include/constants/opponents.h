@@ -746,12 +746,25 @@
 #define TRAINER_CHAMPION_REMATCH_BULBASAUR       740
 #define TRAINER_CHAMPION_REMATCH_CHARMANDER      741
 #define TRAINER_CUE_BALL_PAXTON                  742
+// Region geography trainers (Hoenn batch 1), after the FireRed ones.
+#define TRAINER_HOENN_CALVIN                             743
+#define TRAINER_HOENN_RICK                               744
+#define TRAINER_HOENN_TIANA                              745
+#define TRAINER_HOENN_ALLEN                              746
+#define TRAINER_HOENN_DAISY                              747
+#define TRAINER_HOENN_AMY_AND_LIV                        748
+#define TRAINER_HOENN_ANDREW                             749
+#define TRAINER_HOENN_MIGUEL                             750
+#define TRAINER_HOENN_RHETT                              751
+#define TRAINER_HOENN_MARCOS                             752
+#define TRAINER_HOENN_ISABELLE                           753
+#define TRAINER_HOENN_PETE                               754
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             743
+#define NUM_TRAINERS                             755
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

@@ -624,7 +624,11 @@
     "Hoenn_LittlerootTown",
     "Hoenn_Route101",
     "Johto_NewBarkTown",
-    "Johto_Route29"
+    "Johto_Route29",
+    "Hoenn_OldaleTown",
+    "Hoenn_Route102",
+    "Hoenn_Route103",
+    "Hoenn_PetalburgCity"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -633,7 +637,15 @@
     "Hoenn_LittlerootTown_BrendansHouse_2F",
     "Hoenn_LittlerootTown_MaysHouse_1F",
     "Hoenn_LittlerootTown_MaysHouse_2F",
-    "Hoenn_LittlerootTown_ProfessorBirchsLab"
+    "Hoenn_LittlerootTown_ProfessorBirchsLab",
+    "Hoenn_OldaleTown",
+    "Hoenn_Route102",
+    "Hoenn_Route103",
+    "Hoenn_PetalburgCity",
+    "Hoenn_OldaleTown_PokemonCenter_1F",
+    "Hoenn_OldaleTown_Mart",
+    "Hoenn_PetalburgCity_PokemonCenter_1F",
+    "Hoenn_PetalburgCity_Mart"
   ],
   "gMapGroup_Johto": [
     "Johto_NewBarkTown",
