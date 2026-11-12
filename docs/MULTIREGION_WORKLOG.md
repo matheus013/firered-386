@@ -1116,3 +1116,55 @@ Ainda falta neste marco:
 
 - Hoenn e Johto no menu de troca;
 - Fly e locais de cura.
+
+### Passos 3 e 4: menu de troca e Fly (12/11, Claude)
+
+**Fly (passo 4):**
+
+- **Pontos de pouso:** `heal_locations.json` ganhou `HEAL_LOCATION_LITTLEROOT_TOWN`
+  (Littleroot 5,9, em frente à casa do Brendan, como no Emerald) e `HEAL_LOCATION_NEW_BARK_TOWN`
+  (New Bark 20,12, em frente à casa do jogador, como no HNS). Os campos de renascimento apontam para
+  a casa e a mãe de cada cidade, mas nenhum script os usa como último ponto de cura.
+- **Visitado:** as flags `FLAG_WORLD_MAP_LITTLEROOT_TOWN` (`FLAG_0x8C3`) e
+  `FLAG_WORLD_MAP_NEW_BARK_TOWN` (`FLAG_0x8C4`) são marcadas ao entrar na cidade, por um
+  `setworldmapflag` no script de transição que o `install_pilot_events.py` gera (`WORLD_MAP_FLAGS`).
+- **Mapa:** `GetMapsecType` trata as duas cidades como destinos de Fly. Os IDs de Hoenn ficam abaixo
+  de `KANTO_MAPSEC_START`, então Littleroot tem uma tabela própria (`sHoennFlyDestinations`); New Bark
+  usa a tabela do FireRed.
+- **Limite:** como em Kanto e Sevii, o modo Fly não tem botão de troca. O jogador só voa dentro da
+  região em que está; de Kanto não dá para voar para Hoenn.
+
+**Menu de troca (passo 3):**
+
+- **Quando aparece:** depois de visitar Littleroot ou New Bark. A partir daí o menu tem duas colunas:
+  Kanto e as Sevii desbloqueadas à esquerda, Hoenn e Johto à direita. Sem nenhuma das duas visitada,
+  o menu original do FireRed continua igual. O botão de troca aparece se houver Sevii ou uma dessas
+  regiões.
+- **Miniaturas:** 48×32 pixels, geradas pelo conversor a partir da arte de cada região
+  (`switch_map_hoenn.png`, `switch_map_johto.png`), numa paleta de 15 cores compartilhada no espaço
+  11. Ficam depois dos 128 tiles do menu do FireRed, com a moldura da entrada de Kanto.
+- **Navegação:** ↑/↓ andam dentro da coluna. ←/→ trocam de coluna, para a mesma linha ou para a mais
+  próxima desbloqueada. O destaque e as duas metades do cursor acompanham a coluna.
+
+**Teste:** 174 casos aprovados.
+
+- **Novos modos** `FLY` e `SWITCH`.
+- **Fly:**
+  - Littleroot para Littleroot (5,9);
+  - New Bark para New Bark (20,12);
+  - Route 101 para Littleroot: uma linha abaixo no mapa de Fly e A, pousando em (5,9).
+- **Menu:** de Pallet para Hoenn (→) e de Littleroot para Johto (↓). O teste confere o tile da página
+  que aparece depois da troca.
+- **Problemas corrigidos no teste:**
+  - um toque de seta de 8 quadros movia o cursor duas vezes, porque ele anda uma célula a cada 4
+    quadros; agora o toque tem 2 quadros;
+  - o bit 1024 servia ao mesmo tempo para o Kyogre do teste do Silver e para a Poção da assistente;
+    a Poção passou para 4096, Littleroot visitada é 2048 e New Bark visitada 8192.
+- **Capturas:** `docs/map-audits/region-map-switch-hoenn.png`, `region-map-switch-johto.png`,
+  `region-map-fly-route101.png` e `region-map-fly-landed.png`.
+
+Ainda pendente no M5:
+
+- save/reload entre regiões;
+- as demais cidades, quando a geografia crescer;
+- voar entre regiões, se for desejado; hoje se vai pelo SEAGALLOP.

@@ -123,6 +123,8 @@ EVENTS = {
     'NewBarkTown_PlayersHouse_2F': (HNS, {}, {2: ('sign', 'NewBarkTown_PlayersHouse_2F_Text_NES'),
                                              3: ('sign', 'Text_BookShelf'), 4: ('sign', 'Text_BookShelf')}),
 }
+# Towns that are Fly destinations: world map flag set on entry (include/constants/flags.h).
+WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkTown': 'FLAG_WORLD_MAP_NEW_BARK_TOWN'}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.
 LAB_SIGNS = {
     'LittlerootTown_ProfessorBirchsLab_EventScript_Machine': ('sign', 'LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine'),
@@ -276,6 +278,11 @@ def main():
                               'player_facing_dir': b.get('player_facing_dir', 'BG_EVENT_PLAYER_FACING_ANY'), 'script': script})
             rows.append({'kind': kind, 'source_index': index, 'source_script': b['script'], 'text': label, 'x': b['x'], 'y': b['y']})
         map_header, story_scripts, coords = pilot_story.map_extras(source_map, name, story_text, add_text)
+        if source_map in WORLD_MAP_FLAGS:
+            # Fly destination: the town is marked visited on entry, like FireRed's towns.
+            assert map_header is None, (name, 'merge the world map flag into the story header')
+            map_header = [f'{name}_MapScripts::', f'	map_script MAP_SCRIPT_ON_TRANSITION, {name}_OnTransition', '	.byte 0', '',
+                          f'{name}_OnTransition:', f'	setworldmapflag {WORLD_MAP_FLAGS[source_map]}', '	end', '']
         scripts += story_scripts
         map_path = g / f'data/maps/{name}/map.json'
         current = json.loads(map_path.read_text(encoding='utf-8'))

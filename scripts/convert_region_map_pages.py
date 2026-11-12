@@ -189,6 +189,42 @@ def update_section_positions(game, grids):
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n', encoding='utf-8', newline='\n')
 
 
+THUMB_SIZE = (48, 32)  # switch-map menu thumbnail: 6x4 tiles, like the Kanto/Sevii entries
+THUMB_PALETTE = 11     # BG palette slot shared by both thumbnails (slots 5-10 hold the pages)
+
+
+def make_thumbnails(references, game, report):
+    """Switch-map menu thumbnails: each region's grid area, box-downscaled to 48x32 and quantized
+    together to 15 colours (index 0 stays the unused transparent slot)."""
+    images = {}
+    for region, (repo, png, tilemap, _h, _a, width, *_rest) in PAGES.items():
+        tile_at = source_tiles(references / repo / png, references / repo / tilemap)
+        art = Image.new('RGB', (width * 8, GRID_ROWS * 8))
+        px = art.load()
+        for r in range(GRID_ROWS):
+            for c in range(width):
+                for k, colour in enumerate(tile_at(c + 1, r + 2)):
+                    px[c * 8 + k % 8, r * 8 + k // 8] = colour
+        images[region] = art.resize(THUMB_SIZE, Image.BOX)
+    both = Image.new('RGB', (THUMB_SIZE[0] * len(images), THUMB_SIZE[1]))
+    for i, img in enumerate(images.values()):
+        both.paste(img, (i * THUMB_SIZE[0], 0))
+    quant = both.quantize(colors=15, method=Image.Quantize.MEDIANCUT)
+    colours = [tuple(v >> 3 for v in quant.getpalette()[i * 3:i * 3 + 3]) for i in range(15)]
+    pal = [(31, 0, 31)] + colours
+    out = game / 'graphics/region_map'
+    for i, region in enumerate(images):
+        thumb = quant.crop((i * THUMB_SIZE[0], 0, (i + 1) * THUMB_SIZE[0], THUMB_SIZE[1]))
+        img = Image.new('P', THUMB_SIZE)
+        img.putpalette([v << 3 for c in pal for v in c])
+        img.putdata([v + 1 for v in thumb.tobytes()])
+        img.save(out / f'switch_map_{region}.png')
+    (out / 'switch_map_pages.pal').write_bytes(
+        ('JASC-PAL\n0100\n16\n' + ''.join(f'{r << 3} {g << 3} {b << 3}\n' for r, g, b in pal)).encode('ascii'))
+    report['switch_map_thumbnails'] = {'size': THUMB_SIZE, 'palette_slot': THUMB_PALETTE, 'colours': 15,
+                                       'regions': list(images)}
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--references', type=Path, required=True)
@@ -198,6 +234,7 @@ def main():
     report = {}
     grids = {region: convert(a.references, a.game, region, report) for region in PAGES}
     update_section_positions(a.game, grids)
+    make_thumbnails(a.references, a.game, report)
     a.report.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report))
 

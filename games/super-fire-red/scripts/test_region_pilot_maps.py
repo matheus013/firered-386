@@ -56,6 +56,16 @@ CASES=[
 ]
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
+# Switch menu (M5 step 3): Start puts the cursor on the switch button, A opens the menu, the key picks
+# an entry, A switches. Screen tile (10,12) must then show that page (scroll 0 when not the player's).
+SWITCHES={}
+for _m,_x,_y,_key,_setup,_page in (('MAP_PALLET_TOWN',10,8,'RIGHT',2048|8192,'hoenn'),(HOENN+'LITTLEROOT_TOWN',10,8,'DOWN',8192,'johto')):
+ CASES.append((_m,_x,_y,0,0,[(_key,'SWITCH')],_setup));SWITCHES[len(CASES)]=(_m,_page)
+# Fly (M5 step 4): open the Fly map like the party menu does, optionally move, press A; record the landing.
+FLIGHTS={}
+for _m,_x,_y,_key,_setup,_land in ((HOENN+'LITTLEROOT_TOWN',10,8,'NONE',0,(5,9)),(JOHTO+'NEW_BARK_TOWN',10,10,'NONE',0,(20,12)),
+                                   (HOENN+'ROUTE101',10,10,'DOWN',2048,(5,9))):
+ CASES.append((_m,_x,_y,0,0,[(_key,'FLY')],_setup));FLIGHTS[len(CASES)]=(_m,_land)
 for _m,_x,_y,_key,_page,_start,_end in ((HOENN+'LITTLEROOT_TOWN',10,8,'RIGHT','hoenn',0,6),(JOHTO+'NEW_BARK_TOWN',10,10,'LEFT','johto',3,0)):
  CASES.append((_m,_x,_y,0,0,[(_key,'TOWNMAP')]));PAGE_SCROLL[len(CASES)]=(_page,_start,_end)
 # TALK: stand next to every pilot event (object or sign), turn to it, press A and read the text shown.
@@ -183,7 +193,7 @@ _johto_scene(5,1,0,{'name':'Elm gift sent to PC','story':2,'starter':2,'party':6
 _johto_scene(4,1,0,{'name':'Elm full storage preserves choice','story':1,'starter':0,'party':6,'ballflags':0},setup=FULL_PARTY|FULL_PC)
 _johto_scene(1,2,0,{'name':'Elm research after gift','story':2,'party':1})
 # Elm's aide (step 4): Potion once the starter is given, Poke Balls once Silver is beaten.
-AIDE_POTION_GIVEN=1024
+AIDE_POTION_GIVEN=4096  # 1024 = Kyogre fixture, 2048 = Littleroot visited
 _johto_scene(0,1,0,{'name':'aide before the starter','story':1,'gifts':(0,0,0,0)})
 _johto_scene(0,2,0,{'name':'aide gives the Potion','story':2,'gifts':(1,0,1,0)})
 _johto_scene(0,2,0,{'name':'aide waits for Silver','story':2,'gifts':(0,0,1,0)},setup=AIDE_POTION_GIVEN)
@@ -212,7 +222,7 @@ CASES.append(('MAP_VERMILION_CITY',23,30,0,0,[('LEFT','TRIP')],GAME_CLEAR))
 TRIPS[len(CASES)]=('MAP_VERMILION_CITY','newbark');NO_ANSWERS[len(CASES)]=1
 CASES=[c if len(c)==7 else (*c,0) for c in CASES]
 KEYS={'UP':'DPAD_UP','DOWN':'DPAD_DOWN','LEFT':'DPAD_LEFT','RIGHT':'DPAD_RIGHT','NONE':'0'}
-MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6,'SCENE':7}
+MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6,'SCENE':7,'FLY':8,'SWITCH':9}
 spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}, {setup}, {STORY.get(n,(0,0))[0]}, {STORY.get(n,(0,0))[1]}, {JOHTO_STORY.get(n,(0,0))[0]}, {JOHTO_STORY.get(n,(0,0))[1]}}}' for n,(m,x,y,px,py,s,setup) in enumerate(CASES,1))
 answers=', '.join(str(NO_ANSWERS.get(n,0)) for n in range(1,len(CASES)+1))
 stop_prompts=', '.join(str(STOP_AFTER_PROMPT.get(n,0)) for n in range(1,len(CASES)+1))
@@ -489,6 +499,65 @@ static void PilotWalkCase(void)
         return;
     }
     // Town Map: fade, clean up the field and open the region map as the item does, then keep running.
+    // Switch menu: open the Town Map, Start (switch button), A, the step key, A; then read BG0.
+    if (step->mode == 9 && sPilotPhase >= 5)
+    {
+        const u16 *bg0 = (const u16 *)(BG_VRAM + 30 * 0x800);
+        if (sPilotPhase == 5 && !gPaletteFade.active)
+        {
+            CleanupOverworldWindowsAndTilemaps();
+            InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, CB2_ReturnToField);
+            sPilotPhase = 6; sPilotStepFrames = 0;
+        }
+        else if (sPilotPhase == 6)
+        {
+            u32 f = sPilotStepFrames;
+            gPilotKeys = (f >= 240 && f < 244) ? START_BUTTON : (f >= 280 && f < 284) ? A_BUTTON
+                       : (f >= 460 && f < 464) ? step->keys : (f >= 520 && f < 524) ? A_BUTTON : 0;
+            if (f == 500)
+                gPilotShot = 1; // the menu with the new entry selected
+            if (f >= 800)
+            {
+                r[0] = !gPaletteFade.active; r[2] = bg0[12 * 32 + 10]; r[3] = bg0[12 * 32 + 10] >> 8;
+                gPilotShot = 2; gPilotStage = 3;
+            }
+        }
+        return;
+    }
+    // Fly: open the Fly map, tap the key, then A; wait for the landing and record map and cell.
+    if (step->mode == 8 && sPilotPhase >= 5)
+    {
+        if (sPilotPhase == 5 && !gPaletteFade.active)
+        {
+            CleanupOverworldWindowsAndTilemaps();
+            SetMainCallback2(CB2_OpenFlyMap);
+            sPilotPhase = 6; sPilotStepFrames = 0;
+        }
+        else if (sPilotPhase == 6)
+        {
+            if (sPilotStepFrames >= 240 && sPilotStepFrames < 242)
+                gPilotKeys = step->keys; // a tap: the cursor moves one cell per 4 frames while held
+            else if (sPilotStepFrames >= 300 && sPilotStepFrames < 304)
+                gPilotKeys = A_BUTTON;
+            else
+                gPilotKeys = 0;
+            if (sPilotStepFrames == 120)
+                gPilotShot = 1; // the Fly map as it opens
+            if (sPilotStepFrames == 280)
+                gPilotShot = 2; // after the move
+            if (sPilotStepFrames >= 320) { sPilotPhase = 7; sPilotStepFrames = 0; }
+        }
+        else if (sPilotPhase == 7)
+        {
+            if ((field && (x != sPilotStartX || y != sPilotStartY || moved) && sPilotIdle >= 30) || sPilotStepFrames >= 3000)
+            {
+                r[0] = gSaveBlock1Ptr->location.mapGroup; r[1] = gSaveBlock1Ptr->location.mapNum;
+                r[2] = x - MAP_OFFSET; r[3] = y - MAP_OFFSET; r[4] = sPilotStepFrames >= 3000;
+                gPilotShot = 3; gPilotStage = 3;
+            }
+        }
+        return;
+    }
     if (step->mode == 4 && sPilotPhase >= 5)
     {
         if (sPilotPhase == 5 && !gPaletteFade.active)
@@ -545,8 +614,10 @@ static void PilotWalkCase(void)
             gPilotKeys = step->keys; sPilotPhase = 5; sPilotStepFrames = 0;
             return;
         }
-        if (step->mode == 4)
+        if (step->mode == 4 || step->mode == 8 || step->mode == 9)
         {
+            sPilotStartGroup = gSaveBlock1Ptr->location.mapGroup; sPilotStartMap = gSaveBlock1Ptr->location.mapNum;
+            sPilotStartX = x; sPilotStartY = y;
             FadeScreen(FADE_TO_BLACK, 0);
             sPilotPhase = 5;
             return;
@@ -670,8 +741,12 @@ void PilotSetup(void)
         gPlayerParty[1] = gPlayerParty[0];
         CalculatePlayerPartyCount();
     }
-    if (spawn[7] & 1024)
+    if (spawn[7] & 4096)
         FlagSet(FLAG_GOT_JOHTO_AIDE_POTION);
+    if (spawn[7] & 2048)
+        FlagSet(FLAG_WORLD_MAP_LITTLEROOT_TOWN);
+    if (spawn[7] & 8192)
+        FlagSet(FLAG_WORLD_MAP_NEW_BARK_TOWN);
     if (spawn[7] & 256)
     {
         u16 hp = 1;
@@ -848,6 +923,19 @@ for case,(page,start,end) in PAGE_SCROLL.items():
  assert after==words[12*cols+end+10],(page,'page did not scroll to',end,hex(after),hex(words[12*cols+end+10]))
  scrolls[page]=f'{start}->{end}'
 print('Region map page scroll:',scrolls)
+switched={}
+for case,(start,page) in SWITCHES.items():
+ data=(game/f'graphics/region_map/{page}_page.bin').read_bytes();words=_st.unpack(f'<{len(data)//2}H',data);cols=len(words)//20
+ got=u16(rows[case],2)
+ assert rows[case][0]==1 and got==words[12*cols+10],(start,'switch menu did not show the',page,'page',hex(got),hex(words[12*cols+10]))
+ switched[start.replace('MAP_','')]=page
+print('Switch menu:',switched)
+flown={}
+for case,(start,land) in FLIGHTS.items():
+ row=rows[case];dest=(HG,LITTLEROOT) if land==(5,9) else (JG,NEWBARK)
+ assert not row[4] and tuple(row[:2])==dest and tuple(row[2:4])==land,(start,'Fly landing',list(row[:5]),dest,land)
+ flown[start.replace('MAP_','')]=f'{land}'
+print('Fly:',flown)
 print('Map sections:',sections)
 CODES={0xFE:'\n',0xFB:'\\p',0xFA:'\\l'}
 TOKENS={m[1]:int(m[2],16) for m in re.finditer(r'^([A-Z_0-9]+)\s*=\s*([0-9A-F]{2})\s*$',(game/'charmap.txt').read_text(encoding='utf-8'),re.M)}
@@ -933,6 +1021,7 @@ print('PASS: Hoenn and Johto pilots load on their own tilesets with doors, anima
       'pilot maps carry named sections (popup, met location) and the Town Map opens on them; '
       'every ambient event answers A with its source text, the Potion is picked up, the lab machine heals, PT-BR shows; '
       'the SEAGALLOP sails Vermilion <-> Littleroot/New Bark only after the League; '
+      'the region map shows scrolling Hoenn/Johto pages, the switch menu reaches them and Fly lands in Littleroot/New Bark; '
       'Birch is rescued on Route 101 (starter gift, Zigzagoon battle), his lab follows the story and May battles with the counter team; '
       'assets match their sources; Pallet unchanged.')
 (out/'results.json').write_text(json.dumps({'status':'passed','build':str(test),'cases':{str(k):v.hex() for k,v in rows.items()},

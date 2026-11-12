@@ -56,7 +56,9 @@ class RegionMapPages(unittest.TestCase):
 
     def test_tiles_fit_bg0_and_free_palettes(self):
         report = json.loads((ROOT / 'docs/map-audits/region-map-pages.json').read_text(encoding='utf-8'))
-        slots = set()
+        thumbs = report.pop('switch_map_thumbnails')
+        slots = {thumbs['palette_slot']}
+        self.assertIn(thumbs['palette_slot'], range(5, 12), 'switch menu thumbnails use a free BG palette')
         for region, info in report.items():
             self.assertLessEqual(info['first_tile'] + sum(info['tiles']), 1024, region)
             used = set(range(info['first_palette'], info['first_palette'] + info['palettes']))

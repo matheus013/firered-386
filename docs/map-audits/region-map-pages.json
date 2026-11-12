@@ -92,5 +92,17 @@
       "MAPSEC_VIOLET_CITY",
       "MAPSEC_WHIRL_ISLANDS"
     ]
+  },
+  "switch_map_thumbnails": {
+    "size": [
+      48,
+      32
+    ],
+    "palette_slot": 11,
+    "colours": 15,
+    "regions": [
+      "hoenn",
+      "johto"
+    ]
   }
 }

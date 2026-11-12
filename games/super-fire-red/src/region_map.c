@@ -142,9 +142,14 @@ struct SwitchMapMenuCursorSubsprite
     s16 x;
 };
 
+// Two-column switch menu (region pilots): thumbnails of the Hoenn/Johto pages after FireRed's 128 tiles.
+#define SWITCH_MAP_PAGE_TILE 0x80
+#define SWITCH_MAP_THUMB_TILES 24 // 6x4 tiles each
+
 struct SwitchMapMenu
 {
-    u8 switchMapTiles[0x1000];
+    u8 switchMapTiles[0x1000 + 2 * SWITCH_MAP_THUMB_TILES * TILE_SIZE_4BPP];
+    bool8 twoColumns; // Hoenn or Johto unlocked: Kanto/Sevii on the left, Hoenn/Johto on the right
     u16 switchMapTilemap[600];
     struct SwitchMapMenuCursorSubsprite cursorSubsprite[2];
     u8 mainState;
@@ -855,6 +860,10 @@ static const u32 sJohtoPage_Gfx1[] = INCBIN_U32("graphics/region_map/johto_page_
 static const u16 sJohtoPage_Pal0[] = INCBIN_U16("graphics/region_map/johto_page_0.gbapal");
 static const u16 sJohtoPage_Pal1[] = INCBIN_U16("graphics/region_map/johto_page_1.gbapal");
 static const u16 sJohtoPage_Tilemap[] = INCBIN_U16("graphics/region_map/johto_page.bin");
+static const u32 sSwitchMapHoenn_Gfx[] = INCBIN_U32("graphics/region_map/switch_map_hoenn.4bpp");
+static const u32 sSwitchMapJohto_Gfx[] = INCBIN_U32("graphics/region_map/switch_map_johto.4bpp");
+static const u16 sSwitchMapPages_Pal[] = INCBIN_U16("graphics/region_map/switch_map_pages.gbapal");
+#define SWITCH_MAP_PAGES_PAL 11
 
 struct RegionMapPageGfx
 {
@@ -937,6 +946,34 @@ static void LoadRegionMapPagePalettes(void)
     LoadPalette(sHoennPage_Pal3, BG_PLTT_ID(8), PLTT_SIZE_4BPP);
     LoadPalette(sJohtoPage_Pal0, BG_PLTT_ID(9), PLTT_SIZE_4BPP);
     LoadPalette(sJohtoPage_Pal1, BG_PLTT_ID(10), PLTT_SIZE_4BPP);
+    LoadPalette(sSwitchMapPages_Pal, BG_PLTT_ID(SWITCH_MAP_PAGES_PAL), PLTT_SIZE_4BPP);
+}
+
+// A region shows up in the switch menu once unlocked: Sevii by FireRed's flags, the region pilots
+// once their town was visited.
+static bool8 IsSwitchMapRegionUnlocked(u8 region)
+{
+    switch (region)
+    {
+    case REGIONMAP_KANTO:
+        return TRUE;
+    case REGIONMAP_SEVII123:
+        return FlagGet(FLAG_SYS_SEVII_MAP_123);
+    case REGIONMAP_SEVII45:
+    case REGIONMAP_SEVII67:
+        return FlagGet(FLAG_SYS_SEVII_MAP_4567);
+    case REGIONMAP_HOENN:
+        return FlagGet(FLAG_WORLD_MAP_LITTLEROOT_TOWN);
+    case REGIONMAP_JOHTO:
+        return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN);
+    default:
+        return FALSE;
+    }
+}
+
+static bool8 HasSwitchMapPages(void)
+{
+    return IsSwitchMapRegionUnlocked(REGIONMAP_HOENN) || IsSwitchMapRegionUnlocked(REGIONMAP_JOHTO);
 }
 
 static void CopyRegionMapPageToBuffer(u16 *buffer, u8 region)
@@ -1070,9 +1107,14 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_RIXY_CHAMBER        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_VIAPOIS_CHAMBER     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_EMBER_SPA           - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
-    // Johto has no region map cell yet, so Fly never offers these; the entries keep the table in bounds.
-    [MAPSEC_NEW_BARK_TOWN       - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_NEW_BARK_TOWN),                   HEAL_LOCATION_NONE},
+    // Johto page (region pilot). Hoenn IDs come before KANTO_MAPSEC_START: see sHoennFlyDestinations.
+    [MAPSEC_NEW_BARK_TOWN       - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_NEW_BARK_TOWN),                   HEAL_LOCATION_NEW_BARK_TOWN},
     [MAPSEC_ROUTE_29            - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_ROUTE29),                         HEAL_LOCATION_NONE},
+};
+
+// Hoenn page Fly destinations (region pilot): {map group, map num, heal location}.
+static const u8 sHoennFlyDestinations[][3] = {
+    [MAPSEC_LITTLEROOT_TOWN] = {MAP(MAP_HOENN_LITTLEROOT_TOWN), HEAL_LOCATION_LITTLEROOT_TOWN},
 };
 
 static bool8 IsMapsecOnRegionMaps(u16 mapsec)
@@ -1174,7 +1216,7 @@ static void InitRegionMapType(void)
     {
         sRegionMap->permissions[i] = sRegionMapPermissions[sRegionMap->type][i];
     }
-    if (!FlagGet(FLAG_SYS_SEVII_MAP_123))
+    if (!FlagGet(FLAG_SYS_SEVII_MAP_123) && !HasSwitchMapPages())
         sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
@@ -1719,6 +1761,106 @@ static void SetRegionMapPlayerIsOn(u8 region)
     sRegionMap->playersRegion = region;
 }
 
+// Column and row of a region's entry in the two-column menu.
+static void GetSwitchMapEntry(u8 region, u8 *column, u8 *row)
+{
+    *column = region >= REGIONMAP_HOENN;
+    *row = *column ? region - REGIONMAP_HOENN : region;
+}
+
+// Highlight box of the selected entry (also places the two cursor halves).
+static void GetSwitchMapHighlight(struct GpuWindowParams *data)
+{
+    u8 column, row;
+    if (sSwitchMapMenu->twoColumns)
+    {
+        GetSwitchMapEntry(sSwitchMapMenu->currentSelection, &column, &row);
+        data->left = column ? 128 : 16;
+        data->top = 8 * (sSwitchMapMenu->yOffset + 4 * row);
+    }
+    else
+    {
+        data->left = 72;
+        data->top = 8 * (sSwitchMapMenu->yOffset + 4 * sSwitchMapMenu->currentSelection);
+    }
+    data->right = data->left + 96;
+    data->bottom = data->top + 32;
+    sSwitchMapMenu->highlight = *data;
+}
+
+// Two columns from FireRed's full Kanto/Sevii menu: its entries move left (tile column 9 -> 2), the
+// unlocked pilot pages go right (tile column 16) with the Kanto entry's frame around their thumbnail.
+static void BuildTwoColumnSwitchMap(void)
+{
+    u16 *map = sSwitchMapMenu->switchMapTilemap;
+    u16 fill, frame[4][12];
+    u8 region, row, column, i, j;
+    LZ77UnCompWram(sSwitchMap_KantoSeviiAll_Tilemap, map);
+    fill = map[0];
+    for (i = 0; i < 4; i++)
+        for (j = 0; j < 12; j++)
+            frame[i][j] = map[30 * (3 + i) + 9 + j];
+    for (i = 3; i < 19; i++)
+    {
+        for (j = 0; j < 12; j++)
+            map[30 * i + 2 + j] = IsSwitchMapRegionUnlocked((i - 3) / 4) ? map[30 * i + 9 + j] : fill;
+        for (j = 14; j < 30; j++)
+            map[30 * i + j] = fill;
+    }
+    for (region = REGIONMAP_HOENN; region <= REGIONMAP_JOHTO; region++)
+    {
+        if (!IsSwitchMapRegionUnlocked(region))
+            continue;
+        GetSwitchMapEntry(region, &column, &row);
+        for (i = 0; i < 4; i++)
+        {
+            for (j = 0; j < 12; j++)
+            {
+                if (j >= 3 && j < 9)
+                    map[30 * (3 + 4 * row + i) + 16 + j] = (SWITCH_MAP_PAGE_TILE + (region - REGIONMAP_HOENN) * SWITCH_MAP_THUMB_TILES + i * 6 + j - 3)
+                                                         | (SWITCH_MAP_PAGES_PAL << 12);
+                else
+                    map[30 * (3 + 4 * row + i) + 16 + j] = frame[i][j];
+            }
+        }
+    }
+    CpuCopy32(sSwitchMapHoenn_Gfx, sSwitchMapMenu->switchMapTiles + 0x1000, SWITCH_MAP_THUMB_TILES * TILE_SIZE_4BPP);
+    CpuCopy32(sSwitchMapJohto_Gfx, sSwitchMapMenu->switchMapTiles + 0x1000 + SWITCH_MAP_THUMB_TILES * TILE_SIZE_4BPP, SWITCH_MAP_THUMB_TILES * TILE_SIZE_4BPP);
+    sSwitchMapMenu->twoColumns = TRUE;
+    sSwitchMapMenu->yOffset = 3;
+}
+
+// Next unlocked entry from the selection in the two-column menu (dx: column change, dy: row step).
+static u8 MoveTwoColumnSwitchMapSelection(s8 dx, s8 dy)
+{
+    u8 column, row, start, count, region;
+    s8 r;
+    GetSwitchMapEntry(sSwitchMapMenu->currentSelection, &column, &row);
+    if (dx != 0)
+    {
+        column = !column;
+        start = column ? REGIONMAP_HOENN : REGIONMAP_KANTO;
+        count = column ? 2 : 4;
+        // Same row if unlocked, else the nearest unlocked row above it.
+        for (r = min(row, count - 1); r >= 0; r--)
+            if (IsSwitchMapRegionUnlocked(start + r))
+                return start + r;
+        for (r = 0; r < count; r++)
+            if (IsSwitchMapRegionUnlocked(start + r))
+                return start + r;
+        return sSwitchMapMenu->currentSelection;
+    }
+    start = column ? REGIONMAP_HOENN : REGIONMAP_KANTO;
+    count = column ? 2 : 4;
+    for (r = row + dy; r >= 0 && r < count; r += dy)
+    {
+        region = start + r;
+        if (IsSwitchMapRegionUnlocked(region))
+            return region;
+    }
+    return sSwitchMapMenu->currentSelection;
+}
+
 static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
 {
     sSwitchMapMenu = AllocZeroed(sizeof(struct SwitchMapMenu));
@@ -1748,6 +1890,8 @@ static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
         break;
     }
     LZ77UnCompWram(sSwitchMapMenu_Gfx, sSwitchMapMenu->switchMapTiles);
+    if (HasSwitchMapPages())
+        BuildTwoColumnSwitchMap();
     sSwitchMapMenu->mainState = 0;
     sSwitchMapMenu->currentSelection = whichMap;
     sSwitchMapMenu->exitTask = taskFunc;
@@ -1926,10 +2070,7 @@ static void LoadSwitchMapTilemap(u8 bg, u16 *map)
 static void SetGpuRegsToDimScreen(void)
 {
     struct GpuWindowParams data;
-    data.left = sSwitchMapMenu->highlight.left = 72;
-    data.top = sSwitchMapMenu->highlight.top = 8 * (sSwitchMapMenu->yOffset + 4 * sSwitchMapMenu->currentSelection);
-    data.right = sSwitchMapMenu->highlight.right = 168;
-    data.bottom = sSwitchMapMenu->highlight.bottom = sSwitchMapMenu->highlight.top + 32;
+    GetSwitchMapHighlight(&data);
     ResetGpuRegs();
     SetBldCnt(0, (BLDCNT_TGT1_BG0 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_OBJ), BLDCNT_EFFECT_DARKEN);
     SetWinIn((WININ_WIN0_BG_ALL | WININ_WIN0_OBJ), (WININ_WIN1_BG0 | WININ_WIN1_BG2 | WININ_WIN1_OBJ) >> 8);
@@ -1956,17 +2097,30 @@ static bool8 HandleSwitchMapInput(void)
 {
     bool8 changedSelection = FALSE;
     struct GpuWindowParams data;
-    data.left = sSwitchMapMenu->highlight.left = 72;
-    data.top = sSwitchMapMenu->highlight.top = 8 * (sSwitchMapMenu->yOffset + 4 * sSwitchMapMenu->currentSelection);
-    data.right = sSwitchMapMenu->highlight.right = 168;
-    data.bottom = sSwitchMapMenu->highlight.bottom = sSwitchMapMenu->highlight.top + 32;
-    if (JOY_NEW(DPAD_UP) && sSwitchMapMenu->currentSelection != 0)
+    GetSwitchMapHighlight(&data);
+    if (sSwitchMapMenu->twoColumns)
+    {
+        u8 next = sSwitchMapMenu->currentSelection;
+        if (JOY_NEW(DPAD_UP))
+            next = MoveTwoColumnSwitchMapSelection(0, -1);
+        else if (JOY_NEW(DPAD_DOWN))
+            next = MoveTwoColumnSwitchMapSelection(0, 1);
+        else if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+            next = MoveTwoColumnSwitchMapSelection(1, 0);
+        if (next != sSwitchMapMenu->currentSelection)
+        {
+            PlaySE(SE_BAG_CURSOR);
+            sSwitchMapMenu->currentSelection = next;
+            changedSelection = TRUE;
+        }
+    }
+    else if (JOY_NEW(DPAD_UP) && sSwitchMapMenu->currentSelection != 0)
     {
         PlaySE(SE_BAG_CURSOR);
         sSwitchMapMenu->currentSelection--;
         changedSelection = TRUE;
     }
-    if (JOY_NEW(DPAD_DOWN) && sSwitchMapMenu->currentSelection < sSwitchMapMenu->maxSelection)
+    if (!sSwitchMapMenu->twoColumns && JOY_NEW(DPAD_DOWN) && sSwitchMapMenu->currentSelection < sSwitchMapMenu->maxSelection)
     {
         PlaySE(SE_BAG_CURSOR);
         sSwitchMapMenu->currentSelection++;
@@ -2008,6 +2162,8 @@ static bool8 HandleSwitchMapInput(void)
 
 static void SpriteCB_SwitchMapCursor(struct Sprite *sprite)
 {
+    // The two halves sit 16 and 80 pixels into the highlight box (88 and 152 in FireRed's column).
+    sprite->x = sSwitchMapMenu->highlight.left + (sprite == sSwitchMapMenu->cursorSubsprite[0].sprite ? 16 : 80);
     sprite->y = sSwitchMapMenu->highlight.top + 16;
 }
 
@@ -3181,6 +3337,10 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ROUTE_10_POKECENTER:
         return FlagGet(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_LITTLEROOT_TOWN:
+        return FlagGet(FLAG_WORLD_MAP_LITTLEROOT_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_NEW_BARK_TOWN:
+        return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_NONE;
     default:
@@ -4319,6 +4479,14 @@ static void FreeFlyMap(u8 taskId)
 static void SetFlyWarpDestination(u16 mapsec)
 {
     u16 idx = mapsec - KANTO_MAPSEC_START;
+    if (mapsec < KANTO_MAPSEC_START)
+    {
+        // Hoenn page: only towns with a heal location are VISITED-type sections, so this is always set.
+        SetWarpDestinationToHealLocation(sHoennFlyDestinations[mapsec][2]);
+        SetUsedFlyQuestLogEvent(sHoennFlyDestinations[mapsec]);
+        ReturnToFieldFromFlyMapSelect();
+        return;
+    }
     if (sMapFlyDestinations[idx][2])
     {
         SetWarpDestinationToHealLocation(sMapFlyDestinations[idx][2]);

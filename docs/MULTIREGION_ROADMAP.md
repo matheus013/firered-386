@@ -50,7 +50,7 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 | M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Concluído na engine: Hoenn (Littleroot, Route 101, 5 interiores; grupo 43) e Johto (New Bark, Route 29, 6 interiores; grupo 44), testados andando na ROM (build isolada), com encontros selvagens nas duas rotas e na água de New Bark e seções com nome. Faltam eventos e o resto do M5 |
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Pendente |
 | M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
-| M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Iniciado: SEAGALLOP de Vermilion para Littleroot e New Bark após a Liga; seções com nome (IDs salvos preservados) e mapa da cidade seguro; mapa regional próprio, Fly e cura pendentes |
+| M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Parcial: SEAGALLOP pós-Liga; seções com nome; mapa regional com páginas roláveis de Hoenn/Johto (arte original), menu de troca em duas colunas e Fly para Littleroot/New Bark. Pendente: save/reload entre regiões e demais cidades |
 | M6 | Eventos, encontros, desafios e progressão interligados | Parcial: ambiente, personagens, resgate de Birch/May e pedido de Elm/iniciais/Silver nos pilotos; demais eventos e campanhas pendentes |
 | M7 | Builds locais isoladas e percurso completo sem teleportes | Builds isoladas instrumentadas em uso; percurso contínuo e campanha completa pendentes |
 | M8 | Revisão final, integração em main e publicação | Pendente |
@@ -399,3 +399,11 @@ IV/EV dos desafios. Passaram 162 casos instrumentados na ROM, 28 testes Python e
 a travessia contínua e as campanhas completas permanecem pendentes.
 Detalhes e limites: [diário](MULTIREGION_WORKLOG.md).
 Equipes e sequência: [desafios dos pilotos](REGION_PILOT_CHALLENGES.md).
+
+### Mapa regional e Fly (M5, passos 1 a 4)
+
+O mapa do FireRed ganhou páginas de Hoenn e Johto com a arte original do Emerald e do HNS. As páginas
+rolam para os lados e abrem na região do jogador. Hoenn e Johto entram no menu de troca, que passa a
+ter duas colunas depois que uma dessas regiões é visitada. O Fly pousa em Littleroot e New Bark e,
+como em Kanto e Sevii, só voa dentro da região onde o jogador está. Detalhes no
+[diário](MULTIREGION_WORKLOG.md).
