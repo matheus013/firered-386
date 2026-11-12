@@ -28,6 +28,15 @@ TABLES = [
      'MAP_HOENN_ROUTE103', 'gHoennRoute103_Pilot', ['land_mons', 'fishing_mons'], 'Emerald tables unchanged; water left out (slot layout differs)'),
     ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gPetalburgCity', 'MAP_PETALBURG_CITY',
      'MAP_HOENN_PETALBURG_CITY', 'gHoennPetalburgCity_Pilot', ['fishing_mons'], 'Emerald fishing table; water left out (slot layout differs)'),
+    # Johto batch 1 (scripts/install_johto_batch1.py); day tables, FireRed has no day/night
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute30', 'MAP_ROUTE30',
+     'MAP_JOHTO_ROUTE30', 'gJohtoRoute30_Pilot', ['land_mons', 'water_mons'],
+     'day table; fishing left out (HNS has 12 fishing slots, FireRed 10); Rock Smash left out'),
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute31', 'MAP_ROUTE31',
+     'MAP_JOHTO_ROUTE31', 'gJohtoRoute31_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gCherrygroveCity', 'MAP_CHERRYGROVE_CITY',
+     'MAP_JOHTO_CHERRYGROVE_CITY', 'gJohtoCherrygroveCity_Pilot', ['fishing_mons'],
+     'day table; water left out (12 HNS slots with Tentacruel in 4, FireRed has 5); Rock Smash left out'),
 ]
 
 
@@ -45,7 +54,7 @@ def main():
             mons = source[field]['mons'][:SLOTS[field]]
             if len(mons) != SLOTS[field] or any(m['species'] == 'SPECIES_NONE' for m in mons):
                 raise ValueError(f'{label} {field}: expected {SLOTS[field]} real species')
-            if field == 'water_mons' and len({json.dumps(m) for m in source[field]['mons']}) != 1:
+            if field == 'water_mons' and len(source[field]['mons']) > SLOTS[field] and len({json.dumps(m) for m in source[field]['mons']}) != 1:
                 raise ValueError('water slots differ; truncating to 5 would change the table')
             row[field] = {'encounter_rate': source[field]['encounter_rate'], 'mons': mons}
         rows.append({'source': {'repository': repo, 'commit': commit, 'label': label, 'map': source_map, 'note': reason}, 'row': row})

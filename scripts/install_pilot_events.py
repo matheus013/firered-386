@@ -42,6 +42,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_POKEFAN_M': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_BLACK_BELT': 'OBJ_EVENT_GFX_BLACK_BELT',
     'OBJ_EVENT_GFX_MAN_5': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_SWIMMER_F': 'OBJ_EVENT_GFX_SWIMMER_F_WATER',
     'OBJ_EVENT_GFX_SWIMMER_M': 'OBJ_EVENT_GFX_SWIMMER_M_WATER', 'OBJ_EVENT_GFX_GENTLEMAN': 'OBJ_EVENT_GFX_GENTLEMAN',
+    'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER',
     # Phase 3: Birch rescue
     'OBJ_EVENT_GFX_ZIGZAGOON_1': 'OBJ_EVENT_GFX_ZIGZAGOON', 'OBJ_EVENT_GFX_BIRCHS_BAG': 'OBJ_EVENT_GFX_BIRCHS_BAG',
 }
@@ -165,16 +166,48 @@ EVENTS = {
         1: ('npc', 'NewBarkTown_PlayersHouse_1F_Text_MomsFriend', 'source shows her only during the intro; always shown')}, {}),
     'NewBarkTown_PlayersHouse_2F': (HNS, {}, {2: ('sign', 'NewBarkTown_PlayersHouse_2F_Text_NES'),
                                              3: ('sign', 'Text_BookShelf'), 4: ('sign', 'Text_BookShelf')}),
+    # Johto batch 1. Left out: the Guide Gent tour and Silver's battle (story scenes), the overworld
+    # Pokemon (HNS scenery sprites), berry trees, the girl with HNS's leftover OldaleTown script, and
+    # Joey's scripted fight next to his Pidgey/Rattata (FLAG_MOM_VISITED scene).
+    'CherrygroveCity': (HNS, {
+        1: ('gift', ('ITEM_MYSTIC_WATER', 'CherrygroveCity_Text_MysticWaterGuyBefore', 'CherrygroveCity_Text_MysticWaterGuyAfter'),
+            'the question is kept; "no" goes straight to his last line like the source'),
+        2: ('npc', 'CherrygroveCity_Text_YoungsterHavePokedex', 'branch after the Pokedex; a League champion has one'),
+        3: ('npc', 'CherrygroveCity_Text_TeacherHaveMapCard', '')},
+        {0: ('sign', 'CherrygroveCity_Text_CitySign')}),
+    'Route30': (HNS, {
+        0: ('npc', 'Route30_Text_YoungsterEveryoneIsBattling', 'branch after the source adventure flag'),
+        1: ('trainer', ('TRAINER_JOHTO_JOEY', 'Route30_Text_YoungsterJoey1Seen', 'Route30_Text_YoungsterJoey1Beaten', 'Route30_Text_YoungsterJoey1After'),
+            'no phone registration or rematch'),
+        2: ('npc', 'Route30_Text_CooltrainerF', ''),
+        3: ('trainer', ('TRAINER_JOHTO_DON', 'Route30_Text_BugCatcherDonSeen', 'Route30_Text_BugCatcherDonBeaten', 'Route30_Text_BugCatcherDonAfter'), ''),
+        4: ('cuttree', None, 'FireRed EventScript_CutTree'),
+        6: ('trainer', ('TRAINER_JOHTO_MIKEY', 'Route30_Text_YoungsterMikeySeen', 'Route30_Text_YoungsterMikeyBeaten', 'Route30_Text_YoungsterMikeyAfter'),
+            'no phone registration or rematch')},
+        {0: ('sign', 'Route30_Text_Sign'), 1: ('sign', 'Route30_Text_TrainerTips'), 2: ('sign', 'Route30_Text_Mailbox')}),
+    'Route31': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_WADE', 'Route31_Text_BugCatcherWade1_Seen', 'Route31_Text_BugCatcherWade1_Beaten', 'Route31_Text_BugCatcherWade1_After'), ''),
+        1: ('npc', 'Route31_Text_CooltrainerM', ''),
+        2: ('npc', 'Route31_Text_SleepyMan', 'no Kenya mail errand (no Mr. Pokemon chain in the batch)'),
+        3: ('npc', 'Route31_Text_Youngster', ''),
+        4: ('itemflag', None, 'Poke Ball'), 5: ('itemflag', None, 'Antidote'),
+        6: ('cuttree', None, 'FireRed EventScript_CutTree')},
+        {0: ('sign', 'Route31_Text_Sign'), 1: ('sign', 'Route31_Text_DarkCaveSign')}),
 }
 # Towns that are Fly destinations: world map flag set on entry (include/constants/flags.h).
 WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkTown': 'FLAG_WORLD_MAP_NEW_BARK_TOWN',
-                   'OldaleTown': 'FLAG_WORLD_MAP_OLDALE_TOWN', 'PetalburgCity': 'FLAG_WORLD_MAP_PETALBURG_CITY'}
+                   'OldaleTown': 'FLAG_WORLD_MAP_OLDALE_TOWN', 'PetalburgCity': 'FLAG_WORLD_MAP_PETALBURG_CITY',
+                   'CherrygroveCity': 'FLAG_WORLD_MAP_CHERRYGROVE_CITY'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
               ('Route103', 19): ('ITEM_PP_UP', 'FLAG_HIDE_HOENN_ROUTE103_PP_UP', 'FLAG_0x0B1'),
               ('PetalburgCity', 5): ('ITEM_MAX_REVIVE', 'FLAG_HIDE_HOENN_PETALBURG_MAX_REVIVE', 'FLAG_0x0B2'),
-              ('PetalburgCity', 6): ('ITEM_ETHER', 'FLAG_HIDE_HOENN_PETALBURG_ETHER', 'FLAG_0x0B3')}
+              ('PetalburgCity', 6): ('ITEM_ETHER', 'FLAG_HIDE_HOENN_PETALBURG_ETHER', 'FLAG_0x0B3'),
+              ('Route31', 4): ('ITEM_POKE_BALL', 'FLAG_HIDE_JOHTO_ROUTE31_POKE_BALL', 'FLAG_0x0B4'),
+              ('Route31', 5): ('ITEM_ANTIDOTE', 'FLAG_HIDE_JOHTO_ROUTE31_ANTIDOTE', 'FLAG_0x0B5'),
+              # one-time gifts (kind 'gift'): the flag marks the item as given
+              ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.
 LAB_SIGNS = {
     'LittlerootTown_ProfessorBirchsLab_EventScript_Machine': ('sign', 'LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine'),
@@ -294,6 +327,13 @@ def main():
             elif kind == 'itemflag':
                 item, flag, _real = ITEM_FLAGS[(source_map, index)]
                 scripts.append(f'{script}::\n\tfinditem {item}\n\tend\n')
+            elif kind == 'gift':  # one item, once; the source asks first and "no" skips to the last line
+                item, before, after = label
+                _item, gift_flag, _real = ITEM_FLAGS[(source_map, index)]
+                scripts.append(f'{script}::\n\tlock\n\tfaceplayer\n\tgoto_if_set {gift_flag}, {script}_After\n'
+                               f'\tmsgbox {text_label(before)}, MSGBOX_YESNO\n\tgoto_if_eq VAR_RESULT, NO, {script}_After\n'
+                               f'\tgiveitem {item}\n\tgoto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull\n\tsetflag {gift_flag}\n'
+                               f'{script}_After::\n\tmsgbox {text_label(after)}, MSGBOX_DEFAULT\n\trelease\n\tend\n')
             elif kind == 'trainer':
                 trainer, intro, defeat, post, *not_enough = label
                 battle = (f'trainerbattle_double {trainer}, {text_label(intro)}, {text_label(defeat)}, {text_label(not_enough[0])}'

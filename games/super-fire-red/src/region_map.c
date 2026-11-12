@@ -1110,6 +1110,9 @@ static const u8 sMapFlyDestinations[][3] = {
     // Johto page (region pilot). Hoenn IDs come before KANTO_MAPSEC_START: see sHoennFlyDestinations.
     [MAPSEC_NEW_BARK_TOWN       - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_NEW_BARK_TOWN),                   HEAL_LOCATION_NEW_BARK_TOWN},
     [MAPSEC_ROUTE_29            - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_ROUTE29),                         HEAL_LOCATION_NONE},
+    [MAPSEC_CHERRYGROVE_CITY    - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_CHERRYGROVE_CITY),                HEAL_LOCATION_CHERRYGROVE_CITY},
+    [MAPSEC_ROUTE_30            - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_ROUTE30),                         HEAL_LOCATION_NONE},
+    [MAPSEC_ROUTE_31            - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_ROUTE31),                         HEAL_LOCATION_NONE},
 };
 
 // Hoenn page Fly destinations (region pilot): {map group, map num, heal location}.
@@ -3347,6 +3350,8 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_PETALBURG_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NEW_BARK_TOWN:
         return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_CHERRYGROVE_CITY:
+        return FlagGet(FLAG_WORLD_MAP_CHERRYGROVE_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_NONE;
     default:

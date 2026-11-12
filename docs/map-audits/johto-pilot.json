@@ -1,171 +1,407 @@
 {
-  "source_commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
-  "source_partition": 640,
-  "target_partition": 640,
-  "maps": [
+  "status": "JOHTO_PILOT_INSTALLED",
+  "source": "resetes12/HNS_modern",
+  "tilesets": {
+    "gTileset_Johto_General": {
+      "firered": "gTileset_JohtoPilotGeneral",
+      "metatiles_converted": 278,
+      "behaviors": {
+        "MB_SHORT_GRASS": 15,
+        "MB_NORMAL": 155,
+        "MB_HEADBUTT_TREE": 6,
+        "MB_TALL_GRASS": 3,
+        "MB_OCEAN_WATER": 30,
+        "MB_ANIMATED_DOOR": 1,
+        "MB_JUMP_WEST": 2,
+        "MB_JUMP_EAST": 2,
+        "MB_JUMP_SOUTH": 9,
+        "MB_ROCK_STAIRS": 2,
+        "MB_NON_ANIMATED_DOOR": 2,
+        "MB_SAND": 24,
+        "MB_SHALLOW_WATER": 12,
+        "MB_WEST_ARROW_WARP": 1,
+        "MB_POND_WATER": 12,
+        "MB_INTERIOR_DEEP_WATER": 2
+      },
+      "sha256": {
+        "tiles.png": "edaec57f44a8525de7d4f1d781e07be738648a0752e3ac70d1cbdf0090065580",
+        "metatiles.bin": "a1cb8665ee3ba79b71ca36f97d4f3cbb936fa5b835a2042287890fb152dc12c0",
+        "metatile_attributes.bin": "018002f0a6c9bf9a1e3d2ede738598534ba3876d5cb1ac85cfd853bf9ce5a39f"
+      }
+    },
+    "gTileset_NewBarkTown": {
+      "firered": "gTileset_JohtoPilotNewBarkTown",
+      "metatiles_converted": 86,
+      "behaviors": {
+        "MB_NORMAL": 70,
+        "MB_SHORT_GRASS": 11,
+        "MB_SAND": 2,
+        "MB_ANIMATED_DOOR": 2,
+        "MB_ROCK_STAIRS": 1
+      },
+      "sha256": {
+        "tiles.png": "90dc2d337a58d03d845d691041419064f67a3a647328848cb3b1f63bb6fb217d",
+        "metatiles.bin": "66613d255ea80ef4f7ebd7c9f3bf6fade6da6166e25f27c00a42659341d5a317",
+        "metatile_attributes.bin": "110adc9f89f2cac7a1c03f8db84a6a338a89c6170204bd3f6b0a0a278db560bf"
+      }
+    },
+    "gTileset_Johto_Building": {
+      "firered": "gTileset_JohtoPilotBuilding",
+      "metatiles_converted": 140,
+      "behaviors": {
+        "MB_NORMAL": 111,
+        "MB_TELEVISION": 1,
+        "MB_PC": 1,
+        "MB_SECRET_BASE_SPOT_TREE_RIGHT": 1,
+        "MB_HOLDS_LARGE_DECORATION": 9,
+        "MB_IMPASSABLE_WEST": 2,
+        "MB_IMPASSABLE_EAST": 2,
+        "MB_HOLDS_SMALL_DECORATION": 2,
+        "MB_SIDEWAYS_STAIRS_LEFT_SIDE_TOP": 1,
+        "MB_DOWN_LEFT_STAIR_WARP": 1,
+        "MB_SLOT_MACHINE": 2,
+        "MB_UNUSED_81": 2,
+        "MB_SOUTH_ARROW_WARP": 2,
+        "MB_UP_RIGHT_STAIR_WARP": 1,
+        "MB_BOOKSHELF": 2
+      },
+      "sha256": {
+        "tiles.png": "5dc646b27bb7b807b1c534f726f138d57a9f19de459dfbe2c5bc583d3f65e61d",
+        "metatiles.bin": "b27c2a7c1f0f31378b86a54d1154a99559dd6b3a9719095b17c9f4e6801bd4fc",
+        "metatile_attributes.bin": "e0357337d874a720a1d9158172fb58d2a4f694d677b650e4de98cf33605165ee"
+      }
+    },
+    "gTileset_PlayersHouse": {
+      "firered": "gTileset_JohtoPilotPlayersHouse",
+      "metatiles_converted": 21,
+      "behaviors": {
+        "MB_NORMAL": 19,
+        "MB_IMPASSABLE_SOUTH": 1,
+        "MB_IMPASSABLE_NORTH": 1
+      },
+      "sha256": {
+        "tiles.png": "fe23e75165ffd7ace4a808c45905f39762bf5bc9702630a50a6da3fac7f4f4c2",
+        "metatiles.bin": "73324b39146c676c289ff31e3232b1804c6e5370c6b0fada7529389bc93ad917",
+        "metatile_attributes.bin": "56c93a6711c2760f5b262bda156e0a6a2416f2071541193086c3d70a80c089b5"
+      }
+    },
+    "gTileset_House_Lab": {
+      "firered": "gTileset_JohtoPilotHouseLab",
+      "metatiles_converted": 47,
+      "behaviors": {
+        "MB_NORMAL": 45,
+        "MB_SOUTH_ARROW_WARP": 1,
+        "MB_TELEVISION": 1
+      },
+      "sha256": {
+        "tiles.png": "453c462e3f1ddb9c3e8dc99a76561452888bacd8a1c6c292eaa856b807faffdd",
+        "metatiles.bin": "838bfc4e65b256fe9da51199903101a9b45072b2c3f278d789fb0e21b476a3a4",
+        "metatile_attributes.bin": "10528f6b558bc7daad1d750626b36fcdd3515ce410b54e7c62c049002e5b1e64"
+      }
+    },
+    "gTileset_Gate_Standard": {
+      "firered": "gTileset_JohtoPilotGateStandard",
+      "metatiles_converted": 41,
+      "behaviors": {
+        "MB_NORMAL": 37,
+        "MB_COUNTER": 2,
+        "MB_NON_ANIMATED_DOOR": 1,
+        "MB_SOUTH_ARROW_WARP": 1
+      },
+      "sha256": {
+        "tiles.png": "498e300ad907d03cee16b7e6d6499d43732d0493ad6e739badecb9290a3e1a76",
+        "metatiles.bin": "4c0a689aaeb0cad31784ec7a179346a9804b381edbc34705f8f775ed5aa24291",
+        "metatile_attributes.bin": "7b3ae650f2ddad3795bc95792cd38b9accef190d924890120e168c525fb02dcc"
+      }
+    },
+    "gTileset_CherrygroveCity": {
+      "firered": "gTileset_JohtoPilotCherrygroveCity",
+      "metatiles_converted": 100,
+      "behaviors": {
+        "MB_NORMAL": 95,
+        "MB_ANIMATED_DOOR": 1,
+        "MB_HEADBUTT_TREE": 1,
+        "MB_SHORT_GRASS": 1,
+        "MB_POND_WATER": 2
+      },
+      "sha256": {
+        "tiles.png": "6ae286448e50ac740d31bf881f630818481fb4d14544ec022e07b4ac8929408b",
+        "metatiles.bin": "5cccbfd5839311fc985303ecf0d6b451a4a710f77c1719f671f530c2ec2ab14b",
+        "metatile_attributes.bin": "61c7385943c6aa3ee8b54162501dec06106cb235421423a84d969cfa27b0e87f"
+      }
+    }
+  },
+  "dropped_warps": [
     {
       "map": "NewBarkTown",
-      "id": "MAP_NEW_BARK_TOWN",
-      "width": 30,
-      "height": 39,
-      "tilesets": [
-        "gTileset_Johto_General",
-        "gTileset_NewBarkTown"
-      ],
-      "connections": [
-        {
-          "map": "MAP_ROUTE29",
-          "offset": -5,
-          "direction": "left"
-        },
-        {
-          "map": "MAP_ROUTE27",
-          "offset": -11,
-          "direction": "right"
-        }
-      ],
-      "warps": [
-        {
-          "x": 10,
-          "y": 9,
-          "elevation": 0,
-          "dest_map": "MAP_NEW_BARK_TOWN_LAB",
-          "dest_warp_id": "0"
-        },
-        {
-          "x": 20,
-          "y": 11,
-          "elevation": 0,
-          "dest_map": "MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_1F",
-          "dest_warp_id": "0"
-        },
-        {
-          "x": 4,
-          "y": 21,
-          "elevation": 0,
-          "dest_map": "MAP_NEW_BARK_TOWN_HOUSE1",
-          "dest_warp_id": "0"
-        },
-        {
-          "x": 15,
-          "y": 21,
-          "elevation": 0,
-          "dest_map": "MAP_NEW_BARK_TOWN_HOUSE2",
-          "dest_warp_id": "0"
-        },
-        {
-          "x": 16,
-          "y": 7,
-          "elevation": 0,
-          "dest_map": "MAP_WORLD_HUB",
-          "dest_warp_id": "0"
-        },
-        {
-          "x": 15,
-          "y": 7,
-          "elevation": 0,
-          "dest_map": "MAP_TIN_TOWER_ROOF_DAY",
-          "dest_warp_id": "0"
-        },
-        {
-          "x": 12,
-          "y": 7,
-          "elevation": 0,
-          "dest_map": "MAP_NEW_BARK_TOWN_LAB",
-          "dest_warp_id": "1"
-        },
-        {
-          "x": 3,
-          "y": 7,
-          "elevation": 0,
-          "dest_map": "MAP_WORLD_HUB",
-          "dest_warp_id": "0"
-        }
-      ],
-      "blocks": [
-        {
-          "file": "map.bin",
-          "bytes": 2340,
-          "source_sha256": "1a469af531ea1acca360b1e0c76faa95651585cbe08bb1e61ce6de3a109ca04d",
-          "converted_sha256": "1a469af531ea1acca360b1e0c76faa95651585cbe08bb1e61ce6de3a109ca04d",
-          "changed_blocks": 0
-        },
-        {
-          "file": "border.bin",
-          "bytes": 8,
-          "source_sha256": "c34f6d407aaf3e05cc544f968a14f4eca0d5f2ac99c920183ef79b505bc40c6e",
-          "converted_sha256": "c34f6d407aaf3e05cc544f968a14f4eca0d5f2ac99c920183ef79b505bc40c6e",
-          "changed_blocks": 0
-        }
-      ]
+      "index": 4,
+      "x": 16,
+      "y": 7,
+      "destination": "MAP_WORLD_HUB"
     },
     {
-      "map": "Route29",
-      "id": "MAP_ROUTE29",
-      "width": 70,
-      "height": 32,
-      "tilesets": [
-        "gTileset_Johto_General",
-        "gTileset_NewBarkTown"
-      ],
-      "connections": [
-        {
-          "map": "MAP_CHERRYGROVE_CITY",
-          "offset": 6,
-          "direction": "left"
-        },
-        {
-          "map": "MAP_NEW_BARK_TOWN",
-          "offset": 5,
-          "direction": "right"
-        },
-        {
-          "map": "MAP_ROUTE46",
-          "offset": 24,
-          "direction": "up"
-        }
-      ],
-      "warps": [
-        {
-          "x": 34,
-          "y": 10,
-          "elevation": 0,
-          "dest_map": "MAP_GATE_ROUTE29_ROUTE46",
-          "dest_warp_id": "1"
-        },
-        {
-          "x": 35,
-          "y": 10,
-          "elevation": 0,
-          "dest_map": "MAP_GATE_ROUTE29_ROUTE46",
-          "dest_warp_id": "1"
-        }
-      ],
-      "blocks": [
-        {
-          "file": "map.bin",
-          "bytes": 4480,
-          "source_sha256": "bcf8388e595fafffefb028c23fe857536c6bcf4135859ff865f589e131e2f245",
-          "converted_sha256": "bcf8388e595fafffefb028c23fe857536c6bcf4135859ff865f589e131e2f245",
-          "changed_blocks": 0
-        },
-        {
-          "file": "border.bin",
-          "bytes": 8,
-          "source_sha256": "bd05db219b1304364f4d1c265db9cece1af50fb2332d9f39357fdc8d721dc449",
-          "converted_sha256": "bd05db219b1304364f4d1c265db9cece1af50fb2332d9f39357fdc8d721dc449",
-          "changed_blocks": 0
-        }
-      ]
+      "map": "NewBarkTown",
+      "index": 5,
+      "x": 15,
+      "y": 7,
+      "destination": "MAP_TIN_TOWER_ROOF_DAY"
+    },
+    {
+      "map": "NewBarkTown",
+      "index": 7,
+      "x": 3,
+      "y": 7,
+      "destination": "MAP_WORLD_HUB"
+    },
+    {
+      "map": "Gate_Route29_Route46",
+      "index": 0,
+      "x": 7,
+      "y": 1,
+      "destination": "MAP_ROUTE46"
+    },
+    {
+      "map": "CherrygroveCity",
+      "index": 0,
+      "x": 41,
+      "y": 7,
+      "destination": "MAP_CHERRYGROVE_CITY_MART"
+    },
+    {
+      "map": "CherrygroveCity",
+      "index": 1,
+      "x": 47,
+      "y": 7,
+      "destination": "MAP_CHERRYGROVE_CITY_POKEMON_CENTER"
+    },
+    {
+      "map": "CherrygroveCity",
+      "index": 2,
+      "x": 34,
+      "y": 13,
+      "destination": "MAP_CHERRYGROVE_CITY_HOUSE1"
+    },
+    {
+      "map": "CherrygroveCity",
+      "index": 3,
+      "x": 42,
+      "y": 14,
+      "destination": "MAP_CHERRYGROVE_CITY_HOUSE2"
+    },
+    {
+      "map": "CherrygroveCity",
+      "index": 4,
+      "x": 50,
+      "y": 17,
+      "destination": "MAP_CHERRYGROVE_CITY_HOUSE3"
+    },
+    {
+      "map": "Route30",
+      "index": 0,
+      "x": 26,
+      "y": 39,
+      "destination": "MAP_ROUTE30_HOUSE"
+    },
+    {
+      "map": "Route30",
+      "index": 1,
+      "x": 35,
+      "y": 4,
+      "destination": "MAP_ROUTE30_MR_POKEMONS_HOUSE"
+    },
+    {
+      "map": "Route31",
+      "index": 0,
+      "x": 48,
+      "y": 9,
+      "destination": "MAP_DARK_CAVE_SOUTH_SIDE"
+    },
+    {
+      "map": "Route31",
+      "index": 1,
+      "x": 4,
+      "y": 10,
+      "destination": "MAP_GATE_ROUTE31_VIOLET_CITY"
     }
   ],
-  "status": "BLOCKS_ONLY_NOT_INSTALLED",
-  "pending": [
-    "tiles/palettes",
-    "metatile attributes/behaviors",
-    "animations",
-    "scripts/events",
-    "map registration",
-    "playtesting"
-  ]
+  "behavior_rules": {
+    "MB_NORMAL": {
+      "firered_attribute": "0x0",
+      "reason": "normal"
+    },
+    "MB_TALL_GRASS": {
+      "firered_attribute": "0x1000202",
+      "reason": "tall grass, grass terrain, land encounters"
+    },
+    "MB_OCEAN_WATER": {
+      "firered_attribute": "0x2000415",
+      "reason": "ocean water, water terrain, water encounters"
+    },
+    "MB_POND_WATER": {
+      "firered_attribute": "0x2000410",
+      "reason": "pond water, water terrain, water encounters"
+    },
+    "MB_SHALLOW_WATER": {
+      "firered_attribute": "0x17",
+      "reason": "same name (walkable, splash)"
+    },
+    "MB_INTERIOR_DEEP_WATER": {
+      "firered_attribute": "0x2000410",
+      "reason": "FireRed has no interior deep water; surfable pond water like the tiles around it"
+    },
+    "MB_WEST_ARROW_WARP": {
+      "firered_attribute": "0x63",
+      "reason": "same name (its Violet gate warp is dropped)"
+    },
+    "MB_SAND": {
+      "firered_attribute": "0x21",
+      "reason": "same name"
+    },
+    "MB_JUMP_EAST": {
+      "firered_attribute": "0x38",
+      "reason": "same name"
+    },
+    "MB_JUMP_WEST": {
+      "firered_attribute": "0x39",
+      "reason": "same name"
+    },
+    "MB_JUMP_SOUTH": {
+      "firered_attribute": "0x3b",
+      "reason": "same name"
+    },
+    "MB_ROCK_STAIRS": {
+      "firered_attribute": "0x2a",
+      "reason": "same name"
+    },
+    "MB_IMPASSABLE_EAST": {
+      "firered_attribute": "0x30",
+      "reason": "same name"
+    },
+    "MB_IMPASSABLE_WEST": {
+      "firered_attribute": "0x31",
+      "reason": "same name"
+    },
+    "MB_IMPASSABLE_NORTH": {
+      "firered_attribute": "0x32",
+      "reason": "same name"
+    },
+    "MB_IMPASSABLE_SOUTH": {
+      "firered_attribute": "0x33",
+      "reason": "same name"
+    },
+    "MB_COUNTER": {
+      "firered_attribute": "0x80",
+      "reason": "same name"
+    },
+    "MB_BOOKSHELF": {
+      "firered_attribute": "0x81",
+      "reason": "same name"
+    },
+    "MB_PC": {
+      "firered_attribute": "0x83",
+      "reason": "same name"
+    },
+    "MB_TELEVISION": {
+      "firered_attribute": "0x86",
+      "reason": "same name"
+    },
+    "MB_SOUTH_ARROW_WARP": {
+      "firered_attribute": "0x65",
+      "reason": "same name"
+    },
+    "MB_UP_RIGHT_STAIR_WARP": {
+      "firered_attribute": "0x6c",
+      "reason": "same name (FireRed-style stairs)"
+    },
+    "MB_DOWN_LEFT_STAIR_WARP": {
+      "firered_attribute": "0x6f",
+      "reason": "same name (FireRed-style stairs)"
+    },
+    "MB_ANIMATED_DOOR": {
+      "firered_attribute": "0x69",
+      "reason": "FR MB_WARP_DOOR; door graphics registered for the New Bark pair"
+    },
+    "MB_NON_ANIMATED_DOOR": {
+      "firered_attribute": "0x60",
+      "reason": "FR MB_CAVE_DOOR, accepted by MetatileBehavior_IsNonAnimDoor"
+    },
+    "MB_SHORT_GRASS": {
+      "firered_attribute": "0x0",
+      "reason": "FireRed has no short grass (only a walking visual effect in HNS)"
+    },
+    "MB_HEADBUTT_TREE": {
+      "firered_attribute": "0x0",
+      "reason": "FireRed has no Headbutt; trees keep their collision"
+    },
+    "MB_HOLDS_SMALL_DECORATION": {
+      "firered_attribute": "0x0",
+      "reason": "secret-base slot, absent from FireRed"
+    },
+    "MB_HOLDS_LARGE_DECORATION": {
+      "firered_attribute": "0x0",
+      "reason": "secret-base slot, absent from FireRed"
+    },
+    "MB_SECRET_BASE_SPOT_TREE_RIGHT": {
+      "firered_attribute": "0x0",
+      "reason": "secret-base spot, absent from FireRed"
+    },
+    "MB_UNUSED_81": {
+      "firered_attribute": "0x0",
+      "reason": "no code uses it in HNS"
+    },
+    "MB_SLOT_MACHINE": {
+      "firered_attribute": "0x0",
+      "reason": "no code uses it in HNS"
+    },
+    "MB_SIDEWAYS_STAIRS_LEFT_SIDE_TOP": {
+      "firered_attribute": "0x0",
+      "reason": "FireRed has no sideways stairs; walks straight"
+    }
+  },
+  "maps": {
+    "Johto_NewBarkTown": {
+      "id": "MAP_JOHTO_NEW_BARK_TOWN",
+      "number": 0
+    },
+    "Johto_Route29": {
+      "id": "MAP_JOHTO_ROUTE29",
+      "number": 1
+    },
+    "Johto_NewBarkTown_PlayersHouse_1F": {
+      "id": "MAP_JOHTO_NEW_BARK_TOWN_PLAYERS_HOUSE_1F",
+      "number": 2
+    },
+    "Johto_NewBarkTown_PlayersHouse_2F": {
+      "id": "MAP_JOHTO_NEW_BARK_TOWN_PLAYERS_HOUSE_2F",
+      "number": 3
+    },
+    "Johto_NewBarkTown_House1": {
+      "id": "MAP_JOHTO_NEW_BARK_TOWN_HOUSE1",
+      "number": 4
+    },
+    "Johto_NewBarkTown_House2": {
+      "id": "MAP_JOHTO_NEW_BARK_TOWN_HOUSE2",
+      "number": 5
+    },
+    "Johto_NewBarkTown_Lab": {
+      "id": "MAP_JOHTO_NEW_BARK_TOWN_LAB",
+      "number": 6
+    },
+    "Johto_Gate_Route29_Route46": {
+      "id": "MAP_JOHTO_GATE_ROUTE29_ROUTE46",
+      "number": 7
+    },
+    "Johto_CherrygroveCity": {
+      "id": "MAP_JOHTO_CHERRYGROVE_CITY",
+      "number": 8
+    },
+    "Johto_Route30": {
+      "id": "MAP_JOHTO_ROUTE30",
+      "number": 9
+    },
+    "Johto_Route31": {
+      "id": "MAP_JOHTO_ROUTE31",
+      "number": 10
+    }
+  }
 }

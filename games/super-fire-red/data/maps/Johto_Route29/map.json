@@ -15,6 +15,11 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
+      "map": "MAP_JOHTO_CHERRYGROVE_CITY",
+      "offset": 6,
+      "direction": "left"
+    },
+    {
       "map": "MAP_JOHTO_NEW_BARK_TOWN",
       "offset": 5,
       "direction": "right"

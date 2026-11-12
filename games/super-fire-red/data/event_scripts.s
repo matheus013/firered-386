@@ -535,6 +535,11 @@ gStdScriptsEnd::
 	.include "data/maps/Johto_NewBarkTown_House2/scripts.inc"
 	.include "data/maps/Johto_NewBarkTown_Lab/scripts.inc"
 	.include "data/maps/Johto_Gate_Route29_Route46/scripts.inc"
+	.include "data/maps/Johto_CherrygroveCity/scripts.inc"
+	.include "data/maps/Johto_Route30/scripts.inc"
+	.include "data/maps/Johto_Route31/scripts.inc"
+	.include "data/maps/Johto_CherrygroveCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Johto_CherrygroveCity_Mart/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

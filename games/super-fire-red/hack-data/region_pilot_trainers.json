@@ -600,6 +600,97 @@
           0
         ]
       ]
+    },
+    "TRAINER_JOHTO_JOEY": {
+      "new": true,
+      "party": "sParty_JohtoJoey",
+      "name": "JOEY",
+      "source": "TRAINER_JOEY",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_YOUNGSTER",
+      "trainer_pic": "TRAINER_PIC_YOUNGSTER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_RATTATA",
+          4,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_MIKEY": {
+      "new": true,
+      "party": "sParty_JohtoMikey",
+      "name": "MIKEY",
+      "source": "TRAINER_MIKEY",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_YOUNGSTER",
+      "trainer_pic": "TRAINER_PIC_YOUNGSTER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_HOOTHOOT",
+          2,
+          0
+        ],
+        [
+          "SPECIES_SENTRET",
+          4,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_DON": {
+      "new": true,
+      "party": "sParty_JohtoDon",
+      "name": "DON",
+      "source": "TRAINER_DON",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_BUG_CATCHER",
+      "trainer_pic": "TRAINER_PIC_BUG_CATCHER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_LEDYBA",
+          3,
+          0
+        ],
+        [
+          "SPECIES_SPINARAK",
+          3,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_WADE": {
+      "new": true,
+      "party": "sParty_JohtoWade",
+      "name": "WADE",
+      "source": "TRAINER_WADE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_BUG_CATCHER",
+      "trainer_pic": "TRAINER_PIC_BUG_CATCHER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_WEEDLE",
+          4,
+          0
+        ],
+        [
+          "SPECIES_PINECO",
+          5,
+          0
+        ]
+      ]
     }
   }
 }

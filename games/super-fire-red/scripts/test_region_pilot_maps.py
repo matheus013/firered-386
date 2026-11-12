@@ -65,7 +65,13 @@ for _m,_x,_y,_steps,_want in (
   (HOENN+'OLDALE_TOWN',6,17,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_OLDALE_TOWN_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_OLDALE_TOWN',{(6,17)})]),
   (HOENN+'OLDALE_TOWN',14,7,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_OLDALE_TOWN_MART',{(4,7)}),('MAP_HOENN_OLDALE_TOWN',{(14,7)})]),
   (HOENN+'PETALBURG_CITY',20,17,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_PETALBURG_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_PETALBURG_CITY',{(20,17)})]),
-  (HOENN+'PETALBURG_CITY',25,13,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_PETALBURG_CITY_MART',{(4,7)}),('MAP_HOENN_PETALBURG_CITY',{(25,13)})])):
+  (HOENN+'PETALBURG_CITY',25,13,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_PETALBURG_CITY_MART',{(4,7)}),('MAP_HOENN_PETALBURG_CITY',{(25,13)})]),
+  # Johto batch 1: Route 29 west into Cherrygrove, north to Routes 30 and 31, and the Pokemon Center/Mart doors.
+  (JOHTO+'ROUTE29',0,16,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY',{(64,10)}),('MAP_JOHTO_ROUTE29',{(0,16)})]),
+  (JOHTO+'CHERRYGROVE_CITY',34,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE30',{(25,57)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(34,0)})]),
+  (JOHTO+'ROUTE30',22,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE31',{(32,22)}),('MAP_JOHTO_ROUTE30',{(22,0)})]),
+  (JOHTO+'CHERRYGROVE_CITY',47,8,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(47,8)})]),
+  (JOHTO+'CHERRYGROVE_CITY',41,8,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY_MART',{(4,7)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(41,8)})])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -1134,7 +1140,8 @@ assert pallet[4]==KANTO_TILES,'Pallet Town no longer uses the FireRed tilesets'
 assert little[7]==1 and tuple(little[8:11])==(UP,HG,ROUTE101),('Littleroot must connect north to Route101',list(little[7:11]))
 assert route[7]>=1 and tuple(route[8:11])==(DOWN,HG,LITTLEROOT),('Route101 must connect south to Littleroot (and north to Oldale)',list(route[7:11]))
 assert newbark[7]==1 and tuple(newbark[8:11])==(LEFT,JG,ROUTE29),('New Bark must connect west to Route29',list(newbark[7:11]))
-assert route29[7]==1 and tuple(route29[8:11])==(RIGHT,JG,NEWBARK),('Route29 must connect east to New Bark',list(route29[7:11]))
+# Route 29: west to Cherrygrove (Johto batch 1, listed first) and east to New Bark (walked in case 21).
+assert route29[7]==2 and tuple(route29[8:11])==(LEFT,JG,8),('Route29 must connect west to Cherrygrove and east to New Bark',list(route29[7:11]))
 assert little[11]|little[12]<<8==0x2C8 and little[13]==WARP_DOOR and little[14],('Littleroot door cell',little[11:15].hex())
 assert newbark[11]|newbark[12]<<8==0x2CB and newbark[13]==WARP_DOOR and newbark[14],('New Bark blue door cell',newbark[11:15].hex())
 assert route29[13]==CAVE_DOOR,('Route 46 gate entrance should be a step-on warp',route29[11:15].hex())
@@ -1200,7 +1207,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-1]=='MAPSEC_ROUTE_29'
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-4:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.
@@ -1311,8 +1318,8 @@ batch_walked={}
 for case,want in BATCH_WALKS.items():
  for i,(g,(mapname,cells)) in enumerate(zip(walked(case),want)):
   assert (g[0],g[1])==_group_num(mapname) and (cells is None or (g[2],g[3]) in cells),(CASES[case-1][0],'step',i,'got',g,'expected',mapname,cells)
- batch_walked[CASES[case-1][0].replace('MAP_HOENN_','')+'->'+want[0][0].replace('MAP_HOENN_','')]='ok'
-print('Hoenn batch 1 walks:',batch_walked)
+ batch_walked[CASES[case-1][0].replace('MAP_HOENN_','').replace('MAP_JOHTO_','')+'->'+want[0][0].replace('MAP_HOENN_','').replace('MAP_JOHTO_','')]='ok'
+print('Geography batch walks:',batch_walked)
 jrow=rows[JOURNEY_CASE];jdone=u16(jrow,0)
 assert jrow[2]==0 and jdone==len(JOURNEY),('journey stopped at op',jdone,'of',len(JOURNEY),'phase',jrow[2]-1,'map',list(jrow[3:5]),'cell',list(jrow[5:7]),'busy',jrow[7],
   'next',JOURNEY[jdone] if jdone<len(JOURNEY) else None,'previous',JOURNEY[jdone-1] if jdone else None,'last check',JOURNEY_CHECKS[max([a for o,a,*_ in JOURNEY[:jdone] if o==J_CHECK] or [0])])

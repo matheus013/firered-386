@@ -1288,3 +1288,61 @@ Emerald.
   apertar para baixo ali não saía. Agora vão para o meio do tapete (warp 1), como no FireRed.
 - **Poção da Route 102:** a checagem da Poção só lia a flag da Poção da Route 29. Agora aceita as
   duas.
+
+## Johto, lote 1: Cherrygrove, Route 30 e Route 31
+
+**Mapas novos:** Cherrygrove City, Route 30 e Route 31, ligados a partir da borda oeste da Route 29.
+O terreno vem do HNS sem alteração, como no piloto de Johto. O tileset secundário novo
+`gTileset_JohtoPilotCherrygroveCity` é copiado tal como está. Cherrygrove tem Centro Pokémon e Mart
+com os interiores do FireRed: a enfermeira grava o ponto de retorno, e o Mart vende a lista de
+Cherrygrove do HGSS (Poké Ball, Potion, Antidote, Paralyze Heal e Awakening). O HNS só vende Potion e
+Antidote antes da Pokédex.
+
+- **Instalação:**
+  1. `scripts/install_johto_pilot.py` agora inclui os três exteriores (mapas 8 a 10 de
+     `gMapGroup_Johto`), as regras de água (lago, água rasa, água funda de interior e seta para
+     oeste) e a porta deslizante do Centro e do Mart (metatile 0x062, tabela própria para o par
+     Johto General + Cherrygrove).
+  2. Depois dele, `scripts/install_johto_batch1.py` repõe as duas portas de Cherrygrove (no meio do
+     tapete), cria os interiores (mapas 11 e 12) e registra a heal location em (47,8), a flag de mapa
+     `FLAG_WORLD_MAP_CHERRYGROVE_CITY` (0x8C7) e o destino de Fly. Relatório em
+     `docs/map-audits/johto-batch1.json`.
+- **Mapa da região:** as seções `MAPSEC_CHERRYGROVE_CITY`, `MAPSEC_ROUTE_30` e `MAPSEC_ROUTE_31`
+  entram no fim da lista. `scripts/convert_region_map_pages.py` regenerou a grade de Johto, então
+  essas três áreas agora têm nome na página.
+- **Músicas provisórias:** Cherrygrove usa a de Vermilion, e as Routes 30 e 31 usam a da Route 24.
+- **Eventos (`scripts/install_pilot_events.py`):**
+  - NPCs e placas;
+  - o pescador dá a Mystic Water uma vez (com a pergunta do original);
+  - Poké Ball e Antidote no chão da Route 31;
+  - duas árvores de Cut;
+  - 27 textos traduzidos para PT-BR.
+- **Treinadores:** Joey, Mikey e Don (Route 30) e Wade (Route 31), com os times do HNS e +60 níveis
+  (provisório). Ficam sem telefone e sem revanche.
+- **Pokémon selvagens:** grama e água nas Routes 30 e 31, pesca na Route 31 e em Cherrygrove.
+
+**Fica para depois:**
+
+- o passeio do Guide Gent e a batalha do Silver em Cherrygrove;
+- a luta encenada do Joey, a ligação do Elm e a entrega da carta do Kenya;
+- casas, casa do Mr. Pokémon, Dark Cave e portão de Violet (portas fechadas);
+- os Pokémon de cenário e as árvores de berry;
+- a pesca da Route 30 (12 vagas no HNS, 10 no FireRed) e a água de Cherrygrove (12 vagas diferentes).
+
+**Teste da ROM:**
+
+- 5 caminhadas novas: Route 29 → Cherrygrove, Cherrygrove → Route 30, Route 30 → Route 31, e as
+  portas do Centro e do Mart;
+- conversas com todos os eventos novos;
+- a checagem das seções de mapa cobre as três seções novas.
+
+**Problemas encontrados e corrigidos:**
+
+- **Tileset de Cherrygrove fora da build:** na reexecução, o `install_johto_pilot.py` não anexava
+  os tilesets novos (só escrevia na primeira vez). Agora ele anexa cada tileset que ainda falta.
+- **Checagem da Route 29:** a Route 29 agora tem duas conexões. A primeira registrada é a de
+  Cherrygrove, a oeste. A ida até New Bark continua coberta pelo caso 21.
+- **Água do HNS:** a checagem do importador recusava qualquer tabela de água que não tivesse cinco
+  vagas iguais. Agora só recusa quando cortar as vagas mudaria a tabela.
+
+**Resultado:** 263 casos aprovados (eram 234).

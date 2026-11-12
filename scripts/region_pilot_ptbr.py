@@ -158,6 +158,33 @@ PT = {
     'Johto_Route29_Text_Boy_WaitingForDay': 'Estou esperando Pokémon que só aparecem mais tarde no dia.',
     'Johto_Route29_Text_Girl': 'Queria fazer uma pausa, então salvei para registrar meu progresso.',
     'Johto_Route29_Text_Lass': 'Está vendo aqueles desníveis? Dá medo pular deles.' + P + 'Mas dá para ir até New Bark sem passar pela grama.',
+    # Johto batch 1 (Cherrygrove, Routes 30/31)
+    'Johto_CherrygroveCity_Text_MysticWaterGuyBefore': 'Um Pokémon que eu capturei estava segurando um item.' + P + 'Acho que é uma Mystic Water.' + P + 'Eu não preciso dela. Você quer?',
+    'Johto_CherrygroveCity_Text_MysticWaterGuyAfter': 'Bom, de volta à pescaria, então.',
+    'Johto_CherrygroveCity_Text_YoungsterHavePokedex': 'Eu batalhei com os Treinadores da estrada.' + P + 'Meus Pokémon perderam. Estão acabados! Preciso levá-los a um Centro Pokémon.',
+    'Johto_CherrygroveCity_Text_TeacherHaveMapCard': 'Com Pokémon ao seu lado, ir a qualquer lugar é divertido.',
+    'Johto_CherrygroveCity_Text_CitySign': 'Cherrygrove City' + P + 'A cidade das flores bonitas e perfumadas',
+    'Johto_Route30_Text_YoungsterEveryoneIsBattling': 'Todo mundo está se divertindo batalhando!' + P + 'Você também devia!',
+    'Johto_Route30_Text_YoungsterJoey1Seen': 'Acabei de perder, então estou procurando mais Pokémon.' + P + 'Espera! Você parece fraco! Vamos, vamos batalhar!',
+    'Johto_Route30_Text_YoungsterJoey1Beaten': 'Ah, não! Perdi de novo! Que droga!',
+    'Johto_Route30_Text_YoungsterJoey1After': 'Será que preciso de mais Pokémon para batalhar melhor?' + P + 'Não! Vou continuar com este, aconteça o que acontecer!',
+    'Johto_Route30_Text_CooltrainerF': 'Eu não sou Treinadora.' + P + 'Mas se você cruzar o olhar com um, prepare-se para batalhar.',
+    'Johto_Route30_Text_BugCatcherDonSeen': 'Em vez de um Pokémon inseto, encontrei um Treinador!',
+    'Johto_Route30_Text_BugCatcherDonBeaten': 'Argh! Você é forte demais!',
+    'Johto_Route30_Text_BugCatcherDonAfter': 'Minhas Poké Balls acabaram enquanto eu capturava Pokémon.' + P + 'Devia ter comprado mais…',
+    'Johto_Route30_Text_YoungsterMikeySeen': 'Você é um Treinador Pokémon, né?' + P + 'Então tem que batalhar!',
+    'Johto_Route30_Text_YoungsterMikeyBeaten': 'Que estranho. Antes eu ganhei.',
+    'Johto_Route30_Text_YoungsterMikeyAfter': 'Virar um bom Treinador é bem difícil.' + P + 'Vou batalhar com outras pessoas para melhorar.',
+    'Johto_Route30_Text_Sign': 'Route 30' + P + 'Violet City - Cherrygrove City',
+    'Johto_Route30_Text_TrainerTips': 'Dicas para Treinadores' + P + 'Não roube os Pokémon dos outros!' + P + 'Poké Balls são só para jogar em Pokémon selvagens!',
+    'Johto_Route30_Text_Mailbox': 'Casa do Mr. Pokémon',
+    'Johto_Route31_Text_BugCatcherWade1_Seen': 'Eu capturei um monte de Pokémon. Deixa eu batalhar com você!',
+    'Johto_Route31_Text_BugCatcherWade1_Beaten': 'Aaaaah…',
+    'Johto_Route31_Text_BugCatcherWade1_After': 'Dá para capturar Pokémon mesmo andando com seis.' + P + 'Se capturar mais um, ele vai direto para a sua Caixa.',
+    'Johto_Route31_Text_CooltrainerM': 'Dark Cave…' + P + 'Se um Pokémon pudesse iluminar lá dentro, eu exploraria.',
+    'Johto_Route31_Text_SleepyMan': '… Hnuurg… Hã?' + P + 'Andei demais hoje procurando Pokémon.' + P + 'Meus pés doem e estou com sono…' + P + 'Se eu fosse um Pokémon selvagem, seria fácil de capturar…' + P + '…Zzzz…',
+    'Johto_Route31_Text_Youngster': 'Achei um Pokémon bom na Dark Cave.' + P + 'Vou treiná-lo para enfrentar o Falkner.' + P + 'Ele é o líder do Ginásio de Violet City.',
+    'Johto_Route31_Text_Sign': 'Route 31' + P + 'Violet City - Cherrygrove City',
     # SEAGALLOP to the pilots (new texts, no source game).
     'VermilionCity_Text_RegionSailorLittleroot': 'Agora que você venceu a LIGA POKéMON, o SEAGALLOP também navega para terras distantes.' + P + 'Vamos para LITTLEROOT TOWN, em HOENN?',
     'VermilionCity_Text_RegionSailorNewBark': 'Então que tal NEW BARK TOWN, em JOHTO?',
@@ -165,7 +192,7 @@ PT = {
     'Hoenn_LittlerootTown_Text_Ferry': 'O SEAGALLOP pode levar você de volta a VERMILION CITY, em KANTO.' + P + 'Quer zarpar?',
     'Johto_NewBarkTown_Text_Ferry': 'O SEAGALLOP pode levar você de volta a VERMILION CITY, em KANTO.' + P + 'Quer zarpar?',
 }
-SAME_IN_PT = {'Hoenn_Route101_Text_RouteSign', 'Johto_Route29_Text_Sign1',  # names only
+SAME_IN_PT = {'Hoenn_Route101_Text_RouteSign', 'Johto_Route29_Text_Sign1', 'Johto_Route31_Text_DarkCaveSign',  # names only
               'Hoenn_LittlerootTown_BrendansHouse_1F_Text_Vigoroth1', 'Hoenn_LittlerootTown_BrendansHouse_1F_Text_Vigoroth2'}  # Vigoroth cries
 
 

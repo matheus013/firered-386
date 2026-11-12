@@ -1,0 +1,35 @@
+{
+  "maps": {
+    "Johto_CherrygroveCity_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "npc": "OBJ_EVENT_GFX_NURSE",
+      "heal_location": "HEAL_LOCATION_CHERRYGROVE_CITY"
+    },
+    "Johto_CherrygroveCity_Mart": {
+      "layout": "LAYOUT_MART",
+      "npc": "OBJ_EVENT_GFX_CLERK",
+      "items": [
+        "ITEM_POKE_BALL",
+        "ITEM_POTION",
+        "ITEM_ANTIDOTE",
+        "ITEM_PARALYZE_HEAL",
+        "ITEM_AWAKENING"
+      ]
+    }
+  },
+  "closed_doors": [
+    "CherrygroveCity_House1",
+    "CherrygroveCity_House2",
+    "CherrygroveCity_House3",
+    "Route30_House",
+    "Route30_MrPokemonsHouse",
+    "DarkCave_SouthSide",
+    "Gate_Route31_VioletCity"
+  ],
+  "heal_location": {
+    "id": "HEAL_LOCATION_CHERRYGROVE_CITY",
+    "x": 47,
+    "y": 8
+  },
+  "world_map_flag": "FLAG_WORLD_MAP_CHERRYGROVE_CITY"
+}
