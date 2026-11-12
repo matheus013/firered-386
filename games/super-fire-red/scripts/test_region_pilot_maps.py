@@ -226,14 +226,89 @@ STOP_AFTER_PROMPT[len(CASES)]=3
 # Sail to New Bark through the sailor's two questions, not a direct script call.
 CASES.append(('MAP_VERMILION_CITY',23,30,0,0,[('LEFT','TRIP')],GAME_CLEAR))
 TRIPS[len(CASES)]=('MAP_VERMILION_CITY','newbark');NO_ANSWERS[len(CASES)]=1
+# Continuous journey (M7): one case starts in Vermilion after the League and plays the whole pilot story
+# with simulated input only: the ferries, both towns, the routes, every scene and battle, and back.
+# Walks are planned here with a BFS over each map's collision and metatile behaviours; the ROM only
+# replays the keys (holding through NPCs that wander into the way) and presses A/B in dialogue.
+from collections import deque
+_BLOCK_BEHAVIORS=set(range(0x10,0x1C))-{0x17}|set(range(0x30,0x3C))|set(range(0x50,0x54))|set(range(0x60,0x70))|{0x80,0xD2}
+def _walk_grid(folder,coords=True):
+ header=json.loads((game/'data/maps'/folder/'map.json').read_text());layout=LAYOUTS[header['layout']]
+ blocks=[v for (v,) in _struct.iter_unpack('<H',(game/layout['blockdata_filepath']).read_bytes())]
+ w,h=layout['width'],layout['height']
+ def behavior(v):
+  t=v&0x3ff
+  return (_TILESETS[layout['primary_tileset']][t] if t<640 else _TILESETS[layout['secondary_tileset']][t-640])&0x1ff
+ blocked={(i%w,i//w) for i,v in enumerate(blocks) if (v>>10)&3 or behavior(v) in _BLOCK_BEHAVIORS}
+ blocked|={(o['x'],o['y']) for o in header.get('object_events') or []}
+ blocked|={(e['x'],e['y']) for e in header.get('warp_events') or []}
+ if coords:blocked|={(e['x'],e['y']) for e in header.get('coord_events') or []}  # triggers, unless inactive
+ return w,h,blocked
+JDIRS={'UP':(0,-1),'DOWN':(0,1),'LEFT':(-1,0),'RIGHT':(1,0)}
+def _path(folder,start,goal,coords=True):
+ w,h,blocked=_walk_grid(folder,coords);blocked-={start,goal}
+ prev={start:None};q=deque([start])
+ while q:
+  c=q.popleft()
+  if c==goal:break
+  for d,(dx,dy) in JDIRS.items():
+   n=(c[0]+dx,c[1]+dy)
+   if 0<=n[0]<w and 0<=n[1]<h and n not in blocked and n not in prev:prev[n]=(c,d);q.append(n)
+ assert goal in prev,(folder,'no path',start,goal)
+ steps=[];c=goal
+ while prev[c]:n=c;c,d=prev[c];steps.append((d,n))
+ return steps[::-1]  # (direction, cell reached)
+J_WALK,J_FACE,J_TALK,J_CHECK=1,2,3,4
+JOURNEY=[];JOURNEY_CHECKS=[]
+# Ops are (op, arg, x, y): a walk carries the cell it must reach; 255 = done on leaving the map.
+def j_walk(folder,start,goal,coords=True):JOURNEY.extend((J_WALK,d,x,y) for d,(x,y) in _path(folder,start,goal,coords))
+def j_step(d):JOURNEY.append((J_WALK,d,255,255))      # a step that leaves the map (door, edge, stairs)
+def j_talk(face,no_mask=0):JOURNEY.extend([(J_FACE,face,0,0),(J_TALK,no_mask,0,0)])
+def j_check(name):JOURNEY.append((J_CHECK,len(JOURNEY_CHECKS),0,0));JOURNEY_CHECKS.append(name)
+H,J='Hoenn_','Johto_'
+# Vermilion: the region sailor, YES to Littleroot.
+j_talk('LEFT');j_check('ferry to Littleroot')
+# Littleroot -> Route 101: the rescue starts on the first step into the route.
+j_walk(H+'LittlerootTown',(11,14),(10,0));j_step('UP');j_check('rescue started')
+j_walk(H+'Route101',(10,15),(7,15));j_talk('UP');j_check('Birch rescued')
+j_walk(H+'Route101',(7,15),(10,19),coords=False);j_step('DOWN')  # rescue triggers are off after it
+# Birch's lab, then May's room (battle), then home to the ferry.
+j_walk(H+'LittlerootTown',(10,0),(7,17));j_step('UP')
+j_walk(H+'LittlerootTown_ProfessorBirchsLab',(6,12),(6,5));j_talk('UP');j_check('Birch in his lab')
+j_walk(H+'LittlerootTown_ProfessorBirchsLab',(6,5),(6,12));j_step('DOWN')
+j_walk(H+'LittlerootTown',(7,17),(14,9));j_step('UP')
+j_walk(H+'LittlerootTown_MaysHouse_1F',(2,8),(2,3));j_step('UP')
+_may=SPOTS[('Hoenn_LittlerootTown_MaysHouse_2F','object',0)]
+j_walk(H+'LittlerootTown_MaysHouse_2F',(1,2),_may[1:3]);j_talk(_may[3]);j_check('May beaten')
+j_walk(H+'LittlerootTown_MaysHouse_2F',_may[1:3],(1,3));j_step('UP')
+j_walk(H+'LittlerootTown_MaysHouse_1F',(2,3),(2,8));j_step('DOWN')
+j_walk(H+'LittlerootTown',(14,9),(10,14));j_talk('UP');j_check('back in Vermilion')
+# Vermilion: NO to Littleroot, YES to New Bark.
+j_walk('VermilionCity',(23,32),(23,30));j_talk('LEFT',1);j_check('ferry to New Bark')
+# Elm's lab: request, Chikorita, the aide's Potion.
+j_walk(J+'NewBarkTown',(24,13),(10,10));j_step('UP')
+j_walk(J+'NewBarkTown_Lab',(6,12),(6,4));j_talk('UP');j_check('Elm request')
+j_walk(J+'NewBarkTown_Lab',(6,4),(8,5));j_talk('UP');j_check('Chikorita received')
+_aide=SPOTS[('Johto_NewBarkTown_Lab','object',0)]
+j_walk(J+'NewBarkTown_Lab',(8,5),_aide[1:3]);j_talk(_aide[3]);j_check('aide Potion')
+j_walk(J+'NewBarkTown_Lab',_aide[1:3],(6,12));j_step('DOWN')
+# Silver, Route 29 and back, the ferry home.
+_silver=SPOTS[('Johto_NewBarkTown','object',2)]
+j_walk(J+'NewBarkTown',(10,10),_silver[1:3]);j_talk(_silver[3]);j_check('Silver beaten')
+j_walk(J+'NewBarkTown',_silver[1:3],(0,12));j_step('LEFT');j_step('RIGHT');j_check('Route 29 and back')
+j_walk(J+'NewBarkTown',(0,12),(24,13));j_talk('UP');j_check('home in Vermilion')
+assert len(JOURNEY_CHECKS)<=14 and len(JOURNEY)<1000,(len(JOURNEY_CHECKS),len(JOURNEY))
+JOURNEY_SETUP=16384  # region sailor shown (bit 4) + strong team (16|128) are added below; 16384 = long Repel
+CASES.append(('MAP_VERMILION_CITY',23,30,0,0,[('NONE','JOURNEY')],4|16|128|JOURNEY_SETUP));JOURNEY_CASE=len(CASES)
 CASES=[c if len(c)==7 else (*c,0) for c in CASES]
 KEYS={'UP':'DPAD_UP','DOWN':'DPAD_DOWN','LEFT':'DPAD_LEFT','RIGHT':'DPAD_RIGHT','NONE':'0'}
-MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6,'SCENE':7,'FLY':8,'SWITCH':9,'CONTINUE':10}
+MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6,'SCENE':7,'FLY':8,'SWITCH':9,'CONTINUE':10,'JOURNEY':11}
 spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}, {setup}, {STORY.get(n,(0,0))[0]}, {STORY.get(n,(0,0))[1]}, {JOHTO_STORY.get(n,(0,0))[0]}, {JOHTO_STORY.get(n,(0,0))[1]}}}' for n,(m,x,y,px,py,s,setup) in enumerate(CASES,1))
 answers=', '.join(str(NO_ANSWERS.get(n,0)) for n in range(1,len(CASES)+1))
 stop_prompts=', '.join(str(STOP_AFTER_PROMPT.get(n,0)) for n in range(1,len(CASES)+1))
 steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s,_setup in CASES)
 counts=', '.join(str(len(s)) for *_,s,_setup in CASES)
+journey=', '.join(f'{{{op}, {KEYS[a] if isinstance(a,str) else a}, {x}, {y}}}' for op,a,x,y in JOURNEY)
 hook='''
 #include "overworld.h"
 #include "fieldmap.h"
@@ -252,6 +327,8 @@ hook='''
 #include "item.h"
 #include "constants/items.h"
 #include "battle.h"
+#include "battle_main.h"
+#include "party_menu.h"
 #include "data.h"
 #include "constants/trainers.h"
 #include "pokemon_storage_system.h"
@@ -292,6 +369,22 @@ static u16 PilotDialogueKey(void)
     return A_BUTTON;
 }
 EWRAM_DATA volatile u32 gPilotCase = 0, gPilotStage = 0, gPilotShot = 0;
+// Journey ops: {op, arg}. 1 walk one tile (arg: key), 2 face (key), 3 talk (arg: prompts answered NO,
+// bit n = n-th yes/no), 4 checkpoint (arg: slot).
+static const u16 sJourney[][4] = {JOURNEY_OPS};
+EWRAM_DATA static u16 sJourneyOp = 0, sJourneyFrames = 0;
+EWRAM_DATA static u8 sJourneyPhase = 0, sJourneyPrompt = 0, sJourneyGroup = 0, sJourneyMap = 0;
+EWRAM_DATA static bool8 sJourneyWasYesNo = FALSE;
+EWRAM_DATA static s16 sJourneyX = 0, sJourneyY = 0;
+static u16 JourneyDialogueKey(u16 noMask)
+{
+    bool8 active = PilotYesNoActive();
+    if (active && !sJourneyWasYesNo) sJourneyPrompt++;
+    sJourneyWasYesNo = active;
+    if (active && sJourneyPrompt <= 8 && (noMask & (1 << (sJourneyPrompt - 1))))
+        return B_BUTTON;
+    return A_BUTTON;
+}
 EWRAM_DATA volatile u16 gPilotKeys = 0;
 EWRAM_DATA u8 gPilotResult[128] = {0};
 EWRAM_DATA static u32 sPilotFrames = 0, sPilotFlower = 0, sPilotIdle = 0, sPilotStepFrames = 0;
@@ -505,6 +598,111 @@ static void PilotWalkCase(void)
         return;
     }
     // Town Map: fade, clean up the field and open the region map as the item does, then keep running.
+    // Journey: replay the planned ops; after each, let scripts, warps and battles finish (A/B pulses).
+    if (step->mode == 11)
+    {
+        u8 *t = gPilotResult;
+        bool8 busy = gMain.callback1 != CB1_Overworld || ArePlayerFieldControlsLocked() || gPaletteFade.active || gMain.inBattle;
+        const u16 *op = sJourney[sJourneyOp];
+        bool8 left = gSaveBlock1Ptr->location.mapGroup != sJourneyGroup || gSaveBlock1Ptr->location.mapNum != sJourneyMap;
+        sJourneyFrames++;
+        // Leave phase 0 at once: PilotCheck skips phase-0 cases while the field is not running
+        // (battles, ferry scenes), and the journey must keep pressing keys there.
+        sPilotPhase = 5;
+        if (sJourneyOp >= JOURNEY_LEN)
+        {
+            gPilotKeys = 0; t[0] = sJourneyOp; t[1] = sJourneyOp >> 8; t[2] = 0;
+            gPilotShot = 1; gPilotStage = 3;
+            return;
+        }
+        if (sJourneyFrames >= 30000)
+        {
+            // Stuck: report the op and where the player is.
+            gPilotKeys = 0; t[0] = sJourneyOp; t[1] = sJourneyOp >> 8; t[2] = 1 + sJourneyPhase;
+            t[3] = gSaveBlock1Ptr->location.mapGroup; t[4] = gSaveBlock1Ptr->location.mapNum; t[5] = x - MAP_OFFSET; t[6] = y - MAP_OFFSET;
+            t[7] = busy;
+            gPilotShot = 1; gPilotStage = 3;
+            return;
+        }
+        switch (sJourneyPhase)
+        {
+        case 0: // wait for a free, still player, then start the op
+            if (busy)
+            {
+                gPilotKeys = (sJourneyFrames % 8) < 3 ? A_BUTTON : 0;
+                break;
+            }
+            gPilotKeys = 0;
+            if (sPilotIdle < 8)
+                break;
+            sJourneyX = x; sJourneyY = y;
+            sJourneyGroup = gSaveBlock1Ptr->location.mapGroup; sJourneyMap = gSaveBlock1Ptr->location.mapNum;
+            sJourneyFrames = 0; sJourneyPrompt = 0; sJourneyWasYesNo = FALSE;
+            if (op[0] == 4)
+            {
+                u8 *c = t + 8 + 8 * op[1];
+                c[0] = gSaveBlock1Ptr->location.mapGroup; c[1] = gSaveBlock1Ptr->location.mapNum; c[2] = x - MAP_OFFSET; c[3] = y - MAP_OFFSET;
+                c[4] = VarGet(VAR_HOENN_STORY); c[5] = VarGet(VAR_JOHTO_STORY); c[6] = gPlayerPartyCount;
+                c[7] = CheckBagHasItem(ITEM_POTION, 1) | FlagGet(FLAG_GOT_JOHTO_AIDE_POTION) << 1;
+                sJourneyOp++;
+                break;
+            }
+            sJourneyPhase = 1; // act from the next frame: `left` above was computed against the previous op's map
+            break;
+        case 1: // the action
+            if (op[0] == 1)
+            {
+                // Hold until the player is headed for the planned cell (or, for exits, left the map);
+                // NPCs in the way just delay it. Ending up anywhere else is reported as stuck.
+                // Exits count on the map changing or a warp fade starting, not on any short field lock.
+                gPilotKeys = op[1];
+                if ((op[2] == 255 && (left || gPaletteFade.active || gMain.callback1 != CB1_Overworld)) || (op[2] != 255 && x - MAP_OFFSET == op[2] && y - MAP_OFFSET == op[3]))
+                {
+                    gPilotKeys = 0; sJourneyPhase = 2; sJourneyFrames = 0;
+                }
+                else if (op[2] != 255 && (x != sJourneyX || y != sJourneyY))
+                {
+                    sJourneyFrames = 30000; // moved somewhere unplanned
+                }
+            }
+            else
+            {
+                // Face: a 2-frame tap turns in place. Talk: A.
+                gPilotKeys = op[0] == 2 ? op[1] : A_BUTTON;
+                if (sJourneyFrames >= 2)
+                {
+                    gPilotKeys = 0; sJourneyPhase = 2; sJourneyFrames = 0;
+                }
+            }
+            break;
+        case 2: // settle: scripts, warps, battles, ferries
+            // A battle asking for a replacement opens the party menu on the fainted slot; point it at a
+            // healthy Pokemon that is not already battling (the gifts join the lead pair here).
+            if (gMain.inBattle && gMain.callback2 != BattleMainCB2)
+            {
+                s8 i;
+                for (i = gPlayerPartyCount - 1; i >= 0; i--)
+                {
+                    if (GetMonData(&gPlayerParty[i], MON_DATA_HP) != 0
+                     && i != gBattlerPartyIndexes[0] && i != gBattlerPartyIndexes[2])
+                    {
+                        gPartyMenu.slotId = i;
+                        break;
+                    }
+                }
+            }
+            if (busy)
+                gPilotKeys = (sJourneyFrames % 8) < 3 ? JourneyDialogueKey(op[0] == 3 ? op[1] : 0) : 0;
+            else
+                gPilotKeys = 0;
+            if (!busy && sPilotIdle >= 20 && sJourneyFrames >= 12)
+            {
+                sJourneyOp++; sJourneyPhase = 0; sJourneyFrames = 0;
+            }
+            break;
+        }
+        return;
+    }
     // Continue: save, wipe the location, load the save, continue; record where the player is.
     if (step->mode == 10 && sPilotPhase >= 5)
     {
@@ -651,6 +849,11 @@ static void PilotWalkCase(void)
             sPilotPhase = 5; sPilotStepFrames = 0;
             return;
         }
+        if (step->mode == 11)
+        {
+            sPilotPhase = 5; sPilotStepFrames = 0;
+            return;
+        }
         if (step->mode == 4 || step->mode == 8 || step->mode == 9)
         {
             sPilotStartGroup = gSaveBlock1Ptr->location.mapGroup; sPilotStartMap = gSaveBlock1Ptr->location.mapNum;
@@ -708,7 +911,7 @@ static void PilotBoot(void)
     StringCopy(gSaveBlock2Ptr->playerName, name); StringCopy(gSaveBlock1Ptr->rivalName, name);
     SetMainCallback2(CB2_NewGame);
 }
-'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts).replace('ANSWERS',answers).replace('STOP_PROMPTS',stop_prompts)
+'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts).replace('ANSWERS',answers).replace('JOURNEY_OPS',journey).replace('JOURNEY_LEN',str(len(JOURNEY))).replace('STOP_PROMPTS',stop_prompts)
 main=(game/'src/main.c').read_text()
 main=main.replace('static void InitMainCallbacks(void)\n{',hook+'\nstatic void InitMainCallbacks(void)\n{').replace('SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);','SetMainCallback2(PilotBoot);')
 main=main.replace('#include "global.h"','#include "global.h"\nvoid PilotCheck(void);',1).replace('    ReadKeys();','    PilotCheck();\n    ReadKeys();')
@@ -782,6 +985,8 @@ void PilotSetup(void)
         FlagSet(FLAG_GOT_JOHTO_AIDE_POTION);
     if (spawn[7] & 2048)
         FlagSet(FLAG_WORLD_MAP_LITTLEROOT_TOWN);
+    if (spawn[7] & 16384)
+        VarSet(VAR_REPEL_STEP_COUNT, 60000); // the journey walks far more than one Repel
     if (spawn[7] & 8192)
         FlagSet(FLAG_WORLD_MAP_NEW_BARK_TOWN);
     if (spawn[7] & 256)
@@ -1052,6 +1257,22 @@ for case,(start,dest) in TRIPS.items():
  row=rows[case];where_,cell=ARRIVAL[dest]
  assert row[4]==1 and tuple(row[:2])==where_ and tuple(row[2:4])==cell,(start,'->',dest,'ferry arrival',list(row[:4]),where_,cell)
 print('SEAGALLOP trips:',{f"{s.replace('MAP_','')}->{d}":'ok' for s,d in TRIPS.values()})
+jrow=rows[JOURNEY_CASE];jdone=u16(jrow,0)
+assert jrow[2]==0 and jdone==len(JOURNEY),('journey stopped at op',jdone,'of',len(JOURNEY),'phase',jrow[2]-1,'map',list(jrow[3:5]),'cell',list(jrow[5:7]),'busy',jrow[7],
+  'next',JOURNEY[jdone] if jdone<len(JOURNEY) else None,'previous',JOURNEY[jdone-1] if jdone else None,'last check',JOURNEY_CHECKS[max([a for o,a,*_ in JOURNEY[:jdone] if o==J_CHECK] or [0])])
+_vm=_group_num('MAP_VERMILION_CITY')
+JWANT={'ferry to Littleroot':((HG,LITTLEROOT),(11,14),0,0),'rescue started':((HG,ROUTE101),(10,15),1,0),'Birch rescued':((HG,ROUTE101),(7,15),3,0),
+ 'Birch in his lab':((HG,BIRCH),(6,5),3,0),'May beaten':((HG,M2F),None,4,0),'back in Vermilion':(_vm,(23,32),4,0),'ferry to New Bark':((JG,NEWBARK),(24,13),4,0),
+ 'Elm request':((JG,ELM),(6,4),4,1),'Chikorita received':((JG,ELM),(8,5),4,2),'aide Potion':((JG,ELM),None,4,2),'Silver beaten':((JG,NEWBARK),None,4,3),
+ 'Route 29 and back':((JG,NEWBARK),(0,12),4,3),'home in Vermilion':(_vm,(23,32),4,3)}
+journey_seen={}
+for k,name in enumerate(JOURNEY_CHECKS):
+ c=jrow[8+8*k:16+8*k];where,cell,hs,js=JWANT[name]
+ assert tuple(c[:2])==tuple(where) and (cell is None or tuple(c[2:4])==cell) and (c[4],c[5])==(hs,js),(name,'checkpoint',list(c))
+ journey_seen[name]='ok'
+last=jrow[8+8*(len(JOURNEY_CHECKS)-1):16+8*(len(JOURNEY_CHECKS)-1)]
+assert last[6]==4 and last[7]&2,('journey end: party should hold the lead pair plus Treecko and Chikorita, Potion flag set',list(last))
+print('Journey (M7):',len(JOURNEY),'ops,',journey_seen)
 continued={}
 _continue_tiles={'hoenn':0b00011,'johto':0b01000,'hoenn_interior':0b100000}
 for case,(start,x0,y0,tiles) in CONTINUES.items():
@@ -1071,6 +1292,7 @@ print('PASS: Hoenn and Johto pilots load on their own tilesets with doors, anima
       'the SEAGALLOP sails Vermilion <-> Littleroot/New Bark only after the League; '
       'the region map shows scrolling Hoenn/Johto pages, the switch menu reaches them and Fly lands in Littleroot/New Bark; '
       'a save made in Hoenn or Johto continues on the same map and cell; '
+      'a continuous journey from Vermilion plays both pilot stories by input alone and sails home; '
       'Birch is rescued on Route 101 (starter gift, Zigzagoon battle), his lab follows the story and May battles with the counter team; '
       'assets match their sources; Pallet unchanged.')
 (out/'results.json').write_text(json.dumps({'status':'passed','build':str(test),'cases':{str(k):v.hex() for k,v in rows.items()},

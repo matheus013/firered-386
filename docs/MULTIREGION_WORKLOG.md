@@ -1189,3 +1189,52 @@ O teste não cobre:
 - desligar o console de verdade (o save é recarregado na mesma sessão do emulador);
 - a reprodução do "quest log" que o FireRed mostra antes de continuar;
 - saves de versões antigas do hack.
+
+## 12/11/2026 — M7: percurso contínuo dos pilotos (Claude)
+
+Novo caso `JOURNEY` no teste da ROM. A única coisa que ele posiciona é o ponto de partida: Vermilion,
+ao lado do marinheiro, com a Liga vencida e um time de teste forte. Daí em diante tudo acontece só
+por comandos simulados:
+
+1. barco para Littleroot;
+2. Route 101: o gatilho do resgate, a bolsa (Treecko) e a batalha contra o Zigzagoon;
+3. laboratório do Birch;
+4. casa da May: escada até o quarto, batalha e descida;
+5. barco de volta para Vermilion;
+6. o marinheiro de novo: "não" para Littleroot e "sim" para New Bark;
+7. laboratório do Elm: pedido, Chikorita e a Poção da assistente;
+8. Silver;
+9. ida à Route 29 e volta;
+10. barco para Vermilion.
+
+**Como funciona:**
+
+- **Rotas a pé:** são calculadas em Python por busca em largura sobre a colisão e o comportamento dos
+  tiles de cada mapa. A busca evita água, desníveis, balcões, warps, objetos e os gatilhos ativos.
+- **Operações:** cada passo leva a célula de destino. A ROM segura a direção até chegar nela, então um
+  NPC no caminho só atrasa. Ir para uma célula fora do plano é tratado como erro. Também há
+  operações para virar, falar (com as perguntas marcadas para responder "não") e registrar ponto de
+  controle.
+- **Diálogos, batalhas e viagens:** depois de cada operação, o teste espera o campo ficar livre e vai
+  apertando A, ou B nas perguntas marcadas.
+
+**Problemas encontrados e corrigidos no teste:**
+
+- Fora do campo (em batalha ou no barco), a rotina do teste saía mais cedo e ninguém apertava A.
+- Sequências de direções às cegas desalinhavam. Agora cada passo confere a célula de destino.
+- Numa saída logo depois de outra, a checagem de "trocou de mapa" usava o mapa da operação anterior.
+- Quando um Pokémon desmaiava, o menu de troca abria no desmaiado e A não saía dele. Agora o teste
+  aponta o cursor para um Pokémon que ainda pode lutar.
+- O limite por operação subiu para 30.000 quadros (a batalha dupla do Silver é longa). O limite do
+  emulador por caso subiu para 200.000 quadros.
+
+**Resultado:** 245 operações e 13 pontos de controle conferidos, com mapa, célula, estados das duas
+histórias e time. No fim, o jogador está em Vermilion (23,32) com 4 Pokémon (os dois do teste,
+Treecko e Chikorita) e a flag da Poção marcada. **178 casos aprovados.** Captura final em
+`docs/map-audits/region-journey-end.png`.
+
+**O que o teste não cobre:**
+
+- uma campanha desde o início do jogo (o ponto de partida já tem a Liga vencida);
+- times normais de campanha (o time de teste é forte);
+- a geografia completa de Johto e Hoenn, que ainda não existe.

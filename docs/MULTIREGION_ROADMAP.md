@@ -52,7 +52,7 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 | M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Pendente |
 | M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Parcial: SEAGALLOP pós-Liga; seções com nome; mapa regional com páginas roláveis de Hoenn/Johto (arte original), menu de troca em duas colunas e Fly para Littleroot/New Bark. save e Continuar testados em Hoenn e Johto. Pendente: demais cidades, quest log e saves antigos |
 | M6 | Eventos, encontros, desafios e progressão interligados | Parcial: ambiente, personagens, resgate de Birch/May e pedido de Elm/iniciais/Silver nos pilotos; demais eventos e campanhas pendentes |
-| M7 | Builds locais isoladas e percurso completo sem teleportes | Builds isoladas instrumentadas em uso; percurso contínuo e campanha completa pendentes |
+| M7 | Builds locais isoladas e percurso completo sem teleportes | Parcial: percurso contínuo dos pilotos testado na ROM (Vermilion → Hoenn → Vermilion → Johto → Vermilion só com comandos simulados, 245 operações). Pendente: o mesmo para a geografia completa e uma campanha desde o início |
 | M8 | Revisão final, integração em main e publicação | Pendente |
 
 ### Evidência inicial
