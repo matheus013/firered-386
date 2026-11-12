@@ -1346,3 +1346,28 @@ Antidote antes da Pokédex.
   vagas iguais. Agora só recusa quando cortar as vagas mudaria a tabela.
 
 **Resultado:** 263 casos aprovados (eram 234).
+
+## Batalhas dos treinadores dos lotes 1
+
+Até aqui o teste só conferia a fala que os treinadores novos dizem depois de vencidos. Agora há um
+caso de batalha para cada treinador dos dois lotes, exceto os nadadores, que ficam na água e
+precisam de Surf. São 14 casos: a batalha dupla de Amy e Liv conta uma vez.
+
+- **Como funciona:** cada caso começa com só aquele treinador ainda não vencido
+  (`gPilotFreshTrainer`). O jogador fica na mesma célula das conversas e usa o Pokémon forte do
+  teste. O teste aperta A durante a apresentação, a batalha e a fala final.
+- **O que é conferido:**
+  - o oponente certo, com o time e o nível de origem (+60);
+  - o nome e se a batalha é simples ou dupla;
+  - a vitória;
+  - a flag do treinador marcada depois.
+
+**Problemas encontrados e corrigidos no teste:**
+
+- Treinadores que veem o jogador assim que ele chega começam o script sozinhos. O campo nunca ficava
+  livre, e o caso parava no texto de apresentação. Agora, se um script já está rodando, a cena passa
+  direto para a fase de apertar A.
+- O resultado guarda só 8 letras do nome ("AMY & LI"). A comparação agora usa os 8 primeiros
+  caracteres.
+
+**Resultado:** 277 casos aprovados (eram 263), com as 14 batalhas vencidas e as flags marcadas.

@@ -272,6 +272,26 @@ for choice,species in ((1,'TORCHIC'),(2,'MUDKIP')):
 _scene(_bag[0],_bag[1],_bag[2],_bag[3],1,0,{'name':'bag: refuse all starters','story':1,'party':1})
 NO_ANSWERS[len(CASES)]=7
 STOP_AFTER_PROMPT[len(CASES)]=3
+# Geography batch trainers: one battle per trainer, from the talk cell, with only that trainer unbeaten
+# (FRESH_TRAINER). The scene presses A through intro, battle and post-battle line; the strong lead wins.
+# Swimmers stand on water (Surf) and are left out, like their talk cases.
+FRESH_TRAINER={}
+_opponent_ids=dict(re.findall(r'#define (TRAINER_\w+)\s+(\d+)',(game/'include/constants/opponents.h').read_text()))
+_fought=set()
+for _folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/maps').glob('Johto_*'))):
+ _objs=json.loads((_folder/'map.json').read_text()).get('object_events') or []
+ _inc=(_folder/'scripts.inc').read_text(encoding='utf-8')
+ for _i,_o in enumerate(_objs):
+  _body=_inc.split(_o['script']+'::')[-1].split('\n\n')[0] if _o['script']+'::' in _inc else ''
+  _m=re.search(r'trainerbattle_\w+ (TRAINER_(?:HOENN|JOHTO)_\w+)',_body)
+  if not _m or 'SWIMMER' in _o['graphics_id'] or _m[1] in _fought:continue
+  _fought.add(_m[1])
+  _sm,_sx,_sy,_key=SPOTS[(_folder.name,'object',_i)]
+  _johto=_folder.name.startswith('Johto_')
+  CASES.append((_sm,_sx,_sy,0,0,[(_key,'SCENE')],STRONG|128))
+  (JOHTO_STORY if _johto else STORY)[len(CASES)]=(0,0)
+  SCENES[len(CASES)]={'name':f'battle {_m[1]}','johto':_johto,'story':0,'trainer':_m[1],'outcome':1,'route_trainer':True}
+  FRESH_TRAINER[len(CASES)]=int(_opponent_ids[_m[1]])
 # Sail to New Bark through the sailor's two questions, not a direct script call.
 CASES.append(('MAP_VERMILION_CITY',23,30,0,0,[('LEFT','TRIP')],GAME_CLEAR))
 TRIPS[len(CASES)]=('MAP_VERMILION_CITY','newbark');NO_ANSWERS[len(CASES)]=1
@@ -355,6 +375,7 @@ MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6,'SCENE'
 spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}, {setup}, {STORY.get(n,(0,0))[0]}, {STORY.get(n,(0,0))[1]}, {JOHTO_STORY.get(n,(0,0))[0]}, {JOHTO_STORY.get(n,(0,0))[1]}}}' for n,(m,x,y,px,py,s,setup) in enumerate(CASES,1))
 answers=', '.join(str(NO_ANSWERS.get(n,0)) for n in range(1,len(CASES)+1))
 stop_prompts=', '.join(str(STOP_AFTER_PROMPT.get(n,0)) for n in range(1,len(CASES)+1))
+fresh_trainers=', '.join(str(FRESH_TRAINER.get(n,0)) for n in range(1,len(CASES)+1))
 steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s,_setup in CASES)
 counts=', '.join(str(len(s)) for *_,s,_setup in CASES)
 journey=', '.join(f'{{{op}, {KEYS[a] if isinstance(a,str) else a}, {x}, {y}}}' for op,a,x,y in JOURNEY)
@@ -401,6 +422,7 @@ static const struct PilotStep sPilotSteps[][4] = {
 static const u8 sPilotStepCount[] = {COUNTS};
 static const u8 sPilotNoAnswers[] = {ANSWERS};
 static const u8 sPilotStopPrompts[] = {STOP_PROMPTS};
+const u16 gPilotFreshTrainer[] = {FRESH_TRAINERS};  // route trainer left unbeaten in this case (0: none)
 extern volatile u32 gPilotCase;
 EWRAM_DATA static u8 sPilotPrompt = 0;
 EWRAM_DATA static bool8 sPilotWasYesNo = FALSE;
@@ -608,6 +630,7 @@ static void PilotWalkCase(void)
                 memcpy(t + 64, gStringVar2, 32); t[95] = EOS;
                 t[104] = CheckBagHasItem(ITEM_POTION, 1); t[105] = CheckBagHasItem(ITEM_POKE_BALL, 5);
                 t[106] = FlagGet(FLAG_GOT_JOHTO_AIDE_POTION); t[107] = FlagGet(FLAG_GOT_JOHTO_AIDE_BALLS);
+                t[108] = gPilotFreshTrainer[gPilotCase - 1] && FlagGet(TRAINER_FLAGS_START + gPilotFreshTrainer[gPilotCase - 1]);
                 if (gPilotSpawn[gPilotCase - 1][7] & 512)
                 {
                     t[48] = TrySavingData(SAVE_NORMAL);
@@ -878,6 +901,14 @@ static void PilotWalkCase(void)
     }
     if (sPilotPhase == 0)
     {
+        // Scene whose script starts on its own (a trainer who sees the player on arrival): the field never
+        // goes idle, so press through it like phase 7 does.
+        if (step->mode == 7 && sPilotIdle < 30 && sPilotStepFrames >= 240 && (ArePlayerFieldControlsLocked() || gMain.inBattle))
+        {
+            sPilotStartGroup = gSaveBlock1Ptr->location.mapGroup; sPilotStartMap = gSaveBlock1Ptr->location.mapNum;
+            sPilotPhase = 7; sPilotStepFrames = 0;
+            return;
+        }
         if (sPilotIdle < 30) return;
         if (step->mode == 5 || step->mode == 6 || step->mode == 7)
         {
@@ -960,7 +991,7 @@ static void PilotBoot(void)
     StringCopy(gSaveBlock2Ptr->playerName, name); StringCopy(gSaveBlock1Ptr->rivalName, name);
     SetMainCallback2(CB2_NewGame);
 }
-'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts).replace('ANSWERS',answers).replace('JOURNEY_OPS',journey).replace('JOURNEY_LEN',str(len(JOURNEY))).replace('STOP_PROMPTS',stop_prompts)
+'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts).replace('ANSWERS',answers).replace('JOURNEY_OPS',journey).replace('JOURNEY_LEN',str(len(JOURNEY))).replace('STOP_PROMPTS',stop_prompts).replace('FRESH_TRAINERS',fresh_trainers)
 main=(game/'src/main.c').read_text()
 main=main.replace('static void InitMainCallbacks(void)\n{',hook+'\nstatic void InitMainCallbacks(void)\n{').replace('SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);','SetMainCallback2(PilotBoot);')
 main=main.replace('#include "global.h"','#include "global.h"\nvoid PilotCheck(void);',1).replace('    ReadKeys();','    PilotCheck();\n    ReadKeys();')
@@ -977,6 +1008,7 @@ setup='''
 #include "elite_four.h"
 extern volatile u32 gPilotCase;
 extern const s16 gPilotSpawn[][12];
+extern const u16 gPilotFreshTrainer[];
 void PilotSetup(void)
 {
     const s16 *spawn = gPilotSpawn[gPilotCase - 1];
@@ -1036,6 +1068,8 @@ void PilotSetup(void)
         u16 t;
         for (t = TRAINER_HOENN_CALVIN; t < NUM_TRAINERS; t++)
             FlagSet(TRAINER_FLAGS_START + t); // region route trainers start beaten (see the talk cases)
+        if (gPilotFreshTrainer[gPilotCase - 1])
+            FlagClear(TRAINER_FLAGS_START + gPilotFreshTrainer[gPilotCase - 1]);  // battle cases
     }
     if (spawn[7] & 2048)
         FlagSet(FLAG_WORLD_MAP_LITTLEROOT_TOWN);
@@ -1301,8 +1335,14 @@ for case,expect in SCENES.items():
   assert [u16(row,32+i*2) for i in range(len(team))]==team,(name,'team',[u16(row,32+i*2) for i in range(len(team))])
   leader=t['team'][0];level=leader['level'] if isinstance(leader,dict) else leader[1]
   assert row[10]==level+t.get('level_offset',pilot_trainers['level_offset']),(name,'lead level',row[10])
-  assert row[44:47]==bytes([1,1,1]),(name,'double battle / perfect IVs / 508 EVs',list(row[44:47]))
-  assert row[47]==1 and decode(row[96:104])==t['name'],(name,'battle shows the Kanto rival name instead of',t['name'],row[47],decode(row[96:104]))
+  if expect.get('route_trainer'):
+   # Geography trainers: source teams (no IV/EV spread), single or double as in the source; beaten afterwards.
+   assert row[44]==int(bool(t.get('double'))),(name,'double battle',row[44])
+   assert decode(row[96:104])==t['name'][:8],(name,'trainer name (first 8 characters are recorded)',decode(row[96:104]))
+   assert row[108]==1,(name,'trainer flag not set after the win')
+  else:
+   assert row[44:47]==bytes([1,1,1]),(name,'double battle / perfect IVs / 508 EVs',list(row[44:47]))
+   assert row[47]==1 and decode(row[96:104])==t['name'],(name,'battle shows the Kanto rival name instead of',t['name'],row[47],decode(row[96:104]))
  story_seen[name]='ok'
 print('Region story scenes:',story_seen)
 # Generated at build time: #define MAP_X (num | (group << 8))
