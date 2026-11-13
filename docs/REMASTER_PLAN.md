@@ -5,6 +5,16 @@ Rascunho de 12/11/2026. **Decisão do usuário: o remaster é feito em Godot.**
 **Quando começar (decisão do usuário, 12/11/2026): depois da expansão Johto/Hoenn.** Nenhuma fase,
 nem o G1, começa antes da expansão fechar.
 
+**Atualização de 13/11/2026:** a G0 (decisões e direção) começou em paralelo, a pedido do usuário,
+no repositório **privado** `matheus013/super-firered-remaster`. Decisões tomadas:
+
+- uso pessoal, sem publicação;
+- arte feita por IA e limpa à mão;
+- tile de 48 px, com resolução lógica 960×540 (escala ×2 em 1080p, ×4 em 4K);
+- 2D HD primeiro e HD-2D como meta.
+
+As seções 4 e 7 abaixo ficam valendo com essas respostas. G1–G7 continuam depois da expansão.
+
 Skills usadas:
 
 - `router`: projeto existente em engine próprio (decomp `pokefirered` em C); frontend novo em Godot 4.7;
@@ -218,3 +228,5 @@ remaster/                  (repositório privado)
 3. **Tile:** 32 px (proposto) ou 48 px (mais detalhe e muito mais arte)?
 4. **Visual alvo:** só 2D HD, ou 2D HD agora e HD-2D (G6) como meta?
 5. ~~**Começo:**~~ decidido: depois da expansão.
+
+Respondidas em 13/11/2026: 1) privado, uso pessoal; 2) IA com limpeza; 3) 48 px; 4) 2D HD agora, HD-2D como meta.
