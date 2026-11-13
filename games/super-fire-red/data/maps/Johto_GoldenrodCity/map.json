@@ -18,6 +18,11 @@
       "map": "MAP_JOHTO_ROUTE34",
       "offset": 7,
       "direction": "down"
+    },
+    {
+      "map": "MAP_JOHTO_ROUTE35",
+      "offset": 20,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -149,6 +154,20 @@
     }
   ],
   "warp_events": [
+    {
+      "x": 33,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_GATE_GOLDENROD_CITY_ROUTE35",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 34,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_GATE_GOLDENROD_CITY_ROUTE35",
+      "dest_warp_id": "0"
+    },
     {
       "x": 28,
       "y": 36,

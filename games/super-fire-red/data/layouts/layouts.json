@@ -4794,6 +4794,54 @@
       "secondary_tileset": "gTileset_JohtoPilotGoldenrod",
       "border_filepath": "data/layouts/Johto_GoldenrodCity/border.bin",
       "blockdata_filepath": "data/layouts/Johto_GoldenrodCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_GATE_GOLDENROD_CITY_ROUTE35",
+      "name": "Johto_Gate_GoldenrodCity_Route35_Layout",
+      "width": 15,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotGateStandard",
+      "border_filepath": "data/layouts/Johto_Gate_GoldenrodCity_Route35/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Gate_GoldenrodCity_Route35/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE35",
+      "name": "Johto_Route35_Layout",
+      "width": 40,
+      "height": 49,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotGoldenrod",
+      "border_filepath": "data/layouts/Johto_Route35/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route35/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_GATE_NATIONAL_PARK",
+      "name": "Johto_Gate_NationalPark_Layout",
+      "width": 50,
+      "height": 18,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotGateStandard",
+      "border_filepath": "data/layouts/Johto_Gate_NationalPark/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Gate_NationalPark/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE36",
+      "name": "Johto_Route36_Layout",
+      "width": 66,
+      "height": 30,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotVioletCity",
+      "border_filepath": "data/layouts/Johto_Route36/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route36/map.bin"
     }
   ]
 }

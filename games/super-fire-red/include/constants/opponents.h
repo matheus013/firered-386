@@ -777,7 +777,8 @@
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
 // Region geography trainers in unused FireRed/Ruby-Sapphire slots (hack-data/region_pilot_trainers.json "slot"):
-// MAX_TRAINERS_COUNT stays 768, so the flag layout of existing saves does not move.
+// MAX_TRAINERS_COUNT stays 768, so the flag layout of existing saves does not move. Slots named after
+// Hoenn leaders, Elite Four, champions and rivals are kept for the Hoenn gyms.
 #define TRAINER_JOHTO_ANTHONY                            TRAINER_AQUA_GRUNT_M
 #define TRAINER_JOHTO_DANIEL                             TRAINER_AQUA_GRUNT_F
 #define TRAINER_JOHTO_RUSSELL                            TRAINER_RS_AROMA_LADY
@@ -794,6 +795,17 @@
 #define TRAINER_JOHTO_IRENE                              TRAINER_RS_CAMPER
 #define TRAINER_JOHTO_JENN                               TRAINER_BUG_MANIAC
 #define TRAINER_JOHTO_KATE                               TRAINER_RS_PSYCHIC_M
+#define TRAINER_JOHTO_KIM                                TRAINER_RS_PSYCHIC_F
+#define TRAINER_JOHTO_BRYAN                              TRAINER_RS_GENTLEMAN
+#define TRAINER_JOHTO_BROOKE                             TRAINER_SCHOOL_KID_M
+#define TRAINER_JOHTO_ELLIOT                             TRAINER_SCHOOL_KID_F
+#define TRAINER_JOHTO_IVAN                               TRAINER_SR_AND_JR
+#define TRAINER_JOHTO_WALT                               TRAINER_POKEFAN_M
+#define TRAINER_JOHTO_IRWIN                              TRAINER_POKEFAN_F
+#define TRAINER_JOHTO_DIRK                               TRAINER_EXPERT_M
+#define TRAINER_JOHTO_ARNIE                              TRAINER_EXPERT_F
+#define TRAINER_JOHTO_MARK                               TRAINER_RS_YOUNGSTER
+#define TRAINER_JOHTO_ALAN                               TRAINER_RS_FISHERMAN
 
 #define NUM_TRAINERS                             767
 #define MAX_TRAINERS_COUNT                       768

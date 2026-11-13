@@ -1725,6 +1725,247 @@
           ]
         }
       }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gRoute35",
+        "map": "MAP_ROUTE35",
+        "note": "day table; Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_ROUTE35",
+        "base_label": "gJohtoRoute35_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_SNUBBULL"
+            },
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_PIDGEY"
+            },
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_ABRA"
+            },
+            {
+              "min_level": 14,
+              "max_level": 18,
+              "species": "SPECIES_YANMA"
+            },
+            {
+              "min_level": 14,
+              "max_level": 15,
+              "species": "SPECIES_GROWLITHE"
+            },
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_PIDGEY"
+            },
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_ABRA"
+            },
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_SNUBBULL"
+            },
+            {
+              "min_level": 14,
+              "max_level": 18,
+              "species": "SPECIES_YANMA"
+            },
+            {
+              "min_level": 14,
+              "max_level": 18,
+              "species": "SPECIES_YANMA"
+            },
+            {
+              "min_level": 14,
+              "max_level": 15,
+              "species": "SPECIES_GROWLITHE"
+            },
+            {
+              "min_level": 14,
+              "max_level": 18,
+              "species": "SPECIES_YANMA"
+            }
+          ]
+        },
+        "water_mons": {
+          "encounter_rate": 7,
+          "mons": [
+            {
+              "min_level": 15,
+              "max_level": 24,
+              "species": "SPECIES_PSYDUCK"
+            },
+            {
+              "min_level": 15,
+              "max_level": 24,
+              "species": "SPECIES_PSYDUCK"
+            },
+            {
+              "min_level": 15,
+              "max_level": 24,
+              "species": "SPECIES_PSYDUCK"
+            },
+            {
+              "min_level": 20,
+              "max_level": 24,
+              "species": "SPECIES_GOLDUCK"
+            },
+            {
+              "min_level": 15,
+              "max_level": 24,
+              "species": "SPECIES_PSYDUCK"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWHIRL"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWAG"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gRoute36",
+        "map": "MAP_ROUTE36",
+        "note": "day table; Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_ROUTE36",
+        "base_label": "gJohtoRoute36_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 4,
+              "max_level": 5,
+              "species": "SPECIES_RATTATA"
+            },
+            {
+              "min_level": 4,
+              "max_level": 4,
+              "species": "SPECIES_BELLSPROUT"
+            },
+            {
+              "min_level": 5,
+              "max_level": 6,
+              "species": "SPECIES_PIDGEY"
+            },
+            {
+              "min_level": 4,
+              "max_level": 4,
+              "species": "SPECIES_BELLSPROUT"
+            },
+            {
+              "min_level": 5,
+              "max_level": 6,
+              "species": "SPECIES_PIDGEY"
+            },
+            {
+              "min_level": 4,
+              "max_level": 5,
+              "species": "SPECIES_RATTATA"
+            },
+            {
+              "min_level": 5,
+              "max_level": 6,
+              "species": "SPECIES_PIDGEY"
+            },
+            {
+              "min_level": 4,
+              "max_level": 5,
+              "species": "SPECIES_RATTATA"
+            },
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_GROWLITHE"
+            },
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_GROWLITHE"
+            },
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_GROWLITHE"
+            },
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_GROWLITHE"
+            }
+          ]
+        }
+      }
     }
   ]
 }

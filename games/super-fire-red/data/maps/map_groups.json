@@ -638,7 +638,9 @@
     "Johto_AzaleaTown",
     "Johto_IlexForest",
     "Johto_Route34",
-    "Johto_GoldenrodCity"
+    "Johto_GoldenrodCity",
+    "Johto_Route35",
+    "Johto_Route36"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -688,6 +690,10 @@
     "Johto_Route34",
     "Johto_GoldenrodCity",
     "Johto_GoldenrodCity_PokemonCenter_1F",
-    "Johto_GoldenrodCity_Mart"
+    "Johto_GoldenrodCity_Mart",
+    "Johto_Gate_GoldenrodCity_Route35",
+    "Johto_Route35",
+    "Johto_Gate_NationalPark",
+    "Johto_Route36"
   ]
 }

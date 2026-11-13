@@ -558,6 +558,10 @@ gStdScriptsEnd::
 	.include "data/maps/Johto_GoldenrodCity/scripts.inc"
 	.include "data/maps/Johto_GoldenrodCity_PokemonCenter_1F/scripts.inc"
 	.include "data/maps/Johto_GoldenrodCity_Mart/scripts.inc"
+	.include "data/maps/Johto_Gate_GoldenrodCity_Route35/scripts.inc"
+	.include "data/maps/Johto_Route35/scripts.inc"
+	.include "data/maps/Johto_Gate_NationalPark/scripts.inc"
+	.include "data/maps/Johto_Route36/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

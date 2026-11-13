@@ -1639,3 +1639,50 @@ Goldenrod, já instalado com a Route 34, e a música de Celadon.
 **Teste:** Route 34 → Goldenrod, ida e volta, e as portas do Centro e da loja.
 
 **Resultado:** 424 casos aprovados (eram 399).
+
+## Johto, lote 7: Routes 35 e 36
+
+**Mapas novos:**
+
+- o portão entre Goldenrod e a Route 35;
+- a Route 35;
+- o portão do National Park, que liga as Routes 35 e 36 (o parque fica fechado);
+- a Route 36, que se liga a pé a Violet City pelo oeste.
+
+Agora Johto forma um anel completo: New Bark → Cherrygrove → Violet → Union Cave → Azalea → Ilex →
+Goldenrod → Route 35 → Route 36 → Violet. Em Goldenrod, os warps do portão entram primeiro, e as
+portas do Centro e da loja foram renumeradas junto com os interiores.
+
+- **Treinadores (11, em vagas):**
+  - Kim, Bryan, Brooke, Elliot, Ivan, Walt, Irwin, Dirk e Arnie, na Route 35;
+  - Mark e Alan, na Route 36.
+  - O Walt (Firebreather) usa a classe Burglar do FireRed, e o policial Dirk usa a classe
+    Cooltrainer.
+- **Vagas reservadas:** as que têm nome de líder, Elite Four, campeão ou rival de Hoenn (Roxanne,
+  Sidney, Wally…) ficam reservadas para os ginásios de Hoenn. Restam 38 vagas livres fora delas.
+- **Eventos:**
+  - três itens (TM39 Rock Tomb, Nugget no lugar da Big Nugget, que o FireRed não tem, e Paralyze
+    Heal);
+  - uma árvore de Cut;
+  - moradores dos portões e da Route 36, nos ramos posteriores ao Sudowoodo;
+  - placas;
+  - 46 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama, água e pesca na Route 35, e grama na Route 36.
+
+**Fica para depois:**
+
+- a missão do Kenya (Randy);
+- o Concurso de Captura de Insetos e o National Park;
+- o Arthur (presente por dia da semana);
+- o Sudowoodo e a Route 37;
+- o portão das Ruínas de Alph.
+
+**Teste:** as entradas dos dois portões pelos dois lados e a travessia Violet ↔ Route 36.
+
+**Problema encontrado no teste e corrigido:** um Mewtwo sem treino de EVs perdeu para o Yanma e o
+Venonat do Arnie (nível 78, com golpes de inseto). Depois, o menu de troca abriu no Pokémon
+desmaiado e a cena ficou parada nele. As batalhas de rota agora usam um Snorlax com treino completo,
+que só leva dano superefetivo de Lutador. Além disso, a cena aponta o cursor do menu de troca para um
+Pokémon saudável, como a jornada contínua já fazia.
+
+**Resultado:** 469 casos aprovados (eram 424), com as 49 batalhas de rota vencidas.

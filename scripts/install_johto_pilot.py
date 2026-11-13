@@ -33,7 +33,9 @@ MAPS = ['NewBarkTown', 'Route29', 'NewBarkTown_PlayersHouse_1F', 'NewBarkTown_Pl
         # Johto batch 5: Azalea's west gate, Ilex Forest, its north gate and Route 34
         'Gate_AzaleaTown_IlexForest', 'IlexForest', 'Gate_IlexForest_Route34', 'Route34',
         # Johto batch 6
-        'GoldenrodCity']
+        'GoldenrodCity',
+        # Johto batch 7: Route 35, the National Park gate (park closed) and Route 36 back to Violet
+        'Gate_GoldenrodCity_Route35', 'Route35', 'Gate_NationalPark', 'Route36']
 TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animation init)
     'gTileset_Johto_General': ('JohtoPilotGeneral', 'primary/johto_general', 'primary/johto_pilot_general', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_NewBarkTown': ('JohtoPilotNewBarkTown', 'secondary/new_bark_town', 'secondary/johto_pilot_new_bark_town', 'NULL'),

@@ -94,7 +94,13 @@ for _m,_x,_y,_steps,_want in (
   # Johto batch 6: Route 34 north into Goldenrod, its Pokemon Center and Dept. Store.
   (JOHTO+'ROUTE34',26,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_GOLDENROD_CITY',{(33,45)}),('MAP_JOHTO_ROUTE34',{(26,0)})]),
   (JOHTO+'GOLDENROD_CITY',28,37,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_GOLDENROD_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_GOLDENROD_CITY',{(28,37)})]),
-  (JOHTO+'GOLDENROD_CITY',39,37,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_GOLDENROD_CITY_MART',{(4,7)}),('MAP_JOHTO_GOLDENROD_CITY',{(39,37)})])):
+  (JOHTO+'GOLDENROD_CITY',39,37,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_GOLDENROD_CITY_MART',{(4,7)}),('MAP_JOHTO_GOLDENROD_CITY',{(39,37)})]),
+  # Johto batch 7: Goldenrod -> gate -> Route 35 -> National Park gate <- Route 36 <-> Violet.
+  (JOHTO+'GOLDENROD_CITY',33,8,[('UP','MAP')],[('MAP_JOHTO_GATE_GOLDENROD_CITY_ROUTE35',None)]),
+  (JOHTO+'ROUTE35',13,47,[('DOWN','MAP')],[('MAP_JOHTO_GATE_GOLDENROD_CITY_ROUTE35',None)]),
+  (JOHTO+'ROUTE35',17,6,[('UP','MAP')],[('MAP_JOHTO_GATE_NATIONAL_PARK',None)]),
+  (JOHTO+'ROUTE36',17,20,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_GATE_NATIONAL_PARK',None),('MAP_JOHTO_ROUTE36',None)]),
+  (JOHTO+'VIOLET_CITY',0,18,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_ROUTE36',{(65,20)}),('MAP_JOHTO_VIOLET_CITY',{(0,18)})])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -657,6 +663,17 @@ static void PilotWalkCase(void)
         else if (sPilotPhase == 7)
         {
             u16 key = PilotDialogueKey();
+            // A fainted lead opens the party menu on its own slot; point it at a healthy Pokemon (as the journey does).
+            if (gMain.inBattle && gMain.callback2 != BattleMainCB2)
+            {
+                s8 i;
+                for (i = gPlayerPartyCount - 1; i >= 0; i--)
+                    if (GetMonData(&gPlayerParty[i], MON_DATA_HP) != 0 && i != gBattlerPartyIndexes[0] && i != gBattlerPartyIndexes[2])
+                    {
+                        gPartyMenu.slotId = i;
+                        break;
+                    }
+            }
             gPilotKeys = busy && (sPilotStepFrames % 8) < 3 ? key : 0;
             if ((sPilotStepFrames > 200 && sPilotIdle >= 60) || sPilotStepFrames >= 38000)
             {
@@ -1091,6 +1108,10 @@ void PilotSetup(void)
         {
             u16 move = gPilotFreshMove[gPilotCase - 1];  // fixed damage (Seismic Toss / Night Shade)
             u8 fullPp = 32;
+            // Snorlax with full facility training: bulky enough for the +60 route teams (an untrained
+            // Mewtwo fell to Arnie's bug moves), and only Fighting hits it super effectively.
+            CreateMon(&gPlayerParty[0], SPECIES_SNORLAX, 100, 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
+            EliteFour_ApplyFacilityTraining(&gPlayerParty[0]);
             SetMonData(&gPlayerParty[0], MON_DATA_MOVE1, &move); SetMonData(&gPlayerParty[0], MON_DATA_PP1, &fullPp);
             gPlayerParty[1] = gPlayerParty[0];  // two Pokemon for Amy and Liv's double battle
             CalculatePlayerPartyCount();
@@ -1299,7 +1320,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-12:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY']
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-14:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.

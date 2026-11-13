@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
     'OBJ_EVENT_GFX_ZIGZAGOON_1': 'OBJ_EVENT_GFX_ZIGZAGOON', 'OBJ_EVENT_GFX_BIRCHS_BAG': 'OBJ_EVENT_GFX_BIRCHS_BAG',
@@ -265,6 +265,30 @@ EVENTS = {
         10: ('itemflag', None, 'Ether'), 11: ('itemflag', None, 'Super Potion')},
         {0: ('sign', 'IlexForest_Text_Shrine'), 1: ('sign', 'IlexForest_Text_Signpost')}),
     'Gate_IlexForest_Route34': (HNS, {0: ('npc', 'Route34IlexForestGate_Text_Lass', '')}, {}),
+    # Johto batch 7. Left out: Randy's Kenya errand, the Bug-Catching Contest attendants, Arthur (weekday gift;
+    # no clock), Sudowoodo and the Ruins of Alph gate; the townspeople use their after-Sudowoodo lines.
+    'Gate_GoldenrodCity_Route35': (HNS, {
+        2: ('npc', 'Route35GoldenrodGate_Text_PokefanF_Lullaby', 'branch after Sudowoodo'),
+        3: ('npc', 'Route35GoldenrodGate_Text_Fisher', '')}, {}),
+    'Route35': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_KIM', 'Route35_Text_PicnickerKimSeen', 'Route35_Text_PicnickerKimBeaten', 'Route35_Text_PicnickerKimAfter'), ''), 1: ('trainer', ('TRAINER_JOHTO_BRYAN', 'Route35_Text_BirdKeeperBryanSeen', 'Route35_Text_BirdKeeperBryanBeaten', 'Route35_Text_BirdKeeperBryanAfter'), ''),
+        2: ('trainer', ('TRAINER_JOHTO_BROOKE', 'Route35_Text_PicnickerBrookeSeen', 'Route35_Text_PicnickerBrookeBeaten', 'Route35_Text_PicnickerBrookeAfter'), ''), 3: ('trainer', ('TRAINER_JOHTO_ELLIOT', 'Route35_Text_CamperElliotSeen', 'Route35_Text_CamperElliotBeaten', 'Route35_Text_CamperElliotAfter'), ''),
+        4: ('trainer', ('TRAINER_JOHTO_IVAN', 'Route35_Text_CamperIvanSeen', 'Route35_Text_CamperIvanBeaten', 'Route35_Text_CamperIvanAfter'), ''), 5: ('trainer', ('TRAINER_JOHTO_WALT', 'Route35_Text_FirebreatherWaltSeen', 'Route35_Text_FirebreatherWaltBeaten', 'Route35_Text_FirebreatherWaltAfter'), ''),
+        6: ('trainer', ('TRAINER_JOHTO_IRWIN', 'Route35_Text_JugglerIrwinSeen', 'Route35_Text_JugglerIrwinBeaten', 'Route35_Text_JugglerIrwinAfter'), ''), 7: ('trainer', ('TRAINER_JOHTO_DIRK', 'Route35_Text_OfficerDirkSeen', 'Route35_Text_OfficerDirkBeaten', 'Route35_Text_OfficerDirkAfter'), ''),
+        8: ('trainer', ('TRAINER_JOHTO_ARNIE', 'Route35_Text_BugCatcherArnieSeen', 'Route35_Text_BugCatcherArnieBeaten', 'Route35_Text_BugCatcherArnieAfter'), ''),
+        9: ('cuttree', None, 'FireRed EventScript_CutTree'),
+        10: ('itemflag', None, 'TM39 Rock Tomb'), 11: ('itemflag', None, 'Nugget'), 20: ('itemflag', None, 'Paralyze Heal')},
+        {0: ('sign', 'Route35_Text_Sign2'), 1: ('sign', 'Route35_Text_Sign')}),
+    'Gate_NationalPark': (HNS, {
+        0: ('npc', 'Route35NationalParkGate_Text_WeHoldContests', ''), 1: ('npc', 'Route35NationalParkGate_Text_WeHoldContests', ''),
+        4: ('npc', 'Route35NationalParkGate_Text_Rocker', ''), 5: ('npc', 'Route35NationalParkGate_Text_YoungsterWonders', ''),
+        6: ('npc', 'Route35NationalParkGate_Text_BC2', ''), 7: ('npc', 'Route35NationalParkGate_Text_Beauty', '')}, {}),
+    'Route36': (HNS, {
+        0: ('npc', 'Route36_Text_Lass2_ClearedSudowoodo', 'branch after Sudowoodo'),
+        2: ('npc', 'Route36_Text_RockSmashGuy3', 'branch after he gave Rock Smash'),
+        3: ('trainer', ('TRAINER_JOHTO_MARK', 'Route36_Text_PsychicMarkSeen', 'Route36_Text_PsychicMarkBeaten', 'Route36_Text_PsychicMarkAfter'), ''),
+        4: ('trainer', ('TRAINER_JOHTO_ALAN', 'Route36_Text_SchoolboyAlan1Seen', 'Route36_Text_SchoolboyAlan1Beaten', 'Route36_Text_SchoolboyAlanAfter'), '')},
+        {0: ('sign', 'Route36_Text_Sign_RuinsNorth'), 1: ('sign', 'Route36_Text_Tips1')}),
     # Johto batch 6. Left out: Team Rocket and its scout, Elm's call, the coin move tutor, the overworld
     # Snubbull/Mr. Mime and the step triggers; branches after Team Rocket leaves are used.
     'GoldenrodCity': (HNS, {
@@ -328,6 +352,9 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route34', 7): ('ITEM_SOFT_SAND', 'FLAG_HIDE_JOHTO_ROUTE34_SOFT_SAND', 'FLAG_0x0C8'),
               ('Route34', 8): ('ITEM_RARE_CANDY', 'FLAG_HIDE_JOHTO_ROUTE34_RARE_CANDY', 'FLAG_0x0C9'),
               ('Route34', 23): ('ITEM_SUPER_POTION', 'FLAG_HIDE_JOHTO_ROUTE34_SUPER_POTION', 'FLAG_0x0CA'),
+              ('Route35', 10): ('ITEM_TM39', 'FLAG_HIDE_JOHTO_ROUTE35_TM_ROCK_TOMB', 'FLAG_0x0CB'),
+              ('Route35', 11): ('ITEM_NUGGET', 'FLAG_HIDE_JOHTO_ROUTE35_NUGGET', 'FLAG_0x0CC'),  # HNS Big Nugget; FireRed has Nugget
+              ('Route35', 20): ('ITEM_PARALYZE_HEAL', 'FLAG_HIDE_JOHTO_ROUTE35_PARALYZE_HEAL', 'FLAG_0x0CD'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.

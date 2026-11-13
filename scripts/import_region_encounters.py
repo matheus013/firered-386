@@ -54,6 +54,11 @@ TABLES = [
      'MAP_JOHTO_ILEX_FOREST', 'gJohtoIlexForest_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),
     ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute34', 'MAP_ROUTE34',
      'MAP_JOHTO_ROUTE34', 'gJohtoRoute34_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),
+    # Johto batch 7
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute35', 'MAP_ROUTE35',
+     'MAP_JOHTO_ROUTE35', 'gJohtoRoute35_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute36', 'MAP_ROUTE36',
+     'MAP_JOHTO_ROUTE36', 'gJohtoRoute36_Pilot', ['land_mons'], 'day table; Rock Smash left out'),
 ]
 
 

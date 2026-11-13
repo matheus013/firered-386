@@ -1197,6 +1197,266 @@
           0
         ]
       ]
+    },
+    "TRAINER_JOHTO_KIM": {
+      "slot": "TRAINER_RS_PSYCHIC_F",
+      "name": "KIM",
+      "source": "TRAINER_KIM",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_PICNICKER",
+      "trainer_pic": "TRAINER_PIC_PICNICKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_VULPIX",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_BRYAN": {
+      "slot": "TRAINER_RS_GENTLEMAN",
+      "name": "BRYAN",
+      "source": "TRAINER_BRYAN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_BIRD_KEEPER",
+      "trainer_pic": "TRAINER_PIC_BIRD_KEEPER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_PIDGEY",
+          16,
+          0
+        ],
+        [
+          "SPECIES_PIDGEOTTO",
+          18,
+          0
+        ],
+        [
+          "SPECIES_SPEAROW",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_BROOKE": {
+      "slot": "TRAINER_SCHOOL_KID_M",
+      "name": "BROOKE",
+      "source": "TRAINER_BROOKE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_PICNICKER",
+      "trainer_pic": "TRAINER_PIC_PICNICKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_PIKACHU",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_ELLIOT": {
+      "slot": "TRAINER_SCHOOL_KID_F",
+      "name": "ELLIOT",
+      "source": "TRAINER_ELLIOT",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_CAMPER",
+      "trainer_pic": "TRAINER_PIC_CAMPER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SANDSHREW",
+          16,
+          0
+        ],
+        [
+          "SPECIES_MARILL",
+          16,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_IVAN": {
+      "slot": "TRAINER_SR_AND_JR",
+      "name": "IVAN",
+      "source": "TRAINER_IVAN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_CAMPER",
+      "trainer_pic": "TRAINER_PIC_CAMPER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_EEVEE",
+          16,
+          0
+        ],
+        [
+          "SPECIES_DIGLETT",
+          16,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_WALT": {
+      "slot": "TRAINER_POKEFAN_M",
+      "name": "WALT",
+      "source": "TRAINER_WALT",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_BURGLAR",
+      "trainer_pic": "TRAINER_PIC_BURGLAR",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MAGMAR",
+          15,
+          0
+        ],
+        [
+          "SPECIES_MAGMAR",
+          15,
+          0
+        ]
+      ],
+      "note": "HNS Firebreather; FireRed Burglar class"
+    },
+    "TRAINER_JOHTO_IRWIN": {
+      "slot": "TRAINER_POKEFAN_F",
+      "name": "IRWIN",
+      "source": "TRAINER_IRWIN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_JUGGLER",
+      "trainer_pic": "TRAINER_PIC_JUGGLER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_VOLTORB",
+          16,
+          0
+        ],
+        [
+          "SPECIES_PINECO",
+          16,
+          0
+        ],
+        [
+          "SPECIES_VOLTORB",
+          16,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_DIRK": {
+      "slot": "TRAINER_EXPERT_M",
+      "name": "DIRK",
+      "source": "TRAINER_DIRK",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GROWLITHE",
+          16,
+          0
+        ],
+        [
+          "SPECIES_HOUNDOUR",
+          16,
+          0
+        ]
+      ],
+      "note": "HNS Officer; FireRed has no Policeman trainer class"
+    },
+    "TRAINER_JOHTO_ARNIE": {
+      "slot": "TRAINER_EXPERT_F",
+      "name": "ARNIE",
+      "source": "TRAINER_ARNIE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_BUG_CATCHER",
+      "trainer_pic": "TRAINER_PIC_BUG_CATCHER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_YANMA",
+          18,
+          0
+        ],
+        [
+          "SPECIES_VENONAT",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_MARK": {
+      "slot": "TRAINER_RS_YOUNGSTER",
+      "name": "MARK",
+      "source": "TRAINER_MARK",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_PSYCHIC",
+      "trainer_pic": "TRAINER_PIC_PSYCHIC_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_ABRA",
+          15,
+          0
+        ],
+        [
+          "SPECIES_ABRA",
+          15,
+          0
+        ],
+        [
+          "SPECIES_KADABRA",
+          16,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_ALAN": {
+      "slot": "TRAINER_RS_FISHERMAN",
+      "name": "ALAN",
+      "source": "TRAINER_ALAN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_SCHOOL_KID",
+      "trainer_pic": "TRAINER_PIC_SCHOOL_KID_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_TANGELA",
+          20,
+          0
+        ],
+        [
+          "SPECIES_GROWLITHE",
+          20,
+          0
+        ]
+      ]
     }
   }
 }
