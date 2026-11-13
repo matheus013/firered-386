@@ -1606,6 +1606,477 @@
         }
       ]
     },
+    "Hoenn_Route116": {
+      "source": "pokeemerald/Route116",
+      "events": [
+        {
+          "kind": "trainer",
+          "source_index": 2,
+          "source_script": "Route116_EventScript_Joey",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": [
+            "TRAINER_HOENN_JOEY",
+            "Route116_Text_JoeyIntro",
+            "Route116_Text_JoeyDefeat",
+            "Route116_Text_JoeyPostBattle"
+          ],
+          "note": "",
+          "x": 12,
+          "y": 7
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 3,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 21,
+          "y": 6
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 4,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 32,
+          "y": 10
+        },
+        {
+          "kind": "trainer",
+          "source_index": 5,
+          "source_script": "Route116_EventScript_Jose",
+          "source_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "firered_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "text": [
+            "TRAINER_HOENN_JOSE",
+            "Route116_Text_JoseIntro",
+            "Route116_Text_JoseDefeat",
+            "Route116_Text_JosePostBattle"
+          ],
+          "note": "",
+          "x": 13,
+          "y": 17
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 6,
+          "source_script": "Route116_EventScript_ItemEther",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Ether",
+          "x": 19,
+          "y": 6
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 7,
+          "source_script": "Route116_EventScript_ItemRepel",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Repel",
+          "x": 10,
+          "y": 17
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 11,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 28,
+          "y": 11
+        },
+        {
+          "kind": "trainer",
+          "source_index": 12,
+          "source_script": "Route116_EventScript_Clark",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_HOENN_CLARK",
+            "Route116_Text_ClarkIntro",
+            "Route116_Text_ClarkDefeat",
+            "Route116_Text_ClarkPostBattle"
+          ],
+          "note": "",
+          "x": 36,
+          "y": 17
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 13,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 24,
+          "y": 9
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 14,
+          "source_script": "Route116_EventScript_ItemHPUp",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "HP Up",
+          "x": 80,
+          "y": 8
+        },
+        {
+          "kind": "trainer",
+          "source_index": 15,
+          "source_script": "Route116_EventScript_Janice",
+          "source_sprite": "OBJ_EVENT_GFX_LASS",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_JANICE",
+            "Route116_Text_JaniceIntro",
+            "Route116_Text_JaniceDefeat",
+            "Route116_Text_JanicePostBattle"
+          ],
+          "note": "",
+          "x": 26,
+          "y": 6
+        },
+        {
+          "kind": "trainer",
+          "source_index": 16,
+          "source_script": "Route116_EventScript_Karen",
+          "source_sprite": "OBJ_EVENT_GFX_GIRL_3",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_KAREN",
+            "Route116_Text_KarenIntro",
+            "Route116_Text_KarenDefeat",
+            "Route116_Text_KarenPostBattle"
+          ],
+          "note": "",
+          "x": 22,
+          "y": 16
+        },
+        {
+          "kind": "trainer",
+          "source_index": 17,
+          "source_script": "Route116_EventScript_Jerry",
+          "source_sprite": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": [
+            "TRAINER_HOENN_JERRY",
+            "Route116_Text_JerryIntro",
+            "Route116_Text_JerryDefeat",
+            "Route116_Text_JerryPostBattle"
+          ],
+          "note": "",
+          "x": 28,
+          "y": 8
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 19,
+          "source_script": "Route116_EventScript_ItemXSpecial",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "X Special",
+          "x": 55,
+          "y": 12
+        },
+        {
+          "kind": "trainer",
+          "source_index": 22,
+          "source_script": "Route116_EventScript_Sarah",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": [
+            "TRAINER_HOENN_SARAH",
+            "Route116_Text_SarahIntro",
+            "Route116_Text_SarahDefeat",
+            "Route116_Text_SarahPostBattle"
+          ],
+          "note": "",
+          "x": 33,
+          "y": 8
+        },
+        {
+          "kind": "trainer",
+          "source_index": 23,
+          "source_script": "Route116_EventScript_Dawson",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_2",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": [
+            "TRAINER_HOENN_DAWSON",
+            "Route116_Text_DawsonIntro",
+            "Route116_Text_DawsonDefeat",
+            "Route116_Text_DawsonPostBattle"
+          ],
+          "note": "",
+          "x": 33,
+          "y": 5
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 24,
+          "source_script": "Route116_EventScript_ItemPotion",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Potion",
+          "x": 34,
+          "y": 7
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 25,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 30,
+          "y": 5
+        },
+        {
+          "kind": "trainer",
+          "source_index": 26,
+          "source_script": "Route116_EventScript_Johnson",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": [
+            "TRAINER_HOENN_JOHNSON",
+            "Route116_Text_JohnsonIntro",
+            "Route116_Text_JohnsonDefeat",
+            "Route116_Text_JohnsonPostBattle"
+          ],
+          "note": "",
+          "x": 36,
+          "y": 13
+        },
+        {
+          "kind": "trainer",
+          "source_index": 27,
+          "source_script": "Route116_EventScript_Devan",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_HOENN_DEVAN",
+            "Route116_Text_DevanIntro",
+            "Route116_Text_DevanDefeat",
+            "Route116_Text_DevanPostBattle"
+          ],
+          "note": "",
+          "x": 42,
+          "y": 13
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route116_EventScript_RouteSignRustboro",
+          "text": "Route116_Text_RouteSignRustboro",
+          "x": 5,
+          "y": 10
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "Route116_EventScript_RusturfTunnelSign",
+          "text": "Route116_Text_RusturfTunnelSign",
+          "x": 48,
+          "y": 9
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "Route116_EventScript_TunnelersRestHouseSign",
+          "text": "Route116_Text_TunnelersRestHouse",
+          "x": 40,
+          "y": 9
+        },
+        {
+          "kind": "sign",
+          "source_index": 5,
+          "source_script": "Route116_EventScript_TrainerTipsBToStopEvolution",
+          "text": "Route116_Text_TrainerTipsBToStopEvolution",
+          "x": 16,
+          "y": 12
+        },
+        {
+          "kind": "sign",
+          "source_index": 6,
+          "source_script": "Route116_EventScript_TrainerTipsBagHasPockets",
+          "text": "Route116_Text_TrainerTipsBagHasPockets",
+          "x": 29,
+          "y": 10
+        }
+      ]
+    },
+    "Hoenn_RusturfTunnel": {
+      "source": "pokeemerald/RusturfTunnel",
+      "events": [
+        {
+          "kind": "itemflag",
+          "source_index": 2,
+          "source_script": "RusturfTunnel_EventScript_ItemPokeBall",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Poke Ball",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 3,
+          "source_script": "RusturfTunnel_EventScript_ItemMaxEther",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Max Ether",
+          "x": 30,
+          "y": 2
+        },
+        {
+          "kind": "trainer",
+          "source_index": 8,
+          "source_script": "RusturfTunnel_EventScript_Mike",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_HOENN_MIKE",
+            "RusturfTunnel_Text_MikeIntro",
+            "RusturfTunnel_Text_MikeDefeat",
+            "RusturfTunnel_Text_MikePostBattle"
+          ],
+          "note": "",
+          "x": 32,
+          "y": 13
+        }
+      ]
+    },
+    "Hoenn_VerdanturfTown": {
+      "source": "pokeemerald/VerdanturfTown",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "VerdanturfTown_EventScript_Man",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "VerdanturfTown_Text_AirCleanHere",
+          "note": "",
+          "x": 4,
+          "y": 17
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "VerdanturfTown_EventScript_Twin",
+          "source_sprite": "OBJ_EVENT_GFX_TWIN",
+          "firered_sprite": "OBJ_EVENT_GFX_TWIN",
+          "text": "VerdanturfTown_Text_ManDugTunnelForLove",
+          "note": "branch after the tunnel opened",
+          "x": 9,
+          "y": 2
+        },
+        {
+          "kind": "npc",
+          "source_index": 2,
+          "source_script": "VerdanturfTown_EventScript_Boy",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_1",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "VerdanturfTown_Text_EasyToGetToRustboroNow",
+          "note": "branch after the tunnel opened",
+          "x": 7,
+          "y": 11
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "VerdanturfTown_EventScript_Camper",
+          "source_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "firered_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "text": "VerdanturfTown_Text_MakeBattleTentDebut",
+          "note": "",
+          "x": 7,
+          "y": 6
+        },
+        {
+          "kind": "martsign",
+          "source_index": 0,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 14,
+          "y": 3
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "VerdanturfTown_EventScript_TownSign",
+          "text": "VerdanturfTown_Text_TownSign",
+          "x": 14,
+          "y": 6
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 2,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 17,
+          "y": 3
+        },
+        {
+          "kind": "sign",
+          "source_index": 3,
+          "source_script": "VerdanturfTown_EventScript_WandasHouseSign",
+          "text": "VerdanturfTown_Text_WandasHouse",
+          "x": 7,
+          "y": 14
+        },
+        {
+          "kind": "martsign",
+          "source_index": 4,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 13,
+          "y": 3
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 5,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 18,
+          "y": 3
+        },
+        {
+          "kind": "sign",
+          "source_index": 6,
+          "source_script": "VerdanturfTown_EventScript_BattleTentSign",
+          "text": "VerdanturfTown_Text_BattleTentSign",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "kind": "sign",
+          "source_index": 7,
+          "source_script": "VerdanturfTown_EventScript_RusturfTunnelSign",
+          "text": "VerdanturfTown_Text_RusturfTunnelSign",
+          "x": 7,
+          "y": 3
+        }
+      ]
+    },
     "Johto_NewBarkTown": {
       "source": "HNS_modern/NewBarkTown",
       "events": [

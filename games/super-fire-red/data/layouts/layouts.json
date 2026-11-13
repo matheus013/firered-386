@@ -4902,6 +4902,42 @@
       "secondary_tileset": "gTileset_JohtoPilotEcruteakCity",
       "border_filepath": "data/layouts/Johto_EcruteakCity/border.bin",
       "blockdata_filepath": "data/layouts/Johto_EcruteakCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_ROUTE116",
+      "name": "Hoenn_Route116_Layout",
+      "width": 100,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotRustboro",
+      "border_filepath": "data/layouts/Hoenn_Route116/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_Route116/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_RUSTURF_TUNNEL",
+      "name": "Hoenn_RusturfTunnel_Layout",
+      "width": 36,
+      "height": 24,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotRusturfTunnel",
+      "border_filepath": "data/layouts/Hoenn_RusturfTunnel/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_RusturfTunnel/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_VERDANTURF_TOWN",
+      "name": "Hoenn_VerdanturfTown_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotMauville",
+      "border_filepath": "data/layouts/Hoenn_VerdanturfTown/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_VerdanturfTown/map.bin"
     }
   ]
 }

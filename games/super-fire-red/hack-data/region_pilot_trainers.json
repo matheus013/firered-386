@@ -1705,6 +1705,239 @@
           0
         ]
       ]
+    },
+    "TRAINER_HOENN_JOEY": {
+      "slot": "TRAINER_RS_SWIMMER_F",
+      "name": "JOEY",
+      "source": "TRAINER_JOEY",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_YOUNGSTER",
+      "trainer_pic": "TRAINER_PIC_YOUNGSTER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MACHOP",
+          9,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_JOSE": {
+      "slot": "TRAINER_RS_PICNICKER",
+      "name": "JOSE",
+      "source": "TRAINER_JOSE",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_BUG_CATCHER",
+      "trainer_pic": "TRAINER_PIC_BUG_CATCHER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_WURMPLE",
+          8,
+          0
+        ],
+        [
+          "SPECIES_NINCADA",
+          8,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_CLARK": {
+      "slot": "TRAINER_RS_TWINS",
+      "name": "CLARK",
+      "source": "TRAINER_CLARK",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GEODUDE",
+          8,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_JANICE": {
+      "slot": "TRAINER_RS_SAILOR",
+      "name": "JANICE",
+      "source": "TRAINER_JANICE",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_LASS",
+      "trainer_pic": "TRAINER_PIC_LASS",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MARILL",
+          9,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_KAREN": {
+      "slot": "TRAINER_BOARDER_M",
+      "name": "KAREN",
+      "source": "TRAINER_KAREN",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_SCHOOL_KID",
+      "trainer_pic": "TRAINER_PIC_SCHOOL_KID_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SHROOMISH",
+          9,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_JERRY": {
+      "slot": "TRAINER_BOARDER_F",
+      "name": "JERRY",
+      "source": "TRAINER_JERRY",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_SCHOOL_KID",
+      "trainer_pic": "TRAINER_PIC_SCHOOL_KID_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_RALTS",
+          9,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_SARAH": {
+      "slot": "TRAINER_COLLECTOR",
+      "name": "SARAH",
+      "source": "TRAINER_SARAH",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_LADY",
+      "trainer_pic": "TRAINER_PIC_LADY",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_LOTAD",
+          8,
+          0
+        ],
+        [
+          "SPECIES_ZIGZAGOON",
+          8,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_DAWSON": {
+      "slot": "TRAINER_RS_PKMN_BREEDER_M",
+      "name": "DAWSON",
+      "source": "TRAINER_DAWSON",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_RICH_BOY",
+      "trainer_pic": "TRAINER_PIC_RICH_BOY",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_ZIGZAGOON",
+          8,
+          0
+        ],
+        [
+          "SPECIES_POOCHYENA",
+          8,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_JOHNSON": {
+      "slot": "TRAINER_RS_PKMN_BREEDER_F",
+      "name": "JOHNSON",
+      "source": "TRAINER_JOHNSON",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_YOUNGSTER",
+      "trainer_pic": "TRAINER_PIC_YOUNGSTER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SHROOMISH",
+          8,
+          0
+        ],
+        [
+          "SPECIES_LOTAD",
+          8,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_DEVAN": {
+      "slot": "TRAINER_MAGMA_GRUNT_M",
+      "name": "DEVAN",
+      "source": "TRAINER_DEVAN",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GEODUDE",
+          8,
+          0
+        ],
+        [
+          "SPECIES_GEODUDE",
+          8,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_MIKE": {
+      "slot": "TRAINER_MAMGA_GRUNT_F",
+      "name": "MIKE",
+      "source": "TRAINER_MIKE",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GEODUDE",
+          16,
+          0
+        ],
+        [
+          "SPECIES_GEODUDE",
+          16,
+          0
+        ],
+        [
+          "SPECIES_MACHOP",
+          16,
+          0
+        ]
+      ]
     }
   }
 }

@@ -2115,6 +2115,162 @@
     },
     {
       "source": {
+        "repository": "pokeemerald",
+        "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+        "label": "gRoute116",
+        "map": "MAP_ROUTE116",
+        "note": "Emerald table unchanged"
+      },
+      "row": {
+        "map": "MAP_HOENN_ROUTE116",
+        "base_label": "gHoennRoute116_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 6,
+              "max_level": 6,
+              "species": "SPECIES_POOCHYENA"
+            },
+            {
+              "min_level": 6,
+              "max_level": 6,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 6,
+              "max_level": 6,
+              "species": "SPECIES_NINCADA"
+            },
+            {
+              "min_level": 7,
+              "max_level": 7,
+              "species": "SPECIES_ABRA"
+            },
+            {
+              "min_level": 7,
+              "max_level": 7,
+              "species": "SPECIES_NINCADA"
+            },
+            {
+              "min_level": 6,
+              "max_level": 6,
+              "species": "SPECIES_TAILLOW"
+            },
+            {
+              "min_level": 7,
+              "max_level": 7,
+              "species": "SPECIES_TAILLOW"
+            },
+            {
+              "min_level": 8,
+              "max_level": 8,
+              "species": "SPECIES_TAILLOW"
+            },
+            {
+              "min_level": 7,
+              "max_level": 7,
+              "species": "SPECIES_POOCHYENA"
+            },
+            {
+              "min_level": 8,
+              "max_level": 8,
+              "species": "SPECIES_POOCHYENA"
+            },
+            {
+              "min_level": 7,
+              "max_level": 7,
+              "species": "SPECIES_SKITTY"
+            },
+            {
+              "min_level": 8,
+              "max_level": 8,
+              "species": "SPECIES_SKITTY"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "pokeemerald",
+        "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+        "label": "gRusturfTunnel",
+        "map": "MAP_RUSTURF_TUNNEL",
+        "note": "Emerald table unchanged"
+      },
+      "row": {
+        "map": "MAP_HOENN_RUSTURF_TUNNEL",
+        "base_label": "gHoennRusturfTunnel_Pilot",
+        "land_mons": {
+          "encounter_rate": 10,
+          "mons": [
+            {
+              "min_level": 6,
+              "max_level": 6,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 7,
+              "max_level": 7,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 6,
+              "max_level": 6,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 6,
+              "max_level": 6,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 7,
+              "max_level": 7,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 7,
+              "max_level": 7,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 8,
+              "max_level": 8,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 8,
+              "max_level": 8,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 5,
+              "max_level": 5,
+              "species": "SPECIES_WHISMUR"
+            },
+            {
+              "min_level": 8,
+              "max_level": 8,
+              "species": "SPECIES_WHISMUR"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
         "repository": "HNS_modern",
         "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
         "label": "gRoute35",

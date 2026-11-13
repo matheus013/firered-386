@@ -1,0 +1,63 @@
+{
+  "layouts": [
+    "LAYOUT_HOENN_ROUTE116",
+    "LAYOUT_HOENN_RUSTURF_TUNNEL",
+    "LAYOUT_HOENN_VERDANTURF_TOWN"
+  ],
+  "entries": [
+    {
+      "metatile": "0x013",
+      "source_behavior": "MB_SECRET_BASE_WALL",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x14c",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x1b0",
+      "source_behavior": "MB_SECRET_BASE_SPOT_BLUE_CAVE",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x2c0",
+      "source_behavior": "MB_JUMP_SOUTHWEST",
+      "attribute": "0x20000000",
+      "reason": "source has no movement for diagonal jumps"
+    },
+    {
+      "metatile": "0x2c1",
+      "source_behavior": "MB_JUMP_SOUTHEAST",
+      "attribute": "0x20000000",
+      "reason": "source has no movement for diagonal jumps"
+    },
+    {
+      "metatile": "0x280",
+      "source_behavior": "MB_SHORT_GRASS",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no short grass (Emerald only draws a step effect)"
+    },
+    {
+      "metatile": "0x281",
+      "source_behavior": "MB_SHORT_GRASS",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no short grass (Emerald only draws a step effect)"
+    },
+    {
+      "metatile": "0x296",
+      "source_behavior": "MB_SHORT_GRASS",
+      "attribute": "0x20000000",
+      "reason": "FireRed has no short grass (Emerald only draws a step effect)"
+    },
+    {
+      "metatile": "0x297",
+      "source_behavior": "MB_SHORT_GRASS",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no short grass (Emerald only draws a step effect)"
+    }
+  ]
+}

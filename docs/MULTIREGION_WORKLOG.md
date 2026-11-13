@@ -1787,3 +1787,60 @@ Ecruteak se ligam pelas setas de warp do HNS. A regra nova é `MB_NORTH_ARROW_WA
 arquivo. As três entradas afetadas foram reescritas.
 
 **Resultado:** 568 casos aprovados (eram 543), com as 60 batalhas de rota vencidas.
+
+## Hoenn, lote 3: Route 116, Rusturf Tunnel e Verdanturf Town
+
+**Mapas novos:**
+
+- a Route 116, a leste de Rustboro (General + Rustboro);
+- o Rusturf Tunnel (General + `gTileset_HoennPilotRusturfTunnel`);
+- Verdanturf Town (General + `gTileset_HoennPilotMauville`).
+
+O túnel fica aberto, como depois da história: as duas rochas de Rock Smash que o bloqueiam são objetos
+e não foram instaladas. Rustboro ganhou a ligação com a Route 116.
+
+- **Limites do FireRed, de novo:** o secundário do Mauville não cabe em nenhum dos dois limites. São
+  472 tiles referenciados (o limite é 384) e metatiles até o índice 432 (o FireRed só tem os IDs
+  640–1023, ou seja, 384 metatiles secundários).
+  - O `convert_hoenn_tilesets.py` ganhou a opção `--maps`. Quando o secundário não cabe, ele mantém
+    só os tiles e metatiles que esses mapas usam: Verdanturf usa 107 tiles e 64 metatiles.
+  - A nova ordem dos metatiles fica gravada no relatório (`metatile_order`). O instalador remapeia
+    os blocos de Verdanturf direto do Emerald com ela, e o conversor de atributos usa a mesma ordem.
+  - Mauville City vai precisar de uma variante própria desse secundário.
+- **`install_hoenn_batch2.py`:** agora instala lotes (`--batch 2|3`). Os warps entre mapas
+  instalados (Route 116 ↔ túnel ↔ Verdanturf) são renumerados.
+- **`convert_hoenn_batch1_attributes.py`:**
+  - modo `--batch 3`;
+  - calcula os metatiles usados por tileset secundário (antes, somava os de todos os mapas do lote);
+  - guarda o tipo de camada também quando a regra mapeia para "normal";
+  - regras novas: `MB_CAVE`, `MB_SHORT_GRASS` (vira normal), `MB_IMPASSABLE_NORTH` e as bases
+    secretas (viram normal).
+- **Verdanturf:** Centro Pokémon e Mart do FireRed, com a lista do Emerald. A heal location fica em
+  (16,4), a flag é `FLAG_WORLD_MAP_VERDANTURF_TOWN` (0x8CD), e a cidade é destino de Fly.
+- **Treinadores (11, em vagas):** Joey, Jose, Clark, Janice, Karen, Jerry, Sarah, Dawson, Johnson e
+  Devan, na Route 116, e o Mike, no túnel. Restam 16 vagas livres fora das reservadas. Os ginásios e
+  as rotas seguintes vão precisar de mais, então aumentar `MAX_TRAINERS_COUNT` com migração de save
+  vai virar necessário.
+- **Eventos:**
+  - sete itens e cinco árvores de Cut;
+  - os moradores de Verdanturf, nos ramos posteriores à abertura do túnel;
+  - as placas;
+  - 47 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama na Route 116 e no túnel.
+
+**Fica para depois:**
+
+- o Mr. Briney, a Wanda e o namorado dela;
+- a Team Aqua e o Peeko;
+- o funcionário da Devon e o homem dos óculos;
+- a Battle Tent e as casas;
+- as bases secretas e os itens escondidos.
+
+**Teste:**
+
+- Rustboro ↔ Route 116;
+- as duas entradas do túnel;
+- as portas de Verdanturf;
+- conversas e uma batalha com cada treinador novo.
+
+**Resultado:** 626 casos aprovados (eram 568), com as 71 batalhas de rota vencidas. Depois do primeiro teste, as portas do Centro e do Mart de Verdanturf ganharam a tabela de animação do par General + Mauville. O warp já funcionava sem ela; o instalador agora registra uma tabela por secundário de cidade.

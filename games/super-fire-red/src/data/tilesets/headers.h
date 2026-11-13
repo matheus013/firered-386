@@ -983,3 +983,25 @@ const struct Tileset gTileset_JohtoPilotEcruteakCity =
     .metatileAttributes = gMetatileAttributes_JohtoPilotEcruteakCity,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_HoennPilotRusturfTunnel =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HoennPilotRusturfTunnel,
+    .palettes = gTilesetPalettes_HoennPilotRusturfTunnel,
+    .metatiles = gMetatiles_HoennPilotRusturfTunnel,
+    .metatileAttributes = gMetatileAttributes_HoennPilotRusturfTunnel,
+    .callback = InitTilesetAnim_HoennPetalburgPilot,  // static
+};
+
+const struct Tileset gTileset_HoennPilotMauville =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HoennPilotMauville,
+    .palettes = gTilesetPalettes_HoennPilotMauville,
+    .metatiles = gMetatiles_HoennPilotMauville,
+    .metatileAttributes = gMetatileAttributes_HoennPilotMauville,
+    .callback = InitTilesetAnim_HoennPetalburgPilot,  // static
+};

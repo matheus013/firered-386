@@ -16,20 +16,27 @@ import json
 from pathlib import Path
 import re
 import shutil
+import struct
 
 GROUP = 'gMapGroup_Hoenn'
-EXTERIORS = {  # Emerald map: (music, secondary tileset)
-    'Route104': ('MUS_ROUTE24', 'gTileset_HoennPilotRustboro'),
-    'PetalburgWoods': ('MUS_VIRIDIAN_FOREST', 'gTileset_HoennPilotRustboro'),
-    'RustboroCity': ('MUS_VERMILLION', 'gTileset_HoennPilotRustboro'),
+BATCHES = {
+    # batch: (exteriors {Emerald map: (music, secondary tileset)}, towns {town: (doors, heal cell, world map flag slot)},
+    #         section names)
+    2: ({'Route104': ('MUS_ROUTE24', 'gTileset_HoennPilotRustboro'),
+         'PetalburgWoods': ('MUS_VIRIDIAN_FOREST', 'gTileset_HoennPilotRustboro'),
+         'RustboroCity': ('MUS_VERMILLION', 'gTileset_HoennPilotRustboro')},
+        {'RustboroCity': ({(16, 38): 'PokemonCenter_1F', (16, 45): 'Mart'}, (16, 39), 'FLAG_0x8CB')},
+        {'MAPSEC_ROUTE_104': 'ROUTE 104', 'MAPSEC_PETALBURG_WOODS': 'PETALBURG WOODS', 'MAPSEC_RUSTBORO_CITY': 'RUSTBORO CITY'}),
+    # Batch 3: Route 116 east of Rustboro, Rusturf Tunnel (open, as after the story) and Verdanturf Town.
+    3: ({'Route116': ('MUS_ROUTE24', 'gTileset_HoennPilotRustboro'),
+         'RusturfTunnel': ('MUS_VIRIDIAN_FOREST', 'gTileset_HoennPilotRusturfTunnel'),
+         'VerdanturfTown': ('MUS_PALLET', 'gTileset_HoennPilotMauville', 'mauville')},  # compacted metatiles
+        {'VerdanturfTown': ({(16, 3): 'PokemonCenter_1F', (12, 3): 'Mart'}, (16, 4), 'FLAG_0x8CD')},
+        {'MAPSEC_ROUTE_116': 'ROUTE 116', 'MAPSEC_RUSTURF_TUNNEL': 'RUSTURF TUNNEL', 'MAPSEC_VERDANTURF_TOWN': 'VERDANTURF TOWN'}),
 }
-# Every installed Hoenn exterior, for connections (Emerald name -> FireRed map name).
-INSTALLED = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
-             'Route104', 'PetalburgWoods', 'RustboroCity']
-TOWNS = {  # town: (doors {(x, y): interior}, heal cell, world map flag slot)
-    'RustboroCity': ({(16, 38): 'PokemonCenter_1F', (16, 45): 'Mart'}, (16, 39), 'FLAG_0x8CB'),
-}
-SECTION_NAMES = {'MAPSEC_ROUTE_104': 'ROUTE 104', 'MAPSEC_PETALBURG_WOODS': 'PETALBURG WOODS', 'MAPSEC_RUSTBORO_CITY': 'RUSTBORO CITY'}
+# Every Hoenn exterior in the expansion, in install order (connections only link the installed ones).
+ALL_EXTERIORS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
+                 'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown']
 DOORS = [  # metatile, symbol in hoenn_pilot_doors.h (already defined for the Petalburg pair)
     (0x061, 'PokeCenter', 'DOOR_SOUND_SLIDING'), (0x041, 'PokeMart', 'DOOR_SOUND_SLIDING')]
 
@@ -52,10 +59,12 @@ def main():
     p.add_argument('--staged', type=Path, required=True)
     p.add_argument('--game', type=Path, required=True)
     p.add_argument('--report', type=Path, required=True)
+    p.add_argument('--batch', type=int, choices=sorted(BATCHES), default=2)
     a = p.parse_args()
+    EXTERIORS, TOWNS, SECTION_NAMES = BATCHES[a.batch]
+    INSTALLED = [m for m in ALL_EXTERIORS if m in EXTERIORS or (a.game / 'data/maps' / ('Hoenn_' + m) / 'map.json').exists()]
     g, em = a.game, a.references / 'pokeemerald'
     report = {'maps': {}, 'closed_doors': {}}
-    staged = {m['map']: m for m in json.loads((a.staged.parent / (a.staged.name + '.json')).read_text(encoding='utf-8'))['maps']}
     layouts = json.loads((g / 'data/layouts/layouts.json').read_text(encoding='utf-8'))
     groups = json.loads((g / 'data/maps/map_groups.json').read_text(encoding='utf-8'))
     headers = {m: json.loads((em / f'data/maps/{m}/map.json').read_text()) for m in INSTALLED}
@@ -74,14 +83,27 @@ def main():
                 closed.append(w['dest_map'])
         report['closed_doors'][src] = closed
 
-    for src, (music, secondary) in EXTERIORS.items():
+    em_layouts = {l['id']: l for l in json.loads((em / 'data/layouts/layouts.json').read_text())['layouts'] if 'id' in l}
+    for src, (music, secondary, *order_report) in EXTERIORS.items():
         name, lid = 'Hoenn_' + src, 'LAYOUT_HOENN_' + snake(src)
         folder = g / 'data/layouts' / name
         folder.mkdir(parents=True, exist_ok=True)
-        for f in ('map.bin', 'border.bin'):
-            shutil.copyfile(a.staged / src / f, folder / f)
+        em_layout = em_layouts[headers[src]['layout']]
+        if order_report:  # compacted secondary metatiles (convert_hoenn_tilesets.py metatile_order): remap from Emerald
+            order = json.loads((a.report.parent / f'hoenn-tilesets-{order_report[0]}.json').read_text(encoding='utf-8'))['metatile_order']
+            new_id = {512 + old: 640 + i for i, old in enumerate(order)}
+            for field, f in (('blockdata_filepath', 'map.bin'), ('border_filepath', 'border.bin')):
+                raw = (em / em_layout[field]).read_bytes()
+                out = bytearray()
+                for (v,) in struct.iter_unpack('<H', raw):
+                    t = v & 1023
+                    out += struct.pack('<H', v if t < 512 else (v & 0xFC00) | new_id[t])
+                (folder / f).write_bytes(bytes(out))
+        else:
+            for f in ('map.bin', 'border.bin'):
+                shutil.copyfile(a.staged / src / f, folder / f)
         if not any(l.get('id') == lid for l in layouts['layouts']):
-            layouts['layouts'].append({'id': lid, 'name': f'{name}_Layout', 'width': staged[src]['width'], 'height': staged[src]['height'],
+            layouts['layouts'].append({'id': lid, 'name': f'{name}_Layout', 'width': em_layout['width'], 'height': em_layout['height'],
                                        'border_width': 2, 'border_height': 2, 'primary_tileset': 'gTileset_HoennPilotGeneral',
                                        'secondary_tileset': secondary, 'border_filepath': f'data/layouts/{name}/border.bin',
                                        'blockdata_filepath': f'data/layouts/{name}/map.bin'})
@@ -131,7 +153,8 @@ def main():
         ext, ext_id = 'Hoenn_' + town, mid(town)
         door_index = {kind: next(i for i, w in enumerate(kept[town]) if (w['x'], w['y']) == cell) for cell, kind in doors.items()}
         mart_block = (em / f'data/maps/{town}_Mart/scripts.inc').read_text(encoding='utf-8')
-        items = re.findall(r'\.2byte (ITEM_\w+)', mart_block.split(f'{town}_Mart_Pokemart_Expanded:')[1].split('pokemartlistend')[0])
+        label = f'{town}_Mart_Pokemart_Expanded:' if f'{town}_Mart_Pokemart_Expanded:' in mart_block else f'{town}_Mart_Pokemart:'
+        items = re.findall(r'\.2byte (ITEM_\w+)', mart_block.split(label)[1].split('pokemartlistend')[0])
         heal_id = 'HEAL_LOCATION_' + snake(town)
         section = headers[town]['region_map_section']
         for kind in doors.values():
@@ -186,20 +209,23 @@ def main():
     rm_path.write_text(rm, encoding='utf-8', newline='\n')
     flags_path.write_text(flags, encoding='utf-8', newline='\n')
 
-    # Doors on the General + Rustboro pair.
+    # Pokemon Center / Mart doors on each town's General + secondary pair (FireRed matches the exact pair).
     doors_h = g / 'src/data/hoenn_pilot_doors.h'
-    t = doors_h.read_text(encoding='utf-8')
-    if 'sHoennPilotDoors_Rustboro' not in t:
-        t += ('static const struct DoorGraphics sHoennPilotDoors_Rustboro[] = {\n'
-              + ''.join(f'    {{0x{m:03X}, {snd}, DOOR_SIZE_1x2, sHoennDoorTiles_{sym}, sHoennDoorPalettes_{sym}}},\n' for m, sym, snd in DOORS)
-              + '    {}\n};\n')
-        doors_h.write_text(t, encoding='utf-8', newline='\n')
     dt = g / 'src/data/door_tilesets.h'
-    t = dt.read_text(encoding='utf-8')
-    if 'sHoennPilotDoors_Rustboro}' not in t:
-        t = t.replace('#include "hoenn_pilot_doors.h"\n', 'extern const struct Tileset gTileset_HoennPilotRustboro;\n#include "hoenn_pilot_doors.h"\n')
-        t = t.replace('    {NULL, NULL, NULL}', '    {&gTileset_HoennPilotGeneral, &gTileset_HoennPilotRustboro, sHoennPilotDoors_Rustboro},\n    {NULL, NULL, NULL}')
-        dt.write_text(t, encoding='utf-8', newline='\n')
+    for town in TOWNS:
+        secondary = EXTERIORS[town][1]
+        table = 'sHoennPilotDoors_' + secondary.removeprefix('gTileset_HoennPilot')
+        t = doors_h.read_text(encoding='utf-8')
+        if f'{table}[]' not in t:
+            t += (f'static const struct DoorGraphics {table}[] = {{\n'
+                  + ''.join(f'    {{0x{m:03X}, {snd}, DOOR_SIZE_1x2, sHoennDoorTiles_{sym}, sHoennDoorPalettes_{sym}}},\n' for m, sym, snd in DOORS)
+                  + '    {}\n};\n')
+            doors_h.write_text(t, encoding='utf-8', newline='\n')
+        t = dt.read_text(encoding='utf-8')
+        if f' {table}}}' not in t:
+            t = t.replace('#include "hoenn_pilot_doors.h"\n', f'extern const struct Tileset {secondary};\n#include "hoenn_pilot_doors.h"\n')
+            t = t.replace('    {NULL, NULL, NULL}', f'    {{&gTileset_HoennPilotGeneral, &{secondary}, {table}}},\n    {{NULL, NULL, NULL}}')
+            dt.write_text(t, encoding='utf-8', newline='\n')
 
     secs_path = g / 'src/data/region_map/region_map_sections.json'
     secs = json.loads(secs_path.read_text(encoding='utf-8'))

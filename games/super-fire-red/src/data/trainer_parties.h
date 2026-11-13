@@ -497,13 +497,72 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ParasolLady[] = {
     .species = SPECIES_STANTLER,
     }
 };
-static const struct TrainerMonNoItemDefaultMoves sParty_RSSwimmerF[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSPicnicker[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSTwins[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSSailor[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_BoarderM[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_BoarderF[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_Collector[] = {DUMMY_TRAINER_MON};
+// Region geography (TRAINER_HOENN_JOEY in TRAINER_RS_SWIMMER_F): pokeemerald TRAINER_JOEY, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSSwimmerF[] = {
+    {
+    .iv = 0,
+    .lvl = 69,
+    .species = SPECIES_MACHOP,
+    }
+};
+// Region geography (TRAINER_HOENN_JOSE in TRAINER_RS_PICNICKER): pokeemerald TRAINER_JOSE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSPicnicker[] = {
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_WURMPLE,
+    },
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_NINCADA,
+    }
+};
+// Region geography (TRAINER_HOENN_CLARK in TRAINER_RS_TWINS): pokeemerald TRAINER_CLARK, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSTwins[] = {
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_GEODUDE,
+    }
+};
+// Region geography (TRAINER_HOENN_JANICE in TRAINER_RS_SAILOR): pokeemerald TRAINER_JANICE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSSailor[] = {
+    {
+    .iv = 0,
+    .lvl = 69,
+    .species = SPECIES_MARILL,
+    }
+};
+// Region geography (TRAINER_HOENN_KAREN in TRAINER_BOARDER_M): pokeemerald TRAINER_KAREN, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_BoarderM[] = {
+    {
+    .iv = 0,
+    .lvl = 69,
+    .species = SPECIES_SHROOMISH,
+    }
+};
+// Region geography (TRAINER_HOENN_JERRY in TRAINER_BOARDER_F): pokeemerald TRAINER_JERRY, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_BoarderF[] = {
+    {
+    .iv = 0,
+    .lvl = 69,
+    .species = SPECIES_RALTS,
+    }
+};
+// Region geography (TRAINER_HOENN_SARAH in TRAINER_COLLECTOR): pokeemerald TRAINER_SARAH, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_Collector[] = {
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_LOTAD,
+    },
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_ZIGZAGOON,
+    }
+};
 static const struct TrainerMonNoItemDefaultMoves sParty_Wally[] = {DUMMY_TRAINER_MON};
 // Region pilot: resetes12/HNS_modern sParty_Rival_Cyndaquil5, levels +40.
 static const struct TrainerMonItemCustomMoves sParty_Brendan[] = {
@@ -709,13 +768,66 @@ static const struct TrainerMonNoItemDefaultMoves sParty_May3[] = {
     .species = SPECIES_MARSHTOMP,
     }
 };
-static const struct TrainerMonNoItemDefaultMoves sParty_RSPkmnBreederM[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSPkmnBreederF[] = {DUMMY_TRAINER_MON};
+// Region geography (TRAINER_HOENN_DAWSON in TRAINER_RS_PKMN_BREEDER_M): pokeemerald TRAINER_DAWSON, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSPkmnBreederM[] = {
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_ZIGZAGOON,
+    },
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_POOCHYENA,
+    }
+};
+// Region geography (TRAINER_HOENN_JOHNSON in TRAINER_RS_PKMN_BREEDER_F): pokeemerald TRAINER_JOHNSON, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSPkmnBreederF[] = {
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_SHROOMISH,
+    },
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_LOTAD,
+    }
+};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSPkmnRangerM[] = {DUMMY_TRAINER_MON_IV};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSPkmnRangerF[] = {DUMMY_TRAINER_MON_IV};
 static const struct TrainerMonNoItemDefaultMoves sParty_MagmaLeader[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_MagmaGruntM[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_MagmaGruntF[] = {DUMMY_TRAINER_MON};
+// Region geography (TRAINER_HOENN_DEVAN in TRAINER_MAGMA_GRUNT_M): pokeemerald TRAINER_DEVAN, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_MagmaGruntM[] = {
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_GEODUDE,
+    },
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_GEODUDE,
+    }
+};
+// Region geography (TRAINER_HOENN_MIKE in TRAINER_MAMGA_GRUNT_F): pokeemerald TRAINER_MIKE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_MagmaGruntF[] = {
+    {
+    .iv = 0,
+    .lvl = 76,
+    .species = SPECIES_GEODUDE,
+    },
+    {
+    .iv = 0,
+    .lvl = 76,
+    .species = SPECIES_GEODUDE,
+    },
+    {
+    .iv = 0,
+    .lvl = 76,
+    .species = SPECIES_MACHOP,
+    }
+};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSLass[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSBugCatcher[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSHiker[] = {DUMMY_TRAINER_MON};

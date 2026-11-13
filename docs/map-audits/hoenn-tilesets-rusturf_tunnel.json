@@ -1,0 +1,19 @@
+{
+ "secondary": "rusturf_tunnel",
+ "secondary_tiles": {
+  "source": 144,
+  "installed": 144,
+  "compacted": false
+ },
+ "empty_metatiles": {
+  "primary": [],
+  "secondary": []
+ },
+ "normalized_quadrants": 0,
+ "rgba_pixel_comparisons": 304640,
+ "tile_order": "unchanged (+128)",
+ "sha256": {
+  "primary/metatiles.bin": "9f136a5690a29617b17266375db8eb19328e4f39b060a41806b9651ab6a2d50f",
+  "secondary/metatiles.bin": "8ae2058b244220c67c333d3a7991b82dae403432941d22a1211b525898b82d2b"
+ }
+}

@@ -21,6 +21,13 @@ LAYOUTS = ['LAYOUT_HOENN_OLDALE_TOWN', 'LAYOUT_HOENN_ROUTE102', 'LAYOUT_HOENN_RO
 # Emerald behavior -> FireRed attribute (without layer bits). Values are the ones FireRed's own
 # tilesets use most for that behavior (water: surf terrain bit 10 and water encounters bit 25).
 RULES = {
+    'MB_CAVE': (0x01000008, 'cave floor with land encounters, as in FireRed caves'),
+    'MB_SHORT_GRASS': (0x00000000, 'FireRed has no short grass (Emerald only draws a step effect)'),
+    'MB_IMPASSABLE_NORTH': (0x00000032, 'same name'),
+    'MB_SECRET_BASE_SPOT_BLUE_CAVE': (0, 'FireRed has no secret bases'), 'MB_SECRET_BASE_SPOT_RED_CAVE': (0, 'FireRed has no secret bases'),
+    'MB_SECRET_BASE_SPOT_BROWN_CAVE': (0, 'FireRed has no secret bases'), 'MB_SECRET_BASE_SPOT_YELLOW_CAVE': (0, 'FireRed has no secret bases'),
+    'MB_SECRET_BASE_SPOT_TREE_LEFT': (0, 'FireRed has no secret bases'), 'MB_SECRET_BASE_SPOT_TREE_RIGHT': (0, 'FireRed has no secret bases'),
+    'MB_SECRET_BASE_SPOT_SHRUB': (0, 'FireRed has no secret bases'),
     # batch 2 (Route 104, Petalburg Woods, Rustboro)
     'MB_TALL_GRASS': (0x01000202, 'tall grass, land encounters'),
     'MB_JUMP_SOUTH': (0x0000003B, 'south ledge'), 'MB_JUMP_WEST': (0x00000039, 'west ledge'),
@@ -41,6 +48,15 @@ RULES = {
     'MB_JUMP_SOUTHWEST': (0, 'source has no movement for diagonal jumps'),
 }
 LAYOUTS_2 = ['LAYOUT_HOENN_ROUTE104', 'LAYOUT_HOENN_PETALBURG_WOODS', 'LAYOUT_HOENN_RUSTBORO_CITY']
+# Batch 3: Route 116 (General + Rustboro), Rusturf Tunnel and Verdanturf (Mauville, compacted metatiles: the
+# fourth field names the convert_hoenn_tilesets.py report whose metatile_order maps FireRed ids back to Emerald).
+LAYOUTS_3 = ['LAYOUT_HOENN_ROUTE116', 'LAYOUT_HOENN_RUSTURF_TUNNEL', 'LAYOUT_HOENN_VERDANTURF_TOWN']
+TABLES_3 = [
+    (0, 'data/tilesets/primary/general/metatile_attributes.bin', 'data/tilesets/primary/hoenn_pilot/metatile_attributes.bin'),
+    (640, 'data/tilesets/secondary/rustboro/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_rustboro/metatile_attributes.bin', 'gTileset_HoennPilotRustboro'),
+    (640, 'data/tilesets/secondary/rusturf_tunnel/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/metatile_attributes.bin', 'gTileset_HoennPilotRusturfTunnel'),
+    (640, 'data/tilesets/secondary/mauville/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_mauville/metatile_attributes.bin', 'gTileset_HoennPilotMauville', 'mauville'),
+]
 TABLES_2 = [
     (0, 'data/tilesets/primary/general/metatile_attributes.bin', 'data/tilesets/primary/hoenn_pilot/metatile_attributes.bin'),
     (640, 'data/tilesets/secondary/rustboro/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_rustboro/metatile_attributes.bin'),
@@ -54,10 +70,10 @@ TABLES = [  # (offset, source table, installed table)
 def main():
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument('--source', type=Path, required=True)
-    p.add_argument('--batch', type=int, choices=(1, 2), default=1)
+    p.add_argument('--batch', type=int, choices=(1, 2, 3), default=1)
     p.add_argument('--report', type=Path)
     a = p.parse_args()
-    layouts_used, tables = (LAYOUTS, TABLES) if a.batch == 1 else (LAYOUTS_2, TABLES_2)
+    layouts_used, tables = {1: (LAYOUTS, TABLES), 2: (LAYOUTS_2, TABLES_2), 3: (LAYOUTS_3, TABLES_3)}[a.batch]
     report_path = a.report or Path(f'docs/map-audits/hoenn-batch{a.batch}-attributes.json')
     names = behavior_names(a.source / 'include/constants/metatile_behaviors.h')
     layouts = {l['id']: l for l in json.loads((GAME / 'data/layouts/layouts.json').read_text())['layouts'] if 'id' in l}
@@ -65,13 +81,24 @@ def main():
     for lid in layouts_used:
         used |= {v & 0x3FF for (v,) in struct.iter_unpack('<H', (GAME / layouts[lid]['blockdata_filepath']).read_bytes())}
     report = []
-    for offset, source, installed in tables:
+    for offset, source, installed, *extra in tables:
+        secondary, order_report = (extra[0], extra[1:]) if extra else (None, [])
+        if secondary:  # only the metatiles of the layouts on this secondary tileset
+            used_here = set()
+            for lid in layouts_used:
+                if layouts[lid]['secondary_tileset'] == secondary:
+                    used_here |= {v & 0x3FF for (v,) in struct.iter_unpack('<H', (GAME / layouts[lid]['blockdata_filepath']).read_bytes())}
+        else:
+            used_here = used
         src = [v for (v,) in struct.iter_unpack('<H', (a.source / source).read_bytes())]
+        if order_report:  # compacted table: FireRed slot i holds Emerald metatile order[i]
+            order = json.loads(Path(f'docs/map-audits/hoenn-tilesets-{order_report[0]}.json').read_text(encoding='utf-8'))['metatile_order']
+            src = [src[i] for i in order]
         path = GAME / installed
         if not path.exists():  # a new secondary (Rustboro): start from an all-normal table
             path.write_bytes(bytes(4 * len(src)))
         out = [v for (v,) in struct.iter_unpack('<I', path.read_bytes())]
-        for index in sorted(m - offset for m in used if offset <= m < offset + len(out)):
+        for index in sorted(m - offset for m in used_here if offset <= m < offset + len(out)):
             behavior, layer = src[index] & 0xFF, src[index] >> 12
             if out[index]:
                 continue
@@ -85,8 +112,7 @@ def main():
             if name not in RULES:
                 raise ValueError(f'metatile {index + offset:#x}: behavior {name} needs a reviewed rule')
             value, reason = RULES[name]
-            if value:
-                out[index] = value | layer << 29
+            out[index] = value | layer << 29  # the layer type matters even for behaviors mapped to normal
             report.append({'metatile': f'{index + offset:#05x}', 'source_behavior': name,
                            'attribute': f'{out[index]:#010x}', 'reason': reason})
         path.write_bytes(b''.join(struct.pack('<I', v) for v in out))

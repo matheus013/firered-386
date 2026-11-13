@@ -1,0 +1,56 @@
+{
+  "maps": {
+    "Hoenn_Route116": {
+      "layout": "LAYOUT_HOENN_ROUTE116",
+      "secondary": "gTileset_HoennPilotRustboro",
+      "music": "MUS_ROUTE24",
+      "warps": 2
+    },
+    "Hoenn_RusturfTunnel": {
+      "layout": "LAYOUT_HOENN_RUSTURF_TUNNEL",
+      "secondary": "gTileset_HoennPilotRusturfTunnel",
+      "music": "MUS_VIRIDIAN_FOREST",
+      "warps": 3
+    },
+    "Hoenn_VerdanturfTown": {
+      "layout": "LAYOUT_HOENN_VERDANTURF_TOWN",
+      "secondary": "gTileset_HoennPilotMauville",
+      "music": "MUS_PALLET",
+      "warps": 3
+    },
+    "Hoenn_VerdanturfTown_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "heal_location": "HEAL_LOCATION_VERDANTURF_TOWN"
+    },
+    "Hoenn_VerdanturfTown_Mart": {
+      "layout": "LAYOUT_MART",
+      "items": [
+        "ITEM_GREAT_BALL",
+        "ITEM_NEST_BALL",
+        "ITEM_SUPER_POTION",
+        "ITEM_ANTIDOTE",
+        "ITEM_PARALYZE_HEAL",
+        "ITEM_AWAKENING",
+        "ITEM_BURN_HEAL",
+        "ITEM_ICE_HEAL",
+        "ITEM_REPEL",
+        "ITEM_X_SPECIAL",
+        "ITEM_FLUFFY_TAIL"
+      ]
+    }
+  },
+  "closed_doors": {
+    "Route116": [
+      "MAP_ROUTE116_TUNNELERS_REST_HOUSE",
+      "MAP_TERRA_CAVE_ENTRANCE",
+      "MAP_TERRA_CAVE_ENTRANCE"
+    ],
+    "RusturfTunnel": [],
+    "VerdanturfTown": [
+      "MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY",
+      "MAP_VERDANTURF_TOWN_WANDAS_HOUSE",
+      "MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE",
+      "MAP_VERDANTURF_TOWN_HOUSE"
+    ]
+  }
+}

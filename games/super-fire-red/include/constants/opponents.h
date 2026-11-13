@@ -817,6 +817,17 @@
 #define TRAINER_HOENN_JAMES                              TRAINER_NINJA_BOY
 #define TRAINER_JOHTO_ANN_AND_ANNE                       TRAINER_BATTLE_GIRL
 #define TRAINER_JOHTO_GREG                               TRAINER_PARASOL_LADY
+#define TRAINER_HOENN_JOEY                               TRAINER_RS_SWIMMER_F
+#define TRAINER_HOENN_JOSE                               TRAINER_RS_PICNICKER
+#define TRAINER_HOENN_CLARK                              TRAINER_RS_TWINS
+#define TRAINER_HOENN_JANICE                             TRAINER_RS_SAILOR
+#define TRAINER_HOENN_KAREN                              TRAINER_BOARDER_M
+#define TRAINER_HOENN_JERRY                              TRAINER_BOARDER_F
+#define TRAINER_HOENN_SARAH                              TRAINER_COLLECTOR
+#define TRAINER_HOENN_DAWSON                             TRAINER_RS_PKMN_BREEDER_M
+#define TRAINER_HOENN_JOHNSON                            TRAINER_RS_PKMN_BREEDER_F
+#define TRAINER_HOENN_DEVAN                              TRAINER_MAGMA_GRUNT_M
+#define TRAINER_HOENN_MIKE                               TRAINER_MAMGA_GRUNT_F
 
 #define NUM_TRAINERS                             767
 #define MAX_TRAINERS_COUNT                       768

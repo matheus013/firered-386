@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
     'OBJ_EVENT_GFX_GIRL_2': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_BOY_3': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_MAN_2': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_4': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_5': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_RICH_BOY': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_DEVON_EMPLOYEE': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_LITTLE_GIRL': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
@@ -171,6 +171,37 @@ EVENTS = {
          3: ('pcsign', None), 4: ('sign', 'RustboroCity_Text_CitySign'), 5: ('martsign', None), 6: ('pcsign', None),
          7: ('sign', 'RustboroCity_Text_DevonCorpSign'), 8: ('sign', 'RustboroCity_Text_TunnelNearingCompletion'),
          9: ('sign', 'RustboroCity_Text_CuttersHouse')}),
+    # Hoenn batch 3. Rusturf Tunnel is open (its two Rock Smash boulders are left out, as after the story). Left out:
+    # Mr. Briney, Wanda and her boyfriend, Team Aqua and Peeko, the Devon employee, the glasses man, berry trees,
+    # secret bases and hidden items.
+    'Route116': (EMERALD, {
+        2: ('trainer', ('TRAINER_HOENN_JOEY', 'Route116_Text_JoeyIntro', 'Route116_Text_JoeyDefeat', 'Route116_Text_JoeyPostBattle'), ''),
+        5: ('trainer', ('TRAINER_HOENN_JOSE', 'Route116_Text_JoseIntro', 'Route116_Text_JoseDefeat', 'Route116_Text_JosePostBattle'), ''),
+        12: ('trainer', ('TRAINER_HOENN_CLARK', 'Route116_Text_ClarkIntro', 'Route116_Text_ClarkDefeat', 'Route116_Text_ClarkPostBattle'), ''),
+        15: ('trainer', ('TRAINER_HOENN_JANICE', 'Route116_Text_JaniceIntro', 'Route116_Text_JaniceDefeat', 'Route116_Text_JanicePostBattle'), ''),
+        16: ('trainer', ('TRAINER_HOENN_KAREN', 'Route116_Text_KarenIntro', 'Route116_Text_KarenDefeat', 'Route116_Text_KarenPostBattle'), ''),
+        17: ('trainer', ('TRAINER_HOENN_JERRY', 'Route116_Text_JerryIntro', 'Route116_Text_JerryDefeat', 'Route116_Text_JerryPostBattle'), ''),
+        22: ('trainer', ('TRAINER_HOENN_SARAH', 'Route116_Text_SarahIntro', 'Route116_Text_SarahDefeat', 'Route116_Text_SarahPostBattle'), ''),
+        23: ('trainer', ('TRAINER_HOENN_DAWSON', 'Route116_Text_DawsonIntro', 'Route116_Text_DawsonDefeat', 'Route116_Text_DawsonPostBattle'), ''),
+        26: ('trainer', ('TRAINER_HOENN_JOHNSON', 'Route116_Text_JohnsonIntro', 'Route116_Text_JohnsonDefeat', 'Route116_Text_JohnsonPostBattle'), ''),
+        27: ('trainer', ('TRAINER_HOENN_DEVAN', 'Route116_Text_DevanIntro', 'Route116_Text_DevanDefeat', 'Route116_Text_DevanPostBattle'), ''),
+        6: ('itemflag', None, 'Ether'), 7: ('itemflag', None, 'Repel'), 14: ('itemflag', None, 'HP Up'),
+        19: ('itemflag', None, 'X Special'), 24: ('itemflag', None, 'Potion'),
+        3: ('cuttree', None, ''), 4: ('cuttree', None, ''), 11: ('cuttree', None, ''), 13: ('cuttree', None, ''), 25: ('cuttree', None, '')},
+        {0: ('sign', 'Route116_Text_RouteSignRustboro'), 1: ('sign', 'Route116_Text_RusturfTunnelSign'),
+         2: ('sign', 'Route116_Text_TunnelersRestHouse'), 5: ('sign', 'Route116_Text_TrainerTipsBToStopEvolution'),
+         6: ('sign', 'Route116_Text_TrainerTipsBagHasPockets')}),
+    'RusturfTunnel': (EMERALD, {
+        8: ('trainer', ('TRAINER_HOENN_MIKE', 'RusturfTunnel_Text_MikeIntro', 'RusturfTunnel_Text_MikeDefeat', 'RusturfTunnel_Text_MikePostBattle'), ''),
+        2: ('itemflag', None, 'Poke Ball'), 3: ('itemflag', None, 'Max Ether')}, {}),
+    'VerdanturfTown': (EMERALD, {
+        0: ('npc', 'VerdanturfTown_Text_AirCleanHere', ''),
+        1: ('npc', 'VerdanturfTown_Text_ManDugTunnelForLove', 'branch after the tunnel opened'),
+        2: ('npc', 'VerdanturfTown_Text_EasyToGetToRustboroNow', 'branch after the tunnel opened'),
+        3: ('npc', 'VerdanturfTown_Text_MakeBattleTentDebut', '')},
+        {0: ('martsign', None), 1: ('sign', 'VerdanturfTown_Text_TownSign'), 2: ('pcsign', None),
+         3: ('sign', 'VerdanturfTown_Text_WandasHouse'), 4: ('martsign', None), 5: ('pcsign', None),
+         6: ('sign', 'VerdanturfTown_Text_BattleTentSign'), 7: ('sign', 'VerdanturfTown_Text_RusturfTunnelSign')}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -377,7 +408,8 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'OldaleTown': 'FLAG_WORLD_MAP_OLDALE_TOWN', 'PetalburgCity': 'FLAG_WORLD_MAP_PETALBURG_CITY',
                    'CherrygroveCity': 'FLAG_WORLD_MAP_CHERRYGROVE_CITY', 'VioletCity': 'FLAG_WORLD_MAP_VIOLET_CITY',
                    'AzaleaTown': 'FLAG_WORLD_MAP_AZALEA_TOWN', 'GoldenrodCity': 'FLAG_WORLD_MAP_GOLDENROD_CITY',
-                   'RustboroCity': 'FLAG_WORLD_MAP_RUSTBORO_CITY', 'EcruteakCity': 'FLAG_WORLD_MAP_ECRUTEAK_CITY'}
+                   'RustboroCity': 'FLAG_WORLD_MAP_RUSTBORO_CITY', 'EcruteakCity': 'FLAG_WORLD_MAP_ECRUTEAK_CITY',
+                   'VerdanturfTown': 'FLAG_WORLD_MAP_VERDANTURF_TOWN'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -419,6 +451,13 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('PetalburgWoods', 11): ('ITEM_PARALYZE_HEAL', 'FLAG_HIDE_HOENN_PETALBURG_WOODS_PARALYZE_HEAL', 'FLAG_0x0D5'),
               ('RustboroCity', 11): ('ITEM_X_DEFEND', 'FLAG_HIDE_HOENN_RUSTBORO_X_DEFEND', 'FLAG_0x0D6'),
               ('EcruteakCity', 7): ('ITEM_RARE_CANDY', 'FLAG_HIDE_JOHTO_ECRUTEAK_RARE_CANDY', 'FLAG_0x0D7'),
+              ('Route116', 6): ('ITEM_ETHER', 'FLAG_HIDE_HOENN_ROUTE116_ETHER', 'FLAG_0x0D8'),
+              ('Route116', 7): ('ITEM_REPEL', 'FLAG_HIDE_HOENN_ROUTE116_REPEL', 'FLAG_0x0D9'),
+              ('Route116', 14): ('ITEM_HP_UP', 'FLAG_HIDE_HOENN_ROUTE116_HP_UP', 'FLAG_0x0DA'),
+              ('Route116', 19): ('ITEM_X_SPECIAL', 'FLAG_HIDE_HOENN_ROUTE116_X_SPECIAL', 'FLAG_0x0DB'),
+              ('Route116', 24): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE116_POTION', 'FLAG_0x0DC'),
+              ('RusturfTunnel', 2): ('ITEM_POKE_BALL', 'FLAG_HIDE_HOENN_RUSTURF_POKE_BALL', 'FLAG_0x0DD'),
+              ('RusturfTunnel', 3): ('ITEM_MAX_ETHER', 'FLAG_HIDE_HOENN_RUSTURF_MAX_ETHER', 'FLAG_0x0DE'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.

@@ -644,7 +644,9 @@
     "Hoenn_Route104",
     "Hoenn_RustboroCity",
     "Johto_Route37",
-    "Johto_EcruteakCity"
+    "Johto_EcruteakCity",
+    "Hoenn_Route116",
+    "Hoenn_VerdanturfTown"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -666,7 +668,12 @@
     "Hoenn_PetalburgWoods",
     "Hoenn_RustboroCity",
     "Hoenn_RustboroCity_PokemonCenter_1F",
-    "Hoenn_RustboroCity_Mart"
+    "Hoenn_RustboroCity_Mart",
+    "Hoenn_Route116",
+    "Hoenn_RusturfTunnel",
+    "Hoenn_VerdanturfTown",
+    "Hoenn_VerdanturfTown_PokemonCenter_1F",
+    "Hoenn_VerdanturfTown_Mart"
   ],
   "gMapGroup_Johto": [
     "Johto_NewBarkTown",

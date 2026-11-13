@@ -42,7 +42,8 @@
       "hoenn_x": 4,
       "hoenn_y": 6,
       "hoenn_width": 1,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "VERDANTURF TOWN"
     },
     {
       "id": "MAPSEC_PACIFIDLOG_TOWN",
@@ -230,7 +231,8 @@
       "hoenn_x": 1,
       "hoenn_y": 5,
       "hoenn_width": 4,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "ROUTE 116"
     },
     {
       "id": "MAPSEC_ROUTE_117",
@@ -402,7 +404,8 @@
       "hoenn_name": "PETALBURG WOODS"
     },
     {
-      "id": "MAPSEC_RUSTURF_TUNNEL"
+      "id": "MAPSEC_RUSTURF_TUNNEL",
+      "hoenn_name": "RUSTURF TUNNEL"
     },
     {
       "id": "MAPSEC_ABANDONED_SHIP"

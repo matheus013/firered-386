@@ -1813,3 +1813,45 @@ const u16 gTilesetPalettes_JohtoPilotEcruteakCity[][16] = {
     INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/11.gbapal"),
     INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/12.gbapal"),
 };
+
+// Hoenn (scripts/convert_hoenn_tilesets.py): Emerald Rusturf Tunnel.
+const u32 gTilesetTiles_HoennPilotRusturfTunnel[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/tiles.4bpp.lz");
+const u16 gTilesetPalettes_HoennPilotRusturfTunnel[][16] = {
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/12.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/13.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/14.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rusturf_tunnel/palettes/15.gbapal"),
+};
+
+// Hoenn (scripts/convert_hoenn_tilesets.py): Emerald Mauville, tiles limited to Verdanturf.
+const u32 gTilesetTiles_HoennPilotMauville[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot_mauville/tiles.4bpp.lz");
+const u16 gTilesetPalettes_HoennPilotMauville[][16] = {
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/12.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/13.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/14.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/15.gbapal"),
+};
