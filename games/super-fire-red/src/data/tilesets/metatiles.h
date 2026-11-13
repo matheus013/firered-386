@@ -249,3 +249,8 @@ const u16 gMetatiles_JohtoPilotAzaleaTown[] = INCBIN_U16("data/tilesets/secondar
 const u32 gMetatileAttributes_JohtoPilotAzaleaTown[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_azalea_town/metatile_attributes.bin");
 const u16 gMetatiles_JohtoPilotCave[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_cave/metatiles.bin");
 const u32 gMetatileAttributes_JohtoPilotCave[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_cave/metatile_attributes.bin");
+const u16 gMetatiles_JohtoPilotIlexForest[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_ilex_forest/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotIlexForest[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_ilex_forest/metatile_attributes.bin");
+
+const u16 gMetatiles_JohtoPilotGoldenrod[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_goldenrod/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotGoldenrod[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_goldenrod/metatile_attributes.bin");

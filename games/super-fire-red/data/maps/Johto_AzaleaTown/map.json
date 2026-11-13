@@ -66,6 +66,13 @@
   ],
   "warp_events": [
     {
+      "x": 8,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_GATE_AZALEA_TOWN_ILEX_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
       "x": 31,
       "y": 15,
       "elevation": 0,

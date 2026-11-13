@@ -1559,3 +1559,50 @@ A música da caverna é a de Mt. Moon.
 - uma batalha com cada um dos 6 treinadores.
 
 **Resultado:** 358 casos aprovados (eram 325), com as 28 batalhas de rota vencidas.
+
+## Johto, lote 5: Ilex Forest e Route 34
+
+**Mapas novos:**
+
+- o portão entre Azalea e a Ilex Forest;
+- a Ilex Forest (Johto South + secundário `gTileset_JohtoPilotIlexForest`);
+- o portão entre a Ilex Forest e a Route 34;
+- a Route 34 (Johto General + secundário `gTileset_JohtoPilotGoldenrod`, que Goldenrod também vai
+  usar).
+
+Os dois portões usam os tilesets de portão que já estavam instalados. Os warps entre esses mapas
+são mantidos pelo instalador, porque todos agora fazem parte da instalação. Em Azalea, o portão
+virou o warp 0, e as portas do Centro e do Mart foram renumeradas junto com os interiores.
+
+- **Regra nova:** `MB_FOOTPRINTS` → `MB_SAND`. O FireRed não tem esse behavior, mas a areia deixa
+  as mesmas pegadas.
+- **Música:** a da Route 34 é a da Route 11.
+- **Seções:** `MAPSEC_ILEX_FOREST` e `MAPSEC_ROUTE_34` entraram no mapa de Johto.
+- **Treinadores (10, em vagas reaproveitadas):**
+  - Wayne, na floresta;
+  - Samuel, Ian, Todd, Gina, Keith, Brandon, e as irmãs Irene, Jenn e Kate, na Route 34.
+  - O Keith é policial e no HNS só aparece à noite. Aqui ele fica sempre, como Cooltrainer, porque
+    o FireRed não tem a classe de policial nem relógio.
+- **Eventos:**
+  - sete itens (TM11 Sunny Day, Full Heal, Ether, duas Super Potions, Soft Sand e Rare Candy);
+  - uma árvore de Cut;
+  - moradores dos portões e da floresta;
+  - o santuário e as placas;
+  - 39 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama, água e pesca na floresta e na Route 34.
+
+**Fica para depois:**
+
+- a caça ao Farfetch'd (o Mestre do Carvão e o aprendiz), o Kurt, a Celebi e a Kimono Girl;
+- o tutor de Headbutt;
+- a Creche da Route 34 (a do FireRed fica em Four Island).
+
+**Teste:**
+
+- As batalhas de rota agora usam Seismic Toss: dano fixo igual ao nível, sem tabela de tipos.
+  Contra times com fantasma, usam Night Shade (a escolha é pelos tipos em `species_info.h`). Um
+  golpe com tipo sempre encontrava alguma imunidade ou resistência forte; por exemplo, o Cloyster e o
+  Shellder da Kate resistem muito a Ice Beam.
+- Caminhadas: Azalea → portão → Ilex Forest, e as entradas do portão norte pelos dois lados.
+
+**Resultado:** 399 casos aprovados (eram 358), com as 38 batalhas de rota vencidas.

@@ -49,6 +49,11 @@ TABLES = [
      'MAP_JOHTO_ROUTE33', 'gJohtoRoute33_Pilot', ['land_mons'], 'day table; Rock Smash left out'),
     ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gUnionCave_1F', 'MAP_UNION_CAVE_1F',
      'MAP_JOHTO_UNION_CAVE_1F', 'gJohtoUnionCave1F_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'HNS table unchanged'),
+    # Johto batch 5
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gIlexForest', 'MAP_ILEX_FOREST',
+     'MAP_JOHTO_ILEX_FOREST', 'gJohtoIlexForest_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute34', 'MAP_ROUTE34',
+     'MAP_JOHTO_ROUTE34', 'gJohtoRoute34_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),
 ]
 
 

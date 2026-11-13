@@ -2438,6 +2438,358 @@
           "y": 55
         }
       ]
+    },
+    "Johto_Gate_AzaleaTown_IlexForest": {
+      "source": "HNS_modern/Gate_AzaleaTown_IlexForest",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "Gate_AzaleaTown_IlexForest_EventScript_Officer",
+          "source_sprite": "OBJ_EVENT_GFX_POLICEMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_POLICEMAN",
+          "text": "Gate_AzaleaTown_IlexForest_Text_Officer",
+          "note": "",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "Gate_AzaleaTown_IlexForest_EventScript_Granny",
+          "source_sprite": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "text": "Gate_AzaleaTown_IlexForest_Text_Granny",
+          "note": "",
+          "x": 4,
+          "y": 6
+        }
+      ]
+    },
+    "Johto_IlexForest": {
+      "source": "HNS_modern/IlexForest",
+      "events": [
+        {
+          "kind": "cuttree",
+          "source_index": 3,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "FireRed EventScript_CutTree",
+          "x": 32,
+          "y": 40
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "IlexForest_EventScript_Picnicker",
+          "source_sprite": "OBJ_EVENT_GFX_PICNICKER",
+          "firered_sprite": "OBJ_EVENT_GFX_PICNICKER",
+          "text": "IlexForest_Text_Lass",
+          "note": "",
+          "x": 37,
+          "y": 21
+        },
+        {
+          "kind": "trainer",
+          "source_index": 7,
+          "source_script": "IlexForest_EventScript_BugcatcherWayne",
+          "source_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "firered_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "text": [
+            "TRAINER_JOHTO_WAYNE",
+            "IlexForest_Text_BugCatcherWayneSeen",
+            "IlexForest_Text_BugCatcherWayneBeaten",
+            "IlexForest_Text_BugCatcherWayneAfter"
+          ],
+          "note": "",
+          "x": 39,
+          "y": 8
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 8,
+          "source_script": "IlexForest_EventScript_SunnyDay",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "TM11 Sunny Day",
+          "x": 71,
+          "y": 42
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 9,
+          "source_script": "IlexForest_EventScript_FullHeal",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Full Heal",
+          "x": 45,
+          "y": 16
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 10,
+          "source_script": "IlexForest_EventScript_Ether",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Ether",
+          "x": 34,
+          "y": 28
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 11,
+          "source_script": "IlexForest_EventScript_SuperPotion",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Super Potion",
+          "x": 50,
+          "y": 48
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "IlexForest_EventScript_Shrine",
+          "text": "IlexForest_Text_Shrine",
+          "x": 32,
+          "y": 36
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "IlexForest_EventScript_Sign",
+          "text": "IlexForest_Text_Signpost",
+          "x": 23,
+          "y": 27
+        }
+      ]
+    },
+    "Johto_Gate_IlexForest_Route34": {
+      "source": "HNS_modern/Gate_IlexForest_Route34",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "Route34IlexForestGate_EventScript_Lass",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": "Route34IlexForestGate_Text_Lass",
+          "note": "",
+          "x": 9,
+          "y": 6
+        }
+      ]
+    },
+    "Johto_Route34": {
+      "source": "HNS_modern/Route34",
+      "events": [
+        {
+          "kind": "trainer",
+          "source_index": 0,
+          "source_script": "Route34_EventScript_YoungsterSamuel",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": [
+            "TRAINER_JOHTO_SAMUEL",
+            "Route34_Text_YoungsterSamuel_Seen",
+            "Route34_Text_YoungsterSamuel_Beaten",
+            "Route34_Text_YoungsterSamuel_After"
+          ],
+          "note": "",
+          "x": 34,
+          "y": 59
+        },
+        {
+          "kind": "trainer",
+          "source_index": 1,
+          "source_script": "Route34_EventScript_PokefanMBrandon",
+          "source_sprite": "OBJ_EVENT_GFX_BALDING_MAN",
+          "firered_sprite": "OBJ_EVENT_GFX_BALDING_MAN",
+          "text": [
+            "TRAINER_JOHTO_BRANDON",
+            "Route34_Text_PokefanBrandon_Seen",
+            "Route34_Text_PokefanBrandon_Beaten",
+            "Route34_Text_PokefanBrandon_After"
+          ],
+          "note": "no phone registration or rematch",
+          "x": 41,
+          "y": 53
+        },
+        {
+          "kind": "trainer",
+          "source_index": 2,
+          "source_script": "Route34_EventScript_CamperTodd",
+          "source_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "firered_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "text": [
+            "TRAINER_JOHTO_TODD",
+            "Route34_Text_CamperTodd_Seen",
+            "Route34_Text_CamperTodd_Beaten",
+            "Route34_Text_CamperTodd_After"
+          ],
+          "note": "",
+          "x": 30,
+          "y": 48
+        },
+        {
+          "kind": "trainer",
+          "source_index": 3,
+          "source_script": "Route34_EventScript_YoungsterIan",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": [
+            "TRAINER_JOHTO_IAN",
+            "Route34_Text_YoungsterIan_Seen",
+            "Route34_Text_YoungsterIan_Beaten",
+            "Route34_Text_YoungsterIan_After"
+          ],
+          "note": "",
+          "x": 37,
+          "y": 38
+        },
+        {
+          "kind": "trainer",
+          "source_index": 4,
+          "source_script": "Route34_EventScript_Jenn",
+          "source_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": [
+            "TRAINER_JOHTO_JENN",
+            "Route34_Text_CooltrainerJenn_Seen",
+            "Route34_Text_CooltrainerJenn_Beaten",
+            "Route34_Text_CooltrainerJenn_After2"
+          ],
+          "note": "",
+          "x": 20,
+          "y": 84
+        },
+        {
+          "kind": "trainer",
+          "source_index": 5,
+          "source_script": "Route34_EventScript_Irene",
+          "source_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": [
+            "TRAINER_JOHTO_IRENE",
+            "Route34_Text_CooltrainerIrene_Seen",
+            "Route34_Text_CooltrainerIrene_Beaten",
+            "Route34_Text_CooltrainerIrene_After2"
+          ],
+          "note": "",
+          "x": 25,
+          "y": 84
+        },
+        {
+          "kind": "trainer",
+          "source_index": 6,
+          "source_script": "Route34_EventScript_Kate",
+          "source_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": [
+            "TRAINER_JOHTO_KATE",
+            "Route34_Text_CooltrainerKate_Seen",
+            "Route34_Text_CooltrainerKate_Beaten",
+            "Route34_Text_CooltrainerKate_After"
+          ],
+          "note": "",
+          "x": 22,
+          "y": 87
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 7,
+          "source_script": "Route34_EventScript_Item_SoftSand",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Soft Sand",
+          "x": 29,
+          "y": 84
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 8,
+          "source_script": "Route34_EventScript_Item_RareCandy",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Rare Candy",
+          "x": 26,
+          "y": 53
+        },
+        {
+          "kind": "trainer",
+          "source_index": 9,
+          "source_script": "Route34_EventScript_OfficerKeith",
+          "source_sprite": "OBJ_EVENT_GFX_POLICEMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_POLICEMAN",
+          "text": [
+            "TRAINER_JOHTO_KEITH",
+            "Route34_Text_OfficerKeith_Seen",
+            "Route34_Text_OfficerKeith_Win",
+            "Route34_Text_OfficerKeith_After"
+          ],
+          "note": "night only in HNS; FireRed has no clock, so always there",
+          "x": 20,
+          "y": 26
+        },
+        {
+          "kind": "trainer",
+          "source_index": 10,
+          "source_script": "Route34_EventScript_PicnickerGina",
+          "source_sprite": "OBJ_EVENT_GFX_PICNICKER",
+          "firered_sprite": "OBJ_EVENT_GFX_PICNICKER",
+          "text": [
+            "TRAINER_JOHTO_GINA",
+            "Route34_Text_PicnickerGina_Seen",
+            "Route34_Text_PicnickerGina_Beaten",
+            "Route34_Text_PicnickerGina_After"
+          ],
+          "note": "",
+          "x": 32,
+          "y": 15
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 23,
+          "source_script": "Route34_EventScript_Item_SuperPotion",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Super Potion",
+          "x": 33,
+          "y": 21
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route34_EventScript_Sign3",
+          "text": "Route34_Text_TrainerTips",
+          "x": 29,
+          "y": 8
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "Route34_EventScript_Sign2",
+          "text": "Route34_Text_Sign_DayCare",
+          "x": 27,
+          "y": 28
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "Route34_EventScript_Sign1",
+          "text": "Route34_Text_Sign_Route34",
+          "x": 33,
+          "y": 65
+        }
+      ]
     }
   }
 }

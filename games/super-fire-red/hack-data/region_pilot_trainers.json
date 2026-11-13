@@ -976,6 +976,227 @@
           0
         ]
       ]
+    },
+    "TRAINER_JOHTO_WAYNE": {
+      "slot": "TRAINER_RS_LADY",
+      "name": "WAYNE",
+      "source": "TRAINER_WAYNE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_BUG_CATCHER",
+      "trainer_pic": "TRAINER_PIC_BUG_CATCHER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_PARAS",
+          15,
+          0
+        ],
+        [
+          "SPECIES_ODDISH",
+          15,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_SAMUEL": {
+      "slot": "TRAINER_RS_BEAUTY",
+      "name": "SAMUEL",
+      "source": "TRAINER_SAMUEL",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_YOUNGSTER",
+      "trainer_pic": "TRAINER_PIC_YOUNGSTER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_TEDDIURSA",
+          12,
+          0
+        ],
+        [
+          "SPECIES_SANDSHREW",
+          10,
+          0
+        ],
+        [
+          "SPECIES_SPEAROW",
+          12,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_IAN": {
+      "slot": "TRAINER_RICH_BOY",
+      "name": "IAN",
+      "source": "TRAINER_IAN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_YOUNGSTER",
+      "trainer_pic": "TRAINER_PIC_YOUNGSTER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MANKEY",
+          12,
+          0
+        ],
+        [
+          "SPECIES_DIGLETT",
+          14,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_TODD": {
+      "slot": "TRAINER_RS_POKEMANIAC",
+      "name": "TODD",
+      "source": "TRAINER_TODD",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_CAMPER",
+      "trainer_pic": "TRAINER_PIC_CAMPER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_AZUMARILL",
+          15,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_GINA": {
+      "slot": "TRAINER_RS_SWIMMER_M",
+      "name": "GINA",
+      "source": "TRAINER_GINA",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_PICNICKER",
+      "trainer_pic": "TRAINER_PIC_PICNICKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SKIPLOOM",
+          14,
+          0
+        ],
+        [
+          "SPECIES_BULBASAUR",
+          14,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_KEITH": {
+      "slot": "TRAINER_GUITARIST",
+      "name": "KEITH",
+      "source": "TRAINER_KEITH",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GROWLITHE",
+          16,
+          0
+        ]
+      ],
+      "note": "HNS Officer; FireRed has no Policeman trainer class"
+    },
+    "TRAINER_JOHTO_BRANDON": {
+      "slot": "TRAINER_KINDLER",
+      "name": "BRANDON",
+      "source": "TRAINER_BRANDON",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_POKEFAN",
+      "trainer_pic": "TRAINER_PIC_POKEFAN_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SNUBBULL",
+          15,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_IRENE": {
+      "slot": "TRAINER_RS_CAMPER",
+      "name": "IRENE",
+      "source": "TRAINER_IRENE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GOLDEEN",
+          22,
+          0
+        ],
+        [
+          "SPECIES_SEAKING",
+          24,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_JENN": {
+      "slot": "TRAINER_BUG_MANIAC",
+      "name": "JENN",
+      "source": "TRAINER_JENN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_STARYU",
+          24,
+          0
+        ],
+        [
+          "SPECIES_STARMIE",
+          26,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_KATE": {
+      "slot": "TRAINER_RS_PSYCHIC_M",
+      "name": "KATE",
+      "source": "TRAINER_KATE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SHELLDER",
+          26,
+          0
+        ],
+        [
+          "SPECIES_CLOYSTER",
+          28,
+          0
+        ]
+      ]
     }
   }
 }

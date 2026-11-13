@@ -635,7 +635,9 @@
     "Johto_VioletCity",
     "Johto_Route32",
     "Johto_Route33",
-    "Johto_AzaleaTown"
+    "Johto_AzaleaTown",
+    "Johto_IlexForest",
+    "Johto_Route34"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -678,6 +680,10 @@
     "Johto_AzaleaTown",
     "Johto_AzaleaTown_PokemonCenter_1F",
     "Johto_AzaleaTown_Mart",
-    "Johto_UnionCave_1F"
+    "Johto_UnionCave_1F",
+    "Johto_Gate_AzaleaTown_IlexForest",
+    "Johto_IlexForest",
+    "Johto_Gate_IlexForest_Route34",
+    "Johto_Route34"
   ]
 }

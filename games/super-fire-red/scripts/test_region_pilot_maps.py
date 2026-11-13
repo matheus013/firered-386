@@ -85,7 +85,12 @@ for _m,_x,_y,_steps,_want in (
   (JOHTO+'ROUTE33',27,18,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_UNION_CAVE_1F',None),('MAP_JOHTO_ROUTE33',None)]),
   (JOHTO+'ROUTE33',0,22,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_AZALEA_TOWN',{(61,23)}),('MAP_JOHTO_ROUTE33',{(0,22)})]),
   (JOHTO+'AZALEA_TOWN',31,16,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_AZALEA_TOWN_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_AZALEA_TOWN',{(31,16)})]),
-  (JOHTO+'AZALEA_TOWN',40,12,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_AZALEA_TOWN_MART',{(4,7)}),('MAP_JOHTO_AZALEA_TOWN',{(40,12)})])):
+  (JOHTO+'AZALEA_TOWN',40,12,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_AZALEA_TOWN_MART',{(4,7)}),('MAP_JOHTO_AZALEA_TOWN',{(40,12)})]),
+  # Johto batch 5: Azalea -> gate -> Ilex Forest -> gate <- Route 34.
+  (JOHTO+'AZALEA_TOWN',9,16,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_GATE_AZALEA_TOWN_ILEX_FOREST',None),('MAP_JOHTO_AZALEA_TOWN',None)]),
+  (JOHTO+'GATE_AZALEA_TOWN_ILEX_FOREST',2,5,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_ILEX_FOREST',None),('MAP_JOHTO_GATE_AZALEA_TOWN_ILEX_FOREST',None)]),
+  (JOHTO+'ILEX_FOREST',19,14,[('UP','MAP')],[('MAP_JOHTO_GATE_ILEX_FOREST_ROUTE34',None)]),
+  (JOHTO+'ROUTE34',31,66,[('DOWN','MAP')],[('MAP_JOHTO_GATE_ILEX_FOREST_ROUTE34',None)])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -290,6 +295,12 @@ STOP_AFTER_PROMPT[len(CASES)]=3
 # (FRESH_TRAINER). The scene presses A through intro, battle and post-battle line; the strong lead wins.
 # Swimmers stand on water (Surf) and are left out, like their talk cases.
 FRESH_TRAINER={}
+# Fixed-damage move for the strong lead (level 100 = 100 HP a hit, no type chart): one move cannot be
+# blocked by every route team otherwise (Dark vs Psychic, Fairy vs Dragon, Water Absorb, Water/Ice vs Ice).
+# Ghosts are immune to Seismic Toss, so a team with one gets Night Shade.
+FRESH_MOVE={}
+_types={sp:tuple(re.findall(r'TYPE_\w+',t)) for sp,t in re.findall(r'\[(SPECIES_\w+)\] =\s*\{.*?\.types = \{([^}]*)\}',(game/'src/data/pokemon/species_info.h').read_text(),re.S)}
+_pilot_teams=json.loads((game/'hack-data/region_pilot_trainers.json').read_text(encoding='utf-8'))['trainers']
 def _trainer_ids(text):
  """TRAINER_ name -> number, with the aliases of geography trainers in reused slots resolved."""
  ids=dict(re.findall(r'#define (TRAINER_\w+)\s+(\d+)\b',text))
@@ -313,6 +324,8 @@ for _folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/
   (JOHTO_STORY if _johto else STORY)[len(CASES)]=(0,0)
   SCENES[len(CASES)]={'name':f'battle {_m[1]}','johto':_johto,'story':0,'trainer':_m[1],'outcome':1,'route_trainer':True}
   FRESH_TRAINER[len(CASES)]=int(_opponent_ids[_m[1]])
+  _team=[m[0] if isinstance(m,list) else m['species'] for m in _pilot_teams[_m[1]]['team']]
+  FRESH_MOVE[len(CASES)]='MOVE_NIGHT_SHADE' if any('TYPE_GHOST' in _types.get(sp,()) for sp in _team) else 'MOVE_SEISMIC_TOSS'
 # Sail to New Bark through the sailor's two questions, not a direct script call.
 CASES.append(('MAP_VERMILION_CITY',23,30,0,0,[('LEFT','TRIP')],GAME_CLEAR))
 TRIPS[len(CASES)]=('MAP_VERMILION_CITY','newbark');NO_ANSWERS[len(CASES)]=1
@@ -397,6 +410,8 @@ spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5
 answers=', '.join(str(NO_ANSWERS.get(n,0)) for n in range(1,len(CASES)+1))
 stop_prompts=', '.join(str(STOP_AFTER_PROMPT.get(n,0)) for n in range(1,len(CASES)+1))
 fresh_trainers=', '.join(str(FRESH_TRAINER.get(n,0)) for n in range(1,len(CASES)+1))
+_move_ids=dict(re.findall(r'#define (MOVE_\w+) (\d+)',(game/'include/constants/moves.h').read_text()))  # main.c has no move constants
+fresh_moves=', '.join(_move_ids[FRESH_MOVE[n]] if n in FRESH_MOVE else '0' for n in range(1,len(CASES)+1))
 _pilot=json.loads((game/'hack-data/region_pilot_trainers.json').read_text(encoding='utf-8'))
 slot_trainers=', '.join(sorted({str(_opponent_ids[t]) for t,e in _pilot['trainers'].items() if e.get('slot')})+['0'])
 steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s,_setup in CASES)
@@ -446,6 +461,7 @@ static const u8 sPilotStepCount[] = {COUNTS};
 static const u8 sPilotNoAnswers[] = {ANSWERS};
 static const u8 sPilotStopPrompts[] = {STOP_PROMPTS};
 const u16 gPilotFreshTrainer[] = {FRESH_TRAINERS};  // route trainer left unbeaten in this case (0: none)
+const u16 gPilotFreshMove[] = {FRESH_MOVES};  // the strong lead's move in those battle cases
 const u16 gPilotSlotTrainers[] = {SLOT_TRAINERS};  // geography trainers in reused FireRed slots, 0-terminated
 extern volatile u32 gPilotCase;
 EWRAM_DATA static u8 sPilotPrompt = 0;
@@ -1015,7 +1031,7 @@ static void PilotBoot(void)
     StringCopy(gSaveBlock2Ptr->playerName, name); StringCopy(gSaveBlock1Ptr->rivalName, name);
     SetMainCallback2(CB2_NewGame);
 }
-'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts).replace('ANSWERS',answers).replace('JOURNEY_OPS',journey).replace('JOURNEY_LEN',str(len(JOURNEY))).replace('STOP_PROMPTS',stop_prompts).replace('FRESH_TRAINERS',fresh_trainers).replace('SLOT_TRAINERS',slot_trainers)
+'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts).replace('ANSWERS',answers).replace('JOURNEY_OPS',journey).replace('JOURNEY_LEN',str(len(JOURNEY))).replace('STOP_PROMPTS',stop_prompts).replace('FRESH_TRAINERS',fresh_trainers).replace('SLOT_TRAINERS',slot_trainers).replace('FRESH_MOVES',fresh_moves)
 main=(game/'src/main.c').read_text()
 main=main.replace('static void InitMainCallbacks(void)\n{',hook+'\nstatic void InitMainCallbacks(void)\n{').replace('SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);','SetMainCallback2(PilotBoot);')
 main=main.replace('#include "global.h"','#include "global.h"\nvoid PilotCheck(void);',1).replace('    ReadKeys();','    PilotCheck();\n    ReadKeys();')
@@ -1035,6 +1051,7 @@ extern volatile u32 gPilotCase;
 extern const s16 gPilotSpawn[][12];
 extern const u16 gPilotFreshTrainer[];
 extern const u16 gPilotSlotTrainers[];
+extern const u16 gPilotFreshMove[];
 void PilotSetup(void)
 {
     const s16 *spawn = gPilotSpawn[gPilotCase - 1];
@@ -1068,8 +1085,9 @@ void PilotSetup(void)
         FlagSet(FLAG_EXP_SHARE_DISABLED);
         if (gPilotFreshTrainer[gPilotCase - 1])
         {
-            u16 ice = MOVE_ICE_BEAM;  // route trainer battles: no type or ability in those teams blocks Ice
-            SetMonData(&gPlayerParty[0], MON_DATA_MOVE1, &ice); SetMonData(&gPlayerParty[0], MON_DATA_PP1, &pp);
+            u16 move = gPilotFreshMove[gPilotCase - 1];  // fixed damage (Seismic Toss / Night Shade)
+            u8 fullPp = 32;
+            SetMonData(&gPlayerParty[0], MON_DATA_MOVE1, &move); SetMonData(&gPlayerParty[0], MON_DATA_PP1, &fullPp);
             gPlayerParty[1] = gPlayerParty[0];  // two Pokemon for Amy and Liv's double battle
             CalculatePlayerPartyCount();
         }
@@ -1277,7 +1295,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-9:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE']
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-11:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.

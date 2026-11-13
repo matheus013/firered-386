@@ -45,7 +45,8 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN',
+    'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
     'OBJ_EVENT_GFX_ZIGZAGOON_1': 'OBJ_EVENT_GFX_ZIGZAGOON', 'OBJ_EVENT_GFX_BIRCHS_BAG': 'OBJ_EVENT_GFX_BIRCHS_BAG',
 }
@@ -251,6 +252,33 @@ EVENTS = {
         6: ('trainer', ('TRAINER_JOHTO_LARRY', 'UnionCave_1F_Text_PokemaniacLarrySeen', 'UnionCave_1F_Text_PokemaniacLarryBeaten', 'UnionCave_1F_Text_PokemaniacLarryAfter'), ''),
         7: ('trainer', ('TRAINER_JOHTO_RAY', 'UnionCave_1F_Text_FirebreatherRaySeen', 'UnionCave_1F_Text_FirebreatherRayBeaten', 'UnionCave_1F_Text_FirebreatherRayAfter'), '')},
         {}),
+    # Johto batch 5. Left out: the Farfetch'd chase (Charcoal Master and apprentice), Kurt, Celebi, the
+    # Kimono Girl, the Headbutt tutor (FireRed has no Headbutt trees), the leftover Fury Cutter tutor,
+    # the Day-Care man (FireRed's Day-Care is on Four Island) and Route 34's leftover Route 7 door sign.
+    'Gate_AzaleaTown_IlexForest': (HNS, {
+        0: ('npc', 'Gate_AzaleaTown_IlexForest_Text_Officer', ''), 1: ('npc', 'Gate_AzaleaTown_IlexForest_Text_Granny', '')}, {}),
+    'IlexForest': (HNS, {
+        3: ('cuttree', None, 'FireRed EventScript_CutTree'),
+        4: ('npc', 'IlexForest_Text_Lass', ''),
+        7: ('trainer', ('TRAINER_JOHTO_WAYNE', 'IlexForest_Text_BugCatcherWayneSeen', 'IlexForest_Text_BugCatcherWayneBeaten', 'IlexForest_Text_BugCatcherWayneAfter'), ''),
+        8: ('itemflag', None, 'TM11 Sunny Day'), 9: ('itemflag', None, 'Full Heal'),
+        10: ('itemflag', None, 'Ether'), 11: ('itemflag', None, 'Super Potion')},
+        {0: ('sign', 'IlexForest_Text_Shrine'), 1: ('sign', 'IlexForest_Text_Signpost')}),
+    'Gate_IlexForest_Route34': (HNS, {0: ('npc', 'Route34IlexForestGate_Text_Lass', '')}, {}),
+    'Route34': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_SAMUEL', 'Route34_Text_YoungsterSamuel_Seen', 'Route34_Text_YoungsterSamuel_Beaten', 'Route34_Text_YoungsterSamuel_After'), ''),
+        1: ('trainer', ('TRAINER_JOHTO_BRANDON', 'Route34_Text_PokefanBrandon_Seen', 'Route34_Text_PokefanBrandon_Beaten', 'Route34_Text_PokefanBrandon_After'),
+            'no phone registration or rematch'),
+        2: ('trainer', ('TRAINER_JOHTO_TODD', 'Route34_Text_CamperTodd_Seen', 'Route34_Text_CamperTodd_Beaten', 'Route34_Text_CamperTodd_After'), ''),
+        3: ('trainer', ('TRAINER_JOHTO_IAN', 'Route34_Text_YoungsterIan_Seen', 'Route34_Text_YoungsterIan_Beaten', 'Route34_Text_YoungsterIan_After'), ''),
+        4: ('trainer', ('TRAINER_JOHTO_JENN', 'Route34_Text_CooltrainerJenn_Seen', 'Route34_Text_CooltrainerJenn_Beaten', 'Route34_Text_CooltrainerJenn_After2'), ''),
+        5: ('trainer', ('TRAINER_JOHTO_IRENE', 'Route34_Text_CooltrainerIrene_Seen', 'Route34_Text_CooltrainerIrene_Beaten', 'Route34_Text_CooltrainerIrene_After2'), ''),
+        6: ('trainer', ('TRAINER_JOHTO_KATE', 'Route34_Text_CooltrainerKate_Seen', 'Route34_Text_CooltrainerKate_Beaten', 'Route34_Text_CooltrainerKate_After'), ''),
+        7: ('itemflag', None, 'Soft Sand'), 8: ('itemflag', None, 'Rare Candy'), 23: ('itemflag', None, 'Super Potion'),
+        9: ('trainer', ('TRAINER_JOHTO_KEITH', 'Route34_Text_OfficerKeith_Seen', 'Route34_Text_OfficerKeith_Win', 'Route34_Text_OfficerKeith_After'),
+            'night only in HNS; FireRed has no clock, so always there'),
+        10: ('trainer', ('TRAINER_JOHTO_GINA', 'Route34_Text_PicnickerGina_Seen', 'Route34_Text_PicnickerGina_Beaten', 'Route34_Text_PicnickerGina_After'), '')},
+        {0: ('sign', 'Route34_Text_TrainerTips'), 1: ('sign', 'Route34_Text_Sign_DayCare'), 2: ('sign', 'Route34_Text_Sign_Route34')}),
 }
 # Towns that are Fly destinations: world map flag set on entry (include/constants/flags.h).
 WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkTown': 'FLAG_WORLD_MAP_NEW_BARK_TOWN',
@@ -278,6 +306,13 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('UnionCave_1F', 3): ('ITEM_AWAKENING', 'FLAG_HIDE_JOHTO_UNION_CAVE_AWAKENING', 'FLAG_0x0C1'),
               ('UnionCave_1F', 5): ('ITEM_GREAT_BALL', 'FLAG_HIDE_JOHTO_UNION_CAVE_GREAT_BALL', 'FLAG_0x0C2'),
               ('UnionCave_1F', 8): ('ITEM_X_ATTACK', 'FLAG_HIDE_JOHTO_UNION_CAVE_X_ATTACK', 'FLAG_0x0C3'),
+              ('IlexForest', 8): ('ITEM_TM11', 'FLAG_HIDE_JOHTO_ILEX_FOREST_TM_SUNNY_DAY', 'FLAG_0x0C4'),
+              ('IlexForest', 9): ('ITEM_FULL_HEAL', 'FLAG_HIDE_JOHTO_ILEX_FOREST_FULL_HEAL', 'FLAG_0x0C5'),
+              ('IlexForest', 10): ('ITEM_ETHER', 'FLAG_HIDE_JOHTO_ILEX_FOREST_ETHER', 'FLAG_0x0C6'),
+              ('IlexForest', 11): ('ITEM_SUPER_POTION', 'FLAG_HIDE_JOHTO_ILEX_FOREST_SUPER_POTION', 'FLAG_0x0C7'),
+              ('Route34', 7): ('ITEM_SOFT_SAND', 'FLAG_HIDE_JOHTO_ROUTE34_SOFT_SAND', 'FLAG_0x0C8'),
+              ('Route34', 8): ('ITEM_RARE_CANDY', 'FLAG_HIDE_JOHTO_ROUTE34_RARE_CANDY', 'FLAG_0x0C9'),
+              ('Route34', 23): ('ITEM_SUPER_POTION', 'FLAG_HIDE_JOHTO_ROUTE34_SUPER_POTION', 'FLAG_0x0CA'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.

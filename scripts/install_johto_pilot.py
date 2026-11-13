@@ -29,7 +29,9 @@ MAPS = ['NewBarkTown', 'Route29', 'NewBarkTown_PlayersHouse_1F', 'NewBarkTown_Pl
         # Johto batch 4 (Johto South primary tileset)
         'Route33', 'AzaleaTown',
         # Union Cave 1F: the way from Route 32 to Route 33 (B1F/B2F stay closed)
-        'UnionCave_1F']
+        'UnionCave_1F',
+        # Johto batch 5: Azalea's west gate, Ilex Forest, its north gate and Route 34
+        'Gate_AzaleaTown_IlexForest', 'IlexForest', 'Gate_IlexForest_Route34', 'Route34']
 TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animation init)
     'gTileset_Johto_General': ('JohtoPilotGeneral', 'primary/johto_general', 'primary/johto_pilot_general', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_NewBarkTown': ('JohtoPilotNewBarkTown', 'secondary/new_bark_town', 'secondary/johto_pilot_new_bark_town', 'NULL'),
@@ -44,6 +46,8 @@ TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animati
     'gTileset_Johto_South': ('JohtoPilotSouth', 'primary/johto_south', 'primary/johto_pilot_south', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_AzaleaTown': ('JohtoPilotAzaleaTown', 'secondary/azalea_town', 'secondary/johto_pilot_azalea_town', 'NULL'),
     'gTileset_Cave_Default': ('JohtoPilotCave', 'secondary/cave_default', 'secondary/johto_pilot_cave', 'NULL'),
+    'gTileset_IlexForest': ('JohtoPilotIlexForest', 'secondary/ilex_forest', 'secondary/johto_pilot_ilex_forest', 'NULL'),
+    'gTileset_Goldenrod': ('JohtoPilotGoldenrod', 'secondary/goldenrod', 'secondary/johto_pilot_goldenrod', 'NULL'),
 }
 # FireRed attribute without layer bits: behavior | terrain << 9 | encounter << 24, taken from the pattern
 # FireRed's own tilesets use most for that behavior.
@@ -59,6 +63,7 @@ RULES = {
     'MB_MOUNTAIN_TERRAIN': (0x00000000, 'HNS only picks the battle background with it; FireRed: normal'),
     'MB_LADDER': (0x00000061, 'same name (Slowpoke Well entrance; its warp is dropped)'),
     'MB_CAVE': (0x01000008, 'cave floor with land encounters, as in FireRed caves'),
+    'MB_FOOTPRINTS': (0x00000021, 'FireRed has no MB_FOOTPRINTS; MB_SAND leaves the same prints'),
     'MB_SAND': (0x00000021, 'same name'),
     'MB_JUMP_EAST': (0x00000038, 'same name'), 'MB_JUMP_WEST': (0x00000039, 'same name'),
     'MB_JUMP_SOUTH': (0x0000003B, 'same name'),
@@ -83,7 +88,7 @@ RULES = {
 }
 MUSIC = {'MUS_HG_NEW_BARK': 'MUS_PALLET', 'MUS_HG_ROUTE29': 'MUS_ROUTE1', 'MUS_HG_ELM_LAB': 'MUS_OAK_LAB',
          'MUS_HG_CHERRYGROVE': 'MUS_VERMILLION', 'MUS_HG_ROUTE30': 'MUS_ROUTE24',
-         'MUS_HG_VIOLET': 'MUS_FUCHSIA', 'MUS_HG_AZALEA': 'MUS_CINNABAR', 'MUS_HG_UNION_CAVE': 'MUS_MT_MOON'}
+         'MUS_HG_VIOLET': 'MUS_FUCHSIA', 'MUS_HG_AZALEA': 'MUS_CINNABAR', 'MUS_HG_UNION_CAVE': 'MUS_MT_MOON', 'MUS_HG_ROUTE34': 'MUS_ROUTE11'}
 DOORS = [  # metatile, HNS door image, FireRed name, palette (all 8 entries), sound, secondary tileset
     (0x2CB, 'cerulean.png', 'new_bark_blue', 7, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),
     (0x309, 'NewBarkTown_Door_Yellow.png', 'new_bark_yellow', 5, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),

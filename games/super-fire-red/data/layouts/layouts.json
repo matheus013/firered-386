@@ -4734,6 +4734,54 @@
       "secondary_tileset": "gTileset_JohtoPilotCave",
       "border_filepath": "data/layouts/Johto_UnionCave_1F/border.bin",
       "blockdata_filepath": "data/layouts/Johto_UnionCave_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_GATE_AZALEA_TOWN_ILEX_FOREST",
+      "name": "Johto_Gate_AzaleaTown_IlexForest_Layout",
+      "width": 13,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotGateStandard",
+      "border_filepath": "data/layouts/Johto_Gate_AzaleaTown_IlexForest/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Gate_AzaleaTown_IlexForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ILEX_FOREST",
+      "name": "Johto_IlexForest_Layout",
+      "width": 82,
+      "height": 73,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotSouth",
+      "secondary_tileset": "gTileset_JohtoPilotIlexForest",
+      "border_filepath": "data/layouts/Johto_IlexForest/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_IlexForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_GATE_ILEX_FOREST_ROUTE34",
+      "name": "Johto_Gate_IlexForest_Route34_Layout",
+      "width": 15,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotGateStandard",
+      "border_filepath": "data/layouts/Johto_Gate_IlexForest_Route34/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Gate_IlexForest_Route34/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE34",
+      "name": "Johto_Route34_Layout",
+      "width": 60,
+      "height": 90,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotGoldenrod",
+      "border_filepath": "data/layouts/Johto_Route34/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route34/map.bin"
     }
   ]
 }

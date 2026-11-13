@@ -1441,6 +1441,22 @@
       "y": 11,
       "width": 1,
       "height": 2
+    },
+    {
+      "id": "MAPSEC_ILEX_FOREST",
+      "name": "ILEX FOREST",
+      "x": 8,
+      "y": 12,
+      "width": 2,
+      "height": 2
+    },
+    {
+      "id": "MAPSEC_ROUTE_34",
+      "name": "ROUTE 34",
+      "x": 8,
+      "y": 10,
+      "width": 1,
+      "height": 2
     }
   ]
 }

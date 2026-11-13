@@ -84,17 +84,127 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HexManiac[] = {
     .species = SPECIES_VULPIX,
     }
 };
-static const struct TrainerMonNoItemDefaultMoves sParty_RSLady[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSBeauty[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RichBoy[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSPokemaniac[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSSwimmerM[] = {DUMMY_TRAINER_MON};
+// Region geography (TRAINER_JOHTO_WAYNE in TRAINER_RS_LADY): HNS_modern TRAINER_WAYNE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSLady[] = {
+    {
+    .iv = 0,
+    .lvl = 75,
+    .species = SPECIES_PARAS,
+    },
+    {
+    .iv = 0,
+    .lvl = 75,
+    .species = SPECIES_ODDISH,
+    }
+};
+// Region geography (TRAINER_JOHTO_SAMUEL in TRAINER_RS_BEAUTY): HNS_modern TRAINER_SAMUEL, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSBeauty[] = {
+    {
+    .iv = 0,
+    .lvl = 72,
+    .species = SPECIES_TEDDIURSA,
+    },
+    {
+    .iv = 0,
+    .lvl = 70,
+    .species = SPECIES_SANDSHREW,
+    },
+    {
+    .iv = 0,
+    .lvl = 72,
+    .species = SPECIES_SPEAROW,
+    }
+};
+// Region geography (TRAINER_JOHTO_IAN in TRAINER_RICH_BOY): HNS_modern TRAINER_IAN, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RichBoy[] = {
+    {
+    .iv = 0,
+    .lvl = 72,
+    .species = SPECIES_MANKEY,
+    },
+    {
+    .iv = 0,
+    .lvl = 74,
+    .species = SPECIES_DIGLETT,
+    }
+};
+// Region geography (TRAINER_JOHTO_TODD in TRAINER_RS_POKEMANIAC): HNS_modern TRAINER_TODD, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSPokemaniac[] = {
+    {
+    .iv = 0,
+    .lvl = 75,
+    .species = SPECIES_AZUMARILL,
+    }
+};
+// Region geography (TRAINER_JOHTO_GINA in TRAINER_RS_SWIMMER_M): HNS_modern TRAINER_GINA, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSSwimmerM[] = {
+    {
+    .iv = 0,
+    .lvl = 74,
+    .species = SPECIES_SKIPLOOM,
+    },
+    {
+    .iv = 0,
+    .lvl = 74,
+    .species = SPECIES_BULBASAUR,
+    }
+};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSBlackBelt[] = {DUMMY_TRAINER_MON_IV};
-static const struct TrainerMonNoItemDefaultMoves sParty_Guitarist[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_Kindler[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSCamper[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_BugManiac[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSPsychicM[] = {DUMMY_TRAINER_MON};
+// Region geography (TRAINER_JOHTO_KEITH in TRAINER_GUITARIST): HNS_modern TRAINER_KEITH, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_Guitarist[] = {
+    {
+    .iv = 0,
+    .lvl = 76,
+    .species = SPECIES_GROWLITHE,
+    }
+};
+// Region geography (TRAINER_JOHTO_BRANDON in TRAINER_KINDLER): HNS_modern TRAINER_BRANDON, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_Kindler[] = {
+    {
+    .iv = 0,
+    .lvl = 75,
+    .species = SPECIES_SNUBBULL,
+    }
+};
+// Region geography (TRAINER_JOHTO_IRENE in TRAINER_RS_CAMPER): HNS_modern TRAINER_IRENE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSCamper[] = {
+    {
+    .iv = 0,
+    .lvl = 82,
+    .species = SPECIES_GOLDEEN,
+    },
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_SEAKING,
+    }
+};
+// Region geography (TRAINER_JOHTO_JENN in TRAINER_BUG_MANIAC): HNS_modern TRAINER_JENN, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_BugManiac[] = {
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_STARYU,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_STARMIE,
+    }
+};
+// Region geography (TRAINER_JOHTO_KATE in TRAINER_RS_PSYCHIC_M): HNS_modern TRAINER_KATE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSPsychicM[] = {
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_SHELLDER,
+    },
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_CLOYSTER,
+    }
+};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSPsychicF[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSGentleman[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_EliteFourSidney[] = {DUMMY_TRAINER_MON};

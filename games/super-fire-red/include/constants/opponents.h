@@ -784,6 +784,16 @@
 #define TRAINER_JOHTO_BILL                               TRAINER_RS_RUIN_MANIAC
 #define TRAINER_JOHTO_LARRY                              TRAINER_INTERVIEWER
 #define TRAINER_JOHTO_RAY                                TRAINER_HEX_MANIAC
+#define TRAINER_JOHTO_WAYNE                              TRAINER_RS_LADY
+#define TRAINER_JOHTO_SAMUEL                             TRAINER_RS_BEAUTY
+#define TRAINER_JOHTO_IAN                                TRAINER_RICH_BOY
+#define TRAINER_JOHTO_TODD                               TRAINER_RS_POKEMANIAC
+#define TRAINER_JOHTO_GINA                               TRAINER_RS_SWIMMER_M
+#define TRAINER_JOHTO_KEITH                              TRAINER_GUITARIST
+#define TRAINER_JOHTO_BRANDON                            TRAINER_KINDLER
+#define TRAINER_JOHTO_IRENE                              TRAINER_RS_CAMPER
+#define TRAINER_JOHTO_JENN                               TRAINER_BUG_MANIAC
+#define TRAINER_JOHTO_KATE                               TRAINER_RS_PSYCHIC_M
 
 #define NUM_TRAINERS                             767
 #define MAX_TRAINERS_COUNT                       768
