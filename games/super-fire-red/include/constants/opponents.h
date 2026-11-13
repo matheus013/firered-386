@@ -806,6 +806,15 @@
 #define TRAINER_JOHTO_ARNIE                              TRAINER_EXPERT_F
 #define TRAINER_JOHTO_MARK                               TRAINER_RS_YOUNGSTER
 #define TRAINER_JOHTO_ALAN                               TRAINER_RS_FISHERMAN
+#define TRAINER_HOENN_HALEY                              TRAINER_CYCLING_TRIATHLETE_M
+#define TRAINER_HOENN_IVAN                               TRAINER_CYCLING_TRIATHLETE_F
+#define TRAINER_HOENN_GINA_AND_MIA                       TRAINER_RUNNING_TRIATHLETE_M
+#define TRAINER_HOENN_WINSTON                            TRAINER_RUNNING_TRIATHLETE_F
+#define TRAINER_HOENN_CINDY                              TRAINER_SWIMMING_TRIATHLETE_M
+#define TRAINER_HOENN_BILLY                              TRAINER_SWIMMING_TRIATHLETE_F
+#define TRAINER_HOENN_DARIAN                             TRAINER_DRAGON_TAMER
+#define TRAINER_HOENN_LYLE                               TRAINER_RS_BIRD_KEEPER
+#define TRAINER_HOENN_JAMES                              TRAINER_NINJA_BOY
 
 #define NUM_TRAINERS                             767
 #define MAX_TRAINERS_COUNT                       768

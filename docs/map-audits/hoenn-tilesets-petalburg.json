@@ -1,0 +1,19 @@
+{
+ "secondary": "petalburg",
+ "secondary_tiles": {
+  "source": 160,
+  "installed": 160,
+  "compacted": false
+ },
+ "empty_metatiles": {
+  "primary": [],
+  "secondary": []
+ },
+ "normalized_quadrants": 8,
+ "rgba_pixel_comparisons": 335872,
+ "tile_order": "unchanged (+128)",
+ "sha256": {
+  "primary/metatiles.bin": "9f136a5690a29617b17266375db8eb19328e4f39b060a41806b9651ab6a2d50f",
+  "secondary/metatiles.bin": "e2ac2cf85f6d4bb75a25d609480ba2258a7e10ccb9a8aa3615340cce08708df4"
+ }
+}

@@ -231,6 +231,14 @@
       "y": 37,
       "respawn_map": "MAP_JOHTO_GOLDENROD_CITY_POKEMON_CENTER_1F",
       "respawn_npc": 1
+    },
+    {
+      "id": "HEAL_LOCATION_RUSTBORO_CITY",
+      "map": "MAP_HOENN_RUSTBORO_CITY",
+      "x": 16,
+      "y": 39,
+      "respawn_map": "MAP_HOENN_RUSTBORO_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": 1
     }
   ]
 }

@@ -45,7 +45,8 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY',
+    'OBJ_EVENT_GFX_GIRL_2': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_BOY_3': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_MAN_2': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_4': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_5': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_RICH_BOY': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_DEVON_EMPLOYEE': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_LITTLE_GIRL': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
     'OBJ_EVENT_GFX_ZIGZAGOON_1': 'OBJ_EVENT_GFX_ZIGZAGOON', 'OBJ_EVENT_GFX_BIRCHS_BAG': 'OBJ_EVENT_GFX_BIRCHS_BAG',
@@ -133,6 +134,43 @@ EVENTS = {
         5: ('itemflag', None, 'Max Revive'), 6: ('itemflag', None, 'Ether')},
         {0: ('sign', 'PetalburgCity_Text_GymSign'), 1: ('martsign', None), 2: ('pcsign', None), 3: ('sign', 'PetalburgCity_Text_CitySign'),
          4: ('pcsign', None), 5: ('martsign', None), 6: ('sign', 'PetalburgCity_Text_WallyHouseSign')}),
+    # Hoenn batch 2. Left out: May/Brendan and Mr. Briney (story), Team Aqua and the Devon employee in the woods
+    # and in Rustboro, the berry gifts (berry trees are left out), the White Herb florist, hidden items.
+    'Route104': (EMERALD, {
+        0: ('npc', 'Route104_Text_WhatsItLikeAtBottomOfSea', ''), 1: ('npc', 'Route104_Text_BrineyLivesInSeasideCottage', ''),
+        3: ('npc', 'Route104_Text_ThrowBallAtWeakenedPokemon', ''), 4: ('npc', 'Route104_Text_OnlyThrowBallAtWildPokemon', ''),
+        5: ('npc', 'Route104_Text_ImNotATrainer', ''),
+        2: ('trainer', ('TRAINER_HOENN_HALEY', 'Route104_Text_HaleyIntro', 'Route104_Text_HaleyDefeat', 'Route104_Text_HaleyPostBattle'), ''),
+        8: ('trainer', ('TRAINER_HOENN_IVAN', 'Route104_Text_IvanIntro', 'Route104_Text_IvanDefeat', 'Route104_Text_IvanPostBattle'), ''),
+        22: ('trainer', ('TRAINER_HOENN_GINA_AND_MIA', 'Route104_Text_GinaIntro', 'Route104_Text_GinaDefeat', 'Route104_Text_GinaPostBattle', 'Route104_Text_GinaNotEnoughMons'), 'double battle'),
+        23: ('trainer', ('TRAINER_HOENN_GINA_AND_MIA', 'Route104_Text_MiaIntro', 'Route104_Text_MiaDefeat', 'Route104_Text_MiaPostBattle', 'Route104_Text_MiaNotEnoughMons'), 'double battle'),
+        24: ('trainer', ('TRAINER_HOENN_WINSTON', 'Route104_Text_WinstonIntro', 'Route104_Text_WinstonDefeat', 'Route104_Text_WinstonPostBattle'), ''),
+        25: ('trainer', ('TRAINER_HOENN_CINDY', 'Route104_Text_CindyIntro', 'Route104_Text_CindyDefeat', 'Route104_Text_CindyPostBattle'), ''),
+        27: ('trainer', ('TRAINER_HOENN_BILLY', 'Route104_Text_BillyIntro', 'Route104_Text_BillyDefeat', 'Route104_Text_BillyPostBattle'), ''),
+        32: ('trainer', ('TRAINER_HOENN_DARIAN', 'Route104_Text_DarianIntro', 'Route104_Text_DarianDefeat', 'Route104_Text_DarianPostBattle'), ''),
+        20: ('itemflag', None, 'PP Up'), 26: ('itemflag', None, 'Poke Ball'), 28: ('itemflag', None, 'X Accuracy'), 30: ('itemflag', None, 'Potion'),
+        29: ('cuttree', None, 'FireRed EventScript_CutTree')},
+        {0: ('sign', 'Route104_Text_MrBrineysCottage'), 1: ('sign', 'Route104_Text_RouteSignPetalburg'),
+         2: ('sign', 'Route104_Text_RouteSignRustboro'), 3: ('sign', 'Route104_Text_PrettyPetalFlowShop'),
+         4: ('sign', 'Route104_Text_TrainerTipsDoubleBattles')}),
+    'PetalburgWoods': (EMERALD, {
+        0: ('cuttree', None, 'FireRed EventScript_CutTree'), 1: ('cuttree', None, 'FireRed EventScript_CutTree'),
+        4: ('itemflag', None, 'Great Ball'), 5: ('itemflag', None, 'X Attack'), 6: ('itemflag', None, 'Ether'), 11: ('itemflag', None, 'Paralyze Heal'),
+        7: ('npc', 'PetalburgWoods_Text_StayOutOfTallGrass', ''), 10: ('npc', 'PetalburgWoods_Text_HiddenItemsExplanation', ''),
+        8: ('trainer', ('TRAINER_HOENN_LYLE', 'PetalburgWoods_Text_GoBugPokemonTeam', 'PetalburgWoods_Text_ICouldntWin', 'PetalburgWoods_Text_ImOutOfPokeBalls'), ''),
+        9: ('trainer', ('TRAINER_HOENN_JAMES', 'PetalburgWoods_Text_InstantlyPopularWithBugPokemon', 'PetalburgWoods_Text_CantBePopularIfILose', 'PetalburgWoods_Text_PeopleRespectYou'), 'no rematch')},
+        {0: ('sign', 'PetalburgWoods_Text_TrainerTipsExperience'), 5: ('sign', 'PetalburgWoods_Text_TrainerTipsPP')}),
+    'RustboroCity': (EMERALD, {
+        0: ('npc', 'RustboroCity_Text_GymLeaderIsntEasyWithFire', ''), 1: ('npc', 'RustboroCity_Text_WeShortenItToDevon', ''),
+        2: ('npc', 'RustboroCity_Text_CatchRarePokemonIfIGoToSchool', ''), 3: ('npc', 'RustboroCity_Text_WowYouHavePokemon', ''),
+        4: ('npc', 'RustboroCity_Text_MrBrineyWalksInTheTunnel', ''), 5: ('npc', 'RustboroCity_Text_HaveYouChallengedGym', ''),
+        6: ('npc', 'RustboroCity_Text_PokemonCanChangeLookFromExp', ''), 7: ('npc', 'RustboroCity_Text_PokemonChangeShape', ''),
+        10: ('npc', 'RustboroCity_Text_YoureNewAroundHere', ''), 12: ('npc', 'RustboroCity_Text_TradePokemonGrowFast', ''),
+        15: ('npc', 'RustboroCity_Text_YouCanHave2On2Battle', ''), 11: ('itemflag', None, 'X Defend')},
+        {0: ('sign', 'RustboroCity_Text_GymSign'), 1: ('sign', 'RustboroCity_Text_TrainersSchoolSign'), 2: ('martsign', None),
+         3: ('pcsign', None), 4: ('sign', 'RustboroCity_Text_CitySign'), 5: ('martsign', None), 6: ('pcsign', None),
+         7: ('sign', 'RustboroCity_Text_DevonCorpSign'), 8: ('sign', 'RustboroCity_Text_TunnelNearingCompletion'),
+         9: ('sign', 'RustboroCity_Text_CuttersHouse')}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -323,7 +361,8 @@ EVENTS = {
 WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkTown': 'FLAG_WORLD_MAP_NEW_BARK_TOWN',
                    'OldaleTown': 'FLAG_WORLD_MAP_OLDALE_TOWN', 'PetalburgCity': 'FLAG_WORLD_MAP_PETALBURG_CITY',
                    'CherrygroveCity': 'FLAG_WORLD_MAP_CHERRYGROVE_CITY', 'VioletCity': 'FLAG_WORLD_MAP_VIOLET_CITY',
-                   'AzaleaTown': 'FLAG_WORLD_MAP_AZALEA_TOWN', 'GoldenrodCity': 'FLAG_WORLD_MAP_GOLDENROD_CITY'}
+                   'AzaleaTown': 'FLAG_WORLD_MAP_AZALEA_TOWN', 'GoldenrodCity': 'FLAG_WORLD_MAP_GOLDENROD_CITY',
+                   'RustboroCity': 'FLAG_WORLD_MAP_RUSTBORO_CITY'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -355,6 +394,15 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route35', 10): ('ITEM_TM39', 'FLAG_HIDE_JOHTO_ROUTE35_TM_ROCK_TOMB', 'FLAG_0x0CB'),
               ('Route35', 11): ('ITEM_NUGGET', 'FLAG_HIDE_JOHTO_ROUTE35_NUGGET', 'FLAG_0x0CC'),  # HNS Big Nugget; FireRed has Nugget
               ('Route35', 20): ('ITEM_PARALYZE_HEAL', 'FLAG_HIDE_JOHTO_ROUTE35_PARALYZE_HEAL', 'FLAG_0x0CD'),
+              ('Route104', 20): ('ITEM_PP_UP', 'FLAG_HIDE_HOENN_ROUTE104_PP_UP', 'FLAG_0x0CE'),
+              ('Route104', 26): ('ITEM_POKE_BALL', 'FLAG_HIDE_HOENN_ROUTE104_POKE_BALL', 'FLAG_0x0CF'),
+              ('Route104', 28): ('ITEM_X_ACCURACY', 'FLAG_HIDE_HOENN_ROUTE104_X_ACCURACY', 'FLAG_0x0D0'),
+              ('Route104', 30): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE104_POTION', 'FLAG_0x0D1'),
+              ('PetalburgWoods', 4): ('ITEM_GREAT_BALL', 'FLAG_HIDE_HOENN_PETALBURG_WOODS_GREAT_BALL', 'FLAG_0x0D2'),
+              ('PetalburgWoods', 5): ('ITEM_X_ATTACK', 'FLAG_HIDE_HOENN_PETALBURG_WOODS_X_ATTACK', 'FLAG_0x0D3'),
+              ('PetalburgWoods', 6): ('ITEM_ETHER', 'FLAG_HIDE_HOENN_PETALBURG_WOODS_ETHER', 'FLAG_0x0D4'),
+              ('PetalburgWoods', 11): ('ITEM_PARALYZE_HEAL', 'FLAG_HIDE_HOENN_PETALBURG_WOODS_PARALYZE_HEAL', 'FLAG_0x0D5'),
+              ('RustboroCity', 11): ('ITEM_X_DEFEND', 'FLAG_HIDE_HOENN_RUSTBORO_X_DEFEND', 'FLAG_0x0D6'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.

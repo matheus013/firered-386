@@ -1448,6 +1448,27 @@ const u16 gTilesetPalettes_HoennPilotPetalburg[][16] = {
     INCBIN_U16("data/tilesets/secondary/hoenn_pilot/palettes/15.gbapal"),
 };
 
+// Hoenn batch 2 (scripts/convert_hoenn_tilesets.py): Emerald Rustboro, referenced tiles only.
+const u32 gTilesetTiles_HoennPilotRustboro[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot_rustboro/tiles.4bpp.lz");
+const u16 gTilesetPalettes_HoennPilotRustboro[][16] = {
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/12.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/13.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/14.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_rustboro/palettes/15.gbapal"),
+};
+
 // Hoenn pilot interiors (scripts/install_hoenn_interiors.py)
 const u32 gTilesetTiles_HoennPilotBuilding[] = INCBIN_U32("data/tilesets/primary/hoenn_pilot_building/tiles.4bpp.lz");
 const u16 gTilesetPalettes_HoennPilotBuilding[][16] = {

@@ -769,6 +769,17 @@ const struct Tileset gTileset_HoennPilotPetalburg =
     .callback = InitTilesetAnim_HoennPetalburgPilot,
 };
 
+const struct Tileset gTileset_HoennPilotRustboro =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HoennPilotRustboro,
+    .palettes = gTilesetPalettes_HoennPilotRustboro,
+    .metatiles = gMetatiles_HoennPilotRustboro,
+    .metatileAttributes = gMetatileAttributes_HoennPilotRustboro,
+    .callback = InitTilesetAnim_HoennPetalburgPilot,  // static: Emerald's Rustboro animations are not converted
+};
+
 // Hoenn pilot interiors (scripts/install_hoenn_interiors.py)
 const struct Tileset gTileset_HoennPilotBuilding =
 {

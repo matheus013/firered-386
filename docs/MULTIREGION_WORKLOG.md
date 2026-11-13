@@ -1686,3 +1686,69 @@ que só leva dano superefetivo de Lutador. Além disso, a cena aponta o cursor d
 Pokémon saudável, como a jornada contínua já fazia.
 
 **Resultado:** 469 casos aprovados (eram 424), com as 49 batalhas de rota vencidas.
+
+## Hoenn: correção visual do lote 1 e lote 2 (Route 104, Petalburg Woods e Rustboro)
+
+**Defeito encontrado no lote 1.** O tileset primário de Hoenn (General) só tinha 32 metatiles
+preenchidos: os que Littleroot e a Route 101 usam. O `convert_hoenn_graphics.py` foi feito só para o
+piloto e zerava o resto. Por isso, Oldale, as Routes 102 e 103 e Petalburg mostravam blocos cinza e
+pretos onde usavam outros metatiles. Uma captura de Oldale tirada com o runner de diagnóstico
+confirmou. O teste da ROM não pegava o problema, porque confere movimento e eventos, não a imagem.
+Havia também um segundo defeito, no `convert_hoenn_batch1_attributes.py`: ele pulava os metatiles de
+comportamento normal e, com isso, o tipo de camada deles. Copas de árvore e telhados que cobrem o
+jogador ficavam com a camada errada.
+
+- **`scripts/convert_hoenn_tilesets.py` (novo):** converte todos os metatiles de um par do Emerald
+  (General + secundário), com o mesmo remapeamento de tiles (512 → 640) e de paletas (6 → 7). Cada
+  quadrante é desenhado antes e depois da conversão e comparado pixel a pixel (335.872 comparações
+  no par Petalburg e 441.344 no Rustboro).
+  - Os metatiles que já estavam instalados saíram idênticos. Agora estão preenchidos 504 do General
+    e 130 do Petalburg; os que continuam vazios também são vazios no Emerald.
+  - Um secundário que não cabe nos 384 tiles do FireRed é compactado nos tiles que os metatiles
+    usam. É o caso do Rustboro: 276 de 512.
+- **`convert_hoenn_batch1_attributes.py`:**
+  - grava o tipo de camada também nos metatiles normais (16 entradas corrigidas no lote 1);
+  - ganhou o modo `--batch 2`, com regras novas: grama alta, desníveis para sul e oeste, areia,
+    poça, portas sem animação, setas de warp e a água sob a ponte da Route 104.
+
+**Lote 2: mapas novos:**
+
+- a Route 104, ligada a Petalburg pelo oeste;
+- a Petalburg Woods, com os warps de ida e volta para a Route 104 renumerados;
+- Rustboro City, ao norte.
+
+Os três usam o par General + `gTileset_HoennPilotRustboro`. O `scripts/install_hoenn_batch2.py`
+recalcula as conexões de todos os exteriores de Hoenn instalados, então Petalburg ganhou a ligação
+com a Route 104.
+
+- **Rustboro:** Centro Pokémon e Mart com os interiores do FireRed. O Mart vende a lista expandida
+  do Emerald. A heal location fica em (16,39), a flag é `FLAG_WORLD_MAP_RUSTBORO_CITY` (0x8CB), e a
+  cidade é destino de Fly. As portas do Centro e do Mart foram registradas para o par General +
+  Rustboro.
+- **Treinadores (9, em vagas reaproveitadas):**
+  - Haley, Ivan, a dupla Gina e Mia (batalha dupla), Winston, Cindy, Billy e Darian, na Route 104;
+  - Lyle e James, na floresta.
+- **Eventos:**
+  - nove itens e três árvores de Cut;
+  - os moradores de Rustboro e da Route 104;
+  - as placas;
+  - 66 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama, água e pesca na Route 104, e grama na floresta.
+
+**Fica para depois:**
+
+- a May/o Brendan e o Mr. Briney;
+- a Team Aqua e o funcionário da Devon (na floresta e em Rustboro);
+- os presentes de berry e a florista da White Herb;
+- os itens escondidos;
+- o Ginásio da Roxanne, a Devon, a escola, as casas e o túnel (fechados);
+- as animações de tiles do Rustboro.
+
+**Teste:**
+
+- Petalburg ↔ Route 104 e Route 104 ↔ Rustboro;
+- as duas entradas da floresta;
+- as portas de Rustboro;
+- conversas com os eventos novos e uma batalha com cada treinador novo.
+
+**Resultado:** 543 casos aprovados (eram 469), com as 58 batalhas de rota vencidas. Capturas tiradas com o runner de diagnóstico confirmam Oldale e a Route 102 sem blocos vazios, e Rustboro e a Route 104 desenhadas corretamente.

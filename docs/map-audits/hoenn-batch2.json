@@ -1,0 +1,62 @@
+{
+  "maps": {
+    "Hoenn_Route104": {
+      "layout": "LAYOUT_HOENN_ROUTE104",
+      "secondary": "gTileset_HoennPilotRustboro",
+      "music": "MUS_ROUTE24",
+      "warps": 6
+    },
+    "Hoenn_PetalburgWoods": {
+      "layout": "LAYOUT_HOENN_PETALBURG_WOODS",
+      "secondary": "gTileset_HoennPilotRustboro",
+      "music": "MUS_VIRIDIAN_FOREST",
+      "warps": 6
+    },
+    "Hoenn_RustboroCity": {
+      "layout": "LAYOUT_HOENN_RUSTBORO_CITY",
+      "secondary": "gTileset_HoennPilotRustboro",
+      "music": "MUS_VERMILLION",
+      "warps": 2
+    },
+    "Hoenn_RustboroCity_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "heal_location": "HEAL_LOCATION_RUSTBORO_CITY"
+    },
+    "Hoenn_RustboroCity_Mart": {
+      "layout": "LAYOUT_MART",
+      "items": [
+        "ITEM_POKE_BALL",
+        "ITEM_TIMER_BALL",
+        "ITEM_REPEAT_BALL",
+        "ITEM_POTION",
+        "ITEM_SUPER_POTION",
+        "ITEM_ANTIDOTE",
+        "ITEM_PARALYZE_HEAL",
+        "ITEM_ESCAPE_ROPE",
+        "ITEM_REPEL",
+        "ITEM_X_SPEED",
+        "ITEM_X_ATTACK",
+        "ITEM_X_DEFEND"
+      ]
+    }
+  },
+  "closed_doors": {
+    "Route104": [
+      "MAP_ROUTE104_MR_BRINEYS_HOUSE",
+      "MAP_ROUTE104_PRETTY_PETAL_FLOWER_SHOP"
+    ],
+    "PetalburgWoods": [],
+    "RustboroCity": [
+      "MAP_RUSTBORO_CITY_GYM",
+      "MAP_RUSTBORO_CITY_FLAT1_1F",
+      "MAP_RUSTBORO_CITY_POKEMON_SCHOOL",
+      "MAP_RUSTBORO_CITY_DEVON_CORP_1F",
+      "MAP_RUSTBORO_CITY_DEVON_CORP_1F",
+      "MAP_RUSTBORO_CITY_HOUSE1",
+      "MAP_RUSTBORO_CITY_CUTTERS_HOUSE",
+      "MAP_RUSTBORO_CITY_HOUSE2",
+      "MAP_RUSTBORO_CITY_FLAT2_1F",
+      "MAP_RUSTBORO_CITY_HOUSE3"
+    ]
+  }
+}

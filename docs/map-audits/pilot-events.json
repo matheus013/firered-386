@@ -963,6 +963,649 @@
         }
       ]
     },
+    "Hoenn_Route104": {
+      "source": "pokeemerald/Route104",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "Route104_EventScript_BugCatcher",
+          "source_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "firered_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "text": "Route104_Text_WhatsItLikeAtBottomOfSea",
+          "note": "",
+          "x": 15,
+          "y": 60
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "Route104_EventScript_Girl1",
+          "source_sprite": "OBJ_EVENT_GFX_GIRL_2",
+          "firered_sprite": "OBJ_EVENT_GFX_LITTLE_GIRL",
+          "text": "Route104_Text_BrineyLivesInSeasideCottage",
+          "note": "",
+          "x": 25,
+          "y": 49
+        },
+        {
+          "kind": "trainer",
+          "source_index": 2,
+          "source_script": "Route104_EventScript_Haley",
+          "source_sprite": "OBJ_EVENT_GFX_LASS",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_HALEY",
+            "Route104_Text_HaleyIntro",
+            "Route104_Text_HaleyDefeat",
+            "Route104_Text_HaleyPostBattle"
+          ],
+          "note": "",
+          "x": 31,
+          "y": 24
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "Route104_EventScript_Boy1",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_1",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "Route104_Text_ThrowBallAtWeakenedPokemon",
+          "note": "",
+          "x": 27,
+          "y": 63
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "Route104_EventScript_Woman",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": "Route104_Text_OnlyThrowBallAtWildPokemon",
+          "note": "",
+          "x": 30,
+          "y": 50
+        },
+        {
+          "kind": "npc",
+          "source_index": 5,
+          "source_script": "Route104_EventScript_Girl2",
+          "source_sprite": "OBJ_EVENT_GFX_GIRL_3",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": "Route104_Text_ImNotATrainer",
+          "note": "",
+          "x": 28,
+          "y": 74
+        },
+        {
+          "kind": "trainer",
+          "source_index": 8,
+          "source_script": "Route104_EventScript_Ivan",
+          "source_sprite": "OBJ_EVENT_GFX_FISHERMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FISHER",
+          "text": [
+            "TRAINER_HOENN_IVAN",
+            "Route104_Text_IvanIntro",
+            "Route104_Text_IvanDefeat",
+            "Route104_Text_IvanPostBattle"
+          ],
+          "note": "",
+          "x": 29,
+          "y": 8
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 20,
+          "source_script": "Route104_EventScript_ItemPPUp",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "PP Up",
+          "x": 39,
+          "y": 15
+        },
+        {
+          "kind": "trainer",
+          "source_index": 22,
+          "source_script": "Route104_EventScript_Gina",
+          "source_sprite": "OBJ_EVENT_GFX_TWIN",
+          "firered_sprite": "OBJ_EVENT_GFX_TWIN",
+          "text": [
+            "TRAINER_HOENN_GINA_AND_MIA",
+            "Route104_Text_GinaIntro",
+            "Route104_Text_GinaDefeat",
+            "Route104_Text_GinaPostBattle",
+            "Route104_Text_GinaNotEnoughMons"
+          ],
+          "note": "double battle",
+          "x": 27,
+          "y": 15
+        },
+        {
+          "kind": "trainer",
+          "source_index": 23,
+          "source_script": "Route104_EventScript_Mia",
+          "source_sprite": "OBJ_EVENT_GFX_TWIN",
+          "firered_sprite": "OBJ_EVENT_GFX_TWIN",
+          "text": [
+            "TRAINER_HOENN_GINA_AND_MIA",
+            "Route104_Text_MiaIntro",
+            "Route104_Text_MiaDefeat",
+            "Route104_Text_MiaPostBattle",
+            "Route104_Text_MiaNotEnoughMons"
+          ],
+          "note": "double battle",
+          "x": 28,
+          "y": 15
+        },
+        {
+          "kind": "trainer",
+          "source_index": 24,
+          "source_script": "Route104_EventScript_Winston",
+          "source_sprite": "OBJ_EVENT_GFX_RICH_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": [
+            "TRAINER_HOENN_WINSTON",
+            "Route104_Text_WinstonIntro",
+            "Route104_Text_WinstonDefeat",
+            "Route104_Text_WinstonPostBattle"
+          ],
+          "note": "",
+          "x": 21,
+          "y": 25
+        },
+        {
+          "kind": "trainer",
+          "source_index": 25,
+          "source_script": "Route104_EventScript_Cindy",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": [
+            "TRAINER_HOENN_CINDY",
+            "Route104_Text_CindyIntro",
+            "Route104_Text_CindyDefeat",
+            "Route104_Text_CindyPostBattle"
+          ],
+          "note": "",
+          "x": 11,
+          "y": 44
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 26,
+          "source_script": "Route104_EventScript_ItemPokeBall",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Poke Ball",
+          "x": 29,
+          "y": 53
+        },
+        {
+          "kind": "trainer",
+          "source_index": 27,
+          "source_script": "Route104_EventScript_Billy",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": [
+            "TRAINER_HOENN_BILLY",
+            "Route104_Text_BillyIntro",
+            "Route104_Text_BillyDefeat",
+            "Route104_Text_BillyPostBattle"
+          ],
+          "note": "",
+          "x": 18,
+          "y": 67
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 28,
+          "source_script": "Route104_EventScript_ItemXAccuracy",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "X Accuracy",
+          "x": 37,
+          "y": 22
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 29,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "FireRed EventScript_CutTree",
+          "x": 35,
+          "y": 22
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 30,
+          "source_script": "Route104_EventScript_ItemPotion",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Potion",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "kind": "trainer",
+          "source_index": 32,
+          "source_script": "Route104_EventScript_Darian",
+          "source_sprite": "OBJ_EVENT_GFX_FISHERMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FISHER",
+          "text": [
+            "TRAINER_HOENN_DARIAN",
+            "Route104_Text_DarianIntro",
+            "Route104_Text_DarianDefeat",
+            "Route104_Text_DarianPostBattle"
+          ],
+          "note": "",
+          "x": 15,
+          "y": 59
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route104_EventScript_BrineysCottageSign",
+          "text": "Route104_Text_MrBrineysCottage",
+          "x": 20,
+          "y": 50
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "Route104_EventScript_RouteSignPetalburg",
+          "text": "Route104_Text_RouteSignPetalburg",
+          "x": 27,
+          "y": 66
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "Route104_EventScript_RouteSignRustboro",
+          "text": "Route104_Text_RouteSignRustboro",
+          "x": 23,
+          "y": 5
+        },
+        {
+          "kind": "sign",
+          "source_index": 3,
+          "source_script": "Route104_EventScript_FlowerShopSign",
+          "text": "Route104_Text_PrettyPetalFlowShop",
+          "x": 7,
+          "y": 20
+        },
+        {
+          "kind": "sign",
+          "source_index": 4,
+          "source_script": "Route104_EventScript_TrainerTipsDoubleBattles",
+          "text": "Route104_Text_TrainerTipsDoubleBattles",
+          "x": 17,
+          "y": 23
+        }
+      ]
+    },
+    "Hoenn_PetalburgWoods": {
+      "source": "pokeemerald/PetalburgWoods",
+      "events": [
+        {
+          "kind": "cuttree",
+          "source_index": 0,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "FireRed EventScript_CutTree",
+          "x": 19,
+          "y": 10
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 1,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "FireRed EventScript_CutTree",
+          "x": 19,
+          "y": 11
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 4,
+          "source_script": "PetalburgWoods_EventScript_ItemGreatBall",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Great Ball",
+          "x": 45,
+          "y": 7
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 5,
+          "source_script": "PetalburgWoods_EventScript_ItemXAttack",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "X Attack",
+          "x": 35,
+          "y": 20
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 6,
+          "source_script": "PetalburgWoods_EventScript_ItemEther",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Ether",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "kind": "npc",
+          "source_index": 7,
+          "source_script": "PetalburgWoods_EventScript_Boy1",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_2",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "PetalburgWoods_Text_StayOutOfTallGrass",
+          "note": "",
+          "x": 15,
+          "y": 19
+        },
+        {
+          "kind": "trainer",
+          "source_index": 8,
+          "source_script": "PetalburgWoods_EventScript_Lyle",
+          "source_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "firered_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "text": [
+            "TRAINER_HOENN_LYLE",
+            "PetalburgWoods_Text_GoBugPokemonTeam",
+            "PetalburgWoods_Text_ICouldntWin",
+            "PetalburgWoods_Text_ImOutOfPokeBalls"
+          ],
+          "note": "",
+          "x": 7,
+          "y": 32
+        },
+        {
+          "kind": "trainer",
+          "source_index": 9,
+          "source_script": "PetalburgWoods_EventScript_James",
+          "source_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "firered_sprite": "OBJ_EVENT_GFX_BUG_CATCHER",
+          "text": [
+            "TRAINER_HOENN_JAMES",
+            "PetalburgWoods_Text_InstantlyPopularWithBugPokemon",
+            "PetalburgWoods_Text_CantBePopularIfILose",
+            "PetalburgWoods_Text_PeopleRespectYou"
+          ],
+          "note": "no rematch",
+          "x": 4,
+          "y": 14
+        },
+        {
+          "kind": "npc",
+          "source_index": 10,
+          "source_script": "PetalburgWoods_EventScript_Boy2",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_3",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "PetalburgWoods_Text_HiddenItemsExplanation",
+          "note": "",
+          "x": 30,
+          "y": 34
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 11,
+          "source_script": "PetalburgWoods_EventScript_ItemParalyzeHeal",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Paralyze Heal",
+          "x": 4,
+          "y": 26
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "PetalburgWoods_EventScript_Sign1",
+          "text": "PetalburgWoods_Text_TrainerTipsExperience",
+          "x": 14,
+          "y": 32
+        },
+        {
+          "kind": "sign",
+          "source_index": 5,
+          "source_script": "PetalburgWoods_EventScript_Sign2",
+          "text": "PetalburgWoods_Text_TrainerTipsPP",
+          "x": 11,
+          "y": 8
+        }
+      ]
+    },
+    "Hoenn_RustboroCity": {
+      "source": "pokeemerald/RustboroCity",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "RustboroCity_EventScript_Woman",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_3",
+          "text": "RustboroCity_Text_GymLeaderIsntEasyWithFire",
+          "note": "",
+          "x": 22,
+          "y": 34
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "RustboroCity_EventScript_FatMan",
+          "source_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "text": "RustboroCity_Text_WeShortenItToDevon",
+          "note": "",
+          "x": 19,
+          "y": 13
+        },
+        {
+          "kind": "npc",
+          "source_index": 2,
+          "source_script": "RustboroCity_EventScript_NinjaBoy",
+          "source_sprite": "OBJ_EVENT_GFX_NINJA_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_NINJA_BOY",
+          "text": "RustboroCity_Text_CatchRarePokemonIfIGoToSchool",
+          "note": "",
+          "x": 25,
+          "y": 37
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "RustboroCity_EventScript_Twin",
+          "source_sprite": "OBJ_EVENT_GFX_TWIN",
+          "firered_sprite": "OBJ_EVENT_GFX_TWIN",
+          "text": "RustboroCity_Text_WowYouHavePokemon",
+          "note": "",
+          "x": 21,
+          "y": 46
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "RustboroCity_EventScript_Boy2",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_2",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "RustboroCity_Text_MrBrineyWalksInTheTunnel",
+          "note": "",
+          "x": 12,
+          "y": 45
+        },
+        {
+          "kind": "npc",
+          "source_index": 5,
+          "source_script": "RustboroCity_EventScript_Man1",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_3",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "RustboroCity_Text_HaveYouChallengedGym",
+          "note": "",
+          "x": 26,
+          "y": 23
+        },
+        {
+          "kind": "npc",
+          "source_index": 6,
+          "source_script": "RustboroCity_EventScript_LittleBoy",
+          "source_sprite": "OBJ_EVENT_GFX_LITTLE_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_LITTLE_BOY",
+          "text": "RustboroCity_Text_PokemonCanChangeLookFromExp",
+          "note": "",
+          "x": 24,
+          "y": 51
+        },
+        {
+          "kind": "npc",
+          "source_index": 7,
+          "source_script": "RustboroCity_EventScript_LittleGirl",
+          "source_sprite": "OBJ_EVENT_GFX_LITTLE_GIRL",
+          "firered_sprite": "OBJ_EVENT_GFX_LITTLE_GIRL",
+          "text": "RustboroCity_Text_PokemonChangeShape",
+          "note": "",
+          "x": 25,
+          "y": 51
+        },
+        {
+          "kind": "npc",
+          "source_index": 10,
+          "source_script": "RustboroCity_EventScript_DevonEmployee2",
+          "source_sprite": "OBJ_EVENT_GFX_DEVON_EMPLOYEE",
+          "firered_sprite": "OBJ_EVENT_GFX_SCIENTIST",
+          "text": "RustboroCity_Text_YoureNewAroundHere",
+          "note": "",
+          "x": 13,
+          "y": 34
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 11,
+          "source_script": "RustboroCity_EventScript_ItemXDefend",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "X Defend",
+          "x": 36,
+          "y": 51
+        },
+        {
+          "kind": "npc",
+          "source_index": 12,
+          "source_script": "RustboroCity_EventScript_Man2",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_4",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "RustboroCity_Text_TradePokemonGrowFast",
+          "note": "",
+          "x": 19,
+          "y": 27
+        },
+        {
+          "kind": "npc",
+          "source_index": 15,
+          "source_script": "RustboroCity_EventScript_Boy1",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_1",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "RustboroCity_Text_YouCanHave2On2Battle",
+          "note": "",
+          "x": 31,
+          "y": 36
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "RustboroCity_EventScript_GymSign",
+          "text": "RustboroCity_Text_GymSign",
+          "x": 23,
+          "y": 19
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "RustboroCity_EventScript_TrainersSchoolSign",
+          "text": "RustboroCity_Text_TrainersSchoolSign",
+          "x": 25,
+          "y": 35
+        },
+        {
+          "kind": "martsign",
+          "source_index": 2,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 17,
+          "y": 45
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 3,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 18,
+          "y": 38
+        },
+        {
+          "kind": "sign",
+          "source_index": 4,
+          "source_script": "RustboroCity_EventScript_CitySign",
+          "text": "RustboroCity_Text_CitySign",
+          "x": 19,
+          "y": 49
+        },
+        {
+          "kind": "martsign",
+          "source_index": 5,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 18,
+          "y": 45
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 6,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 17,
+          "y": 38
+        },
+        {
+          "kind": "sign",
+          "source_index": 7,
+          "source_script": "RustboroCity_EventScript_DevonCorpSign",
+          "text": "RustboroCity_Text_DevonCorpSign",
+          "x": 17,
+          "y": 20
+        },
+        {
+          "kind": "sign",
+          "source_index": 8,
+          "source_script": "RustboroCity_EventScript_TunnelSign",
+          "text": "RustboroCity_Text_TunnelNearingCompletion",
+          "x": 30,
+          "y": 8
+        },
+        {
+          "kind": "sign",
+          "source_index": 9,
+          "source_script": "RustboroCity_EventScript_CuttersHouseSign",
+          "text": "RustboroCity_Text_CuttersHouse",
+          "x": 12,
+          "y": 38
+        }
+      ]
+    },
     "Johto_NewBarkTown": {
       "source": "HNS_modern/NewBarkTown",
       "events": [

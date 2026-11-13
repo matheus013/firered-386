@@ -66,6 +66,13 @@ for _m,_x,_y,_steps,_want in (
   (HOENN+'OLDALE_TOWN',14,7,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_OLDALE_TOWN_MART',{(4,7)}),('MAP_HOENN_OLDALE_TOWN',{(14,7)})]),
   (HOENN+'PETALBURG_CITY',20,17,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_PETALBURG_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_PETALBURG_CITY',{(20,17)})]),
   (HOENN+'PETALBURG_CITY',25,13,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_PETALBURG_CITY_MART',{(4,7)}),('MAP_HOENN_PETALBURG_CITY',{(25,13)})]),
+  # Hoenn batch 2: Petalburg west into Route 104, north to Rustboro, Petalburg Woods and Rustboro's doors.
+  (HOENN+'PETALBURG_CITY',0,12,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_HOENN_ROUTE104',{(39,62)}),('MAP_HOENN_PETALBURG_CITY',{(0,12)})]),
+  (HOENN+'ROUTE104',14,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_RUSTBORO_CITY',{(14,59)}),('MAP_HOENN_ROUTE104',{(14,0)})]),
+  (HOENN+'ROUTE104',10,39,[('UP','MAP')],[('MAP_HOENN_PETALBURG_WOODS',None)]),
+  (HOENN+'ROUTE104',10,29,[('DOWN','MAP')],[('MAP_HOENN_PETALBURG_WOODS',None)]),
+  (HOENN+'RUSTBORO_CITY',16,39,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_RUSTBORO_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_RUSTBORO_CITY',{(16,39)})]),
+  (HOENN+'RUSTBORO_CITY',16,46,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_RUSTBORO_CITY_MART',{(4,7)}),('MAP_HOENN_RUSTBORO_CITY',{(16,46)})]),
   # Johto batch 1: Route 29 west into Cherrygrove, north to Routes 30 and 31, and the Pokemon Center/Mart doors.
   (JOHTO+'ROUTE29',0,16,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY',{(64,10)}),('MAP_JOHTO_ROUTE29',{(0,16)})]),
   (JOHTO+'CHERRYGROVE_CITY',34,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE30',{(25,57)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(34,0)})]),
@@ -1251,7 +1258,8 @@ for name,row,tiles in (('Littleroot',little,HOENN_TILES),('Route101',route,HOENN
  assert row[17],(name,'tile animation did not update VRAM tile 508')
 assert pallet[4]==KANTO_TILES,'Pallet Town no longer uses the FireRed tilesets'
 assert little[7]==1 and tuple(little[8:11])==(UP,HG,ROUTE101),('Littleroot must connect north to Route101',list(little[7:11]))
-assert route[7]>=1 and tuple(route[8:11])==(DOWN,HG,LITTLEROOT),('Route101 must connect south to Littleroot (and north to Oldale)',list(route[7:11]))
+# Route 101: north to Oldale and south to Littleroot; the first one recorded follows the Emerald header order.
+assert route[7]==2 and tuple(route[8:11]) in ((DOWN,HG,LITTLEROOT),(UP,HG,7)),('Route101 must connect south to Littleroot and north to Oldale',list(route[7:11]))
 assert newbark[7]==1 and tuple(newbark[8:11])==(LEFT,JG,ROUTE29),('New Bark must connect west to Route29',list(newbark[7:11]))
 # Route 29: west to Cherrygrove (Johto batch 1, listed first) and east to New Bark (walked in case 21).
 assert route29[7]==2 and tuple(route29[8:11])==(LEFT,JG,8),('Route29 must connect west to Cherrygrove and east to New Bark',list(route29[7:11]))

@@ -13,34 +13,64 @@
       "reason": "FireRed has no secret bases"
     },
     {
-      "metatile": "0x021",
-      "source_behavior": "MB_ANIMATED_DOOR",
-      "attribute": "0x00000069",
-      "reason": "FR MB_WARP_DOOR"
+      "metatile": "0x020",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x041",
-      "source_behavior": "MB_ANIMATED_DOOR",
-      "attribute": "0x20000069",
-      "reason": "FR MB_WARP_DOOR"
+      "metatile": "0x022",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x061",
-      "source_behavior": "MB_ANIMATED_DOOR",
-      "attribute": "0x20000069",
-      "reason": "FR MB_WARP_DOOR"
+      "metatile": "0x042",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x071",
-      "source_behavior": "MB_MOUNTAIN_TOP",
-      "attribute": "0x0000000c",
-      "reason": "FR MB_MOUNTAIN_TOP"
+      "metatile": "0x043",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x086",
-      "source_behavior": "MB_JUMP_EAST",
-      "attribute": "0x20000038",
-      "reason": "east ledge"
+      "metatile": "0x060",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x062",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x063",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x06f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x072",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x07a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
       "metatile": "0x08d",
@@ -49,58 +79,10 @@
       "reason": "source has no movement for diagonal jumps"
     },
     {
-      "metatile": "0x0a1",
-      "source_behavior": "MB_POND_WATER",
-      "attribute": "0x22000410",
-      "reason": "FR pond water: surfable, water encounters"
-    },
-    {
-      "metatile": "0x0b0",
-      "source_behavior": "MB_POND_WATER",
-      "attribute": "0x22000410",
-      "reason": "FR pond water: surfable, water encounters"
-    },
-    {
-      "metatile": "0x0b1",
-      "source_behavior": "MB_POND_WATER",
-      "attribute": "0x22000410",
-      "reason": "FR pond water: surfable, water encounters"
-    },
-    {
-      "metatile": "0x0b2",
-      "source_behavior": "MB_POND_WATER",
-      "attribute": "0x22000410",
-      "reason": "FR pond water: surfable, water encounters"
-    },
-    {
-      "metatile": "0x0b8",
-      "source_behavior": "MB_POND_WATER",
-      "attribute": "0x22000410",
-      "reason": "FR pond water: surfable, water encounters"
-    },
-    {
-      "metatile": "0x0ba",
-      "source_behavior": "MB_POND_WATER",
-      "attribute": "0x22000410",
-      "reason": "FR pond water: surfable, water encounters"
-    },
-    {
-      "metatile": "0x0c0",
-      "source_behavior": "MB_POND_WATER",
-      "attribute": "0x22000410",
-      "reason": "FR pond water: surfable, water encounters"
-    },
-    {
-      "metatile": "0x0c2",
-      "source_behavior": "MB_POND_WATER",
-      "attribute": "0x22000410",
-      "reason": "FR pond water: surfable, water encounters"
-    },
-    {
-      "metatile": "0x0ff",
-      "source_behavior": "MB_JUMP_EAST",
-      "attribute": "0x20000038",
-      "reason": "east ledge"
+      "metatile": "0x131",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
       "metatile": "0x14c",
@@ -109,94 +91,190 @@
       "reason": "berry trees are left out of batch 1"
     },
     {
-      "metatile": "0x170",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x22000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x150",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x178",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x22000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x151",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x179",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x22000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x158",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x181",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x22000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x159",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x188",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x22000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x164",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x189",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x22000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x165",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x18a",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x22000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x16c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x190",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x22000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x16d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x192",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x22000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x17d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x193",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x42000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x17e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x198",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x22000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x1b3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x19a",
-      "source_behavior": "MB_OCEAN_WATER",
-      "attribute": "0x22000415",
-      "reason": "FR ocean water: surfable, water encounters"
+      "metatile": "0x1b9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x1cd",
-      "source_behavior": "MB_ANIMATED_DOOR",
-      "attribute": "0x20000069",
-      "reason": "FR MB_WARP_DOOR"
+      "metatile": "0x1ba",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x1fe",
-      "source_behavior": "MB_POND_WATER",
-      "attribute": "0x42000410",
-      "reason": "FR pond water: surfable, water encounters"
+      "metatile": "0x1bb",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
-      "metatile": "0x1ff",
-      "source_behavior": "MB_POND_WATER",
-      "attribute": "0x42000410",
-      "reason": "FR pond water: surfable, water encounters"
+      "metatile": "0x1c0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x1c1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x1c2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x1c3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x1c4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x1c5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x1c8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x1c9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x1ca",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x1cb",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x1cc",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2cd",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ce",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
       "metatile": "0x2fb",
@@ -205,16 +283,34 @@
       "reason": "source has no movement for diagonal jumps"
     },
     {
-      "metatile": "0x307",
-      "source_behavior": "MB_ANIMATED_DOOR",
-      "attribute": "0x20000069",
-      "reason": "FR MB_WARP_DOOR"
+      "metatile": "0x2ff",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x304",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x306",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     },
     {
       "metatile": "0x30d",
       "source_behavior": "MB_BERRY_TREE_SOIL",
       "attribute": "0x00000000",
       "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x30f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     }
   ]
 }

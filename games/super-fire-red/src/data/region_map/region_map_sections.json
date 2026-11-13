@@ -78,7 +78,8 @@
       "hoenn_x": 0,
       "hoenn_y": 5,
       "hoenn_width": 1,
-      "hoenn_height": 2
+      "hoenn_height": 2,
+      "hoenn_name": "RUSTBORO CITY"
     },
     {
       "id": "MAPSEC_FORTREE_CITY",
@@ -144,7 +145,8 @@
       "hoenn_x": 0,
       "hoenn_y": 7,
       "hoenn_width": 1,
-      "hoenn_height": 3
+      "hoenn_height": 3,
+      "hoenn_name": "ROUTE 104"
     },
     {
       "id": "MAPSEC_ROUTE_105",
@@ -396,7 +398,8 @@
       "hoenn_height": 1
     },
     {
-      "id": "MAPSEC_PETALBURG_WOODS"
+      "id": "MAPSEC_PETALBURG_WOODS",
+      "hoenn_name": "PETALBURG WOODS"
     },
     {
       "id": "MAPSEC_RUSTURF_TUNNEL"
