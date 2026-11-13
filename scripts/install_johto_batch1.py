@@ -26,6 +26,9 @@ TOWNS = [
               'ITEM_AWAKENING', 'ITEM_X_DEFEND', 'ITEM_X_ATTACK', 'ITEM_X_SPEED'],
      'heal': (39, 46), 'flag': 'FLAG_0x8C8',
      'closed': ['SproutTower_1F', 'VioletCity_House1', 'VioletCity_House2', 'VioletCity_TrainerSchool', 'VioletCity_Gym']},
+    # Batch 3: the Pokemon Center at the south end of Route 32 (no Mart, no Fly, like FireRed's route centers).
+    {'town': 'Route32', 'doors': [((25, 84), 'PokemonCenter_1F')], 'mart': None, 'heal': (25, 85), 'flag': None, 'section': 'MAPSEC_ROUTE_32',
+     'closed': ['Gate_RuinsOfAlph_Route32', 'UnionCave_1F']},
 ]
 
 
@@ -48,7 +51,7 @@ def replace_once(text, anchor, new, marker):
 def install_town(g, cfg, groups, report):
     town = 'Johto_' + cfg['town']
     town_id = 'MAP_JOHTO_' + snake(cfg['town'])
-    section = 'MAPSEC_' + snake(cfg['town'])
+    section = cfg.get('section') or 'MAPSEC_' + snake(cfg['town'])
     heal_id = 'HEAL_LOCATION_' + snake(cfg['town'])
     interiors = {kind: f'{town_id}_{snake(kind)}' for _cell, kind in cfg['doors']}
 
@@ -103,23 +106,26 @@ def install_town(g, cfg, groups, report):
                                         'respawn_map': f'{town_id}_POKEMON_CENTER_1F', 'respawn_npc': 1})
     write_json(heal_path, heals)
 
-    # World map flag (set on entry by install_pilot_events.py) and the Fly destination.
-    flag = 'FLAG_WORLD_MAP_' + snake(cfg['town'])
-    flags = g / 'include/constants/flags.h'
-    t = flags.read_text(encoding='utf-8')
-    if f'#define {flag} ' not in t:
-        last = max(re.findall(r'#define FLAG_WORLD_MAP_\w+ +FLAG_0x8C\w\n', t), key=t.index)
-        t = t.replace(last, last + f'#define {flag:<58} {cfg["flag"]}\n', 1)
-    flags.write_text(t, encoding='utf-8', newline='\n')
+    # World map flag (set on entry by install_pilot_events.py) and the Fly destination. A route with a
+    # Pokemon Center (flag None) only gets its map section row, like Routes 30/31: no Fly, as in HGSS.
+    flag = 'FLAG_WORLD_MAP_' + snake(cfg['town']) if cfg.get('flag') else None
+    if flag:
+        flags = g / 'include/constants/flags.h'
+        t = flags.read_text(encoding='utf-8')
+        if f'#define {flag} ' not in t:
+            last = max(re.findall(r'#define FLAG_WORLD_MAP_\w+ +FLAG_0x8C\w\n', t), key=t.index)
+            t = t.replace(last, last + f'#define {flag:<58} {cfg["flag"]}\n', 1)
+        flags.write_text(t, encoding='utf-8', newline='\n')
     rm = g / 'src/region_map.c'
     t = rm.read_text(encoding='utf-8')
     row = f'    [{section:<27}- KANTO_MAPSEC_START] = {{MAP({town_id}),'
     if row not in t:
         anchor = '    [MAPSEC_ROUTE_29            - KANTO_MAPSEC_START] = {MAP(MAP_JOHTO_ROUTE29),                         HEAL_LOCATION_NONE},\n'
         assert t.count(anchor) == 1
-        t = t.replace(anchor, anchor + f'{row:<93} {heal_id}}},\n')
-    t = replace_once(t, '    case MAPSEC_NEW_BARK_TOWN:\n        return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;\n',
-                     f'    case {section}:\n        return FlagGet({flag}) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;\n', f'    case {section}:\n')
+        t = t.replace(anchor, anchor + f'{row:<93} {heal_id if flag else "HEAL_LOCATION_NONE"}}},\n')
+    if flag:
+        t = replace_once(t, '    case MAPSEC_NEW_BARK_TOWN:\n        return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;\n',
+                         f'    case {section}:\n        return FlagGet({flag}) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;\n', f'    case {section}:\n')
     rm.write_text(t, encoding='utf-8', newline='\n')
     report['towns'][cfg['town']] = {'heal_location': {'id': heal_id, 'x': cfg['heal'][0], 'y': cfg['heal'][1]},
                                     'world_map_flag': flag, 'closed_doors': cfg['closed']}

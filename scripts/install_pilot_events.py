@@ -43,6 +43,8 @@ SPRITES = {
     'OBJ_EVENT_GFX_MAN_5': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_SWIMMER_F': 'OBJ_EVENT_GFX_SWIMMER_F_WATER',
     'OBJ_EVENT_GFX_SWIMMER_M': 'OBJ_EVENT_GFX_SWIMMER_M_WATER', 'OBJ_EVENT_GFX_GENTLEMAN': 'OBJ_EVENT_GFX_GENTLEMAN',
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
+    'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
+    'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER',
     # Phase 3: Birch rescue
     'OBJ_EVENT_GFX_ZIGZAGOON_1': 'OBJ_EVENT_GFX_ZIGZAGOON', 'OBJ_EVENT_GFX_BIRCHS_BAG': 'OBJ_EVENT_GFX_BIRCHS_BAG',
 }
@@ -204,6 +206,28 @@ EVENTS = {
     'Gate_Route31_VioletCity': (HNS, {
         0: ('npc', 'Gate_Route31_VioletCity_Text_Policeman', ''),
         1: ('npc', 'Gate_Route31_VioletCity_Text_CooltrainerF', 'HNS Battle Girl sprite; FireRed Cooltrainer F')}, {}),
+    # Johto batch 3. Left out: Frieda (day-of-week gift; FireRed has no clock), the man with HNS's leftover
+    # Violet script, the overworld Pokemon and the coord triggers (the seed man now gives it when talked to).
+    'Route32': (HNS, {
+        0: ('gift', ('ITEM_MIRACLE_SEED', 'Route32_Text_CooltrainerM_HaveThisSeed', 'Route32_Text_CooltrainerM_Experiences', False),
+            'source gives it from a step trigger after Sprout Tower, the Gym and the egg errand; here when talked to'),
+        1: ('gift', ('ITEM_TM05', 'Route32_Text_RoarIntro', 'Route32_Text_RoarOutro', False), 'TM05 Roar'),
+        2: ('itemflag', None, 'Super Potion'), 3: ('itemflag', None, 'Great Ball'),
+        4: ('itemflag', None, 'Potion'), 14: ('itemflag', None, 'Great Ball'),
+        5: ('trainer', ('TRAINER_JOHTO_ALBERT', 'Route32_Text_YoungsterAlbert_Seen', 'Route32_Text_YoungsterAlbert_Beaten', 'Route32_Text_YoungsterAlbert_After'), ''),
+        6: ('trainer', ('TRAINER_JOHTO_LIZ', 'Route32_Text_PicnickerLiz1_Seen', 'Route32_Text_PicnickerLiz1_Beaten', 'Route32_Text_PicnickerLiz1_After'),
+            'no phone registration or rematch'),
+        7: ('cuttree', None, 'FireRed EventScript_CutTree'), 31: ('cuttree', None, 'FireRed EventScript_CutTree'),
+        8: ('trainer', ('TRAINER_JOHTO_ROLAND', 'Route32_Text_CamperRoland_Seen', 'Route32_Text_CamperRoland_Beaten', 'Route32_Text_CamperRoland_After'), ''),
+        9: ('trainer', ('TRAINER_JOHTO_RALPH', 'Route32_Text_FisherRalph1_Seen', 'Route32_Text_FisherRalph1_Beaten', 'Route32_Text_FisherRalph1_After'), ''),
+        10: ('trainer', ('TRAINER_JOHTO_HENRY', 'Route32_Text_FisherHenry_Seen', 'Route32_Text_FisherHenry_Beaten', 'Route32_Text_FisherHenry_After'),
+             'no phone registration or rematch'),
+        11: ('trainer', ('TRAINER_JOHTO_JUSTIN', 'Route32_Text_FisherJustin_Seen', 'Route32_Text_FisherJustin_Beaten', 'Route32_Text_FisherJustin_After'), ''),
+        12: ('trainer', ('TRAINER_JOHTO_GORDON', 'Route32_Text_YoungsterGordon_Seen', 'Route32_Text_YoungsterGordon_Beaten', 'Route32_Text_YoungsterGordon_After'), ''),
+        13: ('offer', ('Route32_Text_SlowpokeTailOffer', 'Route32_Text_ThoughtKidsLoaded', 'Route32_Text_RefusedSlowpokeTail'),
+             'talk only; his step trigger is left out'),
+        15: ('trainer', ('TRAINER_JOHTO_PETER', 'Route32_Text_BirdKeeperPeter_Seen', 'Route32_Text_BirdKeeperPeter_Beaten', 'Route32_Text_BirdKeeperPeter_After'), '')},
+        {0: ('sign', 'Route32_Text_Sign1'), 1: ('sign', 'Route32_Text_Sign2'), 2: ('sign', 'Route32_Text_Sign3')}),
 }
 # Towns that are Fly destinations: world map flag set on entry (include/constants/flags.h).
 WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkTown': 'FLAG_WORLD_MAP_NEW_BARK_TOWN',
@@ -220,6 +244,12 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('VioletCity', 5): ('ITEM_PECHA_BERRY', 'FLAG_HIDE_JOHTO_VIOLET_PECHA_BERRY', 'FLAG_0x0B7'),
               ('VioletCity', 6): ('ITEM_HYPER_POTION', 'FLAG_HIDE_JOHTO_VIOLET_HYPER_POTION', 'FLAG_0x0B8'),
               ('VioletCity', 27): ('ITEM_RARE_CANDY', 'FLAG_HIDE_JOHTO_VIOLET_RARE_CANDY', 'FLAG_0x0B9'),
+              ('Route32', 2): ('ITEM_SUPER_POTION', 'FLAG_HIDE_JOHTO_ROUTE32_SUPER_POTION', 'FLAG_0x0BA'),
+              ('Route32', 3): ('ITEM_GREAT_BALL', 'FLAG_HIDE_JOHTO_ROUTE32_GREAT_BALL', 'FLAG_0x0BB'),
+              ('Route32', 4): ('ITEM_POTION', 'FLAG_HIDE_JOHTO_ROUTE32_POTION', 'FLAG_0x0BC'),
+              ('Route32', 14): ('ITEM_GREAT_BALL', 'FLAG_HIDE_JOHTO_ROUTE32_GREAT_BALL_2', 'FLAG_0x0BD'),
+              ('Route32', 0): ('ITEM_MIRACLE_SEED', 'FLAG_GOT_JOHTO_MIRACLE_SEED', 'FLAG_0x0BE'),
+              ('Route32', 1): ('ITEM_TM05', 'FLAG_GOT_JOHTO_TM_ROAR', 'FLAG_0x0BF'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.
@@ -341,13 +371,20 @@ def main():
             elif kind == 'itemflag':
                 item, flag, _real = ITEM_FLAGS[(source_map, index)]
                 scripts.append(f'{script}::\n\tfinditem {item}\n\tend\n')
-            elif kind == 'gift':  # one item, once; the source asks first and "no" skips to the last line
-                item, before, after = label
+            elif kind == 'gift':  # one item, once; with ask, "no" skips to the last line like the source
+                item, before, after, *ask = label
+                ask = ask[0] if ask else True
                 _item, gift_flag, _real = ITEM_FLAGS[(source_map, index)]
-                scripts.append(f'{script}::\n\tlock\n\tfaceplayer\n\tgoto_if_set {gift_flag}, {script}_After\n'
-                               f'\tmsgbox {text_label(before)}, MSGBOX_YESNO\n\tgoto_if_eq VAR_RESULT, NO, {script}_After\n'
+                question = (f'\tmsgbox {text_label(before)}, MSGBOX_YESNO\n\tgoto_if_eq VAR_RESULT, NO, {script}_After\n' if ask
+                            else f'\tmsgbox {text_label(before)}, MSGBOX_DEFAULT\n')
+                scripts.append(f'{script}::\n\tlock\n\tfaceplayer\n\tgoto_if_set {gift_flag}, {script}_After\n' + question +
                                f'\tgiveitem {item}\n\tgoto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull\n\tsetflag {gift_flag}\n'
                                f'{script}_After::\n\tmsgbox {text_label(after)}, MSGBOX_DEFAULT\n\trelease\n\tend\n')
+            elif kind == 'offer':  # a yes/no question with one line for each answer, nothing given
+                ask_text, yes_text, no_text = label
+                scripts.append(f'{script}::\n\tlock\n\tfaceplayer\n\tmsgbox {text_label(ask_text)}, MSGBOX_YESNO\n'
+                               f'\tgoto_if_eq VAR_RESULT, NO, {script}_No\n\tmsgbox {text_label(yes_text)}, MSGBOX_DEFAULT\n\trelease\n\tend\n'
+                               f'{script}_No::\n\tmsgbox {text_label(no_text)}, MSGBOX_DEFAULT\n\trelease\n\tend\n')
             elif kind == 'trainer':
                 trainer, intro, defeat, post, *not_enough = label
                 battle = (f'trainerbattle_double {trainer}, {text_label(intro)}, {text_label(defeat)}, {text_label(not_enough[0])}'

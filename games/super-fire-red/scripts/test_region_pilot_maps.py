@@ -76,7 +76,10 @@ for _m,_x,_y,_steps,_want in (
   (JOHTO+'ROUTE31',5,10,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_GATE_ROUTE31_VIOLET_CITY',None),('MAP_JOHTO_ROUTE31',None)]),
   (JOHTO+'GATE_ROUTE31_VIOLET_CITY',2,5,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_VIOLET_CITY',None),('MAP_JOHTO_GATE_ROUTE31_VIOLET_CITY',None)]),
   (JOHTO+'VIOLET_CITY',39,46,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_VIOLET_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_VIOLET_CITY',{(39,46)})]),
-  (JOHTO+'VIOLET_CITY',16,36,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_VIOLET_CITY_MART',{(4,7)}),('MAP_JOHTO_VIOLET_CITY',{(16,36)})])):
+  (JOHTO+'VIOLET_CITY',16,36,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_VIOLET_CITY_MART',{(4,7)}),('MAP_JOHTO_VIOLET_CITY',{(16,36)})]),
+  # Johto batch 3: Violet south into Route 32 and its Pokemon Center by Union Cave.
+  (JOHTO+'VIOLET_CITY',17,54,[('DOWN','MAP'),('UP','MAP')],[('MAP_JOHTO_ROUTE32',{(21,0)}),('MAP_JOHTO_VIOLET_CITY',{(17,54)})]),
+  (JOHTO+'ROUTE32',25,85,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE32_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_ROUTE32',{(25,85)})])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -293,7 +296,9 @@ for _folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/
   _fought.add(_m[1])
   _sm,_sx,_sy,_key=SPOTS[(_folder.name,'object',_i)]
   _johto=_folder.name.startswith('Johto_')
-  CASES.append((_sm,_sx,_sy,0,0,[(_key,'SCENE')],STRONG|128))
+  # Strong Mewtwo; PilotSetup swaps Psychic for Ice Beam in these cases (see gPilotFreshTrainer): every
+  # other single move hits an immunity in some route team (Dark Poochyena, Fairy Marill, Water Absorb Poliwag).
+  CASES.append((_sm,_sx,_sy,0,0,[(_key,'SCENE')],STRONG))
   (JOHTO_STORY if _johto else STORY)[len(CASES)]=(0,0)
   SCENES[len(CASES)]={'name':f'battle {_m[1]}','johto':_johto,'story':0,'trainer':_m[1],'outcome':1,'route_trainer':True}
   FRESH_TRAINER[len(CASES)]=int(_opponent_ids[_m[1]])
@@ -575,7 +580,7 @@ static void PilotWalkCase(void)
                 gPilotKeys = 0;
                 t[5] = GetMonData(&gPlayerParty[0], MON_DATA_HP) == GetMonData(&gPlayerParty[0], MON_DATA_MAX_HP);
                 t[6] = CheckBagHasItem(ITEM_POTION, 1);
-                t[7] = FlagGet(FLAG_HIDE_JOHTO_ROUTE29_POTION) | FlagGet(FLAG_HIDE_HOENN_ROUTE102_POTION) << 1;  // either region Potion ball
+                t[7] = FlagGet(FLAG_HIDE_JOHTO_ROUTE29_POTION) | FlagGet(FLAG_HIDE_HOENN_ROUTE102_POTION) << 1 | FlagGet(FLAG_HIDE_JOHTO_ROUTE32_POTION) << 2;  // any region Potion ball
                 gPilotStage = 3;
             }
         }
@@ -1046,6 +1051,13 @@ void PilotSetup(void)
         gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
         FlagSet(FLAG_SYS_POKEMON_GET);
         FlagSet(FLAG_EXP_SHARE_DISABLED);
+        if (gPilotFreshTrainer[gPilotCase - 1])
+        {
+            u16 ice = MOVE_ICE_BEAM;  // route trainer battles: no type or ability in those teams blocks Ice
+            SetMonData(&gPlayerParty[0], MON_DATA_MOVE1, &ice); SetMonData(&gPlayerParty[0], MON_DATA_PP1, &pp);
+            gPlayerParty[1] = gPlayerParty[0];  // two Pokemon for Amy and Liv's double battle
+            CalculatePlayerPartyCount();
+        }
     }
     VarSet(VAR_HOENN_STORY, spawn[8]);
     VarSet(VAR_HOENN_STARTER, spawn[9]);
@@ -1248,7 +1260,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-5:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY']
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-6:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.

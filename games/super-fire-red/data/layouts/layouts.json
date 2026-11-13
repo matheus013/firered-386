@@ -4686,6 +4686,18 @@
       "secondary_tileset": "gTileset_JohtoPilotGateStandard",
       "border_filepath": "data/layouts/Johto_Gate_Route31_VioletCity/border.bin",
       "blockdata_filepath": "data/layouts/Johto_Gate_Route31_VioletCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE32",
+      "name": "Johto_Route32_Layout",
+      "width": 42,
+      "height": 103,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotRoute32",
+      "border_filepath": "data/layouts/Johto_Route32/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route32/map.bin"
     }
   ]
 }

@@ -691,6 +691,173 @@
           0
         ]
       ]
+    },
+    "TRAINER_JOHTO_ALBERT": {
+      "new": true,
+      "party": "sParty_JohtoAlbert",
+      "name": "ALBERT",
+      "source": "TRAINER_ALBERT",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_YOUNGSTER",
+      "trainer_pic": "TRAINER_PIC_YOUNGSTER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SENTRET",
+          7,
+          0
+        ],
+        [
+          "SPECIES_ZUBAT",
+          7,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_LIZ": {
+      "new": true,
+      "party": "sParty_JohtoLiz",
+      "name": "LIZ",
+      "source": "TRAINER_LIZ",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_PICNICKER",
+      "trainer_pic": "TRAINER_PIC_PICNICKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_NIDORAN_F",
+          9,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_ROLAND": {
+      "new": true,
+      "party": "sParty_JohtoRoland",
+      "name": "ROLAND",
+      "source": "TRAINER_ROLAND",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_CAMPER",
+      "trainer_pic": "TRAINER_PIC_CAMPER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_NIDORAN_M",
+          9,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_RALPH": {
+      "new": true,
+      "party": "sParty_JohtoRalph",
+      "name": "RALPH",
+      "source": "TRAINER_RALPH",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_FISHERMAN",
+      "trainer_pic": "TRAINER_PIC_FISHERMAN",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GOLDEEN",
+          8,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_HENRY": {
+      "new": true,
+      "party": "sParty_JohtoHenry",
+      "name": "HENRY",
+      "source": "TRAINER_HENRY",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_FISHERMAN",
+      "trainer_pic": "TRAINER_PIC_FISHERMAN",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MARILL",
+          7,
+          0
+        ],
+        [
+          "SPECIES_POLIWAG",
+          7,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_JUSTIN": {
+      "new": true,
+      "party": "sParty_JohtoJustin",
+      "name": "JUSTIN",
+      "source": "TRAINER_JUSTIN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_FISHERMAN",
+      "trainer_pic": "TRAINER_PIC_FISHERMAN",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_TENTACOOL",
+          7,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_GORDON": {
+      "new": true,
+      "party": "sParty_JohtoGordon",
+      "name": "GORDON",
+      "source": "TRAINER_GORDON",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_YOUNGSTER",
+      "trainer_pic": "TRAINER_PIC_YOUNGSTER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_WOOPER",
+          10,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_PETER": {
+      "new": true,
+      "party": "sParty_JohtoPeter",
+      "name": "PETER",
+      "source": "TRAINER_PETER",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_BIRD_KEEPER",
+      "trainer_pic": "TRAINER_PIC_BIRD_KEEPER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SPEAROW",
+          8,
+          0
+        ],
+        [
+          "SPECIES_NATU",
+          8,
+          0
+        ]
+      ]
     }
   }
 }

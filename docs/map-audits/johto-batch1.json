@@ -35,6 +35,11 @@
         "ITEM_X_ATTACK",
         "ITEM_X_SPEED"
       ]
+    },
+    "Johto_Route32_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "npc": "OBJ_EVENT_GFX_NURSE",
+      "heal_location": "HEAL_LOCATION_ROUTE32"
     }
   },
   "towns": {
@@ -67,6 +72,18 @@
         "VioletCity_House2",
         "VioletCity_TrainerSchool",
         "VioletCity_Gym"
+      ]
+    },
+    "Route32": {
+      "heal_location": {
+        "id": "HEAL_LOCATION_ROUTE32",
+        "x": 25,
+        "y": 85
+      },
+      "world_map_flag": null,
+      "closed_doors": [
+        "Gate_RuinsOfAlph_Route32",
+        "UnionCave_1F"
       ]
     }
   }

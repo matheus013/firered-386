@@ -15502,3 +15502,90 @@ static const struct TrainerMonNoItemDefaultMoves sParty_JohtoWade[] = {
     .species = SPECIES_PINECO,
     }
 };
+
+// Region geography: HNS_modern TRAINER_ALBERT, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoAlbert[] = {
+    {
+    .iv = 0,
+    .lvl = 67,
+    .species = SPECIES_SENTRET,
+    },
+    {
+    .iv = 0,
+    .lvl = 67,
+    .species = SPECIES_ZUBAT,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_LIZ, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoLiz[] = {
+    {
+    .iv = 0,
+    .lvl = 69,
+    .species = SPECIES_NIDORAN_F,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_ROLAND, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoRoland[] = {
+    {
+    .iv = 0,
+    .lvl = 69,
+    .species = SPECIES_NIDORAN_M,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_RALPH, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoRalph[] = {
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_GOLDEEN,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_HENRY, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoHenry[] = {
+    {
+    .iv = 0,
+    .lvl = 67,
+    .species = SPECIES_MARILL,
+    },
+    {
+    .iv = 0,
+    .lvl = 67,
+    .species = SPECIES_POLIWAG,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_JUSTIN, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoJustin[] = {
+    {
+    .iv = 0,
+    .lvl = 67,
+    .species = SPECIES_TENTACOOL,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_GORDON, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoGordon[] = {
+    {
+    .iv = 0,
+    .lvl = 70,
+    .species = SPECIES_WOOPER,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_PETER, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoPeter[] = {
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_SPEAROW,
+    },
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_NATU,
+    }
+};

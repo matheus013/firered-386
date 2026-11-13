@@ -1427,3 +1427,62 @@ existente e só acrescenta os mapas novos, então os números dos mapas não mud
 - a checagem das seções de mapa inclui Violet.
 
 **Resultado:** 294 casos aprovados (eram 277).
+
+## Johto, lote 3: Route 32
+
+**Mapa novo:** a Route 32, ao sul de Violet City, com o tileset secundário
+`gTileset_JohtoPilotRoute32` copiado do HNS sem alteração. O Centro Pokémon do fim da rota, junto à
+Union Cave, usa o interior do FireRed: a enfermeira grava o ponto de retorno, e a heal location fica
+em (25,85). Assim como nos Centros de rota do FireRed e no HGSS, ele não vira destino de Fly. A seção
+`MAPSEC_ROUTE_32` entrou no mapa da região.
+
+- **`install_johto_pilot.py`:**
+  - inclui a Route 32 (mapa 17);
+  - ganhou a regra `MB_MOUNTAIN_TERRAIN` → terreno normal (no HNS ela só escolhe o fundo da
+    batalha);
+  - registrou a porta deslizante para o par Johto General + Route 32.
+- **`install_johto_batch1.py`:** aceita um lugar só com Centro (sem Mart, sem flag de mapa e sem
+  Fly) e uma seção de mapa explícita.
+- **Treinadores (8):** Albert, Liz, Roland, Ralph, Henry, Justin, Gordon e Peter, com os times do HNS
+  e +60 níveis (provisório). IDs 759 a 766, `NUM_TRAINERS` = 767. O limite `MAX_TRAINERS_COUNT` é 768,
+  então o próximo lote com treinadores vai precisar aumentá-lo.
+- **Eventos:**
+  - o homem da Miracle Seed: no HNS ela vem por um gatilho de passo, depois da Sprout Tower, do Ginásio
+    e do ovo; aqui ele dá a semente ao conversar;
+  - o homem do TM05 (Roar);
+  - quatro itens no chão (Super Potion, duas Great Balls e Potion);
+  - duas árvores de Cut e três placas;
+  - o vendedor de Slowpoketail: um tipo novo de evento, `offer`, que faz a pergunta e responde
+    conforme o sim ou o não;
+  - 34 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama, água e pesca (tabelas de dia do HNS).
+
+**Fica para depois:**
+
+- a Frieda: o presente depende do dia da semana, e o FireRed não tem relógio;
+- o portão das Ruínas de Alph e a Union Cave (fechados);
+- a ligação para a Route 33.
+
+**Teste da ROM:**
+
+- Violet → Route 32, ida e volta;
+- a porta do Centro;
+- conversas com os eventos novos;
+- uma batalha com cada um dos 8 treinadores novos (pelo mesmo mecanismo do lote anterior);
+- a checagem das seções de mapa inclui a Route 32.
+
+**Problemas encontrados no teste e corrigidos:**
+
+- **Poção da Route 32:** a checagem de Poção agora também lê `FLAG_HIDE_JOHTO_ROUTE32_POTION`.
+- **Batalha do Henry sem fim:** os casos de batalha usavam a configuração 128, um Latios que começa
+  com Dragon Pulse. Neste hack o Marill é do tipo Fada e ignora Dragon Pulse, e o teste sempre escolhe
+  o primeiro golpe. Os PP acabavam e a batalha nunca terminava (o runner de diagnóstico mostrou a
+  sequência). Trocar pelo Mewtwo com Psychic também não serviu, porque o Poochyena do Calvin é do tipo Noturno e
+  é imune. O Kyogre com Origin Pulse também falhou: o Poliwag do Henry tem Water Absorb, o Kyogre gastou
+  os PP, usou Struggle, desmaiou pelo recuo e o teste travou no menu de troca. Agora o Mewtwo usa
+  Ice Beam nos casos de batalha de rota. Gelo não tem imunidade de tipo, e nenhuma habilidade desses
+  times o anula.
+  Como a batalha dupla de Amy e Liv precisa de dois Pokémon, o Mewtwo é copiado para o segundo espaço
+  (antes, quem fazia isso era a configuração 128).
+
+**Resultado:** 325 casos aprovados (eram 294), com as 22 batalhas de rota vencidas.

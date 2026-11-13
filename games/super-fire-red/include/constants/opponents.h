@@ -763,12 +763,20 @@
 #define TRAINER_JOHTO_MIKEY                              756
 #define TRAINER_JOHTO_DON                                757
 #define TRAINER_JOHTO_WADE                               758
+#define TRAINER_JOHTO_ALBERT                             759
+#define TRAINER_JOHTO_LIZ                                760
+#define TRAINER_JOHTO_ROLAND                             761
+#define TRAINER_JOHTO_RALPH                              762
+#define TRAINER_JOHTO_HENRY                              763
+#define TRAINER_JOHTO_JUSTIN                             764
+#define TRAINER_JOHTO_GORDON                             765
+#define TRAINER_JOHTO_PETER                              766
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             759
+#define NUM_TRAINERS                             767
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

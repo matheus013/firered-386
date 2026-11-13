@@ -18,3 +18,7 @@ static const struct DoorGraphics sJohtoPilotDoors_Violet[] = {
     {0x62, DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sJohtoDoorTiles_sliding, sJohtoDoorPalettes_sliding},
     {}
 };
+static const struct DoorGraphics sJohtoPilotDoors_Route32[] = {
+    {0x62, DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sJohtoDoorTiles_sliding, sJohtoDoorPalettes_sliding},
+    {}
+};

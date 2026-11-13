@@ -41,6 +41,9 @@ TABLES = [
     ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gVioletCity', 'MAP_VIOLET_CITY',
      'MAP_JOHTO_VIOLET_CITY', 'gJohtoVioletCity_Pilot', ['fishing_mons'],
      'day table; empty land table; water left out (12 HNS slots, FireRed has 5); Rock Smash left out'),
+    # Johto batch 3
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute32', 'MAP_ROUTE32',
+     'MAP_JOHTO_ROUTE32', 'gJohtoRoute32_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),
 ]
 
 

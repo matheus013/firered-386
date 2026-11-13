@@ -23,7 +23,9 @@ MAPS = ['NewBarkTown', 'Route29', 'NewBarkTown_PlayersHouse_1F', 'NewBarkTown_Pl
         # Johto batch 1 (exteriors; FireRed Pokemon Center and Mart from install_johto_batch1.py)
         'CherrygroveCity', 'Route30', 'Route31',
         # Johto batch 2
-        'VioletCity', 'Gate_Route31_VioletCity']
+        'VioletCity', 'Gate_Route31_VioletCity',
+        # Johto batch 3
+        'Route32']
 TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animation init)
     'gTileset_Johto_General': ('JohtoPilotGeneral', 'primary/johto_general', 'primary/johto_pilot_general', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_NewBarkTown': ('JohtoPilotNewBarkTown', 'secondary/new_bark_town', 'secondary/johto_pilot_new_bark_town', 'NULL'),
@@ -33,6 +35,7 @@ TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animati
     'gTileset_Gate_Standard': ('JohtoPilotGateStandard', 'secondary/gate_standard', 'secondary/johto_pilot_gate_standard', 'NULL'),
     'gTileset_CherrygroveCity': ('JohtoPilotCherrygroveCity', 'secondary/cherrygrove_city', 'secondary/johto_pilot_cherrygrove_city', 'NULL'),
     'gTileset_VioletCity': ('JohtoPilotVioletCity', 'secondary/violet_city', 'secondary/johto_pilot_violet_city', 'NULL'),
+    'gTileset_Route32': ('JohtoPilotRoute32', 'secondary/route_32', 'secondary/johto_pilot_route32', 'NULL'),
 }
 # FireRed attribute without layer bits: behavior | terrain << 9 | encounter << 24, taken from the pattern
 # FireRed's own tilesets use most for that behavior.
@@ -45,6 +48,7 @@ RULES = {
     'MB_INTERIOR_DEEP_WATER': (0x02000410, 'FireRed has no interior deep water; surfable pond water like the tiles around it'),
     'MB_WEST_ARROW_WARP': (0x00000063, 'same name (Route 31 -> Violet gate)'),
     'MB_EAST_ARROW_WARP': (0x00000062, 'same name (Violet -> Route 31 gate)'),
+    'MB_MOUNTAIN_TERRAIN': (0x00000000, 'HNS only picks the battle background with it; FireRed: normal'),
     'MB_SAND': (0x00000021, 'same name'),
     'MB_JUMP_EAST': (0x00000038, 'same name'), 'MB_JUMP_WEST': (0x00000039, 'same name'),
     'MB_JUMP_SOUTH': (0x0000003B, 'same name'),
@@ -74,10 +78,10 @@ DOORS = [  # metatile, HNS door image, FireRed name, palette (all 8 entries), so
     (0x2CB, 'cerulean.png', 'new_bark_blue', 7, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),
     (0x309, 'NewBarkTown_Door_Yellow.png', 'new_bark_yellow', 5, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),
     # METATILE_Johto_General_Door_Sliding: Cherrygrove's Pokemon Center and Mart (HNS sDoorAnimPalettes_PokeCenter)
-    (0x062, 'johtopokecenter.png', 'sliding', 3, 'DOOR_SOUND_SLIDING', ('CherrygroveCity', 'VioletCity')),
+    (0x062, 'johtopokecenter.png', 'sliding', 3, 'DOOR_SOUND_SLIDING', ('CherrygroveCity', 'VioletCity', 'Route32')),
 ]
 DOOR_TABLES = {'NewBarkTown': 'sJohtoPilotDoors', 'CherrygroveCity': 'sJohtoPilotDoors_Cherrygrove',
-               'VioletCity': 'sJohtoPilotDoors_Violet'}
+               'VioletCity': 'sJohtoPilotDoors_Violet', 'Route32': 'sJohtoPilotDoors_Route32'}
 MARK = '// Johto pilot (scripts/install_johto_pilot.py)'
 
 

@@ -207,6 +207,14 @@
       "y": 46,
       "respawn_map": "MAP_JOHTO_VIOLET_CITY_POKEMON_CENTER_1F",
       "respawn_npc": 1
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE32",
+      "map": "MAP_JOHTO_ROUTE32",
+      "x": 25,
+      "y": 85,
+      "respawn_map": "MAP_JOHTO_ROUTE32_POKEMON_CENTER_1F",
+      "respawn_npc": 1
     }
   ]
 }
