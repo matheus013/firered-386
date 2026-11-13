@@ -273,3 +273,8 @@ const u32 gMetatileAttributes_JohtoPilotRoute38Farmland[] = INCBIN_U32("data/til
 
 const u16 gMetatiles_JohtoPilotOlivineCity[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/metatiles.bin");
 const u32 gMetatileAttributes_JohtoPilotOlivineCity[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_olivine_city/metatile_attributes.bin");
+const u16 gMetatiles_JohtoPilotNorthEast[] = INCBIN_U16("data/tilesets/primary/johto_pilot_north_east/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotNorthEast[] = INCBIN_U32("data/tilesets/primary/johto_pilot_north_east/metatile_attributes.bin");
+
+const u16 gMetatiles_JohtoPilotMahoganyTown[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_mahogany_town/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotMahoganyTown[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_mahogany_town/metatile_attributes.bin");

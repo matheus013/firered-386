@@ -1922,3 +1922,41 @@ com a ordem nova. Os atributos do lote 3 e do lote 4 foram regenerados juntos.
 - a Route 110 ao sul e a Route 111 ao norte.
 
 **Resultado:** 721 casos aprovados (eram 673), com as 91 batalhas de rota vencidas, incluindo a dupla Anna & Meg. As caminhadas novas cruzam Verdanturf → Route 117 → Mauville e entram e saem do Centro e do Mart.
+
+## Johto, lote 10: Route 42 e Mahogany Town
+
+**Mapas novos:** o portão leste de Ecruteak, a Route 42 e Mahogany Town. São os primeiros mapas com
+o primário Johto NorthEast, que no HNS usa a mesma animação do Johto General. O secundário é o de
+Mahogany. Ecruteak ganhou a conexão leste e o warp do portão.
+
+- **Travessia:** a Route 42 do HNS só atravessa com Surf, como no jogo original. A parte oeste vai
+  do portão até a entrada do Mt. Mortar, e a parte leste chega a Mahogany. O Mt. Mortar fica fechado
+  por enquanto, então seus três warps saíram.
+- **Ajustes no instalador:**
+  - o HNS chama a cidade de `MAP_MAHOGANYTOWN`, sem separar as palavras. A tabela `MAP_ID_FIX` usa
+    `MAP_JOHTO_MAHOGANY_TOWN`, o nome que os interiores esperam;
+  - regra nova: `MB_SEAWEED_NO_SURFACING`, que aparece num único tile do telhado do Centro Pokémon
+    (célula bloqueada). Aqui ele vira normal.
+- **Mahogany:** Centro Pokémon do FireRed, e a porta da loja de lembranças leva ao Mart do FireRed,
+  com a lista do HGSS de depois do esconderijo da Rocket. A heal location fica em (21,20), a flag é
+  `FLAG_WORLD_MAP_MAHOGANY_TOWN` (0x8D0), e a cidade é destino de Fly. A porta da loja (0x2A2) usa a
+  imagem e a paleta da porta de Azalea, como no HNS, que procura portas só pelo metatile.
+- **Treinadores (3, IDs 787–789):** Tully, Benjamin e Shane.
+- **Eventos:**
+  - Super Potion e Ultra Ball, com as flags 0x0E5 e 0x0E6. A Modest Mint ficou de fora, porque o
+    FireRed não tem item de natureza;
+  - a árvore de Cut;
+  - o policial do portão e três moradores de Mahogany. O avô fica sem o ramo de depois do
+    esconderijo;
+  - as placas;
+  - 18 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama, água e pesca da Route 42 (tabelas do dia).
+
+**Fica para depois:**
+
+- o Mt. Mortar;
+- o Suicune e o Eusine;
+- o vendedor de Rage Candy Bar, a casa e o Ginásio do Pryce;
+- as Routes 43 e 44 e o Lake of Rage.
+
+**Resultado:** 748 casos aprovados (eram 721), com as 94 batalhas de rota vencidas. As caminhadas novas passam pelo portão leste de Ecruteak, cruzam a borda Route 42 → Mahogany e entram e saem do Centro e do Mart.

@@ -130,7 +130,13 @@ for _m,_x,_y,_steps,_want in (
   (JOHTO+'ROUTE38',0,21,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_ROUTE39',{(39,21)}),('MAP_JOHTO_ROUTE38',{(0,21)})]),
   (JOHTO+'ROUTE39',25,53,[('DOWN','MAP'),('UP','MAP')],[('MAP_JOHTO_OLIVINE_CITY',{(19,0)}),('MAP_JOHTO_ROUTE39',{(25,53)})]),
   (JOHTO+'OLIVINE_CITY',15,44,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_OLIVINE_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_OLIVINE_CITY',{(15,44)})]),
-  (JOHTO+'OLIVINE_CITY',26,41,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_OLIVINE_CITY_MART',{(4,7)}),('MAP_JOHTO_OLIVINE_CITY',{(26,41)})])):
+  (JOHTO+'OLIVINE_CITY',26,41,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_OLIVINE_CITY_MART',{(4,7)}),('MAP_JOHTO_OLIVINE_CITY',{(26,41)})]),
+  # Johto batch 10: Ecruteak's east gate, Route 42 east into Mahogany, Mahogany's doors.
+  (JOHTO+'ECRUTEAK_CITY',54,42,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_JOHTO_GATE_ECRUTEAK_CITY_ROUTE42',None),('MAP_JOHTO_ECRUTEAK_CITY',None)]),
+  (JOHTO+'ROUTE42',9,10,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_GATE_ECRUTEAK_CITY_ROUTE42',None),('MAP_JOHTO_ROUTE42',None)]),
+  (JOHTO+'ROUTE42',75,7,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_JOHTO_MAHOGANY_TOWN',{(0,8)}),('MAP_JOHTO_ROUTE42',{(75,7)})]),
+  (JOHTO+'MAHOGANY_TOWN',21,20,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_MAHOGANY_TOWN_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_MAHOGANY_TOWN',{(21,20)})]),
+  (JOHTO+'MAHOGANY_TOWN',15,11,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_MAHOGANY_TOWN_MART',{(4,7)}),('MAP_JOHTO_MAHOGANY_TOWN',{(15,11)})])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -1353,7 +1359,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-19:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY','MAPSEC_ROUTE_38','MAPSEC_ROUTE_39','MAPSEC_OLIVINE_CITY']
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-21:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY','MAPSEC_ROUTE_38','MAPSEC_ROUTE_39','MAPSEC_OLIVINE_CITY','MAPSEC_ROUTE_42','MAPSEC_MAHOGANY_TOWN']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.

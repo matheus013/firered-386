@@ -124,6 +124,24 @@
         "ITEM_ICE_HEAL",
         "ITEM_SUPER_REPEL"
       ]
+    },
+    "Johto_MahoganyTown_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "npc": "OBJ_EVENT_GFX_NURSE",
+      "heal_location": "HEAL_LOCATION_MAHOGANY_TOWN"
+    },
+    "Johto_MahoganyTown_Mart": {
+      "layout": "LAYOUT_MART",
+      "npc": "OBJ_EVENT_GFX_CLERK",
+      "items": [
+        "ITEM_GREAT_BALL",
+        "ITEM_SUPER_POTION",
+        "ITEM_HYPER_POTION",
+        "ITEM_ANTIDOTE",
+        "ITEM_PARALYZE_HEAL",
+        "ITEM_SUPER_REPEL",
+        "ITEM_REVIVE"
+      ]
     }
   },
   "towns": {
@@ -247,6 +265,22 @@
         "Route39_Barn",
         "Route40",
         "OlivineCity_PortOutside"
+      ]
+    },
+    "MahoganyTown": {
+      "heal_location": {
+        "id": "HEAL_LOCATION_MAHOGANY_TOWN",
+        "x": 21,
+        "y": 20
+      },
+      "world_map_flag": "FLAG_WORLD_MAP_MAHOGANY_TOWN",
+      "closed_doors": [
+        "Gate_MahoganyTown_Route43",
+        "MahoganyTown_House1",
+        "MahoganyTown_Gym",
+        "Route43",
+        "Route44",
+        "MtMortar_1F_South"
       ]
     }
   }

@@ -2413,6 +2413,73 @@
           0
         ]
       ]
+    },
+    "TRAINER_JOHTO_TULLY": {
+      "new": true,
+      "party": "sParty_JohtoTully",
+      "name": "TULLY",
+      "source": "TRAINER_TULLY",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_FISHERMAN",
+      "trainer_pic": "TRAINER_PIC_FISHERMAN",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_QWILFISH",
+          24,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_BENJAMIN": {
+      "new": true,
+      "party": "sParty_JohtoBenjamin",
+      "name": "BENJAMIN",
+      "source": "TRAINER_BENJAMIN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GRAVELER",
+          24,
+          0
+        ],
+        [
+          "SPECIES_DUGTRIO",
+          24,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_SHANE": {
+      "new": true,
+      "party": "sParty_JohtoShane",
+      "name": "SHANE",
+      "source": "TRAINER_SHANE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_POKEMANIAC",
+      "trainer_pic": "TRAINER_PIC_POKEMANIAC",
+      "music": "TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_NIDORINO",
+          24,
+          0
+        ],
+        [
+          "SPECIES_NIDOKING",
+          24,
+          0
+        ]
+      ]
     }
   }
 }

@@ -586,6 +586,11 @@ gStdScriptsEnd::
 	.include "data/maps/Johto_OlivineCity/scripts.inc"
 	.include "data/maps/Johto_OlivineCity_PokemonCenter_1F/scripts.inc"
 	.include "data/maps/Johto_OlivineCity_Mart/scripts.inc"
+	.include "data/maps/Johto_Gate_EcruteakCity_Route42/scripts.inc"
+	.include "data/maps/Johto_Route42/scripts.inc"
+	.include "data/maps/Johto_MahoganyTown/scripts.inc"
+	.include "data/maps/Johto_MahoganyTown_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Johto_MahoganyTown_Mart/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

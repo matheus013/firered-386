@@ -1026,3 +1026,24 @@ const struct Tileset gTileset_JohtoPilotOlivineCity =
     .metatileAttributes = gMetatileAttributes_JohtoPilotOlivineCity,
     .callback = NULL,
 };
+const struct Tileset gTileset_JohtoPilotNorthEast =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_JohtoPilotNorthEast,
+    .palettes = gTilesetPalettes_JohtoPilotNorthEast,
+    .metatiles = gMetatiles_JohtoPilotNorthEast,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotNorthEast,
+    .callback = InitTilesetAnim_JohtoPilot,
+};
+
+const struct Tileset gTileset_JohtoPilotMahoganyTown =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotMahoganyTown,
+    .palettes = gTilesetPalettes_JohtoPilotMahoganyTown,
+    .metatiles = gMetatiles_JohtoPilotMahoganyTown,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotMahoganyTown,
+    .callback = NULL,
+};

@@ -1,0 +1,158 @@
+{
+  "id": "MAP_JOHTO_ROUTE42",
+  "name": "Johto_Route42",
+  "layout": "LAYOUT_JOHTO_ROUTE42",
+  "music": "MUS_ROUTE11",
+  "region_map_section": "MAPSEC_ROUTE_42",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_JOHTO_MAHOGANY_TOWN",
+      "offset": -1,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_JOHTO_ECRUTEAK_CITY",
+      "offset": -32,
+      "direction": "left"
+    }
+  ],
+  "object_events": [
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 12,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Johto_Route42_EventScript_Object0",
+      "flag": "FLAG_HIDE_JOHTO_ROUTE42_SUPER_POTION"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 31,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Johto_Route42_EventScript_Object1",
+      "flag": "FLAG_HIDE_JOHTO_ROUTE42_ULTRA_BALL"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+      "x": 36,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_FISHER",
+      "x": 32,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Johto_Route42_EventScript_Object3",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_POKE_MANIAC",
+      "x": 63,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 7,
+      "movement_range_y": 4,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "7",
+      "script": "Johto_Route42_EventScript_Object4",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 66,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 6,
+      "movement_range_y": 4,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "6",
+      "script": "Johto_Route42_EventScript_Object5",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 8,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_GATE_ECRUTEAK_CITY_ROUTE42",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Johto_Route42_EventScript_Sign0"
+    },
+    {
+      "type": "sign",
+      "x": 59,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Johto_Route42_EventScript_Sign1"
+    },
+    {
+      "type": "sign",
+      "x": 70,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Johto_Route42_EventScript_Sign2"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Johto_Route42_EventScript_Sign3"
+    }
+  ]
+}

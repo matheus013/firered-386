@@ -271,6 +271,14 @@
       "y": 6,
       "respawn_map": "MAP_HOENN_MAUVILLE_CITY_POKEMON_CENTER_1F",
       "respawn_npc": 1
+    },
+    {
+      "id": "HEAL_LOCATION_MAHOGANY_TOWN",
+      "map": "MAP_JOHTO_MAHOGANY_TOWN",
+      "x": 21,
+      "y": 20,
+      "respawn_map": "MAP_JOHTO_MAHOGANY_TOWN_POKEMON_CENTER_1F",
+      "respawn_npc": 1
     }
   ]
 }

@@ -5010,6 +5010,42 @@
       "secondary_tileset": "gTileset_HoennPilotMauville",
       "border_filepath": "data/layouts/Hoenn_MauvilleCity/border.bin",
       "blockdata_filepath": "data/layouts/Hoenn_MauvilleCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_GATE_ECRUTEAK_CITY_ROUTE42",
+      "name": "Johto_Gate_EcruteakCity_Route42_Layout",
+      "width": 13,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotGateStandard",
+      "border_filepath": "data/layouts/Johto_Gate_EcruteakCity_Route42/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Gate_EcruteakCity_Route42/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE42",
+      "name": "Johto_Route42_Layout",
+      "width": 76,
+      "height": 26,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotNorthEast",
+      "secondary_tileset": "gTileset_JohtoPilotMahoganyTown",
+      "border_filepath": "data/layouts/Johto_Route42/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route42/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_MAHOGANYTOWN",
+      "name": "Johto_MahoganyTown_Layout",
+      "width": 44,
+      "height": 28,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotNorthEast",
+      "secondary_tileset": "gTileset_JohtoPilotMahoganyTown",
+      "border_filepath": "data/layouts/Johto_MahoganyTown/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_MahoganyTown/map.bin"
     }
   ]
 }

@@ -4,23 +4,32 @@
   "tilesets": {
     "gTileset_Johto_General": {
       "firered": "gTileset_JohtoPilotGeneral",
-      "metatiles_converted": 115,
+      "metatiles_converted": 447,
       "behaviors": {
-        "MB_SHORT_GRASS": 9,
-        "MB_NORMAL": 69,
-        "MB_HEADBUTT_TREE": 3,
-        "MB_TALL_GRASS": 3,
-        "MB_JUMP_WEST": 2,
-        "MB_JUMP_EAST": 2,
-        "MB_JUMP_SOUTH": 3,
-        "MB_SAND": 17,
-        "MB_OCEAN_WATER": 6,
-        "MB_NON_ANIMATED_DOOR": 1
+        "MB_SHORT_GRASS": 22,
+        "MB_NORMAL": 268,
+        "MB_HEADBUTT_TREE": 6,
+        "MB_TALL_GRASS": 4,
+        "MB_ANIMATED_DOOR": 3,
+        "MB_OCEAN_WATER": 43,
+        "MB_JUMP_WEST": 3,
+        "MB_JUMP_EAST": 3,
+        "MB_JUMP_SOUTH": 12,
+        "MB_ROCK_STAIRS": 2,
+        "MB_NON_ANIMATED_DOOR": 2,
+        "MB_MOUNTAIN_TERRAIN": 13,
+        "MB_SAND": 30,
+        "MB_SHALLOW_WATER": 13,
+        "MB_EAST_ARROW_WARP": 1,
+        "MB_WEST_ARROW_WARP": 1,
+        "MB_SOUTH_ARROW_WARP": 3,
+        "MB_POND_WATER": 16,
+        "MB_INTERIOR_DEEP_WATER": 2
       },
       "sha256": {
         "tiles.png": "edaec57f44a8525de7d4f1d781e07be738648a0752e3ac70d1cbdf0090065580",
         "metatiles.bin": "a1cb8665ee3ba79b71ca36f97d4f3cbb936fa5b835a2042287890fb152dc12c0",
-        "metatile_attributes.bin": "340277624e53e3193c302e922d65adcdaf4c4205fba7e3108b7d8601104592b6"
+        "metatile_attributes.bin": "9a77bdffb1c5d8b3bab5b286804ab1d4430c10e9e5d219bae14697118f9a8253"
       }
     },
     "gTileset_NewBarkTown": {
@@ -41,11 +50,11 @@
     },
     "gTileset_Johto_Building": {
       "firered": "gTileset_JohtoPilotBuilding",
-      "metatiles_converted": 140,
+      "metatiles_converted": 146,
       "behaviors": {
-        "MB_NORMAL": 111,
+        "MB_NORMAL": 116,
         "MB_TELEVISION": 1,
-        "MB_PC": 1,
+        "MB_PC": 2,
         "MB_SECRET_BASE_SPOT_TREE_RIGHT": 1,
         "MB_HOLDS_LARGE_DECORATION": 9,
         "MB_IMPASSABLE_WEST": 2,
@@ -62,7 +71,7 @@
       "sha256": {
         "tiles.png": "5dc646b27bb7b807b1c534f726f138d57a9f19de459dfbe2c5bc583d3f65e61d",
         "metatiles.bin": "b27c2a7c1f0f31378b86a54d1154a99559dd6b3a9719095b17c9f4e6801bd4fc",
-        "metatile_attributes.bin": "e0357337d874a720a1d9158172fb58d2a4f694d677b650e4de98cf33605165ee"
+        "metatile_attributes.bin": "4da7d4b77746829f1f9308999e5683d04a8b608065c338aae1d5bbd16e91c94c"
       }
     },
     "gTileset_PlayersHouse": {
@@ -95,17 +104,273 @@
     },
     "gTileset_Gate_Standard": {
       "firered": "gTileset_JohtoPilotGateStandard",
-      "metatiles_converted": 41,
+      "metatiles_converted": 85,
       "behaviors": {
-        "MB_NORMAL": 37,
-        "MB_COUNTER": 2,
+        "MB_NORMAL": 75,
+        "MB_COUNTER": 4,
         "MB_NON_ANIMATED_DOOR": 1,
-        "MB_SOUTH_ARROW_WARP": 1
+        "MB_SOUTH_ARROW_WARP": 1,
+        "MB_WEST_ARROW_WARP": 1,
+        "MB_EAST_ARROW_WARP": 1,
+        "MB_IMPASSABLE_WEST": 1,
+        "MB_IMPASSABLE_EAST": 1
       },
       "sha256": {
         "tiles.png": "498e300ad907d03cee16b7e6d6499d43732d0493ad6e739badecb9290a3e1a76",
         "metatiles.bin": "4c0a689aaeb0cad31784ec7a179346a9804b381edbc34705f8f775ed5aa24291",
-        "metatile_attributes.bin": "7b3ae650f2ddad3795bc95792cd38b9accef190d924890120e168c525fb02dcc"
+        "metatile_attributes.bin": "4ce71c184ce2080d349f7070bd410413341a2445297175169753b70358451cb4"
+      }
+    },
+    "gTileset_CherrygroveCity": {
+      "firered": "gTileset_JohtoPilotCherrygroveCity",
+      "metatiles_converted": 100,
+      "behaviors": {
+        "MB_NORMAL": 95,
+        "MB_ANIMATED_DOOR": 1,
+        "MB_HEADBUTT_TREE": 1,
+        "MB_SHORT_GRASS": 1,
+        "MB_POND_WATER": 2
+      },
+      "sha256": {
+        "tiles.png": "6ae286448e50ac740d31bf881f630818481fb4d14544ec022e07b4ac8929408b",
+        "metatiles.bin": "5cccbfd5839311fc985303ecf0d6b451a4a710f77c1719f671f530c2ec2ab14b",
+        "metatile_attributes.bin": "61c7385943c6aa3ee8b54162501dec06106cb235421423a84d969cfa27b0e87f"
+      }
+    },
+    "gTileset_VioletCity": {
+      "firered": "gTileset_JohtoPilotVioletCity",
+      "metatiles_converted": 266,
+      "behaviors": {
+        "MB_NORMAL": 251,
+        "MB_ROCK_STAIRS": 3,
+        "MB_SHORT_GRASS": 8,
+        "MB_ANIMATED_DOOR": 1,
+        "MB_EAST_ARROW_WARP": 1,
+        "MB_POND_WATER": 2
+      },
+      "sha256": {
+        "tiles.png": "48593c95a26f1e5bb6db8c040835b06ee4c8e58ad58d48d5c25cb17906910866",
+        "metatiles.bin": "5697f65434512750b9bbc5efd4da64951a11bfe9e854a302d1d09a514c7fc0ef",
+        "metatile_attributes.bin": "f6320cd13f878ee326a8e6294b3821a6341426cc1163f9d114f9174ff48be9a8"
+      }
+    },
+    "gTileset_Route32": {
+      "firered": "gTileset_JohtoPilotRoute32",
+      "metatiles_converted": 50,
+      "behaviors": {
+        "MB_NORMAL": 49,
+        "MB_IMPASSABLE_NORTH": 1
+      },
+      "sha256": {
+        "tiles.png": "cffe7604dce90fdd80206c18bb061465130e9755f34ee101f61f21665d3d83e9",
+        "metatiles.bin": "7a40b2d79db1d20b66089e7d38793108a835a75f8fb01ed575e0dcb856785f4c",
+        "metatile_attributes.bin": "4ee15e846ad052e955eb7d678c91e01e2c2c0c0f8efed801fed210e644ec81a3"
+      }
+    },
+    "gTileset_Johto_South": {
+      "firered": "gTileset_JohtoPilotSouth",
+      "metatiles_converted": 215,
+      "behaviors": {
+        "MB_SHORT_GRASS": 15,
+        "MB_NORMAL": 154,
+        "MB_HEADBUTT_TREE": 1,
+        "MB_TALL_GRASS": 3,
+        "MB_ROCK_STAIRS": 3,
+        "MB_ANIMATED_DOOR": 3,
+        "MB_OCEAN_WATER": 12,
+        "MB_JUMP_WEST": 3,
+        "MB_JUMP_EAST": 1,
+        "MB_JUMP_SOUTH": 3,
+        "MB_NON_ANIMATED_DOOR": 2,
+        "MB_SAND": 5,
+        "MB_EAST_ARROW_WARP": 1,
+        "MB_WEST_ARROW_WARP": 1,
+        "MB_POND_WATER": 6,
+        "MB_INTERIOR_DEEP_WATER": 2
+      },
+      "sha256": {
+        "tiles.png": "e7f2a220ea2355864813a4d40e898a7848dd7bec2c6577121ac2ffe73bc694a0",
+        "metatiles.bin": "23bd99d769d51d0617fb62ca6a9de1dbbe50ead478e0cffc5e9f786c9b817009",
+        "metatile_attributes.bin": "00c6b0067038649569e02d71dca21ceb38ceabf0c60d690e8955c234d994ffb6"
+      }
+    },
+    "gTileset_AzaleaTown": {
+      "firered": "gTileset_JohtoPilotAzaleaTown",
+      "metatiles_converted": 54,
+      "behaviors": {
+        "MB_NORMAL": 50,
+        "MB_SHORT_GRASS": 3,
+        "MB_LADDER": 1
+      },
+      "sha256": {
+        "tiles.png": "e5b11b181e2514c6f7c4b5a276090049aa6dd5889595bce98e671d65f879f655",
+        "metatiles.bin": "22bfc5df0c199a221660e66c12c6a9d244cb6418e7555ebe7a589da8c214f9ec",
+        "metatile_attributes.bin": "b4dbac22b3d89ea51394b42974fb4590fb58c95c52a738c55254b9e669e99855"
+      }
+    },
+    "gTileset_Cave_Default": {
+      "firered": "gTileset_JohtoPilotCave",
+      "metatiles_converted": 67,
+      "behaviors": {
+        "MB_CAVE": 19,
+        "MB_NORMAL": 33,
+        "MB_ROCK_STAIRS": 1,
+        "MB_LADDER": 1,
+        "MB_SOUTH_ARROW_WARP": 1,
+        "MB_OCEAN_WATER": 12
+      },
+      "sha256": {
+        "tiles.png": "6d1426f0f69ae026f0fd41b6268b3a032f496688cf21fe4188725f6ef476b269",
+        "metatiles.bin": "8ecd81c653ea0d312934554794912046734d002518345efd1b8d0feda0999a25",
+        "metatile_attributes.bin": "4660bc55d0f75c65c5dd25c0273b26d04c3ceaf7fdd481af0e50248502e05647"
+      }
+    },
+    "gTileset_IlexForest": {
+      "firered": "gTileset_JohtoPilotIlexForest",
+      "metatiles_converted": 47,
+      "behaviors": {
+        "MB_CAVE": 13,
+        "MB_NORMAL": 23,
+        "MB_HEADBUTT_TREE": 1,
+        "MB_FOOTPRINTS": 8,
+        "MB_POND_WATER": 2
+      },
+      "sha256": {
+        "tiles.png": "4733e014594230bb8260d6c973d0334874b360c941e750019cca7361c2eb98c9",
+        "metatiles.bin": "36bfadf235c924af287f76f4fde7d3ec5472e247aba3ec3d0c4134be3c7a6b0f",
+        "metatile_attributes.bin": "1111dc2d451fef43a65cab48b5d6f777f771989f9709ef4d57e2437de3103466"
+      }
+    },
+    "gTileset_Goldenrod": {
+      "firered": "gTileset_JohtoPilotGoldenrod",
+      "metatiles_converted": 352,
+      "behaviors": {
+        "MB_NORMAL": 348,
+        "MB_ANIMATED_DOOR": 1,
+        "MB_OCEAN_WATER": 1,
+        "MB_UNUSED_BRIDGE": 1,
+        "MB_SOUTH_ARROW_WARP": 1
+      },
+      "sha256": {
+        "tiles.png": "03d84f5e134bdd1bfa380256706cef462c80a4e1fc1c60047082fa639c5ade40",
+        "metatiles.bin": "8f45de45ad8687b698f4e11e9e4d2f7642acee1f0cb4a230c4461b8f2515b5a8",
+        "metatile_attributes.bin": "5f568d7d37e6d68c7174ab9c5ca2ba1bad9a907876c6463ada4ed3d9b802e9c1"
+      }
+    },
+    "gTileset_Johto_NorthWest": {
+      "firered": "gTileset_JohtoPilotNorthWest",
+      "metatiles_converted": 152,
+      "behaviors": {
+        "MB_SHORT_GRASS": 4,
+        "MB_NORMAL": 117,
+        "MB_ANIMATED_DOOR": 2,
+        "MB_ROCK_STAIRS": 1,
+        "MB_NON_ANIMATED_DOOR": 1,
+        "MB_SAND": 12,
+        "MB_EAST_ARROW_WARP": 1,
+        "MB_WEST_ARROW_WARP": 2,
+        "MB_POND_WATER": 9,
+        "MB_INTERIOR_DEEP_WATER": 2,
+        "MB_SHALLOW_WATER": 1
+      },
+      "sha256": {
+        "tiles.png": "4c52016a72b3723d967dd0d59f7dc6484bfa2c6d8d98835049145fc992ce1297",
+        "metatiles.bin": "8e1cc6d19d6fc76b330d142e88e787db5bebf35cd2007b1eb0bb06231d108cf3",
+        "metatile_attributes.bin": "52d121fa581dba93fd217d70278562825b97330d94d9aa02f3a25c751318bcb6"
+      }
+    },
+    "gTileset_Ecruteak_City": {
+      "firered": "gTileset_JohtoPilotEcruteakCity",
+      "metatiles_converted": 310,
+      "behaviors": {
+        "MB_NORMAL": 298,
+        "MB_SOUTH_ARROW_WARP": 1,
+        "MB_SHORT_GRASS": 2,
+        "MB_ANIMATED_DOOR": 1,
+        "MB_POND_WATER": 2,
+        "MB_NON_ANIMATED_DOOR": 1,
+        "MB_TALL_GRASS": 4,
+        "MB_NORTH_ARROW_WARP": 1
+      },
+      "sha256": {
+        "tiles.png": "e1be8e33e93669b81a9ff8c3cdf75f113448b4a9c782b3e87aee2aca16780a39",
+        "metatiles.bin": "bed75d37ed51cb6a3b192600e498b025ae9df14817d3250ba2da4181e6355e5b",
+        "metatile_attributes.bin": "bd753ec94c6e32e2ca6aa6ad55cce645b019b08885cebc6c33cfc1dcafae57ae"
+      }
+    },
+    "gTileset_Route38_Farmland": {
+      "firered": "gTileset_JohtoPilotRoute38Farmland",
+      "metatiles_converted": 133,
+      "behaviors": {
+        "MB_SHORT_GRASS": 5,
+        "MB_NORMAL": 100,
+        "MB_TALL_GRASS": 2,
+        "MB_LONG_GRASS": 3,
+        "MB_LONG_GRASS_SOUTH_EDGE": 3,
+        "MB_POND_WATER": 15,
+        "MB_EAST_ARROW_WARP": 1,
+        "MB_JUMP_EAST": 3,
+        "MB_NON_ANIMATED_DOOR": 1
+      },
+      "sha256": {
+        "tiles.png": "df417c71e007b5973a416b0c2ad9f9f553cd1794ede82f7f2d3b97457f499f64",
+        "metatiles.bin": "0d43ac1b844a4ec96ce31ff909478a2c9db3b7480e851d1a2a7f8b3a7b646f76",
+        "metatile_attributes.bin": "0ff9fb2fc6bc8b36f3450d66c63e3f8fbd3cd0dd1b091f2835cf728df108ee94"
+      }
+    },
+    "gTileset_OlivineCity": {
+      "firered": "gTileset_JohtoPilotOlivineCity",
+      "metatiles_converted": 213,
+      "behaviors": {
+        "MB_NORMAL": 203,
+        "MB_ANIMATED_DOOR": 1,
+        "MB_OCEAN_WATER": 9
+      },
+      "sha256": {
+        "tiles.png": "df12fc9642f7d0e810c3a73be8e9cff5bbc537faa26a527d4f3719be3f1dd7be",
+        "metatiles.bin": "0305537b893b7c9d6e416d7f65f62513c8a46ecbe74fa7859f731f850fe50f05",
+        "metatile_attributes.bin": "cbc661c61c8796840c4eda646138e08940fdcadf5a161867d9fb69f95f8db5b6"
+      }
+    },
+    "gTileset_Johto_NorthEast": {
+      "firered": "gTileset_JohtoPilotNorthEast",
+      "metatiles_converted": 194,
+      "behaviors": {
+        "MB_SHORT_GRASS": 14,
+        "MB_NORMAL": 112,
+        "MB_HEADBUTT_TREE": 3,
+        "MB_TALL_GRASS": 1,
+        "MB_ANIMATED_DOOR": 2,
+        "MB_JUMP_WEST": 1,
+        "MB_JUMP_SOUTH": 5,
+        "MB_NON_ANIMATED_DOOR": 2,
+        "MB_SAND": 23,
+        "MB_MOUNTAIN_TERRAIN": 6,
+        "MB_OCEAN_WATER": 19,
+        "MB_EAST_ARROW_WARP": 1,
+        "MB_WEST_ARROW_WARP": 1,
+        "MB_SEAWEED_NO_SURFACING": 1,
+        "MB_INTERIOR_DEEP_WATER": 2,
+        "MB_SHALLOW_WATER": 1
+      },
+      "sha256": {
+        "tiles.png": "011408f36b1fea9a94149ada6051fdf8c1659238cbad77954cf346714155fb5b",
+        "metatiles.bin": "d3d19f9c456ec1faaa2d37e5f883057e7c17b905cffdc20d3a7bd3dc26bbb918",
+        "metatile_attributes.bin": "19260b6c0766ed1b69c5f85e62cf3560f7efb21b0e5d641f23513f2b8703e5bf"
+      }
+    },
+    "gTileset_MahoganyTown": {
+      "firered": "gTileset_JohtoPilotMahoganyTown",
+      "metatiles_converted": 33,
+      "behaviors": {
+        "MB_NORMAL": 30,
+        "MB_ANIMATED_DOOR": 1,
+        "MB_SAND": 2
+      },
+      "sha256": {
+        "tiles.png": "3ba07889ba571d80da91691f961eba58d21e697f2043c2e49e614c80a85ec91e",
+        "metatiles.bin": "004a4a9fe3a639a17c73698ef6f6414b21c5972d0bb8fcbbf5b08c5520566943",
+        "metatile_attributes.bin": "cc41695aeee6222ab67a8d71adcfd6b12e6ca2cf0168a9cf8c4131cee14bb9ea"
       }
     }
   },
@@ -137,6 +402,538 @@
       "x": 7,
       "y": 1,
       "destination": "MAP_ROUTE46"
+    },
+    {
+      "map": "CherrygroveCity",
+      "index": 0,
+      "x": 41,
+      "y": 7,
+      "destination": "MAP_CHERRYGROVE_CITY_MART"
+    },
+    {
+      "map": "CherrygroveCity",
+      "index": 1,
+      "x": 47,
+      "y": 7,
+      "destination": "MAP_CHERRYGROVE_CITY_POKEMON_CENTER"
+    },
+    {
+      "map": "CherrygroveCity",
+      "index": 2,
+      "x": 34,
+      "y": 13,
+      "destination": "MAP_CHERRYGROVE_CITY_HOUSE1"
+    },
+    {
+      "map": "CherrygroveCity",
+      "index": 3,
+      "x": 42,
+      "y": 14,
+      "destination": "MAP_CHERRYGROVE_CITY_HOUSE2"
+    },
+    {
+      "map": "CherrygroveCity",
+      "index": 4,
+      "x": 50,
+      "y": 17,
+      "destination": "MAP_CHERRYGROVE_CITY_HOUSE3"
+    },
+    {
+      "map": "Route30",
+      "index": 0,
+      "x": 26,
+      "y": 39,
+      "destination": "MAP_ROUTE30_HOUSE"
+    },
+    {
+      "map": "Route30",
+      "index": 1,
+      "x": 35,
+      "y": 4,
+      "destination": "MAP_ROUTE30_MR_POKEMONS_HOUSE"
+    },
+    {
+      "map": "Route31",
+      "index": 0,
+      "x": 48,
+      "y": 9,
+      "destination": "MAP_DARK_CAVE_SOUTH_SIDE"
+    },
+    {
+      "map": "VioletCity",
+      "index": 1,
+      "x": 30,
+      "y": 13,
+      "destination": "MAP_SPROUT_TOWER_1F"
+    },
+    {
+      "map": "VioletCity",
+      "index": 2,
+      "x": 39,
+      "y": 45,
+      "destination": "MAP_VIOLET_CITY_POKEMON_CENTER"
+    },
+    {
+      "map": "VioletCity",
+      "index": 3,
+      "x": 16,
+      "y": 35,
+      "destination": "MAP_VIOLET_CITY_MART"
+    },
+    {
+      "map": "VioletCity",
+      "index": 4,
+      "x": 29,
+      "y": 47,
+      "destination": "MAP_VIOLET_CITY_HOUSE1"
+    },
+    {
+      "map": "VioletCity",
+      "index": 5,
+      "x": 6,
+      "y": 32,
+      "destination": "MAP_VIOLET_CITY_HOUSE2"
+    },
+    {
+      "map": "VioletCity",
+      "index": 6,
+      "x": 39,
+      "y": 36,
+      "destination": "MAP_VIOLET_CITY_TRAINER_SCHOOL"
+    },
+    {
+      "map": "VioletCity",
+      "index": 7,
+      "x": 23,
+      "y": 36,
+      "destination": "MAP_VIOLET_CITY_GYM"
+    },
+    {
+      "map": "Route32",
+      "index": 0,
+      "x": 13,
+      "y": 3,
+      "destination": "MAP_GATE_RUINS_OF_ALPH_ROUTE32"
+    },
+    {
+      "map": "Route32",
+      "index": 2,
+      "x": 25,
+      "y": 84,
+      "destination": "MAP_ROUTE32_POKEMON_CENTER"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 0,
+      "x": 52,
+      "y": 7,
+      "destination": "MAP_SLOWPOKE_WELL_B1F"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 2,
+      "x": 19,
+      "y": 11,
+      "destination": "MAP_AZALEA_TOWN_KURTS_HOUSE"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 3,
+      "x": 31,
+      "y": 15,
+      "destination": "MAP_AZALEA_TOWN_POKEMON_CENTER"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 4,
+      "x": 40,
+      "y": 11,
+      "destination": "MAP_AZALEA_TOWN_MART"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 5,
+      "x": 38,
+      "y": 23,
+      "destination": "MAP_AZALEA_TOWN_HOUSE1"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 6,
+      "x": 23,
+      "y": 24,
+      "destination": "MAP_AZALEA_TOWN_GYM"
+    },
+    {
+      "map": "UnionCave_1F",
+      "index": 1,
+      "x": 10,
+      "y": 30,
+      "destination": "MAP_UNION_CAVE_B1F"
+    },
+    {
+      "map": "UnionCave_1F",
+      "index": 3,
+      "x": 6,
+      "y": 47,
+      "destination": "MAP_UNION_CAVE_B1F"
+    },
+    {
+      "map": "Route34",
+      "index": 4,
+      "x": 31,
+      "y": 30,
+      "destination": "MAP_ROUTE34_DAY_CARE"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 2,
+      "x": 20,
+      "y": 12,
+      "destination": "MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 3,
+      "x": 29,
+      "y": 13,
+      "destination": "MAP_GOLDENROD_CITY_HOUSE1"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 4,
+      "x": 39,
+      "y": 13,
+      "destination": "MAP_GOLDENROD_CITY_GYM"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 5,
+      "x": 44,
+      "y": 11,
+      "destination": "MAP_GOLDENROD_CITY_FLOWER_SHOP"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 6,
+      "x": 48,
+      "y": 15,
+      "destination": "MAP_GOLDENROD_CITY_HOUSE2"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 7,
+      "x": 16,
+      "y": 22,
+      "destination": "MAP_GOLDENROD_CITY_RADIO_TOWER_1F"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 8,
+      "x": 24,
+      "y": 21,
+      "destination": "MAP_GOLDENROD_CITY_TRAIN_STATION"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 9,
+      "x": 46,
+      "y": 28,
+      "destination": "MAP_GOLDENROD_CITY_HOUSE3"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 10,
+      "x": 28,
+      "y": 29,
+      "destination": "MAP_GOLDENROD_CITY_GAME_CORNER"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 11,
+      "x": 14,
+      "y": 33,
+      "destination": "MAP_GOLDENROD_CITY_BILLS_HOUSE"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 12,
+      "x": 28,
+      "y": 36,
+      "destination": "MAP_GOLDENROD_CITY_POKEMON_CENTER"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 13,
+      "x": 39,
+      "y": 36,
+      "destination": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_1F"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 14,
+      "x": 44,
+      "y": 38,
+      "destination": "MAP_GOLDENROD_CITY_BIKE_SHOP"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 15,
+      "x": 21,
+      "y": 38,
+      "destination": "MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE"
+    },
+    {
+      "map": "Gate_NationalPark",
+      "index": 1,
+      "x": 7,
+      "y": 1,
+      "destination": "MAP_NATIONAL_PARK_NORMAL"
+    },
+    {
+      "map": "Gate_NationalPark",
+      "index": 2,
+      "x": 34,
+      "y": 7,
+      "destination": "MAP_NATIONAL_PARK_NORMAL"
+    },
+    {
+      "map": "Gate_NationalPark",
+      "index": 4,
+      "x": 7,
+      "y": 0,
+      "destination": "MAP_NATIONAL_PARK_BUG_CONTEST"
+    },
+    {
+      "map": "Route36",
+      "index": 0,
+      "x": 56,
+      "y": 25,
+      "destination": "MAP_GATE_RUINS_OF_ALPH_ROUTE36"
+    },
+    {
+      "map": "Route36",
+      "index": 1,
+      "x": 55,
+      "y": 25,
+      "destination": "MAP_GATE_RUINS_OF_ALPH_ROUTE36"
+    },
+    {
+      "map": "Route36",
+      "index": 3,
+      "x": 57,
+      "y": 25,
+      "destination": "MAP_GATE_RUINS_OF_ALPH_ROUTE36"
+    },
+    {
+      "map": "EcruteakCity",
+      "index": 2,
+      "x": 22,
+      "y": 14,
+      "destination": "MAP_BURNED_TOWER_1F"
+    },
+    {
+      "map": "EcruteakCity",
+      "index": 3,
+      "x": 39,
+      "y": 22,
+      "destination": "MAP_ECRUTEAK_CITY_SAGE_OFFICE1"
+    },
+    {
+      "map": "EcruteakCity",
+      "index": 4,
+      "x": 36,
+      "y": 16,
+      "destination": "MAP_ECRUTEAK_CITY_SAGE_OFFICE2"
+    },
+    {
+      "map": "EcruteakCity",
+      "index": 5,
+      "x": 37,
+      "y": 16,
+      "destination": "MAP_TIN_TOWER_1F"
+    },
+    {
+      "map": "EcruteakCity",
+      "index": 6,
+      "x": 39,
+      "y": 40,
+      "destination": "MAP_ECRUTEAK_CITY_THEATER"
+    },
+    {
+      "map": "EcruteakCity",
+      "index": 9,
+      "x": 19,
+      "y": 40,
+      "destination": "MAP_ECRUTEAK_CITY_HOUSE1"
+    },
+    {
+      "map": "EcruteakCity",
+      "index": 10,
+      "x": 28,
+      "y": 47,
+      "destination": "MAP_ECRUTEAK_CITY_HOUSE2"
+    },
+    {
+      "map": "EcruteakCity",
+      "index": 11,
+      "x": 39,
+      "y": 47,
+      "destination": "MAP_ECRUTEAK_CITY_POKEMON_CENTER"
+    },
+    {
+      "map": "EcruteakCity",
+      "index": 12,
+      "x": 48,
+      "y": 40,
+      "destination": "MAP_ECRUTEAK_CITY_MART"
+    },
+    {
+      "map": "EcruteakCity",
+      "index": 13,
+      "x": 20,
+      "y": 48,
+      "destination": "MAP_ECRUTEAK_CITY_GYM"
+    },
+    {
+      "map": "EcruteakCity",
+      "index": 14,
+      "x": 39,
+      "y": 46,
+      "destination": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY"
+    },
+    {
+      "map": "Route39",
+      "index": 0,
+      "x": 21,
+      "y": 15,
+      "destination": "MAP_ROUTE39_FARM_HOUSE"
+    },
+    {
+      "map": "Route39",
+      "index": 1,
+      "x": 15,
+      "y": 15,
+      "destination": "MAP_ROUTE39_BARN"
+    },
+    {
+      "map": "Route39",
+      "index": 2,
+      "x": 16,
+      "y": 15,
+      "destination": "MAP_ROUTE39_BARN"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 0,
+      "x": 39,
+      "y": 49,
+      "destination": "MAP_OLIVINE_CITY_LIGHTHOUSE"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 1,
+      "x": 11,
+      "y": 27,
+      "destination": "MAP_OLIVINE_CITY_GYM"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 2,
+      "x": 8,
+      "y": 43,
+      "destination": "MAP_OLIVINE_CITY_CAFE"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 3,
+      "x": 26,
+      "y": 40,
+      "destination": "MAP_OLIVINE_CITY_MART"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 4,
+      "x": 27,
+      "y": 24,
+      "destination": "MAP_OLIVINE_CITY_HOUSE1"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 5,
+      "x": 31,
+      "y": 24,
+      "destination": "MAP_OLIVINE_CITY_HOUSE2"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 6,
+      "x": 19,
+      "y": 36,
+      "destination": "MAP_OLIVINE_CITY_HOUSE3"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 7,
+      "x": 15,
+      "y": 43,
+      "destination": "MAP_OLIVINE_CITY_POKEMON_CENTER"
+    },
+    {
+      "map": "Route42",
+      "index": 1,
+      "x": 18,
+      "y": 7,
+      "destination": "MAP_MT_MORTAR_1F_SOUTH"
+    },
+    {
+      "map": "Route42",
+      "index": 2,
+      "x": 40,
+      "y": 11,
+      "destination": "MAP_MT_MORTAR_1F_SOUTH"
+    },
+    {
+      "map": "Route42",
+      "index": 3,
+      "x": 62,
+      "y": 9,
+      "destination": "MAP_MT_MORTAR_1F_SOUTH"
+    },
+    {
+      "map": "MahoganyTown",
+      "index": 0,
+      "x": 14,
+      "y": 4,
+      "destination": "MAP_GATE_MAHOGANY_TOWN_ROUTE43"
+    },
+    {
+      "map": "MahoganyTown",
+      "index": 1,
+      "x": 15,
+      "y": 10,
+      "destination": "MAP_MAHOGANY_TOWN_SHOP"
+    },
+    {
+      "map": "MahoganyTown",
+      "index": 2,
+      "x": 27,
+      "y": 10,
+      "destination": "MAP_MAHOGANY_TOWN_HOUSE1"
+    },
+    {
+      "map": "MahoganyTown",
+      "index": 3,
+      "x": 10,
+      "y": 19,
+      "destination": "MAP_MAHOGANY_TOWN_GYM"
+    },
+    {
+      "map": "MahoganyTown",
+      "index": 4,
+      "x": 21,
+      "y": 19,
+      "destination": "MAP_MAHOGANY_TOWN_POKEMON_CENTER"
     }
   ],
   "behavior_rules": {
@@ -148,9 +945,61 @@
       "firered_attribute": "0x1000202",
       "reason": "tall grass, grass terrain, land encounters"
     },
+    "MB_LONG_GRASS": {
+      "firered_attribute": "0x1000202",
+      "reason": "FireRed has no long grass; tall grass with land encounters"
+    },
+    "MB_LONG_GRASS_SOUTH_EDGE": {
+      "firered_attribute": "0x1000202",
+      "reason": "FireRed has no long grass; tall grass with land encounters"
+    },
     "MB_OCEAN_WATER": {
       "firered_attribute": "0x2000415",
       "reason": "ocean water, water terrain, water encounters"
+    },
+    "MB_POND_WATER": {
+      "firered_attribute": "0x2000410",
+      "reason": "pond water, water terrain, water encounters"
+    },
+    "MB_SHALLOW_WATER": {
+      "firered_attribute": "0x17",
+      "reason": "same name (walkable, splash)"
+    },
+    "MB_INTERIOR_DEEP_WATER": {
+      "firered_attribute": "0x2000410",
+      "reason": "FireRed has no interior deep water; surfable pond water like the tiles around it"
+    },
+    "MB_WEST_ARROW_WARP": {
+      "firered_attribute": "0x63",
+      "reason": "same name (Route 31 -> Violet gate)"
+    },
+    "MB_EAST_ARROW_WARP": {
+      "firered_attribute": "0x62",
+      "reason": "same name (Violet -> Route 31 gate)"
+    },
+    "MB_NORTH_ARROW_WARP": {
+      "firered_attribute": "0x64",
+      "reason": "same name (Route 37 <-> Ecruteak)"
+    },
+    "MB_MOUNTAIN_TERRAIN": {
+      "firered_attribute": "0x0",
+      "reason": "HNS only picks the battle background with it; FireRed: normal"
+    },
+    "MB_LADDER": {
+      "firered_attribute": "0x61",
+      "reason": "same name (Slowpoke Well entrance; its warp is dropped)"
+    },
+    "MB_CAVE": {
+      "firered_attribute": "0x1000008",
+      "reason": "cave floor with land encounters, as in FireRed caves"
+    },
+    "MB_FOOTPRINTS": {
+      "firered_attribute": "0x21",
+      "reason": "FireRed has no MB_FOOTPRINTS; MB_SAND leaves the same prints"
+    },
+    "MB_UNUSED_BRIDGE": {
+      "firered_attribute": "0x0",
+      "reason": "HNS: water encounters under a bridge; one Goldenrod tile, normal here"
     },
     "MB_SAND": {
       "firered_attribute": "0x21",
@@ -252,6 +1101,10 @@
       "firered_attribute": "0x0",
       "reason": "no code uses it in HNS"
     },
+    "MB_SEAWEED_NO_SURFACING": {
+      "firered_attribute": "0x0",
+      "reason": "one Mahogany Pokemon Center roof tile (blocked cell); normal here"
+    },
     "MB_SIDEWAYS_STAIRS_LEFT_SIDE_TOP": {
       "firered_attribute": "0x0",
       "reason": "FireRed has no sideways stairs; walks straight"
@@ -289,6 +1142,114 @@
     "Johto_Gate_Route29_Route46": {
       "id": "MAP_JOHTO_GATE_ROUTE29_ROUTE46",
       "number": 7
+    },
+    "Johto_CherrygroveCity": {
+      "id": "MAP_JOHTO_CHERRYGROVE_CITY",
+      "number": 8
+    },
+    "Johto_Route30": {
+      "id": "MAP_JOHTO_ROUTE30",
+      "number": 9
+    },
+    "Johto_Route31": {
+      "id": "MAP_JOHTO_ROUTE31",
+      "number": 10
+    },
+    "Johto_VioletCity": {
+      "id": "MAP_JOHTO_VIOLET_CITY",
+      "number": 11
+    },
+    "Johto_Gate_Route31_VioletCity": {
+      "id": "MAP_JOHTO_GATE_ROUTE31_VIOLET_CITY",
+      "number": 12
+    },
+    "Johto_Route32": {
+      "id": "MAP_JOHTO_ROUTE32",
+      "number": 13
+    },
+    "Johto_Route33": {
+      "id": "MAP_JOHTO_ROUTE33",
+      "number": 14
+    },
+    "Johto_AzaleaTown": {
+      "id": "MAP_JOHTO_AZALEA_TOWN",
+      "number": 15
+    },
+    "Johto_UnionCave_1F": {
+      "id": "MAP_JOHTO_UNION_CAVE_1F",
+      "number": 16
+    },
+    "Johto_Gate_AzaleaTown_IlexForest": {
+      "id": "MAP_JOHTO_GATE_AZALEA_TOWN_ILEX_FOREST",
+      "number": 17
+    },
+    "Johto_IlexForest": {
+      "id": "MAP_JOHTO_ILEX_FOREST",
+      "number": 18
+    },
+    "Johto_Gate_IlexForest_Route34": {
+      "id": "MAP_JOHTO_GATE_ILEX_FOREST_ROUTE34",
+      "number": 19
+    },
+    "Johto_Route34": {
+      "id": "MAP_JOHTO_ROUTE34",
+      "number": 20
+    },
+    "Johto_GoldenrodCity": {
+      "id": "MAP_JOHTO_GOLDENROD_CITY",
+      "number": 21
+    },
+    "Johto_Gate_GoldenrodCity_Route35": {
+      "id": "MAP_JOHTO_GATE_GOLDENROD_CITY_ROUTE35",
+      "number": 22
+    },
+    "Johto_Route35": {
+      "id": "MAP_JOHTO_ROUTE35",
+      "number": 23
+    },
+    "Johto_Gate_NationalPark": {
+      "id": "MAP_JOHTO_GATE_NATIONAL_PARK",
+      "number": 24
+    },
+    "Johto_Route36": {
+      "id": "MAP_JOHTO_ROUTE36",
+      "number": 25
+    },
+    "Johto_Route37": {
+      "id": "MAP_JOHTO_ROUTE37",
+      "number": 26
+    },
+    "Johto_EcruteakCity": {
+      "id": "MAP_JOHTO_ECRUTEAK_CITY",
+      "number": 27
+    },
+    "Johto_Gate_EcruteakCity_Route38": {
+      "id": "MAP_JOHTO_GATE_ECRUTEAK_CITY_ROUTE38",
+      "number": 28
+    },
+    "Johto_Route38": {
+      "id": "MAP_JOHTO_ROUTE38",
+      "number": 29
+    },
+    "Johto_Route39": {
+      "id": "MAP_JOHTO_ROUTE39",
+      "number": 30
+    },
+    "Johto_OlivineCity": {
+      "id": "MAP_JOHTO_OLIVINE_CITY",
+      "number": 31
+    },
+    "Johto_Gate_EcruteakCity_Route42": {
+      "id": "MAP_JOHTO_GATE_ECRUTEAK_CITY_ROUTE42",
+      "number": 32
+    },
+    "Johto_Route42": {
+      "id": "MAP_JOHTO_ROUTE42",
+      "number": 33
+    },
+    "Johto_MahoganyTown": {
+      "id": "MAP_JOHTO_MAHOGANY_TOWN",
+      "number": 34
     }
   }
 }

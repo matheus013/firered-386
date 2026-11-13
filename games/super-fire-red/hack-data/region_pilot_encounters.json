@@ -1876,6 +1876,169 @@
       "source": {
         "repository": "HNS_modern",
         "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gRoute42",
+        "map": "MAP_ROUTE42",
+        "note": "day table; Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_ROUTE42",
+        "base_label": "gJohtoRoute42_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_FEAROW"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_EKANS"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_GLIGAR"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_RATICATE"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_FEAROW"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_EKANS"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_GLIGAR"
+            },
+            {
+              "min_level": 22,
+              "max_level": 22,
+              "species": "SPECIES_ARBOK"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_RATICATE"
+            },
+            {
+              "min_level": 22,
+              "max_level": 22,
+              "species": "SPECIES_FEAROW"
+            },
+            {
+              "min_level": 22,
+              "max_level": 22,
+              "species": "SPECIES_ARBOK"
+            },
+            {
+              "min_level": 22,
+              "max_level": 22,
+              "species": "SPECIES_RATICATE"
+            }
+          ]
+        },
+        "water_mons": {
+          "encounter_rate": 7,
+          "mons": [
+            {
+              "min_level": 21,
+              "max_level": 25,
+              "species": "SPECIES_REMORAID"
+            },
+            {
+              "min_level": 20,
+              "max_level": 24,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 25,
+              "max_level": 29,
+              "species": "SPECIES_SEAKING"
+            },
+            {
+              "min_level": 21,
+              "max_level": 25,
+              "species": "SPECIES_REMORAID"
+            },
+            {
+              "min_level": 20,
+              "max_level": 24,
+              "species": "SPECIES_GOLDEEN"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_SEAKING"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_SEAKING"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
         "label": "gRoute38",
         "map": "MAP_ROUTE38",
         "note": "day table; Rock Smash left out"

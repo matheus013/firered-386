@@ -61,6 +61,13 @@ TOWNS = [
      'heal': (15, 44), 'flag': 'FLAG_0x8CE',
      'closed': ['OlivineCity_Lighthouse', 'OlivineCity_Gym', 'OlivineCity_Cafe', 'OlivineCity_House1', 'OlivineCity_House2',
                 'OlivineCity_House3', 'Route39_FarmHouse', 'Route39_Barn', 'Route40', 'OlivineCity_PortOutside']},
+    # Batch 10: Mahogany Town. The souvenir shop door leads to the FireRed Mart.
+    {'town': 'MahoganyTown', 'doors': [((21, 19), 'PokemonCenter_1F'), ((15, 10), 'Mart')],
+     'mart': ['ITEM_GREAT_BALL', 'ITEM_SUPER_POTION', 'ITEM_HYPER_POTION', 'ITEM_ANTIDOTE', 'ITEM_PARALYZE_HEAL',
+              'ITEM_SUPER_REPEL', 'ITEM_REVIVE'],
+     'heal': (21, 20), 'flag': 'FLAG_0x8D0',
+     'closed': ['Gate_MahoganyTown_Route43', 'MahoganyTown_House1', 'MahoganyTown_Gym', 'Route43', 'Route44',
+                'MtMortar_1F_South']},
 ]
 
 

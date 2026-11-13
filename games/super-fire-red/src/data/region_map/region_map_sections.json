@@ -1529,6 +1529,22 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_42",
+      "name": "ROUTE 42",
+      "x": 11,
+      "y": 2,
+      "width": 4,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_MAHOGANY_TOWN",
+      "name": "MAHOGANY TOWN",
+      "x": 15,
+      "y": 2,
+      "width": 1,
+      "height": 1
     }
   ]
 }

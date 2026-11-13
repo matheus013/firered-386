@@ -4091,6 +4091,202 @@
         }
       ]
     },
+    "Johto_Gate_EcruteakCity_Route42": {
+      "source": "HNS_modern/Gate_EcruteakCity_Route42",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "Gate_EcruteakCity_Route42_EventScript_Policeman",
+          "source_sprite": "OBJ_EVENT_GFX_POLICEMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_POLICEMAN",
+          "text": "Route42_Text_EcruteakGateOfficer",
+          "note": "",
+          "x": 6,
+          "y": 2
+        }
+      ]
+    },
+    "Johto_Route42": {
+      "source": "HNS_modern/Route42",
+      "events": [
+        {
+          "kind": "itemflag",
+          "source_index": 0,
+          "source_script": "Route42_EventScript_Item_SuperPotion",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Super Potion",
+          "x": 12,
+          "y": 6
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 1,
+          "source_script": "Route42_EventScript_Item_UltraBall",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Ultra Ball",
+          "x": 31,
+          "y": 9
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 2,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 36,
+          "y": 15
+        },
+        {
+          "kind": "trainer",
+          "source_index": 3,
+          "source_script": "Route42_EventScript_Tully",
+          "source_sprite": "OBJ_EVENT_GFX_FISHER",
+          "firered_sprite": "OBJ_EVENT_GFX_FISHER",
+          "text": [
+            "TRAINER_JOHTO_TULLY",
+            "Route42_Text_FisherTullySeen",
+            "Route42_Text_FisherTullyBeaten",
+            "Route42_Text_FisherTullyAfter"
+          ],
+          "note": "",
+          "x": 32,
+          "y": 12
+        },
+        {
+          "kind": "trainer",
+          "source_index": 4,
+          "source_script": "Route42_EventScript_Shane",
+          "source_sprite": "OBJ_EVENT_GFX_SUPER_NERD",
+          "firered_sprite": "OBJ_EVENT_GFX_POKE_MANIAC",
+          "text": [
+            "TRAINER_JOHTO_SHANE",
+            "Route42_Text_PokemaniacShaneSeen",
+            "Route42_Text_PokemaniacShaneBeaten",
+            "Route42_Text_PokemaniacShaneAfter"
+          ],
+          "note": "",
+          "x": 63,
+          "y": 15
+        },
+        {
+          "kind": "trainer",
+          "source_index": 5,
+          "source_script": "Route42_EventScript_Ben",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_JOHTO_BENJAMIN",
+            "Route42_Text_HikerBenjaminSeen",
+            "Route42_Text_HikerBenjaminBeaten",
+            "Route42_Text_HikerBenjaminAfter"
+          ],
+          "note": "",
+          "x": 66,
+          "y": 9
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route42_EventScript_MortarSign",
+          "text": "Route42_Text_MtMortarSign1",
+          "x": 15,
+          "y": 7
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "Route42_EventScript_MortarSign",
+          "text": "Route42_Text_MtMortarSign1",
+          "x": 59,
+          "y": 10
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "Route42_EventScript_Sign",
+          "text": "Route42_Text_Sign1",
+          "x": 70,
+          "y": 10
+        },
+        {
+          "kind": "sign",
+          "source_index": 3,
+          "source_script": "Route42_EventScript_Sign",
+          "text": "Route42_Text_Sign1",
+          "x": 12,
+          "y": 12
+        }
+      ]
+    },
+    "Johto_MahoganyTown": {
+      "source": "HNS_modern/MahoganyTown",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "MahoganyTown_EventScript_Gramps",
+          "source_sprite": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "text": "MahoganyTown_Text_Gramps",
+          "note": "branch after the Rocket hideout left out",
+          "x": 7,
+          "y": 13
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "MahoganyTown_EventScript_Lass",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_1",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_1",
+          "text": "MahoganyTown_Text_Lass",
+          "note": "",
+          "x": 24,
+          "y": 8
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "MahoganyTown_EventScript_Fisher",
+          "source_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "text": "MahoganyTown_Text_Fisher",
+          "note": "",
+          "x": 10,
+          "y": 20
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "MahoganyTown_EventScript_Sign",
+          "text": "MahoganyTown_Text_Sign",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "MahoganyTown_EventScript_CandybarSign",
+          "text": "MahoganyTown_Text_RagecandybarSign",
+          "x": 13,
+          "y": 10
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "MahoganyTown_EventScript_GymSign",
+          "text": "MahoganyTown_Text_GymSign",
+          "x": 12,
+          "y": 19
+        }
+      ]
+    },
     "Johto_Gate_EcruteakCity_Route38": {
       "source": "HNS_modern/Gate_EcruteakCity_Route38",
       "events": [

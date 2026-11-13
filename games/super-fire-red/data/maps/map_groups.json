@@ -651,7 +651,9 @@
     "Johto_Route39",
     "Johto_OlivineCity",
     "Hoenn_Route117",
-    "Hoenn_MauvilleCity"
+    "Hoenn_MauvilleCity",
+    "Johto_Route42",
+    "Johto_MahoganyTown"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -729,6 +731,11 @@
     "Johto_Route39",
     "Johto_OlivineCity",
     "Johto_OlivineCity_PokemonCenter_1F",
-    "Johto_OlivineCity_Mart"
+    "Johto_OlivineCity_Mart",
+    "Johto_Gate_EcruteakCity_Route42",
+    "Johto_Route42",
+    "Johto_MahoganyTown",
+    "Johto_MahoganyTown_PokemonCenter_1F",
+    "Johto_MahoganyTown_Mart"
   ]
 }

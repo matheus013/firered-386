@@ -16402,3 +16402,40 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HoennMelina[] = {
     .species = SPECIES_DODUO,
     }
 };
+
+// Region geography: HNS_modern TRAINER_TULLY, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoTully[] = {
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_QWILFISH,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_BENJAMIN, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoBenjamin[] = {
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_GRAVELER,
+    },
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_DUGTRIO,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_SHANE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoShane[] = {
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_NIDORINO,
+    },
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_NIDOKING,
+    }
+};

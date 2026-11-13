@@ -355,6 +355,20 @@ EVENTS = {
     'Gate_IlexForest_Route34': (HNS, {0: ('npc', 'Route34IlexForestGate_Text_Lass', '')}, {}),
     # Johto batch 9. Left out: the farm house and barn (Moomoo Milk), the Eon Ticket attendant, Silver, the shadow
     # on Route 39, the Gym, Lighthouse, cafe and port (closed). Jamie is a night trainer in HNS (no clock here).
+    # Johto batch 10. Left out: Suicune and Eusine, the berry tree, the Modest Mint (no natures item in FireRed),
+    # Mt. Mortar (closed), the Rage Candy Bar seller, the Gym, Routes 43/44 and the decorative Pokemon.
+    'Gate_EcruteakCity_Route42': (HNS, {0: ('npc', 'Route42_Text_EcruteakGateOfficer', '')}, {}),
+    'Route42': (HNS, {
+        3: ('trainer', ('TRAINER_JOHTO_TULLY', 'Route42_Text_FisherTullySeen', 'Route42_Text_FisherTullyBeaten', 'Route42_Text_FisherTullyAfter'), ''), 4: ('trainer', ('TRAINER_JOHTO_SHANE', 'Route42_Text_PokemaniacShaneSeen', 'Route42_Text_PokemaniacShaneBeaten', 'Route42_Text_PokemaniacShaneAfter'), ''),
+        5: ('trainer', ('TRAINER_JOHTO_BENJAMIN', 'Route42_Text_HikerBenjaminSeen', 'Route42_Text_HikerBenjaminBeaten', 'Route42_Text_HikerBenjaminAfter'), ''),
+        0: ('itemflag', None, 'Super Potion'), 1: ('itemflag', None, 'Ultra Ball'), 2: ('cuttree', None, '')},
+        {0: ('sign', 'Route42_Text_MtMortarSign1'), 1: ('sign', 'Route42_Text_MtMortarSign1'),
+         2: ('sign', 'Route42_Text_Sign1'), 3: ('sign', 'Route42_Text_Sign1')}),
+    'MahoganyTown': (HNS, {
+        0: ('npc', 'MahoganyTown_Text_Gramps', 'branch after the Rocket hideout left out'),
+        1: ('npc', 'MahoganyTown_Text_Lass', ''), 3: ('npc', 'MahoganyTown_Text_Fisher', '')},
+        {0: ('sign', 'MahoganyTown_Text_Sign'), 1: ('sign', 'MahoganyTown_Text_RagecandybarSign'),
+         2: ('sign', 'MahoganyTown_Text_GymSign')}),
     'Gate_EcruteakCity_Route38': (HNS, {0: ('npc', 'Route38_Text_EcruteakGateOfficer', '')}, {}),
     'Route38': (HNS, {
         0: ('trainer', ('TRAINER_JOHTO_HARRY', 'Route38_Text_SailorHarrySeen', 'Route38_Text_SailorHarryBeaten', 'Route38_Text_SailorHarryAfter'), ''), 1: ('trainer', ('TRAINER_JOHTO_DANA', 'Route38_Text_LassDana1Seen', 'Route38_Text_LassDana1Beaten', 'Route38_Text_LassDanaAfter'), ''),
@@ -449,7 +463,8 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'AzaleaTown': 'FLAG_WORLD_MAP_AZALEA_TOWN', 'GoldenrodCity': 'FLAG_WORLD_MAP_GOLDENROD_CITY',
                    'RustboroCity': 'FLAG_WORLD_MAP_RUSTBORO_CITY', 'EcruteakCity': 'FLAG_WORLD_MAP_ECRUTEAK_CITY',
                    'VerdanturfTown': 'FLAG_WORLD_MAP_VERDANTURF_TOWN', 'OlivineCity': 'FLAG_WORLD_MAP_OLIVINE_CITY',
-                   'MauvilleCity': 'FLAG_WORLD_MAP_MAUVILLE_CITY'}
+                   'MauvilleCity': 'FLAG_WORLD_MAP_MAUVILLE_CITY',
+                   'MahoganyTown': 'FLAG_WORLD_MAP_MAHOGANY_TOWN'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -504,6 +519,8 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route117', 13): ('ITEM_GREAT_BALL', 'FLAG_HIDE_HOENN_ROUTE117_GREAT_BALL', 'FLAG_0x0E2'),
               ('Route117', 15): ('ITEM_REVIVE', 'FLAG_HIDE_HOENN_ROUTE117_REVIVE', 'FLAG_0x0E3'),
               ('MauvilleCity', 8): ('ITEM_X_SPEED', 'FLAG_HIDE_HOENN_MAUVILLE_X_SPEED', 'FLAG_0x0E4'),
+              ('Route42', 0): ('ITEM_SUPER_POTION', 'FLAG_HIDE_JOHTO_ROUTE42_SUPER_POTION', 'FLAG_0x0E5'),
+              ('Route42', 1): ('ITEM_ULTRA_BALL', 'FLAG_HIDE_JOHTO_ROUTE42_ULTRA_BALL', 'FLAG_0x0E6'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.
