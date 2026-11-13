@@ -1777,3 +1777,39 @@ const u16 gTilesetPalettes_JohtoPilotGoldenrod[][16] = {
     INCBIN_U16("data/tilesets/secondary/johto_pilot_goldenrod/palettes/14.gbapal"),
     INCBIN_U16("data/tilesets/secondary/johto_pilot_goldenrod/palettes/15.gbapal"),
 };
+const u32 gTilesetTiles_JohtoPilotNorthWest[] = INCBIN_U32("data/tilesets/primary/johto_pilot_north_west/tiles.4bpp.lz");
+const u16 gTilesetPalettes_JohtoPilotNorthWest[][16] = {
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/12.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/13.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/14.gbapal"),
+    INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/palettes/15.gbapal"),
+};
+
+const u32 gTilesetTiles_JohtoPilotEcruteakCity[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_ecruteak_city/tiles.4bpp.lz");
+const u16 gTilesetPalettes_JohtoPilotEcruteakCity[][16] = {
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/palettes/12.gbapal"),
+};

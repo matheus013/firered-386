@@ -87,6 +87,7 @@
 #define FLAG_HIDE_HOENN_PETALBURG_WOODS_ETHER FLAG_0x0D4 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_HOENN_PETALBURG_WOODS_PARALYZE_HEAL FLAG_0x0D5 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_HOENN_RUSTBORO_X_DEFEND FLAG_0x0D6 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_ECRUTEAK_RARE_CANDY FLAG_0x0D7 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_AIDE_POTION FLAG_0x027 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_GOT_JOHTO_AIDE_BALLS FLAG_0x07F // Region pilot story (scripts/pilot_story.py)
@@ -1521,6 +1522,7 @@
 #define FLAG_WORLD_MAP_AZALEA_TOWN                                 FLAG_0x8C9
 #define FLAG_WORLD_MAP_GOLDENROD_CITY                              FLAG_0x8CA
 #define FLAG_WORLD_MAP_RUSTBORO_CITY                               FLAG_0x8CB
+#define FLAG_WORLD_MAP_ECRUTEAK_CITY                               FLAG_0x8CC
 
 #define FLAG_0x8C3                                                  (SYS_FLAGS + 0xC3)
 #define FLAG_0x8C4                                                  (SYS_FLAGS + 0xC4)

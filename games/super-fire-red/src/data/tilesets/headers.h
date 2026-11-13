@@ -962,3 +962,24 @@ const struct Tileset gTileset_JohtoPilotGoldenrod =
     .metatileAttributes = gMetatileAttributes_JohtoPilotGoldenrod,
     .callback = NULL,
 };
+const struct Tileset gTileset_JohtoPilotNorthWest =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_JohtoPilotNorthWest,
+    .palettes = gTilesetPalettes_JohtoPilotNorthWest,
+    .metatiles = gMetatiles_JohtoPilotNorthWest,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotNorthWest,
+    .callback = InitTilesetAnim_JohtoPilot,
+};
+
+const struct Tileset gTileset_JohtoPilotEcruteakCity =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotEcruteakCity,
+    .palettes = gTilesetPalettes_JohtoPilotEcruteakCity,
+    .metatiles = gMetatiles_JohtoPilotEcruteakCity,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotEcruteakCity,
+    .callback = NULL,
+};

@@ -4878,6 +4878,30 @@
       "secondary_tileset": "gTileset_HoennPilotRustboro",
       "border_filepath": "data/layouts/Hoenn_RustboroCity/border.bin",
       "blockdata_filepath": "data/layouts/Hoenn_RustboroCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE37",
+      "name": "Johto_Route37_Layout",
+      "width": 44,
+      "height": 41,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotEcruteakCity",
+      "border_filepath": "data/layouts/Johto_Route37/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route37/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ECRUTEAK_CITY",
+      "name": "Johto_EcruteakCity_Layout",
+      "width": 66,
+      "height": 61,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotNorthWest",
+      "secondary_tileset": "gTileset_JohtoPilotEcruteakCity",
+      "border_filepath": "data/layouts/Johto_EcruteakCity/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_EcruteakCity/map.bin"
     }
   ]
 }

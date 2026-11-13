@@ -1752,3 +1752,38 @@ com a Route 104.
 - conversas com os eventos novos e uma batalha com cada treinador novo.
 
 **Resultado:** 543 casos aprovados (eram 469), com as 58 batalhas de rota vencidas. Capturas tiradas com o runner de diagnóstico confirmam Oldale e a Route 102 sem blocos vazios, e Rustboro e a Route 104 desenhadas corretamente.
+
+## Johto, lote 8: Route 37 e Ecruteak City
+
+**Mapas novos:**
+
+- a Route 37, ao norte da Route 36 (Johto General + secundário de Ecruteak);
+- Ecruteak City, primeiro mapa com o primário Johto NorthWest, que no HNS usa a mesma animação do
+  Johto General.
+
+O Sudowoodo não foi instalado, então a passagem entre as Routes 36 e 37 fica livre. A Route 37 e
+Ecruteak se ligam pelas setas de warp do HNS. A regra nova é `MB_NORTH_ARROW_WARP`.
+
+- **Ecruteak:** Centro Pokémon e Mart do FireRed, com a lista de Ecruteak do HGSS. A heal location
+  fica em (39,48), a flag é `FLAG_WORLD_MAP_ECRUTEAK_CITY` (0x8CC), e a cidade é destino de Fly. A
+  porta deslizante foi registrada para o par NorthWest + Ecruteak.
+- **Treinadores (em vagas):** a dupla Ann e Anne (batalha dupla) e o Greg.
+- **Eventos:**
+  - sete moradores (o pescador no ramo depois do Ampharos curado);
+  - a Rare Candy;
+  - cinco placas;
+  - 23 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama na Route 37 e pesca em Ecruteak (a água tem 12 vagas no HNS).
+
+**Fica para depois:**
+
+- a Sunny (presente por dia da semana) e o Silver;
+- o Ginásio do Morty;
+- a Burned Tower, a Tin Tower e o Teatro de Dança;
+- os portões das Routes 38 e 42;
+- a Bellchime Trail.
+
+**Ferramenta:** na geração das traduções, um `\n` dentro do texto virou quebra de linha real no
+arquivo. As três entradas afetadas foram reescritas.
+
+**Resultado:** 568 casos aprovados (eram 543), com as 60 batalhas de rota vencidas.

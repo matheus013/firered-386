@@ -567,6 +567,10 @@ gStdScriptsEnd::
 	.include "data/maps/Johto_Route35/scripts.inc"
 	.include "data/maps/Johto_Gate_NationalPark/scripts.inc"
 	.include "data/maps/Johto_Route36/scripts.inc"
+	.include "data/maps/Johto_Route37/scripts.inc"
+	.include "data/maps/Johto_EcruteakCity/scripts.inc"
+	.include "data/maps/Johto_EcruteakCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Johto_EcruteakCity_Mart/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

@@ -476,8 +476,27 @@ static const struct TrainerMonNoItemDefaultMoves sParty_NinjaBoy[] = {
     .species = SPECIES_NINCADA,
     }
 };
-static const struct TrainerMonNoItemDefaultMoves sParty_BattleGirl[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_ParasolLady[] = {DUMMY_TRAINER_MON};
+// Region geography (TRAINER_JOHTO_ANN_AND_ANNE in TRAINER_BATTLE_GIRL): HNS_modern TRAINER_ANN_AND_ANNE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_BattleGirl[] = {
+    {
+    .iv = 0,
+    .lvl = 78,
+    .species = SPECIES_CLEFAIRY,
+    },
+    {
+    .iv = 0,
+    .lvl = 78,
+    .species = SPECIES_FURRET,
+    }
+};
+// Region geography (TRAINER_JOHTO_GREG in TRAINER_PARASOL_LADY): HNS_modern TRAINER_GREG, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_ParasolLady[] = {
+    {
+    .iv = 0,
+    .lvl = 82,
+    .species = SPECIES_STANTLER,
+    }
+};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSSwimmerF[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSPicnicker[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSTwins[] = {DUMMY_TRAINER_MON};

@@ -46,6 +46,14 @@ TOWNS = [
      'closed': ['Gate_GoldenrodCity_Route35', 'GoldenrodCity_UndergroundEntrance', 'GoldenrodCity_House1', 'GoldenrodCity_Gym',
                 'GoldenrodCity_FlowerShop', 'GoldenrodCity_House2', 'GoldenrodCity_RadioTower_1F', 'GoldenrodCity_TrainStation',
                 'GoldenrodCity_House3', 'GoldenrodCity_GameCorner', 'GoldenrodCity_BillsHouse', 'GoldenrodCity_BikeShop']},
+    # Batch 8: Ecruteak City (Johto NorthWest primary tileset).
+    {'town': 'EcruteakCity', 'doors': [((39, 47), 'PokemonCenter_1F'), ((48, 40), 'Mart')],
+     'mart': ['ITEM_POKE_BALL', 'ITEM_GREAT_BALL', 'ITEM_POTION', 'ITEM_SUPER_POTION', 'ITEM_ANTIDOTE', 'ITEM_PARALYZE_HEAL',
+              'ITEM_AWAKENING', 'ITEM_BURN_HEAL', 'ITEM_ICE_HEAL', 'ITEM_REVIVE'],
+     'heal': (39, 48), 'flag': 'FLAG_0x8CC',
+     'closed': ['Gate_EcruteakCity_Route38', 'Gate_EcruteakCity_Route42', 'BurnedTower_1F', 'EcruteakCity_SageOffice1',
+                'EcruteakCity_SageOffice2', 'TinTower_1F', 'EcruteakCity_Theater', 'EcruteakCity_House1', 'EcruteakCity_House2',
+                'EcruteakCity_Gym', 'BattleFrontier_BattleTowerLobby']},
 ]
 
 

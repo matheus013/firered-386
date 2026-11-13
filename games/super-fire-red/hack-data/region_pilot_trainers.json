@@ -1664,6 +1664,47 @@
           0
         ]
       ]
+    },
+    "TRAINER_JOHTO_ANN_AND_ANNE": {
+      "slot": "TRAINER_BATTLE_GIRL",
+      "name": "ANN & ANNE",
+      "source": "TRAINER_ANN_AND_ANNE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_TWINS",
+      "trainer_pic": "TRAINER_PIC_TWINS",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": true,
+      "team": [
+        [
+          "SPECIES_CLEFAIRY",
+          18,
+          0
+        ],
+        [
+          "SPECIES_FURRET",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_GREG": {
+      "slot": "TRAINER_PARASOL_LADY",
+      "name": "GREG",
+      "source": "TRAINER_GREG",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_PSYCHIC",
+      "trainer_pic": "TRAINER_PIC_PSYCHIC_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_STANTLER",
+          22,
+          0
+        ]
+      ]
     }
   }
 }

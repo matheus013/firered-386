@@ -1728,6 +1728,152 @@
     },
     {
       "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gRoute37",
+        "map": "MAP_ROUTE37",
+        "note": "day table; Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_ROUTE37",
+        "base_label": "gJohtoRoute37_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 16,
+              "max_level": 18,
+              "species": "SPECIES_VULPIX"
+            },
+            {
+              "min_level": 16,
+              "max_level": 18,
+              "species": "SPECIES_PIDGEY"
+            },
+            {
+              "min_level": 18,
+              "max_level": 18,
+              "species": "SPECIES_STANTLER"
+            },
+            {
+              "min_level": 16,
+              "max_level": 18,
+              "species": "SPECIES_GROWLITHE"
+            },
+            {
+              "min_level": 16,
+              "max_level": 18,
+              "species": "SPECIES_GROWLITHE"
+            },
+            {
+              "min_level": 16,
+              "max_level": 18,
+              "species": "SPECIES_GROWLITHE"
+            },
+            {
+              "min_level": 16,
+              "max_level": 18,
+              "species": "SPECIES_LEDIAN"
+            },
+            {
+              "min_level": 18,
+              "max_level": 18,
+              "species": "SPECIES_PIDGEOTTO"
+            },
+            {
+              "min_level": 18,
+              "max_level": 18,
+              "species": "SPECIES_PIDGEOTTO"
+            },
+            {
+              "min_level": 18,
+              "max_level": 18,
+              "species": "SPECIES_GROWLITHE"
+            },
+            {
+              "min_level": 16,
+              "max_level": 18,
+              "species": "SPECIES_STANTLER"
+            },
+            {
+              "min_level": 16,
+              "max_level": 18,
+              "species": "SPECIES_STANTLER"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gEcruteakCity",
+        "map": "MAP_ECRUTEAK_CITY",
+        "note": "day table; water left out (12 HNS slots); Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_ECRUTEAK_CITY",
+        "base_label": "gJohtoEcruteakCity_Pilot",
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWHIRL"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWAG"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
         "repository": "pokeemerald",
         "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
         "label": "gRoute104",

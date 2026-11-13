@@ -257,3 +257,8 @@ const u32 gMetatileAttributes_JohtoPilotIlexForest[] = INCBIN_U32("data/tilesets
 
 const u16 gMetatiles_JohtoPilotGoldenrod[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_goldenrod/metatiles.bin");
 const u32 gMetatileAttributes_JohtoPilotGoldenrod[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_goldenrod/metatile_attributes.bin");
+const u16 gMetatiles_JohtoPilotNorthWest[] = INCBIN_U16("data/tilesets/primary/johto_pilot_north_west/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotNorthWest[] = INCBIN_U32("data/tilesets/primary/johto_pilot_north_west/metatile_attributes.bin");
+
+const u16 gMetatiles_JohtoPilotEcruteakCity[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_ecruteak_city/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotEcruteakCity[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_ecruteak_city/metatile_attributes.bin");

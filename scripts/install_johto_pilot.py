@@ -35,7 +35,9 @@ MAPS = ['NewBarkTown', 'Route29', 'NewBarkTown_PlayersHouse_1F', 'NewBarkTown_Pl
         # Johto batch 6
         'GoldenrodCity',
         # Johto batch 7: Route 35, the National Park gate (park closed) and Route 36 back to Violet
-        'Gate_GoldenrodCity_Route35', 'Route35', 'Gate_NationalPark', 'Route36']
+        'Gate_GoldenrodCity_Route35', 'Route35', 'Gate_NationalPark', 'Route36',
+        # Johto batch 8 (Johto NorthWest primary for Ecruteak)
+        'Route37', 'EcruteakCity']
 TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animation init)
     'gTileset_Johto_General': ('JohtoPilotGeneral', 'primary/johto_general', 'primary/johto_pilot_general', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_NewBarkTown': ('JohtoPilotNewBarkTown', 'secondary/new_bark_town', 'secondary/johto_pilot_new_bark_town', 'NULL'),
@@ -52,6 +54,8 @@ TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animati
     'gTileset_Cave_Default': ('JohtoPilotCave', 'secondary/cave_default', 'secondary/johto_pilot_cave', 'NULL'),
     'gTileset_IlexForest': ('JohtoPilotIlexForest', 'secondary/ilex_forest', 'secondary/johto_pilot_ilex_forest', 'NULL'),
     'gTileset_Goldenrod': ('JohtoPilotGoldenrod', 'secondary/goldenrod', 'secondary/johto_pilot_goldenrod', 'NULL'),
+    'gTileset_Johto_NorthWest': ('JohtoPilotNorthWest', 'primary/johto_north_west', 'primary/johto_pilot_north_west', 'InitTilesetAnim_JohtoPilot'),
+    'gTileset_Ecruteak_City': ('JohtoPilotEcruteakCity', 'secondary/ecruteak_city', 'secondary/johto_pilot_ecruteak_city', 'NULL'),
 }
 # FireRed attribute without layer bits: behavior | terrain << 9 | encounter << 24, taken from the pattern
 # FireRed's own tilesets use most for that behavior.
@@ -64,6 +68,7 @@ RULES = {
     'MB_INTERIOR_DEEP_WATER': (0x02000410, 'FireRed has no interior deep water; surfable pond water like the tiles around it'),
     'MB_WEST_ARROW_WARP': (0x00000063, 'same name (Route 31 -> Violet gate)'),
     'MB_EAST_ARROW_WARP': (0x00000062, 'same name (Violet -> Route 31 gate)'),
+    'MB_NORTH_ARROW_WARP': (0x00000064, 'same name (Route 37 <-> Ecruteak)'),
     'MB_MOUNTAIN_TERRAIN': (0x00000000, 'HNS only picks the battle background with it; FireRed: normal'),
     'MB_LADDER': (0x00000061, 'same name (Slowpoke Well entrance; its warp is dropped)'),
     'MB_CAVE': (0x01000008, 'cave floor with land encounters, as in FireRed caves'),
@@ -94,19 +99,20 @@ RULES = {
 MUSIC = {'MUS_HG_NEW_BARK': 'MUS_PALLET', 'MUS_HG_ROUTE29': 'MUS_ROUTE1', 'MUS_HG_ELM_LAB': 'MUS_OAK_LAB',
          'MUS_HG_CHERRYGROVE': 'MUS_VERMILLION', 'MUS_HG_ROUTE30': 'MUS_ROUTE24',
          'MUS_HG_VIOLET': 'MUS_FUCHSIA', 'MUS_HG_AZALEA': 'MUS_CINNABAR', 'MUS_HG_UNION_CAVE': 'MUS_MT_MOON', 'MUS_HG_ROUTE34': 'MUS_ROUTE11',
-         'MUS_HG_GOLDENROD': 'MUS_CELADON'}
+         'MUS_HG_GOLDENROD': 'MUS_CELADON', 'MUS_HG_ECRUTEAK': 'MUS_LAVENDER'}
 DOORS = [  # metatile, HNS door image, FireRed name, palette (all 8 entries), sound, secondary tileset
     (0x2CB, 'cerulean.png', 'new_bark_blue', 7, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),
     (0x309, 'NewBarkTown_Door_Yellow.png', 'new_bark_yellow', 5, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),
     # METATILE_Johto_General_Door_Sliding: Cherrygrove's Pokemon Center and Mart (HNS sDoorAnimPalettes_PokeCenter)
-    (0x062, 'johtopokecenter.png', 'sliding', 3, 'DOOR_SOUND_SLIDING', ('CherrygroveCity', 'VioletCity', 'Route32', 'AzaleaTown', 'Goldenrod')),
+    (0x062, 'johtopokecenter.png', 'sliding', 3, 'DOOR_SOUND_SLIDING', ('CherrygroveCity', 'VioletCity', 'Route32', 'AzaleaTown', 'Goldenrod', 'Ecruteak_City')),
     # METATILE_Johto_General_Door_Gym: Goldenrod's Dept. Store door (HNS sDoorAnimPalettes_Gym)
     (0x15B, 'johtogym.png', 'gym', 3, 'DOOR_SOUND_SLIDING', ('Goldenrod',)),
 ]
 DOOR_TABLES = {'NewBarkTown': 'sJohtoPilotDoors', 'CherrygroveCity': 'sJohtoPilotDoors_Cherrygrove',
                'VioletCity': 'sJohtoPilotDoors_Violet', 'Route32': 'sJohtoPilotDoors_Route32',
-               'AzaleaTown': 'sJohtoPilotDoors_Azalea', 'Goldenrod': 'sJohtoPilotDoors_Goldenrod'}
-DOOR_PRIMARY = {'AzaleaTown': 'gTileset_Johto_South'}  # pairs on another primary than Johto General
+               'AzaleaTown': 'sJohtoPilotDoors_Azalea', 'Goldenrod': 'sJohtoPilotDoors_Goldenrod',
+               'Ecruteak_City': 'sJohtoPilotDoors_Ecruteak'}
+DOOR_PRIMARY = {'AzaleaTown': 'gTileset_Johto_South', 'Ecruteak_City': 'gTileset_Johto_NorthWest'}  # pairs on another primary than Johto General
 MARK = '// Johto pilot (scripts/install_johto_pilot.py)'
 
 

@@ -239,6 +239,14 @@
       "y": 39,
       "respawn_map": "MAP_HOENN_RUSTBORO_CITY_POKEMON_CENTER_1F",
       "respawn_npc": 1
+    },
+    {
+      "id": "HEAL_LOCATION_ECRUTEAK_CITY",
+      "map": "MAP_JOHTO_ECRUTEAK_CITY",
+      "x": 39,
+      "y": 48,
+      "respawn_map": "MAP_JOHTO_ECRUTEAK_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": 1
     }
   ]
 }

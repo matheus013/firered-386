@@ -642,7 +642,9 @@
     "Johto_Route35",
     "Johto_Route36",
     "Hoenn_Route104",
-    "Hoenn_RustboroCity"
+    "Hoenn_RustboroCity",
+    "Johto_Route37",
+    "Johto_EcruteakCity"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -701,6 +703,10 @@
     "Johto_Gate_GoldenrodCity_Route35",
     "Johto_Route35",
     "Johto_Gate_NationalPark",
-    "Johto_Route36"
+    "Johto_Route36",
+    "Johto_Route37",
+    "Johto_EcruteakCity",
+    "Johto_EcruteakCity_PokemonCenter_1F",
+    "Johto_EcruteakCity_Mart"
   ]
 }

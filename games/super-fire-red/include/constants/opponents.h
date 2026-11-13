@@ -815,6 +815,8 @@
 #define TRAINER_HOENN_DARIAN                             TRAINER_DRAGON_TAMER
 #define TRAINER_HOENN_LYLE                               TRAINER_RS_BIRD_KEEPER
 #define TRAINER_HOENN_JAMES                              TRAINER_NINJA_BOY
+#define TRAINER_JOHTO_ANN_AND_ANNE                       TRAINER_BATTLE_GIRL
+#define TRAINER_JOHTO_GREG                               TRAINER_PARASOL_LADY
 
 #define NUM_TRAINERS                             767
 #define MAX_TRAINERS_COUNT                       768

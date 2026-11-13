@@ -23,6 +23,11 @@
       "map": "MAP_JOHTO_VIOLET_CITY",
       "offset": 2,
       "direction": "right"
+    },
+    {
+      "map": "MAP_JOHTO_ROUTE37",
+      "offset": 22,
+      "direction": "up"
     }
   ],
   "object_events": [

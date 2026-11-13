@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
     'OBJ_EVENT_GFX_GIRL_2': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_BOY_3': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_MAN_2': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_4': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_5': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_RICH_BOY': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_DEVON_EMPLOYEE': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_LITTLE_GIRL': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
@@ -303,6 +303,21 @@ EVENTS = {
         10: ('itemflag', None, 'Ether'), 11: ('itemflag', None, 'Super Potion')},
         {0: ('sign', 'IlexForest_Text_Shrine'), 1: ('sign', 'IlexForest_Text_Signpost')}),
     'Gate_IlexForest_Route34': (HNS, {0: ('npc', 'Route34IlexForestGate_Text_Lass', '')}, {}),
+    # Johto batch 8. Left out: Sunny (weekday gift), Silver, the Gym sage (gym closed) and the overworld Pokemon.
+    'Route37': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_ANN_AND_ANNE', 'Route37_Text_TwinsAnnAndAnne1_Seen', 'Route37_Text_TwinsAnnAndAnne1_Beaten', 'Route37_Text_TwinsAnnAndAnne1_After', 'Route104_Text_GinaNotEnoughMons'), 'double battle'),
+        1: ('trainer', ('TRAINER_JOHTO_ANN_AND_ANNE', 'Route37_Text_TwinsAnnAndAnne2_Seen', 'Route37_Text_TwinsAnnAndAnne2_Beaten', 'Route37_Text_TwinsAnnAndAnne2_After', 'Route104_Text_GinaNotEnoughMons'), 'double battle'),
+        2: ('trainer', ('TRAINER_JOHTO_GREG', 'Route37_Text_PsychicGreg_Seen', 'Route37_Text_PsychicGreg_Beaten', 'Route37_Text_PsychicGreg_After'), '')},
+        {0: ('sign', 'Route37_Text_Sign')}),
+    'EcruteakCity': (HNS, {
+        0: ('npc', 'EcruteakCity_Text_Lass1', ''), 2: ('npc', 'EcruteakCity_Text_Gramps2', ''),
+        3: ('npc', 'EcruteakCity_Text_Gramps1', ''), 4: ('npc', 'EcruteakCity_Text_Gramps3', ''),
+        5: ('npc', 'EcruteakCity_Text_Fisher_JasmineReturned', 'branch after the lighthouse Ampharos is cured'),
+        6: ('npc', 'EcruteakCity_Text_Lass2', ''), 31: ('npc', 'EcruteakCity_Text_Youngster', ''),
+        7: ('itemflag', None, 'Rare Candy')},
+        {0: ('sign', 'EcruteakCity_Text_GymSign'), 1: ('sign', 'EcruteakCity_Text_DanceTheaterSign'),
+         2: ('sign', 'EcruteakCity_Text_OfficeSign'), 3: ('sign', 'EcruteakCity_Text_BurnedTowerSign'),
+         4: ('sign', 'EcruteakCity_Text_Sign')}),
     # Johto batch 7. Left out: Randy's Kenya errand, the Bug-Catching Contest attendants, Arthur (weekday gift;
     # no clock), Sudowoodo and the Ruins of Alph gate; the townspeople use their after-Sudowoodo lines.
     'Gate_GoldenrodCity_Route35': (HNS, {
@@ -362,7 +377,7 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'OldaleTown': 'FLAG_WORLD_MAP_OLDALE_TOWN', 'PetalburgCity': 'FLAG_WORLD_MAP_PETALBURG_CITY',
                    'CherrygroveCity': 'FLAG_WORLD_MAP_CHERRYGROVE_CITY', 'VioletCity': 'FLAG_WORLD_MAP_VIOLET_CITY',
                    'AzaleaTown': 'FLAG_WORLD_MAP_AZALEA_TOWN', 'GoldenrodCity': 'FLAG_WORLD_MAP_GOLDENROD_CITY',
-                   'RustboroCity': 'FLAG_WORLD_MAP_RUSTBORO_CITY'}
+                   'RustboroCity': 'FLAG_WORLD_MAP_RUSTBORO_CITY', 'EcruteakCity': 'FLAG_WORLD_MAP_ECRUTEAK_CITY'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -403,6 +418,7 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('PetalburgWoods', 6): ('ITEM_ETHER', 'FLAG_HIDE_HOENN_PETALBURG_WOODS_ETHER', 'FLAG_0x0D4'),
               ('PetalburgWoods', 11): ('ITEM_PARALYZE_HEAL', 'FLAG_HIDE_HOENN_PETALBURG_WOODS_PARALYZE_HEAL', 'FLAG_0x0D5'),
               ('RustboroCity', 11): ('ITEM_X_DEFEND', 'FLAG_HIDE_HOENN_RUSTBORO_X_DEFEND', 'FLAG_0x0D6'),
+              ('EcruteakCity', 7): ('ITEM_RARE_CANDY', 'FLAG_HIDE_JOHTO_ECRUTEAK_RARE_CANDY', 'FLAG_0x0D7'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.

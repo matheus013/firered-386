@@ -1484,6 +1484,22 @@
       "y": 4,
       "width": 3,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_37",
+      "name": "ROUTE 37",
+      "x": 10,
+      "y": 3,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ECRUTEAK_CITY",
+      "name": "ECRUTEAK CITY",
+      "x": 10,
+      "y": 2,
+      "width": 1,
+      "height": 1
     }
   ]
 }
