@@ -334,43 +334,44 @@
     },
     "gTileset_Johto_NorthEast": {
       "firered": "gTileset_JohtoPilotNorthEast",
-      "metatiles_converted": 194,
+      "metatiles_converted": 227,
       "behaviors": {
-        "MB_SHORT_GRASS": 14,
-        "MB_NORMAL": 112,
-        "MB_HEADBUTT_TREE": 3,
-        "MB_TALL_GRASS": 1,
+        "MB_SHORT_GRASS": 17,
+        "MB_NORMAL": 133,
+        "MB_HEADBUTT_TREE": 4,
+        "MB_TALL_GRASS": 3,
         "MB_ANIMATED_DOOR": 2,
         "MB_JUMP_WEST": 1,
-        "MB_JUMP_SOUTH": 5,
+        "MB_JUMP_SOUTH": 8,
         "MB_NON_ANIMATED_DOOR": 2,
         "MB_SAND": 23,
         "MB_MOUNTAIN_TERRAIN": 6,
-        "MB_OCEAN_WATER": 19,
+        "MB_OCEAN_WATER": 20,
         "MB_EAST_ARROW_WARP": 1,
         "MB_WEST_ARROW_WARP": 1,
         "MB_SEAWEED_NO_SURFACING": 1,
+        "MB_SOUTH_ARROW_WARP": 2,
         "MB_INTERIOR_DEEP_WATER": 2,
         "MB_SHALLOW_WATER": 1
       },
       "sha256": {
         "tiles.png": "011408f36b1fea9a94149ada6051fdf8c1659238cbad77954cf346714155fb5b",
         "metatiles.bin": "d3d19f9c456ec1faaa2d37e5f883057e7c17b905cffdc20d3a7bd3dc26bbb918",
-        "metatile_attributes.bin": "19260b6c0766ed1b69c5f85e62cf3560f7efb21b0e5d641f23513f2b8703e5bf"
+        "metatile_attributes.bin": "700bc66e11f26784f140b52c12848a45e83a6cf9d0beedf6ced119a79ddd02e1"
       }
     },
     "gTileset_MahoganyTown": {
       "firered": "gTileset_JohtoPilotMahoganyTown",
-      "metatiles_converted": 33,
+      "metatiles_converted": 54,
       "behaviors": {
-        "MB_NORMAL": 30,
+        "MB_NORMAL": 51,
         "MB_ANIMATED_DOOR": 1,
         "MB_SAND": 2
       },
       "sha256": {
         "tiles.png": "3ba07889ba571d80da91691f961eba58d21e697f2043c2e49e614c80a85ec91e",
         "metatiles.bin": "004a4a9fe3a639a17c73698ef6f6414b21c5972d0bb8fcbbf5b08c5520566943",
-        "metatile_attributes.bin": "cc41695aeee6222ab67a8d71adcfd6b12e6ca2cf0168a9cf8c4131cee14bb9ea"
+        "metatile_attributes.bin": "ff83bd37b8fba645ecda2a9d577b3f355bd77626aef0ca21084e5655699477fc"
       }
     }
   },
@@ -902,13 +903,6 @@
     },
     {
       "map": "MahoganyTown",
-      "index": 0,
-      "x": 14,
-      "y": 4,
-      "destination": "MAP_GATE_MAHOGANY_TOWN_ROUTE43"
-    },
-    {
-      "map": "MahoganyTown",
       "index": 1,
       "x": 15,
       "y": 10,
@@ -934,6 +928,20 @@
       "x": 21,
       "y": 19,
       "destination": "MAP_MAHOGANY_TOWN_POKEMON_CENTER"
+    },
+    {
+      "map": "LakeOfRage",
+      "index": 0,
+      "x": 39,
+      "y": 41,
+      "destination": "MAP_LAKE_OF_RAGE_HOUSE2"
+    },
+    {
+      "map": "LakeOfRage",
+      "index": 1,
+      "x": 15,
+      "y": 4,
+      "destination": "MAP_LAKE_OF_RAGE_HOUSE1"
     }
   ],
   "behavior_rules": {
@@ -1250,6 +1258,22 @@
     "Johto_MahoganyTown": {
       "id": "MAP_JOHTO_MAHOGANY_TOWN",
       "number": 34
+    },
+    "Johto_Gate_MahoganyTown_Route43": {
+      "id": "MAP_JOHTO_GATE_MAHOGANY_TOWN_ROUTE43",
+      "number": 35
+    },
+    "Johto_Route43": {
+      "id": "MAP_JOHTO_ROUTE43",
+      "number": 36
+    },
+    "Johto_Gate_Route43": {
+      "id": "MAP_JOHTO_GATE_ROUTE43",
+      "number": 37
+    },
+    "Johto_LakeOfRage": {
+      "id": "MAP_JOHTO_LAKE_OF_RAGE",
+      "number": 38
     }
   }
 }

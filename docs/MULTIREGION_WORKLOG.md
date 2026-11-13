@@ -2000,3 +2000,31 @@ borda leste da Route 103.
 - as Routes 109 e 134 e a praia ao sul.
 
 **Resultado:** 813 casos aprovados (eram 748), com as 103 batalhas de rota vencidas. As caminhadas novas cruzam Mauville → Route 110 → Slateport e entram e saem do Centro e do Mart.
+
+## Johto, lote 11: Route 43 e Lake of Rage
+
+**Mapas novos:** o portão norte de Mahogany, a Route 43, o portão do pedágio no meio dela e o Lake
+of Rage. Todos usam o par Johto NorthEast + Mahogany (os portões, Johto Building + Gate Standard).
+Mahogany ganhou a conexão norte e o warp do portão. O Centro e o Mart foram renumerados junto.
+
+- **Portão do pedágio:** os Rockets ficaram de fora, e o policial está no posto, como depois do
+  esconderijo de Mahogany. Ele dá a TM36 Sludge Bomb uma vez (flag 0x0EA).
+- **Treinadores (10, IDs 799–808):** Spencer, Tiffany, Ben, Marvin, Ron e Brent (Route 43), e Andre,
+  Raymond, Lois e Aaron (Lake of Rage).
+- **Eventos:**
+  - Max Ether (Route 43), e Full Restore, Max Revive e Red Flute (Lake of Rage), com as flags
+    0x0EB–0x0EE;
+  - os policiais dos dois portões e três pessoas no lago. O policial de Mahogany e o avô do lago
+    usam o texto de depois do esconderijo;
+  - as placas;
+  - 40 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama, água e pesca da Route 43, e pesca no Lake of Rage (a água do lago
+  tem 12 vagas no HNS e ficou de fora, como em Ecruteak).
+
+**Fica para depois:**
+
+- o Gyarados vermelho, o Lance, o Pryce e o Wesley;
+- as duas casas do lago, entre elas a do Mestre da Pesca;
+- a Route 44 e o Ice Path.
+
+**Resultado:** 851 casos aprovados (eram 813), com as 113 batalhas de rota vencidas. As caminhadas novas passam pelos dois portões e cruzam a borda Route 43 → Lake of Rage.

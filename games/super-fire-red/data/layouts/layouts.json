@@ -5070,6 +5070,54 @@
       "secondary_tileset": "gTileset_HoennPilotSlateport",
       "border_filepath": "data/layouts/Hoenn_SlateportCity/border.bin",
       "blockdata_filepath": "data/layouts/Hoenn_SlateportCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_GATE_MAHOGANY_TOWN_ROUTE43",
+      "name": "Johto_Gate_MahoganyTown_Route43_Layout",
+      "width": 15,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotGateStandard",
+      "border_filepath": "data/layouts/Johto_Gate_MahoganyTown_Route43/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Gate_MahoganyTown_Route43/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE43",
+      "name": "Johto_Route43_Layout",
+      "width": 34,
+      "height": 53,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotNorthEast",
+      "secondary_tileset": "gTileset_JohtoPilotMahoganyTown",
+      "border_filepath": "data/layouts/Johto_Route43/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route43/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_GATE_ROUTE43",
+      "name": "Johto_Gate_Route43_Layout",
+      "width": 15,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotBuilding",
+      "secondary_tileset": "gTileset_JohtoPilotGateStandard",
+      "border_filepath": "data/layouts/Johto_Gate_Route43/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Gate_Route43/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_LAKE_OF_RAGE",
+      "name": "Johto_LakeOfRage_Layout",
+      "width": 64,
+      "height": 47,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotNorthEast",
+      "secondary_tileset": "gTileset_JohtoPilotMahoganyTown",
+      "border_filepath": "data/layouts/Johto_LakeOfRage/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_LakeOfRage/map.bin"
     }
   ]
 }

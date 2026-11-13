@@ -655,7 +655,9 @@
     "Johto_Route42",
     "Johto_MahoganyTown",
     "Hoenn_Route110",
-    "Hoenn_SlateportCity"
+    "Hoenn_SlateportCity",
+    "Johto_Route43",
+    "Johto_LakeOfRage"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -742,6 +744,10 @@
     "Johto_Route42",
     "Johto_MahoganyTown",
     "Johto_MahoganyTown_PokemonCenter_1F",
-    "Johto_MahoganyTown_Mart"
+    "Johto_MahoganyTown_Mart",
+    "Johto_Gate_MahoganyTown_Route43",
+    "Johto_Route43",
+    "Johto_Gate_Route43",
+    "Johto_LakeOfRage"
   ]
 }

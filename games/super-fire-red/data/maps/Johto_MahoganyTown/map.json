@@ -18,6 +18,11 @@
       "map": "MAP_JOHTO_ROUTE42",
       "offset": 1,
       "direction": "left"
+    },
+    {
+      "map": "MAP_JOHTO_ROUTE43",
+      "offset": 2,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -65,6 +70,13 @@
     }
   ],
   "warp_events": [
+    {
+      "x": 14,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_GATE_MAHOGANY_TOWN_ROUTE43",
+      "dest_warp_id": "0"
+    },
     {
       "x": 21,
       "y": 19,

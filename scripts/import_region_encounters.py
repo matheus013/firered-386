@@ -59,6 +59,11 @@ TABLES = [
      'MAP_JOHTO_ROUTE37', 'gJohtoRoute37_Pilot', ['land_mons'], 'day table; Rock Smash left out'),
     ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gEcruteakCity', 'MAP_ECRUTEAK_CITY',
      'MAP_JOHTO_ECRUTEAK_CITY', 'gJohtoEcruteakCity_Pilot', ['fishing_mons'], 'day table; water left out (12 HNS slots); Rock Smash left out'),
+    # Johto batch 11
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute43', 'MAP_ROUTE43',
+     'MAP_JOHTO_ROUTE43', 'gJohtoRoute43_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gLakeOfRage', 'MAP_LAKE_OF_RAGE',
+     'MAP_JOHTO_LAKE_OF_RAGE', 'gJohtoLakeOfRage_Pilot', ['fishing_mons'], 'day table; water left out (12 HNS slots); Rock Smash left out'),
     # Johto batch 10
     ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute42', 'MAP_ROUTE42',
      'MAP_JOHTO_ROUTE42', 'gJohtoRoute42_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),

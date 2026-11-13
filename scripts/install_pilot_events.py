@@ -396,6 +396,26 @@ EVENTS = {
     # on Route 39, the Gym, Lighthouse, cafe and port (closed). Jamie is a night trainer in HNS (no clock here).
     # Johto batch 10. Left out: Suicune and Eusine, the berry tree, the Modest Mint (no natures item in FireRed),
     # Mt. Mortar (closed), the Rage Candy Bar seller, the Gym, Routes 43/44 and the decorative Pokemon.
+    # Johto batch 11. Left out: the Rockets at the toll gate (the policeman stands at his post, as after Mahogany's
+    # hideout), the red Gyarados, Lance, Pryce, Wesley, the decorative Pokemon, berry trees and the two houses.
+    'Gate_MahoganyTown_Route43': (HNS, {0: ('npc', 'Route43MahoganyGate_Text_Officer_RocketsCleared', 'text after the hideout')}, {}),
+    'Route43': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_SPENCER', 'Route43_Text_CamperSpencerSeen', 'Route43_Text_CamperSpencerBeaten', 'Route43_Text_CamperSpencerAfter'), ''),
+        1: ('trainer', ('TRAINER_JOHTO_TIFFANY', 'Route43_Text_PicnickerTiffanySeen', 'Route43_Text_PicnickerTiffanyBeaten', 'Route43_Text_PicnickerTiffanyWantsPicnic'), ''),
+        2: ('trainer', ('TRAINER_JOHTO_BEN', 'Route43_Text_PokemaniacBenSeen', 'Route43_Text_PokemaniacBenBeaten', 'Route43_Text_PokemaniacBenAfter'), ''), 3: ('trainer', ('TRAINER_JOHTO_MARVIN', 'Route43_Text_FisherMarvinSeen', 'Route43_Text_FisherMarvinBeaten', 'Route43_Text_FisherMarvinAfter'), ''),
+        16: ('trainer', ('TRAINER_JOHTO_RON', 'Route43_Text_PokemaniacRonSeen', 'Route43_Text_PokemaniacRonBeaten', 'Route43_Text_PokemaniacRonAfter'), ''), 17: ('trainer', ('TRAINER_JOHTO_BRENT', 'Route43_Text_PokemaniacBrentSeen', 'Route43_Text_PokemaniacBrentBeaten', 'Route43_Text_PokemaniacBrentAfter'), ''),
+        4: ('itemflag', None, 'Max Ether')},
+        {0: ('sign', 'Route43_Sign2'), 1: ('sign', 'Route43_Sign2'), 2: ('sign', 'Route43_TrainerTips')}),
+    'Gate_Route43': (HNS, {
+        2: ('gift', ('ITEM_TM36', 'Route43Gate_Text_OfficerFoundTM', 'Gate_Route43_Text_OfficerAvoidGrass', False),
+            'TM36 Sludge Bomb; the source gives it once the Rockets leave')}, {}),
+    'LakeOfRage': (HNS, {
+        1: ('trainer', ('TRAINER_JOHTO_ANDRE', 'LakeOfRage_Text_FisherAndreSeen', 'LakeOfRage_Text_FisherAndreBeaten', 'LakeOfRage_Text_FisherAndreAfter'), ''), 4: ('trainer', ('TRAINER_JOHTO_RAYMOND', 'LakeOfRage_Text_FisherRaymondSeen', 'LakeOfRage_Text_FisherRaymondBeaten', 'LakeOfRage_Text_FisherRaymondAfter'), ''),
+        6: ('trainer', ('TRAINER_JOHTO_LOIS', 'LakeOfRage_Text_CooltrainerfLoisSeen', 'LakeOfRage_Text_CooltrainerfLoisBeaten', 'LakeOfRage_Text_CooltrainerfLoisAfter'), ''), 8: ('trainer', ('TRAINER_JOHTO_AARON', 'LakeOfRage_Text_CooltrainermAaronSeen', 'LakeOfRage_Text_CooltrainermAaronBeaten', 'LakeOfRage_Text_CooltrainermAaronAfter'), ''),
+        0: ('npc', 'LakeOfRage_Text_CooltrainerF', ''), 3: ('npc', 'LakeOfRage_Text_GrampsCleared', 'text after the hideout'),
+        14: ('npc', 'LakeOfRage_Text_SuperNerd', ''),
+        9: ('itemflag', None, 'Full Restore'), 10: ('itemflag', None, 'Max Revive'), 11: ('itemflag', None, 'Red Flute')},
+        {0: ('sign', 'LakeOfRage_Text_Sign'), 1: ('sign', 'LakeOfRage_Text_FishingGuruSign')}),
     'Gate_EcruteakCity_Route42': (HNS, {0: ('npc', 'Route42_Text_EcruteakGateOfficer', '')}, {}),
     'Route42': (HNS, {
         3: ('trainer', ('TRAINER_JOHTO_TULLY', 'Route42_Text_FisherTullySeen', 'Route42_Text_FisherTullyBeaten', 'Route42_Text_FisherTullyAfter'), ''), 4: ('trainer', ('TRAINER_JOHTO_SHANE', 'Route42_Text_PokemaniacShaneSeen', 'Route42_Text_PokemaniacShaneBeaten', 'Route42_Text_PokemaniacShaneAfter'), ''),
@@ -564,6 +584,11 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route110', 18): ('ITEM_DIRE_HIT', 'FLAG_HIDE_HOENN_ROUTE110_DIRE_HIT', 'FLAG_0x0E7'),
               ('Route110', 19): ('ITEM_RARE_CANDY', 'FLAG_HIDE_HOENN_ROUTE110_RARE_CANDY', 'FLAG_0x0E8'),
               ('Route110', 34): ('ITEM_ELIXIR', 'FLAG_HIDE_HOENN_ROUTE110_ELIXIR', 'FLAG_0x0E9'),
+              ('Route43', 4): ('ITEM_MAX_ETHER', 'FLAG_HIDE_JOHTO_ROUTE43_MAX_ETHER', 'FLAG_0x0EB'),
+              ('LakeOfRage', 9): ('ITEM_FULL_RESTORE', 'FLAG_HIDE_JOHTO_LAKE_OF_RAGE_FULL_RESTORE', 'FLAG_0x0EC'),
+              ('LakeOfRage', 10): ('ITEM_MAX_REVIVE', 'FLAG_HIDE_JOHTO_LAKE_OF_RAGE_MAX_REVIVE', 'FLAG_0x0ED'),
+              ('LakeOfRage', 11): ('ITEM_RED_FLUTE', 'FLAG_HIDE_JOHTO_LAKE_OF_RAGE_RED_FLUTE', 'FLAG_0x0EE'),
+              ('Gate_Route43', 2): ('ITEM_TM36', 'FLAG_GOT_JOHTO_TM_SLUDGE_BOMB', 'FLAG_0x0EA'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.

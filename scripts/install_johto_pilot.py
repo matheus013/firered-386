@@ -41,7 +41,9 @@ MAPS = ['NewBarkTown', 'Route29', 'NewBarkTown_PlayersHouse_1F', 'NewBarkTown_Pl
         # Johto batch 9: Ecruteak's west gate, Routes 38/39 and Olivine City
         'Gate_EcruteakCity_Route38', 'Route38', 'Route39', 'OlivineCity',
         # Johto batch 10 (Johto NorthEast primary): Ecruteak's east gate, Route 42 and Mahogany Town
-        'Gate_EcruteakCity_Route42', 'Route42', 'MahoganyTown']
+        'Gate_EcruteakCity_Route42', 'Route42', 'MahoganyTown',
+        # Johto batch 11: Mahogany's north gate, Route 43 with its toll gate, and Lake of Rage
+        'Gate_MahoganyTown_Route43', 'Route43', 'Gate_Route43', 'LakeOfRage']
 TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animation init)
     'gTileset_Johto_General': ('JohtoPilotGeneral', 'primary/johto_general', 'primary/johto_pilot_general', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_NewBarkTown': ('JohtoPilotNewBarkTown', 'secondary/new_bark_town', 'secondary/johto_pilot_new_bark_town', 'NULL'),
