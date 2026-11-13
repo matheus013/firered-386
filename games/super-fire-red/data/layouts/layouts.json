@@ -4782,6 +4782,18 @@
       "secondary_tileset": "gTileset_JohtoPilotGoldenrod",
       "border_filepath": "data/layouts/Johto_Route34/border.bin",
       "blockdata_filepath": "data/layouts/Johto_Route34/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_GOLDENROD_CITY",
+      "name": "Johto_GoldenrodCity_Layout",
+      "width": 58,
+      "height": 46,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotGoldenrod",
+      "border_filepath": "data/layouts/Johto_GoldenrodCity/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_GoldenrodCity/map.bin"
     }
   ]
 }

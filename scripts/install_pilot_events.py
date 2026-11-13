@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
     'OBJ_EVENT_GFX_ZIGZAGOON_1': 'OBJ_EVENT_GFX_ZIGZAGOON', 'OBJ_EVENT_GFX_BIRCHS_BAG': 'OBJ_EVENT_GFX_BIRCHS_BAG',
@@ -265,6 +265,21 @@ EVENTS = {
         10: ('itemflag', None, 'Ether'), 11: ('itemflag', None, 'Super Potion')},
         {0: ('sign', 'IlexForest_Text_Shrine'), 1: ('sign', 'IlexForest_Text_Signpost')}),
     'Gate_IlexForest_Route34': (HNS, {0: ('npc', 'Route34IlexForestGate_Text_Lass', '')}, {}),
+    # Johto batch 6. Left out: Team Rocket and its scout, Elm's call, the coin move tutor, the overworld
+    # Snubbull/Mr. Mime and the step triggers; branches after Team Rocket leaves are used.
+    'GoldenrodCity': (HNS, {
+        0: ('npc', 'GoldenrodCity_Text_Lass', ''), 1: ('npc', 'GoldenrodCity_Text_HikerDay', 'day branch; FireRed has no clock'),
+        3: ('npc', 'GoldenrodCity_Text_Gramps', ''), 6: ('npc', 'GoldenrodCity_Text_Youngster1', ''),
+        7: ('npc', 'GoldenrodCity_Text_Youngster2', ''),
+        8: ('npc', 'GoldenrodCity_Text_CooltrainerF1_Cleared', 'branch after the Rocket scout is gone'),
+        11: ('npc', 'GoldenrodCity_Text_PokefanM', ''), 31: ('npc', 'GoldenrodCity_Text_Woman', ''),
+        33: ('npc', 'GoldenrodCity_Text_Beauty', 'gym closed, so Whitney is away')},
+        {0: ('sign', 'GoldenrodCity_Text_RadioTowerSign'), 1: ('sign', 'GoldenrodCity_Text_GameCornerSign'),
+         2: ('sign', 'GoldenrodCity_Text_StationSign'), 3: ('sign', 'GoldenrodCity_Text_UndergroundSouthSign'),
+         4: ('sign', 'GoldenrodCity_Text_UndergroundSouthSign'), 5: ('sign', 'GoldenrodCity_Text_BikeShopSign'),
+         6: ('sign', 'GoldenrodCity_Text_GymSign'), 7: ('sign', 'GoldenrodCity_Text_FlowerShopSign'),
+         8: ('sign', 'GoldenrodCity_Text_DeptStoreSign'), 9: ('sign', 'GoldenrodCity_Text_NameRaterSign'),
+         10: ('sign', 'Text_EmptyTrashCan')}),
     'Route34': (HNS, {
         0: ('trainer', ('TRAINER_JOHTO_SAMUEL', 'Route34_Text_YoungsterSamuel_Seen', 'Route34_Text_YoungsterSamuel_Beaten', 'Route34_Text_YoungsterSamuel_After'), ''),
         1: ('trainer', ('TRAINER_JOHTO_BRANDON', 'Route34_Text_PokefanBrandon_Seen', 'Route34_Text_PokefanBrandon_Beaten', 'Route34_Text_PokefanBrandon_After'),
@@ -284,7 +299,7 @@ EVENTS = {
 WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkTown': 'FLAG_WORLD_MAP_NEW_BARK_TOWN',
                    'OldaleTown': 'FLAG_WORLD_MAP_OLDALE_TOWN', 'PetalburgCity': 'FLAG_WORLD_MAP_PETALBURG_CITY',
                    'CherrygroveCity': 'FLAG_WORLD_MAP_CHERRYGROVE_CITY', 'VioletCity': 'FLAG_WORLD_MAP_VIOLET_CITY',
-                   'AzaleaTown': 'FLAG_WORLD_MAP_AZALEA_TOWN'}
+                   'AzaleaTown': 'FLAG_WORLD_MAP_AZALEA_TOWN', 'GoldenrodCity': 'FLAG_WORLD_MAP_GOLDENROD_CITY'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),

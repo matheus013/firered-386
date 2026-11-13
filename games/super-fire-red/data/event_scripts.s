@@ -555,6 +555,9 @@ gStdScriptsEnd::
 	.include "data/maps/Johto_IlexForest/scripts.inc"
 	.include "data/maps/Johto_Gate_IlexForest_Route34/scripts.inc"
 	.include "data/maps/Johto_Route34/scripts.inc"
+	.include "data/maps/Johto_GoldenrodCity/scripts.inc"
+	.include "data/maps/Johto_GoldenrodCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Johto_GoldenrodCity_Mart/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

@@ -1606,3 +1606,36 @@ virou o warp 0, e as portas do Centro e do Mart foram renumeradas junto com os i
 - Caminhadas: Azalea → portão → Ilex Forest, e as entradas do portão norte pelos dois lados.
 
 **Resultado:** 399 casos aprovados (eram 358), com as 38 batalhas de rota vencidas.
+
+## Johto, lote 6: Goldenrod City
+
+**Mapa novo:** Goldenrod City, ligada a pé pelo norte da Route 34. Usa o tileset secundário de
+Goldenrod, já instalado com a Route 34, e a música de Celadon.
+
+- **Centro Pokémon:** usa o interior do FireRed. A heal location fica em (28,37), a flag é
+  `FLAG_WORLD_MAP_GOLDENROD_CITY` (0x8CA), e a cidade é destino de Fly.
+- **Loja de Departamentos:** a porta leva ao layout de Mart do FireRed, com a lista do 2º andar do
+  HGSS (Poké/Great/Ultra Ball, Potions até Hyper, Revive, curas de status, Escape Rope, Repel e Super
+  Repel). É um substituto de um andar só para a loja de cinco andares. A porta dela é a de ginásio do
+  Johto (metatile 0x15B), com a animação `johtogym.png` do HNS registrada para o par Johto General +
+  Goldenrod.
+- **Regra nova:** `MB_UNUSED_BRIDGE` → terreno normal. No HNS ela só libera encontros na água sob a
+  ponte, e Goldenrod tem um tile assim.
+- **Eventos:**
+  - nove moradores, nos ramos posteriores à saída da Team Rocket (e, no caso do montanhista, o ramo
+    de dia);
+  - dez placas e a lata de lixo;
+  - 19 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** nenhum (o HNS só tem Rock Smash em Goldenrod).
+
+**Fica para depois:**
+
+- a Team Rocket e o espião dela;
+- o Ginásio da Whitney, a Torre de Rádio, a estação, o Game Corner, o Subterrâneo, a casa do Bill,
+  a floricultura e a loja de bicicletas (portas fechadas);
+- o tutor de golpes por fichas;
+- a Route 35.
+
+**Teste:** Route 34 → Goldenrod, ida e volta, e as portas do Centro e da loja.
+
+**Resultado:** 424 casos aprovados (eram 399).

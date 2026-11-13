@@ -1507,6 +1507,7 @@
 #define FLAG_WORLD_MAP_CHERRYGROVE_CITY                            FLAG_0x8C7
 #define FLAG_WORLD_MAP_VIOLET_CITY                                 FLAG_0x8C8
 #define FLAG_WORLD_MAP_AZALEA_TOWN                                 FLAG_0x8C9
+#define FLAG_WORLD_MAP_GOLDENROD_CITY                              FLAG_0x8CA
 
 #define FLAG_0x8C3                                                  (SYS_FLAGS + 0xC3)
 #define FLAG_0x8C4                                                  (SYS_FLAGS + 0xC4)

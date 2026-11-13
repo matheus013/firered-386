@@ -5,6 +5,8 @@ static const u8 sJohtoDoorTiles_new_bark_yellow[] = INCBIN_U8("graphics/door_ani
 static const u8 sJohtoDoorPalettes_new_bark_yellow[] = {5, 5, 5, 5, 5, 5, 5, 5};
 static const u8 sJohtoDoorTiles_sliding[] = INCBIN_U8("graphics/door_anims/johto/sliding.4bpp");
 static const u8 sJohtoDoorPalettes_sliding[] = {3, 3, 3, 3, 3, 3, 3, 3};
+static const u8 sJohtoDoorTiles_gym[] = INCBIN_U8("graphics/door_anims/johto/gym.4bpp");
+static const u8 sJohtoDoorPalettes_gym[] = {3, 3, 3, 3, 3, 3, 3, 3};
 static const struct DoorGraphics sJohtoPilotDoors[] = {
     {0x2CB, DOOR_SOUND_NORMAL, DOOR_SIZE_1x1, sJohtoDoorTiles_new_bark_blue, sJohtoDoorPalettes_new_bark_blue},
     {0x309, DOOR_SOUND_NORMAL, DOOR_SIZE_1x1, sJohtoDoorTiles_new_bark_yellow, sJohtoDoorPalettes_new_bark_yellow},
@@ -24,5 +26,10 @@ static const struct DoorGraphics sJohtoPilotDoors_Route32[] = {
 };
 static const struct DoorGraphics sJohtoPilotDoors_Azalea[] = {
     {0x62, DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sJohtoDoorTiles_sliding, sJohtoDoorPalettes_sliding},
+    {}
+};
+static const struct DoorGraphics sJohtoPilotDoors_Goldenrod[] = {
+    {0x62, DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sJohtoDoorTiles_sliding, sJohtoDoorPalettes_sliding},
+    {0x15B, DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sJohtoDoorTiles_gym, sJohtoDoorPalettes_gym},
     {}
 };

@@ -2585,6 +2585,198 @@
         }
       ]
     },
+    "Johto_GoldenrodCity": {
+      "source": "HNS_modern/GoldenrodCity",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "GoldenrodCity_EventScript_Lass",
+          "source_sprite": "OBJ_EVENT_GFX_LASS",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": "GoldenrodCity_Text_Lass",
+          "note": "",
+          "x": 25,
+          "y": 13
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "GoldenrodCity_EventScript_Hiker",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": "GoldenrodCity_Text_HikerDay",
+          "note": "day branch; FireRed has no clock",
+          "x": 20,
+          "y": 30
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "GoldenrodCity_EventScript_Gramps",
+          "source_sprite": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "text": "GoldenrodCity_Text_Gramps",
+          "note": "",
+          "x": 17,
+          "y": 36
+        },
+        {
+          "kind": "npc",
+          "source_index": 6,
+          "source_script": "GoldenrodCity_EventScript_Youngster",
+          "source_sprite": "OBJ_EVENT_GFX_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "GoldenrodCity_Text_Youngster1",
+          "note": "",
+          "x": 39,
+          "y": 22
+        },
+        {
+          "kind": "npc",
+          "source_index": 7,
+          "source_script": "GoldenrodCity_EventScript_Youngster2",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": "GoldenrodCity_Text_Youngster2",
+          "note": "",
+          "x": 30,
+          "y": 21
+        },
+        {
+          "kind": "npc",
+          "source_index": 8,
+          "source_script": "GoldenrodCity_EventScript_CooltrainerF",
+          "source_sprite": "OBJ_EVENT_GFX_BATTLE_GIRL",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": "GoldenrodCity_Text_CooltrainerF1_Cleared",
+          "note": "branch after the Rocket scout is gone",
+          "x": 20,
+          "y": 25
+        },
+        {
+          "kind": "npc",
+          "source_index": 11,
+          "source_script": "GoldenrodCity_EventScript_PokefanM",
+          "source_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "text": "GoldenrodCity_Text_PokefanM",
+          "note": "",
+          "x": 7,
+          "y": 23
+        },
+        {
+          "kind": "npc",
+          "source_index": 31,
+          "source_script": "GoldenrodCity_EventScript_Woman",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": "GoldenrodCity_Text_Woman",
+          "note": "",
+          "x": 30,
+          "y": 39
+        },
+        {
+          "kind": "npc",
+          "source_index": 33,
+          "source_script": "GoldenrodCity_EventScript_Beauty",
+          "source_sprite": "OBJ_EVENT_GFX_BEAUTY",
+          "firered_sprite": "OBJ_EVENT_GFX_BEAUTY",
+          "text": "GoldenrodCity_Text_Beauty",
+          "note": "gym closed, so Whitney is away",
+          "x": 39,
+          "y": 14
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "GoldenrodCity_EventScript_SignRadio",
+          "text": "GoldenrodCity_Text_RadioTowerSign",
+          "x": 12,
+          "y": 22
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "GoldenrodCity_EventScript_SignGameCorner",
+          "text": "GoldenrodCity_Text_GameCornerSign",
+          "x": 30,
+          "y": 30
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "GoldenrodCity_EventScript_SignTrain",
+          "text": "GoldenrodCity_Text_StationSign",
+          "x": 26,
+          "y": 22
+        },
+        {
+          "kind": "sign",
+          "source_index": 3,
+          "source_script": "GoldenrodCity_EventScript_SignUnderground",
+          "text": "GoldenrodCity_Text_UndergroundSouthSign",
+          "x": 19,
+          "y": 13
+        },
+        {
+          "kind": "sign",
+          "source_index": 4,
+          "source_script": "GoldenrodCity_EventScript_SignUnderground",
+          "text": "GoldenrodCity_Text_UndergroundSouthSign",
+          "x": 19,
+          "y": 38
+        },
+        {
+          "kind": "sign",
+          "source_index": 5,
+          "source_script": "GoldenrodCity_EventScript_SignBike",
+          "text": "GoldenrodCity_Text_BikeShopSign",
+          "x": 43,
+          "y": 39
+        },
+        {
+          "kind": "sign",
+          "source_index": 6,
+          "source_script": "GoldenrodCity_EventScript_SignGym",
+          "text": "GoldenrodCity_Text_GymSign",
+          "x": 41,
+          "y": 13
+        },
+        {
+          "kind": "sign",
+          "source_index": 7,
+          "source_script": "GoldenrodCity_EventScript_SignFlower",
+          "text": "GoldenrodCity_Text_FlowerShopSign",
+          "x": 45,
+          "y": 12
+        },
+        {
+          "kind": "sign",
+          "source_index": 8,
+          "source_script": "GoldenrodCity_EventScript_SignDept",
+          "text": "GoldenrodCity_Text_DeptStoreSign",
+          "x": 41,
+          "y": 37
+        },
+        {
+          "kind": "sign",
+          "source_index": 9,
+          "source_script": "GoldenrodCity_EventScript_NameRaterSign",
+          "text": "GoldenrodCity_Text_NameRaterSign",
+          "x": 27,
+          "y": 13
+        },
+        {
+          "kind": "sign",
+          "source_index": 10,
+          "source_script": "EventScript_EmptyTrashCan",
+          "text": "Text_EmptyTrashCan",
+          "x": 50,
+          "y": 22
+        }
+      ]
+    },
     "Johto_Route34": {
       "source": "HNS_modern/Route34",
       "events": [

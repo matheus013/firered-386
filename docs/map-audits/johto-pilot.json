@@ -4,10 +4,10 @@
   "tilesets": {
     "gTileset_Johto_General": {
       "firered": "gTileset_JohtoPilotGeneral",
-      "metatiles_converted": 397,
+      "metatiles_converted": 402,
       "behaviors": {
         "MB_SHORT_GRASS": 21,
-        "MB_NORMAL": 230,
+        "MB_NORMAL": 235,
         "MB_HEADBUTT_TREE": 6,
         "MB_TALL_GRASS": 4,
         "MB_ANIMATED_DOOR": 3,
@@ -241,17 +241,18 @@
     },
     "gTileset_Goldenrod": {
       "firered": "gTileset_JohtoPilotGoldenrod",
-      "metatiles_converted": 92,
+      "metatiles_converted": 351,
       "behaviors": {
-        "MB_NORMAL": 89,
+        "MB_NORMAL": 347,
         "MB_ANIMATED_DOOR": 1,
         "MB_OCEAN_WATER": 1,
+        "MB_UNUSED_BRIDGE": 1,
         "MB_SOUTH_ARROW_WARP": 1
       },
       "sha256": {
         "tiles.png": "03d84f5e134bdd1bfa380256706cef462c80a4e1fc1c60047082fa639c5ade40",
         "metatiles.bin": "8f45de45ad8687b698f4e11e9e4d2f7642acee1f0cb4a230c4461b8f2515b5a8",
-        "metatile_attributes.bin": "e3d9d6db2c605d37f7b0ccf4aba593abb5d719dde8a998c70e798c312c5224b6"
+        "metatile_attributes.bin": "5f568d7d37e6d68c7174ab9c5ca2ba1bad9a907876c6463ada4ed3d9b802e9c1"
       }
     }
   },
@@ -465,6 +466,118 @@
       "x": 31,
       "y": 30,
       "destination": "MAP_ROUTE34_DAY_CARE"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 0,
+      "x": 33,
+      "y": 7,
+      "destination": "MAP_GATE_GOLDENROD_CITY_ROUTE35"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 1,
+      "x": 34,
+      "y": 7,
+      "destination": "MAP_GATE_GOLDENROD_CITY_ROUTE35"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 2,
+      "x": 20,
+      "y": 12,
+      "destination": "MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 3,
+      "x": 29,
+      "y": 13,
+      "destination": "MAP_GOLDENROD_CITY_HOUSE1"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 4,
+      "x": 39,
+      "y": 13,
+      "destination": "MAP_GOLDENROD_CITY_GYM"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 5,
+      "x": 44,
+      "y": 11,
+      "destination": "MAP_GOLDENROD_CITY_FLOWER_SHOP"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 6,
+      "x": 48,
+      "y": 15,
+      "destination": "MAP_GOLDENROD_CITY_HOUSE2"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 7,
+      "x": 16,
+      "y": 22,
+      "destination": "MAP_GOLDENROD_CITY_RADIO_TOWER_1F"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 8,
+      "x": 24,
+      "y": 21,
+      "destination": "MAP_GOLDENROD_CITY_TRAIN_STATION"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 9,
+      "x": 46,
+      "y": 28,
+      "destination": "MAP_GOLDENROD_CITY_HOUSE3"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 10,
+      "x": 28,
+      "y": 29,
+      "destination": "MAP_GOLDENROD_CITY_GAME_CORNER"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 11,
+      "x": 14,
+      "y": 33,
+      "destination": "MAP_GOLDENROD_CITY_BILLS_HOUSE"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 12,
+      "x": 28,
+      "y": 36,
+      "destination": "MAP_GOLDENROD_CITY_POKEMON_CENTER"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 13,
+      "x": 39,
+      "y": 36,
+      "destination": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_1F"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 14,
+      "x": 44,
+      "y": 38,
+      "destination": "MAP_GOLDENROD_CITY_BIKE_SHOP"
+    },
+    {
+      "map": "GoldenrodCity",
+      "index": 15,
+      "x": 21,
+      "y": 38,
+      "destination": "MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE"
     }
   ],
   "behavior_rules": {
@@ -515,6 +628,10 @@
     "MB_FOOTPRINTS": {
       "firered_attribute": "0x21",
       "reason": "FireRed has no MB_FOOTPRINTS; MB_SAND leaves the same prints"
+    },
+    "MB_UNUSED_BRIDGE": {
+      "firered_attribute": "0x0",
+      "reason": "HNS: water encounters under a bridge; one Goldenrod tile, normal here"
     },
     "MB_SAND": {
       "firered_attribute": "0x21",
@@ -705,6 +822,10 @@
     "Johto_Route34": {
       "id": "MAP_JOHTO_ROUTE34",
       "number": 20
+    },
+    "Johto_GoldenrodCity": {
+      "id": "MAP_JOHTO_GOLDENROD_CITY",
+      "number": 21
     }
   }
 }

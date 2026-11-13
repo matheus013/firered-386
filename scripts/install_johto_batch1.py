@@ -36,6 +36,16 @@ TOWNS = [
      'heal': (31, 16), 'flag': 'FLAG_0x8C9',
      'closed': ['SlowpokeWell_B1F', 'Gate_AzaleaTown_IlexForest', 'AzaleaTown_KurtsHouse', 'AzaleaTown_House1',
                 'AzaleaTown_Gym', 'UnionCave_1F']},
+    # Batch 6: Goldenrod City. The Dept. Store door leads to FireRed's Mart layout with the HGSS 2F list
+    # (a one-floor stand-in for the five-floor store).
+    {'town': 'GoldenrodCity', 'doors': [((28, 36), 'PokemonCenter_1F'), ((39, 36), 'Mart')],
+     'mart': ['ITEM_POKE_BALL', 'ITEM_GREAT_BALL', 'ITEM_ULTRA_BALL', 'ITEM_POTION', 'ITEM_SUPER_POTION', 'ITEM_HYPER_POTION',
+              'ITEM_REVIVE', 'ITEM_ANTIDOTE', 'ITEM_PARALYZE_HEAL', 'ITEM_AWAKENING', 'ITEM_BURN_HEAL', 'ITEM_ICE_HEAL',
+              'ITEM_ESCAPE_ROPE', 'ITEM_REPEL', 'ITEM_SUPER_REPEL'],
+     'heal': (28, 37), 'flag': 'FLAG_0x8CA',
+     'closed': ['Gate_GoldenrodCity_Route35', 'GoldenrodCity_UndergroundEntrance', 'GoldenrodCity_House1', 'GoldenrodCity_Gym',
+                'GoldenrodCity_FlowerShop', 'GoldenrodCity_House2', 'GoldenrodCity_RadioTower_1F', 'GoldenrodCity_TrainStation',
+                'GoldenrodCity_House3', 'GoldenrodCity_GameCorner', 'GoldenrodCity_BillsHouse', 'GoldenrodCity_BikeShop']},
 ]
 
 
