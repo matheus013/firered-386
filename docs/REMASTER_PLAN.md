@@ -15,6 +15,13 @@ no repositório **privado** `matheus013/super-firered-remaster`. Decisões tomad
 
 As seções 4 e 7 abaixo ficam valendo com essas respostas. G1–G7 continuam depois da expansão.
 
+**G0 concluída em 13/11/2026** (repositório privado). Ficou definido:
+
+- a geração de imagem é feita pelo Codex (D7);
+- a grama-alvo e o estilo de personagem estão aprovados (D8, D9);
+- os termos da OpenAI estão registrados;
+- o lote-piloto mostrou que o gerador não acerta uma grade exata. Personagens funcionam; tiles com estrutura serão desenhados por código ou redesenhados.
+
 Skills usadas:
 
 - `router`: projeto existente em engine próprio (decomp `pokefirered` em C); frontend novo em Godot 4.7;
