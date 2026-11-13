@@ -683,9 +683,20 @@ static u8 TrainerBattleLoadArg8(const u8 *ptr)
     return T1_READ_8(ptr);
 }
 
+// The "defeated" flag of a trainer: FireRed's block for ids below MAX_TRAINERS_COUNT, the region expansion's
+// extra block (EXTRA_TRAINER_FLAGS_START) above it.
+STATIC_ASSERT(NUM_TRAINERS <= MAX_TRAINERS_COUNT + EXTRA_TRAINER_FLAGS_COUNT, StaticAssertTrainerFlags);
+
+u16 GetTrainerFlagId(u16 trainerId)
+{
+    if (trainerId < MAX_TRAINERS_COUNT)
+        return TRAINER_FLAGS_START + trainerId;
+    return EXTRA_TRAINER_FLAGS_START + trainerId - MAX_TRAINERS_COUNT;
+}
+
 static u16 GetTrainerAFlag(void)
 {
-    return TRAINER_FLAGS_START + gTrainerBattleOpponent_A;
+    return GetTrainerFlagId(gTrainerBattleOpponent_A);
 }
 
 static bool32 IsPlayerDefeated(u32 battleOutcome)
@@ -842,7 +853,7 @@ bool32 GetTrainerFlagFromScriptPointer(const u8 *data)
 {
     u32 flag = TrainerBattleLoadArg16(data + 2);
 
-    return FlagGet(TRAINER_FLAGS_START + flag);
+    return FlagGet(GetTrainerFlagId(flag));
 }
 
 void SetUpTrainerMovement(void)
@@ -880,17 +891,17 @@ static void SetBattledTrainerFlag2(void)
 
 bool8 HasTrainerBeenFought(u16 trainerId)
 {
-    return FlagGet(TRAINER_FLAGS_START + trainerId);
+    return FlagGet(GetTrainerFlagId(trainerId));
 }
 
 void SetTrainerFlag(u16 trainerId)
 {
-    FlagSet(TRAINER_FLAGS_START + trainerId);
+    FlagSet(GetTrainerFlagId(trainerId));
 }
 
 void ClearTrainerFlag(u16 trainerId)
 {
-    FlagClear(TRAINER_FLAGS_START + trainerId);
+    FlagClear(GetTrainerFlagId(trainerId));
 }
 
 void StartTrainerBattle(void)

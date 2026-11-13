@@ -1874,6 +1874,162 @@
     },
     {
       "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gRoute38",
+        "map": "MAP_ROUTE38",
+        "note": "day table; Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_ROUTE38",
+        "base_label": "gJohtoRoute38_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGNEMITE"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_MILTANK"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_TAUROS"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_DODUO"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGNEMITE"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_MILTANK"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_TAUROS"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_DODUO"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MEOWTH"
+            },
+            {
+              "min_level": 19,
+              "max_level": 19,
+              "species": "SPECIES_RATICATE"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MEOWTH"
+            },
+            {
+              "min_level": 19,
+              "max_level": 19,
+              "species": "SPECIES_RATICATE"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gRoute39",
+        "map": "MAP_ROUTE39",
+        "note": "day table; Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_ROUTE39",
+        "base_label": "gJohtoRoute39_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_PONYTA"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_RATICATE"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_MAGNEMITE"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_DODUO"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_PONYTA"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_RATICATE"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_MAGNEMITE"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_DODUO"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_MILTANK"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_TAUROS"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_MILTANK"
+            },
+            {
+              "min_level": 21,
+              "max_level": 21,
+              "species": "SPECIES_TAUROS"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
         "repository": "pokeemerald",
         "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
         "label": "gRoute104",

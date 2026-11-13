@@ -1855,3 +1855,36 @@ const u16 gTilesetPalettes_HoennPilotMauville[][16] = {
     INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/14.gbapal"),
     INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville/palettes/15.gbapal"),
 };
+const u32 gTilesetTiles_JohtoPilotRoute38Farmland[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_route38_farmland/tiles.4bpp.lz");
+const u16 gTilesetPalettes_JohtoPilotRoute38Farmland[][16] = {
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_JohtoPilotOlivineCity[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_olivine_city/tiles.4bpp.lz");
+const u16 gTilesetPalettes_JohtoPilotOlivineCity[][16] = {
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_olivine_city/palettes/12.gbapal"),
+};

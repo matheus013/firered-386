@@ -1503,6 +1503,30 @@
       "y": 2,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_38",
+      "name": "ROUTE 38",
+      "x": 7,
+      "y": 2,
+      "width": 3,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_39",
+      "name": "ROUTE 39",
+      "x": 6,
+      "y": 2,
+      "width": 1,
+      "height": 2
+    },
+    {
+      "id": "MAPSEC_OLIVINE_CITY",
+      "name": "OLIVINE CITY",
+      "x": 6,
+      "y": 4,
+      "width": 1,
+      "height": 1
     }
   ]
 }

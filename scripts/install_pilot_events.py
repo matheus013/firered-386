@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
     'OBJ_EVENT_GFX_GIRL_2': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_BOY_3': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_MAN_2': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_4': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_5': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_RICH_BOY': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_DEVON_EMPLOYEE': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_LITTLE_GIRL': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
@@ -334,6 +334,26 @@ EVENTS = {
         10: ('itemflag', None, 'Ether'), 11: ('itemflag', None, 'Super Potion')},
         {0: ('sign', 'IlexForest_Text_Shrine'), 1: ('sign', 'IlexForest_Text_Signpost')}),
     'Gate_IlexForest_Route34': (HNS, {0: ('npc', 'Route34IlexForestGate_Text_Lass', '')}, {}),
+    # Johto batch 9. Left out: the farm house and barn (Moomoo Milk), the Eon Ticket attendant, Silver, the shadow
+    # on Route 39, the Gym, Lighthouse, cafe and port (closed). Jamie is a night trainer in HNS (no clock here).
+    'Gate_EcruteakCity_Route38': (HNS, {0: ('npc', 'Route38_Text_EcruteakGateOfficer', '')}, {}),
+    'Route38': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_HARRY', 'Route38_Text_SailorHarrySeen', 'Route38_Text_SailorHarryBeaten', 'Route38_Text_SailorHarryAfter'), ''), 1: ('trainer', ('TRAINER_JOHTO_DANA', 'Route38_Text_LassDana1Seen', 'Route38_Text_LassDana1Beaten', 'Route38_Text_LassDanaAfter'), ''),
+        2: ('trainer', ('TRAINER_JOHTO_OLIVIA', 'Route38_Text_BeautyOliviaSeen', 'Route38_Text_BeautyOliviaBeaten', 'Route38_Text_BeautyOliviaAfter'), ''), 3: ('trainer', ('TRAINER_JOHTO_TOBY', 'Route38_Text_BirdKeeperTobySeen', 'Route38_Text_BirdKeeperTobyBeaten', 'Route38_Text_BirdKeeperTobyAfter'), ''),
+        4: ('trainer', ('TRAINER_JOHTO_CHAD', 'Route38_Text_SchoolboyChad1Seen', 'Route38_Text_SchoolboyChad1Beaten', 'Route38_Text_SchoolboyChadAfter'), ''), 5: ('trainer', ('TRAINER_JOHTO_VALERIE', 'Route38_Text_BeautyValerieSeen', 'Route38_Text_BeautyValerieBeaten', 'Route38_Text_BeautyValerieAfter'), ''),
+        8: ('itemflag', None, 'Lax Incense')},
+        {0: ('sign', 'Route38_Text_Sign'), 1: ('sign', 'Route38_Text_WaterSign')}),
+    'Route39': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_NORMAN', 'Route39_Text_PsychicNormanSeen', 'Route39_Text_PsychicNormanBeaten', 'Route39_Text_PsychicNormanAfter'), ''), 2: ('trainer', ('TRAINER_JOHTO_RUTH', 'Route39_Text_PokefanFRuthSeen', 'Route39_Text_PokefanFRuthBeaten', 'Route39_Text_PokefanFRuthAfter'), ''),
+        3: ('trainer', ('TRAINER_JOHTO_DEREK', 'Route39_Text_PokefanMDerekSeen', 'Route39_Text_PokefanMDerekBeaten', 'Route39_Text_PokefanMDerekAfter'), ''), 4: ('trainer', ('TRAINER_JOHTO_EUGENE', 'Route39_Text_SailorEugeneSeen', 'Route39_Text_SailorEugeneBeaten', 'Route39_Text_SailorEugeneAfter'), ''),
+        17: ('trainer', ('TRAINER_JOHTO_JAMIE', 'Route39_Text_PokefanFJaimeSeen', 'Route39_Text_PokefanFJaimeBeaten', 'Route39_Text_PokefanFJaimeAfter'), ''),
+        9: ('itemflag', None, 'TM31 Brick Break'), 18: ('itemflag', None, 'Nugget'), 19: ('npc', 'Route39_Text_Woman', '')},
+        {0: ('sign', 'Route39_Text_TrainerTips'), 1: ('sign', 'Route39_Text_Sign'), 2: ('sign', 'Route39_Text_MoomooFarmSign')}),
+    'OlivineCity': (HNS, {
+        1: ('npc', 'OlivineCity_Text_Sailor2', ''), 2: ('npc', 'OlivineCity_Text_Sailor1', '')},
+        # HNS places the TM34 ball at x=53 on a 52-wide map (unreachable): left out.
+        {0: ('sign', 'OlivineCity_Text_GymSign'), 1: ('sign', 'OlivineCity_Text_LighthouseSign'),
+         2: ('sign', 'OlivineCity_Text_PortSign'), 3: ('sign', 'OlivineCity_Text_Sign'), 4: ('sign', 'OlivineCity_Text_CafeSign')}),
     # Johto batch 8. Left out: Sunny (weekday gift), Silver, the Gym sage (gym closed) and the overworld Pokemon.
     'Route37': (HNS, {
         0: ('trainer', ('TRAINER_JOHTO_ANN_AND_ANNE', 'Route37_Text_TwinsAnnAndAnne1_Seen', 'Route37_Text_TwinsAnnAndAnne1_Beaten', 'Route37_Text_TwinsAnnAndAnne1_After', 'Route104_Text_GinaNotEnoughMons'), 'double battle'),
@@ -409,7 +429,7 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'CherrygroveCity': 'FLAG_WORLD_MAP_CHERRYGROVE_CITY', 'VioletCity': 'FLAG_WORLD_MAP_VIOLET_CITY',
                    'AzaleaTown': 'FLAG_WORLD_MAP_AZALEA_TOWN', 'GoldenrodCity': 'FLAG_WORLD_MAP_GOLDENROD_CITY',
                    'RustboroCity': 'FLAG_WORLD_MAP_RUSTBORO_CITY', 'EcruteakCity': 'FLAG_WORLD_MAP_ECRUTEAK_CITY',
-                   'VerdanturfTown': 'FLAG_WORLD_MAP_VERDANTURF_TOWN'}
+                   'VerdanturfTown': 'FLAG_WORLD_MAP_VERDANTURF_TOWN', 'OlivineCity': 'FLAG_WORLD_MAP_OLIVINE_CITY'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -458,6 +478,9 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route116', 24): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE116_POTION', 'FLAG_0x0DC'),
               ('RusturfTunnel', 2): ('ITEM_POKE_BALL', 'FLAG_HIDE_HOENN_RUSTURF_POKE_BALL', 'FLAG_0x0DD'),
               ('RusturfTunnel', 3): ('ITEM_MAX_ETHER', 'FLAG_HIDE_HOENN_RUSTURF_MAX_ETHER', 'FLAG_0x0DE'),
+              ('Route38', 8): ('ITEM_LAX_INCENSE', 'FLAG_HIDE_JOHTO_ROUTE38_LAX_INCENSE', 'FLAG_0x0DF'),
+              ('Route39', 9): ('ITEM_TM31', 'FLAG_HIDE_JOHTO_ROUTE39_TM_BRICK_BREAK', 'FLAG_0x0E0'),
+              ('Route39', 18): ('ITEM_NUGGET', 'FLAG_HIDE_JOHTO_ROUTE39_NUGGET', 'FLAG_0x0E1'),  # HNS Big Nugget
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.

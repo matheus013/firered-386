@@ -95,6 +95,9 @@
 #define FLAG_HIDE_HOENN_ROUTE116_POTION FLAG_0x0DC // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_HOENN_RUSTURF_POKE_BALL FLAG_0x0DD // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_HOENN_RUSTURF_MAX_ETHER FLAG_0x0DE // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_ROUTE38_LAX_INCENSE FLAG_0x0DF // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_ROUTE39_TM_BRICK_BREAK FLAG_0x0E0 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_ROUTE39_NUGGET FLAG_0x0E1 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_AIDE_POTION FLAG_0x027 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_GOT_JOHTO_AIDE_BALLS FLAG_0x07F // Region pilot story (scripts/pilot_story.py)
@@ -1377,6 +1380,10 @@
 
 #define TRAINER_FLAGS_START      (FLAG_0x4FF + 1)
 #define TRAINER_FLAGS_END        (TRAINER_FLAGS_START + MAX_TRAINERS_COUNT - 1) // 0x7FF
+// Region expansion: trainer ids from MAX_TRAINERS_COUNT up use the unused event flags 0x300-0x3D7, so the
+// trainer and system flag layout of existing saves does not move (see GetTrainerFlagId in battle_setup.c).
+#define EXTRA_TRAINER_FLAGS_START 0x300
+#define EXTRA_TRAINER_FLAGS_COUNT 216
 
 // SYSTEM FLAGS
 
@@ -1531,6 +1538,7 @@
 #define FLAG_WORLD_MAP_RUSTBORO_CITY                               FLAG_0x8CB
 #define FLAG_WORLD_MAP_ECRUTEAK_CITY                               FLAG_0x8CC
 #define FLAG_WORLD_MAP_VERDANTURF_TOWN                             FLAG_0x8CD
+#define FLAG_WORLD_MAP_OLIVINE_CITY                                FLAG_0x8CE
 
 #define FLAG_0x8C3                                                  (SYS_FLAGS + 0xC3)
 #define FLAG_0x8C4                                                  (SYS_FLAGS + 0xC4)

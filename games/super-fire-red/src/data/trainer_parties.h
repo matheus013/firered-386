@@ -16127,3 +16127,137 @@ static const struct TrainerMonNoItemDefaultMoves sParty_JohtoPeter[] = {
     .species = SPECIES_NATU,
     }
 };
+
+// Region geography: HNS_modern TRAINER_HARRY, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoHarry[] = {
+    {
+    .iv = 0,
+    .lvl = 83,
+    .species = SPECIES_QUAGSIRE,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_DANA, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoDana[] = {
+    {
+    .iv = 0,
+    .lvl = 79,
+    .species = SPECIES_FLAAFFY,
+    },
+    {
+    .iv = 0,
+    .lvl = 80,
+    .species = SPECIES_PSYDUCK,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_OLIVIA, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoOlivia[] = {
+    {
+    .iv = 0,
+    .lvl = 81,
+    .species = SPECIES_CORSOLA,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_TOBY, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoToby[] = {
+    {
+    .iv = 0,
+    .lvl = 82,
+    .species = SPECIES_DODUO,
+    },
+    {
+    .iv = 0,
+    .lvl = 82,
+    .species = SPECIES_DODUO,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_CHAD, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoChad[] = {
+    {
+    .iv = 0,
+    .lvl = 82,
+    .species = SPECIES_MR_MIME,
+    },
+    {
+    .iv = 0,
+    .lvl = 82,
+    .species = SPECIES_MAGNEMITE,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_VALERIE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoValerie[] = {
+    {
+    .iv = 0,
+    .lvl = 82,
+    .species = SPECIES_SKIPLOOM,
+    },
+    {
+    .iv = 0,
+    .lvl = 81,
+    .species = SPECIES_MILTANK,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_NORMAN, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoNorman[] = {
+    {
+    .iv = 0,
+    .lvl = 82,
+    .species = SPECIES_SLOWPOKE,
+    },
+    {
+    .iv = 0,
+    .lvl = 83,
+    .species = SPECIES_SLOWPOKE,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_RUTH, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoRuth[] = {
+    {
+    .iv = 0,
+    .lvl = 83,
+    .species = SPECIES_PIKACHU,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_DEREK, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoDerek[] = {
+    {
+    .iv = 0,
+    .lvl = 82,
+    .species = SPECIES_PIKACHU,
+    },
+    {
+    .iv = 0,
+    .lvl = 82,
+    .species = SPECIES_PONYTA,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_EUGENE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoEugene[] = {
+    {
+    .iv = 0,
+    .lvl = 80,
+    .species = SPECIES_POLIWHIRL,
+    },
+    {
+    .iv = 0,
+    .lvl = 82,
+    .species = SPECIES_TAUROS,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_JAMIE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoJamie[] = {
+    {
+    .iv = 0,
+    .lvl = 80,
+    .species = SPECIES_UMBREON,
+    }
+};

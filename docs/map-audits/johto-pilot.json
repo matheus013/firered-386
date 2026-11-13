@@ -4,32 +4,32 @@
   "tilesets": {
     "gTileset_Johto_General": {
       "firered": "gTileset_JohtoPilotGeneral",
-      "metatiles_converted": 417,
+      "metatiles_converted": 447,
       "behaviors": {
-        "MB_SHORT_GRASS": 21,
-        "MB_NORMAL": 246,
+        "MB_SHORT_GRASS": 22,
+        "MB_NORMAL": 268,
         "MB_HEADBUTT_TREE": 6,
         "MB_TALL_GRASS": 4,
         "MB_ANIMATED_DOOR": 3,
-        "MB_OCEAN_WATER": 42,
+        "MB_OCEAN_WATER": 43,
         "MB_JUMP_WEST": 3,
         "MB_JUMP_EAST": 3,
         "MB_JUMP_SOUTH": 12,
         "MB_ROCK_STAIRS": 2,
         "MB_NON_ANIMATED_DOOR": 2,
+        "MB_MOUNTAIN_TERRAIN": 13,
         "MB_SAND": 30,
-        "MB_MOUNTAIN_TERRAIN": 8,
         "MB_SHALLOW_WATER": 13,
         "MB_EAST_ARROW_WARP": 1,
         "MB_WEST_ARROW_WARP": 1,
         "MB_SOUTH_ARROW_WARP": 3,
-        "MB_POND_WATER": 15,
+        "MB_POND_WATER": 16,
         "MB_INTERIOR_DEEP_WATER": 2
       },
       "sha256": {
         "tiles.png": "edaec57f44a8525de7d4f1d781e07be738648a0752e3ac70d1cbdf0090065580",
         "metatiles.bin": "a1cb8665ee3ba79b71ca36f97d4f3cbb936fa5b835a2042287890fb152dc12c0",
-        "metatile_attributes.bin": "d02e8ec854cf448eb0cee3dcda7f7d9c89402c4184acef1ee41c4a57682f81f3"
+        "metatile_attributes.bin": "9a77bdffb1c5d8b3bab5b286804ab1d4430c10e9e5d219bae14697118f9a8253"
       }
     },
     "gTileset_NewBarkTown": {
@@ -296,6 +296,40 @@
         "tiles.png": "e1be8e33e93669b81a9ff8c3cdf75f113448b4a9c782b3e87aee2aca16780a39",
         "metatiles.bin": "bed75d37ed51cb6a3b192600e498b025ae9df14817d3250ba2da4181e6355e5b",
         "metatile_attributes.bin": "bd753ec94c6e32e2ca6aa6ad55cce645b019b08885cebc6c33cfc1dcafae57ae"
+      }
+    },
+    "gTileset_Route38_Farmland": {
+      "firered": "gTileset_JohtoPilotRoute38Farmland",
+      "metatiles_converted": 133,
+      "behaviors": {
+        "MB_SHORT_GRASS": 5,
+        "MB_NORMAL": 100,
+        "MB_TALL_GRASS": 2,
+        "MB_LONG_GRASS": 3,
+        "MB_LONG_GRASS_SOUTH_EDGE": 3,
+        "MB_POND_WATER": 15,
+        "MB_EAST_ARROW_WARP": 1,
+        "MB_JUMP_EAST": 3,
+        "MB_NON_ANIMATED_DOOR": 1
+      },
+      "sha256": {
+        "tiles.png": "df417c71e007b5973a416b0c2ad9f9f553cd1794ede82f7f2d3b97457f499f64",
+        "metatiles.bin": "0d43ac1b844a4ec96ce31ff909478a2c9db3b7480e851d1a2a7f8b3a7b646f76",
+        "metatile_attributes.bin": "0ff9fb2fc6bc8b36f3450d66c63e3f8fbd3cd0dd1b091f2835cf728df108ee94"
+      }
+    },
+    "gTileset_OlivineCity": {
+      "firered": "gTileset_JohtoPilotOlivineCity",
+      "metatiles_converted": 213,
+      "behaviors": {
+        "MB_NORMAL": 203,
+        "MB_ANIMATED_DOOR": 1,
+        "MB_OCEAN_WATER": 9
+      },
+      "sha256": {
+        "tiles.png": "df12fc9642f7d0e810c3a73be8e9cff5bbc537faa26a527d4f3719be3f1dd7be",
+        "metatiles.bin": "0305537b893b7c9d6e416d7f65f62513c8a46ecbe74fa7859f731f850fe50f05",
+        "metatile_attributes.bin": "cbc661c61c8796840c4eda646138e08940fdcadf5a161867d9fb69f95f8db5b6"
       }
     }
   },
@@ -652,13 +686,6 @@
     },
     {
       "map": "EcruteakCity",
-      "index": 0,
-      "x": 8,
-      "y": 35,
-      "destination": "MAP_GATE_ECRUTEAK_CITY_ROUTE38"
-    },
-    {
-      "map": "EcruteakCity",
       "index": 1,
       "x": 55,
       "y": 42,
@@ -740,6 +767,83 @@
       "x": 39,
       "y": 46,
       "destination": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY"
+    },
+    {
+      "map": "Route39",
+      "index": 0,
+      "x": 21,
+      "y": 15,
+      "destination": "MAP_ROUTE39_FARM_HOUSE"
+    },
+    {
+      "map": "Route39",
+      "index": 1,
+      "x": 15,
+      "y": 15,
+      "destination": "MAP_ROUTE39_BARN"
+    },
+    {
+      "map": "Route39",
+      "index": 2,
+      "x": 16,
+      "y": 15,
+      "destination": "MAP_ROUTE39_BARN"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 0,
+      "x": 39,
+      "y": 49,
+      "destination": "MAP_OLIVINE_CITY_LIGHTHOUSE"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 1,
+      "x": 11,
+      "y": 27,
+      "destination": "MAP_OLIVINE_CITY_GYM"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 2,
+      "x": 8,
+      "y": 43,
+      "destination": "MAP_OLIVINE_CITY_CAFE"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 3,
+      "x": 26,
+      "y": 40,
+      "destination": "MAP_OLIVINE_CITY_MART"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 4,
+      "x": 27,
+      "y": 24,
+      "destination": "MAP_OLIVINE_CITY_HOUSE1"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 5,
+      "x": 31,
+      "y": 24,
+      "destination": "MAP_OLIVINE_CITY_HOUSE2"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 6,
+      "x": 19,
+      "y": 36,
+      "destination": "MAP_OLIVINE_CITY_HOUSE3"
+    },
+    {
+      "map": "OlivineCity",
+      "index": 7,
+      "x": 15,
+      "y": 43,
+      "destination": "MAP_OLIVINE_CITY_POKEMON_CENTER"
     }
   ],
   "behavior_rules": {
@@ -750,6 +854,14 @@
     "MB_TALL_GRASS": {
       "firered_attribute": "0x1000202",
       "reason": "tall grass, grass terrain, land encounters"
+    },
+    "MB_LONG_GRASS": {
+      "firered_attribute": "0x1000202",
+      "reason": "FireRed has no long grass; tall grass with land encounters"
+    },
+    "MB_LONG_GRASS_SOUTH_EDGE": {
+      "firered_attribute": "0x1000202",
+      "reason": "FireRed has no long grass; tall grass with land encounters"
     },
     "MB_OCEAN_WATER": {
       "firered_attribute": "0x2000415",
@@ -1016,6 +1128,22 @@
     "Johto_EcruteakCity": {
       "id": "MAP_JOHTO_ECRUTEAK_CITY",
       "number": 27
+    },
+    "Johto_Gate_EcruteakCity_Route38": {
+      "id": "MAP_JOHTO_GATE_ECRUTEAK_CITY_ROUTE38",
+      "number": 28
+    },
+    "Johto_Route38": {
+      "id": "MAP_JOHTO_ROUTE38",
+      "number": 29
+    },
+    "Johto_Route39": {
+      "id": "MAP_JOHTO_ROUTE39",
+      "number": 30
+    },
+    "Johto_OlivineCity": {
+      "id": "MAP_JOHTO_OLIVINE_CITY",
+      "number": 31
     }
   }
 }

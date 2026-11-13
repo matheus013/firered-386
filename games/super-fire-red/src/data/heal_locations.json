@@ -255,6 +255,14 @@
       "y": 4,
       "respawn_map": "MAP_HOENN_VERDANTURF_TOWN_POKEMON_CENTER_1F",
       "respawn_npc": 1
+    },
+    {
+      "id": "HEAL_LOCATION_OLIVINE_CITY",
+      "map": "MAP_JOHTO_OLIVINE_CITY",
+      "x": 15,
+      "y": 44,
+      "respawn_map": "MAP_JOHTO_OLIVINE_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": 1
     }
   ]
 }

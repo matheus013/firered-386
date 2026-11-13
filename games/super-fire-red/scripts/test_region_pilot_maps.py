@@ -118,7 +118,14 @@ for _m,_x,_y,_steps,_want in (
   (JOHTO+'ROUTE36',35,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE37',{(13,40)}),('MAP_JOHTO_ROUTE36',{(35,0)})]),
   (JOHTO+'ROUTE37',17,11,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ECRUTEAK_CITY',None),('MAP_JOHTO_ROUTE37',None)]),
   (JOHTO+'ECRUTEAK_CITY',39,48,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ECRUTEAK_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_ECRUTEAK_CITY',{(39,48)})]),
-  (JOHTO+'ECRUTEAK_CITY',48,41,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ECRUTEAK_CITY_MART',{(4,7)}),('MAP_JOHTO_ECRUTEAK_CITY',{(48,41)})])):
+  (JOHTO+'ECRUTEAK_CITY',48,41,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ECRUTEAK_CITY_MART',{(4,7)}),('MAP_JOHTO_ECRUTEAK_CITY',{(48,41)})]),
+  # Johto batch 9: Ecruteak west gate, Route 38 -> 39 -> Olivine, Olivine's doors.
+  (JOHTO+'ECRUTEAK_CITY',9,35,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_GATE_ECRUTEAK_CITY_ROUTE38',None),('MAP_JOHTO_ECRUTEAK_CITY',None)]),
+  (JOHTO+'ROUTE38',42,16,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_JOHTO_GATE_ECRUTEAK_CITY_ROUTE38',None),('MAP_JOHTO_ROUTE38',None)]),
+  (JOHTO+'ROUTE38',0,21,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_ROUTE39',{(39,21)}),('MAP_JOHTO_ROUTE38',{(0,21)})]),
+  (JOHTO+'ROUTE39',25,53,[('DOWN','MAP'),('UP','MAP')],[('MAP_JOHTO_OLIVINE_CITY',{(19,0)}),('MAP_JOHTO_ROUTE39',{(25,53)})]),
+  (JOHTO+'OLIVINE_CITY',15,44,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_OLIVINE_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_OLIVINE_CITY',{(15,44)})]),
+  (JOHTO+'OLIVINE_CITY',26,41,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_OLIVINE_CITY_MART',{(4,7)}),('MAP_JOHTO_OLIVINE_CITY',{(26,41)})])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -488,6 +495,7 @@ static const struct PilotStep sPilotSteps[][4] = {
 static const u8 sPilotStepCount[] = {COUNTS};
 static const u8 sPilotNoAnswers[] = {ANSWERS};
 static const u8 sPilotStopPrompts[] = {STOP_PROMPTS};
+u16 GetTrainerFlagId(u16 trainerId);
 const u16 gPilotFreshTrainer[] = {FRESH_TRAINERS};  // route trainer left unbeaten in this case (0: none)
 const u16 gPilotFreshMove[] = {FRESH_MOVES};  // the strong lead's move in those battle cases
 const u16 gPilotSlotTrainers[] = {SLOT_TRAINERS};  // geography trainers in reused FireRed slots, 0-terminated
@@ -709,7 +717,7 @@ static void PilotWalkCase(void)
                 memcpy(t + 64, gStringVar2, 32); t[95] = EOS;
                 t[104] = CheckBagHasItem(ITEM_POTION, 1); t[105] = CheckBagHasItem(ITEM_POKE_BALL, 5);
                 t[106] = FlagGet(FLAG_GOT_JOHTO_AIDE_POTION); t[107] = FlagGet(FLAG_GOT_JOHTO_AIDE_BALLS);
-                t[108] = gPilotFreshTrainer[gPilotCase - 1] && FlagGet(TRAINER_FLAGS_START + gPilotFreshTrainer[gPilotCase - 1]);
+                t[108] = gPilotFreshTrainer[gPilotCase - 1] && FlagGet(GetTrainerFlagId(gPilotFreshTrainer[gPilotCase - 1]));
                 if (gPilotSpawn[gPilotCase - 1][7] & 512)
                 {
                     t[48] = TrySavingData(SAVE_NORMAL);
@@ -1088,6 +1096,7 @@ setup='''
 #include "elite_four.h"
 extern volatile u32 gPilotCase;
 extern const s16 gPilotSpawn[][12];
+u16 GetTrainerFlagId(u16 trainerId);
 extern const u16 gPilotFreshTrainer[];
 extern const u16 gPilotSlotTrainers[];
 extern const u16 gPilotFreshMove[];
@@ -1162,11 +1171,11 @@ void PilotSetup(void)
     {
         u16 t;
         for (t = TRAINER_HOENN_CALVIN; t < NUM_TRAINERS; t++)
-            FlagSet(TRAINER_FLAGS_START + t); // region route trainers start beaten (see the talk cases)
+            FlagSet(GetTrainerFlagId(t)); // region route trainers start beaten (see the talk cases)
         for (t = 0; gPilotSlotTrainers[t]; t++)
-            FlagSet(TRAINER_FLAGS_START + gPilotSlotTrainers[t]);
+            FlagSet(GetTrainerFlagId(gPilotSlotTrainers[t]));
         if (gPilotFreshTrainer[gPilotCase - 1])
-            FlagClear(TRAINER_FLAGS_START + gPilotFreshTrainer[gPilotCase - 1]);  // battle cases
+            FlagClear(GetTrainerFlagId(gPilotFreshTrainer[gPilotCase - 1]));  // battle cases
     }
     if (spawn[7] & 2048)
         FlagSet(FLAG_WORLD_MAP_LITTLEROOT_TOWN);
@@ -1339,7 +1348,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-16:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY']
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-19:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY','MAPSEC_ROUTE_38','MAPSEC_ROUTE_39','MAPSEC_OLIVINE_CITY']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.

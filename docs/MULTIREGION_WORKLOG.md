@@ -1844,3 +1844,50 @@ e não foram instaladas. Rustboro ganhou a ligação com a Route 116.
 - conversas e uma batalha com cada treinador novo.
 
 **Resultado:** 626 casos aprovados (eram 568), com as 71 batalhas de rota vencidas. Depois do primeiro teste, as portas do Centro e do Mart de Verdanturf ganharam a tabela de animação do par General + Mauville. O warp já funcionava sem ela; o instalador agora registra uma tabela por secundário de cidade.
+
+## Treinadores além do limite, sem quebrar saves
+
+As vagas reaproveitadas estavam acabando (restavam 16). Aumentar `MAX_TRAINERS_COUNT` mudaria a
+posição de todas as flags de sistema e o tamanho do save. A solução adotada não mexe em nenhum dos
+dois:
+
+- **Bloco extra de flags:** IDs de treinador a partir de 768 guardam a flag de "vencido" no bloco de
+  event flags 0x300–0x3D7. São 216 flags que nenhum script, mapa ou código usa, conferido por busca
+  em `data/` e `src/`. Ninguém chega a essa faixa por aritmética: as flags de história ficam abaixo e
+  os itens escondidos começam em 0x3E8.
+- **`GetTrainerFlagId(trainerId)`** (`src/battle_setup.c`, declarado em `battle_setup.h`): é o único
+  lugar que calcula a flag. As cinco contas `TRAINER_FLAGS_START + id` passaram a usá-lo.
+- **Limite verificado na compilação:** um `STATIC_ASSERT` garante que
+  `NUM_TRAINERS <= MAX_TRAINERS_COUNT + EXTRA_TRAINER_FLAGS_COUNT`.
+- **Capacidade:** cabem até 984 treinadores. Os treinadores novos voltam a receber IDs próprios
+  (`"new"`), e as vagas reaproveitadas ficam para os ginásios de Hoenn.
+- **Teste da ROM:** o harness usa a mesma função.
+
+## Johto, lote 9: Routes 38 e 39 e Olivine City
+
+**Mapas novos:** o portão oeste de Ecruteak, as Routes 38 e 39 (secundário `Route38_Farmland`) e
+Olivine City (secundário `OlivineCity`). Em Ecruteak, o warp do portão entrou primeiro, e as portas
+do Centro e do Mart foram renumeradas junto com os interiores. A regra nova é `MB_LONG_GRASS` (e a
+borda sul), que vira grama alta, porque o FireRed não tem grama longa.
+
+- **Olivine:** Centro Pokémon e Mart do FireRed, com a lista do HGSS. A heal location fica em
+  (15,44), a flag é `FLAG_WORLD_MAP_OLIVINE_CITY` (0x8CE), e a cidade é destino de Fly. A porta
+  deslizante foi registrada para o par General + Olivine.
+- **Treinadores (11, IDs 767–777):** Harry, Dana, Olivia, Toby, Chad e Valerie (Route 38), e Norman,
+  Ruth, Derek, Eugene e Jamie (Route 39). Do Dana em diante, todos usam o bloco extra de flags. A
+  Jamie só aparece à noite no HNS; aqui fica sempre.
+- **Eventos:**
+  - Lax Incense, TM31 Brick Break e Nugget (no lugar da Big Nugget). A bola da TM34 ficou de fora: no HNS ela está em x=53 de um mapa com 52 de largura;
+  - o policial do portão, a moça da Route 39 e os marinheiros de Olivine;
+  - as placas;
+  - 47 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama nas Routes 38 e 39.
+
+**Fica para depois:**
+
+- a fazenda (Moomoo Milk);
+- o Ginásio da Jasmine, o Farol, o café e o porto;
+- o Silver, a sombra da Route 39 e o atendente do Eon Ticket;
+- a Route 40.
+
+**Resultado:** 673 casos aprovados (eram 626), com as 82 batalhas de rota vencidas. Isso inclui os treinadores com IDs de 768 a 777, cuja flag de "vencido", conferida depois de cada vitória, fica no bloco extra.

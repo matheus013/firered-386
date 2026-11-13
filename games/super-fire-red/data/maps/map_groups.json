@@ -646,7 +646,10 @@
     "Johto_Route37",
     "Johto_EcruteakCity",
     "Hoenn_Route116",
-    "Hoenn_VerdanturfTown"
+    "Hoenn_VerdanturfTown",
+    "Johto_Route38",
+    "Johto_Route39",
+    "Johto_OlivineCity"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -714,6 +717,12 @@
     "Johto_Route37",
     "Johto_EcruteakCity",
     "Johto_EcruteakCity_PokemonCenter_1F",
-    "Johto_EcruteakCity_Mart"
+    "Johto_EcruteakCity_Mart",
+    "Johto_Gate_EcruteakCity_Route38",
+    "Johto_Route38",
+    "Johto_Route39",
+    "Johto_OlivineCity",
+    "Johto_OlivineCity_PokemonCenter_1F",
+    "Johto_OlivineCity_Mart"
   ]
 }

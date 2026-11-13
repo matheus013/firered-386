@@ -54,6 +54,13 @@ TOWNS = [
      'closed': ['Gate_EcruteakCity_Route38', 'Gate_EcruteakCity_Route42', 'BurnedTower_1F', 'EcruteakCity_SageOffice1',
                 'EcruteakCity_SageOffice2', 'TinTower_1F', 'EcruteakCity_Theater', 'EcruteakCity_House1', 'EcruteakCity_House2',
                 'EcruteakCity_Gym', 'BattleFrontier_BattleTowerLobby']},
+    # Batch 9: Olivine City.
+    {'town': 'OlivineCity', 'doors': [((15, 43), 'PokemonCenter_1F'), ((26, 40), 'Mart')],
+     'mart': ['ITEM_GREAT_BALL', 'ITEM_SUPER_POTION', 'ITEM_HYPER_POTION', 'ITEM_ANTIDOTE', 'ITEM_PARALYZE_HEAL',
+              'ITEM_AWAKENING', 'ITEM_ICE_HEAL', 'ITEM_SUPER_REPEL'],
+     'heal': (15, 44), 'flag': 'FLAG_0x8CE',
+     'closed': ['OlivineCity_Lighthouse', 'OlivineCity_Gym', 'OlivineCity_Cafe', 'OlivineCity_House1', 'OlivineCity_House2',
+                'OlivineCity_House3', 'Route39_FarmHouse', 'Route39_Barn', 'Route40', 'OlivineCity_PortOutside']},
 ]
 
 

@@ -105,6 +105,25 @@
         "ITEM_ICE_HEAL",
         "ITEM_REVIVE"
       ]
+    },
+    "Johto_OlivineCity_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "npc": "OBJ_EVENT_GFX_NURSE",
+      "heal_location": "HEAL_LOCATION_OLIVINE_CITY"
+    },
+    "Johto_OlivineCity_Mart": {
+      "layout": "LAYOUT_MART",
+      "npc": "OBJ_EVENT_GFX_CLERK",
+      "items": [
+        "ITEM_GREAT_BALL",
+        "ITEM_SUPER_POTION",
+        "ITEM_HYPER_POTION",
+        "ITEM_ANTIDOTE",
+        "ITEM_PARALYZE_HEAL",
+        "ITEM_AWAKENING",
+        "ITEM_ICE_HEAL",
+        "ITEM_SUPER_REPEL"
+      ]
     }
   },
   "towns": {
@@ -208,6 +227,26 @@
         "EcruteakCity_House2",
         "EcruteakCity_Gym",
         "BattleFrontier_BattleTowerLobby"
+      ]
+    },
+    "OlivineCity": {
+      "heal_location": {
+        "id": "HEAL_LOCATION_OLIVINE_CITY",
+        "x": 15,
+        "y": 44
+      },
+      "world_map_flag": "FLAG_WORLD_MAP_OLIVINE_CITY",
+      "closed_doors": [
+        "OlivineCity_Lighthouse",
+        "OlivineCity_Gym",
+        "OlivineCity_Cafe",
+        "OlivineCity_House1",
+        "OlivineCity_House2",
+        "OlivineCity_House3",
+        "Route39_FarmHouse",
+        "Route39_Barn",
+        "Route40",
+        "OlivineCity_PortOutside"
       ]
     }
   }
