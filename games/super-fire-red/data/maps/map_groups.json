@@ -633,7 +633,9 @@
     "Johto_Route30",
     "Johto_Route31",
     "Johto_VioletCity",
-    "Johto_Route32"
+    "Johto_Route32",
+    "Johto_Route33",
+    "Johto_AzaleaTown"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -671,6 +673,11 @@
     "Johto_VioletCity_PokemonCenter_1F",
     "Johto_VioletCity_Mart",
     "Johto_Route32",
-    "Johto_Route32_PokemonCenter_1F"
+    "Johto_Route32_PokemonCenter_1F",
+    "Johto_Route33",
+    "Johto_AzaleaTown",
+    "Johto_AzaleaTown_PokemonCenter_1F",
+    "Johto_AzaleaTown_Mart",
+    "Johto_UnionCave_1F"
   ]
 }

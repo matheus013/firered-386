@@ -215,6 +215,14 @@
       "y": 85,
       "respawn_map": "MAP_JOHTO_ROUTE32_POKEMON_CENTER_1F",
       "respawn_npc": 1
+    },
+    {
+      "id": "HEAL_LOCATION_AZALEA_TOWN",
+      "map": "MAP_JOHTO_AZALEA_TOWN",
+      "x": 31,
+      "y": 16,
+      "respawn_map": "MAP_JOHTO_AZALEA_TOWN_POKEMON_CENTER_1F",
+      "respawn_npc": 1
     }
   ]
 }

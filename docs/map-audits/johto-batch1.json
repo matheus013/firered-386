@@ -40,6 +40,24 @@
       "layout": "LAYOUT_POKEMON_CENTER_1F",
       "npc": "OBJ_EVENT_GFX_NURSE",
       "heal_location": "HEAL_LOCATION_ROUTE32"
+    },
+    "Johto_AzaleaTown_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "npc": "OBJ_EVENT_GFX_NURSE",
+      "heal_location": "HEAL_LOCATION_AZALEA_TOWN"
+    },
+    "Johto_AzaleaTown_Mart": {
+      "layout": "LAYOUT_MART",
+      "npc": "OBJ_EVENT_GFX_CLERK",
+      "items": [
+        "ITEM_POKE_BALL",
+        "ITEM_POTION",
+        "ITEM_SUPER_POTION",
+        "ITEM_ESCAPE_ROPE",
+        "ITEM_REPEL",
+        "ITEM_ANTIDOTE",
+        "ITEM_PARALYZE_HEAL"
+      ]
     }
   },
   "towns": {
@@ -83,6 +101,22 @@
       "world_map_flag": null,
       "closed_doors": [
         "Gate_RuinsOfAlph_Route32",
+        "UnionCave_1F"
+      ]
+    },
+    "AzaleaTown": {
+      "heal_location": {
+        "id": "HEAL_LOCATION_AZALEA_TOWN",
+        "x": 31,
+        "y": 16
+      },
+      "world_map_flag": "FLAG_WORLD_MAP_AZALEA_TOWN",
+      "closed_doors": [
+        "SlowpokeWell_B1F",
+        "Gate_AzaleaTown_IlexForest",
+        "AzaleaTown_KurtsHouse",
+        "AzaleaTown_House1",
+        "AzaleaTown_Gym",
         "UnionCave_1F"
       ]
     }

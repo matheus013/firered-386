@@ -2191,6 +2191,253 @@
           "y": 96
         }
       ]
+    },
+    "Johto_Route33": {
+      "source": "HNS_modern/Route33",
+      "events": [
+        {
+          "kind": "trainer",
+          "source_index": 0,
+          "source_script": "Route33_EventScript_HikerAnthony",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_JOHTO_ANTHONY",
+            "Route33_Text_HikerAnthony2Seen",
+            "Route33_Text_HikerAnthony2Beaten",
+            "Route33_Text_HikerAnthony2After"
+          ],
+          "note": "no phone registration or rematch; unused slot TRAINER_AQUA_GRUNT_M",
+          "x": 17,
+          "y": 20
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "Route33_EventScript_Lass",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_1",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_1",
+          "text": "Route33_Text_Lass",
+          "note": "",
+          "x": 25,
+          "y": 27
+        }
+      ]
+    },
+    "Johto_AzaleaTown": {
+      "source": "HNS_modern/AzaleaTown",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "AzaleaTown_EventScript_Gramps",
+          "source_sprite": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "text": "AzaleaTown_Text_GrampsAfter",
+          "note": "branch after Team Rocket leaves the well",
+          "x": 44,
+          "y": 14
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "AzaleaTown_EventScript_Youngster",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": "AzaleaTown_Text_Youngster",
+          "note": "",
+          "x": 16,
+          "y": 23
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "AzaleaTown_EventScript_Lass",
+          "source_sprite": "OBJ_EVENT_GFX_LASS",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": "AzaleaTown_Text_Teacher",
+          "note": "",
+          "x": 27,
+          "y": 18
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "AzaleaTown_EventScript_GymSign",
+          "text": "AzaleaTown_Text_GymSign",
+          "x": 25,
+          "y": 24
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "AzaleaTown_EventScript_KurtSign",
+          "text": "AzaleaTown_Text_KurtsHouseSign",
+          "x": 17,
+          "y": 11
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "AzaleaTown_EventScript_IlexSign",
+          "text": "AzaleaTown_Text_IlexForestSign",
+          "x": 13,
+          "y": 15
+        },
+        {
+          "kind": "sign",
+          "source_index": 3,
+          "source_script": "AzaleaTown_EventScript_KilnSign",
+          "text": "AzaleaTown_Text_CharcoalKilnSign",
+          "x": 35,
+          "y": 23
+        },
+        {
+          "kind": "sign",
+          "source_index": 4,
+          "source_script": "AzaleaTown_EventScript_WellSign",
+          "text": "AzaleaTown_Text_SlowpokeWellSign",
+          "x": 55,
+          "y": 12
+        },
+        {
+          "kind": "sign",
+          "source_index": 5,
+          "source_script": "AzaleaTown_EventScript_AzaleaSign",
+          "text": "AzaleaTown_Text_Sign",
+          "x": 50,
+          "y": 23
+        }
+      ]
+    },
+    "Johto_UnionCave_1F": {
+      "source": "HNS_modern/UnionCave_1F",
+      "events": [
+        {
+          "kind": "itemflag",
+          "source_index": 0,
+          "source_script": "UnionCave_1F_EventScript_Item_Potion",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Potion",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "kind": "trainer",
+          "source_index": 1,
+          "source_script": "UnionCave_1F_EventScript_HikerDaniel",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_JOHTO_DANIEL",
+            "UnionCave_1F_Text_HikerDanielSeen",
+            "UnionCave_1F_Text_HikerDanielBeaten",
+            "UnionCave_1F_Text_HikerDanielAfter"
+          ],
+          "note": "",
+          "x": 16,
+          "y": 13
+        },
+        {
+          "kind": "trainer",
+          "source_index": 2,
+          "source_script": "UnionCave_1F_EventScript_HikerRussell",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_JOHTO_RUSSELL",
+            "UnionCave_1F_Text_HikerRussellSeen",
+            "UnionCave_1F_Text_HikerRussellBeaten",
+            "UnionCave_1F_Text_HikerRussellAfter"
+          ],
+          "note": "",
+          "x": 24,
+          "y": 3
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 3,
+          "source_script": "UnionCave_1F_EventScript_Item_Awakening",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Awakening",
+          "x": 11,
+          "y": 18
+        },
+        {
+          "kind": "trainer",
+          "source_index": 4,
+          "source_script": "UnionCave_1F_EventScript_FirebreatherBill",
+          "source_sprite": "OBJ_EVENT_GFX_FIREBREATHER",
+          "firered_sprite": "OBJ_EVENT_GFX_BIKER",
+          "text": [
+            "TRAINER_JOHTO_BILL",
+            "UnionCave_1F_Text_FirebreatherBillSeen",
+            "UnionCave_1F_Text_FirebreatherBillBeaten",
+            "UnionCave_1F_Text_FirebreatherBillAfter"
+          ],
+          "note": "",
+          "x": 27,
+          "y": 30
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 5,
+          "source_script": "UnionCave_1F_EventScript_Item_GreatBall",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Great Ball",
+          "x": 32,
+          "y": 32
+        },
+        {
+          "kind": "trainer",
+          "source_index": 6,
+          "source_script": "UnionCave_1F_EventScript_PokemaniacLarry",
+          "source_sprite": "OBJ_EVENT_GFX_SUPER_NERD",
+          "firered_sprite": "OBJ_EVENT_GFX_POKE_MANIAC",
+          "text": [
+            "TRAINER_JOHTO_LARRY",
+            "UnionCave_1F_Text_PokemaniacLarrySeen",
+            "UnionCave_1F_Text_PokemaniacLarryBeaten",
+            "UnionCave_1F_Text_PokemaniacLarryAfter"
+          ],
+          "note": "",
+          "x": 7,
+          "y": 31
+        },
+        {
+          "kind": "trainer",
+          "source_index": 7,
+          "source_script": "UnionCave_1F_EventScript_FirebreatherRay",
+          "source_sprite": "OBJ_EVENT_GFX_FIREBREATHER",
+          "firered_sprite": "OBJ_EVENT_GFX_BIKER",
+          "text": [
+            "TRAINER_JOHTO_RAY",
+            "UnionCave_1F_Text_FirebreatherRaySeen",
+            "UnionCave_1F_Text_FirebreatherRayBeaten",
+            "UnionCave_1F_Text_FirebreatherRayAfter"
+          ],
+          "note": "",
+          "x": 25,
+          "y": 37
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 8,
+          "source_script": "UnionCave_1F_EventScript_Item_Xattack",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "X Attack",
+          "x": 22,
+          "y": 55
+        }
+      ]
     }
   }
 }

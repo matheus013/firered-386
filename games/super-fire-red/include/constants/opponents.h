@@ -776,6 +776,15 @@
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
+// Region geography trainers in unused FireRed/Ruby-Sapphire slots (hack-data/region_pilot_trainers.json "slot"):
+// MAX_TRAINERS_COUNT stays 768, so the flag layout of existing saves does not move.
+#define TRAINER_JOHTO_ANTHONY                            TRAINER_AQUA_GRUNT_M
+#define TRAINER_JOHTO_DANIEL                             TRAINER_AQUA_GRUNT_F
+#define TRAINER_JOHTO_RUSSELL                            TRAINER_RS_AROMA_LADY
+#define TRAINER_JOHTO_BILL                               TRAINER_RS_RUIN_MANIAC
+#define TRAINER_JOHTO_LARRY                              TRAINER_INTERVIEWER
+#define TRAINER_JOHTO_RAY                                TRAINER_HEX_MANIAC
+
 #define NUM_TRAINERS                             767
 #define MAX_TRAINERS_COUNT                       768
 

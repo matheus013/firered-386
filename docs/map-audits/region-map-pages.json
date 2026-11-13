@@ -36,7 +36,6 @@
       9
     ],
     "sections_dropped": [
-      "MAPSEC_AZALEA_TOWN",
       "MAPSEC_BLACKTHORN_CITY",
       "MAPSEC_BURNED_TOWER",
       "MAPSEC_CIANWOOD_CITY",
@@ -60,7 +59,6 @@
       "MAPSEC_ROUTE_26",
       "MAPSEC_ROUTE_27",
       "MAPSEC_ROUTE_28",
-      "MAPSEC_ROUTE_33",
       "MAPSEC_ROUTE_34",
       "MAPSEC_ROUTE_35",
       "MAPSEC_ROUTE_36",
@@ -84,7 +82,6 @@
       "MAPSEC_TIN_TOWER",
       "MAPSEC_TOHJO_FALLS",
       "MAPSEC_TRAINER_HILL",
-      "MAPSEC_UNION_CAVE",
       "MAPSEC_WHIRL_ISLANDS"
     ]
   },

@@ -22,16 +22,68 @@
     }
 
 static const struct TrainerMonNoItemDefaultMoves sParty_AquaLeader[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_AquaGruntM[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_AquaGruntF[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSAromaLady[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSRuinManiac[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_Interviewer[] = {DUMMY_TRAINER_MON};
+// Region geography (TRAINER_JOHTO_ANTHONY in TRAINER_AQUA_GRUNT_M): HNS_modern TRAINER_ANTHONY, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_AquaGruntM[] = {
+    {
+    .iv = 0,
+    .lvl = 71,
+    .species = SPECIES_GEODUDE,
+    },
+    {
+    .iv = 0,
+    .lvl = 71,
+    .species = SPECIES_MACHOP,
+    }
+};
+// Region geography (TRAINER_JOHTO_DANIEL in TRAINER_AQUA_GRUNT_F): HNS_modern TRAINER_DANIEL, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_AquaGruntF[] = {
+    {
+    .iv = 0,
+    .lvl = 71,
+    .species = SPECIES_ONIX,
+    }
+};
+// Region geography (TRAINER_JOHTO_RUSSELL in TRAINER_RS_AROMA_LADY): HNS_modern TRAINER_RUSSELL, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSAromaLady[] = {
+    {
+    .iv = 0,
+    .lvl = 69,
+    .species = SPECIES_GEODUDE,
+    },
+    {
+    .iv = 0,
+    .lvl = 68,
+    .species = SPECIES_CUBONE,
+    }
+};
+// Region geography (TRAINER_JOHTO_BILL in TRAINER_RS_RUIN_MANIAC): HNS_modern TRAINER_BILL, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_RSRuinManiac[] = {
+    {
+    .iv = 0,
+    .lvl = 71,
+    .species = SPECIES_GROWLITHE,
+    }
+};
+// Region geography (TRAINER_JOHTO_LARRY in TRAINER_INTERVIEWER): HNS_modern TRAINER_LARRY, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_Interviewer[] = {
+    {
+    .iv = 0,
+    .lvl = 70,
+    .species = SPECIES_LARVITAR,
+    }
+};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSTuberF[] = {DUMMY_TRAINER_STARMIE};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSTuberM[] = {DUMMY_TRAINER_STARMIE};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSCooltrainerM[] = {DUMMY_TRAINER_MON_IV};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSCooltrainerF[] = {DUMMY_TRAINER_MON_IV};
-static const struct TrainerMonNoItemDefaultMoves sParty_HexManiac[] = {DUMMY_TRAINER_MON};
+// Region geography (TRAINER_JOHTO_RAY in TRAINER_HEX_MANIAC): HNS_modern TRAINER_RAY, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_HexManiac[] = {
+    {
+    .iv = 0,
+    .lvl = 69,
+    .species = SPECIES_VULPIX,
+    }
+};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSLady[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSBeauty[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RichBoy[] = {DUMMY_TRAINER_MON};

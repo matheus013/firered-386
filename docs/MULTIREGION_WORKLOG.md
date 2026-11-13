@@ -1486,3 +1486,76 @@ em (25,85). Assim como nos Centros de rota do FireRed e no HGSS, ele não vira d
   (antes, quem fazia isso era a configuração 128).
 
 **Resultado:** 325 casos aprovados (eram 294), com as 22 batalhas de rota vencidas.
+
+## Johto, lote 4: Union Cave (1º andar), Route 33 e Azalea Town
+
+**Limite de treinadores.** A Route 32 deixou `NUM_TRAINERS` em 767, perto do limite de 768. Esse
+limite não dá para subir sem custo: as flags de sistema começam logo depois das de treinador
+(`SYS_FLAGS = TRAINER_FLAGS_END + 1`). Subir o limite mudaria a posição de todas elas (insígnias,
+mapas visitados, Pokédex…) e aumentaria o bloco de save, o que quebra saves existentes. Por decisão
+do usuário, os próximos treinadores de geografia ocupam as vagas que o FireRed não usa: sobras de
+Ruby/Sapphire como Aqua Grunt e RS Beauty, com time vazio (`DUMMY_TRAINER_MON`) e que nenhum script
+usa. Havia 82 dessas vagas.
+
+- **`hack-data/region_pilot_trainers.json`:** cada treinador desses tem o campo `"slot"`.
+- **`balance_trainers.py`:** troca o time vazio da vaga pelo time de origem e reescreve a entrada
+  dela (classe, imagem, nome).
+- **`opponents.h`:** dá um apelido para cada um, por exemplo
+  `#define TRAINER_JOHTO_ANTHONY TRAINER_AQUA_GRUNT_M`.
+- **Resultado:** `MAX_TRAINERS_COUNT` continua 768, e o layout de flags do save não muda. Restam 76
+  vagas.
+
+**Mapas novos:**
+
+- **Union Cave 1F:** liga a Route 32 à Route 33. O B1F e o B2F ficam fechados.
+- **Route 33.**
+- **Azalea Town:** com Centro Pokémon e Mart do FireRed, Fly, heal location em (31,16) e a flag
+  `FLAG_WORLD_MAP_AZALEA_TOWN` (0x8C9).
+
+Sem a caverna, a Route 33 e Azalea ficariam inalcançáveis a pé. Os dois mapas usam o tileset
+primário Johto South, que no HNS tem a mesma animação do Johto General. A tabela de portas agora
+registra o par certo (Johto South + Azalea). Regras novas de behavior: `MB_LADDER` (a entrada do
+Slowpoke Well, cujo warp foi removido) e `MB_CAVE` (chão de caverna com encontros, como no FireRed).
+A música da caverna é a de Mt. Moon.
+
+- **Treinadores (6, todos em vagas reaproveitadas):**
+  - Anthony, na Route 33;
+  - Daniel e Russell (Hikers), na caverna;
+  - Bill e Ray (Firebreathers, na classe Burglar do FireRed, que usa Pokémon de fogo);
+  - Larry (Pokémaniac).
+- **Eventos:**
+  - quatro itens na caverna (Potion, Awakening, Great Ball e X Attack);
+  - a moça da Route 33;
+  - três moradores e seis placas em Azalea;
+  - 28 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama na Route 33; grama, água e pesca na caverna. Em Azalea o HNS só tem
+  Rock Smash, que ficou de fora.
+
+**Fica para depois:**
+
+- a Team Rocket no Slowpoke Well e no Ginásio, o Silver, o Kurt e a GS Ball;
+- os Slowpoke sem cauda (o FireRed não tem esse sprite);
+- os subsolos da Union Cave;
+- a casa do Kurt, o Ginásio do Bugsy e o portão da Ilex Forest (fechados).
+
+**Ferramentas:**
+
+- **`install_pilot_events.py`:** lê cada repositório de origem uma vez só. Antes, ele relia milhares
+  de arquivos `.inc` para cada texto e chegou a levar mais de 100 segundos; agora leva 2.
+- **Teste da ROM:**
+  - entende os apelidos de treinador;
+  - marca como vencidos, nos casos de conversa, também os treinadores de vaga
+    (`gPilotSlotTrainers`).
+  - deixa a checagem completa de Poção (item na bolsa e flag marcada) só para a Poção original
+    da Route 29. As outras bolas de item passam a ser conferidas pelo início do script. Antes, cada
+    lote com uma Poção no chão exigia acrescentar uma flag no teste.
+
+**Teste da ROM, casos novos:**
+
+- Route 32 → caverna e Route 33 → caverna, ida e volta;
+- Route 33 → Azalea, ida e volta;
+- as portas do Centro e do Mart;
+- conversas com os eventos novos;
+- uma batalha com cada um dos 6 treinadores.
+
+**Resultado:** 358 casos aprovados (eram 325), com as 28 batalhas de rota vencidas.

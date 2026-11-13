@@ -4698,6 +4698,42 @@
       "secondary_tileset": "gTileset_JohtoPilotRoute32",
       "border_filepath": "data/layouts/Johto_Route32/border.bin",
       "blockdata_filepath": "data/layouts/Johto_Route32/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE33",
+      "name": "Johto_Route33_Layout",
+      "width": 44,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotSouth",
+      "secondary_tileset": "gTileset_JohtoPilotAzaleaTown",
+      "border_filepath": "data/layouts/Johto_Route33/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route33/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_AZALEA_TOWN",
+      "name": "Johto_AzaleaTown_Layout",
+      "width": 62,
+      "height": 36,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotSouth",
+      "secondary_tileset": "gTileset_JohtoPilotAzaleaTown",
+      "border_filepath": "data/layouts/Johto_AzaleaTown/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_AzaleaTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_UNION_CAVE_1F",
+      "name": "Johto_UnionCave_1F_Layout",
+      "width": 48,
+      "height": 60,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotCave",
+      "border_filepath": "data/layouts/Johto_UnionCave_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_UnionCave_1F/map.bin"
     }
   ]
 }

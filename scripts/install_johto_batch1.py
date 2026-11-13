@@ -29,6 +29,13 @@ TOWNS = [
     # Batch 3: the Pokemon Center at the south end of Route 32 (no Mart, no Fly, like FireRed's route centers).
     {'town': 'Route32', 'doors': [((25, 84), 'PokemonCenter_1F')], 'mart': None, 'heal': (25, 85), 'flag': None, 'section': 'MAPSEC_ROUTE_32',
      'closed': ['Gate_RuinsOfAlph_Route32', 'UnionCave_1F']},
+    # Batch 4: Azalea Town (Johto South primary tileset).
+    {'town': 'AzaleaTown', 'doors': [((31, 15), 'PokemonCenter_1F'), ((40, 11), 'Mart')],
+     'mart': ['ITEM_POKE_BALL', 'ITEM_POTION', 'ITEM_SUPER_POTION', 'ITEM_ESCAPE_ROPE', 'ITEM_REPEL', 'ITEM_ANTIDOTE',
+              'ITEM_PARALYZE_HEAL'],
+     'heal': (31, 16), 'flag': 'FLAG_0x8C9',
+     'closed': ['SlowpokeWell_B1F', 'Gate_AzaleaTown_IlexForest', 'AzaleaTown_KurtsHouse', 'AzaleaTown_House1',
+                'AzaleaTown_Gym', 'UnionCave_1F']},
 ]
 
 

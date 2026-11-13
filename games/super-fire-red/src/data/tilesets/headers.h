@@ -899,3 +899,34 @@ const struct Tileset gTileset_JohtoPilotRoute32 =
     .metatileAttributes = gMetatileAttributes_JohtoPilotRoute32,
     .callback = NULL,
 };
+const struct Tileset gTileset_JohtoPilotSouth =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_JohtoPilotSouth,
+    .palettes = gTilesetPalettes_JohtoPilotSouth,
+    .metatiles = gMetatiles_JohtoPilotSouth,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotSouth,
+    .callback = InitTilesetAnim_JohtoPilot,
+};
+
+const struct Tileset gTileset_JohtoPilotAzaleaTown =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotAzaleaTown,
+    .palettes = gTilesetPalettes_JohtoPilotAzaleaTown,
+    .metatiles = gMetatiles_JohtoPilotAzaleaTown,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotAzaleaTown,
+    .callback = NULL,
+};
+const struct Tileset gTileset_JohtoPilotCave =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotCave,
+    .palettes = gTilesetPalettes_JohtoPilotCave,
+    .metatiles = gMetatiles_JohtoPilotCave,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotCave,
+    .callback = NULL,
+};

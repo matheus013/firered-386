@@ -163,6 +163,61 @@
         "metatiles.bin": "7a40b2d79db1d20b66089e7d38793108a835a75f8fb01ed575e0dcb856785f4c",
         "metatile_attributes.bin": "4ee15e846ad052e955eb7d678c91e01e2c2c0c0f8efed801fed210e644ec81a3"
       }
+    },
+    "gTileset_Johto_South": {
+      "firered": "gTileset_JohtoPilotSouth",
+      "metatiles_converted": 183,
+      "behaviors": {
+        "MB_SHORT_GRASS": 15,
+        "MB_NORMAL": 133,
+        "MB_HEADBUTT_TREE": 1,
+        "MB_TALL_GRASS": 3,
+        "MB_ROCK_STAIRS": 3,
+        "MB_ANIMATED_DOOR": 3,
+        "MB_OCEAN_WATER": 12,
+        "MB_JUMP_WEST": 2,
+        "MB_JUMP_SOUTH": 3,
+        "MB_NON_ANIMATED_DOOR": 1,
+        "MB_SAND": 4,
+        "MB_WEST_ARROW_WARP": 1,
+        "MB_INTERIOR_DEEP_WATER": 2
+      },
+      "sha256": {
+        "tiles.png": "e7f2a220ea2355864813a4d40e898a7848dd7bec2c6577121ac2ffe73bc694a0",
+        "metatiles.bin": "23bd99d769d51d0617fb62ca6a9de1dbbe50ead478e0cffc5e9f786c9b817009",
+        "metatile_attributes.bin": "3cdb8ae7b7a76a7296cf169b39bfe74521d8de6a1bb7ec4294bbe95814b52a6d"
+      }
+    },
+    "gTileset_AzaleaTown": {
+      "firered": "gTileset_JohtoPilotAzaleaTown",
+      "metatiles_converted": 54,
+      "behaviors": {
+        "MB_NORMAL": 50,
+        "MB_SHORT_GRASS": 3,
+        "MB_LADDER": 1
+      },
+      "sha256": {
+        "tiles.png": "e5b11b181e2514c6f7c4b5a276090049aa6dd5889595bce98e671d65f879f655",
+        "metatiles.bin": "22bfc5df0c199a221660e66c12c6a9d244cb6418e7555ebe7a589da8c214f9ec",
+        "metatile_attributes.bin": "b4dbac22b3d89ea51394b42974fb4590fb58c95c52a738c55254b9e669e99855"
+      }
+    },
+    "gTileset_Cave_Default": {
+      "firered": "gTileset_JohtoPilotCave",
+      "metatiles_converted": 67,
+      "behaviors": {
+        "MB_CAVE": 19,
+        "MB_NORMAL": 33,
+        "MB_ROCK_STAIRS": 1,
+        "MB_LADDER": 1,
+        "MB_SOUTH_ARROW_WARP": 1,
+        "MB_OCEAN_WATER": 12
+      },
+      "sha256": {
+        "tiles.png": "6d1426f0f69ae026f0fd41b6268b3a032f496688cf21fe4188725f6ef476b269",
+        "metatiles.bin": "8ecd81c653ea0d312934554794912046734d002518345efd1b8d0feda0999a25",
+        "metatile_attributes.bin": "4660bc55d0f75c65c5dd25c0273b26d04c3ceaf7fdd481af0e50248502e05647"
+      }
     }
   },
   "dropped_warps": [
@@ -308,17 +363,73 @@
     },
     {
       "map": "Route32",
-      "index": 1,
-      "x": 17,
-      "y": 91,
-      "destination": "MAP_UNION_CAVE_1F"
-    },
-    {
-      "map": "Route32",
       "index": 2,
       "x": 25,
       "y": 84,
       "destination": "MAP_ROUTE32_POKEMON_CENTER"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 0,
+      "x": 52,
+      "y": 7,
+      "destination": "MAP_SLOWPOKE_WELL_B1F"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 1,
+      "x": 8,
+      "y": 16,
+      "destination": "MAP_GATE_AZALEA_TOWN_ILEX_FOREST"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 2,
+      "x": 19,
+      "y": 11,
+      "destination": "MAP_AZALEA_TOWN_KURTS_HOUSE"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 3,
+      "x": 31,
+      "y": 15,
+      "destination": "MAP_AZALEA_TOWN_POKEMON_CENTER"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 4,
+      "x": 40,
+      "y": 11,
+      "destination": "MAP_AZALEA_TOWN_MART"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 5,
+      "x": 38,
+      "y": 23,
+      "destination": "MAP_AZALEA_TOWN_HOUSE1"
+    },
+    {
+      "map": "AzaleaTown",
+      "index": 6,
+      "x": 23,
+      "y": 24,
+      "destination": "MAP_AZALEA_TOWN_GYM"
+    },
+    {
+      "map": "UnionCave_1F",
+      "index": 1,
+      "x": 10,
+      "y": 30,
+      "destination": "MAP_UNION_CAVE_B1F"
+    },
+    {
+      "map": "UnionCave_1F",
+      "index": 3,
+      "x": 6,
+      "y": 47,
+      "destination": "MAP_UNION_CAVE_B1F"
     }
   ],
   "behavior_rules": {
@@ -357,6 +468,14 @@
     "MB_MOUNTAIN_TERRAIN": {
       "firered_attribute": "0x0",
       "reason": "HNS only picks the battle background with it; FireRed: normal"
+    },
+    "MB_LADDER": {
+      "firered_attribute": "0x61",
+      "reason": "same name (Slowpoke Well entrance; its warp is dropped)"
+    },
+    "MB_CAVE": {
+      "firered_attribute": "0x1000008",
+      "reason": "cave floor with land encounters, as in FireRed caves"
     },
     "MB_SAND": {
       "firered_attribute": "0x21",
@@ -519,6 +638,18 @@
     "Johto_Route32": {
       "id": "MAP_JOHTO_ROUTE32",
       "number": 13
+    },
+    "Johto_Route33": {
+      "id": "MAP_JOHTO_ROUTE33",
+      "number": 14
+    },
+    "Johto_AzaleaTown": {
+      "id": "MAP_JOHTO_AZALEA_TOWN",
+      "number": 15
+    },
+    "Johto_UnionCave_1F": {
+      "id": "MAP_JOHTO_UNION_CAVE_1F",
+      "number": 16
     }
   }
 }

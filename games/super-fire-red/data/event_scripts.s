@@ -546,6 +546,11 @@ gStdScriptsEnd::
 	.include "data/maps/Johto_VioletCity_Mart/scripts.inc"
 	.include "data/maps/Johto_Route32/scripts.inc"
 	.include "data/maps/Johto_Route32_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Johto_Route33/scripts.inc"
+	.include "data/maps/Johto_AzaleaTown/scripts.inc"
+	.include "data/maps/Johto_AzaleaTown_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Johto_AzaleaTown_Mart/scripts.inc"
+	.include "data/maps/Johto_UnionCave_1F/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

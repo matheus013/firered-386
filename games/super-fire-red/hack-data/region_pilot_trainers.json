@@ -858,6 +858,124 @@
           0
         ]
       ]
+    },
+    "TRAINER_JOHTO_ANTHONY": {
+      "slot": "TRAINER_AQUA_GRUNT_M",
+      "name": "ANTHONY",
+      "source": "TRAINER_ANTHONY",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GEODUDE",
+          11,
+          0
+        ],
+        [
+          "SPECIES_MACHOP",
+          11,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_DANIEL": {
+      "slot": "TRAINER_AQUA_GRUNT_F",
+      "name": "DANIEL",
+      "source": "TRAINER_DANIEL",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_ONIX",
+          11,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_RUSSELL": {
+      "slot": "TRAINER_RS_AROMA_LADY",
+      "name": "RUSSELL",
+      "source": "TRAINER_RUSSELL",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GEODUDE",
+          9,
+          0
+        ],
+        [
+          "SPECIES_CUBONE",
+          8,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_BILL": {
+      "slot": "TRAINER_RS_RUIN_MANIAC",
+      "name": "BILL",
+      "source": "TRAINER_BILL",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_BURGLAR",
+      "trainer_pic": "TRAINER_PIC_BURGLAR",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GROWLITHE",
+          11,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_LARRY": {
+      "slot": "TRAINER_INTERVIEWER",
+      "name": "LARRY",
+      "source": "TRAINER_LARRY",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_POKEMANIAC",
+      "trainer_pic": "TRAINER_PIC_POKEMANIAC",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_LARVITAR",
+          10,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_RAY": {
+      "slot": "TRAINER_HEX_MANIAC",
+      "name": "RAY",
+      "source": "TRAINER_RAY",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_BURGLAR",
+      "trainer_pic": "TRAINER_PIC_BURGLAR",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_VULPIX",
+          9,
+          0
+        ]
+      ]
     }
   }
 }

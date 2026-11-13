@@ -44,6 +44,11 @@ TABLES = [
     # Johto batch 3
     ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute32', 'MAP_ROUTE32',
      'MAP_JOHTO_ROUTE32', 'gJohtoRoute32_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),
+    # Johto batch 4 (Azalea Town only has Rock Smash in HNS: left out)
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute33', 'MAP_ROUTE33',
+     'MAP_JOHTO_ROUTE33', 'gJohtoRoute33_Pilot', ['land_mons'], 'day table; Rock Smash left out'),
+    ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gUnionCave_1F', 'MAP_UNION_CAVE_1F',
+     'MAP_JOHTO_UNION_CAVE_1F', 'gJohtoUnionCave1F_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'HNS table unchanged'),
 ]
 
 

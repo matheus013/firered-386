@@ -499,6 +499,30 @@ def region_pilot_trainers(parties_text, trainers_text):
     """Fill the unused Ruby/Sapphire slots used by the region pilot story (hack-data/region_pilot_trainers.json)."""
     pilot = json.loads((ROOT / "games/super-fire-red/hack-data/region_pilot_trainers.json").read_text(encoding="utf-8"))
     for trainer, entry in pilot["trainers"].items():
+        if entry.get('slot'):
+            # Region geography trainers in an unused FireRed/Ruby-Sapphire slot (opponents.h aliases the name
+            # to entry['slot']), so MAX_TRAINERS_COUNT and the flag layout of saves stay as they are.
+            slot = entry['slot']
+            match = re.search(r"    \[" + slot + r"\] = \{(.*?)\n    \},\n", trainers_text, re.S)
+            if not match:
+                raise SystemExit(f"{trainer}: slot {slot} not found")
+            party = re.search(r"\.party = \w+\((\w+)\)", match[1])[1]
+            placeholder = f"static const struct TrainerMonNoItemDefaultMoves {party}[] = {{DUMMY_TRAINER_MON}};"
+            if parties_text.count(placeholder) != 1:
+                raise SystemExit(f"{trainer}: slot {slot} is not an unused placeholder ({party})")
+            offset = entry.get('level_offset', pilot['level_offset'])
+            mons = "".join(f"\n    {{\n    .iv = {iv},\n    .lvl = {level + offset},\n    .species = {species},\n    }}," for species, level, iv in entry["team"])
+            parties_text = parties_text.replace(placeholder, f"// Region geography ({trainer} in {slot}): {entry.get('source_repo', 'pokeemerald')} {entry['source']}, levels +{offset}.\n"
+                                                f"static const struct TrainerMonNoItemDefaultMoves {party}[] = {{{mons[:-1]}\n}};")
+            double = 'TRUE' if entry.get('double') else 'FALSE'
+            ai = 'AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY' + (' | AI_SCRIPT_DOUBLE_BATTLE' if entry.get('double') else '')
+            body = (f"\n        .trainerClass = {entry['trainer_class']},\n"
+                    f"        .encounterMusic_gender = {entry.get('music', 'TRAINER_ENCOUNTER_MUSIC_MALE')},\n"
+                    f"        .trainerPic = {entry['trainer_pic']},\n        .trainerName = _(\"{entry['name']}\"),\n"
+                    f"        .items = {{}},\n        .doubleBattle = {double},\n        .aiFlags = {ai},\n"
+                    f"        .party = NO_ITEM_DEFAULT_MOVES({party}),")
+            trainers_text = trainers_text[:match.start(1)] + body + trainers_text[match.end(1):]
+            continue
         if entry.get('new'):
             # Region geography trainers: new IDs after the FireRed ones (include/constants/opponents.h).
             offset = entry.get('level_offset', pilot['level_offset'])

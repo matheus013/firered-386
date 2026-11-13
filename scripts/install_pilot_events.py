@@ -44,7 +44,8 @@ SPRITES = {
     'OBJ_EVENT_GFX_SWIMMER_M': 'OBJ_EVENT_GFX_SWIMMER_M_WATER', 'OBJ_EVENT_GFX_GENTLEMAN': 'OBJ_EVENT_GFX_GENTLEMAN',
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
-    'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER',
+    'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
     'OBJ_EVENT_GFX_ZIGZAGOON_1': 'OBJ_EVENT_GFX_ZIGZAGOON', 'OBJ_EVENT_GFX_BIRCHS_BAG': 'OBJ_EVENT_GFX_BIRCHS_BAG',
 }
@@ -228,11 +229,34 @@ EVENTS = {
              'talk only; his step trigger is left out'),
         15: ('trainer', ('TRAINER_JOHTO_PETER', 'Route32_Text_BirdKeeperPeter_Seen', 'Route32_Text_BirdKeeperPeter_Beaten', 'Route32_Text_BirdKeeperPeter_After'), '')},
         {0: ('sign', 'Route32_Text_Sign1'), 1: ('sign', 'Route32_Text_Sign2'), 2: ('sign', 'Route32_Text_Sign3')}),
+    # Johto batch 4. Left out: Team Rocket at the Slowpoke Well and the Gym, Silver, Kurt and the GS Ball,
+    # the tailless Slowpoke (no FireRed sprite), the berry trees and Route 33's step triggers.
+    'Route33': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_ANTHONY', 'Route33_Text_HikerAnthony2Seen', 'Route33_Text_HikerAnthony2Beaten', 'Route33_Text_HikerAnthony2After'),
+            'no phone registration or rematch; unused slot TRAINER_AQUA_GRUNT_M'),
+        1: ('npc', 'Route33_Text_Lass', '')}, {}),
+    'AzaleaTown': (HNS, {
+        1: ('npc', 'AzaleaTown_Text_GrampsAfter', 'branch after Team Rocket leaves the well'),
+        3: ('npc', 'AzaleaTown_Text_Youngster', ''), 4: ('npc', 'AzaleaTown_Text_Teacher', '')},
+        {0: ('sign', 'AzaleaTown_Text_GymSign'), 1: ('sign', 'AzaleaTown_Text_KurtsHouseSign'),
+         2: ('sign', 'AzaleaTown_Text_IlexForestSign'), 3: ('sign', 'AzaleaTown_Text_CharcoalKilnSign'),
+         4: ('sign', 'AzaleaTown_Text_SlowpokeWellSign'), 5: ('sign', 'AzaleaTown_Text_Sign')}),
+    # Union Cave 1F; its trainers use unused FireRed/RS slots (opponents.h). Firebreathers: FireRed Burglar class.
+    'UnionCave_1F': (HNS, {
+        0: ('itemflag', None, 'Potion'), 3: ('itemflag', None, 'Awakening'),
+        5: ('itemflag', None, 'Great Ball'), 8: ('itemflag', None, 'X Attack'),
+        1: ('trainer', ('TRAINER_JOHTO_DANIEL', 'UnionCave_1F_Text_HikerDanielSeen', 'UnionCave_1F_Text_HikerDanielBeaten', 'UnionCave_1F_Text_HikerDanielAfter'), ''),
+        2: ('trainer', ('TRAINER_JOHTO_RUSSELL', 'UnionCave_1F_Text_HikerRussellSeen', 'UnionCave_1F_Text_HikerRussellBeaten', 'UnionCave_1F_Text_HikerRussellAfter'), ''),
+        4: ('trainer', ('TRAINER_JOHTO_BILL', 'UnionCave_1F_Text_FirebreatherBillSeen', 'UnionCave_1F_Text_FirebreatherBillBeaten', 'UnionCave_1F_Text_FirebreatherBillAfter'), ''),
+        6: ('trainer', ('TRAINER_JOHTO_LARRY', 'UnionCave_1F_Text_PokemaniacLarrySeen', 'UnionCave_1F_Text_PokemaniacLarryBeaten', 'UnionCave_1F_Text_PokemaniacLarryAfter'), ''),
+        7: ('trainer', ('TRAINER_JOHTO_RAY', 'UnionCave_1F_Text_FirebreatherRaySeen', 'UnionCave_1F_Text_FirebreatherRayBeaten', 'UnionCave_1F_Text_FirebreatherRayAfter'), '')},
+        {}),
 }
 # Towns that are Fly destinations: world map flag set on entry (include/constants/flags.h).
 WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkTown': 'FLAG_WORLD_MAP_NEW_BARK_TOWN',
                    'OldaleTown': 'FLAG_WORLD_MAP_OLDALE_TOWN', 'PetalburgCity': 'FLAG_WORLD_MAP_PETALBURG_CITY',
-                   'CherrygroveCity': 'FLAG_WORLD_MAP_CHERRYGROVE_CITY', 'VioletCity': 'FLAG_WORLD_MAP_VIOLET_CITY'}
+                   'CherrygroveCity': 'FLAG_WORLD_MAP_CHERRYGROVE_CITY', 'VioletCity': 'FLAG_WORLD_MAP_VIOLET_CITY',
+                   'AzaleaTown': 'FLAG_WORLD_MAP_AZALEA_TOWN'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -250,6 +274,10 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route32', 14): ('ITEM_GREAT_BALL', 'FLAG_HIDE_JOHTO_ROUTE32_GREAT_BALL_2', 'FLAG_0x0BD'),
               ('Route32', 0): ('ITEM_MIRACLE_SEED', 'FLAG_GOT_JOHTO_MIRACLE_SEED', 'FLAG_0x0BE'),
               ('Route32', 1): ('ITEM_TM05', 'FLAG_GOT_JOHTO_TM_ROAR', 'FLAG_0x0BF'),
+              ('UnionCave_1F', 0): ('ITEM_POTION', 'FLAG_HIDE_JOHTO_UNION_CAVE_POTION', 'FLAG_0x0C0'),
+              ('UnionCave_1F', 3): ('ITEM_AWAKENING', 'FLAG_HIDE_JOHTO_UNION_CAVE_AWAKENING', 'FLAG_0x0C1'),
+              ('UnionCave_1F', 5): ('ITEM_GREAT_BALL', 'FLAG_HIDE_JOHTO_UNION_CAVE_GREAT_BALL', 'FLAG_0x0C2'),
+              ('UnionCave_1F', 8): ('ITEM_X_ATTACK', 'FLAG_HIDE_JOHTO_UNION_CAVE_X_ATTACK', 'FLAG_0x0C3'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.
@@ -263,11 +291,18 @@ LAB_SIGNS = {
 }
 
 
+_SOURCES = {}
+
+
 def source_text(repo, label):
     """The .string lines of a text label (single or double colon), anywhere in the repo's data folder."""
+    if repo not in _SOURCES:  # read each repo's scripts once: hundreds of labels over thousands of files
+        _SOURCES[repo] = [(path, path.read_text(encoding='utf-8')) for path in sorted((repo / 'data').rglob('*.inc'))]
     pattern = re.compile(r'^' + re.escape(label) + r'::?\s*\n((?:[ \t]*\.string "[^"]*"[ \t]*\n?)+)', re.M)
-    for path in sorted((repo / 'data').rglob('*.inc')):
-        match = pattern.search(path.read_text(encoding='utf-8'))
+    for path, text in _SOURCES[repo]:
+        if label not in text:
+            continue
+        match = pattern.search(text)
         if match:
             return re.findall(r'\.string "([^"]*)"', match[1]), path.relative_to(repo).as_posix()
     raise KeyError(f'{repo.name}: text {label} not found')

@@ -242,3 +242,10 @@ const u16 gMetatiles_JohtoPilotVioletCity[] = INCBIN_U16("data/tilesets/secondar
 const u32 gMetatileAttributes_JohtoPilotVioletCity[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_violet_city/metatile_attributes.bin");
 const u16 gMetatiles_JohtoPilotRoute32[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_route32/metatiles.bin");
 const u32 gMetatileAttributes_JohtoPilotRoute32[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_route32/metatile_attributes.bin");
+const u16 gMetatiles_JohtoPilotSouth[] = INCBIN_U16("data/tilesets/primary/johto_pilot_south/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotSouth[] = INCBIN_U32("data/tilesets/primary/johto_pilot_south/metatile_attributes.bin");
+
+const u16 gMetatiles_JohtoPilotAzaleaTown[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_azalea_town/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotAzaleaTown[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_azalea_town/metatile_attributes.bin");
+const u16 gMetatiles_JohtoPilotCave[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_cave/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotCave[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_cave/metatile_attributes.bin");

@@ -79,7 +79,13 @@ for _m,_x,_y,_steps,_want in (
   (JOHTO+'VIOLET_CITY',16,36,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_VIOLET_CITY_MART',{(4,7)}),('MAP_JOHTO_VIOLET_CITY',{(16,36)})]),
   # Johto batch 3: Violet south into Route 32 and its Pokemon Center by Union Cave.
   (JOHTO+'VIOLET_CITY',17,54,[('DOWN','MAP'),('UP','MAP')],[('MAP_JOHTO_ROUTE32',{(21,0)}),('MAP_JOHTO_VIOLET_CITY',{(17,54)})]),
-  (JOHTO+'ROUTE32',25,85,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE32_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_ROUTE32',{(25,85)})])):
+  (JOHTO+'ROUTE32',25,85,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE32_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_ROUTE32',{(25,85)})]),
+  # Johto batch 4: Route 32 -> Union Cave 1F -> Route 33 -> Azalea Town, and Azalea's doors.
+  (JOHTO+'ROUTE32',17,92,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_UNION_CAVE_1F',None),('MAP_JOHTO_ROUTE32',None)]),
+  (JOHTO+'ROUTE33',27,18,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_UNION_CAVE_1F',None),('MAP_JOHTO_ROUTE33',None)]),
+  (JOHTO+'ROUTE33',0,22,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_AZALEA_TOWN',{(61,23)}),('MAP_JOHTO_ROUTE33',{(0,22)})]),
+  (JOHTO+'AZALEA_TOWN',31,16,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_AZALEA_TOWN_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_AZALEA_TOWN',{(31,16)})]),
+  (JOHTO+'AZALEA_TOWN',40,12,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_AZALEA_TOWN_MART',{(4,7)}),('MAP_JOHTO_AZALEA_TOWN',{(40,12)})])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -180,7 +186,7 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
    CASES.append((header['id'],sx,sy,0,0,[(key,'TALK')],0))
    TALKS[len(CASES)]={'map':folder.name,'kind':kind,'index':i,'script':script,'what':'started','setup':0,'expected':None}
    continue
-  if 'finditem' in body_ and 'ITEM_POTION' not in body_:
+  if 'finditem' in body_ and e.get('flag')!='FLAG_HIDE_JOHTO_ROUTE29_POTION':  # item balls: the script starts; Route 29's Potion is checked in full below
    CASES.append((header['id'],sx,sy,0,0,[(key,'TALK')],0))
    TALKS[len(CASES)]={'map':folder.name,'kind':kind,'index':i,'script':script,'what':'started','setup':0,'expected':None}
    continue
@@ -284,7 +290,12 @@ STOP_AFTER_PROMPT[len(CASES)]=3
 # (FRESH_TRAINER). The scene presses A through intro, battle and post-battle line; the strong lead wins.
 # Swimmers stand on water (Surf) and are left out, like their talk cases.
 FRESH_TRAINER={}
-_opponent_ids=dict(re.findall(r'#define (TRAINER_\w+)\s+(\d+)',(game/'include/constants/opponents.h').read_text()))
+def _trainer_ids(text):
+ """TRAINER_ name -> number, with the aliases of geography trainers in reused slots resolved."""
+ ids=dict(re.findall(r'#define (TRAINER_\w+)\s+(\d+)\b',text))
+ for alias,target in re.findall(r'#define (TRAINER_\w+)\s+(TRAINER_\w+)\b',text):ids[alias]=ids[target]
+ return ids
+_opponent_ids=_trainer_ids((game/'include/constants/opponents.h').read_text())
 _fought=set()
 for _folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/maps').glob('Johto_*'))):
  _objs=json.loads((_folder/'map.json').read_text()).get('object_events') or []
@@ -386,6 +397,8 @@ spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5
 answers=', '.join(str(NO_ANSWERS.get(n,0)) for n in range(1,len(CASES)+1))
 stop_prompts=', '.join(str(STOP_AFTER_PROMPT.get(n,0)) for n in range(1,len(CASES)+1))
 fresh_trainers=', '.join(str(FRESH_TRAINER.get(n,0)) for n in range(1,len(CASES)+1))
+_pilot=json.loads((game/'hack-data/region_pilot_trainers.json').read_text(encoding='utf-8'))
+slot_trainers=', '.join(sorted({str(_opponent_ids[t]) for t,e in _pilot['trainers'].items() if e.get('slot')})+['0'])
 steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s,_setup in CASES)
 counts=', '.join(str(len(s)) for *_,s,_setup in CASES)
 journey=', '.join(f'{{{op}, {KEYS[a] if isinstance(a,str) else a}, {x}, {y}}}' for op,a,x,y in JOURNEY)
@@ -433,6 +446,7 @@ static const u8 sPilotStepCount[] = {COUNTS};
 static const u8 sPilotNoAnswers[] = {ANSWERS};
 static const u8 sPilotStopPrompts[] = {STOP_PROMPTS};
 const u16 gPilotFreshTrainer[] = {FRESH_TRAINERS};  // route trainer left unbeaten in this case (0: none)
+const u16 gPilotSlotTrainers[] = {SLOT_TRAINERS};  // geography trainers in reused FireRed slots, 0-terminated
 extern volatile u32 gPilotCase;
 EWRAM_DATA static u8 sPilotPrompt = 0;
 EWRAM_DATA static bool8 sPilotWasYesNo = FALSE;
@@ -1001,7 +1015,7 @@ static void PilotBoot(void)
     StringCopy(gSaveBlock2Ptr->playerName, name); StringCopy(gSaveBlock1Ptr->rivalName, name);
     SetMainCallback2(CB2_NewGame);
 }
-'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts).replace('ANSWERS',answers).replace('JOURNEY_OPS',journey).replace('JOURNEY_LEN',str(len(JOURNEY))).replace('STOP_PROMPTS',stop_prompts).replace('FRESH_TRAINERS',fresh_trainers)
+'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts).replace('ANSWERS',answers).replace('JOURNEY_OPS',journey).replace('JOURNEY_LEN',str(len(JOURNEY))).replace('STOP_PROMPTS',stop_prompts).replace('FRESH_TRAINERS',fresh_trainers).replace('SLOT_TRAINERS',slot_trainers)
 main=(game/'src/main.c').read_text()
 main=main.replace('static void InitMainCallbacks(void)\n{',hook+'\nstatic void InitMainCallbacks(void)\n{').replace('SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);','SetMainCallback2(PilotBoot);')
 main=main.replace('#include "global.h"','#include "global.h"\nvoid PilotCheck(void);',1).replace('    ReadKeys();','    PilotCheck();\n    ReadKeys();')
@@ -1020,6 +1034,7 @@ setup='''
 extern volatile u32 gPilotCase;
 extern const s16 gPilotSpawn[][12];
 extern const u16 gPilotFreshTrainer[];
+extern const u16 gPilotSlotTrainers[];
 void PilotSetup(void)
 {
     const s16 *spawn = gPilotSpawn[gPilotCase - 1];
@@ -1087,6 +1102,8 @@ void PilotSetup(void)
         u16 t;
         for (t = TRAINER_HOENN_CALVIN; t < NUM_TRAINERS; t++)
             FlagSet(TRAINER_FLAGS_START + t); // region route trainers start beaten (see the talk cases)
+        for (t = 0; gPilotSlotTrainers[t]; t++)
+            FlagSet(TRAINER_FLAGS_START + gPilotSlotTrainers[t]);
         if (gPilotFreshTrainer[gPilotCase - 1])
             FlagClear(TRAINER_FLAGS_START + gPilotFreshTrainer[gPilotCase - 1]);  // battle cases
     }
@@ -1260,7 +1277,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-6:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32']
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-9:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.
@@ -1324,7 +1341,7 @@ for case,info in TALKS.items():
  assert got and want.startswith(got.rstrip('\\')) or got.startswith(want),(where,'text differs',got,want)
  talked['text']+=1
 print('Talked to pilot events:',talked)
-trainer_ids=dict(re.findall(r'#define (TRAINER_\w+)\s+(\d+)',(test/'include/constants/opponents.h').read_text()))
+trainer_ids=_trainer_ids((test/'include/constants/opponents.h').read_text())
 pilot_trainers=json.loads((game/'hack-data/region_pilot_trainers.json').read_text(encoding='utf-8'))
 story_seen={}
 for case,expect in SCENES.items():
