@@ -51,6 +51,11 @@ LAYOUTS_2 = ['LAYOUT_HOENN_ROUTE104', 'LAYOUT_HOENN_PETALBURG_WOODS', 'LAYOUT_HO
 # Batch 3: Route 116 (General + Rustboro), Rusturf Tunnel and Verdanturf (Mauville, compacted metatiles: the
 # fourth field names the convert_hoenn_tilesets.py report whose metatile_order maps FireRed ids back to Emerald).
 LAYOUTS_3 = ['LAYOUT_HOENN_ROUTE116', 'LAYOUT_HOENN_RUSTURF_TUNNEL', 'LAYOUT_HOENN_VERDANTURF_TOWN']
+LAYOUTS_4 = ['LAYOUT_HOENN_ROUTE117', 'LAYOUT_HOENN_MAUVILLE_CITY']
+TABLES_4 = [
+    (0, 'data/tilesets/primary/general/metatile_attributes.bin', 'data/tilesets/primary/hoenn_pilot/metatile_attributes.bin'),
+    (640, 'data/tilesets/secondary/mauville/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_mauville/metatile_attributes.bin', 'gTileset_HoennPilotMauville', 'mauville'),
+]
 TABLES_3 = [
     (0, 'data/tilesets/primary/general/metatile_attributes.bin', 'data/tilesets/primary/hoenn_pilot/metatile_attributes.bin'),
     (640, 'data/tilesets/secondary/rustboro/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_rustboro/metatile_attributes.bin', 'gTileset_HoennPilotRustboro'),
@@ -70,10 +75,10 @@ TABLES = [  # (offset, source table, installed table)
 def main():
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument('--source', type=Path, required=True)
-    p.add_argument('--batch', type=int, choices=(1, 2, 3), default=1)
+    p.add_argument('--batch', type=int, choices=(1, 2, 3, 4), default=1)
     p.add_argument('--report', type=Path)
     a = p.parse_args()
-    layouts_used, tables = {1: (LAYOUTS, TABLES), 2: (LAYOUTS_2, TABLES_2), 3: (LAYOUTS_3, TABLES_3)}[a.batch]
+    layouts_used, tables = {1: (LAYOUTS, TABLES), 2: (LAYOUTS_2, TABLES_2), 3: (LAYOUTS_3, TABLES_3), 4: (LAYOUTS_4, TABLES_4)}[a.batch]
     report_path = a.report or Path(f'docs/map-audits/hoenn-batch{a.batch}-attributes.json')
     names = behavior_names(a.source / 'include/constants/metatile_behaviors.h')
     layouts = {l['id']: l for l in json.loads((GAME / 'data/layouts/layouts.json').read_text())['layouts'] if 'id' in l}

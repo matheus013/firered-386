@@ -4986,6 +4986,30 @@
       "secondary_tileset": "gTileset_JohtoPilotOlivineCity",
       "border_filepath": "data/layouts/Johto_OlivineCity/border.bin",
       "blockdata_filepath": "data/layouts/Johto_OlivineCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_ROUTE117",
+      "name": "Hoenn_Route117_Layout",
+      "width": 60,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotMauville",
+      "border_filepath": "data/layouts/Hoenn_Route117/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_Route117/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_MAUVILLE_CITY",
+      "name": "Hoenn_MauvilleCity_Layout",
+      "width": 40,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotMauville",
+      "border_filepath": "data/layouts/Hoenn_MauvilleCity/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_MauvilleCity/map.bin"
     }
   ]
 }

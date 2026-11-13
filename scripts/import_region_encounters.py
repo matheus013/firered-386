@@ -74,6 +74,9 @@ TABLES = [
      'MAP_HOENN_ROUTE116', 'gHoennRoute116_Pilot', ['land_mons'], 'Emerald table unchanged'),
     ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gRusturfTunnel', 'MAP_RUSTURF_TUNNEL',
      'MAP_HOENN_RUSTURF_TUNNEL', 'gHoennRusturfTunnel_Pilot', ['land_mons'], 'Emerald table unchanged'),
+    # Hoenn batch 4
+    ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gRoute117', 'MAP_ROUTE117',
+     'MAP_HOENN_ROUTE117', 'gHoennRoute117_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'Emerald tables unchanged'),
     # Johto batch 7
     ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute35', 'MAP_ROUTE35',
      'MAP_JOHTO_ROUTE35', 'gJohtoRoute35_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),

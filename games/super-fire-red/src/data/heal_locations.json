@@ -263,6 +263,14 @@
       "y": 44,
       "respawn_map": "MAP_JOHTO_OLIVINE_CITY_POKEMON_CENTER_1F",
       "respawn_npc": 1
+    },
+    {
+      "id": "HEAL_LOCATION_MAUVILLE_CITY",
+      "map": "MAP_HOENN_MAUVILLE_CITY",
+      "x": 22,
+      "y": 6,
+      "respawn_map": "MAP_HOENN_MAUVILLE_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": 1
     }
   ]
 }

@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
     'OBJ_EVENT_GFX_GIRL_2': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_BOY_3': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_MAN_2': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_4': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_5': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_RICH_BOY': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_DEVON_EMPLOYEE': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_LITTLE_GIRL': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
@@ -202,6 +202,25 @@ EVENTS = {
         {0: ('martsign', None), 1: ('sign', 'VerdanturfTown_Text_TownSign'), 2: ('pcsign', None),
          3: ('sign', 'VerdanturfTown_Text_WandasHouse'), 4: ('martsign', None), 5: ('pcsign', None),
          6: ('sign', 'VerdanturfTown_Text_BattleTentSign'), 7: ('sign', 'VerdanturfTown_Text_RusturfTunnelSign')}),
+    # Hoenn batch 4. Left out: the Day Care couple, the Pokemon in the Day Care yard, berry trees, the hidden item,
+    # Wally, his uncle, Wattson, Scott, the Rollout tutor, and the Gym, Bike Shop, Game Corner and houses (closed).
+    'Route117': (EMERALD, {
+        7: ('trainer', ('TRAINER_HOENN_DYLAN', 'Route117_Text_DylanIntro', 'Route117_Text_DylanDefeat', 'Route117_Text_DylanPostBattle'), ''), 8: ('trainer', ('TRAINER_HOENN_LYDIA', 'Route117_Text_LydiaIntro', 'Route117_Text_LydiaDefeat', 'Route117_Text_LydiaPostBattle'), ''), 9: ('trainer', ('TRAINER_HOENN_ISAAC', 'Route117_Text_IsaacIntro', 'Route117_Text_IsaacDefeat', 'Route117_Text_IsaacPostBattle'), ''),
+        16: ('trainer', ('TRAINER_HOENN_MARIA', 'Route117_Text_MariaIntro', 'Route117_Text_MariaDefeat', 'Route117_Text_MariaPostBattle'), ''), 17: ('trainer', ('TRAINER_HOENN_DEREK', 'Route117_Text_DerekIntro', 'Route117_Text_DerekDefeat', 'Route117_Text_DerekPostBattle'), ''),
+        18: ('trainer', ('TRAINER_HOENN_ANNA_AND_MEG', 'Route117_Text_MegIntro', 'Route117_Text_MegDefeat', 'Route117_Text_MegPostBattle', 'Route117_Text_MegNotEnoughMons'), 'double battle'), 19: ('trainer', ('TRAINER_HOENN_ANNA_AND_MEG', 'Route117_Text_AnnaIntro', 'Route117_Text_AnnaDefeat', 'Route117_Text_AnnaPostBattle', 'Route117_Text_AnnaNotEnoughMons'), 'double battle'),
+        21: ('trainer', ('TRAINER_HOENN_BRANDI', 'Route117_Text_BrandiIntro', 'Route117_Text_BrandiDefeat', 'Route117_Text_BrandiPostBattle'), ''), 22: ('trainer', ('TRAINER_HOENN_AISHA', 'Route117_Text_AishaIntro', 'Route117_Text_AishaDefeat', 'Route117_Text_AishaPostBattle'), ''), 23: ('trainer', ('TRAINER_HOENN_MELINA', 'Route117_Text_MelinaIntro', 'Route117_Text_MelinaDefeat', 'Route117_Text_MelinaPostBattle'), ''),
+        0: ('npc', 'Route117_Text_ArentTheseFlowersPretty', ''), 1: ('npc', 'Route117_Text_AirIsTastyHere', ''),
+        20: ('npc', 'Route117_Text_DayCarePokemonHadNewMove', ''),
+        13: ('itemflag', None, 'Great Ball'), 15: ('itemflag', None, 'Revive'), 14: ('cuttree', None, '')},
+        {0: ('sign', 'Route117_Text_RouteSignVerdanturf'), 1: ('sign', 'Route117_Text_RouteSignMauville'),
+         2: ('sign', 'Route117_Text_DayCareSign')}),
+    'MauvilleCity': (EMERALD, {
+        0: ('npc', 'MauvilleCity_Text_NurseHurtMonBackToHealth', ''), 1: ('npc', 'MauvilleCity_Text_PokemonCanJumpYouOnBike', ''),
+        2: ('npc', 'MauvilleCity_Text_AllSortsOfPeopleComeThrough', ''), 3: ('npc', 'MauvilleCity_Text_RydelVeryGenerous', ''),
+        4: ('npc', 'MauvilleCity_Text_ExplainTV', 'TV flag branch left out'), 8: ('itemflag', None, 'X Speed')},
+        {0: ('pcsign', None), 1: ('sign', 'MauvilleCity_Text_GymSign'), 2: ('martsign', None), 3: ('martsign', None),
+         4: ('pcsign', None), 5: ('sign', 'MauvilleCity_Text_CitySign'), 6: ('sign', 'MauvilleCity_Text_BikeShopSign'),
+         7: ('sign', 'MauvilleCity_Text_GameCornerSign')}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -429,7 +448,8 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'CherrygroveCity': 'FLAG_WORLD_MAP_CHERRYGROVE_CITY', 'VioletCity': 'FLAG_WORLD_MAP_VIOLET_CITY',
                    'AzaleaTown': 'FLAG_WORLD_MAP_AZALEA_TOWN', 'GoldenrodCity': 'FLAG_WORLD_MAP_GOLDENROD_CITY',
                    'RustboroCity': 'FLAG_WORLD_MAP_RUSTBORO_CITY', 'EcruteakCity': 'FLAG_WORLD_MAP_ECRUTEAK_CITY',
-                   'VerdanturfTown': 'FLAG_WORLD_MAP_VERDANTURF_TOWN', 'OlivineCity': 'FLAG_WORLD_MAP_OLIVINE_CITY'}
+                   'VerdanturfTown': 'FLAG_WORLD_MAP_VERDANTURF_TOWN', 'OlivineCity': 'FLAG_WORLD_MAP_OLIVINE_CITY',
+                   'MauvilleCity': 'FLAG_WORLD_MAP_MAUVILLE_CITY'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -481,6 +501,9 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route38', 8): ('ITEM_LAX_INCENSE', 'FLAG_HIDE_JOHTO_ROUTE38_LAX_INCENSE', 'FLAG_0x0DF'),
               ('Route39', 9): ('ITEM_TM31', 'FLAG_HIDE_JOHTO_ROUTE39_TM_BRICK_BREAK', 'FLAG_0x0E0'),
               ('Route39', 18): ('ITEM_NUGGET', 'FLAG_HIDE_JOHTO_ROUTE39_NUGGET', 'FLAG_0x0E1'),  # HNS Big Nugget
+              ('Route117', 13): ('ITEM_GREAT_BALL', 'FLAG_HIDE_HOENN_ROUTE117_GREAT_BALL', 'FLAG_0x0E2'),
+              ('Route117', 15): ('ITEM_REVIVE', 'FLAG_HIDE_HOENN_ROUTE117_REVIVE', 'FLAG_0x0E3'),
+              ('MauvilleCity', 8): ('ITEM_X_SPEED', 'FLAG_HIDE_HOENN_MAUVILLE_X_SPEED', 'FLAG_0x0E4'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.

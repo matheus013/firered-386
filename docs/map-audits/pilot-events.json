@@ -2077,6 +2077,398 @@
         }
       ]
     },
+    "Hoenn_Route117": {
+      "source": "pokeemerald/Route117",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "Route117_EventScript_Woman",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_1",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_1",
+          "text": "Route117_Text_ArentTheseFlowersPretty",
+          "note": "",
+          "x": 13,
+          "y": 13
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "Route117_EventScript_LittleBoy",
+          "source_sprite": "OBJ_EVENT_GFX_LITTLE_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_LITTLE_BOY",
+          "text": "Route117_Text_AirIsTastyHere",
+          "note": "",
+          "x": 25,
+          "y": 5
+        },
+        {
+          "kind": "trainer",
+          "source_index": 7,
+          "source_script": "Route117_EventScript_Dylan",
+          "source_sprite": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_M",
+          "text": [
+            "TRAINER_HOENN_DYLAN",
+            "Route117_Text_DylanIntro",
+            "Route117_Text_DylanDefeat",
+            "Route117_Text_DylanPostBattle"
+          ],
+          "note": "",
+          "x": 38,
+          "y": 16
+        },
+        {
+          "kind": "trainer",
+          "source_index": 8,
+          "source_script": "Route117_EventScript_Lydia",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": [
+            "TRAINER_HOENN_LYDIA",
+            "Route117_Text_LydiaIntro",
+            "Route117_Text_LydiaDefeat",
+            "Route117_Text_LydiaPostBattle"
+          ],
+          "note": "",
+          "x": 8,
+          "y": 10
+        },
+        {
+          "kind": "trainer",
+          "source_index": 9,
+          "source_script": "Route117_EventScript_Isaac",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_4",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": [
+            "TRAINER_HOENN_ISAAC",
+            "Route117_Text_IsaacIntro",
+            "Route117_Text_IsaacDefeat",
+            "Route117_Text_IsaacPostBattle"
+          ],
+          "note": "",
+          "x": 33,
+          "y": 11
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 13,
+          "source_script": "Route117_EventScript_ItemGreatBall",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Great Ball",
+          "x": 16,
+          "y": 18
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 14,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 15,
+          "y": 2
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 15,
+          "source_script": "Route117_EventScript_ItemRevive",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Revive",
+          "x": 9,
+          "y": 1
+        },
+        {
+          "kind": "trainer",
+          "source_index": 16,
+          "source_script": "Route117_EventScript_Maria",
+          "source_sprite": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": [
+            "TRAINER_HOENN_MARIA",
+            "Route117_Text_MariaIntro",
+            "Route117_Text_MariaDefeat",
+            "Route117_Text_MariaPostBattle"
+          ],
+          "note": "",
+          "x": 26,
+          "y": 13
+        },
+        {
+          "kind": "trainer",
+          "source_index": 17,
+          "source_script": "Route117_EventScript_Derek",
+          "source_sprite": "OBJ_EVENT_GFX_MANIAC",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": [
+            "TRAINER_HOENN_DEREK",
+            "Route117_Text_DerekIntro",
+            "Route117_Text_DerekDefeat",
+            "Route117_Text_DerekPostBattle"
+          ],
+          "note": "",
+          "x": 17,
+          "y": 12
+        },
+        {
+          "kind": "trainer",
+          "source_index": 18,
+          "source_script": "Route117_EventScript_Meg",
+          "source_sprite": "OBJ_EVENT_GFX_LASS",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_ANNA_AND_MEG",
+            "Route117_Text_MegIntro",
+            "Route117_Text_MegDefeat",
+            "Route117_Text_MegPostBattle",
+            "Route117_Text_MegNotEnoughMons"
+          ],
+          "note": "double battle",
+          "x": 43,
+          "y": 6
+        },
+        {
+          "kind": "trainer",
+          "source_index": 19,
+          "source_script": "Route117_EventScript_Anna",
+          "source_sprite": "OBJ_EVENT_GFX_LASS",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_ANNA_AND_MEG",
+            "Route117_Text_AnnaIntro",
+            "Route117_Text_AnnaDefeat",
+            "Route117_Text_AnnaPostBattle",
+            "Route117_Text_AnnaNotEnoughMons"
+          ],
+          "note": "double battle",
+          "x": 42,
+          "y": 6
+        },
+        {
+          "kind": "npc",
+          "source_index": 20,
+          "source_script": "Route117_EventScript_Girl",
+          "source_sprite": "OBJ_EVENT_GFX_GIRL_2",
+          "firered_sprite": "OBJ_EVENT_GFX_LITTLE_GIRL",
+          "text": "Route117_Text_DayCarePokemonHadNewMove",
+          "note": "",
+          "x": 48,
+          "y": 10
+        },
+        {
+          "kind": "trainer",
+          "source_index": 21,
+          "source_script": "Route117_EventScript_Brandi",
+          "source_sprite": "OBJ_EVENT_GFX_LASS",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_BRANDI",
+            "Route117_Text_BrandiIntro",
+            "Route117_Text_BrandiDefeat",
+            "Route117_Text_BrandiPostBattle"
+          ],
+          "note": "",
+          "x": 15,
+          "y": 4
+        },
+        {
+          "kind": "trainer",
+          "source_index": 22,
+          "source_script": "Route117_EventScript_Aisha",
+          "source_sprite": "OBJ_EVENT_GFX_GIRL_3",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_AISHA",
+            "Route117_Text_AishaIntro",
+            "Route117_Text_AishaDefeat",
+            "Route117_Text_AishaPostBattle"
+          ],
+          "note": "",
+          "x": 21,
+          "y": 4
+        },
+        {
+          "kind": "trainer",
+          "source_index": 23,
+          "source_script": "Route117_EventScript_Melina",
+          "source_sprite": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": [
+            "TRAINER_HOENN_MELINA",
+            "Route117_Text_MelinaIntro",
+            "Route117_Text_MelinaDefeat",
+            "Route117_Text_MelinaPostBattle"
+          ],
+          "note": "",
+          "x": 16,
+          "y": 4
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route117_EventScript_RouteSignVerdanturf",
+          "text": "Route117_Text_RouteSignVerdanturf",
+          "x": 16,
+          "y": 6
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "Route117_EventScript_RouteSignMauville",
+          "text": "Route117_Text_RouteSignMauville",
+          "x": 49,
+          "y": 12
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "Route117_EventScript_DayCareSign",
+          "text": "Route117_Text_DayCareSign",
+          "x": 49,
+          "y": 5
+        }
+      ]
+    },
+    "Hoenn_MauvilleCity": {
+      "source": "pokeemerald/MauvilleCity",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "MauvilleCity_EventScript_Boy",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_3",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "MauvilleCity_Text_NurseHurtMonBackToHealth",
+          "note": "",
+          "x": 29,
+          "y": 16
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "MauvilleCity_EventScript_RichBoy",
+          "source_sprite": "OBJ_EVENT_GFX_RICH_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "MauvilleCity_Text_PokemonCanJumpYouOnBike",
+          "note": "",
+          "x": 24,
+          "y": 10
+        },
+        {
+          "kind": "npc",
+          "source_index": 2,
+          "source_script": "MauvilleCity_EventScript_Maniac",
+          "source_sprite": "OBJ_EVENT_GFX_MANIAC",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "MauvilleCity_Text_AllSortsOfPeopleComeThrough",
+          "note": "",
+          "x": 14,
+          "y": 11
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "MauvilleCity_EventScript_Woman",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_4",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_4",
+          "text": "MauvilleCity_Text_RydelVeryGenerous",
+          "note": "",
+          "x": 18,
+          "y": 6
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "MauvilleCity_EventScript_SchoolKidM",
+          "source_sprite": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "MauvilleCity_Text_ExplainTV",
+          "note": "TV flag branch left out",
+          "x": 17,
+          "y": 14
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 8,
+          "source_script": "MauvilleCity_EventScript_ItemXSpeed",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "X Speed",
+          "x": 28,
+          "y": 19
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 0,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 23,
+          "y": 5
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "MauvilleCity_EventScript_GymSign",
+          "text": "MauvilleCity_Text_GymSign",
+          "x": 11,
+          "y": 6
+        },
+        {
+          "kind": "martsign",
+          "source_index": 2,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 24,
+          "y": 14
+        },
+        {
+          "kind": "martsign",
+          "source_index": 3,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 25,
+          "y": 14
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 4,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 24,
+          "y": 5
+        },
+        {
+          "kind": "sign",
+          "source_index": 5,
+          "source_script": "MauvilleCity_EventScript_CitySign",
+          "text": "MauvilleCity_Text_CitySign",
+          "x": 19,
+          "y": 7
+        },
+        {
+          "kind": "sign",
+          "source_index": 6,
+          "source_script": "MauvilleCity_EventScript_BikeShopSign",
+          "text": "MauvilleCity_Text_BikeShopSign",
+          "x": 33,
+          "y": 6
+        },
+        {
+          "kind": "sign",
+          "source_index": 7,
+          "source_script": "MauvilleCity_EventScript_GameCornerSign",
+          "text": "MauvilleCity_Text_GameCornerSign",
+          "x": 11,
+          "y": 15
+        }
+      ]
+    },
     "Johto_NewBarkTown": {
       "source": "HNS_modern/NewBarkTown",
       "events": [

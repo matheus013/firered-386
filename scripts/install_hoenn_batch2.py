@@ -33,10 +33,16 @@ BATCHES = {
          'VerdanturfTown': ('MUS_PALLET', 'gTileset_HoennPilotMauville', 'mauville')},  # compacted metatiles
         {'VerdanturfTown': ({(16, 3): 'PokemonCenter_1F', (12, 3): 'Mart'}, (16, 4), 'FLAG_0x8CD')},
         {'MAPSEC_ROUTE_116': 'ROUTE 116', 'MAPSEC_RUSTURF_TUNNEL': 'RUSTURF TUNNEL', 'MAPSEC_VERDANTURF_TOWN': 'VERDANTURF TOWN'}),
+    # Batch 4: Route 117 east of Verdanturf and Mauville City (Mauville secondary compacted for all three maps).
+    4: ({'Route117': ('MUS_ROUTE3', 'gTileset_HoennPilotMauville', 'mauville'),
+         'MauvilleCity': ('MUS_CELADON', 'gTileset_HoennPilotMauville', 'mauville')},
+        {'MauvilleCity': ({(22, 5): 'PokemonCenter_1F', (23, 14): 'Mart'}, (22, 6), 'FLAG_0x8CF')},
+        {'MAPSEC_ROUTE_117': 'ROUTE 117', 'MAPSEC_MAUVILLE_CITY': 'MAUVILLE CITY'}),
 }
 # Every Hoenn exterior in the expansion, in install order (connections only link the installed ones).
 ALL_EXTERIORS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
-                 'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown']
+                 'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown',
+                 'Route117', 'MauvilleCity']
 DOORS = [  # metatile, symbol in hoenn_pilot_doors.h (already defined for the Petalburg pair)
     (0x061, 'PokeCenter', 'DOOR_SOUND_SLIDING'), (0x041, 'PokeMart', 'DOOR_SOUND_SLIDING')]
 

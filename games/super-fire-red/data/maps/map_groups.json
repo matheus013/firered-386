@@ -649,7 +649,9 @@
     "Hoenn_VerdanturfTown",
     "Johto_Route38",
     "Johto_Route39",
-    "Johto_OlivineCity"
+    "Johto_OlivineCity",
+    "Hoenn_Route117",
+    "Hoenn_MauvilleCity"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -676,7 +678,11 @@
     "Hoenn_RusturfTunnel",
     "Hoenn_VerdanturfTown",
     "Hoenn_VerdanturfTown_PokemonCenter_1F",
-    "Hoenn_VerdanturfTown_Mart"
+    "Hoenn_VerdanturfTown_Mart",
+    "Hoenn_Route117",
+    "Hoenn_MauvilleCity",
+    "Hoenn_MauvilleCity_PokemonCenter_1F",
+    "Hoenn_MauvilleCity_Mart"
   ],
   "gMapGroup_Johto": [
     "Johto_NewBarkTown",

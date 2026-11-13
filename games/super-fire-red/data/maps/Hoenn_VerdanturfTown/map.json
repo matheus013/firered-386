@@ -17,6 +17,11 @@
       "map": "MAP_HOENN_ROUTE116",
       "offset": -80,
       "direction": "up"
+    },
+    {
+      "map": "MAP_HOENN_ROUTE117",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [

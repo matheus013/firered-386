@@ -1,0 +1,296 @@
+{
+  "layouts": [
+    "LAYOUT_HOENN_ROUTE117",
+    "LAYOUT_HOENN_MAUVILLE_CITY"
+  ],
+  "entries": [
+    {
+      "metatile": "0x013",
+      "source_behavior": "MB_SECRET_BASE_WALL",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x025",
+      "source_behavior": "MB_TALL_GRASS",
+      "attribute": "0x01000202",
+      "reason": "tall grass, land encounters"
+    },
+    {
+      "metatile": "0x02d",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x42000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x06a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0cc",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0d0",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x20000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x0d2",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x20000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x0d9",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x20000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x148",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x14a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x14c",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x280",
+      "source_behavior": "MB_SHORT_GRASS",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no short grass (Emerald only draws a step effect)"
+    },
+    {
+      "metatile": "0x281",
+      "source_behavior": "MB_SHORT_GRASS",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no short grass (Emerald only draws a step effect)"
+    },
+    {
+      "metatile": "0x29b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ac",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b7",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ba",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2bb",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2bc",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2bd",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2be",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c7",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ca",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2cb",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x2cc",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ce",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2cf",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d7",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d9",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x00000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x2dc",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ea",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    }
+  ]
+}

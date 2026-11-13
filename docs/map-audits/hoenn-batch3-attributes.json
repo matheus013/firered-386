@@ -24,18 +24,6 @@
       "reason": "FireRed has no secret bases"
     },
     {
-      "metatile": "0x2c0",
-      "source_behavior": "MB_JUMP_SOUTHWEST",
-      "attribute": "0x20000000",
-      "reason": "source has no movement for diagonal jumps"
-    },
-    {
-      "metatile": "0x2c1",
-      "source_behavior": "MB_JUMP_SOUTHEAST",
-      "attribute": "0x20000000",
-      "reason": "source has no movement for diagonal jumps"
-    },
-    {
       "metatile": "0x280",
       "source_behavior": "MB_SHORT_GRASS",
       "attribute": "0x00000000",
@@ -48,16 +36,178 @@
       "reason": "FireRed has no short grass (Emerald only draws a step effect)"
     },
     {
+      "metatile": "0x290",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x294",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x295",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
       "metatile": "0x296",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x297",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x298",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x299",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d6",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2eb",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ec",
       "source_behavior": "MB_SHORT_GRASS",
       "attribute": "0x20000000",
       "reason": "FireRed has no short grass (Emerald only draws a step effect)"
     },
     {
-      "metatile": "0x297",
+      "metatile": "0x2ed",
       "source_behavior": "MB_SHORT_GRASS",
       "attribute": "0x00000000",
       "reason": "FireRed has no short grass (Emerald only draws a step effect)"
+    },
+    {
+      "metatile": "0x2f6",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2f7",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2fa",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2fb",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x30c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x30d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x30e",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x30f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x310",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x311",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x312",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x313",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x314",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x315",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
     }
   ]
 }

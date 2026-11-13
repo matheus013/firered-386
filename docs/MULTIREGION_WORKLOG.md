@@ -1891,3 +1891,34 @@ borda sul), que vira grama alta, porque o FireRed não tem grama longa.
 - a Route 40.
 
 **Resultado:** 673 casos aprovados (eram 626), com as 82 batalhas de rota vencidas. Isso inclui os treinadores com IDs de 768 a 777, cuja flag de "vencido", conferida depois de cada vitória, fica no bloco extra.
+
+## Hoenn, lote 4: Route 117 e Mauville City
+
+**Mapas novos:** a Route 117 e Mauville City, ambas com o secundário `hoenn_pilot_mauville`.
+Verdanturf ganhou a conexão leste. O tileset foi reconvertido para os três mapas que o usam: ficou
+com 217 tiles e 150 metatiles. Com isso, a ordem dos metatiles mudou, e Verdanturf foi reinstalada
+com a ordem nova. Os atributos do lote 3 e do lote 4 foram regenerados juntos.
+
+- **Mauville:** Centro Pokémon e Mart do FireRed. A flag é `FLAG_WORLD_MAP_MAUVILLE_CITY` (0x8CF),
+  e a cidade é destino de Fly.
+- **Treinadores (9, IDs 778–786, todos no bloco extra de flags):** Dylan, Lydia, Isaac, Maria,
+  Derek, Anna & Meg (batalha dupla), Brandi, Aisha e Melina. Os triatletas usam o sprite de
+  Cooltrainer, porque o FireRed não tem o corredor.
+- **Eventos:**
+  - Great Ball e Revive (Route 117) e X Speed (Mauville), com as flags 0x0E2–0x0E4;
+  - a árvore de Cut da Route 117;
+  - a moça das flores, o menino e a menina da creche na Route 117, e cinco moradores de Mauville. O
+    menino da TV fica sem o ramo da flag `FLAG_TV_EXPLAINED`;
+  - as placas;
+  - 47 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama, água e pesca da Route 117, iguais às tabelas do Emerald.
+
+**Fica para depois:**
+
+- a Creche (o casal e os Pokémon do quintal);
+- o Wally, o tio dele, o Wattson, o Scott e o tutor de Rollout;
+- o Ginásio, a loja de bicicletas, o Game Corner e as casas de Mauville;
+- as árvores de berry e o item escondido;
+- a Route 110 ao sul e a Route 111 ao norte.
+
+**Resultado:** 721 casos aprovados (eram 673), com as 91 batalhas de rota vencidas, incluindo a dupla Anna & Meg. As caminhadas novas cruzam Verdanturf → Route 117 → Mauville e entram e saem do Centro e do Mart.

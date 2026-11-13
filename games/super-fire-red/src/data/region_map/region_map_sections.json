@@ -72,7 +72,8 @@
       "hoenn_x": 8,
       "hoenn_y": 6,
       "hoenn_width": 2,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "MAUVILLE CITY"
     },
     {
       "id": "MAPSEC_RUSTBORO_CITY",
@@ -239,7 +240,8 @@
       "hoenn_x": 5,
       "hoenn_y": 6,
       "hoenn_width": 3,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "ROUTE 117"
     },
     {
       "id": "MAPSEC_ROUTE_118",

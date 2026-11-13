@@ -1,0 +1,49 @@
+{
+  "maps": {
+    "Hoenn_Route117": {
+      "layout": "LAYOUT_HOENN_ROUTE117",
+      "secondary": "gTileset_HoennPilotMauville",
+      "music": "MUS_ROUTE3",
+      "warps": 0
+    },
+    "Hoenn_MauvilleCity": {
+      "layout": "LAYOUT_HOENN_MAUVILLE_CITY",
+      "secondary": "gTileset_HoennPilotMauville",
+      "music": "MUS_CELADON",
+      "warps": 2
+    },
+    "Hoenn_MauvilleCity_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "heal_location": "HEAL_LOCATION_MAUVILLE_CITY"
+    },
+    "Hoenn_MauvilleCity_Mart": {
+      "layout": "LAYOUT_MART",
+      "items": [
+        "ITEM_POKE_BALL",
+        "ITEM_GREAT_BALL",
+        "ITEM_SUPER_POTION",
+        "ITEM_ANTIDOTE",
+        "ITEM_PARALYZE_HEAL",
+        "ITEM_AWAKENING",
+        "ITEM_X_SPEED",
+        "ITEM_X_ATTACK",
+        "ITEM_X_DEFEND",
+        "ITEM_GUARD_SPEC",
+        "ITEM_DIRE_HIT",
+        "ITEM_X_ACCURACY"
+      ]
+    }
+  },
+  "closed_doors": {
+    "Route117": [
+      "MAP_ROUTE117_POKEMON_DAY_CARE"
+    ],
+    "MauvilleCity": [
+      "MAP_MAUVILLE_CITY_GYM",
+      "MAP_MAUVILLE_CITY_BIKE_SHOP",
+      "MAP_MAUVILLE_CITY_HOUSE1",
+      "MAP_MAUVILLE_CITY_GAME_CORNER",
+      "MAP_MAUVILLE_CITY_HOUSE2"
+    ]
+  }
+}
