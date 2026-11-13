@@ -38,11 +38,17 @@ BATCHES = {
          'MauvilleCity': ('MUS_CELADON', 'gTileset_HoennPilotMauville', 'mauville')},
         {'MauvilleCity': ({(22, 5): 'PokemonCenter_1F', (23, 14): 'Mart'}, (22, 6), 'FLAG_0x8CF')},
         {'MAPSEC_ROUTE_117': 'ROUTE 117', 'MAPSEC_MAUVILLE_CITY': 'MAUVILLE CITY'}),
+    # Batch 5: Route 110 south of Mauville (Mauville secondary, compacted again for four maps) and Slateport City
+    # (Slateport secondary compacted to the city). Cycling Road gates, New Mauville and the Trick House stay closed.
+    5: ({'Route110': ('MUS_ROUTE11', 'gTileset_HoennPilotMauville', 'mauville'),
+         'SlateportCity': ('MUS_VERMILLION', 'gTileset_HoennPilotSlateport', 'slateport')},
+        {'SlateportCity': ({(19, 19): 'PokemonCenter_1F', (13, 26): 'Mart'}, (19, 20), 'FLAG_0x8D1')},
+        {'MAPSEC_ROUTE_110': 'ROUTE 110', 'MAPSEC_SLATEPORT_CITY': 'SLATEPORT CITY'}),
 }
 # Every Hoenn exterior in the expansion, in install order (connections only link the installed ones).
 ALL_EXTERIORS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
                  'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown',
-                 'Route117', 'MauvilleCity']
+                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity']
 DOORS = [  # metatile, symbol in hoenn_pilot_doors.h (already defined for the Petalburg pair)
     (0x061, 'PokeCenter', 'DOOR_SOUND_SLIDING'), (0x041, 'PokeMart', 'DOOR_SOUND_SLIDING')]
 

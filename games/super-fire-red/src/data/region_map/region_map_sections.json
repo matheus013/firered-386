@@ -65,7 +65,8 @@
       "hoenn_x": 8,
       "hoenn_y": 10,
       "hoenn_width": 1,
-      "hoenn_height": 2
+      "hoenn_height": 2,
+      "hoenn_name": "SLATEPORT CITY"
     },
     {
       "id": "MAPSEC_MAUVILLE_CITY",
@@ -190,7 +191,8 @@
       "hoenn_x": 8,
       "hoenn_y": 7,
       "hoenn_width": 1,
-      "hoenn_height": 3
+      "hoenn_height": 3,
+      "hoenn_name": "ROUTE 110"
     },
     {
       "id": "MAPSEC_ROUTE_111",

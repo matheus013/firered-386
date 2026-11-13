@@ -1960,3 +1960,43 @@ Mahogany. Ecruteak ganhou a conexão leste e o warp do portão.
 - as Routes 43 e 44 e o Lake of Rage.
 
 **Resultado:** 748 casos aprovados (eram 721), com as 94 batalhas de rota vencidas. As caminhadas novas passam pelo portão leste de Ecruteak, cruzam a borda Route 42 → Mahogany e entram e saem do Centro e do Mart.
+
+## Hoenn, lote 5: Route 110 e Slateport City
+
+**Mapas novos:** a Route 110, ao sul de Mauville, e Slateport City. A Route 110 também se liga à
+borda leste da Route 103.
+
+- **Tilesets:**
+  - o secundário de Mauville foi reconvertido para os quatro mapas que o usam: ficou com 295 tiles e
+    304 metatiles. Verdanturf, a Route 117 e Mauville foram reinstaladas com a ordem nova, e os
+    atributos dos lotes 3, 4 e 5 foram regenerados juntos;
+  - Slateport ganhou o secundário `hoenn_pilot_slateport` (325 tiles e 270 metatiles, limitado à
+    cidade), com as paletas 13–15 iguais às dos outros secundários de Hoenn.
+- **Regras novas:** `MB_BRIDGE_OVER_OCEAN` e `MB_BIKE_BRIDGE_OVER_BARRIER` (o tabuleiro da Cycling
+  Road) e `MB_VASE` (decoração de Slateport). O FireRed não tem esses comportamentos, então eles
+  viram terreno normal. A elevação e a colisão do mapa continuam valendo.
+- **Cycling Road:** a pista elevada só se alcança pelos portões, que ficam fechados neste lote. Os
+  sete ciclistas e triatletas da pista ficaram de fora. A busca por elevação confirmou que a
+  estrada de baixo liga Mauville a Slateport a pé.
+- **Slateport:** Centro Pokémon e Mart do FireRed, com a lista do Emerald. A flag é
+  `FLAG_WORLD_MAP_SLATEPORT_CITY` (0x8D1), e a cidade é destino de Fly.
+- **Treinadores (9, IDs 790–798):** Edward, Jaclyn, Edwin, Dale, Timmy, Isabel, Kaleb, Alyssa e
+  Joseph. A busca não alcança a Jaclyn nem a Rare Candy a pé pela estrada de baixo.
+- **Eventos:**
+  - Dire Hit, Rare Candy e Elixir, com as flags 0x0E7–0x0E9;
+  - quatro pedestres na Route 110 e 14 moradores de Slateport. Os ramos da entrevista do Stern, do
+    Secret Power e da Equipe Aqua ficaram de fora (vale o texto do fim da história);
+  - as placas;
+  - 60 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama, água e pesca da Route 110, e água e pesca de Slateport, iguais às
+  tabelas do Emerald.
+
+**Fica para depois:**
+
+- a Cycling Road e seus portões, a New Mauville e a Trick House;
+- o Museu Oceânico, o estaleiro do Stern, o porto, o mercado, a Battle Tent, o Fã-Clube e a casa
+  do Avaliador de Nomes;
+- a Equipe Aqua, o rival, o Birch, a Gabby e o Ty, o Scott e os vendedores;
+- as Routes 109 e 134 e a praia ao sul.
+
+**Resultado:** 813 casos aprovados (eram 748), com as 103 batalhas de rota vencidas. As caminhadas novas cruzam Mauville → Route 110 → Slateport e entram e saem do Centro e do Mart.

@@ -84,6 +84,11 @@ for _m,_x,_y,_steps,_want in (
   (HOENN+'ROUTE117',59,8,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_HOENN_MAUVILLE_CITY',{(0,8)}),('MAP_HOENN_ROUTE117',{(59,8)})]),
   (HOENN+'MAUVILLE_CITY',22,6,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_MAUVILLE_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_MAUVILLE_CITY',{(22,6)})]),
   (HOENN+'MAUVILLE_CITY',23,15,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_MAUVILLE_CITY_MART',{(4,7)}),('MAP_HOENN_MAUVILLE_CITY',{(23,15)})]),
+  # Hoenn batch 5: Mauville south into Route 110, Route 110 south into Slateport, Slateport's doors.
+  (HOENN+'MAUVILLE_CITY',14,19,[('DOWN','MAP'),('UP','MAP')],[('MAP_HOENN_ROUTE110',{(14,0)}),('MAP_HOENN_MAUVILLE_CITY',{(14,19)})]),
+  (HOENN+'ROUTE110',17,99,[('DOWN','MAP'),('UP','MAP')],[('MAP_HOENN_SLATEPORT_CITY',{(17,0)}),('MAP_HOENN_ROUTE110',{(17,99)})]),
+  (HOENN+'SLATEPORT_CITY',19,20,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_SLATEPORT_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_SLATEPORT_CITY',{(19,20)})]),
+  (HOENN+'SLATEPORT_CITY',13,27,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_SLATEPORT_CITY_MART',{(4,7)}),('MAP_HOENN_SLATEPORT_CITY',{(13,27)})]),
   # Johto batch 1: Route 29 west into Cherrygrove, north to Routes 30 and 31, and the Pokemon Center/Mart doors.
   (JOHTO+'ROUTE29',0,16,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY',{(64,10)}),('MAP_JOHTO_ROUTE29',{(0,16)})]),
   (JOHTO+'CHERRYGROVE_CITY',34,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE30',{(25,57)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(34,0)})]),

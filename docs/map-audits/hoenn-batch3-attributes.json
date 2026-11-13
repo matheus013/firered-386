@@ -36,13 +36,7 @@
       "reason": "FireRed has no short grass (Emerald only draws a step effect)"
     },
     {
-      "metatile": "0x290",
-      "source_behavior": "MB_NORMAL",
-      "attribute": "0x20000000",
-      "reason": "layer type only"
-    },
-    {
-      "metatile": "0x294",
+      "metatile": "0x291",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
@@ -78,133 +72,139 @@
       "reason": "layer type only"
     },
     {
-      "metatile": "0x29a",
+      "metatile": "0x29b",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x2d0",
+      "metatile": "0x29c",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x2d1",
+      "metatile": "0x2db",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x2d4",
+      "metatile": "0x2dc",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x2d6",
+      "metatile": "0x2df",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x2eb",
+      "metatile": "0x2e3",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x2ec",
+      "metatile": "0x328",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x34f",
       "source_behavior": "MB_SHORT_GRASS",
       "attribute": "0x20000000",
       "reason": "FireRed has no short grass (Emerald only draws a step effect)"
     },
     {
-      "metatile": "0x2ed",
+      "metatile": "0x350",
       "source_behavior": "MB_SHORT_GRASS",
       "attribute": "0x00000000",
       "reason": "FireRed has no short grass (Emerald only draws a step effect)"
     },
     {
-      "metatile": "0x2f6",
+      "metatile": "0x389",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x2f7",
+      "metatile": "0x38a",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x2fa",
+      "metatile": "0x38d",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x2fb",
+      "metatile": "0x38e",
       "source_behavior": "MB_ANIMATED_DOOR",
       "attribute": "0x20000069",
       "reason": "FR MB_WARP_DOOR"
     },
     {
-      "metatile": "0x30c",
+      "metatile": "0x3a3",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x30d",
+      "metatile": "0x3a4",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x30e",
+      "metatile": "0x3a5",
       "source_behavior": "MB_ANIMATED_DOOR",
       "attribute": "0x20000069",
       "reason": "FR MB_WARP_DOOR"
     },
     {
-      "metatile": "0x30f",
+      "metatile": "0x3a6",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x310",
+      "metatile": "0x3a7",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x311",
+      "metatile": "0x3a8",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x312",
+      "metatile": "0x3a9",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x313",
+      "metatile": "0x3aa",
       "source_behavior": "MB_ANIMATED_DOOR",
       "attribute": "0x20000069",
       "reason": "FR MB_WARP_DOOR"
     },
     {
-      "metatile": "0x314",
+      "metatile": "0x3ab",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"
     },
     {
-      "metatile": "0x315",
+      "metatile": "0x3ac",
       "source_behavior": "MB_NORMAL",
       "attribute": "0x20000000",
       "reason": "layer type only"

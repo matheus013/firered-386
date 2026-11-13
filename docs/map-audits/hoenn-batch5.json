@@ -1,0 +1,55 @@
+{
+  "maps": {
+    "Hoenn_Route110": {
+      "layout": "LAYOUT_HOENN_ROUTE110",
+      "secondary": "gTileset_HoennPilotMauville",
+      "music": "MUS_ROUTE11",
+      "warps": 0
+    },
+    "Hoenn_SlateportCity": {
+      "layout": "LAYOUT_HOENN_SLATEPORT_CITY",
+      "secondary": "gTileset_HoennPilotSlateport",
+      "music": "MUS_VERMILLION",
+      "warps": 2
+    },
+    "Hoenn_SlateportCity_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "heal_location": "HEAL_LOCATION_SLATEPORT_CITY"
+    },
+    "Hoenn_SlateportCity_Mart": {
+      "layout": "LAYOUT_MART",
+      "items": [
+        "ITEM_POKE_BALL",
+        "ITEM_GREAT_BALL",
+        "ITEM_POTION",
+        "ITEM_SUPER_POTION",
+        "ITEM_ANTIDOTE",
+        "ITEM_PARALYZE_HEAL",
+        "ITEM_ESCAPE_ROPE",
+        "ITEM_REPEL",
+        "ITEM_HARBOR_MAIL"
+      ]
+    }
+  },
+  "closed_doors": {
+    "Route110": [
+      "MAP_NEW_MAUVILLE_ENTRANCE",
+      "MAP_ROUTE110_TRICK_HOUSE_ENTRANCE",
+      "MAP_ROUTE110_SEASIDE_CYCLING_ROAD_NORTH_ENTRANCE",
+      "MAP_ROUTE110_SEASIDE_CYCLING_ROAD_NORTH_ENTRANCE",
+      "MAP_ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE",
+      "MAP_ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE"
+    ],
+    "SlateportCity": [
+      "MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F",
+      "MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY",
+      "MAP_SLATEPORT_CITY_POKEMON_FAN_CLUB",
+      "MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F",
+      "MAP_SLATEPORT_CITY_NAME_RATERS_HOUSE",
+      "MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F",
+      "MAP_SLATEPORT_CITY_HARBOR",
+      "MAP_SLATEPORT_CITY_HARBOR",
+      "MAP_SLATEPORT_CITY_HOUSE"
+    ]
+  }
+}

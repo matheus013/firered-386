@@ -1005,6 +1005,17 @@ const struct Tileset gTileset_HoennPilotMauville =
     .metatileAttributes = gMetatileAttributes_HoennPilotMauville,
     .callback = InitTilesetAnim_HoennPetalburgPilot,  // static
 };
+
+const struct Tileset gTileset_HoennPilotSlateport =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HoennPilotSlateport,
+    .palettes = gTilesetPalettes_HoennPilotSlateport,
+    .metatiles = gMetatiles_HoennPilotSlateport,
+    .metatileAttributes = gMetatileAttributes_HoennPilotSlateport,
+    .callback = InitTilesetAnim_HoennPetalburgPilot,  // static
+};
 const struct Tileset gTileset_JohtoPilotRoute38Farmland =
 {
     .isCompressed = TRUE,

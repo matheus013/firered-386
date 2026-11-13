@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_EXPERT_F': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_EXPERT_M': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_MAN_1': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_COOK': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_GIRL_1': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_POKEFAN_F': 'OBJ_EVENT_GFX_WOMAN_2', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
     'OBJ_EVENT_GFX_GIRL_2': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_BOY_3': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_MAN_2': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_4': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_5': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_RICH_BOY': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_DEVON_EMPLOYEE': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_LITTLE_GIRL': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
@@ -221,6 +221,45 @@ EVENTS = {
         {0: ('pcsign', None), 1: ('sign', 'MauvilleCity_Text_GymSign'), 2: ('martsign', None), 3: ('martsign', None),
          4: ('pcsign', None), 5: ('sign', 'MauvilleCity_Text_CitySign'), 6: ('sign', 'MauvilleCity_Text_BikeShopSign'),
          7: ('sign', 'MauvilleCity_Text_GameCornerSign')}),
+    # Hoenn batch 5. Cycling Road (the raised deck with its seven triathletes and riders) stays closed with its gates.
+    # Left out: Team Aqua, the rival, Birch, the Cycling Road challenge man and results sign, berry trees, secret
+    # bases, hidden items, Captain Stern, Gabby and Ty, Scott, the market clerks, the Energy Guru, the Effort Ribbon
+    # woman, the harbor and shipyard signs (story branches) and the Slateport buildings (closed).
+    'Route110': (EMERALD, {
+        11: ('trainer', ('TRAINER_HOENN_EDWARD', 'Route110_Text_EdwardIntro', 'Route110_Text_EdwardDefeated', 'Route110_Text_EdwardPostBattle'), ''),
+        12: ('trainer', ('TRAINER_HOENN_JACLYN', 'Route110_Text_JaclynIntro', 'Route110_Text_JaclynDefeated', 'Route110_Text_JaclynPostBattle'), ''),
+        13: ('trainer', ('TRAINER_HOENN_EDWIN', 'Route110_Text_EdwinIntro', 'Route110_Text_EdwinDefeated', 'Route110_Text_EdwinPostBattle'), ''),
+        14: ('trainer', ('TRAINER_HOENN_DALE', 'Route110_Text_DaleIntro', 'Route110_Text_DaleDefeated', 'Route110_Text_DalePostBattle'), ''),
+        29: ('trainer', ('TRAINER_HOENN_TIMMY', 'Route110_Text_TimmyIntro', 'Route110_Text_TimmyDefeated', 'Route110_Text_TimmyPostBattle'), ''),
+        30: ('trainer', ('TRAINER_HOENN_ISABEL', 'Route110_Text_IsabelIntro', 'Route110_Text_IsabelDefeated', 'Route110_Text_IsabelPostBattle'), ''),
+        31: ('trainer', ('TRAINER_HOENN_KALEB', 'Route110_Text_KalebIntro', 'Route110_Text_KalebDefeated', 'Route110_Text_KalebPostBattle'), ''),
+        32: ('trainer', ('TRAINER_HOENN_ALYSSA', 'Route110_Text_AlyssaIntro', 'Route110_Text_AlyssaDefeated', 'Route110_Text_AlyssaPostBattle'), ''),
+        33: ('trainer', ('TRAINER_HOENN_JOSEPH', 'Route110_Text_JosephIntro', 'Route110_Text_JosephDefeated', 'Route110_Text_JosephPostBattle'), ''),
+        0: ('npc', 'Route110_Text_WhichShouldIChoose', ''), 2: ('npc', 'Route110_Text_WalkOnTheLowRoad', ''),
+        4: ('npc', 'Route110_Text_TwoRoads', ''), 6: ('npc', 'Route110_Text_RideBikeAtFullSpeed', ''),
+        18: ('itemflag', None, 'Dire Hit'), 19: ('itemflag', None, 'Rare Candy'), 34: ('itemflag', None, 'Elixir')},
+        {0: ('sign', 'Route110_Text_AquaWasHere'), 1: ('sign', 'Route110_Text_SeasideParkingSign'),
+         2: ('sign', 'Route110_Text_CyclingRoadSign'), 3: ('sign', 'Route110_Text_SlateportCitySign'),
+         4: ('sign', 'Route110_Text_Route103Sign'), 5: ('sign', 'Route110_Text_MauvilleCitySign'),
+         8: ('sign', 'Route110_Text_TrainerTipsPrlzSleep'), 9: ('sign', 'Route110_Text_TrainerTipsRegisterItems'),
+         10: ('sign', 'Route110_Text_TrickHouseSign'), 16: ('sign', 'Route110_Text_CyclingRoadSign')}),
+    'SlateportCity': (EMERALD, {
+        0: ('npc', 'SlateportCity_Text_BushedHikingFromMauville', 'Stern interview branch left out'),
+        1: ('npc', 'SlateportCity_Text_EveryoneCallsHimCaptStern', 'Stern interview branch left out'),
+        2: ('npc', 'SlateportCity_Text_GoingToCompeteInBattleTent', 'Stern interview branch left out'),
+        3: ('npc', 'SlateportCity_Text_VisitedMuseumOften', 'text after Team Aqua left'),
+        5: ('npc', 'SlateportCity_Text_SeaweedFullOfLife', 'Stern interview branch left out'),
+        6: ('npc', 'SlateportCity_Text_HowTownIsBornAndGrows', 'Stern interview branch left out'),
+        7: ('npc', 'SlateportCity_Text_SlateportWonderfulPlace', 'Stern interview and Secret Power branches left out'),
+        11: ('npc', 'SlateportCity_Text_SeaIsSoWet', ''), 12: ('npc', 'SlateportCity_Text_SinkOldBoats', ''),
+        13: ('npc', 'SlateportCity_Text_BuyTooMuch', ''), 14: ('npc', 'SlateportCity_Text_BattleTentBuiltRecently', ''),
+        15: ('npc', 'SlateportCity_Text_GetNameRaterToHelpYou', 'Stern interview branch left out'),
+        16: ('npc', 'SlateportCity_Text_CantChangeTradeMonName', ''),
+        21: ('npc', 'SlateportCity_Text_WonderIfLighthouseStartlesPokemon', '')},
+        {0: ('sign', 'SlateportCity_Text_NameRatersHouseSign'), 1: ('pcsign', None), 2: ('pcsign', None),
+         3: ('martsign', None), 5: ('martsign', None), 6: ('sign', 'SlateportCity_Text_MarketSign'),
+         7: ('sign', 'SlateportCity_Text_OceanicMuseumSign'), 8: ('sign', 'SlateportCity_Text_CitySign'),
+         9: ('sign', 'SlateportCity_Text_PokemonFanClubSign'), 10: ('sign', 'SlateportCity_Text_BattleTentSign')}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -464,7 +503,8 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'RustboroCity': 'FLAG_WORLD_MAP_RUSTBORO_CITY', 'EcruteakCity': 'FLAG_WORLD_MAP_ECRUTEAK_CITY',
                    'VerdanturfTown': 'FLAG_WORLD_MAP_VERDANTURF_TOWN', 'OlivineCity': 'FLAG_WORLD_MAP_OLIVINE_CITY',
                    'MauvilleCity': 'FLAG_WORLD_MAP_MAUVILLE_CITY',
-                   'MahoganyTown': 'FLAG_WORLD_MAP_MAHOGANY_TOWN'}
+                   'MahoganyTown': 'FLAG_WORLD_MAP_MAHOGANY_TOWN',
+                   'SlateportCity': 'FLAG_WORLD_MAP_SLATEPORT_CITY'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -521,6 +561,9 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('MauvilleCity', 8): ('ITEM_X_SPEED', 'FLAG_HIDE_HOENN_MAUVILLE_X_SPEED', 'FLAG_0x0E4'),
               ('Route42', 0): ('ITEM_SUPER_POTION', 'FLAG_HIDE_JOHTO_ROUTE42_SUPER_POTION', 'FLAG_0x0E5'),
               ('Route42', 1): ('ITEM_ULTRA_BALL', 'FLAG_HIDE_JOHTO_ROUTE42_ULTRA_BALL', 'FLAG_0x0E6'),
+              ('Route110', 18): ('ITEM_DIRE_HIT', 'FLAG_HIDE_HOENN_ROUTE110_DIRE_HIT', 'FLAG_0x0E7'),
+              ('Route110', 19): ('ITEM_RARE_CANDY', 'FLAG_HIDE_HOENN_ROUTE110_RARE_CANDY', 'FLAG_0x0E8'),
+              ('Route110', 34): ('ITEM_ELIXIR', 'FLAG_HIDE_HOENN_ROUTE110_ELIXIR', 'FLAG_0x0E9'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.

@@ -2469,6 +2469,551 @@
         }
       ]
     },
+    "Hoenn_Route110": {
+      "source": "pokeemerald/Route110",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "Route110_EventScript_Boy2",
+          "source_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "firered_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "text": "Route110_Text_WhichShouldIChoose",
+          "note": "",
+          "x": 17,
+          "y": 90
+        },
+        {
+          "kind": "npc",
+          "source_index": 2,
+          "source_script": "Route110_EventScript_OldWoman",
+          "source_sprite": "OBJ_EVENT_GFX_EXPERT_F",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "text": "Route110_Text_WalkOnTheLowRoad",
+          "note": "",
+          "x": 14,
+          "y": 69
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "Route110_EventScript_OldMan",
+          "source_sprite": "OBJ_EVENT_GFX_EXPERT_M",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "text": "Route110_Text_TwoRoads",
+          "note": "",
+          "x": 10,
+          "y": 11
+        },
+        {
+          "kind": "npc",
+          "source_index": 6,
+          "source_script": "Route110_EventScript_Boy1",
+          "source_sprite": "OBJ_EVENT_GFX_BOY_3",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "Route110_Text_RideBikeAtFullSpeed",
+          "note": "",
+          "x": 15,
+          "y": 7
+        },
+        {
+          "kind": "trainer",
+          "source_index": 11,
+          "source_script": "Route110_EventScript_Edward",
+          "source_sprite": "OBJ_EVENT_GFX_PSYCHIC_M",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": [
+            "TRAINER_HOENN_EDWARD",
+            "Route110_Text_EdwardIntro",
+            "Route110_Text_EdwardDefeated",
+            "Route110_Text_EdwardPostBattle"
+          ],
+          "note": "",
+          "x": 3,
+          "y": 39
+        },
+        {
+          "kind": "trainer",
+          "source_index": 12,
+          "source_script": "Route110_EventScript_Jaclyn",
+          "source_sprite": "OBJ_EVENT_GFX_LASS",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_JACLYN",
+            "Route110_Text_JaclynIntro",
+            "Route110_Text_JaclynDefeated",
+            "Route110_Text_JaclynPostBattle"
+          ],
+          "note": "",
+          "x": 33,
+          "y": 15
+        },
+        {
+          "kind": "trainer",
+          "source_index": 13,
+          "source_script": "Route110_EventScript_Edwin",
+          "source_sprite": "OBJ_EVENT_GFX_MANIAC",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": [
+            "TRAINER_HOENN_EDWIN",
+            "Route110_Text_EdwinIntro",
+            "Route110_Text_EdwinDefeated",
+            "Route110_Text_EdwinPostBattle"
+          ],
+          "note": "",
+          "x": 34,
+          "y": 40
+        },
+        {
+          "kind": "trainer",
+          "source_index": 14,
+          "source_script": "Route110_EventScript_Dale",
+          "source_sprite": "OBJ_EVENT_GFX_FISHERMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FISHER",
+          "text": [
+            "TRAINER_HOENN_DALE",
+            "Route110_Text_DaleIntro",
+            "Route110_Text_DaleDefeated",
+            "Route110_Text_DalePostBattle"
+          ],
+          "note": "",
+          "x": 10,
+          "y": 19
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 18,
+          "source_script": "Route110_EventScript_ItemDireHit",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Dire Hit",
+          "x": 30,
+          "y": 69
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 19,
+          "source_script": "Route110_EventScript_ItemRareCandy",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Rare Candy",
+          "x": 26,
+          "y": 47
+        },
+        {
+          "kind": "trainer",
+          "source_index": 29,
+          "source_script": "Route110_EventScript_Timmy",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": [
+            "TRAINER_HOENN_TIMMY",
+            "Route110_Text_TimmyIntro",
+            "Route110_Text_TimmyDefeated",
+            "Route110_Text_TimmyPostBattle"
+          ],
+          "note": "",
+          "x": 33,
+          "y": 69
+        },
+        {
+          "kind": "trainer",
+          "source_index": 30,
+          "source_script": "Route110_EventScript_Isabel",
+          "source_sprite": "OBJ_EVENT_GFX_POKEFAN_F",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": [
+            "TRAINER_HOENN_ISABEL",
+            "Route110_Text_IsabelIntro",
+            "Route110_Text_IsabelDefeated",
+            "Route110_Text_IsabelPostBattle"
+          ],
+          "note": "",
+          "x": 10,
+          "y": 76
+        },
+        {
+          "kind": "trainer",
+          "source_index": 31,
+          "source_script": "Route110_EventScript_Kaleb",
+          "source_sprite": "OBJ_EVENT_GFX_POKEFAN_M",
+          "firered_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "text": [
+            "TRAINER_HOENN_KALEB",
+            "Route110_Text_KalebIntro",
+            "Route110_Text_KalebDefeated",
+            "Route110_Text_KalebPostBattle"
+          ],
+          "note": "",
+          "x": 7,
+          "y": 76
+        },
+        {
+          "kind": "trainer",
+          "source_index": 32,
+          "source_script": "Route110_EventScript_Alyssa",
+          "source_sprite": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": [
+            "TRAINER_HOENN_ALYSSA",
+            "Route110_Text_AlyssaIntro",
+            "Route110_Text_AlyssaDefeated",
+            "Route110_Text_AlyssaPostBattle"
+          ],
+          "note": "",
+          "x": 10,
+          "y": 39
+        },
+        {
+          "kind": "trainer",
+          "source_index": 33,
+          "source_script": "Route110_EventScript_Joseph",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_ROCKER",
+          "text": [
+            "TRAINER_HOENN_JOSEPH",
+            "Route110_Text_JosephIntro",
+            "Route110_Text_JosephDefeated",
+            "Route110_Text_JosephPostBattle"
+          ],
+          "note": "",
+          "x": 36,
+          "y": 40
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 34,
+          "source_script": "Route110_EventScript_ItemElixir",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Elixir",
+          "x": 6,
+          "y": 38
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route110_EventScript_VandalizedSign",
+          "text": "Route110_Text_AquaWasHere",
+          "x": 15,
+          "y": 25
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "Route110_EventScript_SeasideParkingSign",
+          "text": "Route110_Text_SeasideParkingSign",
+          "x": 9,
+          "y": 51
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "Route110_EventScript_CyclingRoadSign",
+          "text": "Route110_Text_CyclingRoadSign",
+          "x": 14,
+          "y": 88
+        },
+        {
+          "kind": "sign",
+          "source_index": 3,
+          "source_script": "Route110_EventScript_SlateportCitySign",
+          "text": "Route110_Text_SlateportCitySign",
+          "x": 20,
+          "y": 94
+        },
+        {
+          "kind": "sign",
+          "source_index": 4,
+          "source_script": "Route110_EventScript_Route103Sign",
+          "text": "Route110_Text_Route103Sign",
+          "x": 7,
+          "y": 79
+        },
+        {
+          "kind": "sign",
+          "source_index": 5,
+          "source_script": "Route110_EventScript_MauvilleCitySign",
+          "text": "Route110_Text_MauvilleCitySign",
+          "x": 3,
+          "y": 17
+        },
+        {
+          "kind": "sign",
+          "source_index": 8,
+          "source_script": "Route110_EventScript_TrainerTipsPrlzSleep",
+          "text": "Route110_Text_TrainerTipsPrlzSleep",
+          "x": 33,
+          "y": 39
+        },
+        {
+          "kind": "sign",
+          "source_index": 9,
+          "source_script": "Route110_EventScript_TrainerTipsRegisterItems",
+          "text": "Route110_Text_TrainerTipsRegisterItems",
+          "x": 37,
+          "y": 70
+        },
+        {
+          "kind": "sign",
+          "source_index": 10,
+          "source_script": "Route110_EventScript_TrickHouseSign",
+          "text": "Route110_Text_TrickHouseSign",
+          "x": 8,
+          "y": 67
+        },
+        {
+          "kind": "sign",
+          "source_index": 16,
+          "source_script": "Route110_EventScript_CyclingRoadSign",
+          "text": "Route110_Text_CyclingRoadSign",
+          "x": 13,
+          "y": 16
+        }
+      ]
+    },
+    "Hoenn_SlateportCity": {
+      "source": "pokeemerald/SlateportCity",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "SlateportCity_EventScript_FatMan",
+          "source_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "text": "SlateportCity_Text_BushedHikingFromMauville",
+          "note": "Stern interview branch left out",
+          "x": 21,
+          "y": 11
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "SlateportCity_EventScript_Man1",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_1",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "SlateportCity_Text_EveryoneCallsHimCaptStern",
+          "note": "Stern interview branch left out",
+          "x": 34,
+          "y": 29
+        },
+        {
+          "kind": "npc",
+          "source_index": 2,
+          "source_script": "SlateportCity_EventScript_RichBoy",
+          "source_sprite": "OBJ_EVENT_GFX_RICH_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "SlateportCity_Text_GoingToCompeteInBattleTent",
+          "note": "Stern interview branch left out",
+          "x": 5,
+          "y": 13
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "SlateportCity_EventScript_Woman1",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_4",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_4",
+          "text": "SlateportCity_Text_VisitedMuseumOften",
+          "note": "text after Team Aqua left",
+          "x": 26,
+          "y": 29
+        },
+        {
+          "kind": "npc",
+          "source_index": 5,
+          "source_script": "SlateportCity_EventScript_Cook",
+          "source_sprite": "OBJ_EVENT_GFX_COOK",
+          "firered_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "text": "SlateportCity_Text_SeaweedFullOfLife",
+          "note": "Stern interview branch left out",
+          "x": 5,
+          "y": 43
+        },
+        {
+          "kind": "npc",
+          "source_index": 6,
+          "source_script": "SlateportCity_EventScript_OldWoman",
+          "source_sprite": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "text": "SlateportCity_Text_HowTownIsBornAndGrows",
+          "note": "Stern interview branch left out",
+          "x": 20,
+          "y": 37
+        },
+        {
+          "kind": "npc",
+          "source_index": 7,
+          "source_script": "SlateportCity_EventScript_Girl",
+          "source_sprite": "OBJ_EVENT_GFX_GIRL_1",
+          "firered_sprite": "OBJ_EVENT_GFX_LITTLE_GIRL",
+          "text": "SlateportCity_Text_SlateportWonderfulPlace",
+          "note": "Stern interview and Secret Power branches left out",
+          "x": 8,
+          "y": 42
+        },
+        {
+          "kind": "npc",
+          "source_index": 11,
+          "source_script": "SlateportCity_EventScript_Sailor1",
+          "source_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "firered_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "text": "SlateportCity_Text_SeaIsSoWet",
+          "note": "",
+          "x": 37,
+          "y": 41
+        },
+        {
+          "kind": "npc",
+          "source_index": 12,
+          "source_script": "SlateportCity_EventScript_Sailor2",
+          "source_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "firered_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "text": "SlateportCity_Text_SinkOldBoats",
+          "note": "",
+          "x": 28,
+          "y": 46
+        },
+        {
+          "kind": "npc",
+          "source_index": 13,
+          "source_script": "SlateportCity_EventScript_PokefanF",
+          "source_sprite": "OBJ_EVENT_GFX_POKEFAN_F",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": "SlateportCity_Text_BuyTooMuch",
+          "note": "",
+          "x": 9,
+          "y": 50
+        },
+        {
+          "kind": "npc",
+          "source_index": 14,
+          "source_script": "SlateportCity_EventScript_Man2",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_3",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "SlateportCity_Text_BattleTentBuiltRecently",
+          "note": "",
+          "x": 16,
+          "y": 46
+        },
+        {
+          "kind": "npc",
+          "source_index": 15,
+          "source_script": "SlateportCity_EventScript_Maniac",
+          "source_sprite": "OBJ_EVENT_GFX_MANIAC",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "SlateportCity_Text_GetNameRaterToHelpYou",
+          "note": "Stern interview branch left out",
+          "x": 8,
+          "y": 24
+        },
+        {
+          "kind": "npc",
+          "source_index": 16,
+          "source_script": "SlateportCity_EventScript_Woman2",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_3",
+          "text": "SlateportCity_Text_CantChangeTradeMonName",
+          "note": "",
+          "x": 15,
+          "y": 31
+        },
+        {
+          "kind": "npc",
+          "source_index": 21,
+          "source_script": "SlateportCity_EventScript_Man3",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_ROCKER",
+          "text": "SlateportCity_Text_WonderIfLighthouseStartlesPokemon",
+          "note": "",
+          "x": 34,
+          "y": 51
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "SlateportCity_EventScript_NameRatersHouseSign",
+          "text": "SlateportCity_Text_NameRatersHouseSign",
+          "x": 8,
+          "y": 19
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 1,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 20,
+          "y": 19
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 2,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 21,
+          "y": 19
+        },
+        {
+          "kind": "martsign",
+          "source_index": 3,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 14,
+          "y": 26
+        },
+        {
+          "kind": "martsign",
+          "source_index": 5,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 15,
+          "y": 26
+        },
+        {
+          "kind": "sign",
+          "source_index": 6,
+          "source_script": "SlateportCity_EventScript_MarketSign",
+          "text": "SlateportCity_Text_MarketSign",
+          "x": 14,
+          "y": 51
+        },
+        {
+          "kind": "sign",
+          "source_index": 7,
+          "source_script": "SlateportCity_EventScript_OceanicMuseumSign",
+          "text": "SlateportCity_Text_OceanicMuseumSign",
+          "x": 26,
+          "y": 26
+        },
+        {
+          "kind": "sign",
+          "source_index": 8,
+          "source_script": "SlateportCity_EventScript_CitySign",
+          "text": "SlateportCity_Text_CitySign",
+          "x": 16,
+          "y": 22
+        },
+        {
+          "kind": "sign",
+          "source_index": 9,
+          "source_script": "SlateportCity_EventScript_PokemonFanClubSign",
+          "text": "SlateportCity_Text_PokemonFanClubSign",
+          "x": 8,
+          "y": 26
+        },
+        {
+          "kind": "sign",
+          "source_index": 10,
+          "source_script": "SlateportCity_EventScript_BattleTentSign",
+          "text": "SlateportCity_Text_BattleTentSign",
+          "x": 7,
+          "y": 13
+        }
+      ]
+    },
     "Johto_NewBarkTown": {
       "source": "HNS_modern/NewBarkTown",
       "events": [

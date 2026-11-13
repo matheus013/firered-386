@@ -653,7 +653,9 @@
     "Hoenn_Route117",
     "Hoenn_MauvilleCity",
     "Johto_Route42",
-    "Johto_MahoganyTown"
+    "Johto_MahoganyTown",
+    "Hoenn_Route110",
+    "Hoenn_SlateportCity"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -684,7 +686,11 @@
     "Hoenn_Route117",
     "Hoenn_MauvilleCity",
     "Hoenn_MauvilleCity_PokemonCenter_1F",
-    "Hoenn_MauvilleCity_Mart"
+    "Hoenn_MauvilleCity_Mart",
+    "Hoenn_Route110",
+    "Hoenn_SlateportCity",
+    "Hoenn_SlateportCity_PokemonCenter_1F",
+    "Hoenn_SlateportCity_Mart"
   ],
   "gMapGroup_Johto": [
     "Johto_NewBarkTown",

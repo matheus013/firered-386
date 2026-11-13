@@ -1,0 +1,1436 @@
+{
+  "layouts": [
+    "LAYOUT_HOENN_ROUTE110",
+    "LAYOUT_HOENN_SLATEPORT_CITY"
+  ],
+  "entries": [
+    {
+      "metatile": "0x013",
+      "source_behavior": "MB_SECRET_BASE_WALL",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x014",
+      "source_behavior": "MB_SECRET_BASE_WALL",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x026",
+      "source_behavior": "MB_SECRET_BASE_SPOT_TREE_LEFT",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x027",
+      "source_behavior": "MB_SECRET_BASE_SPOT_TREE_RIGHT",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x14c",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x282",
+      "source_behavior": "MB_SHORT_GRASS",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no short grass (Emerald only draws a step effect)"
+    },
+    {
+      "metatile": "0x29d",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x29e",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x29f",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2a0",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2a2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b4",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x2e1",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2e2",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2e4",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2e8",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x20000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2e9",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2ea",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2f0",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2f6",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2f7",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2f8",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2fe",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2ff",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x300",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x301",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x302",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x303",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x304",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x305",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x306",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x307",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x308",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x309",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x30a",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x30b",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x30c",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x30d",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x30e",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x30f",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x310",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x311",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x312",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x313",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x314",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x315",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x316",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x317",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x318",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x319",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x31a",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x31b",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x31c",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x31d",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x31e",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x31f",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x320",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x321",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x322",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x323",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x324",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x325",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x329",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x32a",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x32b",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x32c",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x32d",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x32e",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x32f",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x330",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x331",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x332",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x333",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x334",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x335",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x336",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x337",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x338",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x339",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x33a",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x33b",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x33c",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x33d",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x33e",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x33f",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x340",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x341",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x342",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x343",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x344",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x345",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x346",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x347",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x348",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x349",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x34a",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x34b",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x34c",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x34d",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x351",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x02000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x352",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x353",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x354",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x355",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x356",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x35a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x35d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x35e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x362",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x365",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x366",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x376",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x377",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x379",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x37c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x37d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x385",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x38f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x390",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3ad",
+      "source_behavior": "MB_BIKE_BRIDGE_OVER_BARRIER",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Cycling Road deck; FireRed has no bridge behavior"
+    },
+    {
+      "metatile": "0x3ae",
+      "source_behavior": "MB_BIKE_BRIDGE_OVER_BARRIER",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Cycling Road deck; FireRed has no bridge behavior"
+    },
+    {
+      "metatile": "0x3af",
+      "source_behavior": "MB_BIKE_BRIDGE_OVER_BARRIER",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Cycling Road deck; FireRed has no bridge behavior"
+    },
+    {
+      "metatile": "0x286",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x287",
+      "source_behavior": "MB_VASE",
+      "attribute": "0x20000000",
+      "reason": "batch 5: Slateport decoration; no FireRed behavior"
+    },
+    {
+      "metatile": "0x28e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x294",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x295",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ab",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ac",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c7",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x00000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x2c9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2cb",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2cc",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d9",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x20000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2da",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x20000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2df",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e6",
+      "source_behavior": "MB_VASE",
+      "attribute": "0x20000000",
+      "reason": "batch 5: Slateport decoration; no FireRed behavior"
+    },
+    {
+      "metatile": "0x2ff",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x302",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x303",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x304",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x305",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x20000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x306",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x307",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x308",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x309",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x30a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x30b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x30c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x30d",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x20000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x30e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x310",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x314",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x20000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x315",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x316",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x20000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x320",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x323",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x324",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x32a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x330",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x337",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x338",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x339",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x33c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x33d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x33e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x341",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x343",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x345",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x346",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x347",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x20000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x348",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x349",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x34a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x34d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x34e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x34f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x350",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x351",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x352",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x353",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x354",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x355",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x356",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x35a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x35b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x35c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x35d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x35e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x360",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x362",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x363",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x364",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x365",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x366",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x36a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x36b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x36c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x36d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x36e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x36f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x370",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x371",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x372",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x378",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x37e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x384",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x385",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x386",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x387",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x388",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x389",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x38a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x38b",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x38c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x38d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    }
+  ]
+}
