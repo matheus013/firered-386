@@ -50,11 +50,16 @@ BATCHES = {
          'Route111': ('MUS_ROUTE11', 'gTileset_HoennPilotMauvilleEast', 'mauville_east')},
         {},
         {'MAPSEC_ROUTE_118': 'ROUTE 118', 'MAPSEC_ROUTE_111': 'ROUTE 111'}),
+    # Batch 7: Route 109, the beach south of Slateport (Slateport secondary compacted again for both maps).
+    # The Seashore House stays closed.
+    7: ({'Route109': ('MUS_ROUTE24', 'gTileset_HoennPilotSlateport', 'slateport')},
+        {},
+        {'MAPSEC_ROUTE_109': 'ROUTE 109'}),
 }
 # Every Hoenn exterior in the expansion, in install order (connections only link the installed ones).
 ALL_EXTERIORS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
                  'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown',
-                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111']
+                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109']
 DOORS = [  # metatile, symbol in hoenn_pilot_doors.h (already defined for the Petalburg pair)
     (0x061, 'PokeCenter', 'DOOR_SOUND_SLIDING'), (0x041, 'PokeMart', 'DOOR_SOUND_SLIDING')]
 

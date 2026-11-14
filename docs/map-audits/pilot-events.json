@@ -3601,6 +3601,335 @@
         }
       ]
     },
+    "Hoenn_Route109": {
+      "source": "pokeemerald/Route109",
+      "events": [
+        {
+          "kind": "trainer",
+          "source_index": 2,
+          "source_script": "Route109_EventScript_David",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_M",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "text": [
+            "TRAINER_HOENN_DAVID",
+            "Route109_Text_DavidIntro",
+            "Route109_Text_DavidDefeated",
+            "Route109_Text_DavidPostBattle"
+          ],
+          "note": "",
+          "x": 12,
+          "y": 36
+        },
+        {
+          "kind": "trainer",
+          "source_index": 3,
+          "source_script": "Route109_EventScript_Alice",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "text": [
+            "TRAINER_HOENN_ALICE",
+            "Route109_Text_AliceIntro",
+            "Route109_Text_AliceDefeated",
+            "Route109_Text_AlicePostBattle"
+          ],
+          "note": "",
+          "x": 25,
+          "y": 39
+        },
+        {
+          "kind": "trainer",
+          "source_index": 4,
+          "source_script": "Route109_EventScript_Huey",
+          "source_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "firered_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "text": [
+            "TRAINER_HOENN_HUEY",
+            "Route109_Text_HueyIntro",
+            "Route109_Text_HueyDefeated",
+            "Route109_Text_HueyPostBattle"
+          ],
+          "note": "",
+          "x": 15,
+          "y": 17
+        },
+        {
+          "kind": "trainer",
+          "source_index": 5,
+          "source_script": "Route109_EventScript_Edmond",
+          "source_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "firered_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "text": [
+            "TRAINER_HOENN_EDMOND",
+            "Route109_Text_EdmondIntro",
+            "Route109_Text_EdmondDefeated",
+            "Route109_Text_EdmondPostBattle"
+          ],
+          "note": "",
+          "x": 24,
+          "y": 13
+        },
+        {
+          "kind": "trainer",
+          "source_index": 6,
+          "source_script": "Route109_EventScript_Ricky",
+          "source_sprite": "OBJ_EVENT_GFX_TUBER_M",
+          "firered_sprite": "OBJ_EVENT_GFX_TUBER_M_LAND",
+          "text": [
+            "TRAINER_HOENN_RICKY",
+            "Route109_Text_RickyIntro",
+            "Route109_Text_RickyDefeated",
+            "Route109_Text_RickyPostBattle"
+          ],
+          "note": "",
+          "x": 19,
+          "y": 10
+        },
+        {
+          "kind": "trainer",
+          "source_index": 7,
+          "source_script": "Route109_EventScript_Lola",
+          "source_sprite": "OBJ_EVENT_GFX_TUBER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_TUBER_F",
+          "text": [
+            "TRAINER_HOENN_LOLA",
+            "Route109_Text_LolaIntro",
+            "Route109_Text_LolaDefeated",
+            "Route109_Text_LolaPostBattle"
+          ],
+          "note": "",
+          "x": 22,
+          "y": 7
+        },
+        {
+          "kind": "npc",
+          "source_index": 8,
+          "source_script": "Route109_EventScript_SeashoreHouseGirl",
+          "source_sprite": "OBJ_EVENT_GFX_LITTLE_GIRL",
+          "firered_sprite": "OBJ_EVENT_GFX_LITTLE_GIRL",
+          "text": "Route109_Text_ChillAtMyPapasSpot",
+          "note": "",
+          "x": 11,
+          "y": 6
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 9,
+          "source_script": "Route109_EventScript_ItemPPUp",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "PP Up",
+          "x": 27,
+          "y": 46
+        },
+        {
+          "kind": "trainer",
+          "source_index": 10,
+          "source_script": "Route109_EventScript_Gwen",
+          "source_sprite": "OBJ_EVENT_GFX_TUBER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_TUBER_F",
+          "text": [
+            "TRAINER_HOENN_GWEN",
+            "Route109_Text_GwenIntro",
+            "Route109_Text_GwenDefeated",
+            "Route109_Text_GwenPostBattle"
+          ],
+          "note": "",
+          "x": 29,
+          "y": 32
+        },
+        {
+          "kind": "trainer",
+          "source_index": 11,
+          "source_script": "Route109_EventScript_Austina",
+          "source_sprite": "OBJ_EVENT_GFX_TUBER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_TUBER_F",
+          "text": [
+            "TRAINER_HOENN_AUSTINA",
+            "Route109_Text_AustinaIntro",
+            "Route109_Text_AustinaDefeated",
+            "Route109_Text_AustinaPostBattle"
+          ],
+          "note": "",
+          "x": 28,
+          "y": 31
+        },
+        {
+          "kind": "trainer",
+          "source_index": 12,
+          "source_script": "Route109_EventScript_Carter",
+          "source_sprite": "OBJ_EVENT_GFX_FISHERMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FISHER",
+          "text": [
+            "TRAINER_HOENN_CARTER",
+            "Route109_Text_CarterIntro",
+            "Route109_Text_CarterDefeated",
+            "Route109_Text_CarterPostBattle"
+          ],
+          "note": "",
+          "x": 21,
+          "y": 56
+        },
+        {
+          "kind": "npc",
+          "source_index": 13,
+          "source_script": "Route109_EventScript_SandCastleBoy",
+          "source_sprite": "OBJ_EVENT_GFX_TUBER_M",
+          "firered_sprite": "OBJ_EVENT_GFX_TUBER_M_LAND",
+          "text": "Route109_Text_SandCastleTakingLongTime",
+          "note": "",
+          "x": 24,
+          "y": 18
+        },
+        {
+          "kind": "gift",
+          "source_index": 14,
+          "source_script": "Route109_EventScript_SoftSandGirl",
+          "source_sprite": "OBJ_EVENT_GFX_TUBER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_TUBER_F",
+          "text": [
+            "ITEM_SOFT_SAND",
+            "Route109_Text_YouCanHaveThis",
+            "Route109_Text_WereGoingToMakeBigCastle",
+            false
+          ],
+          "note": "Soft Sand",
+          "x": 25,
+          "y": 18
+        },
+        {
+          "kind": "npc",
+          "source_index": 15,
+          "source_script": "Route109_EventScript_Woman",
+          "source_sprite": "OBJ_EVENT_GFX_POKEFAN_F",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": "Route109_Text_LittleKidsDartAround",
+          "note": "",
+          "x": 30,
+          "y": 32
+        },
+        {
+          "kind": "trainer",
+          "source_index": 16,
+          "source_script": "Route109_EventScript_Mel",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_4",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_4",
+          "text": [
+            "TRAINER_HOENN_MEL_AND_PAUL",
+            "Route109_Text_MelIntro",
+            "Route109_Text_MelDefeated",
+            "Route109_Text_MelPostBattle",
+            "Route109_Text_MelNotEnoughPokemon"
+          ],
+          "note": "double battle",
+          "x": 8,
+          "y": 41
+        },
+        {
+          "kind": "trainer",
+          "source_index": 17,
+          "source_script": "Route109_EventScript_Paul",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_4",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": [
+            "TRAINER_HOENN_MEL_AND_PAUL",
+            "Route109_Text_PaulIntro",
+            "Route109_Text_PaulDefeated",
+            "Route109_Text_PaulPostBattle",
+            "Route109_Text_PaulNotEnoughPokemon"
+          ],
+          "note": "double battle",
+          "x": 9,
+          "y": 41
+        },
+        {
+          "kind": "npc",
+          "source_index": 18,
+          "source_script": "Route109_EventScript_OldMan",
+          "source_sprite": "OBJ_EVENT_GFX_OLD_MAN",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "text": "Route109_Text_ZigzagoonPicksUpLitter",
+          "note": "",
+          "x": 33,
+          "y": 6
+        },
+        {
+          "kind": "trainer",
+          "source_index": 20,
+          "source_script": "Route109_EventScript_Hailey",
+          "source_sprite": "OBJ_EVENT_GFX_TUBER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_TUBER_F",
+          "text": [
+            "TRAINER_HOENN_HAILEY",
+            "Route109_Text_HaileyIntro",
+            "Route109_Text_HaileyDefeated",
+            "Route109_Text_HaileyPostBattle"
+          ],
+          "note": "",
+          "x": 17,
+          "y": 13
+        },
+        {
+          "kind": "trainer",
+          "source_index": 21,
+          "source_script": "Route109_EventScript_Chandler",
+          "source_sprite": "OBJ_EVENT_GFX_TUBER_M",
+          "firered_sprite": "OBJ_EVENT_GFX_TUBER_M_LAND",
+          "text": [
+            "TRAINER_HOENN_CHANDLER",
+            "Route109_Text_ChandlerIntro",
+            "Route109_Text_ChandlerDefeated",
+            "Route109_Text_ChandlerPostBattle"
+          ],
+          "note": "",
+          "x": 27,
+          "y": 7
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 22,
+          "source_script": "Route109_EventScript_ItemPotion",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Potion",
+          "x": 25,
+          "y": 6
+        },
+        {
+          "kind": "trainer",
+          "source_index": 23,
+          "source_script": "Route109_EventScript_Elijah",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_ROCKER",
+          "text": [
+            "TRAINER_HOENN_ELIJAH",
+            "Route109_Text_ElijahIntro",
+            "Route109_Text_ElijahDefeated",
+            "Route109_Text_ElijahPostBattle"
+          ],
+          "note": "",
+          "x": 17,
+          "y": 56
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route109_EventScript_SeashoreHouseSign",
+          "text": "Route109_Text_SeashoreHouseSign",
+          "x": 15,
+          "y": 5
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "Route109_EventScript_TrainerTipsSign",
+          "text": "Route109_Text_TrainerTipsSign",
+          "x": 29,
+          "y": 10
+        }
+      ]
+    },
     "Johto_NewBarkTown": {
       "source": "HNS_modern/NewBarkTown",
       "events": [

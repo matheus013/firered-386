@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_EXPERT_F': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_EXPERT_M': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_MAN_1': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_COOK': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_GIRL_1': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_POKEFAN_F': 'OBJ_EVENT_GFX_WOMAN_2', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_TUBER_M': 'OBJ_EVENT_GFX_TUBER_M_LAND', 'OBJ_EVENT_GFX_TUBER_F': 'OBJ_EVENT_GFX_TUBER_F', 'OBJ_EVENT_GFX_OLD_MAN': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_EXPERT_F': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_EXPERT_M': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_MAN_1': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_COOK': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_GIRL_1': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_POKEFAN_F': 'OBJ_EVENT_GFX_WOMAN_2', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
     'OBJ_EVENT_GFX_GIRL_2': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_BOY_3': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_MAN_2': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_4': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_5': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_RICH_BOY': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_DEVON_EMPLOYEE': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_LITTLE_GIRL': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
@@ -301,6 +301,27 @@ EVENTS = {
          2: ('sign', 'Route111_Text_RouteSign112'), 3: ('sign', 'Route111_Text_RouteSign113'),
          7: ('sign', 'Route111_Text_OldLadysRestStopSign'), 12: ('sign', 'Route111_Text_TrainerTipsSpAtkSpDef'),
          17: ('sign', 'Route111_Text_TrainerHillSign')}),
+    # Hoenn batch 7. Left out: Mr. Briney and his boat, the Zigzagoon, hidden items and the Seashore House (closed).
+    'Route109': (EMERALD, {
+        2: ('trainer', ('TRAINER_HOENN_DAVID', 'Route109_Text_DavidIntro', 'Route109_Text_DavidDefeated', 'Route109_Text_DavidPostBattle'), ''),
+        3: ('trainer', ('TRAINER_HOENN_ALICE', 'Route109_Text_AliceIntro', 'Route109_Text_AliceDefeated', 'Route109_Text_AlicePostBattle'), ''),
+        4: ('trainer', ('TRAINER_HOENN_HUEY', 'Route109_Text_HueyIntro', 'Route109_Text_HueyDefeated', 'Route109_Text_HueyPostBattle'), ''),
+        5: ('trainer', ('TRAINER_HOENN_EDMOND', 'Route109_Text_EdmondIntro', 'Route109_Text_EdmondDefeated', 'Route109_Text_EdmondPostBattle'), ''),
+        6: ('trainer', ('TRAINER_HOENN_RICKY', 'Route109_Text_RickyIntro', 'Route109_Text_RickyDefeated', 'Route109_Text_RickyPostBattle'), ''),
+        7: ('trainer', ('TRAINER_HOENN_LOLA', 'Route109_Text_LolaIntro', 'Route109_Text_LolaDefeated', 'Route109_Text_LolaPostBattle'), ''),
+        10: ('trainer', ('TRAINER_HOENN_GWEN', 'Route109_Text_GwenIntro', 'Route109_Text_GwenDefeated', 'Route109_Text_GwenPostBattle'), ''),
+        11: ('trainer', ('TRAINER_HOENN_AUSTINA', 'Route109_Text_AustinaIntro', 'Route109_Text_AustinaDefeated', 'Route109_Text_AustinaPostBattle'), ''),
+        12: ('trainer', ('TRAINER_HOENN_CARTER', 'Route109_Text_CarterIntro', 'Route109_Text_CarterDefeated', 'Route109_Text_CarterPostBattle'), ''),
+        16: ('trainer', ('TRAINER_HOENN_MEL_AND_PAUL', 'Route109_Text_MelIntro', 'Route109_Text_MelDefeated', 'Route109_Text_MelPostBattle', 'Route109_Text_MelNotEnoughPokemon'), 'double battle'),
+        17: ('trainer', ('TRAINER_HOENN_MEL_AND_PAUL', 'Route109_Text_PaulIntro', 'Route109_Text_PaulDefeated', 'Route109_Text_PaulPostBattle', 'Route109_Text_PaulNotEnoughPokemon'), 'double battle'),
+        20: ('trainer', ('TRAINER_HOENN_HAILEY', 'Route109_Text_HaileyIntro', 'Route109_Text_HaileyDefeated', 'Route109_Text_HaileyPostBattle'), ''),
+        21: ('trainer', ('TRAINER_HOENN_CHANDLER', 'Route109_Text_ChandlerIntro', 'Route109_Text_ChandlerDefeated', 'Route109_Text_ChandlerPostBattle'), ''),
+        23: ('trainer', ('TRAINER_HOENN_ELIJAH', 'Route109_Text_ElijahIntro', 'Route109_Text_ElijahDefeated', 'Route109_Text_ElijahPostBattle'), ''),
+        8: ('npc', 'Route109_Text_ChillAtMyPapasSpot', ''), 13: ('npc', 'Route109_Text_SandCastleTakingLongTime', ''),
+        14: ('gift', ('ITEM_SOFT_SAND', 'Route109_Text_YouCanHaveThis', 'Route109_Text_WereGoingToMakeBigCastle', False), 'Soft Sand'),
+        15: ('npc', 'Route109_Text_LittleKidsDartAround', ''), 18: ('npc', 'Route109_Text_ZigzagoonPicksUpLitter', ''),
+        9: ('itemflag', None, 'PP Up'), 22: ('itemflag', None, 'Potion')},
+        {0: ('sign', 'Route109_Text_SeashoreHouseSign'), 1: ('sign', 'Route109_Text_TrainerTipsSign')}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -656,8 +677,16 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route44', 7): ('ITEM_MAX_REPEL', 'FLAG_HIDE_JOHTO_ROUTE44_MAX_REPEL', 'FLAG_0x0F5'),
               ('Route44', 8): ('ITEM_ULTRA_BALL', 'FLAG_HIDE_JOHTO_ROUTE44_ULTRA_BALL', 'FLAG_0x0F6'),
               ('Route46', 3): ('ITEM_REVIVE', 'FLAG_HIDE_JOHTO_ROUTE46_REVIVE', 'FLAG_0x0F7'),
+              ('Route109', 9): ('ITEM_PP_UP', 'FLAG_HIDE_HOENN_ROUTE109_PP_UP', 'FLAG_0x0F8'),
+              ('Route109', 22): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE109_POTION', 'FLAG_0x0F9'),
+              ('Route109', 14): ('ITEM_SOFT_SAND', 'FLAG_GOT_HOENN_SOFT_SAND', 'FLAG_0x0FA'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
+# Emerald movement types FireRed lacks -> the closest FireRed one.
+MOVEMENTS = {'MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_DOWN': 'MOVEMENT_TYPE_WALK_IN_PLACE_DOWN',
+             'MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_UP': 'MOVEMENT_TYPE_WALK_IN_PLACE_UP',
+             'MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_LEFT': 'MOVEMENT_TYPE_WALK_IN_PLACE_LEFT',
+             'MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_RIGHT': 'MOVEMENT_TYPE_WALK_IN_PLACE_RIGHT'}  # Route 109 tubers
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.
 LAB_SIGNS = {
     'LittlerootTown_ProfessorBirchsLab_EventScript_Machine': ('sign', 'LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine'),
@@ -811,6 +840,7 @@ def main():
                     scripts.append(story_script)
                 flag = pilot_story.OBJECTS[source_map][index]
             x, y, movement, placed_by = POSITIONS.get((source_map, index), (o['x'], o['y'], o['movement_type'], None))
+            movement = MOVEMENTS.get(movement, movement)
             obj_events.append({'type': 'object', 'graphics_id': gfx, 'x': x, 'y': y, 'elevation': o['elevation'],
                                'movement_type': movement, 'movement_range_x': o['movement_range_x'],
                                'movement_range_y': o['movement_range_y'],

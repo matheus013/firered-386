@@ -661,7 +661,8 @@
     "Hoenn_Route118",
     "Hoenn_Route111",
     "Johto_Route44",
-    "Johto_Route46"
+    "Johto_Route46",
+    "Hoenn_Route109"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -698,7 +699,8 @@
     "Hoenn_SlateportCity_PokemonCenter_1F",
     "Hoenn_SlateportCity_Mart",
     "Hoenn_Route118",
-    "Hoenn_Route111"
+    "Hoenn_Route111",
+    "Hoenn_Route109"
   ],
   "gMapGroup_Johto": [
     "Johto_NewBarkTown",

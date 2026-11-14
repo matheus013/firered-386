@@ -184,7 +184,8 @@
       "hoenn_x": 8,
       "hoenn_y": 12,
       "hoenn_width": 1,
-      "hoenn_height": 3
+      "hoenn_height": 3,
+      "hoenn_name": "ROUTE 109"
     },
     {
       "id": "MAPSEC_ROUTE_110",

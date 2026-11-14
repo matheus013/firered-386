@@ -1,0 +1,15 @@
+{
+  "maps": {
+    "Hoenn_Route109": {
+      "layout": "LAYOUT_HOENN_ROUTE109",
+      "secondary": "gTileset_HoennPilotSlateport",
+      "music": "MUS_ROUTE24",
+      "warps": 0
+    }
+  },
+  "closed_doors": {
+    "Route109": [
+      "MAP_ROUTE109_SEASHORE_HOUSE"
+    ]
+  }
+}

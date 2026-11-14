@@ -2121,3 +2121,36 @@ conexões na Route 29 passou a aceitar a terceira.
 - os Pokémon decorativos e as árvores de berry.
 
 **Resultado:** 950 casos aprovados (eram 921), com as 147 batalhas de rota vencidas, todas com o time de teste novo. As caminhadas novas cruzam Mahogany → Route 44 e passam pelo portão da Route 29 para a Route 46.
+
+## Hoenn, lote 7: Route 109
+
+**Mapa novo:** a Route 109, a praia ao sul de Slateport. A Casa de Praia fica fechada.
+
+- **Tileset:** o secundário de Slateport foi reconvertido para Slateport e a Route 109 (375 tiles e
+  301 metatiles). Slateport foi reinstalada com a ordem nova, e os atributos dos lotes 5 e 7 foram
+  regenerados juntos.
+- **Treinadores (13, IDs 843–855):** David e Alice (nadadores), Huey, Edmond, Ricky, Lola, Gwen,
+  Austina, Carter, Mel & Paul (batalha dupla), Hailey, Chandler e Elijah. Os nadadores ficam na
+  água: o teste não fala com eles nem batalha, como nos outros lotes. O David fica longe da areia,
+  sem célula livre ao lado, e o teste agora pula esse caso de nadador em vez de falhar.
+- **Movimento:** os meninos de boia usam `MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_*`, que o FireRed não
+  tem. O instalador de eventos agora troca esse movimento pelo `WALK_IN_PLACE` equivalente. O ROM
+  não linkava sem isso.
+- **Sprites:** os meninos de boia usam o sprite de terra do FireRed (`TUBER_M_LAND`), e o velho do
+  Zigzagoon usa `OLD_MAN_1`.
+- **Eventos:**
+  - PP Up e Potion, com as flags 0x0F8 e 0x0F9;
+  - a menina da Soft Sand dá o item uma vez (flag 0x0FA);
+  - a menina da Casa de Praia, o menino do castelo de areia, a mãe e o velho do Zigzagoon;
+  - as placas;
+  - 52 textos traduzidos para PT-BR. O "Groan…" do Ricky reaproveita a tradução que já existia.
+- **Pokémon selvagens:** água e pesca, iguais às tabelas do Emerald.
+
+**Fica para depois:**
+
+- o Sr. Briney e o barco para Dewford;
+- a Casa de Praia;
+- o Zigzagoon e os itens escondidos;
+- a Route 108 e o mar a oeste.
+
+**Resultado:** 983 casos aprovados (eram 950), com as 158 batalhas de rota vencidas, incluindo a dupla Mel & Paul. A caminhada nova cruza Slateport → Route 109.

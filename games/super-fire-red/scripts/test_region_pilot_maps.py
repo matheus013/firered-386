@@ -92,6 +92,8 @@ for _m,_x,_y,_steps,_want in (
   # Hoenn batch 6: Mauville east into Route 118 and north into Route 111.
   (HOENN+'MAUVILLE_CITY',39,9,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_HOENN_ROUTE118',{(0,9)}),('MAP_HOENN_MAUVILLE_CITY',{(39,9)})]),
   (HOENN+'MAUVILLE_CITY',5,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_ROUTE111',{(5,139)}),('MAP_HOENN_MAUVILLE_CITY',{(5,0)})]),
+  # Hoenn batch 7: Slateport south onto the Route 109 beach.
+  (HOENN+'SLATEPORT_CITY',20,59,[('DOWN','MAP'),('UP','MAP')],[('MAP_HOENN_ROUTE109',{(20,0)}),('MAP_HOENN_SLATEPORT_CITY',{(20,59)})]),
   # Johto batch 1: Route 29 west into Cherrygrove, north to Routes 30 and 31, and the Pokemon Center/Mart doors.
   (JOHTO+'ROUTE29',0,16,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY',{(64,10)}),('MAP_JOHTO_ROUTE29',{(0,16)})]),
   (JOHTO+'CHERRYGROVE_CITY',34,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE30',{(25,57)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(34,0)})]),
@@ -224,6 +226,7 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
  targets=[('object',i,o) for i,o in enumerate(objs)]+[('sign',i,b) for i,b in enumerate(bgs)]
  for kind,i,e in targets:
   spot=_spot(objs,cells,behavior,layout['width'],layout['height'],e['x'],e['y'],kind=='sign' and e.get('player_facing_dir')=='BG_EVENT_PLAYER_FACING_NORTH',elevs,(int(e.get('elevation',0)) or elevs[e['y']*layout['width']+e['x']]) if kind=='object' else 0)  # elevation 0 = the tile's
+  if not spot and 'SWIMMER' in e.get('graphics_id',''):continue  # out in the water (Route 109's David): Surf only
   assert spot,(folder.name,kind,i,'no free cell next to this event')
   sx,sy,key=spot
   SPOTS[(folder.name,kind,i)]=(header['id'],sx,sy,key)

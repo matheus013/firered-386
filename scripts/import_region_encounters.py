@@ -100,6 +100,9 @@ TABLES = [
      'MAP_HOENN_ROUTE118', 'gHoennRoute118_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'Emerald tables unchanged'),
     ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gRoute111', 'MAP_ROUTE111',
      'MAP_HOENN_ROUTE111', 'gHoennRoute111_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'Emerald tables; Rock Smash left out'),
+    # Hoenn batch 7
+    ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gRoute109', 'MAP_ROUTE109',
+     'MAP_HOENN_ROUTE109', 'gHoennRoute109_Pilot', ['water_mons', 'fishing_mons'], 'Emerald tables unchanged'),
     # Johto batch 7
     ('HNS_modern', 'bf25b6ecd23c009b899da570d62a210f35e01809', 'gRoute35', 'MAP_ROUTE35',
      'MAP_JOHTO_ROUTE35', 'gJohtoRoute35_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'day table; Rock Smash left out'),

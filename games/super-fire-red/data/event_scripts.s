@@ -547,6 +547,7 @@ gStdScriptsEnd::
 	.include "data/maps/Hoenn_SlateportCity_Mart/scripts.inc"
 	.include "data/maps/Hoenn_Route118/scripts.inc"
 	.include "data/maps/Hoenn_Route111/scripts.inc"
+	.include "data/maps/Hoenn_Route109/scripts.inc"
 	.include "data/maps/Johto_NewBarkTown/scripts.inc"
 	.include "data/maps/Johto_Route29/scripts.inc"
 	.include "data/maps/Johto_NewBarkTown_PlayersHouse_1F/scripts.inc"
