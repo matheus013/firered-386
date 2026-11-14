@@ -149,7 +149,10 @@ for _m,_x,_y,_steps,_want in (
   (JOHTO+'MAHOGANY_TOWN',14,5,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_GATE_MAHOGANY_TOWN_ROUTE43',None),('MAP_JOHTO_MAHOGANY_TOWN',None)]),
   (JOHTO+'ROUTE43',11,49,[('DOWN','MAP'),('UP','MAP')],[('MAP_JOHTO_GATE_MAHOGANY_TOWN_ROUTE43',None),('MAP_JOHTO_ROUTE43',None)]),
   (JOHTO+'ROUTE43',22,37,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_GATE_ROUTE43',None),('MAP_JOHTO_ROUTE43',None)]),
-  (JOHTO+'ROUTE43',12,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_LAKE_OF_RAGE',{(28,46)}),('MAP_JOHTO_ROUTE43',{(12,0)})])):
+  (JOHTO+'ROUTE43',12,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_LAKE_OF_RAGE',{(28,46)}),('MAP_JOHTO_ROUTE43',{(12,0)})]),
+  # Johto batch 12: Mahogany east into Route 44; Route 46 through the Route 29 gate.
+  (JOHTO+'MAHOGANY_TOWN',43,12,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_JOHTO_ROUTE44',{(0,14)}),('MAP_JOHTO_MAHOGANY_TOWN',{(43,12)})]),
+  (JOHTO+'ROUTE46',10,39,[('DOWN','MAP'),('UP','MAP')],[('MAP_JOHTO_GATE_ROUTE29_ROUTE46',None),('MAP_JOHTO_ROUTE46',None)])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -358,6 +361,7 @@ FRESH_TRAINER={}
 # blocked by every route team otherwise (Dark vs Psychic, Fairy vs Dragon, Water Absorb, Water/Ice vs Ice).
 # Ghosts are immune to Seismic Toss, so a team with one gets Night Shade.
 FRESH_MOVE={}
+FRESH_GENGAR={}
 _types={sp:tuple(re.findall(r'TYPE_\w+',t)) for sp,t in re.findall(r'\[(SPECIES_\w+)\] =\s*\{.*?\.types = \{([^}]*)\}',(game/'src/data/pokemon/species_info.h').read_text(),re.S)}
 _pilot_teams=json.loads((game/'hack-data/region_pilot_trainers.json').read_text(encoding='utf-8'))['trainers']
 def _trainer_ids(text):
@@ -385,6 +389,8 @@ for _folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/
   FRESH_TRAINER[len(CASES)]=int(_opponent_ids[_m[1]])
   _team=[m[0] if isinstance(m,list) else m['species'] for m in _pilot_teams[_m[1]]['team']]
   FRESH_MOVE[len(CASES)]='MOVE_NIGHT_SHADE' if any('TYPE_GHOST' in _types.get(sp,()) for sp in _team) else 'MOVE_SEISMIC_TOSS'
+  # Gengar reserves (Night Shade) only when no foe is Normal-type, which Night Shade cannot touch.
+  FRESH_GENGAR[len(CASES)]=0 if any('TYPE_NORMAL' in _types.get(sp,()) for sp in _team) else 1
 # Sail to New Bark through the sailor's two questions, not a direct script call.
 CASES.append(('MAP_VERMILION_CITY',23,30,0,0,[('LEFT','TRIP')],GAME_CLEAR))
 TRIPS[len(CASES)]=('MAP_VERMILION_CITY','newbark');NO_ANSWERS[len(CASES)]=1
@@ -471,6 +477,7 @@ stop_prompts=', '.join(str(STOP_AFTER_PROMPT.get(n,0)) for n in range(1,len(CASE
 fresh_trainers=', '.join(str(FRESH_TRAINER.get(n,0)) for n in range(1,len(CASES)+1))
 _move_ids=dict(re.findall(r'#define (MOVE_\w+) (\d+)',(game/'include/constants/moves.h').read_text()))  # main.c has no move constants
 fresh_moves=', '.join(_move_ids[FRESH_MOVE[n]] if n in FRESH_MOVE else '0' for n in range(1,len(CASES)+1))
+fresh_gengar=', '.join(str(FRESH_GENGAR.get(n,0)) for n in range(1,len(CASES)+1))
 _pilot=json.loads((game/'hack-data/region_pilot_trainers.json').read_text(encoding='utf-8'))
 slot_trainers=', '.join(sorted({str(_opponent_ids[t]) for t,e in _pilot['trainers'].items() if e.get('slot')})+['0'])
 steps=',\n    '.join('{'+', '.join(f'{{{KEYS[k]}, {MODES[mode]}}}' for k,mode in s)+'}' if s else '{{0, 0}}' for *_,s,_setup in CASES)
@@ -522,6 +529,7 @@ static const u8 sPilotStopPrompts[] = {STOP_PROMPTS};
 u16 GetTrainerFlagId(u16 trainerId);
 const u16 gPilotFreshTrainer[] = {FRESH_TRAINERS};  // route trainer left unbeaten in this case (0: none)
 const u16 gPilotFreshMove[] = {FRESH_MOVES};  // the strong lead's move in those battle cases
+const u8 gPilotFreshGengar[] = {FRESH_GENGAR};  // 1: Gengar reserves in those battle cases (no Normal foe)
 const u16 gPilotSlotTrainers[] = {SLOT_TRAINERS};  // geography trainers in reused FireRed slots, 0-terminated
 extern volatile u32 gPilotCase;
 EWRAM_DATA static u8 sPilotPrompt = 0;
@@ -1105,7 +1113,7 @@ static void PilotBoot(void)
     StringCopy(gSaveBlock2Ptr->playerName, name); StringCopy(gSaveBlock1Ptr->rivalName, name);
     SetMainCallback2(CB2_NewGame);
 }
-'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts).replace('ANSWERS',answers).replace('JOURNEY_OPS',journey).replace('JOURNEY_LEN',str(len(JOURNEY))).replace('STOP_PROMPTS',stop_prompts).replace('FRESH_TRAINERS',fresh_trainers).replace('SLOT_TRAINERS',slot_trainers).replace('FRESH_MOVES',fresh_moves)
+'''.replace('SPAWNS',spawns).replace('STEPS',steps).replace('COUNTS',counts).replace('ANSWERS',answers).replace('JOURNEY_OPS',journey).replace('JOURNEY_LEN',str(len(JOURNEY))).replace('STOP_PROMPTS',stop_prompts).replace('FRESH_TRAINERS',fresh_trainers).replace('SLOT_TRAINERS',slot_trainers).replace('FRESH_MOVES',fresh_moves).replace('FRESH_GENGAR',fresh_gengar)
 main=(game/'src/main.c').read_text()
 main=main.replace('static void InitMainCallbacks(void)\n{',hook+'\nstatic void InitMainCallbacks(void)\n{').replace('SetMainCallback2(CB2_InitCopyrightScreenAfterBootup);','SetMainCallback2(PilotBoot);')
 main=main.replace('#include "global.h"','#include "global.h"\nvoid PilotCheck(void);',1).replace('    ReadKeys();','    PilotCheck();\n    ReadKeys();')
@@ -1127,6 +1135,7 @@ u16 GetTrainerFlagId(u16 trainerId);
 extern const u16 gPilotFreshTrainer[];
 extern const u16 gPilotSlotTrainers[];
 extern const u16 gPilotFreshMove[];
+extern const u8 gPilotFreshGengar[];
 void PilotSetup(void)
 {
     const s16 *spawn = gPilotSpawn[gPilotCase - 1];
@@ -1161,13 +1170,39 @@ void PilotSetup(void)
         if (gPilotFreshTrainer[gPilotCase - 1])
         {
             u16 move = gPilotFreshMove[gPilotCase - 1];  // fixed damage (Seismic Toss / Night Shade)
-            u8 fullPp = 32;
+            u8 fullPp = 32, slot;
             // Snorlax with full facility training: bulky enough for the +60 route teams (an untrained
             // Mewtwo fell to Arnie's bug moves), and only Fighting hits it super effectively.
             CreateMon(&gPlayerParty[0], SPECIES_SNORLAX, 100, 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
             EliteFour_ApplyFacilityTraining(&gPlayerParty[0]);
             SetMonData(&gPlayerParty[0], MON_DATA_MOVE1, &move); SetMonData(&gPlayerParty[0], MON_DATA_PP1, &fullPp);
-            gPlayerParty[1] = gPlayerParty[0];  // two Pokemon for Amy and Liv's double battle
+            // One move only: under Torment (Route 44's Murkrow) the battle then falls back to Struggle on
+            // the blocked turn; with other moves left, the input driver kept choosing the blocked one.
+            for (slot = 1; slot < MAX_MON_MOVES; slot++)
+            {
+                u16 none = MOVE_NONE;
+                u8 noPp = 0;
+                SetMonData(&gPlayerParty[0], MON_DATA_MOVE1 + slot, &none); SetMonData(&gPlayerParty[0], MON_DATA_PP1 + slot, &noPp);
+            }
+            // A full party for the late route teams: Snorlax alternates with a trained Gengar (Night Shade),
+            // immune to the Fighting and Normal moves that sweep Snorlax (Route 44's Heracross: Close
+            // Combat). Teams with a Normal-type foe (immune to Night Shade) get Snorlax only.
+            // Slot 1 is a Snorlax too: double battles send out the first two.
+            {
+                u16 shade = MOVE_NIGHT_SHADE;
+                struct Pokemon gengar;
+                CreateMon(&gengar, SPECIES_GENGAR, 100, 31, FALSE, 0, OT_ID_PLAYER_ID, 0);
+                EliteFour_ApplyFacilityTraining(&gengar);
+                SetMonData(&gengar, MON_DATA_MOVE1, &shade); SetMonData(&gengar, MON_DATA_PP1, &fullPp);
+                for (slot = 1; slot < MAX_MON_MOVES; slot++)
+                {
+                    u16 none = MOVE_NONE;
+                    u8 noPp = 0;
+                    SetMonData(&gengar, MON_DATA_MOVE1 + slot, &none); SetMonData(&gengar, MON_DATA_PP1 + slot, &noPp);
+                }
+                for (slot = 1; slot < PARTY_SIZE; slot++)
+                    gPlayerParty[slot] = (slot % 2 == 0 && gPilotFreshGengar[gPilotCase - 1]) ? gengar : gPlayerParty[0];
+            }
             CalculatePlayerPartyCount();
         }
     }
@@ -1308,8 +1343,9 @@ assert little[7]==1 and tuple(little[8:11])==(UP,HG,ROUTE101),('Littleroot must 
 # Route 101: north to Oldale and south to Littleroot; the first one recorded follows the Emerald header order.
 assert route[7]==2 and tuple(route[8:11]) in ((DOWN,HG,LITTLEROOT),(UP,HG,7)),('Route101 must connect south to Littleroot and north to Oldale',list(route[7:11]))
 assert newbark[7]==1 and tuple(newbark[8:11])==(LEFT,JG,ROUTE29),('New Bark must connect west to Route29',list(newbark[7:11]))
-# Route 29: west to Cherrygrove (Johto batch 1, listed first) and east to New Bark (walked in case 21).
-assert route29[7]==2 and tuple(route29[8:11])==(LEFT,JG,8),('Route29 must connect west to Cherrygrove and east to New Bark',list(route29[7:11]))
+# Route 29: west to Cherrygrove (Johto batch 1, listed first), east to New Bark (walked in case 21) and,
+# since Johto batch 12, north to Route 46 (the HNS link; the walkable way up is the gate).
+assert route29[7]==3 and tuple(route29[8:11])==(LEFT,JG,8),('Route29 must connect west to Cherrygrove, east to New Bark and north to Route46',list(route29[7:11]))
 assert little[11]|little[12]<<8==0x2C8 and little[13]==WARP_DOOR and little[14],('Littleroot door cell',little[11:15].hex())
 assert newbark[11]|newbark[12]<<8==0x2CB and newbark[13]==WARP_DOOR and newbark[14],('New Bark blue door cell',newbark[11:15].hex())
 assert route29[13]==CAVE_DOOR,('Route 46 gate entrance should be a step-on warp',route29[11:15].hex())
@@ -1375,7 +1411,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-23:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY','MAPSEC_ROUTE_38','MAPSEC_ROUTE_39','MAPSEC_OLIVINE_CITY','MAPSEC_ROUTE_42','MAPSEC_MAHOGANY_TOWN','MAPSEC_ROUTE_43','MAPSEC_LAKE_OF_RAGE']
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-25:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY','MAPSEC_ROUTE_38','MAPSEC_ROUTE_39','MAPSEC_OLIVINE_CITY','MAPSEC_ROUTE_42','MAPSEC_MAHOGANY_TOWN','MAPSEC_ROUTE_43','MAPSEC_LAKE_OF_RAGE','MAPSEC_ROUTE_44','MAPSEC_ROUTE_46']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.

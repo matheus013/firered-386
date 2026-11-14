@@ -837,6 +837,16 @@
 #define TRAINER_HOENN_BRYAN                              830  // ids 768+ use EXTRA_TRAINER_FLAGS_START
 #define TRAINER_HOENN_CELIA                              831  // ids 768+ use EXTRA_TRAINER_FLAGS_START
 #define TRAINER_HOENN_BRANDEN                            832  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_PHIL                               833  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_EDGAR                              834  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_WILTON                             835  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_ZACH                               836  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_ALLEN                              837  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_CYBIL                              838  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_VANCE                              839  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_TED                                840  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_ERIN                               841  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_BAILEY                             842  // ids 768+ use EXTRA_TRAINER_FLAGS_START
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
@@ -895,7 +905,7 @@
 #define TRAINER_HOENN_DEVAN                              TRAINER_MAGMA_GRUNT_M
 #define TRAINER_HOENN_MIKE                               TRAINER_MAMGA_GRUNT_F
 
-#define NUM_TRAINERS                             833
+#define NUM_TRAINERS                             843
 #define MAX_TRAINERS_COUNT                       768
 // Ids from MAX_TRAINERS_COUNT up keep their flags in EXTRA_TRAINER_FLAGS_START (constants/flags.h); NUM_TRAINERS must fit
 // in MAX_TRAINERS_COUNT + EXTRA_TRAINER_FLAGS_COUNT (216), checked in battle_setup.c.

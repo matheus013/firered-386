@@ -457,6 +457,23 @@ EVENTS = {
         14: ('npc', 'LakeOfRage_Text_SuperNerd', ''),
         9: ('itemflag', None, 'Full Restore'), 10: ('itemflag', None, 'Max Revive'), 11: ('itemflag', None, 'Red Flute')},
         {0: ('sign', 'LakeOfRage_Text_Sign'), 1: ('sign', 'LakeOfRage_Text_FishingGuruSign')}),
+    # Johto batch 12. Left out: the decorative Pokemon, berry trees and the two caves (Ice Path, Dark Cave).
+    'Route44': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_PHIL', 'Route44_Text_PsychicPhilSeen', 'Route44_Text_PsychicPhilBeaten', 'Route44_Text_PsychicPhilAfter'), ''),
+        1: ('trainer', ('TRAINER_JOHTO_EDGAR', 'Route44_Text_FisherEdgarSeen', 'Route44_Text_FisherEdgarBeaten', 'Route44_Text_FisherEdgarAfter'), ''),
+        2: ('trainer', ('TRAINER_JOHTO_WILTON', 'Route44_Text_FisherWilton1Seen', 'Route44_Text_FisherWilton1Beaten', 'Route44_Text_FisherWiltonHugePoliwag'), ''),
+        3: ('trainer', ('TRAINER_JOHTO_ZACH', 'Route44_Text_PokemaniacZachSeen', 'Route44_Text_PokemaniacZachBeaten', 'Route44_Text_PokemaniacZachAfter'), ''),
+        4: ('trainer', ('TRAINER_JOHTO_ALLEN', 'Route44_Text_CooltrainermAllenSeen', 'Route44_Text_CooltrainermAllenBeaten', 'Route44_Text_CooltrainermAllenAfter'), ''),
+        5: ('trainer', ('TRAINER_JOHTO_CYBIL', 'Route44_Text_CooltrainerfCybilSeen', 'Route44_Text_CooltrainerfCybilBeaten', 'Route44_Text_CooltrainerfCybilAfter'), ''),
+        26: ('trainer', ('TRAINER_JOHTO_VANCE', 'Route44_Text_BirdKeeperVance1Seen', 'Route44_Text_BirdKeeperVance1Beaten', 'Route44_Text_BirdKeeperVanceBirds'), ''),
+        6: ('itemflag', None, 'Elixir'), 7: ('itemflag', None, 'Max Repel'), 8: ('itemflag', None, 'Ultra Ball')},
+        {0: ('sign', 'Route44_Text_Sign1'), 1: ('sign', 'Route44_Text_Sign2')}),
+    'Route46': (HNS, {
+        4: ('trainer', ('TRAINER_JOHTO_TED', 'Route46_Text_CamperTedSeen', 'Route46_Text_CamperTedBeaten', 'Route46_Text_CamperTedAfterBattle'), ''),
+        5: ('trainer', ('TRAINER_JOHTO_ERIN', 'Route46_Text_PicnickerErinSeen', 'Route46_Text_PicnickerErinBeaten', 'Route46_Text_PicnickerErinAfterBattle'), ''),
+        6: ('trainer', ('TRAINER_JOHTO_BAILEY', 'Route46_Text_HikerBaileySeen', 'Route46_Text_HikerBaileyBeaten', 'Route46_Text_HikerBaileyAfterBattle'), ''),
+        3: ('itemflag', None, 'Revive')},
+        {0: ('sign', 'Route46_Text_Sign')}),
     'Gate_EcruteakCity_Route42': (HNS, {0: ('npc', 'Route42_Text_EcruteakGateOfficer', '')}, {}),
     'Route42': (HNS, {
         3: ('trainer', ('TRAINER_JOHTO_TULLY', 'Route42_Text_FisherTullySeen', 'Route42_Text_FisherTullyBeaten', 'Route42_Text_FisherTullyAfter'), ''), 4: ('trainer', ('TRAINER_JOHTO_SHANE', 'Route42_Text_PokemaniacShaneSeen', 'Route42_Text_PokemaniacShaneBeaten', 'Route42_Text_PokemaniacShaneAfter'), ''),
@@ -635,6 +652,10 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route111', 24): ('ITEM_STARDUST', 'FLAG_HIDE_HOENN_ROUTE111_STARDUST', 'FLAG_0x0F1'),
               ('Route111', 25): ('ITEM_HP_UP', 'FLAG_HIDE_HOENN_ROUTE111_HP_UP', 'FLAG_0x0F2'),
               ('Route111', 41): ('ITEM_ELIXIR', 'FLAG_HIDE_HOENN_ROUTE111_ELIXIR', 'FLAG_0x0F3'),
+              ('Route44', 6): ('ITEM_ELIXIR', 'FLAG_HIDE_JOHTO_ROUTE44_ELIXIR', 'FLAG_0x0F4'),
+              ('Route44', 7): ('ITEM_MAX_REPEL', 'FLAG_HIDE_JOHTO_ROUTE44_MAX_REPEL', 'FLAG_0x0F5'),
+              ('Route44', 8): ('ITEM_ULTRA_BALL', 'FLAG_HIDE_JOHTO_ROUTE44_ULTRA_BALL', 'FLAG_0x0F6'),
+              ('Route46', 3): ('ITEM_REVIVE', 'FLAG_HIDE_JOHTO_ROUTE46_REVIVE', 'FLAG_0x0F7'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Lab furniture scripts (Emerald's labels, also reused by HNS) -> text shown.

@@ -43,7 +43,9 @@ MAPS = ['NewBarkTown', 'Route29', 'NewBarkTown_PlayersHouse_1F', 'NewBarkTown_Pl
         # Johto batch 10 (Johto NorthEast primary): Ecruteak's east gate, Route 42 and Mahogany Town
         'Gate_EcruteakCity_Route42', 'Route42', 'MahoganyTown',
         # Johto batch 11: Mahogany's north gate, Route 43 with its toll gate, and Lake of Rage
-        'Gate_MahoganyTown_Route43', 'Route43', 'Gate_Route43', 'LakeOfRage']
+        'Gate_MahoganyTown_Route43', 'Route43', 'Gate_Route43', 'LakeOfRage',
+        # Johto batch 12: Route 44 east of Mahogany (Cianwood secondary) and Route 46 north of Route 29's gate
+        'Route44', 'Route46']
 TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animation init)
     'gTileset_Johto_General': ('JohtoPilotGeneral', 'primary/johto_general', 'primary/johto_pilot_general', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_NewBarkTown': ('JohtoPilotNewBarkTown', 'secondary/new_bark_town', 'secondary/johto_pilot_new_bark_town', 'NULL'),
@@ -67,6 +69,7 @@ TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animati
     # HNS animates Johto NorthEast with the Johto General schedule too.
     'gTileset_Johto_NorthEast': ('JohtoPilotNorthEast', 'primary/johto_north_east', 'primary/johto_pilot_north_east', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_MahoganyTown': ('JohtoPilotMahoganyTown', 'secondary/mahogany_town', 'secondary/johto_pilot_mahogany_town', 'NULL'),
+    'gTileset_CianwoodCity': ('JohtoPilotCianwoodCity', 'secondary/cianwood_city', 'secondary/johto_pilot_cianwood_city', 'NULL'),
 }
 # FireRed attribute without layer bits: behavior | terrain << 9 | encounter << 24, taken from the pattern
 # FireRed's own tilesets use most for that behavior.
@@ -108,6 +111,7 @@ RULES = {
     'MB_UNUSED_81': (0x00000000, 'no code uses it in HNS'),
     'MB_SLOT_MACHINE': (0x00000000, 'no code uses it in HNS'),
     'MB_SEAWEED_NO_SURFACING': (0x00000000, 'one Mahogany Pokemon Center roof tile (blocked cell); normal here'),
+    'MB_BRIDGE_OVER_OCEAN': (0x00000000, 'Route 44 bridge; FireRed has no bridge behavior (elevation and collision stay)'),
     'MB_SIDEWAYS_STAIRS_LEFT_SIDE_TOP': (0x00000000, 'FireRed has no sideways stairs; walks straight'),
 }
 MUSIC = {'MUS_HG_NEW_BARK': 'MUS_PALLET', 'MUS_HG_ROUTE29': 'MUS_ROUTE1', 'MUS_HG_ELM_LAB': 'MUS_OAK_LAB',

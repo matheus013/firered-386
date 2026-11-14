@@ -2080,3 +2080,44 @@ bordas das Routes 112 e 113, que ainda não existem).
 - as Routes 112, 113, 119 e 123.
 
 **Resultado:** 921 casos aprovados (eram 851), com as 137 batalhas de rota vencidas. As caminhadas novas cruzam Mauville → Route 118 e Mauville → Route 111.
+
+## Johto, lote 12: Routes 44 e 46
+
+**Mapas novos:**
+
+- a Route 44, a leste de Mahogany. É o primeiro mapa com o secundário de Cianwood (Johto
+  NorthEast + `CianwoodCity`). A entrada do Ice Path fica fechada;
+- a Route 46, ao norte do portão da Route 29. O portão já existia e agora ganhou o warp norte.
+
+O HNS também liga a Route 46 à borda norte da Route 29, e a conexão foi instalada. Essa borda não
+tem célula livre nos dois lados, então o caminho a pé é o portão. O teste que exigia só duas
+conexões na Route 29 passou a aceitar a terceira.
+
+- **Regra nova:** `MB_BRIDGE_OVER_OCEAN` (a ponte da Route 44). No Johto ela vira normal, como no
+  lote 5 de Hoenn: a elevação e a colisão continuam valendo.
+- **Treinadores (10, IDs 833–842):** Phil, Edgar, Wilton, Zach, Allen, Cybil e Vance (Route 44), e
+  Ted, Erin e Bailey (Route 46). Os times do HNS aqui já são de níveis 35–40. Com o +60 de sempre,
+  todos chegariam a 100, e o Zach venceu a batalha de teste. Por isso estes dez usam +50 (níveis
+  85–90), logo acima dos treinadores da Route 43 (84–88).
+- **Time do teste de batalha:** mesmo com +50, o Heracross do Zach derrubava o Snorlax com dois
+  Close Combat. O teste agora monta seis Pokémon: o 1º, 2º, 4º e 6º são Snorlax (as batalhas
+  duplas usam os dois primeiros), e o 3º e o 5º são um Gengar treinado com Night Shade. O Gengar
+  é imune a golpes Fighting e Normal. Times com algum Pokémon do tipo Normal, que o Night Shade não
+  atinge, ficam só com Snorlax: o Pidgeot do Vance prendia o Gengar até o tempo da cena acabar.
+  Os dois ficam com um golpe só. O Murkrow do Vance usa Torment, e o teste, que sempre escolhe o
+  primeiro golpe, repetia o golpe bloqueado sem parar. Com um golpe só, o jogo usa Struggle no turno
+  bloqueado.
+- **Eventos:**
+  - Elixir, Max Repel e Ultra Ball (Route 44) e Revive (Route 46), com as flags 0x0F4–0x0F7;
+  - as placas;
+  - 33 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama, água e pesca da Route 44, e grama da Route 46 (tabelas do dia; Rock
+  Smash fora).
+
+**Fica para depois:**
+
+- o Ice Path e Blackthorn City;
+- a Dark Cave e a Route 45;
+- os Pokémon decorativos e as árvores de berry.
+
+**Resultado:** 950 casos aprovados (eram 921), com as 147 batalhas de rota vencidas, todas com o time de teste novo. As caminhadas novas cruzam Mahogany → Route 44 e passam pelo portão da Route 29 para a Route 46.

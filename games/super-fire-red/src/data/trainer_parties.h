@@ -17006,3 +17006,208 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HoennBranden[] = {
     .species = SPECIES_NUZLEAF,
     }
 };
+
+// Region geography: HNS_modern TRAINER_PHIL, levels +50.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoPhil[] = {
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_XATU,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_KADABRA,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_GIRAFARIG,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_EDGAR, levels +50.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoEdgar[] = {
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_OCTILLERY,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_GYARADOS,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_SEAKING,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_WILTON, levels +50.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoWilton[] = {
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_QWILFISH,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_OCTILLERY,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_SEAKING,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_ZACH, levels +50.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoZach[] = {
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_RHYDON,
+    },
+    {
+    .iv = 0,
+    .lvl = 87,
+    .species = SPECIES_PUPITAR,
+    },
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_HERACROSS,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_ALLEN, levels +50.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoAllen[] = {
+    {
+    .iv = 0,
+    .lvl = 85,
+    .species = SPECIES_CHARMELEON,
+    },
+    {
+    .iv = 0,
+    .lvl = 87,
+    .species = SPECIES_ELECTABUZZ,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_CYBIL, levels +50.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoCybil[] = {
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_BUTTERFREE,
+    },
+    {
+    .iv = 0,
+    .lvl = 87,
+    .species = SPECIES_BELLOSSOM,
+    },
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_QUAGSIRE,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_VANCE, levels +50.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoVance[] = {
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_PIDGEOT,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_MURKROW,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_XATU,
+    },
+    {
+    .iv = 0,
+    .lvl = 87,
+    .species = SPECIES_SKARMORY,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_TED, levels +50.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoTed[] = {
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_URSARING,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_PRIMEAPE,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_NIDOKING,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_ERIN, levels +50.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoErin[] = {
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_RAPIDASH,
+    },
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_NIDOQUEEN,
+    },
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_RAICHU,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_RAPIDASH,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_BAILEY, levels +50.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoBailey[] = {
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_GOLEM,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_GOLEM,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_GOLEM,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_GOLEM,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_GOLEM,
+    }
+};

@@ -5547,6 +5547,244 @@
         }
       ]
     },
+    "Johto_Route44": {
+      "source": "HNS_modern/Route44",
+      "events": [
+        {
+          "kind": "trainer",
+          "source_index": 0,
+          "source_script": "Route44_EventScript_Phil",
+          "source_sprite": "OBJ_EVENT_GFX_PSYCHIC_M",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": [
+            "TRAINER_JOHTO_PHIL",
+            "Route44_Text_PsychicPhilSeen",
+            "Route44_Text_PsychicPhilBeaten",
+            "Route44_Text_PsychicPhilAfter"
+          ],
+          "note": "",
+          "x": 11,
+          "y": 5
+        },
+        {
+          "kind": "trainer",
+          "source_index": 1,
+          "source_script": "Route44_EventScript_Edgar",
+          "source_sprite": "OBJ_EVENT_GFX_FISHER",
+          "firered_sprite": "OBJ_EVENT_GFX_FISHER",
+          "text": [
+            "TRAINER_JOHTO_EDGAR",
+            "Route44_Text_FisherEdgarSeen",
+            "Route44_Text_FisherEdgarBeaten",
+            "Route44_Text_FisherEdgarAfter"
+          ],
+          "note": "",
+          "x": 28,
+          "y": 23
+        },
+        {
+          "kind": "trainer",
+          "source_index": 2,
+          "source_script": "Route44_EventScript_Wilton",
+          "source_sprite": "OBJ_EVENT_GFX_FISHER",
+          "firered_sprite": "OBJ_EVENT_GFX_FISHER",
+          "text": [
+            "TRAINER_JOHTO_WILTON",
+            "Route44_Text_FisherWilton1Seen",
+            "Route44_Text_FisherWilton1Beaten",
+            "Route44_Text_FisherWiltonHugePoliwag"
+          ],
+          "note": "",
+          "x": 40,
+          "y": 5
+        },
+        {
+          "kind": "trainer",
+          "source_index": 3,
+          "source_script": "Route44_EventScript_Zach",
+          "source_sprite": "OBJ_EVENT_GFX_SUPER_NERD",
+          "firered_sprite": "OBJ_EVENT_GFX_POKE_MANIAC",
+          "text": [
+            "TRAINER_JOHTO_ZACH",
+            "Route44_Text_PokemaniacZachSeen",
+            "Route44_Text_PokemaniacZachBeaten",
+            "Route44_Text_PokemaniacZachAfter"
+          ],
+          "note": "",
+          "x": 49,
+          "y": 3
+        },
+        {
+          "kind": "trainer",
+          "source_index": 4,
+          "source_script": "Route44_EventScript_Allen",
+          "source_sprite": "OBJ_EVENT_GFX_COOLTRAINER_M",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_M",
+          "text": [
+            "TRAINER_JOHTO_ALLEN",
+            "Route44_Text_CooltrainermAllenSeen",
+            "Route44_Text_CooltrainermAllenBeaten",
+            "Route44_Text_CooltrainermAllenAfter"
+          ],
+          "note": "",
+          "x": 64,
+          "y": 13
+        },
+        {
+          "kind": "trainer",
+          "source_index": 5,
+          "source_script": "Route44_EventScript_Cybil",
+          "source_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": [
+            "TRAINER_JOHTO_CYBIL",
+            "Route44_Text_CooltrainerfCybilSeen",
+            "Route44_Text_CooltrainerfCybilBeaten",
+            "Route44_Text_CooltrainerfCybilAfter"
+          ],
+          "note": "",
+          "x": 46,
+          "y": 22
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 6,
+          "source_script": "Route44_EventScript_Item_Elixir",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Elixir",
+          "x": 41,
+          "y": 12
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 7,
+          "source_script": "Route44_EventScript_Item_MaxRepel",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Max Repel",
+          "x": 69,
+          "y": 18
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 8,
+          "source_script": "Route44_EventScript_Item_UltraBall",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Ultra Ball",
+          "x": 13,
+          "y": 3
+        },
+        {
+          "kind": "trainer",
+          "source_index": 26,
+          "source_script": "Route44_EventScript_Vance",
+          "source_sprite": "OBJ_EVENT_GFX_ROCKER",
+          "firered_sprite": "OBJ_EVENT_GFX_ROCKER",
+          "text": [
+            "TRAINER_JOHTO_VANCE",
+            "Route44_Text_BirdKeeperVance1Seen",
+            "Route44_Text_BirdKeeperVance1Beaten",
+            "Route44_Text_BirdKeeperVanceBirds"
+          ],
+          "note": "",
+          "x": 17,
+          "y": 20
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route44_EventScript_Sign1",
+          "text": "Route44_Text_Sign1",
+          "x": 66,
+          "y": 13
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "Route44_EventScript_Sign2",
+          "text": "Route44_Text_Sign2",
+          "x": 5,
+          "y": 17
+        }
+      ]
+    },
+    "Johto_Route46": {
+      "source": "HNS_modern/Route46",
+      "events": [
+        {
+          "kind": "itemflag",
+          "source_index": 3,
+          "source_script": "Route46_EventScript_Item_Revive",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Revive",
+          "x": 2,
+          "y": 21
+        },
+        {
+          "kind": "trainer",
+          "source_index": 4,
+          "source_script": "Route46_EventScript_Ted",
+          "source_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "firered_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "text": [
+            "TRAINER_JOHTO_TED",
+            "Route46_Text_CamperTedSeen",
+            "Route46_Text_CamperTedBeaten",
+            "Route46_Text_CamperTedAfterBattle"
+          ],
+          "note": "",
+          "x": 6,
+          "y": 18
+        },
+        {
+          "kind": "trainer",
+          "source_index": 5,
+          "source_script": "Route46_EventScript_Erin",
+          "source_sprite": "OBJ_EVENT_GFX_PICNICKER",
+          "firered_sprite": "OBJ_EVENT_GFX_PICNICKER",
+          "text": [
+            "TRAINER_JOHTO_ERIN",
+            "Route46_Text_PicnickerErinSeen",
+            "Route46_Text_PicnickerErinBeaten",
+            "Route46_Text_PicnickerErinAfterBattle"
+          ],
+          "note": "",
+          "x": 4,
+          "y": 18
+        },
+        {
+          "kind": "trainer",
+          "source_index": 6,
+          "source_script": "Route46_EventScript_Bailey",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_JOHTO_BAILEY",
+            "Route46_Text_HikerBaileySeen",
+            "Route46_Text_HikerBaileyBeaten",
+            "Route46_Text_HikerBaileyAfterBattle"
+          ],
+          "note": "",
+          "x": 19,
+          "y": 25
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route46_EventScript_Sign",
+          "text": "Route46_Text_Sign",
+          "x": 11,
+          "y": 35
+        }
+      ]
+    },
     "Johto_Gate_EcruteakCity_Route42": {
       "source": "HNS_modern/Gate_EcruteakCity_Route42",
       "events": [
