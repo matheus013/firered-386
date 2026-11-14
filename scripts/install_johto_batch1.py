@@ -75,6 +75,12 @@ TOWNS = [
      'heal': (27, 49), 'flag': 'FLAG_0x8D2',
      'closed': ['IcePath_1F', 'DragonsDenEntrance', 'BlackthornCity_Gym', 'BlackthornCity_House1',
                 'BlackthornCity_House2', 'BlackthornCity_House3']},
+    # Batch 14: Cianwood City. The pharmacy door leads to the FireRed Mart (HGSS pharmacy list).
+    {'town': 'CianwoodCity', 'doors': [((31, 45), 'PokemonCenter_1F'), ((23, 51), 'Mart')],
+     'mart': ['ITEM_POTION', 'ITEM_SUPER_POTION', 'ITEM_HYPER_POTION', 'ITEM_FULL_HEAL', 'ITEM_REVIVE'],
+     'heal': (31, 46), 'flag': 'FLAG_0x8D4',
+     'closed': ['CianwoodHouse1', 'CliffEdgeGate', 'CianwoodHouse2', 'CianwoodHouse3', 'CianwoodGym',
+                'WhirlIslands_1F', 'Gate_Route40_TrainerHillCourtyard', 'TrainerHillCourtyard']},
 ]
 
 

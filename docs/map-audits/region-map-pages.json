@@ -37,7 +37,6 @@
     ],
     "sections_dropped": [
       "MAPSEC_BURNED_TOWER",
-      "MAPSEC_CIANWOOD_CITY",
       "MAPSEC_CLIFF_CAVE",
       "MAPSEC_DARK_CAVE",
       "MAPSEC_DRAGONS_DEN",
@@ -52,8 +51,6 @@
       "MAPSEC_ROUTE_26",
       "MAPSEC_ROUTE_27",
       "MAPSEC_ROUTE_28",
-      "MAPSEC_ROUTE_40",
-      "MAPSEC_ROUTE_41",
       "MAPSEC_ROUTE_47",
       "MAPSEC_ROUTE_48",
       "MAPSEC_RUINS_OF_ALPH",

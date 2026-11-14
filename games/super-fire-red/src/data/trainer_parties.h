@@ -17629,3 +17629,194 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HoennShayla[] = {
     .species = SPECIES_ROSELIA,
     }
 };
+
+// Region geography: HNS_modern TRAINER_ELAINE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoElaine[] = {
+    {
+    .iv = 0,
+    .lvl = 85,
+    .species = SPECIES_STARMIE,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_SIMON, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoSimon[] = {
+    {
+    .iv = 0,
+    .lvl = 85,
+    .species = SPECIES_TENTACOOL,
+    },
+    {
+    .iv = 0,
+    .lvl = 85,
+    .species = SPECIES_TENTACOOL,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_PAULA, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoPaula[] = {
+    {
+    .iv = 0,
+    .lvl = 85,
+    .species = SPECIES_STARYU,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_SHELLDER,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_RANDALL, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoRandall[] = {
+    {
+    .iv = 0,
+    .lvl = 85,
+    .species = SPECIES_SHELLDER,
+    },
+    {
+    .iv = 0,
+    .lvl = 85,
+    .species = SPECIES_WARTORTLE,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_BERKE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoBerke[] = {
+    {
+    .iv = 0,
+    .lvl = 87,
+    .species = SPECIES_QWILFISH,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_CHARLIE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoCharlie[] = {
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_CLOYSTER,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_TENTACRUEL,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_DENISE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoDenise[] = {
+    {
+    .iv = 0,
+    .lvl = 87,
+    .species = SPECIES_LAPRAS,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_KARA, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoKara[] = {
+    {
+    .iv = 0,
+    .lvl = 85,
+    .species = SPECIES_HORSEA,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_STARMIE,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_KAYLEE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoKaylee[] = {
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_SEAKING,
+    },
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_LANTURN,
+    },
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_QUAGSIRE,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_GEORGE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoGeorge[] = {
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_TENTACOOL,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_REMORAID,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_STARYU,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_KIRK, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoKirk[] = {
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_GYARADOS,
+    },
+    {
+    .iv = 0,
+    .lvl = 84,
+    .species = SPECIES_GYARADOS,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_SUSIE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoSusie[] = {
+    {
+    .iv = 0,
+    .lvl = 87,
+    .species = SPECIES_PSYDUCK,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_SEAKING,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_MATHEW, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoMathew[] = {
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_KRABBY,
+    },
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_QWILFISH,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_WENDY, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoWendy[] = {
+    {
+    .iv = 0,
+    .lvl = 86,
+    .species = SPECIES_HORSEA,
+    },
+    {
+    .iv = 0,
+    .lvl = 87,
+    .species = SPECIES_SEADRA,
+    }
+};

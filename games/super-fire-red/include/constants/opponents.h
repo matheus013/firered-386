@@ -874,6 +874,20 @@
 #define TRAINER_HOENN_TRENT                              867  // ids 768+ use EXTRA_TRAINER_FLAGS_START
 #define TRAINER_HOENN_BRYANT                             868  // ids 768+ use EXTRA_TRAINER_FLAGS_START
 #define TRAINER_HOENN_SHAYLA                             869  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_ELAINE                             870  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_SIMON                              871  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_PAULA                              872  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_RANDALL                            873  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_BERKE                              874  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_CHARLIE                            875  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_DENISE                             876  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_KARA                               877  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_KAYLEE                             878  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_GEORGE                             879  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_KIRK                               880  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_SUSIE                              881  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_MATHEW                             882  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_JOHTO_WENDY                              883  // ids 768+ use EXTRA_TRAINER_FLAGS_START
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
@@ -932,7 +946,7 @@
 #define TRAINER_HOENN_DEVAN                              TRAINER_MAGMA_GRUNT_M
 #define TRAINER_HOENN_MIKE                               TRAINER_MAMGA_GRUNT_F
 
-#define NUM_TRAINERS                             870
+#define NUM_TRAINERS                             884
 #define MAX_TRAINERS_COUNT                       768
 // Ids from MAX_TRAINERS_COUNT up keep their flags in EXTRA_TRAINER_FLAGS_START (constants/flags.h); NUM_TRAINERS must fit
 // in MAX_TRAINERS_COUNT + EXTRA_TRAINER_FLAGS_COUNT (216), checked in battle_setup.c.

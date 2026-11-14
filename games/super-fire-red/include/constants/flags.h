@@ -1570,6 +1570,7 @@
 #define FLAG_WORLD_MAP_VERDANTURF_TOWN                             FLAG_0x8CD
 #define FLAG_WORLD_MAP_OLIVINE_CITY                                FLAG_0x8CE
 #define FLAG_WORLD_MAP_MAUVILLE_CITY                               FLAG_0x8CF
+#define FLAG_WORLD_MAP_CIANWOOD_CITY                               FLAG_0x8D4
 #define FLAG_WORLD_MAP_LAVARIDGE_TOWN                              FLAG_0x8D3
 #define FLAG_WORLD_MAP_BLACKTHORN_CITY                             FLAG_0x8D2
 #define FLAG_WORLD_MAP_SLATEPORT_CITY                              FLAG_0x8D1

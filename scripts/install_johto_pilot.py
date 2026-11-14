@@ -47,7 +47,9 @@ MAPS = ['NewBarkTown', 'Route29', 'NewBarkTown_PlayersHouse_1F', 'NewBarkTown_Pl
         # Johto batch 12: Route 44 east of Mahogany (Cianwood secondary) and Route 46 north of Route 29's gate
         'Route44', 'Route46',
         # Johto batch 13: Route 45 down from Blackthorn City (Blackthorn secondary)
-        'Route45', 'BlackthornCity']
+        'Route45', 'BlackthornCity',
+        # Johto batch 14: the sea west of Olivine (Routes 40 and 41) and Cianwood City
+        'Route40', 'Route41', 'CianwoodCity']
 TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animation init)
     'gTileset_Johto_General': ('JohtoPilotGeneral', 'primary/johto_general', 'primary/johto_pilot_general', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_NewBarkTown': ('JohtoPilotNewBarkTown', 'secondary/new_bark_town', 'secondary/johto_pilot_new_bark_town', 'NULL'),
@@ -115,29 +117,38 @@ RULES = {
     'MB_SLOT_MACHINE': (0x00000000, 'no code uses it in HNS'),
     'MB_SEAWEED_NO_SURFACING': (0x00000000, 'one Mahogany Pokemon Center roof tile (blocked cell); normal here'),
     'MB_BRIDGE_OVER_OCEAN': (0x00000000, 'Route 44 bridge; FireRed has no bridge behavior (elevation and collision stay)'),
+    'MB_DEEP_WATER': (0x02000412, 'same name (Route 41, Cianwood): surfable, water terrain, water encounters'),
+    'MB_WATER_SOUTH_ARROW_WARP': (0x02000415, 'FireRed has no water arrow warp; ocean water (Route 40 <-> 41 also connect)'),
+    'MB_WATER_NORTH_ARROW_WARP': (0x02000415, 'FireRed has no water arrow warp; ocean water (Route 40 <-> 41 also connect)'),
+    'MB_CABLE_BOX_RESULTS_1': (0x00000000, 'one Cianwood decoration tile; no FireRed behavior'),
     'MB_SIDEWAYS_STAIRS_LEFT_SIDE_TOP': (0x00000000, 'FireRed has no sideways stairs; walks straight'),
 }
 MUSIC = {'MUS_HG_NEW_BARK': 'MUS_PALLET', 'MUS_HG_ROUTE29': 'MUS_ROUTE1', 'MUS_HG_ELM_LAB': 'MUS_OAK_LAB',
          'MUS_HG_CHERRYGROVE': 'MUS_VERMILLION', 'MUS_HG_ROUTE30': 'MUS_ROUTE24',
          'MUS_HG_VIOLET': 'MUS_FUCHSIA', 'MUS_HG_AZALEA': 'MUS_CINNABAR', 'MUS_HG_UNION_CAVE': 'MUS_MT_MOON', 'MUS_HG_ROUTE34': 'MUS_ROUTE11',
-         'MUS_HG_GOLDENROD': 'MUS_CELADON', 'MUS_HG_ECRUTEAK': 'MUS_LAVENDER', 'MUS_HG_ROUTE38': 'MUS_ROUTE3', 'MUS_HG_ROUTE42': 'MUS_ROUTE11'}
+         'MUS_HG_GOLDENROD': 'MUS_CELADON', 'MUS_HG_ECRUTEAK': 'MUS_LAVENDER', 'MUS_HG_ROUTE38': 'MUS_ROUTE3', 'MUS_HG_ROUTE42': 'MUS_ROUTE11',
+         'MUS_HG_CIANWOOD': 'MUS_CINNABAR'}
 DOORS = [  # metatile, HNS door image, FireRed name, palette (all 8 entries), sound, secondary tileset
     (0x2CB, 'cerulean.png', 'new_bark_blue', 7, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),
     (0x309, 'NewBarkTown_Door_Yellow.png', 'new_bark_yellow', 5, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),
     # METATILE_Johto_General_Door_Sliding: Cherrygrove's Pokemon Center and Mart (HNS sDoorAnimPalettes_PokeCenter)
-    (0x062, 'johtopokecenter.png', 'sliding', 3, 'DOOR_SOUND_SLIDING', ('CherrygroveCity', 'VioletCity', 'Route32', 'AzaleaTown', 'Goldenrod', 'Ecruteak_City', 'OlivineCity', 'MahoganyTown', 'Blackthorn')),
+    (0x062, 'johtopokecenter.png', 'sliding', 3, 'DOOR_SOUND_SLIDING', ('CherrygroveCity', 'VioletCity', 'Route32', 'AzaleaTown', 'Goldenrod', 'Ecruteak_City', 'OlivineCity', 'MahoganyTown', 'Blackthorn', 'CianwoodCity')),
     # METATILE_Johto_General_Door_Gym: Goldenrod's Dept. Store door (HNS sDoorAnimPalettes_Gym)
     (0x15B, 'johtogym.png', 'gym', 3, 'DOOR_SOUND_SLIDING', ('Goldenrod',)),
     # METATILE_61_azalea_Azalea: Mahogany's shop door (HNS looks doors up by metatile only; Azalea image and palette)
     (0x2A2, 'NewBarkTown_Door_Yellow.png', 'mahogany_shop', 5, 'DOOR_SOUND_NORMAL', 'MahoganyTown'),
+    # METATILE_CianwoodSafariGate_Cianwood: Cianwood's pharmacy door (HNS sDoorAnimTiles_Cianwood, palette 11)
+    (0x29A, 'cianwood.png', 'cianwood_pharmacy', 11, 'DOOR_SOUND_NORMAL', 'CianwoodCity'),
 ]
 DOOR_TABLES = {'NewBarkTown': 'sJohtoPilotDoors', 'CherrygroveCity': 'sJohtoPilotDoors_Cherrygrove',
                'VioletCity': 'sJohtoPilotDoors_Violet', 'Route32': 'sJohtoPilotDoors_Route32',
                'AzaleaTown': 'sJohtoPilotDoors_Azalea', 'Goldenrod': 'sJohtoPilotDoors_Goldenrod',
                'Ecruteak_City': 'sJohtoPilotDoors_Ecruteak', 'OlivineCity': 'sJohtoPilotDoors_Olivine',
-               'MahoganyTown': 'sJohtoPilotDoors_Mahogany', 'Blackthorn': 'sJohtoPilotDoors_Blackthorn'}
+               'MahoganyTown': 'sJohtoPilotDoors_Mahogany', 'Blackthorn': 'sJohtoPilotDoors_Blackthorn',
+               'CianwoodCity': 'sJohtoPilotDoors_Cianwood'}
 DOOR_PRIMARY = {'AzaleaTown': 'gTileset_Johto_South', 'Ecruteak_City': 'gTileset_Johto_NorthWest',
-                'MahoganyTown': 'gTileset_Johto_NorthEast', 'Blackthorn': 'gTileset_Johto_NorthEast'}  # pairs on another primary than Johto General
+                'MahoganyTown': 'gTileset_Johto_NorthEast', 'Blackthorn': 'gTileset_Johto_NorthEast',
+                'CianwoodCity': 'gTileset_Johto_NorthEast'}  # pairs on another primary than Johto General
 # HNS ids without the usual word split; install_johto_batch1.py names the town interiors after the map name.
 MAP_ID_FIX = {'MahoganyTown': 'MAP_JOHTO_MAHOGANY_TOWN'}
 MARK = '// Johto pilot (scripts/install_johto_pilot.py)'
@@ -196,6 +207,18 @@ def main():
     report = {'status': 'JOHTO_PILOT_INSTALLED', 'source': 'resetes12/HNS_modern', 'tilesets': {}, 'dropped_warps': dropped,
               'behavior_rules': {k: {'firered_attribute': hex(v), 'reason': r} for k, (v, r) in RULES.items()}}
     graphics, metatiles, tileset_headers = [], [], []
+    # Check every used behavior has a rule before touching the installed tilesets: a missing rule used to
+    # stop the run after the folders were already deleted.
+    missing = sorted({f'{symbol}: {names.get(v & 255) or v & 255}'
+                      for symbol, (_n, src, _d, _a) in TILESETS.items()
+                      for index in used[symbol]
+                      for v in [struct.unpack_from('<H', (h / 'data/tilesets' / src / 'metatile_attributes.bin').read_bytes(), index * 2)[0]]
+                      if names.get(v & 255) not in RULES})
+    if missing:
+        raise ValueError('behaviors require review (nothing installed): ' + ', '.join(missing))
+    songs = sorted({headers[m]['music'] for m in MAPS if headers[m]['music'].startswith('MUS_HG_') and headers[m]['music'] not in MUSIC})
+    if songs:  # HNS-only songs do not exist in FireRed: the ROM would not link
+        raise ValueError('songs need a FireRed mapping in MUSIC (nothing installed): ' + ', '.join(songs))
     for symbol, (name, src, dst, anim) in TILESETS.items():
         source, target = h / 'data/tilesets' / src, g / 'data/tilesets' / dst
         if target.exists():

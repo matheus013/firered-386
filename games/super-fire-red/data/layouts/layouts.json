@@ -5226,6 +5226,42 @@
       "secondary_tileset": "gTileset_HoennPilotLavaridge",
       "border_filepath": "data/layouts/Hoenn_LavaridgeTown/border.bin",
       "blockdata_filepath": "data/layouts/Hoenn_LavaridgeTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE40",
+      "name": "Johto_Route40_Layout",
+      "width": 34,
+      "height": 71,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotOlivineCity",
+      "border_filepath": "data/layouts/Johto_Route40/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route40/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE41",
+      "name": "Johto_Route41_Layout",
+      "width": 74,
+      "height": 89,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotNorthEast",
+      "secondary_tileset": "gTileset_JohtoPilotCianwoodCity",
+      "border_filepath": "data/layouts/Johto_Route41/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route41/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_CIANWOOD_CITY",
+      "name": "Johto_CianwoodCity_Layout",
+      "width": 37,
+      "height": 61,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotNorthEast",
+      "secondary_tileset": "gTileset_JohtoPilotCianwoodCity",
+      "border_filepath": "data/layouts/Johto_CianwoodCity/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_CianwoodCity/map.bin"
     }
   ]
 }

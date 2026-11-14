@@ -1876,6 +1876,270 @@
       "source": {
         "repository": "HNS_modern",
         "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gRoute40",
+        "map": "MAP_ROUTE40",
+        "note": "day table"
+      },
+      "row": {
+        "map": "MAP_JOHTO_ROUTE40",
+        "base_label": "gJohtoRoute40_Pilot",
+        "water_mons": {
+          "encounter_rate": 7,
+          "mons": [
+            {
+              "min_level": 20,
+              "max_level": 24,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 21,
+              "max_level": 25,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 22,
+              "max_level": 26,
+              "species": "SPECIES_TENTACRUEL"
+            },
+            {
+              "min_level": 20,
+              "max_level": 24,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 21,
+              "max_level": 25,
+              "species": "SPECIES_SHELLDER"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_KRABBY"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_KRABBY"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_CORSOLA"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_STARYU"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_KRABBY"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_CORSOLA"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_STARYU"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_KINGLER"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gRoute41",
+        "map": "MAP_ROUTE41",
+        "note": "day table"
+      },
+      "row": {
+        "map": "MAP_JOHTO_ROUTE41",
+        "base_label": "gJohtoRoute41_Pilot",
+        "water_mons": {
+          "encounter_rate": 7,
+          "mons": [
+            {
+              "min_level": 20,
+              "max_level": 24,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 21,
+              "max_level": 25,
+              "species": "SPECIES_HORSEA"
+            },
+            {
+              "min_level": 22,
+              "max_level": 26,
+              "species": "SPECIES_MANTINE"
+            },
+            {
+              "min_level": 20,
+              "max_level": 24,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 21,
+              "max_level": 25,
+              "species": "SPECIES_HORSEA"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_CHINCHOU"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_CHINCHOU"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_LANTURN"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_TENTACRUEL"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_TENTACRUEL"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gCianwoodCity",
+        "map": "MAP_CIANWOOD_CITY",
+        "note": "day table; water left out (12 HNS slots); Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_CIANWOOD_CITY",
+        "base_label": "gJohtoCianwoodCity_Pilot",
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_CHINCHOU"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_CHINCHOU"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_SHELLDER"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_LANTURN"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_TENTACRUEL"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_TENTACRUEL"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
         "label": "gRoute45",
         "map": "MAP_ROUTE45",
         "note": "day table; water left out (12 HNS slots); Rock Smash left out"

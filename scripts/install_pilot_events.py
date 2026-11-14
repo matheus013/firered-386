@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_TUBER_M': 'OBJ_EVENT_GFX_TUBER_M_LAND', 'OBJ_EVENT_GFX_TUBER_F': 'OBJ_EVENT_GFX_TUBER_F', 'OBJ_EVENT_GFX_OLD_MAN': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_EXPERT_F': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_EXPERT_M': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_MAN_1': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_COOK': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_GIRL_1': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_POKEFAN_F': 'OBJ_EVENT_GFX_WOMAN_2', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_SWIMMER_F_WATER': 'OBJ_EVENT_GFX_SWIMMER_F_WATER', 'OBJ_EVENT_GFX_SWIMMER_M_WATER': 'OBJ_EVENT_GFX_SWIMMER_M_WATER', 'OBJ_EVENT_GFX_ENGINEER': 'OBJ_EVENT_GFX_WORKER_M', 'OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_TUBER_M': 'OBJ_EVENT_GFX_TUBER_M_LAND', 'OBJ_EVENT_GFX_TUBER_F': 'OBJ_EVENT_GFX_TUBER_F', 'OBJ_EVENT_GFX_OLD_MAN': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_EXPERT_F': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_EXPERT_M': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_MAN_1': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_COOK': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_GIRL_1': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_POKEFAN_F': 'OBJ_EVENT_GFX_WOMAN_2', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
     'OBJ_EVENT_GFX_GIRL_2': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_BOY_3': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_MAN_2': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_4': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_5': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_RICH_BOY': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_DEVON_EMPLOYEE': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_LITTLE_GIRL': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
@@ -532,6 +532,32 @@ EVENTS = {
         4: ('npc', 'BlackthornCooltrainerF1Text', ''), 5: ('npc', 'BlackBeltText_VoicesInMyHead', '')},
         {0: ('sign', 'BlackthornCity_Text_DragonDenSign'), 1: ('sign', 'BlackthornGymSignText'),
          2: ('sign', 'BlackthornCity_Text_MoveDeletersHouseSign'), 3: ('sign', 'BlackthornCitySignText')}),
+    # Johto batch 14. Every trainer here is a swimmer (Surf). Left out: Rock Smash boulders, the whirlpools and
+    # their markers (Whirl Islands stay closed), Monica (weekday sibling), Eusine, Chuck's wife (Fly gift after
+    # the Gym), the Trainer Hill gate and Cianwood's houses, Gym and cave.
+    'Route40': (HNS, {
+        4: ('trainer', ('TRAINER_JOHTO_ELAINE', 'Route40_Text_SwimmerfElaineSeen', 'Route40_Text_SwimmerfElaineBeaten', 'Route40_Text_SwimmerfElaineAfter'), ''),
+        7: ('trainer', ('TRAINER_JOHTO_SIMON', 'Route40_Text_SwimmermSimonSeen', 'Route40_Text_SwimmermSimonBeaten', 'Route40_Text_SwimmermSimonAfter'), ''),
+        8: ('trainer', ('TRAINER_JOHTO_PAULA', 'Route40_Text_SwimmerfPaulaSeen', 'Route40_Text_SwimmerfPaulaBeaten', 'Route40_Text_SwimmerfPaulaAfter'), ''),
+        9: ('trainer', ('TRAINER_JOHTO_RANDALL', 'Route40_Text_SwimmermRandallSeen', 'Route40_Text_SwimmermRandallBeaten', 'Route40_Text_SwimmermRandallAfter'), ''),
+        5: ('npc', 'Route40_Text_StandingYoungster', ''), 6: ('npc', 'Route40_Text_Lass1', '')}, {}),
+    'Route41': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_BERKE', 'Route41_Text_SwimmermBerkeSeen', 'Route41_Text_SwimmermBerkeBeaten', 'Route41_Text_SwimmermBerkeAfter'), ''),
+        1: ('trainer', ('TRAINER_JOHTO_CHARLIE', 'Route41_Text_SwimmermCharlieSeen', 'Route41_Text_SwimmermCharlieBeaten', 'Route41_Text_SwimmermCharlieAfter'), ''),
+        2: ('trainer', ('TRAINER_JOHTO_DENISE', 'Route41_Text_SwimmerfDeniseSeen', 'Route41_Text_SwimmerfDeniseBeaten', 'Route41_Text_SwimmerfDeniseAfter'), ''),
+        3: ('trainer', ('TRAINER_JOHTO_KARA', 'Route41_Text_SwimmerfKaraSeen', 'Route41_Text_SwimmerfKaraBeaten', 'Route41_Text_SwimmerfKaraAfter'), ''),
+        4: ('trainer', ('TRAINER_JOHTO_KAYLEE', 'Route41_Text_SwimmerfKayleeSeen', 'Route41_Text_SwimmerfKayleeBeaten', 'Route41_Text_SwimmerfKayleeAfter'), ''),
+        5: ('trainer', ('TRAINER_JOHTO_GEORGE', 'Route41_Text_SwimmermGeorgeSeen', 'Route41_Text_SwimmermGeorgeBeaten', 'Route41_Text_SwimmermGeorgeAfter'), ''),
+        6: ('trainer', ('TRAINER_JOHTO_KIRK', 'Route41_Text_SwimmermKirkSeen', 'Route41_Text_SwimmermKirkBeaten', 'Route41_Text_SwimmermKirkAfter'), ''),
+        7: ('trainer', ('TRAINER_JOHTO_SUSIE', 'Route41_Text_SwimmerfSusieSeen', 'Route41_Text_SwimmerfSusieBeaten', 'Route41_Text_SwimmerfSusieAfter'), ''),
+        8: ('trainer', ('TRAINER_JOHTO_MATHEW', 'Route41_Text_SwimmermMathewSeen', 'Route41_Text_SwimmermMathewBeaten', 'Route41_Text_SwimmermMathewAfter'), ''),
+        9: ('trainer', ('TRAINER_JOHTO_WENDY', 'Route41_Text_SwimmerfWendySeen', 'Route41_Text_SwimmerfWendyBeaten', 'Route41_Text_SwimmerfWendyAfter'), ''),
+        }, {}),
+    'CianwoodCity': (HNS, {
+        2: ('npc', 'CianwoodCity_Text_PokefanM', ''), 3: ('npc', 'CianwoodCity_Text_Youngster', ''),
+        4: ('npc', 'CianwoodCity_Text_Lass', ''), 20: ('npc', 'CianwoodCity_Text_Engineer', '')},
+        {0: ('sign', 'CianwoodCity_Text_Sign'), 1: ('sign', 'CianwoodCity_Text_PharmacySign'),
+         2: ('sign', 'CianwoodCity_Text_GymSign'), 3: ('sign', 'CianwoodCity_Text_Safari')}),
     'Gate_EcruteakCity_Route42': (HNS, {0: ('npc', 'Route42_Text_EcruteakGateOfficer', '')}, {}),
     'Route42': (HNS, {
         3: ('trainer', ('TRAINER_JOHTO_TULLY', 'Route42_Text_FisherTullySeen', 'Route42_Text_FisherTullyBeaten', 'Route42_Text_FisherTullyAfter'), ''), 4: ('trainer', ('TRAINER_JOHTO_SHANE', 'Route42_Text_PokemaniacShaneSeen', 'Route42_Text_PokemaniacShaneBeaten', 'Route42_Text_PokemaniacShaneAfter'), ''),
@@ -642,7 +668,8 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'MahoganyTown': 'FLAG_WORLD_MAP_MAHOGANY_TOWN',
                    'SlateportCity': 'FLAG_WORLD_MAP_SLATEPORT_CITY',
                    'BlackthornCity': 'FLAG_WORLD_MAP_BLACKTHORN_CITY',
-                   'LavaridgeTown': 'FLAG_WORLD_MAP_LAVARIDGE_TOWN'}
+                   'LavaridgeTown': 'FLAG_WORLD_MAP_LAVARIDGE_TOWN',
+                   'CianwoodCity': 'FLAG_WORLD_MAP_CIANWOOD_CITY'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),

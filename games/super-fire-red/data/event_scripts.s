@@ -612,6 +612,11 @@ gStdScriptsEnd::
 	.include "data/maps/Johto_BlackthornCity/scripts.inc"
 	.include "data/maps/Johto_BlackthornCity_PokemonCenter_1F/scripts.inc"
 	.include "data/maps/Johto_BlackthornCity_Mart/scripts.inc"
+	.include "data/maps/Johto_Route40/scripts.inc"
+	.include "data/maps/Johto_Route41/scripts.inc"
+	.include "data/maps/Johto_CianwoodCity/scripts.inc"
+	.include "data/maps/Johto_CianwoodCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Johto_CianwoodCity_Mart/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

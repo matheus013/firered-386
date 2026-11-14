@@ -2218,3 +2218,49 @@ dela.
 - as árvores de berry e o item escondido.
 
 **Resultado:** 1054 casos aprovados (eram 1018), com as 172 batalhas de rota vencidas. As caminhadas novas cruzam Route 111 → Route 112 e Lavaridge → Route 112, e entram e saem do Centro e do Mart de Lavaridge.
+
+## Johto, lote 14: Routes 40 e 41 e Cianwood City
+
+**Mapas novos:** a Route 40 (praia a oeste de Olivine, Johto General + secundário de Olivine), a
+Route 41 (o mar das Whirl Islands) e Cianwood City (Johto NorthEast + secundário de Cianwood).
+Olivine ganhou a conexão oeste. O resto do caminho até Cianwood é pelo mar, com Surf.
+
+- **Regras novas:**
+  - `MB_DEEP_WATER` tem o mesmo nome no FireRed: é água de Surf, com encontros;
+  - `MB_WATER_SOUTH_ARROW_WARP` e `MB_WATER_NORTH_ARROW_WARP` (a passagem entre as Routes 40 e 41)
+    viram água do mar, porque o FireRed não tem seta de warp na água. As duas rotas também se ligam
+    por conexão de mapa;
+  - `MB_CABLE_BOX_RESULTS_1` (um tile de Cianwood) vira normal.
+- **Instalador mais seguro:**
+  - a falta de regra apareceu no meio da instalação, quando as pastas dos tilesets do Johto já
+    tinham sido apagadas. Agora o instalador confere todas as regras antes de mexer em qualquer
+    pasta;
+  - a música `MUS_HG_CIANWOOD` não existe no FireRed, e o ROM não linkava. Ela virou `MUS_CINNABAR`,
+    e o instalador agora recusa música do HNS sem mapeamento.
+- **Cianwood:**
+  - Centro Pokémon do FireRed;
+  - a porta da farmácia leva ao Mart do FireRed, com a lista da farmácia do HGSS. A porta usa a
+    imagem `cianwood.png` com a paleta 11, como no HNS;
+  - a heal location fica em (31,46), a flag é `FLAG_WORLD_MAP_CIANWOOD_CITY` (0x8D4), e a cidade é
+    destino de Fly.
+- **Treinadores (14, IDs 870–883):** todos nadadores. Elaine, Simon, Paula e Randall (Route 40), e
+  Berke, Charlie, Denise, Kara, Kaylee, George, Kirk, Susie, Mathew e Wendy (Route 41). Como nos
+  outros lotes, o teste não batalha com nadadores, porque estão na água.
+- **Sprites:** os nadadores usam os sprites de água do FireRed (`SWIMMER_*_WATER`), e o engenheiro
+  usa `WORKER_M`.
+- **Eventos:**
+  - dois moradores da Route 40;
+  - quatro moradores de Cianwood e as placas;
+  - 52 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** água e pesca nas Routes 40 e 41, e pesca em Cianwood (a água da cidade tem
+  12 vagas no HNS).
+
+**Fica para depois:**
+
+- as Whirl Islands e os redemoinhos;
+- as pedras de Rock Smash;
+- o Ginásio do Chuck, a mulher dele (Fly) e as casas;
+- o Eusine e a Monica;
+- a Cliff Edge Cave e o portão do Trainer Hill.
+
+**Resultado:** 1070 casos aprovados (eram 1054). As 172 batalhas de rota continuam vencidas; os 14 nadadores novos não entram nessa conta. As caminhadas novas cruzam Olivine → Route 40 e Cianwood → Route 41, e entram e saem do Centro e da farmácia de Cianwood.

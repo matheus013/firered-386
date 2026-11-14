@@ -666,7 +666,10 @@
     "Johto_Route45",
     "Johto_BlackthornCity",
     "Hoenn_Route112",
-    "Hoenn_LavaridgeTown"
+    "Hoenn_LavaridgeTown",
+    "Johto_Route40",
+    "Johto_Route41",
+    "Johto_CianwoodCity"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -770,6 +773,11 @@
     "Johto_Route45",
     "Johto_BlackthornCity",
     "Johto_BlackthornCity_PokemonCenter_1F",
-    "Johto_BlackthornCity_Mart"
+    "Johto_BlackthornCity_Mart",
+    "Johto_Route40",
+    "Johto_Route41",
+    "Johto_CianwoodCity",
+    "Johto_CianwoodCity_PokemonCenter_1F",
+    "Johto_CianwoodCity_Mart"
   ]
 }

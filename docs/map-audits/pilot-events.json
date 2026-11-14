@@ -6654,6 +6654,343 @@
         }
       ]
     },
+    "Johto_Route40": {
+      "source": "HNS_modern/Route40",
+      "events": [
+        {
+          "kind": "trainer",
+          "source_index": 4,
+          "source_script": "Route40_EventScript_Elaine",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "text": [
+            "TRAINER_JOHTO_ELAINE",
+            "Route40_Text_SwimmerfElaineSeen",
+            "Route40_Text_SwimmerfElaineBeaten",
+            "Route40_Text_SwimmerfElaineAfter"
+          ],
+          "note": "",
+          "x": 11,
+          "y": 41
+        },
+        {
+          "kind": "npc",
+          "source_index": 5,
+          "source_script": "Route40_EventScript_Youngster",
+          "source_sprite": "OBJ_EVENT_GFX_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "Route40_Text_StandingYoungster",
+          "note": "",
+          "x": 25,
+          "y": 21
+        },
+        {
+          "kind": "npc",
+          "source_index": 6,
+          "source_script": "Route40_EventScript_Woman1",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": "Route40_Text_Lass1",
+          "note": "",
+          "x": 21,
+          "y": 18
+        },
+        {
+          "kind": "trainer",
+          "source_index": 7,
+          "source_script": "Route40_EventScript_Simon",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "text": [
+            "TRAINER_JOHTO_SIMON",
+            "Route40_Text_SwimmermSimonSeen",
+            "Route40_Text_SwimmermSimonBeaten",
+            "Route40_Text_SwimmermSimonAfter"
+          ],
+          "note": "",
+          "x": 13,
+          "y": 26
+        },
+        {
+          "kind": "trainer",
+          "source_index": 8,
+          "source_script": "Route40_EventScript_Paula",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "text": [
+            "TRAINER_JOHTO_PAULA",
+            "Route40_Text_SwimmerfPaulaSeen",
+            "Route40_Text_SwimmerfPaulaBeaten",
+            "Route40_Text_SwimmerfPaulaAfter"
+          ],
+          "note": "",
+          "x": 26,
+          "y": 28
+        },
+        {
+          "kind": "trainer",
+          "source_index": 9,
+          "source_script": "Route40_EventScript_Randall",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "text": [
+            "TRAINER_JOHTO_RANDALL",
+            "Route40_Text_SwimmermRandallSeen",
+            "Route40_Text_SwimmermRandallBeaten",
+            "Route40_Text_SwimmermRandallAfter"
+          ],
+          "note": "",
+          "x": 22,
+          "y": 50
+        }
+      ]
+    },
+    "Johto_Route41": {
+      "source": "HNS_modern/Route41",
+      "events": [
+        {
+          "kind": "trainer",
+          "source_index": 0,
+          "source_script": "Route41_EventScript_Berke",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "text": [
+            "TRAINER_JOHTO_BERKE",
+            "Route41_Text_SwimmermBerkeSeen",
+            "Route41_Text_SwimmermBerkeBeaten",
+            "Route41_Text_SwimmermBerkeAfter"
+          ],
+          "note": "",
+          "x": 51,
+          "y": 21
+        },
+        {
+          "kind": "trainer",
+          "source_index": 1,
+          "source_script": "Route41_EventScript_Charlie",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "text": [
+            "TRAINER_JOHTO_CHARLIE",
+            "Route41_Text_SwimmermCharlieSeen",
+            "Route41_Text_SwimmermCharlieBeaten",
+            "Route41_Text_SwimmermCharlieAfter"
+          ],
+          "note": "",
+          "x": 30,
+          "y": 18
+        },
+        {
+          "kind": "trainer",
+          "source_index": 2,
+          "source_script": "Route41_EventScript_Denise",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "text": [
+            "TRAINER_JOHTO_DENISE",
+            "Route41_Text_SwimmerfDeniseSeen",
+            "Route41_Text_SwimmerfDeniseBeaten",
+            "Route41_Text_SwimmerfDeniseAfter"
+          ],
+          "note": "",
+          "x": 15,
+          "y": 19
+        },
+        {
+          "kind": "trainer",
+          "source_index": 3,
+          "source_script": "Route41_EventScript_Kara",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "text": [
+            "TRAINER_JOHTO_KARA",
+            "Route41_Text_SwimmerfKaraSeen",
+            "Route41_Text_SwimmerfKaraBeaten",
+            "Route41_Text_SwimmerfKaraAfter"
+          ],
+          "note": "",
+          "x": 34,
+          "y": 29
+        },
+        {
+          "kind": "trainer",
+          "source_index": 4,
+          "source_script": "Route41_EventScript_Kaylee",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "text": [
+            "TRAINER_JOHTO_KAYLEE",
+            "Route41_Text_SwimmerfKayleeSeen",
+            "Route41_Text_SwimmerfKayleeBeaten",
+            "Route41_Text_SwimmerfKayleeAfter"
+          ],
+          "note": "",
+          "x": 64,
+          "y": 34
+        },
+        {
+          "kind": "trainer",
+          "source_index": 5,
+          "source_script": "Route41_EventScript_George",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "text": [
+            "TRAINER_JOHTO_GEORGE",
+            "Route41_Text_SwimmermGeorgeSeen",
+            "Route41_Text_SwimmermGeorgeBeaten",
+            "Route41_Text_SwimmermGeorgeAfter"
+          ],
+          "note": "",
+          "x": 38,
+          "y": 77
+        },
+        {
+          "kind": "trainer",
+          "source_index": 6,
+          "source_script": "Route41_EventScript_Kirk",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "text": [
+            "TRAINER_JOHTO_KIRK",
+            "Route41_Text_SwimmermKirkSeen",
+            "Route41_Text_SwimmermKirkBeaten",
+            "Route41_Text_SwimmermKirkAfter"
+          ],
+          "note": "",
+          "x": 28,
+          "y": 40
+        },
+        {
+          "kind": "trainer",
+          "source_index": 7,
+          "source_script": "Route41_EventScript_Susie",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "text": [
+            "TRAINER_JOHTO_SUSIE",
+            "Route41_Text_SwimmerfSusieSeen",
+            "Route41_Text_SwimmerfSusieBeaten",
+            "Route41_Text_SwimmerfSusieAfter"
+          ],
+          "note": "",
+          "x": 63,
+          "y": 62
+        },
+        {
+          "kind": "trainer",
+          "source_index": 8,
+          "source_script": "Route41_EventScript_Mathew",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+          "text": [
+            "TRAINER_JOHTO_MATHEW",
+            "Route41_Text_SwimmermMathewSeen",
+            "Route41_Text_SwimmermMathewBeaten",
+            "Route41_Text_SwimmermMathewAfter"
+          ],
+          "note": "",
+          "x": 9,
+          "y": 62
+        },
+        {
+          "kind": "trainer",
+          "source_index": 9,
+          "source_script": "Route41_EventScript_Wendy",
+          "source_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "firered_sprite": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+          "text": [
+            "TRAINER_JOHTO_WENDY",
+            "Route41_Text_SwimmerfWendySeen",
+            "Route41_Text_SwimmerfWendyBeaten",
+            "Route41_Text_SwimmerfWendyAfter"
+          ],
+          "note": "",
+          "x": 35,
+          "y": 54
+        }
+      ]
+    },
+    "Johto_CianwoodCity": {
+      "source": "HNS_modern/CianwoodCity",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 2,
+          "source_script": "CianwoodCity_EventScript_PokefanM",
+          "source_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "text": "CianwoodCity_Text_PokefanM",
+          "note": "",
+          "x": 20,
+          "y": 36
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "CianwoodCity_EventScript_Youngster",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": "CianwoodCity_Text_Youngster",
+          "note": "",
+          "x": 27,
+          "y": 41
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "CianwoodCity_EventScript_Lass",
+          "source_sprite": "OBJ_EVENT_GFX_BATTLE_GIRL",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": "CianwoodCity_Text_Lass",
+          "note": "",
+          "x": 20,
+          "y": 54
+        },
+        {
+          "kind": "npc",
+          "source_index": 20,
+          "source_script": "CianwoodCity_EventScript_Engineer",
+          "source_sprite": "OBJ_EVENT_GFX_ENGINEER",
+          "firered_sprite": "OBJ_EVENT_GFX_WORKER_M",
+          "text": "CianwoodCity_Text_Engineer",
+          "note": "",
+          "x": 0,
+          "y": 34
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "CianwoodCity_EventScript_CitySign",
+          "text": "CianwoodCity_Text_Sign",
+          "x": 33,
+          "y": 48
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "CianwoodCity_EventScript_Pharmacy",
+          "text": "CianwoodCity_Text_PharmacySign",
+          "x": 21,
+          "y": 51
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "CianwoodCity_EventScript_GymSign",
+          "text": "CianwoodCity_Text_GymSign",
+          "x": 17,
+          "y": 44
+        },
+        {
+          "kind": "sign",
+          "source_index": 3,
+          "source_script": "CianwoodCity_EventScript_CaveSign",
+          "text": "CianwoodCity_Text_Safari",
+          "x": 14,
+          "y": 33
+        }
+      ]
+    },
     "Johto_Gate_EcruteakCity_Route42": {
       "source": "HNS_modern/Gate_EcruteakCity_Route42",
       "events": [
