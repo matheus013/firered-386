@@ -17950,3 +17950,219 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HoennCoby[] = {
     .species = SPECIES_SWELLOW,
     }
 };
+
+// Region geography: HNS_modern TRAINER_MEGAN, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoMegan[] = {
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_TANGELA,
+    },
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_VENUSAUR,
+    },
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_VICTREEBEL,
+    },
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_BELLOSSOM,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_BRIAN, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoBrian[] = {
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_SANDSLASH,
+    },
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_SCIZOR,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_SNEASEL,
+    },
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_URSARING,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_JOSE, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoJose[] = {
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_FEAROW,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_FARFETCHD,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_PIDGEOT,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_DODRIO,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_BLAKE, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoBlake[] = {
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_MAGNETON,
+    },
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_QUAGSIRE,
+    },
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_EXEGGUTOR,
+    },
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_PILOSWINE,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_GILBERT, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoGilbert[] = {
+    {
+    .iv = 0,
+    .lvl = 87,
+    .species = SPECIES_XATU,
+    },
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_EXEGGUTOR,
+    },
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_GIRAFARIG,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_REENA, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoReena[] = {
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_STARMIE,
+    },
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_NIDOQUEEN,
+    },
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_VILEPLUME,
+    },
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_ELECTRODE,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_STARMIE,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_SCOTT, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoScott[] = {
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_QWILFISH,
+    },
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_SEAKING,
+    },
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_GYARADOS,
+    },
+    {
+    .iv = 0,
+    .lvl = 88,
+    .species = SPECIES_QUAGSIRE,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_RICHARD, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoRichard[] = {
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_ESPEON,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_MR_MIME,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_SLOWKING,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_GAVEN, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoGaven[] = {
+    {
+    .iv = 0,
+    .lvl = 95,
+    .species = SPECIES_VICTREEBEL,
+    },
+    {
+    .iv = 0,
+    .lvl = 95,
+    .species = SPECIES_KINGLER,
+    },
+    {
+    .iv = 0,
+    .lvl = 95,
+    .species = SPECIES_FLAREON,
+    },
+    {
+    .iv = 0,
+    .lvl = 95,
+    .species = SPECIES_DONPHAN,
+    },
+    {
+    .iv = 0,
+    .lvl = 95,
+    .species = SPECIES_DRAGONAIR,
+    }
+};

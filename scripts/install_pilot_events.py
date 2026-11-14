@@ -582,6 +582,24 @@ EVENTS = {
         4: ('npc', 'CianwoodCity_Text_Lass', ''), 20: ('npc', 'CianwoodCity_Text_Engineer', '')},
         {0: ('sign', 'CianwoodCity_Text_Sign'), 1: ('sign', 'CianwoodCity_Text_PharmacySign'),
          2: ('sign', 'CianwoodCity_Text_GymSign'), 3: ('sign', 'CianwoodCity_Text_Safari')}),
+    # Johto batch 15. Left out: Tohjo Falls, the Route 27 house, the Route 26 houses and gate, Route 26's north
+    # half (Jake and Joyce stand there, outside this map), the berry tree and the decorative Pokemon.
+    'Route27': (HNS, {
+        1: ('trainer', ('TRAINER_JOHTO_MEGAN', 'Route27_Text_CooltrainerfMeganSeen', 'Route27_Text_CooltrainerfMeganBeaten', 'Route27_Text_CooltrainerfMeganAfter'), ''),
+        2: ('trainer', ('TRAINER_JOHTO_BRIAN', 'Route27_Text_CooltrainermBrianSeen', 'Route27_Text_CooltrainermBrianBeaten', 'Route27_Text_CooltrainermBrianAfter'), ''),
+        3: ('trainer', ('TRAINER_JOHTO_JOSE', 'Route27_Text_BirdKeeperJoseSeen', 'Route27_Text_BirdKeeperJoseBeaten', 'Route27_Text_BirdKeeperJoseAfter'), ''),
+        4: ('trainer', ('TRAINER_JOHTO_BLAKE', 'Route27_Text_CooltrainermBlakeSeen', 'Route27_Text_CooltrainermBlakeBeaten', 'Route27_Text_CooltrainermBlakeAfter'), ''),
+        7: ('trainer', ('TRAINER_JOHTO_GILBERT', 'Route27_Text_PsychicGilbertSeen', 'Route27_Text_PsychicGilbertBeaten', 'Route27_Text_PsychicGilbertAfter'), ''),
+        8: ('trainer', ('TRAINER_JOHTO_REENA', 'Route27_Text_CooltrainerfReenaSeen', 'Route27_Text_CooltrainerfReenaBeaten', 'Route27_Text_CooltrainerfReenaAfter'), ''),
+        9: ('trainer', ('TRAINER_JOHTO_SCOTT', 'Route27_Text_FisherScottSeen', 'Route27_Text_FisherScottBeaten', 'Route27_Text_FisherScottAfter'), ''),
+        0: ('npc', 'Route27_Text_FisherMessage', ''),
+        5: ('itemflag', None, 'Rare Candy'), 6: ('itemflag', None, 'Moon Stone'), 18: ('itemflag', None, 'TM22 Solar Beam'),
+        19: ('itemflag', None, 'Revive')},
+        {0: ('sign', 'TohjoFalls_Text_Sign'), 1: ('sign', 'TohjoFalls_Text_Sign')}),
+    'Route26': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_RICHARD', 'Route26_Text_PsychicRichardSeen', 'Route26_Text_PsychicRichardBeaten', 'Route26_Text_PsychicRichardAfter'), ''),
+        14: ('trainer', ('TRAINER_JOHTO_GAVEN', 'Route26_Text_CooltrainermGavenSeen', 'Route26_Text_CooltrainermGavenBeaten', 'Route26_Text_CooltrainermGavenAfter'), ''),
+        }, {}),
     'Gate_EcruteakCity_Route42': (HNS, {0: ('npc', 'Route42_Text_EcruteakGateOfficer', '')}, {}),
     'Route42': (HNS, {
         3: ('trainer', ('TRAINER_JOHTO_TULLY', 'Route42_Text_FisherTullySeen', 'Route42_Text_FisherTullyBeaten', 'Route42_Text_FisherTullyAfter'), ''), 4: ('trainer', ('TRAINER_JOHTO_SHANE', 'Route42_Text_PokemaniacShaneSeen', 'Route42_Text_PokemaniacShaneBeaten', 'Route42_Text_PokemaniacShaneAfter'), ''),
@@ -779,6 +797,10 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route113', 5): ('ITEM_MAX_ETHER', 'FLAG_HIDE_HOENN_ROUTE113_MAX_ETHER', 'FLAG_0x100'),
               ('Route113', 6): ('ITEM_SUPER_REPEL', 'FLAG_HIDE_HOENN_ROUTE113_SUPER_REPEL', 'FLAG_0x101'),
               ('Route113', 11): ('ITEM_HYPER_POTION', 'FLAG_HIDE_HOENN_ROUTE113_HYPER_POTION', 'FLAG_0x102'),
+              ('Route27', 5): ('ITEM_RARE_CANDY', 'FLAG_HIDE_JOHTO_ROUTE27_RARE_CANDY', 'FLAG_0x103'),
+              ('Route27', 6): ('ITEM_MOON_STONE', 'FLAG_HIDE_JOHTO_ROUTE27_MOON_STONE', 'FLAG_0x104'),
+              ('Route27', 18): ('ITEM_TM22', 'FLAG_HIDE_JOHTO_ROUTE27_TM_SOLAR_BEAM', 'FLAG_0x105'),
+              ('Route27', 19): ('ITEM_REVIVE', 'FLAG_HIDE_JOHTO_ROUTE27_REVIVE', 'FLAG_0x106'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Emerald movement types FireRed lacks -> the closest FireRed one.

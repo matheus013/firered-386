@@ -671,7 +671,9 @@
     "Johto_Route41",
     "Johto_CianwoodCity",
     "Hoenn_Route113",
-    "Hoenn_FallarborTown"
+    "Hoenn_FallarborTown",
+    "Johto_Route27",
+    "Johto_Route26"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -784,6 +786,8 @@
     "Johto_Route41",
     "Johto_CianwoodCity",
     "Johto_CianwoodCity_PokemonCenter_1F",
-    "Johto_CianwoodCity_Mart"
+    "Johto_CianwoodCity_Mart",
+    "Johto_Route27",
+    "Johto_Route26"
   ]
 }

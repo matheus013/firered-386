@@ -5286,6 +5286,30 @@
       "secondary_tileset": "gTileset_HoennPilotFallarbor",
       "border_filepath": "data/layouts/Hoenn_FallarborTown/border.bin",
       "blockdata_filepath": "data/layouts/Hoenn_FallarborTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE27",
+      "name": "Johto_Route27_Layout",
+      "width": 160,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotNewBarkTown",
+      "border_filepath": "data/layouts/Johto_Route27/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route27/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE26",
+      "name": "Johto_Route26_Layout",
+      "width": 39,
+      "height": 81,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotBlackthorn",
+      "border_filepath": "data/layouts/Johto_Route26/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route26/map.bin"
     }
   ]
 }

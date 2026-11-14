@@ -5031,6 +5031,312 @@
           0
         ]
       ]
+    },
+    "TRAINER_JOHTO_MEGAN": {
+      "new": true,
+      "party": "sParty_JohtoMegan",
+      "name": "MEGAN",
+      "source": "TRAINER_MEGAN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_TANGELA",
+          44,
+          0
+        ],
+        [
+          "SPECIES_VENUSAUR",
+          44,
+          0
+        ],
+        [
+          "SPECIES_VICTREEBEL",
+          44,
+          0
+        ],
+        [
+          "SPECIES_BELLOSSOM",
+          44,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_BRIAN": {
+      "new": true,
+      "party": "sParty_JohtoBrian",
+      "name": "BRIAN",
+      "source": "TRAINER_BRIAN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SANDSLASH",
+          45,
+          0
+        ],
+        [
+          "SPECIES_SCIZOR",
+          44,
+          0
+        ],
+        [
+          "SPECIES_SNEASEL",
+          45,
+          0
+        ],
+        [
+          "SPECIES_URSARING",
+          43,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_JOSE": {
+      "new": true,
+      "party": "sParty_JohtoJose",
+      "name": "JOSE",
+      "source": "TRAINER_JOSE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_BIRD_KEEPER",
+      "trainer_pic": "TRAINER_PIC_BIRD_KEEPER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_FEAROW",
+          45,
+          0
+        ],
+        [
+          "SPECIES_FARFETCHD",
+          45,
+          0
+        ],
+        [
+          "SPECIES_PIDGEOT",
+          45,
+          0
+        ],
+        [
+          "SPECIES_DODRIO",
+          45,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_BLAKE": {
+      "new": true,
+      "party": "sParty_JohtoBlake",
+      "name": "BLAKE",
+      "source": "TRAINER_BLAKE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MAGNETON",
+          43,
+          0
+        ],
+        [
+          "SPECIES_QUAGSIRE",
+          44,
+          0
+        ],
+        [
+          "SPECIES_EXEGGUTOR",
+          43,
+          0
+        ],
+        [
+          "SPECIES_PILOSWINE",
+          44,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_GILBERT": {
+      "new": true,
+      "party": "sParty_JohtoGilbert",
+      "name": "GILBERT",
+      "source": "TRAINER_GILBERT",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_PSYCHIC",
+      "trainer_pic": "TRAINER_PIC_PSYCHIC_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_INTENSE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_XATU",
+          42,
+          0
+        ],
+        [
+          "SPECIES_EXEGGUTOR",
+          44,
+          0
+        ],
+        [
+          "SPECIES_GIRAFARIG",
+          44,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_REENA": {
+      "new": true,
+      "party": "sParty_JohtoReena",
+      "name": "REENA",
+      "source": "TRAINER_REENA",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_STARMIE",
+          44,
+          0
+        ],
+        [
+          "SPECIES_NIDOQUEEN",
+          43,
+          0
+        ],
+        [
+          "SPECIES_VILEPLUME",
+          44,
+          0
+        ],
+        [
+          "SPECIES_ELECTRODE",
+          43,
+          0
+        ],
+        [
+          "SPECIES_STARMIE",
+          45,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_SCOTT": {
+      "new": true,
+      "party": "sParty_JohtoScott",
+      "name": "SCOTT",
+      "source": "TRAINER_SCOTT",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_FISHERMAN",
+      "trainer_pic": "TRAINER_PIC_FISHERMAN",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_QWILFISH",
+          45,
+          0
+        ],
+        [
+          "SPECIES_SEAKING",
+          44,
+          0
+        ],
+        [
+          "SPECIES_GYARADOS",
+          43,
+          0
+        ],
+        [
+          "SPECIES_QUAGSIRE",
+          43,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_RICHARD": {
+      "new": true,
+      "party": "sParty_JohtoRichard",
+      "name": "RICHARD",
+      "source": "TRAINER_RICHARD",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_PSYCHIC",
+      "trainer_pic": "TRAINER_PIC_PSYCHIC_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_INTENSE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_ESPEON",
+          45,
+          0
+        ],
+        [
+          "SPECIES_MR_MIME",
+          45,
+          0
+        ],
+        [
+          "SPECIES_SLOWKING",
+          45,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_GAVEN": {
+      "new": true,
+      "party": "sParty_JohtoGaven",
+      "name": "GAVEN",
+      "source": "TRAINER_GAVEN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_VICTREEBEL",
+          50,
+          0
+        ],
+        [
+          "SPECIES_KINGLER",
+          50,
+          0
+        ],
+        [
+          "SPECIES_FLAREON",
+          50,
+          0
+        ],
+        [
+          "SPECIES_DONPHAN",
+          50,
+          0
+        ],
+        [
+          "SPECIES_DRAGONAIR",
+          50,
+          0
+        ]
+      ]
     }
   }
 }

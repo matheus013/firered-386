@@ -174,7 +174,9 @@ for _m,_x,_y,_steps,_want in (
   (JOHTO+'OLIVINE_CITY',0,48,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_ROUTE40',{(33,16)}),('MAP_JOHTO_OLIVINE_CITY',{(0,48)})]),
   (JOHTO+'CIANWOOD_CITY',36,56,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_JOHTO_ROUTE41',{(0,66)}),('MAP_JOHTO_CIANWOOD_CITY',{(36,56)})]),
   (JOHTO+'CIANWOOD_CITY',31,46,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_CIANWOOD_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_JOHTO_CIANWOOD_CITY',{(31,46)})]),
-  (JOHTO+'CIANWOOD_CITY',23,52,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_CIANWOOD_CITY_MART',{(4,7)}),('MAP_JOHTO_CIANWOOD_CITY',{(23,52)})])):
+  (JOHTO+'CIANWOOD_CITY',23,52,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_CIANWOOD_CITY_MART',{(4,7)}),('MAP_JOHTO_CIANWOOD_CITY',{(23,52)})]),
+  # Johto batch 15: Route 27 east into Route 26 (New Bark -> Route 27 is by sea).
+  (JOHTO+'ROUTE27',159,19,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_JOHTO_ROUTE26',{(0,61)}),('MAP_JOHTO_ROUTE27',{(159,19)})])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -1365,7 +1367,8 @@ assert pallet[4]==KANTO_TILES,'Pallet Town no longer uses the FireRed tilesets'
 assert little[7]==1 and tuple(little[8:11])==(UP,HG,ROUTE101),('Littleroot must connect north to Route101',list(little[7:11]))
 # Route 101: north to Oldale and south to Littleroot; the first one recorded follows the Emerald header order.
 assert route[7]==2 and tuple(route[8:11]) in ((DOWN,HG,LITTLEROOT),(UP,HG,7)),('Route101 must connect south to Littleroot and north to Oldale',list(route[7:11]))
-assert newbark[7]==1 and tuple(newbark[8:11])==(LEFT,JG,ROUTE29),('New Bark must connect west to Route29',list(newbark[7:11]))
+# New Bark: west to Route 29 (listed first) and, since Johto batch 15, east to Route 27 (by sea).
+assert newbark[7]==2 and tuple(newbark[8:11])==(LEFT,JG,ROUTE29),('New Bark must connect west to Route29 and east to Route27',list(newbark[7:11]))
 # Route 29: west to Cherrygrove (Johto batch 1, listed first), east to New Bark (walked in case 21) and,
 # since Johto batch 12, north to Route 46 (the HNS link; the walkable way up is the gate).
 assert route29[7]==3 and tuple(route29[8:11])==(LEFT,JG,8),('Route29 must connect west to Cherrygrove, east to New Bark and north to Route46',list(route29[7:11]))
@@ -1434,7 +1437,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-30:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY','MAPSEC_ROUTE_38','MAPSEC_ROUTE_39','MAPSEC_OLIVINE_CITY','MAPSEC_ROUTE_42','MAPSEC_MAHOGANY_TOWN','MAPSEC_ROUTE_43','MAPSEC_LAKE_OF_RAGE','MAPSEC_ROUTE_44','MAPSEC_ROUTE_46','MAPSEC_ROUTE_45','MAPSEC_BLACKTHORN_CITY','MAPSEC_ROUTE_40','MAPSEC_ROUTE_41','MAPSEC_CIANWOOD_CITY']
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-32:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY','MAPSEC_ROUTE_38','MAPSEC_ROUTE_39','MAPSEC_OLIVINE_CITY','MAPSEC_ROUTE_42','MAPSEC_MAHOGANY_TOWN','MAPSEC_ROUTE_43','MAPSEC_LAKE_OF_RAGE','MAPSEC_ROUTE_44','MAPSEC_ROUTE_46','MAPSEC_ROUTE_45','MAPSEC_BLACKTHORN_CITY','MAPSEC_ROUTE_40','MAPSEC_ROUTE_41','MAPSEC_CIANWOOD_CITY','MAPSEC_ROUTE_27','MAPSEC_ROUTE_26']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.

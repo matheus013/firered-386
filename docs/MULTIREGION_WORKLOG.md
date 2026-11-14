@@ -2296,3 +2296,33 @@ borda norte da Route 112.
 - a Route 114 e as Meteor Falls.
 
 **Resultado:** 1116 casos aprovados (eram 1070), com as 182 batalhas de rota vencidas, incluindo a dupla Tori & Tia. As caminhadas novas cruzam Route 111 → Route 113 e Fallarbor → Route 113, e entram e saem do Centro e do Mart de Fallarbor.
+
+## Johto, lote 15: Routes 27 e 26
+
+**Mapas novos:** a Route 27, a leste de New Bark (Johto General + secundário de New Bark), e a parte
+sul da Route 26 (Johto General + secundário de Blackthorn), que sobe em direção à Victory Road. New
+Bark ganhou a conexão leste, mas essa borda é só água: o caminho para a Route 27 é com Surf.
+
+- **Regras e instalador:**
+  - `MB_BRIDGE_OVER_POND_MED` (a ponte da Route 27) vira normal, como as outras pontes;
+  - a checagem nova do instalador encontrou essa falta antes de mexer em qualquer pasta;
+  - a música `MUS_HG_ROUTE26` vira `MUS_ROUTE24`.
+- **Treinadores (9, IDs 894–902):** Megan, Brian, Jose, Blake, Gilbert, Reena e Scott (Route 27), e
+  Richard e Gaven (Route 26). Os times do HNS aqui já são de nível 42–50. Com +45, eles ficam entre
+  87 e 95, sem chegar a 100.
+- **Eventos:**
+  - Rare Candy, Moon Stone, TM22 Solar Beam e Revive, com as flags 0x103–0x106;
+  - o homem que avisa que você entrou em Kanto;
+  - as placas das Tohjo Falls;
+  - 29 textos traduzidos para PT-BR.
+- **Testes:** a checagem de que New Bark só tinha uma conexão passou a aceitar a segunda, com a
+  Route 27.
+- **Pokémon selvagens:** grama, água e pesca nas duas rotas (tabelas do dia; Rock Smash fora).
+
+**Fica para depois:**
+
+- as Tohjo Falls e a casa da Route 27;
+- a metade norte da Route 26, com o Jake e a Joyce, o portão e as casas;
+- a Victory Road.
+
+**Resultado:** 1142 casos aprovados (eram 1116), com as 191 batalhas de rota vencidas. A caminhada nova cruza Route 27 → Route 26. Essa rodada do teste levou cerca de 30 minutos, contra uns 10 das anteriores.
