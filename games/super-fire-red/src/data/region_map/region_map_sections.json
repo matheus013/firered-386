@@ -1582,6 +1582,22 @@
       "y": 6,
       "width": 1,
       "height": 4
+    },
+    {
+      "id": "MAPSEC_ROUTE_45",
+      "name": "ROUTE 45",
+      "x": 18,
+      "y": 3,
+      "width": 1,
+      "height": 4
+    },
+    {
+      "id": "MAPSEC_BLACKTHORN_CITY",
+      "name": "BLACKTHORN CITY",
+      "x": 18,
+      "y": 2,
+      "width": 1,
+      "height": 1
     }
   ]
 }

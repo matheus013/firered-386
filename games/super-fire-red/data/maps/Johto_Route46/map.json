@@ -15,6 +15,11 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
+      "map": "MAP_JOHTO_ROUTE45",
+      "offset": -75,
+      "direction": "right"
+    },
+    {
       "map": "MAP_JOHTO_ROUTE29",
       "offset": -24,
       "direction": "down"

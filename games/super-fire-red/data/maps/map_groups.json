@@ -662,7 +662,9 @@
     "Hoenn_Route111",
     "Johto_Route44",
     "Johto_Route46",
-    "Hoenn_Route109"
+    "Hoenn_Route109",
+    "Johto_Route45",
+    "Johto_BlackthornCity"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -758,6 +760,10 @@
     "Johto_Gate_Route43",
     "Johto_LakeOfRage",
     "Johto_Route44",
-    "Johto_Route46"
+    "Johto_Route46",
+    "Johto_Route45",
+    "Johto_BlackthornCity",
+    "Johto_BlackthornCity_PokemonCenter_1F",
+    "Johto_BlackthornCity_Mart"
   ]
 }

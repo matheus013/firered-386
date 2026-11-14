@@ -287,6 +287,14 @@
       "y": 20,
       "respawn_map": "MAP_HOENN_SLATEPORT_CITY_POKEMON_CENTER_1F",
       "respawn_npc": 1
+    },
+    {
+      "id": "HEAL_LOCATION_BLACKTHORN_CITY",
+      "map": "MAP_JOHTO_BLACKTHORN_CITY",
+      "x": 27,
+      "y": 49,
+      "respawn_map": "MAP_JOHTO_BLACKTHORN_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": 1
     }
   ]
 }

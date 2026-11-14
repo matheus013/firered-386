@@ -2154,3 +2154,36 @@ conexões na Route 29 passou a aceitar a terceira.
 - a Route 108 e o mar a oeste.
 
 **Resultado:** 983 casos aprovados (eram 950), com as 158 batalhas de rota vencidas, incluindo a dupla Mel & Paul. A caminhada nova cruza Slateport → Route 109.
+
+## Johto, lote 13: Route 45 e Blackthorn City
+
+**Mapas novos:** Blackthorn City (Johto NorthEast + secundário `Blackthorn`) e a Route 45, que desce
+dela até a Route 46. As bordas Blackthorn ↔ Route 45 e Route 45 ↔ Route 46 se cruzam a pé nos dois
+sentidos.
+
+- **Blackthorn:**
+  - Centro Pokémon e Mart do FireRed, com a lista do HGSS;
+  - a heal location fica em (27,49), a flag é `FLAG_WORLD_MAP_BLACKTHORN_CITY` (0x8D2), e a
+    cidade é destino de Fly;
+  - a porta deslizante foi registrada para o par NorthEast + Blackthorn;
+  - a conexão oeste com a Route 44 entrou, mas a borda é toda bloqueada (o caminho do HNS é o Ice
+    Path, ainda fechado).
+- **Treinadores (8, IDs 856–863):** Erik, Ryan, Michael, Kelly, Kenji, Timothy, Parry e Quentin.
+  Usam +50, como na Route 44.
+- **Eventos:**
+  - Full Heal, Nugget, Elixir e Max Potion, com as flags 0x0FB–0x0FE;
+  - quatro moradores de Blackthorn. O menino do Ginásio, o ancião do Dragon's Den e o Santos têm
+    ramos de história e ficaram de fora;
+  - as placas;
+  - 33 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama e pesca na Route 45, e pesca em Blackthorn. A água tem 12 vagas no
+  HNS e ficou de fora. A tabela de grama de Blackthorn no HNS é toda `SPECIES_NONE` e também ficou
+  de fora.
+
+**Fica para depois:**
+
+- o Ice Path, o Dragon's Den e a Dark Cave;
+- o Ginásio da Clair e as casas;
+- o Santos.
+
+**Resultado:** 1018 casos aprovados (eram 983), com as 166 batalhas de rota vencidas. As caminhadas novas cruzam Blackthorn → Route 45 → Route 46 e entram e saem do Centro e do Mart de Blackthorn.

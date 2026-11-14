@@ -284,3 +284,5 @@ const u16 gMetatiles_JohtoPilotMahoganyTown[] = INCBIN_U16("data/tilesets/second
 const u32 gMetatileAttributes_JohtoPilotMahoganyTown[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_mahogany_town/metatile_attributes.bin");
 const u16 gMetatiles_JohtoPilotCianwoodCity[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_cianwood_city/metatiles.bin");
 const u32 gMetatileAttributes_JohtoPilotCianwoodCity[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_cianwood_city/metatile_attributes.bin");
+const u16 gMetatiles_JohtoPilotBlackthorn[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotBlackthorn[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_blackthorn/metatile_attributes.bin");

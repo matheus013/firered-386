@@ -495,6 +495,25 @@ EVENTS = {
         6: ('trainer', ('TRAINER_JOHTO_BAILEY', 'Route46_Text_HikerBaileySeen', 'Route46_Text_HikerBaileyBeaten', 'Route46_Text_HikerBaileyAfterBattle'), ''),
         3: ('itemflag', None, 'Revive')},
         {0: ('sign', 'Route46_Text_Sign')}),
+    # Johto batch 13. Left out: the Dark Cave entrance, the Ice Path, Dragon's Den, the Gym, the houses, Santos
+    # (weekday sibling), the Gym boy and the Dragon's Den elder (story branches), and the decorative Pokemon.
+    'Route45': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_ERIK', 'Route45_Text_HikerErikSeen', 'Route45_Text_HikerErikBeaten', 'Route45_Text_HikerErikAfter'), ''),
+        1: ('trainer', ('TRAINER_JOHTO_RYAN', 'Route45_Text_CooltrainermRyanSeen', 'Route45_Text_CooltrainermRyanBeaten', 'Route45_Text_CooltrainermRyanAfter'), ''),
+        3: ('trainer', ('TRAINER_JOHTO_MICHAEL', 'Route45_Text_HikerMichaelSeen', 'Route45_Text_HikerMichaelBeaten', 'Route45_Text_HikerMichaelAfter'), ''),
+        5: ('trainer', ('TRAINER_JOHTO_KELLY', 'Route45_Text_CooltrainerfKellySeen', 'Route45_Text_CooltrainerfKellyBeaten', 'Route45_Text_CooltrainerfKellyAfter'), ''),
+        6: ('trainer', ('TRAINER_JOHTO_KENJI', 'Route45_Text_BlackbeltKenjiSeen', 'Route45_Text_BlackbeltKenjiBeaten', 'Route45_Text_BlackbeltKenjiAfter'), ''),
+        8: ('trainer', ('TRAINER_JOHTO_TIMOTHY', 'Route45_Text_HikerTimothySeen', 'Route45_Text_HikerTimothyBeaten', 'Route45_Text_HikerTimothyAfter'), ''),
+        10: ('trainer', ('TRAINER_JOHTO_PARRY', 'Route45_Text_HikerParrySeen', 'Route45_Text_HikerParryBeaten', 'Route45_Text_HikerParryAfter'), ''),
+        11: ('trainer', ('TRAINER_JOHTO_QUENTIN', 'Route45_Text_CamperQuentinSeen', 'Route45_Text_CamperQuentinBeaten', 'Route45_Text_CamperQuentinAfter'), ''),
+        2: ('itemflag', None, 'Full Heal'), 4: ('itemflag', None, 'Nugget'), 7: ('itemflag', None, 'Elixir'),
+        9: ('itemflag', None, 'Max Potion')},
+        {0: ('sign', 'Route45_Text_Sign')}),
+    'BlackthornCity': (HNS, {
+        0: ('npc', 'BlackthornYoungsterText', ''), 3: ('npc', 'BlackthornCooltrainerF2Text', ''),
+        4: ('npc', 'BlackthornCooltrainerF1Text', ''), 5: ('npc', 'BlackBeltText_VoicesInMyHead', '')},
+        {0: ('sign', 'BlackthornCity_Text_DragonDenSign'), 1: ('sign', 'BlackthornGymSignText'),
+         2: ('sign', 'BlackthornCity_Text_MoveDeletersHouseSign'), 3: ('sign', 'BlackthornCitySignText')}),
     'Gate_EcruteakCity_Route42': (HNS, {0: ('npc', 'Route42_Text_EcruteakGateOfficer', '')}, {}),
     'Route42': (HNS, {
         3: ('trainer', ('TRAINER_JOHTO_TULLY', 'Route42_Text_FisherTullySeen', 'Route42_Text_FisherTullyBeaten', 'Route42_Text_FisherTullyAfter'), ''), 4: ('trainer', ('TRAINER_JOHTO_SHANE', 'Route42_Text_PokemaniacShaneSeen', 'Route42_Text_PokemaniacShaneBeaten', 'Route42_Text_PokemaniacShaneAfter'), ''),
@@ -603,7 +622,8 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'VerdanturfTown': 'FLAG_WORLD_MAP_VERDANTURF_TOWN', 'OlivineCity': 'FLAG_WORLD_MAP_OLIVINE_CITY',
                    'MauvilleCity': 'FLAG_WORLD_MAP_MAUVILLE_CITY',
                    'MahoganyTown': 'FLAG_WORLD_MAP_MAHOGANY_TOWN',
-                   'SlateportCity': 'FLAG_WORLD_MAP_SLATEPORT_CITY'}
+                   'SlateportCity': 'FLAG_WORLD_MAP_SLATEPORT_CITY',
+                   'BlackthornCity': 'FLAG_WORLD_MAP_BLACKTHORN_CITY'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -680,6 +700,10 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route109', 9): ('ITEM_PP_UP', 'FLAG_HIDE_HOENN_ROUTE109_PP_UP', 'FLAG_0x0F8'),
               ('Route109', 22): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE109_POTION', 'FLAG_0x0F9'),
               ('Route109', 14): ('ITEM_SOFT_SAND', 'FLAG_GOT_HOENN_SOFT_SAND', 'FLAG_0x0FA'),
+              ('Route45', 2): ('ITEM_FULL_HEAL', 'FLAG_HIDE_JOHTO_ROUTE45_FULL_HEAL', 'FLAG_0x0FB'),
+              ('Route45', 4): ('ITEM_NUGGET', 'FLAG_HIDE_JOHTO_ROUTE45_NUGGET', 'FLAG_0x0FC'),
+              ('Route45', 7): ('ITEM_ELIXIR', 'FLAG_HIDE_JOHTO_ROUTE45_ELIXIR', 'FLAG_0x0FD'),
+              ('Route45', 9): ('ITEM_MAX_POTION', 'FLAG_HIDE_JOHTO_ROUTE45_MAX_POTION', 'FLAG_0x0FE'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Emerald movement types FireRed lacks -> the closest FireRed one.

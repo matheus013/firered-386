@@ -142,6 +142,26 @@
         "ITEM_SUPER_REPEL",
         "ITEM_REVIVE"
       ]
+    },
+    "Johto_BlackthornCity_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "npc": "OBJ_EVENT_GFX_NURSE",
+      "heal_location": "HEAL_LOCATION_BLACKTHORN_CITY"
+    },
+    "Johto_BlackthornCity_Mart": {
+      "layout": "LAYOUT_MART",
+      "npc": "OBJ_EVENT_GFX_CLERK",
+      "items": [
+        "ITEM_GREAT_BALL",
+        "ITEM_ULTRA_BALL",
+        "ITEM_HYPER_POTION",
+        "ITEM_MAX_POTION",
+        "ITEM_FULL_HEAL",
+        "ITEM_REVIVE",
+        "ITEM_MAX_REPEL",
+        "ITEM_X_DEFEND",
+        "ITEM_X_ATTACK"
+      ]
     }
   },
   "towns": {
@@ -281,6 +301,22 @@
         "Route43",
         "Route44",
         "MtMortar_1F_South"
+      ]
+    },
+    "BlackthornCity": {
+      "heal_location": {
+        "id": "HEAL_LOCATION_BLACKTHORN_CITY",
+        "x": 27,
+        "y": 49
+      },
+      "world_map_flag": "FLAG_WORLD_MAP_BLACKTHORN_CITY",
+      "closed_doors": [
+        "IcePath_1F",
+        "DragonsDenEntrance",
+        "BlackthornCity_Gym",
+        "BlackthornCity_House1",
+        "BlackthornCity_House2",
+        "BlackthornCity_House3"
       ]
     }
   }

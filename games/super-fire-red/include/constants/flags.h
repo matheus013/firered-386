@@ -123,6 +123,10 @@
 #define FLAG_HIDE_HOENN_ROUTE109_PP_UP FLAG_0x0F8 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_HOENN_ROUTE109_POTION FLAG_0x0F9 // Region item (scripts/install_pilot_events.py)
 #define FLAG_GOT_HOENN_SOFT_SAND FLAG_0x0FA // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_ROUTE45_FULL_HEAL FLAG_0x0FB // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_ROUTE45_NUGGET FLAG_0x0FC // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_ROUTE45_ELIXIR FLAG_0x0FD // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_ROUTE45_MAX_POTION FLAG_0x0FE // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_AIDE_POTION FLAG_0x027 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_GOT_JOHTO_AIDE_BALLS FLAG_0x07F // Region pilot story (scripts/pilot_story.py)
@@ -1565,6 +1569,7 @@
 #define FLAG_WORLD_MAP_VERDANTURF_TOWN                             FLAG_0x8CD
 #define FLAG_WORLD_MAP_OLIVINE_CITY                                FLAG_0x8CE
 #define FLAG_WORLD_MAP_MAUVILLE_CITY                               FLAG_0x8CF
+#define FLAG_WORLD_MAP_BLACKTHORN_CITY                             FLAG_0x8D2
 #define FLAG_WORLD_MAP_SLATEPORT_CITY                              FLAG_0x8D1
 #define FLAG_WORLD_MAP_MAHOGANY_TOWN                               FLAG_0x8D0
 

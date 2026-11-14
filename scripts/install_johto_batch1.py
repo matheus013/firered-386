@@ -68,6 +68,13 @@ TOWNS = [
      'heal': (21, 20), 'flag': 'FLAG_0x8D0',
      'closed': ['Gate_MahoganyTown_Route43', 'MahoganyTown_House1', 'MahoganyTown_Gym', 'Route43', 'Route44',
                 'MtMortar_1F_South']},
+    # Batch 13: Blackthorn City (HGSS list).
+    {'town': 'BlackthornCity', 'doors': [((27, 48), 'PokemonCenter_1F'), ((16, 48), 'Mart')],
+     'mart': ['ITEM_GREAT_BALL', 'ITEM_ULTRA_BALL', 'ITEM_HYPER_POTION', 'ITEM_MAX_POTION', 'ITEM_FULL_HEAL',
+              'ITEM_REVIVE', 'ITEM_MAX_REPEL', 'ITEM_X_DEFEND', 'ITEM_X_ATTACK'],
+     'heal': (27, 49), 'flag': 'FLAG_0x8D2',
+     'closed': ['IcePath_1F', 'DragonsDenEntrance', 'BlackthornCity_Gym', 'BlackthornCity_House1',
+                'BlackthornCity_House2', 'BlackthornCity_House3']},
 ]
 
 

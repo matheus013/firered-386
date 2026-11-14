@@ -1986,3 +1986,19 @@ const u16 gTilesetPalettes_JohtoPilotCianwoodCity[][16] = {
     INCBIN_U16("data/tilesets/secondary/johto_pilot_cianwood_city/palettes/14.gbapal"),
     INCBIN_U16("data/tilesets/secondary/johto_pilot_cianwood_city/palettes/15.gbapal"),
 };
+const u32 gTilesetTiles_JohtoPilotBlackthorn[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_blackthorn/tiles.4bpp.lz");
+const u16 gTilesetPalettes_JohtoPilotBlackthorn[][16] = {
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_blackthorn/palettes/12.gbapal"),
+};

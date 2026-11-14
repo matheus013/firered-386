@@ -1079,3 +1079,13 @@ const struct Tileset gTileset_JohtoPilotCianwoodCity =
     .metatileAttributes = gMetatileAttributes_JohtoPilotCianwoodCity,
     .callback = NULL,
 };
+const struct Tileset gTileset_JohtoPilotBlackthorn =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotBlackthorn,
+    .palettes = gTilesetPalettes_JohtoPilotBlackthorn,
+    .metatiles = gMetatiles_JohtoPilotBlackthorn,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotBlackthorn,
+    .callback = NULL,
+};

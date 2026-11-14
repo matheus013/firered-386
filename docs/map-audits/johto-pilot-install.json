@@ -334,31 +334,33 @@
     },
     "gTileset_Johto_NorthEast": {
       "firered": "gTileset_JohtoPilotNorthEast",
-      "metatiles_converted": 245,
+      "metatiles_converted": 297,
       "behaviors": {
-        "MB_SHORT_GRASS": 17,
-        "MB_NORMAL": 141,
+        "MB_SHORT_GRASS": 18,
+        "MB_NORMAL": 168,
         "MB_HEADBUTT_TREE": 4,
         "MB_TALL_GRASS": 3,
+        "MB_IMPASSABLE_NORTH": 3,
         "MB_ANIMATED_DOOR": 2,
         "MB_JUMP_WEST": 2,
-        "MB_JUMP_SOUTH": 8,
+        "MB_JUMP_SOUTH": 11,
         "MB_ROCK_STAIRS": 2,
         "MB_NON_ANIMATED_DOOR": 2,
-        "MB_MOUNTAIN_TERRAIN": 11,
+        "MB_MOUNTAIN_TERRAIN": 13,
         "MB_SAND": 23,
-        "MB_OCEAN_WATER": 20,
+        "MB_OCEAN_WATER": 23,
         "MB_EAST_ARROW_WARP": 1,
         "MB_WEST_ARROW_WARP": 1,
         "MB_SEAWEED_NO_SURFACING": 1,
         "MB_SOUTH_ARROW_WARP": 4,
+        "MB_POND_WATER": 13,
         "MB_INTERIOR_DEEP_WATER": 2,
         "MB_SHALLOW_WATER": 1
       },
       "sha256": {
         "tiles.png": "011408f36b1fea9a94149ada6051fdf8c1659238cbad77954cf346714155fb5b",
         "metatiles.bin": "d3d19f9c456ec1faaa2d37e5f883057e7c17b905cffdc20d3a7bd3dc26bbb918",
-        "metatile_attributes.bin": "e7c68cc8f8ed26a25317fdd20bf3bd41d0e8ab6ee4659d115d1a3730cec8eae8"
+        "metatile_attributes.bin": "9192a0b98a15f7edfe08ec513a04a00ea773f4941528f9dd35bd970644f44bdb"
       }
     },
     "gTileset_MahoganyTown": {
@@ -385,6 +387,21 @@
         "tiles.png": "90d881b97cfebd1637f2a8b6b587bcfb50b733770d2a84d6f9052c23e7709eda",
         "metatiles.bin": "91995dfd503f5435b061fbd391483ae28114384f8be2243d0ced0a70cca4bc6e",
         "metatile_attributes.bin": "aa71b157f4918f0d6f3c64f103469c82940ca826f418c6dbd85f51fb78efd6ba"
+      }
+    },
+    "gTileset_Blackthorn": {
+      "firered": "gTileset_JohtoPilotBlackthorn",
+      "metatiles_converted": 97,
+      "behaviors": {
+        "MB_NORMAL": 80,
+        "MB_MOUNTAIN_TERRAIN": 15,
+        "MB_ANIMATED_DOOR": 1,
+        "MB_NON_ANIMATED_DOOR": 1
+      },
+      "sha256": {
+        "tiles.png": "4892933a41dc2915960b96d4698401983539af9ae94cfdef1fb6573fb3b89a14",
+        "metatiles.bin": "e9996d7760a473f64a60181c049a54a1a32f95b1c6a0b68862041d1f719c1fb5",
+        "metatile_attributes.bin": "ddad9e228a56588a384876471f53989df7bee5c318020485931f4503adcf0bc0"
       }
     }
   },
@@ -962,6 +979,69 @@
       "x": 20,
       "y": 11,
       "destination": "MAP_DARK_CAVE_SOUTH_SIDE"
+    },
+    {
+      "map": "Route45",
+      "index": 0,
+      "x": 14,
+      "y": 4,
+      "destination": "MAP_DARK_CAVE_NORTH_SIDE"
+    },
+    {
+      "map": "BlackthornCity",
+      "index": 0,
+      "x": 42,
+      "y": 22,
+      "destination": "MAP_ICE_PATH_1F"
+    },
+    {
+      "map": "BlackthornCity",
+      "index": 1,
+      "x": 26,
+      "y": 12,
+      "destination": "MAP_DRAGONS_DEN_ENTRANCE"
+    },
+    {
+      "map": "BlackthornCity",
+      "index": 2,
+      "x": 24,
+      "y": 26,
+      "destination": "MAP_BLACKTHORN_CITY_GYM"
+    },
+    {
+      "map": "BlackthornCity",
+      "index": 3,
+      "x": 21,
+      "y": 39,
+      "destination": "MAP_BLACKTHORN_CITY_HOUSE1"
+    },
+    {
+      "map": "BlackthornCity",
+      "index": 4,
+      "x": 36,
+      "y": 41,
+      "destination": "MAP_BLACKTHORN_CITY_HOUSE2"
+    },
+    {
+      "map": "BlackthornCity",
+      "index": 5,
+      "x": 16,
+      "y": 48,
+      "destination": "MAP_BLACKTHORN_CITY_MART"
+    },
+    {
+      "map": "BlackthornCity",
+      "index": 6,
+      "x": 27,
+      "y": 48,
+      "destination": "MAP_BLACKTHORN_CITY_POKEMON_CENTER"
+    },
+    {
+      "map": "BlackthornCity",
+      "index": 7,
+      "x": 10,
+      "y": 49,
+      "destination": "MAP_BLACKTHORN_CITY_HOUSE3"
     }
   ],
   "behavior_rules": {
@@ -1306,6 +1386,14 @@
     "Johto_Route46": {
       "id": "MAP_JOHTO_ROUTE46",
       "number": 40
+    },
+    "Johto_Route45": {
+      "id": "MAP_JOHTO_ROUTE45",
+      "number": 41
+    },
+    "Johto_BlackthornCity": {
+      "id": "MAP_JOHTO_BLACKTHORN_CITY",
+      "number": 42
     }
   }
 }

@@ -604,6 +604,10 @@ gStdScriptsEnd::
 	.include "data/maps/Johto_LakeOfRage/scripts.inc"
 	.include "data/maps/Johto_Route44/scripts.inc"
 	.include "data/maps/Johto_Route46/scripts.inc"
+	.include "data/maps/Johto_Route45/scripts.inc"
+	.include "data/maps/Johto_BlackthornCity/scripts.inc"
+	.include "data/maps/Johto_BlackthornCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Johto_BlackthornCity_Mart/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

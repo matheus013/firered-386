@@ -4074,6 +4074,258 @@
           0
         ]
       ]
+    },
+    "TRAINER_JOHTO_ERIK": {
+      "new": true,
+      "party": "sParty_JohtoErik",
+      "name": "ERIK",
+      "source": "TRAINER_ERIK",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 50,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MACHOKE",
+          37,
+          0
+        ],
+        [
+          "SPECIES_GOLEM",
+          38,
+          0
+        ],
+        [
+          "SPECIES_KANGASKHAN",
+          37,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_RYAN": {
+      "new": true,
+      "party": "sParty_JohtoRyan",
+      "name": "RYAN",
+      "source": "TRAINER_RYAN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 50,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_PIDGEOT",
+          37,
+          0
+        ],
+        [
+          "SPECIES_ELECTABUZZ",
+          37,
+          0
+        ],
+        [
+          "SPECIES_MAGMAR",
+          37,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_MICHAEL": {
+      "new": true,
+      "party": "sParty_JohtoMichael",
+      "name": "MICHAEL",
+      "source": "TRAINER_MICHAEL",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 50,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_RHYHORN",
+          38,
+          0
+        ],
+        [
+          "SPECIES_DONPHAN",
+          38,
+          0
+        ],
+        [
+          "SPECIES_GOLEM",
+          38,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_KELLY": {
+      "new": true,
+      "party": "sParty_JohtoKelly",
+      "name": "KELLY",
+      "source": "TRAINER_KELLY",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 50,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_TOGETIC",
+          37,
+          0
+        ],
+        [
+          "SPECIES_AMPHAROS",
+          37,
+          0
+        ],
+        [
+          "SPECIES_TANGELA",
+          37,
+          0
+        ],
+        [
+          "SPECIES_BLASTOISE",
+          38,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_KENJI": {
+      "new": true,
+      "party": "sParty_JohtoKenji",
+      "name": "KENJI",
+      "source": "TRAINER_KENJI",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_BLACK_BELT",
+      "trainer_pic": "TRAINER_PIC_BLACK_BELT",
+      "music": "TRAINER_ENCOUNTER_MUSIC_INTENSE",
+      "level_offset": 50,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_ONIX",
+          33,
+          0
+        ],
+        [
+          "SPECIES_MACHAMP",
+          38,
+          0
+        ],
+        [
+          "SPECIES_STEELIX",
+          33,
+          0
+        ],
+        [
+          "SPECIES_HITMONLEE",
+          36,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_TIMOTHY": {
+      "new": true,
+      "party": "sParty_JohtoTimothy",
+      "name": "TIMOTHY",
+      "source": "TRAINER_TIMOTHY",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 50,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_DUGTRIO",
+          38,
+          0
+        ],
+        [
+          "SPECIES_GLIGAR",
+          39,
+          0
+        ],
+        [
+          "SPECIES_GRAVELER",
+          38,
+          0
+        ],
+        [
+          "SPECIES_DUGTRIO",
+          38,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_PARRY": {
+      "new": true,
+      "party": "sParty_JohtoParry",
+      "name": "PARRY",
+      "source": "TRAINER_PARRY",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 50,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_PILOSWINE",
+          45,
+          0
+        ],
+        [
+          "SPECIES_DUGTRIO",
+          45,
+          0
+        ],
+        [
+          "SPECIES_STEELIX",
+          48,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_QUENTIN": {
+      "new": true,
+      "party": "sParty_JohtoQuentin",
+      "name": "QUENTIN",
+      "source": "TRAINER_QUENTIN",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_CAMPER",
+      "trainer_pic": "TRAINER_PIC_CAMPER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 50,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_FEAROW",
+          38,
+          0
+        ],
+        [
+          "SPECIES_PRIMEAPE",
+          38,
+          0
+        ],
+        [
+          "SPECIES_TAUROS",
+          38,
+          0
+        ],
+        [
+          "SPECIES_RAICHU",
+          38,
+          0
+        ]
+      ]
     }
   }
 }

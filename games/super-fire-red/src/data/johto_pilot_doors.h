@@ -48,3 +48,7 @@ static const struct DoorGraphics sJohtoPilotDoors_Mahogany[] = {
     {0x2A2, DOOR_SOUND_NORMAL, DOOR_SIZE_1x1, sJohtoDoorTiles_mahogany_shop, sJohtoDoorPalettes_mahogany_shop},
     {}
 };
+static const struct DoorGraphics sJohtoPilotDoors_Blackthorn[] = {
+    {0x62, DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sJohtoDoorTiles_sliding, sJohtoDoorPalettes_sliding},
+    {}
+};

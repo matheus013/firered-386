@@ -1876,6 +1876,207 @@
       "source": {
         "repository": "HNS_modern",
         "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gRoute45",
+        "map": "MAP_ROUTE45",
+        "note": "day table; water left out (12 HNS slots); Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_ROUTE45",
+        "base_label": "gJohtoRoute45_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 34,
+              "max_level": 35,
+              "species": "SPECIES_DONPHAN"
+            },
+            {
+              "min_level": 34,
+              "max_level": 34,
+              "species": "SPECIES_GRAVELER"
+            },
+            {
+              "min_level": 31,
+              "max_level": 31,
+              "species": "SPECIES_GLIGAR"
+            },
+            {
+              "min_level": 35,
+              "max_level": 35,
+              "species": "SPECIES_URSARING"
+            },
+            {
+              "min_level": 34,
+              "max_level": 35,
+              "species": "SPECIES_DONPHAN"
+            },
+            {
+              "min_level": 34,
+              "max_level": 34,
+              "species": "SPECIES_GRAVELER"
+            },
+            {
+              "min_level": 31,
+              "max_level": 31,
+              "species": "SPECIES_GLIGAR"
+            },
+            {
+              "min_level": 37,
+              "max_level": 37,
+              "species": "SPECIES_SKARMORY"
+            },
+            {
+              "min_level": 35,
+              "max_level": 35,
+              "species": "SPECIES_URSARING"
+            },
+            {
+              "min_level": 37,
+              "max_level": 37,
+              "species": "SPECIES_SKARMORY"
+            },
+            {
+              "min_level": 34,
+              "max_level": 35,
+              "species": "SPECIES_DONPHAN"
+            },
+            {
+              "min_level": 34,
+              "max_level": 34,
+              "species": "SPECIES_GRAVELER"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_DRATINI"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_DRATINI"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_DRATINI"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_DRAGONAIR"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_DRATINI"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_DRATINI"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gBlackthornCity",
+        "map": "MAP_BLACKTHORN_CITY",
+        "note": "day table; the HNS land table is a placeholder (not 12 real species); water left out (12 HNS slots); Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_JOHTO_BLACKTHORN_CITY",
+        "base_label": "gJohtoBlackthornCity_Pilot",
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWAG"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWHIRL"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_POLIWAG"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
         "label": "gRoute44",
         "map": "MAP_ROUTE44",
         "note": "day table; Rock Smash left out"

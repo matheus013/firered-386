@@ -6114,6 +6114,272 @@
         }
       ]
     },
+    "Johto_Route45": {
+      "source": "HNS_modern/Route45",
+      "events": [
+        {
+          "kind": "trainer",
+          "source_index": 0,
+          "source_script": "Route45_EventScript_Erik",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_JOHTO_ERIK",
+            "Route45_Text_HikerErikSeen",
+            "Route45_Text_HikerErikBeaten",
+            "Route45_Text_HikerErikAfter"
+          ],
+          "note": "",
+          "x": 8,
+          "y": 10
+        },
+        {
+          "kind": "trainer",
+          "source_index": 1,
+          "source_script": "Route45_EventScript_Ryan",
+          "source_sprite": "OBJ_EVENT_GFX_ROCKER",
+          "firered_sprite": "OBJ_EVENT_GFX_ROCKER",
+          "text": [
+            "TRAINER_JOHTO_RYAN",
+            "Route45_Text_CooltrainermRyanSeen",
+            "Route45_Text_CooltrainermRyanBeaten",
+            "Route45_Text_CooltrainermRyanAfter"
+          ],
+          "note": "",
+          "x": 37,
+          "y": 25
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 2,
+          "source_script": "Route45_EventScript_Item_Full_Heal",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Full Heal",
+          "x": 21,
+          "y": 17
+        },
+        {
+          "kind": "trainer",
+          "source_index": 3,
+          "source_script": "Route45_EventScript_Michael",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_JOHTO_MICHAEL",
+            "Route45_Text_HikerMichaelSeen",
+            "Route45_Text_HikerMichaelBeaten",
+            "Route45_Text_HikerMichaelAfter"
+          ],
+          "note": "",
+          "x": 25,
+          "y": 28
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 4,
+          "source_script": "Route45_EventScript_Item_Nugget",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Nugget",
+          "x": 37,
+          "y": 32
+        },
+        {
+          "kind": "trainer",
+          "source_index": 5,
+          "source_script": "Route45_EventScript_Kelly",
+          "source_sprite": "OBJ_EVENT_GFX_BATTLE_GIRL",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": [
+            "TRAINER_JOHTO_KELLY",
+            "Route45_Text_CooltrainerfKellySeen",
+            "Route45_Text_CooltrainerfKellyBeaten",
+            "Route45_Text_CooltrainerfKellyAfter"
+          ],
+          "note": "",
+          "x": 30,
+          "y": 14
+        },
+        {
+          "kind": "trainer",
+          "source_index": 6,
+          "source_script": "Route45_EventScript_Kenji",
+          "source_sprite": "OBJ_EVENT_GFX_BLACK_BELT",
+          "firered_sprite": "OBJ_EVENT_GFX_BLACK_BELT",
+          "text": [
+            "TRAINER_JOHTO_KENJI",
+            "Route45_Text_BlackbeltKenjiSeen",
+            "Route45_Text_BlackbeltKenjiBeaten",
+            "Route45_Text_BlackbeltKenjiAfter"
+          ],
+          "note": "",
+          "x": 28,
+          "y": 45
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 7,
+          "source_script": "Route45_EventScript_Item_Elixir",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Elixir",
+          "x": 35,
+          "y": 67
+        },
+        {
+          "kind": "trainer",
+          "source_index": 8,
+          "source_script": "Route45_EventScript_Timothy",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_JOHTO_TIMOTHY",
+            "Route45_Text_HikerTimothySeen",
+            "Route45_Text_HikerTimothyBeaten",
+            "Route45_Text_HikerTimothyAfter"
+          ],
+          "note": "",
+          "x": 33,
+          "y": 64
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 9,
+          "source_script": "Route45_EventScript_Item_Max_Potion",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Max Potion",
+          "x": 12,
+          "y": 46
+        },
+        {
+          "kind": "trainer",
+          "source_index": 10,
+          "source_script": "Route45_EventScript_Parry",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_JOHTO_PARRY",
+            "Route45_Text_HikerParrySeen",
+            "Route45_Text_HikerParryBeaten",
+            "Route45_Text_HikerParryAfter"
+          ],
+          "note": "",
+          "x": 29,
+          "y": 61
+        },
+        {
+          "kind": "trainer",
+          "source_index": 11,
+          "source_script": "Route45_EventScript_Quentin",
+          "source_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "firered_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "text": [
+            "TRAINER_JOHTO_QUENTIN",
+            "Route45_Text_CamperQuentinSeen",
+            "Route45_Text_CamperQuentinBeaten",
+            "Route45_Text_CamperQuentinAfter"
+          ],
+          "note": "",
+          "x": 12,
+          "y": 73
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route45_EventScript_Sign",
+          "text": "Route45_Text_Sign",
+          "x": 31,
+          "y": 4
+        }
+      ]
+    },
+    "Johto_BlackthornCity": {
+      "source": "HNS_modern/BlackthornCity",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "BlackthornCity_EventScript_Youngster",
+          "source_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "firered_sprite": "OBJ_EVENT_GFX_YOUNGSTER",
+          "text": "BlackthornYoungsterText",
+          "note": "",
+          "x": 16,
+          "y": 28
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "BlackthornCity_EventScript_CoolTrainerF2",
+          "source_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": "BlackthornCooltrainerF2Text",
+          "note": "",
+          "x": 44,
+          "y": 31
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "BlackthornCity_EventScript_CoolTrainerF",
+          "source_sprite": "OBJ_EVENT_GFX_BATTLE_GIRL",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": "BlackthornCooltrainerF1Text",
+          "note": "",
+          "x": 12,
+          "y": 40
+        },
+        {
+          "kind": "npc",
+          "source_index": 5,
+          "source_script": "BlackthornCity_EventScript_BlackBelt",
+          "source_sprite": "OBJ_EVENT_GFX_BLACK_BELT",
+          "firered_sprite": "OBJ_EVENT_GFX_BLACK_BELT",
+          "text": "BlackBeltText_VoicesInMyHead",
+          "note": "",
+          "x": 33,
+          "y": 44
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "BlackthornCity_EventScript_DragonsDenSign",
+          "text": "BlackthornCity_Text_DragonDenSign",
+          "x": 28,
+          "y": 13
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "BlackthornCity_EventScript_GymSign",
+          "text": "BlackthornGymSignText",
+          "x": 26,
+          "y": 26
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "BlackthornCity_EventScript_MoveHouseSign",
+          "text": "BlackthornCity_Text_MoveDeletersHouseSign",
+          "x": 13,
+          "y": 49
+        },
+        {
+          "kind": "sign",
+          "source_index": 3,
+          "source_script": "BlackthornCity_EventScript_CitySign",
+          "text": "BlackthornCitySignText",
+          "x": 42,
+          "y": 42
+        }
+      ]
+    },
     "Johto_Gate_EcruteakCity_Route42": {
       "source": "HNS_modern/Gate_EcruteakCity_Route42",
       "events": [
