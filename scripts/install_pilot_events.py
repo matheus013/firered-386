@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_TUBER_M': 'OBJ_EVENT_GFX_TUBER_M_LAND', 'OBJ_EVENT_GFX_TUBER_F': 'OBJ_EVENT_GFX_TUBER_F', 'OBJ_EVENT_GFX_OLD_MAN': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_EXPERT_F': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_EXPERT_M': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_MAN_1': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_COOK': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_GIRL_1': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_POKEFAN_F': 'OBJ_EVENT_GFX_WOMAN_2', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_TUBER_M': 'OBJ_EVENT_GFX_TUBER_M_LAND', 'OBJ_EVENT_GFX_TUBER_F': 'OBJ_EVENT_GFX_TUBER_F', 'OBJ_EVENT_GFX_OLD_MAN': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_EXPERT_F': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_EXPERT_M': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_MAN_1': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_COOK': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_GIRL_1': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_POKEFAN_F': 'OBJ_EVENT_GFX_WOMAN_2', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
     'OBJ_EVENT_GFX_GIRL_2': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_BOY_3': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_MAN_2': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_4': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_5': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_RICH_BOY': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_DEVON_EMPLOYEE': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_LITTLE_GIRL': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
@@ -322,6 +322,24 @@ EVENTS = {
         15: ('npc', 'Route109_Text_LittleKidsDartAround', ''), 18: ('npc', 'Route109_Text_ZigzagoonPicksUpLitter', ''),
         9: ('itemflag', None, 'PP Up'), 22: ('itemflag', None, 'Potion')},
         {0: ('sign', 'Route109_Text_SeashoreHouseSign'), 1: ('sign', 'Route109_Text_TrainerTipsSign')}),
+    # Hoenn batch 8. Left out: the Magma grunts, berry trees, Lavaridge's rival, the Egg woman (gift with a story
+    # flag), the hidden item and the closed buildings (cable car, Fiery Path, Jagged Pass, Gym, herb shop, house).
+    'Route112': (EMERALD, {
+        1: ('trainer', ('TRAINER_HOENN_BRICE', 'Route112_Text_BriceIntro', 'Route112_Text_BriceDefeat', 'Route112_Text_BricePostBattle'), ''),
+        2: ('trainer', ('TRAINER_HOENN_LARRY', 'Route112_Text_LarryIntro', 'Route112_Text_LarryDefeat', 'Route112_Text_LarryPostBattle'), ''),
+        3: ('trainer', ('TRAINER_HOENN_CAROL', 'Route112_Text_CarolIntro', 'Route112_Text_CarolDefeat', 'Route112_Text_CarolPostBattle'), ''),
+        4: ('trainer', ('TRAINER_HOENN_TRENT', 'Route112_Text_TrentIntro', 'Route112_Text_TrentDefeat', 'Route112_Text_TrentPostBattle'), ''),
+        12: ('trainer', ('TRAINER_HOENN_BRYANT', 'Route112_Text_BryantIntro', 'Route112_Text_BryantDefeat', 'Route112_Text_BryantPostBattle'), ''),
+        13: ('trainer', ('TRAINER_HOENN_SHAYLA', 'Route112_Text_ShaylaIntro', 'Route112_Text_ShaylaDefeat', 'Route112_Text_ShaylaPostBattle'), ''),
+        10: ('npc', 'Route112_Text_NotEasyToGetBackToLavaridge', ''), 11: ('itemflag', None, 'Nugget')},
+        {0: ('sign', 'Route112_Text_MtChimneySign'), 1: ('sign', 'Route112_Text_MtChimneyCableCarSign'),
+         2: ('sign', 'Route112_Text_RouteSignLavaridge')}),
+    'LavaridgeTown': (EMERALD, {
+        0: ('npc', 'LavaridgeTown_Text_OhYouLikeHotSprings', ''), 1: ('npc', 'LavaridgeTown_Text_HotSpringsNeverRunDry', ''),
+        2: ('npc', 'LavaridgeTown_Text_PokemonNippedBackside', ''), 3: ('npc', 'LavaridgeTown_Text_BatheInHotSpringsEveryDay', ''),
+        4: ('npc', 'LavaridgeTown_Text_IfPokemonInHotSprings', ''), 5: ('npc', 'LavaridgeTown_Text_HotSpringsClaims', '')},
+        {0: ('sign', 'LavaridgeTown_Text_HerbShopSign'), 1: ('sign', 'LavaridgeTown_Text_GymSign'), 2: ('martsign', None),
+         3: ('sign', 'LavaridgeTown_Text_TownSign'), 4: ('pcsign', None), 5: ('martsign', None), 6: ('pcsign', None)}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -623,7 +641,8 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'MauvilleCity': 'FLAG_WORLD_MAP_MAUVILLE_CITY',
                    'MahoganyTown': 'FLAG_WORLD_MAP_MAHOGANY_TOWN',
                    'SlateportCity': 'FLAG_WORLD_MAP_SLATEPORT_CITY',
-                   'BlackthornCity': 'FLAG_WORLD_MAP_BLACKTHORN_CITY'}
+                   'BlackthornCity': 'FLAG_WORLD_MAP_BLACKTHORN_CITY',
+                   'LavaridgeTown': 'FLAG_WORLD_MAP_LAVARIDGE_TOWN'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -704,6 +723,7 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route45', 4): ('ITEM_NUGGET', 'FLAG_HIDE_JOHTO_ROUTE45_NUGGET', 'FLAG_0x0FC'),
               ('Route45', 7): ('ITEM_ELIXIR', 'FLAG_HIDE_JOHTO_ROUTE45_ELIXIR', 'FLAG_0x0FD'),
               ('Route45', 9): ('ITEM_MAX_POTION', 'FLAG_HIDE_JOHTO_ROUTE45_MAX_POTION', 'FLAG_0x0FE'),
+              ('Route112', 11): ('ITEM_NUGGET', 'FLAG_HIDE_HOENN_ROUTE112_NUGGET', 'FLAG_0x0FF'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Emerald movement types FireRed lacks -> the closest FireRed one.

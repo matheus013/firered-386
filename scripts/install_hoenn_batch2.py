@@ -55,11 +55,17 @@ BATCHES = {
     7: ({'Route109': ('MUS_ROUTE24', 'gTileset_HoennPilotSlateport', 'slateport')},
         {},
         {'MAPSEC_ROUTE_109': 'ROUTE 109'}),
+    # Batch 8: Route 112 west of Route 111 and Lavaridge Town (Lavaridge secondary compacted to both). The cable
+    # car, Fiery Path, Jagged Pass, the Gym, herb shop, house and the hot-spring back door stay closed.
+    8: ({'Route112': ('MUS_ROUTE11', 'gTileset_HoennPilotLavaridge', 'lavaridge'),
+         'LavaridgeTown': ('MUS_LAVENDER', 'gTileset_HoennPilotLavaridge', 'lavaridge')},
+        {'LavaridgeTown': ({(9, 6): 'PokemonCenter_1F', (15, 5): 'Mart'}, (9, 7), 'FLAG_0x8D3')},
+        {'MAPSEC_ROUTE_112': 'ROUTE 112', 'MAPSEC_LAVARIDGE_TOWN': 'LAVARIDGE TOWN'}),
 }
 # Every Hoenn exterior in the expansion, in install order (connections only link the installed ones).
 ALL_EXTERIORS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
                  'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown',
-                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109']
+                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109', 'Route112', 'LavaridgeTown']
 DOORS = [  # metatile, symbol in hoenn_pilot_doors.h (already defined for the Petalburg pair)
     (0x061, 'PokeCenter', 'DOOR_SOUND_SLIDING'), (0x041, 'PokeMart', 'DOOR_SOUND_SLIDING')]
 

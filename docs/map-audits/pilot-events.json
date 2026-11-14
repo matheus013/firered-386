@@ -3930,6 +3930,280 @@
         }
       ]
     },
+    "Hoenn_Route112": {
+      "source": "pokeemerald/Route112",
+      "events": [
+        {
+          "kind": "trainer",
+          "source_index": 1,
+          "source_script": "Route112_EventScript_Brice",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_HOENN_BRICE",
+            "Route112_Text_BriceIntro",
+            "Route112_Text_BriceDefeat",
+            "Route112_Text_BricePostBattle"
+          ],
+          "note": "",
+          "x": 24,
+          "y": 34
+        },
+        {
+          "kind": "trainer",
+          "source_index": 2,
+          "source_script": "Route112_EventScript_Larry",
+          "source_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "firered_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "text": [
+            "TRAINER_HOENN_LARRY",
+            "Route112_Text_LarryIntro",
+            "Route112_Text_LarryDefeat",
+            "Route112_Text_LarryPostBattle"
+          ],
+          "note": "",
+          "x": 29,
+          "y": 49
+        },
+        {
+          "kind": "trainer",
+          "source_index": 3,
+          "source_script": "Route112_EventScript_Carol",
+          "source_sprite": "OBJ_EVENT_GFX_PICNICKER",
+          "firered_sprite": "OBJ_EVENT_GFX_PICNICKER",
+          "text": [
+            "TRAINER_HOENN_CAROL",
+            "Route112_Text_CarolIntro",
+            "Route112_Text_CarolDefeat",
+            "Route112_Text_CarolPostBattle"
+          ],
+          "note": "",
+          "x": 22,
+          "y": 46
+        },
+        {
+          "kind": "trainer",
+          "source_index": 4,
+          "source_script": "Route112_EventScript_Trent",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_HOENN_TRENT",
+            "Route112_Text_TrentIntro",
+            "Route112_Text_TrentDefeat",
+            "Route112_Text_TrentPostBattle"
+          ],
+          "note": "",
+          "x": 15,
+          "y": 40
+        },
+        {
+          "kind": "npc",
+          "source_index": 10,
+          "source_script": "Route112_EventScript_Hiker",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": "Route112_Text_NotEasyToGetBackToLavaridge",
+          "note": "",
+          "x": 8,
+          "y": 50
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 11,
+          "source_script": "Route112_EventScript_ItemNugget",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Nugget",
+          "x": 14,
+          "y": 43
+        },
+        {
+          "kind": "trainer",
+          "source_index": 12,
+          "source_script": "Route112_EventScript_Bryant",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_ROCKER",
+          "text": [
+            "TRAINER_HOENN_BRYANT",
+            "Route112_Text_BryantIntro",
+            "Route112_Text_BryantDefeat",
+            "Route112_Text_BryantPostBattle"
+          ],
+          "note": "",
+          "x": 31,
+          "y": 7
+        },
+        {
+          "kind": "trainer",
+          "source_index": 13,
+          "source_script": "Route112_EventScript_Shayla",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": [
+            "TRAINER_HOENN_SHAYLA",
+            "Route112_Text_ShaylaIntro",
+            "Route112_Text_ShaylaDefeat",
+            "Route112_Text_ShaylaPostBattle"
+          ],
+          "note": "",
+          "x": 31,
+          "y": 11
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route112_EventScript_MtChimneySign",
+          "text": "Route112_Text_MtChimneySign",
+          "x": 19,
+          "y": 44
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "Route112_EventScript_MtChimneyCableCarSign",
+          "text": "Route112_Text_MtChimneyCableCarSign",
+          "x": 22,
+          "y": 37
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "Route112_EventScript_RouteSignLavaridge",
+          "text": "Route112_Text_RouteSignLavaridge",
+          "x": 4,
+          "y": 49
+        }
+      ]
+    },
+    "Hoenn_LavaridgeTown": {
+      "source": "pokeemerald/LavaridgeTown",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "LavaridgeTown_EventScript_ExpertF",
+          "source_sprite": "OBJ_EVENT_GFX_EXPERT_F",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "text": "LavaridgeTown_Text_OhYouLikeHotSprings",
+          "note": "",
+          "x": 8,
+          "y": 7
+        },
+        {
+          "kind": "npc",
+          "source_index": 1,
+          "source_script": "LavaridgeTown_EventScript_ExpertM",
+          "source_sprite": "OBJ_EVENT_GFX_EXPERT_M",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "text": "LavaridgeTown_Text_HotSpringsNeverRunDry",
+          "note": "",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "kind": "npc",
+          "source_index": 2,
+          "source_script": "LavaridgeTown_EventScript_OldMan",
+          "source_sprite": "OBJ_EVENT_GFX_OLD_MAN",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "text": "LavaridgeTown_Text_PokemonNippedBackside",
+          "note": "",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "LavaridgeTown_EventScript_Twin",
+          "source_sprite": "OBJ_EVENT_GFX_TWIN",
+          "firered_sprite": "OBJ_EVENT_GFX_TWIN",
+          "text": "LavaridgeTown_Text_BatheInHotSpringsEveryDay",
+          "note": "",
+          "x": 10,
+          "y": 13
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "LavaridgeTown_EventScript_HotSpringsOldWoman1",
+          "source_sprite": "OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "text": "LavaridgeTown_Text_IfPokemonInHotSprings",
+          "note": "",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "kind": "npc",
+          "source_index": 5,
+          "source_script": "LavaridgeTown_EventScript_HotSpringsOldWoman2",
+          "source_sprite": "OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "text": "LavaridgeTown_Text_HotSpringsClaims",
+          "note": "",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "LavaridgeTown_EventScript_HerbShopSign",
+          "text": "LavaridgeTown_Text_HerbShopSign",
+          "x": 14,
+          "y": 16
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "LavaridgeTown_EventScript_GymSign",
+          "text": "LavaridgeTown_Text_GymSign",
+          "x": 7,
+          "y": 15
+        },
+        {
+          "kind": "martsign",
+          "source_index": 2,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 17,
+          "y": 5
+        },
+        {
+          "kind": "sign",
+          "source_index": 3,
+          "source_script": "LavaridgeTown_EventScript_TownSign",
+          "text": "LavaridgeTown_Text_TownSign",
+          "x": 13,
+          "y": 8
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 4,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 10,
+          "y": 6
+        },
+        {
+          "kind": "martsign",
+          "source_index": 5,
+          "source_script": "Common_EventScript_ShowPokemartSign",
+          "text": null,
+          "x": 16,
+          "y": 5
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 6,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 11,
+          "y": 6
+        }
+      ]
+    },
     "Johto_NewBarkTown": {
       "source": "HNS_modern/NewBarkTown",
       "events": [

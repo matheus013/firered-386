@@ -295,6 +295,14 @@
       "y": 49,
       "respawn_map": "MAP_JOHTO_BLACKTHORN_CITY_POKEMON_CENTER_1F",
       "respawn_npc": 1
+    },
+    {
+      "id": "HEAL_LOCATION_LAVARIDGE_TOWN",
+      "map": "MAP_HOENN_LAVARIDGE_TOWN",
+      "x": 9,
+      "y": 7,
+      "respawn_map": "MAP_HOENN_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
+      "respawn_npc": 1
     }
   ]
 }

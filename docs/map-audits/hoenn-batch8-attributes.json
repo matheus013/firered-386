@@ -1,0 +1,656 @@
+{
+  "layouts": [
+    "LAYOUT_HOENN_ROUTE112",
+    "LAYOUT_HOENN_LAVARIDGE_TOWN"
+  ],
+  "entries": [
+    {
+      "metatile": "0x013",
+      "source_behavior": "MB_SECRET_BASE_WALL",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x14c",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x280",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x281",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x282",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x283",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x20000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x284",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x285",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x286",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x287",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x288",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28b",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x28c",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x28d",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x28e",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x28f",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x290",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x291",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x292",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x293",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x294",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x295",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x296",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x29c",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x29d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29e",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x20000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x29f",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x20000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x2a0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a2",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2a6",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2a7",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2a9",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2aa",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2ab",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2ac",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2ad",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2ae",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2af",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2b0",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2b1",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2b2",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2b3",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2b4",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2b5",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2b6",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2b7",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x00000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x2b8",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2b9",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2ba",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2bb",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2bc",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2bd",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2be",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2bf",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2c0",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2c1",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2c2",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2c3",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2c4",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2c5",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2c6",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2c7",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2c8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ca",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2cb",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2cc",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2cd",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ce",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2cf",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d1",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x00000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2d2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d3",
+      "source_behavior": "MB_HOT_SPRINGS",
+      "attribute": "0x20000028",
+      "reason": "batch 8: Lavaridge hot springs; same name in FireRed"
+    },
+    {
+      "metatile": "0x2d4",
+      "source_behavior": "MB_HOT_SPRINGS",
+      "attribute": "0x20000028",
+      "reason": "batch 8: Lavaridge hot springs; same name in FireRed"
+    },
+    {
+      "metatile": "0x2d5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d6",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d7",
+      "source_behavior": "MB_SOUTH_ARROW_WARP",
+      "attribute": "0x20000065",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2d8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2da",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2db",
+      "source_behavior": "MB_HOT_SPRINGS",
+      "attribute": "0x20000028",
+      "reason": "batch 8: Lavaridge hot springs; same name in FireRed"
+    },
+    {
+      "metatile": "0x2dc",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2dd",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2de",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x20000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2df",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e0",
+      "source_behavior": "MB_HOT_SPRINGS",
+      "attribute": "0x00000028",
+      "reason": "batch 8: Lavaridge hot springs; same name in FireRed"
+    },
+    {
+      "metatile": "0x2e1",
+      "source_behavior": "MB_HOT_SPRINGS",
+      "attribute": "0x00000028",
+      "reason": "batch 8: Lavaridge hot springs; same name in FireRed"
+    },
+    {
+      "metatile": "0x2e2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e6",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e7",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e9",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2ea",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2eb",
+      "source_behavior": "MB_HOT_SPRINGS",
+      "attribute": "0x00000028",
+      "reason": "batch 8: Lavaridge hot springs; same name in FireRed"
+    },
+    {
+      "metatile": "0x2ec",
+      "source_behavior": "MB_HOT_SPRINGS",
+      "attribute": "0x00000028",
+      "reason": "batch 8: Lavaridge hot springs; same name in FireRed"
+    },
+    {
+      "metatile": "0x2ed",
+      "source_behavior": "MB_JUMP_EAST",
+      "attribute": "0x20000038",
+      "reason": "east ledge"
+    },
+    {
+      "metatile": "0x2ee",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ef",
+      "source_behavior": "MB_JUMP_SOUTH",
+      "attribute": "0x2000003b",
+      "reason": "south ledge"
+    },
+    {
+      "metatile": "0x2f0",
+      "source_behavior": "MB_JUMP_SOUTHEAST",
+      "attribute": "0x20000000",
+      "reason": "source has no movement for diagonal jumps"
+    },
+    {
+      "metatile": "0x2f1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2f2",
+      "source_behavior": "MB_JUMP_EAST",
+      "attribute": "0x00000038",
+      "reason": "east ledge"
+    },
+    {
+      "metatile": "0x2f3",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2f5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    }
+  ]
+}

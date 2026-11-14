@@ -94,6 +94,11 @@ for _m,_x,_y,_steps,_want in (
   (HOENN+'MAUVILLE_CITY',5,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_ROUTE111',{(5,139)}),('MAP_HOENN_MAUVILLE_CITY',{(5,0)})]),
   # Hoenn batch 7: Slateport south onto the Route 109 beach.
   (HOENN+'SLATEPORT_CITY',20,59,[('DOWN','MAP'),('UP','MAP')],[('MAP_HOENN_ROUTE109',{(20,0)}),('MAP_HOENN_SLATEPORT_CITY',{(20,59)})]),
+  # Hoenn batch 8: Route 111 west into Route 112, Lavaridge east into Route 112, Lavaridge's doors.
+  (HOENN+'ROUTE111',0,67,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_HOENN_ROUTE112',{(39,47)}),('MAP_HOENN_ROUTE111',{(0,67)})]),
+  (HOENN+'LAVARIDGE_TOWN',19,9,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_HOENN_ROUTE112',{(0,49)}),('MAP_HOENN_LAVARIDGE_TOWN',{(19,9)})]),
+  (HOENN+'LAVARIDGE_TOWN',9,7,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_LAVARIDGE_TOWN_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_LAVARIDGE_TOWN',{(9,7)})]),
+  (HOENN+'LAVARIDGE_TOWN',15,6,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_LAVARIDGE_TOWN_MART',{(4,7)}),('MAP_HOENN_LAVARIDGE_TOWN',{(15,6)})]),
   # Johto batch 1: Route 29 west into Cherrygrove, north to Routes 30 and 31, and the Pokemon Center/Mart doors.
   (JOHTO+'ROUTE29',0,16,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY',{(64,10)}),('MAP_JOHTO_ROUTE29',{(0,16)})]),
   (JOHTO+'CHERRYGROVE_CITY',34,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE30',{(25,57)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(34,0)})]),

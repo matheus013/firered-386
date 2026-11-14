@@ -2011,7 +2011,7 @@
         "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
         "label": "gBlackthornCity",
         "map": "MAP_BLACKTHORN_CITY",
-        "note": "day table; the HNS land table is a placeholder (not 12 real species); water left out (12 HNS slots); Rock Smash left out"
+        "note": "day table; the HNS land table is all SPECIES_NONE; water left out (12 HNS slots); Rock Smash left out"
       },
       "row": {
         "map": "MAP_JOHTO_BLACKTHORN_CITY",
@@ -4104,6 +4104,84 @@
               "min_level": 40,
               "max_level": 45,
               "species": "SPECIES_WAILMER"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "pokeemerald",
+        "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+        "label": "gRoute112",
+        "map": "MAP_ROUTE112",
+        "note": "Emerald table unchanged"
+      },
+      "row": {
+        "map": "MAP_HOENN_ROUTE112",
+        "base_label": "gHoennRoute112_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_NUMEL"
+            },
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_NUMEL"
+            },
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_MARILL"
+            },
+            {
+              "min_level": 14,
+              "max_level": 14,
+              "species": "SPECIES_NUMEL"
+            },
+            {
+              "min_level": 14,
+              "max_level": 14,
+              "species": "SPECIES_NUMEL"
+            },
+            {
+              "min_level": 14,
+              "max_level": 14,
+              "species": "SPECIES_MARILL"
+            },
+            {
+              "min_level": 16,
+              "max_level": 16,
+              "species": "SPECIES_NUMEL"
+            },
+            {
+              "min_level": 16,
+              "max_level": 16,
+              "species": "SPECIES_MARILL"
+            },
+            {
+              "min_level": 16,
+              "max_level": 16,
+              "species": "SPECIES_NUMEL"
+            },
+            {
+              "min_level": 16,
+              "max_level": 16,
+              "species": "SPECIES_NUMEL"
+            },
+            {
+              "min_level": 16,
+              "max_level": 16,
+              "species": "SPECIES_NUMEL"
+            },
+            {
+              "min_level": 16,
+              "max_level": 16,
+              "species": "SPECIES_NUMEL"
             }
           ]
         }

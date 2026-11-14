@@ -1,0 +1,50 @@
+{
+  "maps": {
+    "Hoenn_Route112": {
+      "layout": "LAYOUT_HOENN_ROUTE112",
+      "secondary": "gTileset_HoennPilotLavaridge",
+      "music": "MUS_ROUTE11",
+      "warps": 0
+    },
+    "Hoenn_LavaridgeTown": {
+      "layout": "LAYOUT_HOENN_LAVARIDGE_TOWN",
+      "secondary": "gTileset_HoennPilotLavaridge",
+      "music": "MUS_LAVENDER",
+      "warps": 2
+    },
+    "Hoenn_LavaridgeTown_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "heal_location": "HEAL_LOCATION_LAVARIDGE_TOWN"
+    },
+    "Hoenn_LavaridgeTown_Mart": {
+      "layout": "LAYOUT_MART",
+      "items": [
+        "ITEM_GREAT_BALL",
+        "ITEM_SUPER_POTION",
+        "ITEM_ANTIDOTE",
+        "ITEM_PARALYZE_HEAL",
+        "ITEM_AWAKENING",
+        "ITEM_BURN_HEAL",
+        "ITEM_REVIVE",
+        "ITEM_SUPER_REPEL",
+        "ITEM_X_SPEED"
+      ]
+    }
+  },
+  "closed_doors": {
+    "Route112": [
+      "MAP_ROUTE112_CABLE_CAR_STATION",
+      "MAP_ROUTE112_CABLE_CAR_STATION",
+      "MAP_JAGGED_PASS",
+      "MAP_JAGGED_PASS",
+      "MAP_FIERY_PATH",
+      "MAP_FIERY_PATH"
+    ],
+    "LavaridgeTown": [
+      "MAP_LAVARIDGE_TOWN_HERB_SHOP",
+      "MAP_LAVARIDGE_TOWN_GYM_1F",
+      "MAP_LAVARIDGE_TOWN_HOUSE",
+      "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F"
+    ]
+  }
+}

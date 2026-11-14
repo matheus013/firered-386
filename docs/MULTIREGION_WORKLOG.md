@@ -2187,3 +2187,34 @@ sentidos.
 - o Santos.
 
 **Resultado:** 1018 casos aprovados (eram 983), com as 166 batalhas de rota vencidas. As caminhadas novas cruzam Blackthorn → Route 45 → Route 46 e entram e saem do Centro e do Mart de Blackthorn.
+
+## Hoenn, lote 8: Route 112 e Lavaridge Town
+
+**Mapas novos:** a Route 112, a oeste da Route 111, e Lavaridge Town, que se liga à borda oeste
+dela.
+
+- **Tileset:** novo secundário `hoenn_pilot_lavaridge` (213 tiles e 120 metatiles, limitado aos dois
+  mapas), com as paletas 13–15 iguais às dos outros secundários de Hoenn.
+- **Regras novas:**
+  - `MB_HOT_SPRINGS` tem o mesmo nome no FireRed (as fontes termais de Lavaridge);
+  - `MB_NO_RUNNING` (dois tiles) vira normal.
+- **Lavaridge:** Centro Pokémon e Mart do FireRed, com a lista do Emerald. A flag é
+  `FLAG_WORLD_MAP_LAVARIDGE_TOWN` (0x8D3), e a cidade é destino de Fly. A porta dos fundos do Centro
+  (a das fontes termais) fica fechada.
+- **Treinadores (6, IDs 864–869):** Brice, Larry, Carol, Trent, Bryant e Shayla.
+- **Sprite:** as velhinhas das fontes termais usam `OLD_WOMAN`.
+- **Eventos:**
+  - Nugget (flag 0x0FF);
+  - o montanhista da Route 112 e seis moradores de Lavaridge;
+  - as placas;
+  - 31 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama da Route 112, igual à tabela do Emerald.
+
+**Fica para depois:**
+
+- o teleférico, o Mt. Chimney, o Fiery Path e o Jagged Pass;
+- o Ginásio da Flannery, a loja de ervas e a casa;
+- os Magma, o rival e a mulher do Ovo;
+- as árvores de berry e o item escondido.
+
+**Resultado:** 1054 casos aprovados (eram 1018), com as 172 batalhas de rota vencidas. As caminhadas novas cruzam Route 111 → Route 112 e Lavaridge → Route 112, e entram e saem do Centro e do Mart de Lavaridge.
