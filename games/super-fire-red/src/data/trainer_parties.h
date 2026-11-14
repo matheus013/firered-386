@@ -17820,3 +17820,133 @@ static const struct TrainerMonNoItemDefaultMoves sParty_JohtoWendy[] = {
     .species = SPECIES_SEADRA,
     }
 };
+
+// Region geography: pokeemerald TRAINER_JAYLEN, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_HoennJaylen[] = {
+    {
+    .iv = 0,
+    .lvl = 79,
+    .species = SPECIES_TRAPINCH,
+    }
+};
+
+// Region geography: pokeemerald TRAINER_DILLON, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_HoennDillon[] = {
+    {
+    .iv = 0,
+    .lvl = 79,
+    .species = SPECIES_ARON,
+    }
+};
+
+// Region geography: pokeemerald TRAINER_MADELINE_1, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_HoennMadeline[] = {
+    {
+    .iv = 0,
+    .lvl = 79,
+    .species = SPECIES_NUMEL,
+    }
+};
+
+// Region geography: pokeemerald TRAINER_LAO_1, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_HoennLao[] = {
+    {
+    .iv = 0,
+    .lvl = 77,
+    .species = SPECIES_KOFFING,
+    },
+    {
+    .iv = 0,
+    .lvl = 77,
+    .species = SPECIES_KOFFING,
+    },
+    {
+    .iv = 0,
+    .lvl = 77,
+    .species = SPECIES_KOFFING,
+    }
+};
+
+// Region geography: pokeemerald TRAINER_LUNG, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_HoennLung[] = {
+    {
+    .iv = 0,
+    .lvl = 78,
+    .species = SPECIES_KOFFING,
+    },
+    {
+    .iv = 0,
+    .lvl = 78,
+    .species = SPECIES_NINJASK,
+    }
+};
+
+// Region geography: pokeemerald TRAINER_TORI_AND_TIA, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_HoennToriAndTia[] = {
+    {
+    .iv = 0,
+    .lvl = 79,
+    .species = SPECIES_SPINDA,
+    },
+    {
+    .iv = 0,
+    .lvl = 79,
+    .species = SPECIES_SPINDA,
+    }
+};
+
+// Region geography: pokeemerald TRAINER_WYATT, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_HoennWyatt[] = {
+    {
+    .iv = 0,
+    .lvl = 78,
+    .species = SPECIES_ARON,
+    },
+    {
+    .iv = 0,
+    .lvl = 78,
+    .species = SPECIES_ARON,
+    }
+};
+
+// Region geography: pokeemerald TRAINER_LAWRENCE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_HoennLawrence[] = {
+    {
+    .iv = 0,
+    .lvl = 78,
+    .species = SPECIES_BALTOY,
+    },
+    {
+    .iv = 0,
+    .lvl = 78,
+    .species = SPECIES_SANDSHREW,
+    }
+};
+
+// Region geography: pokeemerald TRAINER_SOPHIE, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_HoennSophie[] = {
+    {
+    .iv = 0,
+    .lvl = 77,
+    .species = SPECIES_MARILL,
+    },
+    {
+    .iv = 0,
+    .lvl = 79,
+    .species = SPECIES_LOMBRE,
+    }
+};
+
+// Region geography: pokeemerald TRAINER_COBY, levels +60.
+static const struct TrainerMonNoItemDefaultMoves sParty_HoennCoby[] = {
+    {
+    .iv = 0,
+    .lvl = 77,
+    .species = SPECIES_SKARMORY,
+    },
+    {
+    .iv = 0,
+    .lvl = 79,
+    .species = SPECIES_SWELLOW,
+    }
+};

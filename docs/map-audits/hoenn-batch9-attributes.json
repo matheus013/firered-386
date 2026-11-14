@@ -1,0 +1,440 @@
+{
+  "layouts": [
+    "LAYOUT_HOENN_ROUTE113",
+    "LAYOUT_HOENN_FALLARBOR_TOWN"
+  ],
+  "entries": [
+    {
+      "metatile": "0x1a0",
+      "source_behavior": "MB_SECRET_BASE_SPOT_RED_CAVE",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x281",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x283",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x289",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28a",
+      "source_behavior": "MB_ASHGRASS",
+      "attribute": "0x01000202",
+      "reason": "batch 9: Route 113 ash grass; FireRed has no ash (no soot): tall grass with land encounters"
+    },
+    {
+      "metatile": "0x28b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x291",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x293",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x296",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x299",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29b",
+      "source_behavior": "MB_JUMP_SOUTH",
+      "attribute": "0x2000003b",
+      "reason": "south ledge"
+    },
+    {
+      "metatile": "0x29c",
+      "source_behavior": "MB_JUMP_SOUTH",
+      "attribute": "0x2000003b",
+      "reason": "south ledge"
+    },
+    {
+      "metatile": "0x29d",
+      "source_behavior": "MB_JUMP_SOUTH",
+      "attribute": "0x2000003b",
+      "reason": "south ledge"
+    },
+    {
+      "metatile": "0x29e",
+      "source_behavior": "MB_JUMP_WEST",
+      "attribute": "0x20000039",
+      "reason": "west ledge"
+    },
+    {
+      "metatile": "0x29f",
+      "source_behavior": "MB_JUMP_EAST",
+      "attribute": "0x20000038",
+      "reason": "east ledge"
+    },
+    {
+      "metatile": "0x2a3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a6",
+      "source_behavior": "MB_JUMP_SOUTHWEST",
+      "attribute": "0x20000000",
+      "reason": "source has no movement for diagonal jumps"
+    },
+    {
+      "metatile": "0x2a7",
+      "source_behavior": "MB_JUMP_SOUTHEAST",
+      "attribute": "0x20000000",
+      "reason": "source has no movement for diagonal jumps"
+    },
+    {
+      "metatile": "0x2a9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ae",
+      "source_behavior": "MB_JUMP_WEST",
+      "attribute": "0x20000039",
+      "reason": "west ledge"
+    },
+    {
+      "metatile": "0x2af",
+      "source_behavior": "MB_JUMP_EAST",
+      "attribute": "0x20000038",
+      "reason": "east ledge"
+    },
+    {
+      "metatile": "0x315",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x317",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x31b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x31f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x325",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x00000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x326",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x327",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x329",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x32a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x32b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x342",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x343",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x34a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x34b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x353",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x35a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x35b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x362",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x368",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x369",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x36a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x36c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x370",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x371",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x372",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x376",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x377",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x378",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x379",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x37a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x37c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x387",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x38f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x395",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3e2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3e3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3e4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3e5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3e6",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3ea",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3eb",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3ec",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x3ed",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3ee",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    }
+  ]
+}

@@ -5262,6 +5262,30 @@
       "secondary_tileset": "gTileset_JohtoPilotCianwoodCity",
       "border_filepath": "data/layouts/Johto_CianwoodCity/border.bin",
       "blockdata_filepath": "data/layouts/Johto_CianwoodCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_ROUTE113",
+      "name": "Hoenn_Route113_Layout",
+      "width": 100,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotFallarbor",
+      "border_filepath": "data/layouts/Hoenn_Route113/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_Route113/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_FALLARBOR_TOWN",
+      "name": "Hoenn_FallarborTown_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotFallarbor",
+      "border_filepath": "data/layouts/Hoenn_FallarborTown/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_FallarborTown/map.bin"
     }
   ]
 }

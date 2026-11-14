@@ -669,7 +669,9 @@
     "Hoenn_LavaridgeTown",
     "Johto_Route40",
     "Johto_Route41",
-    "Johto_CianwoodCity"
+    "Johto_CianwoodCity",
+    "Hoenn_Route113",
+    "Hoenn_FallarborTown"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -711,7 +713,11 @@
     "Hoenn_Route112",
     "Hoenn_LavaridgeTown",
     "Hoenn_LavaridgeTown_PokemonCenter_1F",
-    "Hoenn_LavaridgeTown_Mart"
+    "Hoenn_LavaridgeTown_Mart",
+    "Hoenn_Route113",
+    "Hoenn_FallarborTown",
+    "Hoenn_FallarborTown_PokemonCenter_1F",
+    "Hoenn_FallarborTown_Mart"
   ],
   "gMapGroup_Johto": [
     "Johto_NewBarkTown",

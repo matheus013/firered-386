@@ -19,6 +19,11 @@
       "direction": "down"
     },
     {
+      "map": "MAP_HOENN_ROUTE113",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
       "map": "MAP_HOENN_ROUTE112",
       "offset": 20,
       "direction": "left"

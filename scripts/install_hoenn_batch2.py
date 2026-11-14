@@ -61,11 +61,17 @@ BATCHES = {
          'LavaridgeTown': ('MUS_LAVENDER', 'gTileset_HoennPilotLavaridge', 'lavaridge')},
         {'LavaridgeTown': ({(9, 6): 'PokemonCenter_1F', (15, 5): 'Mart'}, (9, 7), 'FLAG_0x8D3')},
         {'MAPSEC_ROUTE_112': 'ROUTE 112', 'MAPSEC_LAVARIDGE_TOWN': 'LAVARIDGE TOWN'}),
+    # Batch 9: Route 113 west of Route 111 and Fallarbor Town (Fallarbor secondary; its metatiles fit, only the
+    # tiles are limited to the two maps). The glass workshop, Terra Cave, Battle Tent and houses stay closed.
+    9: ({'Route113': ('MUS_ROUTE3', 'gTileset_HoennPilotFallarbor'),
+         'FallarborTown': ('MUS_PALLET', 'gTileset_HoennPilotFallarbor')},
+        {'FallarborTown': ({(14, 7): 'PokemonCenter_1F', (15, 15): 'Mart'}, (14, 8), 'FLAG_0x8D5')},
+        {'MAPSEC_ROUTE_113': 'ROUTE 113', 'MAPSEC_FALLARBOR_TOWN': 'FALLARBOR TOWN'}),
 }
 # Every Hoenn exterior in the expansion, in install order (connections only link the installed ones).
 ALL_EXTERIORS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
                  'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown',
-                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109', 'Route112', 'LavaridgeTown']
+                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109', 'Route112', 'LavaridgeTown', 'Route113', 'FallarborTown']
 DOORS = [  # metatile, symbol in hoenn_pilot_doors.h (already defined for the Petalburg pair)
     (0x061, 'PokeCenter', 'DOOR_SOUND_SLIDING'), (0x041, 'PokeMart', 'DOOR_SOUND_SLIDING')]
 

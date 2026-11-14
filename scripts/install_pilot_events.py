@@ -340,6 +340,30 @@ EVENTS = {
         4: ('npc', 'LavaridgeTown_Text_IfPokemonInHotSprings', ''), 5: ('npc', 'LavaridgeTown_Text_HotSpringsClaims', '')},
         {0: ('sign', 'LavaridgeTown_Text_HerbShopSign'), 1: ('sign', 'LavaridgeTown_Text_GymSign'), 2: ('martsign', None),
          3: ('sign', 'LavaridgeTown_Text_TownSign'), 4: ('pcsign', None), 5: ('martsign', None), 6: ('pcsign', None)}),
+    # Hoenn batch 9. Left out: the secret base, hidden items, the Azurill, and the closed buildings (glass workshop,
+    # Terra Cave, Battle Tent, Cozmo's house, the Move Relearner).
+    'Route113': (EMERALD, {
+        2: ('trainer', ('TRAINER_HOENN_JAYLEN', 'Route113_Text_JaylenIntro', 'Route113_Text_JaylenDefeat', 'Route113_Text_JaylenPostBattle'), ''),
+        3: ('trainer', ('TRAINER_HOENN_DILLON', 'Route113_Text_DillonIntro', 'Route113_Text_DillonDefeat', 'Route113_Text_DillonPostBattle'), ''),
+        4: ('trainer', ('TRAINER_HOENN_MADELINE', 'Route113_Text_MadelineIntro', 'Route113_Text_MadelineDefeat', 'Route113_Text_MadelinePostBattle'), ''),
+        7: ('trainer', ('TRAINER_HOENN_LAO', 'Route113_Text_LaoIntro', 'Route113_Text_LaoDefeat', 'Route113_Text_LaoPostBattle'), ''),
+        8: ('trainer', ('TRAINER_HOENN_LUNG', 'Route113_Text_LungIntro', 'Route113_Text_LungDefeat', 'Route113_Text_LungPostBattle'), ''),
+        9: ('trainer', ('TRAINER_HOENN_TORI_AND_TIA', 'Route113_Text_ToriIntro', 'Route113_Text_ToriDefeat', 'Route113_Text_ToriPostBattle', 'Route113_Text_ToriNotEnoughMons'), 'double battle'),
+        10: ('trainer', ('TRAINER_HOENN_TORI_AND_TIA', 'Route113_Text_TiaIntro', 'Route113_Text_TiaDefeat', 'Route113_Text_TiaPostBattle', 'Route113_Text_TiaNotEnoughMons'), 'double battle'),
+        12: ('trainer', ('TRAINER_HOENN_WYATT', 'Route113_Text_WyattIntro', 'Route113_Text_WyattDefeat', 'Route113_Text_WyattPostBattle'), ''),
+        13: ('trainer', ('TRAINER_HOENN_LAWRENCE', 'Route113_Text_LawrenceIntro', 'Route113_Text_LawrenceDefeat', 'Route113_Text_LawrencePostBattle'), ''),
+        14: ('trainer', ('TRAINER_HOENN_SOPHIE', 'Route113_Text_SophieIntro', 'Route113_Text_SophieDefeat', 'Route113_Text_SophiePostBattle'), ''),
+        15: ('trainer', ('TRAINER_HOENN_COBY', 'Route113_Text_CobyIntro', 'Route113_Text_CobyDefeat', 'Route113_Text_CobyPostBattle'), ''),
+        0: ('npc', 'Route113_Text_FunWalkingThroughAsh', ''), 1: ('npc', 'Route113_Text_AshCanBeFashionedIntoGlass', ''),
+        5: ('itemflag', None, 'Max Ether'), 6: ('itemflag', None, 'Super Repel'), 11: ('itemflag', None, 'Hyper Potion')},
+        {0: ('sign', 'Route113_Text_RouteSign111'), 1: ('sign', 'Route113_Text_RouteSignFallarbor'),
+         2: ('sign', 'Route113_Text_TrainerTipsRegisterKeyItems'), 3: ('sign', 'Route113_Text_GlassWorkshopSign')}),
+    'FallarborTown': (EMERALD, {
+        0: ('npc', 'FallarborTown_Text_MyPreciousAzurill', ''),
+        1: ('npc', 'FallarborTown_Text_RegionKnownForMeteors', 'text after Mt. Chimney'),
+        2: ('npc', 'FallarborTown_Text_HaveYouChallengedFlannery', '')},
+        {0: ('martsign', None), 1: ('pcsign', None), 2: ('sign', 'FallarborTown_Text_BattleTentSign'), 3: ('pcsign', None),
+         4: ('sign', 'FallarborTown_Text_TownSign'), 5: ('martsign', None), 6: ('sign', 'FallarborTown_Text_MoveTutorSign')}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -669,7 +693,8 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'SlateportCity': 'FLAG_WORLD_MAP_SLATEPORT_CITY',
                    'BlackthornCity': 'FLAG_WORLD_MAP_BLACKTHORN_CITY',
                    'LavaridgeTown': 'FLAG_WORLD_MAP_LAVARIDGE_TOWN',
-                   'CianwoodCity': 'FLAG_WORLD_MAP_CIANWOOD_CITY'}
+                   'CianwoodCity': 'FLAG_WORLD_MAP_CIANWOOD_CITY',
+                   'FallarborTown': 'FLAG_WORLD_MAP_FALLARBOR_TOWN'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -751,6 +776,9 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route45', 7): ('ITEM_ELIXIR', 'FLAG_HIDE_JOHTO_ROUTE45_ELIXIR', 'FLAG_0x0FD'),
               ('Route45', 9): ('ITEM_MAX_POTION', 'FLAG_HIDE_JOHTO_ROUTE45_MAX_POTION', 'FLAG_0x0FE'),
               ('Route112', 11): ('ITEM_NUGGET', 'FLAG_HIDE_HOENN_ROUTE112_NUGGET', 'FLAG_0x0FF'),
+              ('Route113', 5): ('ITEM_MAX_ETHER', 'FLAG_HIDE_HOENN_ROUTE113_MAX_ETHER', 'FLAG_0x100'),
+              ('Route113', 6): ('ITEM_SUPER_REPEL', 'FLAG_HIDE_HOENN_ROUTE113_SUPER_REPEL', 'FLAG_0x101'),
+              ('Route113', 11): ('ITEM_HYPER_POTION', 'FLAG_HIDE_HOENN_ROUTE113_HYPER_POTION', 'FLAG_0x102'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Emerald movement types FireRed lacks -> the closest FireRed one.

@@ -2264,3 +2264,35 @@ Olivine ganhou a conexão oeste. O resto do caminho até Cianwood é pelo mar, c
 - a Cliff Edge Cave e o portão do Trainer Hill.
 
 **Resultado:** 1070 casos aprovados (eram 1054). As 172 batalhas de rota continuam vencidas; os 14 nadadores novos não entram nessa conta. As caminhadas novas cruzam Olivine → Route 40 e Cianwood → Route 41, e entram e saem do Centro e da farmácia de Cianwood.
+
+## Hoenn, lote 9: Route 113 e Fallarbor Town
+
+**Mapas novos:** a Route 113, a oeste da Route 111, e Fallarbor Town. A Route 113 também se liga à
+borda norte da Route 112.
+
+- **Tileset:** novo secundário `hoenn_pilot_fallarbor` (248 tiles, limitados aos dois mapas). Os
+  metatiles cabem sem compactar, então os mapas foram preparados com `prepare_region_pilot.py`.
+  As paletas 13–15 são iguais às dos outros secundários de Hoenn.
+- **Regra nova:** `MB_ASHGRASS` vira grama alta com encontros. O FireRed não tem cinza nem a coleta
+  de fuligem.
+- **Fallarbor:** Centro Pokémon e Mart do FireRed, com a lista do Emerald. A flag é
+  `FLAG_WORLD_MAP_FALLARBOR_TOWN` (0x8D5), e a cidade é destino de Fly.
+- **Treinadores (10, IDs 884–893):** Jaylen, Dillon, Madeline, Lao, Lung, Tori & Tia (batalha
+  dupla), Wyatt, Lawrence, Sophie e Coby.
+- **Eventos:**
+  - Max Ether, Super Repel e Hyper Potion, com as flags 0x100–0x102;
+  - dois moradores da Route 113 e três de Fallarbor. O velho de Fallarbor usa o texto de depois do
+    Mt. Chimney;
+  - as placas;
+  - 47 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama (cinza) da Route 113, igual à tabela do Emerald.
+
+**Fica para depois:**
+
+- a oficina de vidro e a White Flute;
+- a Terra Cave;
+- a Battle Tent, a casa do Prof. Cozmo e o Move Relearner;
+- o Azurill;
+- a Route 114 e as Meteor Falls.
+
+**Resultado:** 1116 casos aprovados (eram 1070), com as 182 batalhas de rota vencidas, incluindo a dupla Tori & Tia. As caminhadas novas cruzam Route 111 → Route 113 e Fallarbor → Route 113, e entram e saem do Centro e do Mart de Fallarbor.
