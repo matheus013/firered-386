@@ -199,7 +199,8 @@
       "hoenn_x": 8,
       "hoenn_y": 0,
       "hoenn_width": 1,
-      "hoenn_height": 6
+      "hoenn_height": 6,
+      "hoenn_name": "ROUTE 111"
     },
     {
       "id": "MAPSEC_ROUTE_112",
@@ -250,7 +251,8 @@
       "hoenn_x": 10,
       "hoenn_y": 6,
       "hoenn_width": 2,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "ROUTE 118"
     },
     {
       "id": "MAPSEC_ROUTE_119",

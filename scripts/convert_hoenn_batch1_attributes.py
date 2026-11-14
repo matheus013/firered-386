@@ -41,7 +41,9 @@ RULES = {
     'MB_MOUNTAIN_TOP': (0x0000000C, 'FR MB_MOUNTAIN_TOP'),
     'MB_OCEAN_WATER': (0x02000415, 'FR ocean water: surfable, water encounters'),
     'MB_POND_WATER': (0x02000410, 'FR pond water: surfable, water encounters'),
+    'MB_DEEP_SAND': (0x00000021, 'batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints'),
     # No FireRed counterpart: left as normal terrain (their cells keep the map's collision).
+    'MB_MUDDY_SLOPE': (0, 'batch 6: four Route 111 tiles; FireRed has no Mach Bike slope'),
     'MB_BRIDGE_OVER_OCEAN': (0, 'batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)'),
     'MB_BIKE_BRIDGE_OVER_BARRIER': (0, 'batch 5: Cycling Road deck; FireRed has no bridge behavior'),
     'MB_VASE': (0, 'batch 5: Slateport decoration; no FireRed behavior'),
@@ -65,6 +67,11 @@ TABLES_5 = [
     (640, 'data/tilesets/secondary/mauville/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_mauville/metatile_attributes.bin', 'gTileset_HoennPilotMauville', 'mauville'),
     (640, 'data/tilesets/secondary/slateport/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_slateport/metatile_attributes.bin', 'gTileset_HoennPilotSlateport', 'slateport'),
 ]
+LAYOUTS_6 = ['LAYOUT_HOENN_ROUTE118', 'LAYOUT_HOENN_ROUTE111']
+TABLES_6 = [
+    (0, 'data/tilesets/primary/general/metatile_attributes.bin', 'data/tilesets/primary/hoenn_pilot/metatile_attributes.bin'),
+    (640, 'data/tilesets/secondary/mauville/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_mauville_east/metatile_attributes.bin', 'gTileset_HoennPilotMauvilleEast', 'mauville_east'),
+]
 TABLES_3 = [
     (0, 'data/tilesets/primary/general/metatile_attributes.bin', 'data/tilesets/primary/hoenn_pilot/metatile_attributes.bin'),
     (640, 'data/tilesets/secondary/rustboro/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_rustboro/metatile_attributes.bin', 'gTileset_HoennPilotRustboro'),
@@ -84,10 +91,10 @@ TABLES = [  # (offset, source table, installed table)
 def main():
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument('--source', type=Path, required=True)
-    p.add_argument('--batch', type=int, choices=(1, 2, 3, 4, 5), default=1)
+    p.add_argument('--batch', type=int, choices=(1, 2, 3, 4, 5, 6), default=1)
     p.add_argument('--report', type=Path)
     a = p.parse_args()
-    layouts_used, tables = {1: (LAYOUTS, TABLES), 2: (LAYOUTS_2, TABLES_2), 3: (LAYOUTS_3, TABLES_3), 4: (LAYOUTS_4, TABLES_4), 5: (LAYOUTS_5, TABLES_5)}[a.batch]
+    layouts_used, tables = {1: (LAYOUTS, TABLES), 2: (LAYOUTS_2, TABLES_2), 3: (LAYOUTS_3, TABLES_3), 4: (LAYOUTS_4, TABLES_4), 5: (LAYOUTS_5, TABLES_5), 6: (LAYOUTS_6, TABLES_6)}[a.batch]
     report_path = a.report or Path(f'docs/map-audits/hoenn-batch{a.batch}-attributes.json')
     names = behavior_names(a.source / 'include/constants/metatile_behaviors.h')
     layouts = {l['id']: l for l in json.loads((GAME / 'data/layouts/layouts.json').read_text())['layouts'] if 'id' in l}

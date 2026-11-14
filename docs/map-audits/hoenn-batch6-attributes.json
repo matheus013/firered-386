@@ -1,0 +1,578 @@
+{
+  "layouts": [
+    "LAYOUT_HOENN_ROUTE118",
+    "LAYOUT_HOENN_ROUTE111"
+  ],
+  "entries": [
+    {
+      "metatile": "0x013",
+      "source_behavior": "MB_SECRET_BASE_WALL",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x026",
+      "source_behavior": "MB_SECRET_BASE_SPOT_TREE_LEFT",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x027",
+      "source_behavior": "MB_SECRET_BASE_SPOT_TREE_RIGHT",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x080",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x081",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x082",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x08a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x08b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x08c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x092",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0ab",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0ac",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0c3",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0c4",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0e0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0e2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0e8",
+      "source_behavior": "MB_MUDDY_SLOPE",
+      "attribute": "0x00000000",
+      "reason": "batch 6: four Route 111 tiles; FireRed has no Mach Bike slope"
+    },
+    {
+      "metatile": "0x107",
+      "source_behavior": "MB_JUMP_EAST",
+      "attribute": "0x20000038",
+      "reason": "east ledge"
+    },
+    {
+      "metatile": "0x14c",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x154",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x155",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x15c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x15d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x1a0",
+      "source_behavior": "MB_SECRET_BASE_SPOT_RED_CAVE",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x1a8",
+      "source_behavior": "MB_SECRET_BASE_SPOT_YELLOW_CAVE",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x280",
+      "source_behavior": "MB_JUMP_SOUTHEAST",
+      "attribute": "0x20000000",
+      "reason": "source has no movement for diagonal jumps"
+    },
+    {
+      "metatile": "0x283",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x284",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x285",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x287",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x290",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x293",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x294",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x295",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x296",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x297",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x298",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x299",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x29a",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x29b",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x29c",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x29d",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2a0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a2",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x20000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2a3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a6",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b2",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x2b5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2bb",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2bf",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c7",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2ca",
+      "source_behavior": "MB_JUMP_SOUTHWEST",
+      "attribute": "0x20000000",
+      "reason": "source has no movement for diagonal jumps"
+    },
+    {
+      "metatile": "0x2cc",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x20000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x2d6",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d7",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2da",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2dd",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e4",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2e5",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2e6",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2e7",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x40000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2e8",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x40000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2e9",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x40000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2ea",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2eb",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2ec",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2ed",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2ee",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2ef",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2f0",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x20000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x2f1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2f4",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2f5",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2f6",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2f9",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2fa",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2fb",
+      "source_behavior": "MB_DEEP_SAND",
+      "attribute": "0x00000021",
+      "reason": "batch 6: Route 111 desert; FireRed has no deep sand, MB_SAND leaves the same prints"
+    },
+    {
+      "metatile": "0x2fe",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x2ff",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x300",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x2000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    }
+  ]
+}

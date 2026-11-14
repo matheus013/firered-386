@@ -2028,3 +2028,55 @@ Mahogany ganhou a conexão norte e o warp do portão. O Centro e o Mart foram re
 - a Route 44 e o Ice Path.
 
 **Resultado:** 851 casos aprovados (eram 813), com as 113 batalhas de rota vencidas. As caminhadas novas passam pelos dois portões e cruzam a borda Route 43 → Lake of Rage.
+
+## Hoenn, lote 6: Routes 118 e 111
+
+**Mapas novos:** a Route 118, a leste de Mauville, e a Route 111, ao norte (até o deserto e as
+bordas das Routes 112 e 113, que ainda não existem).
+
+- **Segundo secundário de Mauville:** o primeiro já não comportava mais mapas (com as duas rotas,
+  seriam 458 tiles para 384 vagas). As Routes 118 e 111 usam uma segunda cópia,
+  `hoenn_pilot_mauville_east` (202 tiles e 132 metatiles), com ordem própria em
+  `hoenn-tilesets-mauville_east.json`.
+- **Regras novas:**
+  - `MB_DEEP_SAND` vira `MB_SAND`, que deixa as mesmas pegadas, porque o FireRed não tem areia
+    funda;
+  - `MB_MUDDY_SLOPE` (quatro tiles da Route 111) vira normal, porque o FireRed não tem Mach Bike.
+- **Caminho:** as duas pedras de Rock Smash da Route 111 ficaram de fora. A passagem para o norte
+  fica aberta, como no Rusturf Tunnel.
+- **Treinadores (24, IDs 809–832):**
+  - Route 118: Perry, Rose, Wade, Chester, Barny, Dalton e Deandre;
+  - Route 111: Heidi, Drew, Dusty, Beau, Becky, Irene, Travis, Daisuke, Brooke, Wilton, Tyron,
+    Celina, Bianca, Hayden, Bryan, Celia e Branden.
+
+  As classes que o FireRed tem em duas versões usam a versão de Ruby/Sapphire (`RS_`).
+- **Eventos:**
+  - Hyper Potion (Route 118), e TM37 Sandstorm, Stardust, HP Up e Elixir (Route 111), com as flags
+    0x0EF–0x0F3;
+  - uma árvore de Cut em cada rota;
+  - a menina do Surf, os dois homens da Route 111 e o montanhista da Mirage Tower (sem os ramos da
+    torre);
+  - as placas;
+  - 85 textos traduzidos para PT-BR. O "Groan…" do Hayden reaproveita a tradução que já existia.
+- **Pokémon selvagens:** grama, água e pesca das duas rotas, iguais às tabelas do Emerald. O Rock
+  Smash da Route 111 ficou de fora.
+
+- **Mapas com mais de 127 tiles:** a Route 111 tem 140 de altura. As funções de warp do FireRed
+  (`SetWarpDestination`, `SetWarpData`, `SetDynamicWarpWithCoords`, `SetEscapeWarp`,
+  `SetFixedDiveWarp`, `SetFixedHoleWarp` e `SetContinueGameWarp`) recebiam x e y como `s8`, então
+  y=131 virava -125. O teste de conversa mostrou o erro: o jogador caía no meio do mapa. Os
+  parâmetros passaram a ser `s16`, o mesmo tipo de `struct WarpData`. Os valores "sem coordenada"
+  dos scripts são `.2byte -1`, que continuam valendo -1.
+
+- **Teste com treinadores que andam:** o Daisuke anda para os lados. Na batalha de teste, ele
+  saía da frente do jogador antes do A. O harness já congelava os NPCs nos casos de conversa até o
+  A. Agora também congela nas batalhas de rota.
+
+**Fica para depois:**
+
+- a Gabby e o Ty, o Steven, o pescador da Good Rod, a menina das berries e os Winstrate;
+- a Terra Cave, a Mirage Tower, as Desert Ruins, a parada de descanso e o Trainer Hill;
+- a tempestade de areia e os GO-GOGGLES;
+- as Routes 112, 113, 119 e 123.
+
+**Resultado:** 921 casos aprovados (eram 851), com as 137 batalhas de rota vencidas. As caminhadas novas cruzam Mauville → Route 118 e Mauville → Route 111.

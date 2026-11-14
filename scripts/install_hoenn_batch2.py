@@ -44,11 +44,17 @@ BATCHES = {
          'SlateportCity': ('MUS_VERMILLION', 'gTileset_HoennPilotSlateport', 'slateport')},
         {'SlateportCity': ({(19, 19): 'PokemonCenter_1F', (13, 26): 'Mart'}, (19, 20), 'FLAG_0x8D1')},
         {'MAPSEC_ROUTE_110': 'ROUTE 110', 'MAPSEC_SLATEPORT_CITY': 'SLATEPORT CITY'}),
+    # Batch 6: Route 118 east and Route 111 north of Mauville, on a second Mauville copy (the first one is full).
+    # Terra Cave, the Winstrate house, the rest stop, Mirage Tower, Desert Ruins and Trainer Hill stay closed.
+    6: ({'Route118': ('MUS_ROUTE24', 'gTileset_HoennPilotMauvilleEast', 'mauville_east'),
+         'Route111': ('MUS_ROUTE11', 'gTileset_HoennPilotMauvilleEast', 'mauville_east')},
+        {},
+        {'MAPSEC_ROUTE_118': 'ROUTE 118', 'MAPSEC_ROUTE_111': 'ROUTE 111'}),
 }
 # Every Hoenn exterior in the expansion, in install order (connections only link the installed ones).
 ALL_EXTERIORS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
                  'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown',
-                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity']
+                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111']
 DOORS = [  # metatile, symbol in hoenn_pilot_doors.h (already defined for the Petalburg pair)
     (0x061, 'PokeCenter', 'DOOR_SOUND_SLIDING'), (0x041, 'PokeMart', 'DOOR_SOUND_SLIDING')]
 

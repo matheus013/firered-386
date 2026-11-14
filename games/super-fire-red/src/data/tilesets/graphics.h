@@ -1876,6 +1876,28 @@ const u16 gTilesetPalettes_HoennPilotSlateport[][16] = {
     INCBIN_U16("data/tilesets/secondary/hoenn_pilot_slateport/palettes/14.gbapal"),
     INCBIN_U16("data/tilesets/secondary/hoenn_pilot_slateport/palettes/15.gbapal"),
 };
+
+// Hoenn (scripts/convert_hoenn_tilesets.py): Emerald Mauville again, tiles limited to Routes 118 and 111
+// (the first copy is full with Verdanturf, Routes 117/110 and Mauville).
+const u32 gTilesetTiles_HoennPilotMauvilleEast[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot_mauville_east/tiles.4bpp.lz");
+const u16 gTilesetPalettes_HoennPilotMauvilleEast[][16] = {
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/12.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/13.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/14.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_mauville_east/palettes/15.gbapal"),
+};
 const u32 gTilesetTiles_JohtoPilotRoute38Farmland[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_route38_farmland/tiles.4bpp.lz");
 const u16 gTilesetPalettes_JohtoPilotRoute38Farmland[][16] = {
     INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/00.gbapal"),

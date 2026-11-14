@@ -89,6 +89,9 @@ for _m,_x,_y,_steps,_want in (
   (HOENN+'ROUTE110',17,99,[('DOWN','MAP'),('UP','MAP')],[('MAP_HOENN_SLATEPORT_CITY',{(17,0)}),('MAP_HOENN_ROUTE110',{(17,99)})]),
   (HOENN+'SLATEPORT_CITY',19,20,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_SLATEPORT_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_SLATEPORT_CITY',{(19,20)})]),
   (HOENN+'SLATEPORT_CITY',13,27,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_SLATEPORT_CITY_MART',{(4,7)}),('MAP_HOENN_SLATEPORT_CITY',{(13,27)})]),
+  # Hoenn batch 6: Mauville east into Route 118 and north into Route 111.
+  (HOENN+'MAUVILLE_CITY',39,9,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_HOENN_ROUTE118',{(0,9)}),('MAP_HOENN_MAUVILLE_CITY',{(39,9)})]),
+  (HOENN+'MAUVILLE_CITY',5,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_ROUTE111',{(5,139)}),('MAP_HOENN_MAUVILLE_CITY',{(5,0)})]),
   # Johto batch 1: Route 29 west into Cherrygrove, north to Routes 30 and 31, and the Pokemon Center/Mart doors.
   (JOHTO+'ROUTE29',0,16,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY',{(64,10)}),('MAP_JOHTO_ROUTE29',{(0,16)})]),
   (JOHTO+'CHERRYGROVE_CITY',34,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE30',{(25,57)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(34,0)})]),
@@ -561,7 +564,10 @@ EWRAM_DATA static MainCallback sPilotFieldCallback = NULL;
 EWRAM_DATA static s16 sPilotX = 0, sPilotY = 0, sPilotStartX = 0, sPilotStartY = 0;
 static bool8 PilotIsTalkCase(void)
 {
-    return sPilotStepCount[gPilotCase - 1] && sPilotSteps[gPilotCase - 1][0].mode == 5;
+    // Talk cases, and route-trainer battles (a SCENE started with A): a walking trainer (Route 111's
+    // Daisuke walks right and left) must still stand in front of the player when A is pressed.
+    return sPilotStepCount[gPilotCase - 1] && (sPilotSteps[gPilotCase - 1][0].mode == 5
+        || (sPilotSteps[gPilotCase - 1][0].mode == 7 && gPilotFreshTrainer[gPilotCase - 1]));
 }
 static void PilotPut16(u8 *t, u16 v) { t[0] = v; t[1] = v >> 8; }
 // Called right after New Game loads the map, before any object moves.

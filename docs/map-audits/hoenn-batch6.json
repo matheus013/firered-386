@@ -1,0 +1,29 @@
+{
+  "maps": {
+    "Hoenn_Route118": {
+      "layout": "LAYOUT_HOENN_ROUTE118",
+      "secondary": "gTileset_HoennPilotMauvilleEast",
+      "music": "MUS_ROUTE24",
+      "warps": 0
+    },
+    "Hoenn_Route111": {
+      "layout": "LAYOUT_HOENN_ROUTE111",
+      "secondary": "gTileset_HoennPilotMauvilleEast",
+      "music": "MUS_ROUTE11",
+      "warps": 0
+    }
+  },
+  "closed_doors": {
+    "Route118": [
+      "MAP_TERRA_CAVE_ENTRANCE",
+      "MAP_TERRA_CAVE_ENTRANCE"
+    ],
+    "Route111": [
+      "MAP_ROUTE111_WINSTRATE_FAMILYS_HOUSE",
+      "MAP_DESERT_RUINS",
+      "MAP_ROUTE111_OLD_LADYS_REST_STOP",
+      "MAP_MIRAGE_TOWER_1F",
+      "MAP_TRAINER_HILL_ENTRANCE"
+    ]
+  }
+}
