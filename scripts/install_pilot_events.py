@@ -364,6 +364,41 @@ EVENTS = {
         2: ('npc', 'FallarborTown_Text_HaveYouChallengedFlannery', '')},
         {0: ('martsign', None), 1: ('pcsign', None), 2: ('sign', 'FallarborTown_Text_BattleTentSign'), 3: ('pcsign', None),
          4: ('sign', 'FallarborTown_Text_TownSign'), 5: ('martsign', None), 6: ('sign', 'FallarborTown_Text_MoveTutorSign')}),
+    # Hoenn batch 10. The Rock Smash boulders are left out (the paths stay open). Left out: the Poochyena, the
+    # Berry Crush man, berry trees, secret bases, hidden items, Meteor Falls, Terra Cave and the two houses.
+    'Route114': (EMERALD, {
+        2: ('trainer', ('TRAINER_HOENN_LENNY', 'Route114_Text_LennyIntro', 'Route114_Text_LennyDefeat', 'Route114_Text_LennyPostBattle'), ''),
+        3: ('trainer', ('TRAINER_HOENN_LUCAS', 'Route114_Text_LucasIntro', 'Route114_Text_LucasDefeat', 'Route114_Text_LucasPostBattle'), ''),
+        4: ('trainer', ('TRAINER_HOENN_SHANE', 'Route114_Text_ShaneIntro', 'Route114_Text_ShaneDefeat', 'Route114_Text_ShanePostBattle'), ''),
+        5: ('trainer', ('TRAINER_HOENN_NANCY', 'Route114_Text_NancyIntro', 'Route114_Text_NancyDefeat', 'Route114_Text_NancyPostBattle'), ''),
+        6: ('trainer', ('TRAINER_HOENN_STEVE', 'Route114_Text_SteveIntro', 'Route114_Text_SteveDefeat', 'Route114_Text_StevePostBattle'), ''),
+        14: ('trainer', ('TRAINER_HOENN_NOLAN', 'Route114_Text_NolanIntro', 'Route114_Text_NolanDefeat', 'Route114_Text_NolanPostBattle'), ''),
+        15: ('trainer', ('TRAINER_HOENN_CLAUDE', 'Route114_Text_ClaudeIntro', 'Route114_Text_ClaudeDefeat', 'Route114_Text_ClaudePostBattle'), ''),
+        16: ('trainer', ('TRAINER_HOENN_BERNIE', 'Route114_Text_BernieIntro', 'Route114_Text_BernieDefeat', 'Route114_Text_BerniePostBattle'), ''),
+        21: ('trainer', ('TRAINER_HOENN_TYRA_AND_IVY', 'Route114_Text_IvyIntro', 'Route114_Text_IvyDefeat', 'Route114_Text_IvyPostBattle', 'Route114_Text_IvyNotEnoughMons'), 'double battle'),
+        22: ('trainer', ('TRAINER_HOENN_TYRA_AND_IVY', 'Route114_Text_TyraIntro', 'Route114_Text_TyraDefeat', 'Route114_Text_TyraPostBattle', 'Route114_Text_TyraNotEnoughMons'), 'double battle'),
+        23: ('trainer', ('TRAINER_HOENN_CHARLOTTE', 'Route114_Text_CharlotteIntro', 'Route114_Text_CharlotteDefeat', 'Route114_Text_CharlottePostBattle'), ''),
+        24: ('trainer', ('TRAINER_HOENN_ANGELINA', 'Route114_Text_AngelinaIntro', 'Route114_Text_AngelinaDefeat', 'Route114_Text_AngelinaPostBattle'), ''),
+        26: ('trainer', ('TRAINER_HOENN_KAI', 'Route114_Text_KaiIntro', 'Route114_Text_KaiDefeat', 'Route114_Text_KaiPostBattle'), ''),
+        11: ('gift', ('ITEM_TM05', 'Route114_Text_AllMyMonDoesIsRoarTakeThis', 'Route114_Text_ExplainRoar', False), 'TM05 Roar'),
+        8: ('itemflag', None, 'Rare Candy'), 9: ('itemflag', None, 'Protein'), 25: ('itemflag', None, 'Energy Powder')},
+        {0: ('sign', 'Route114_Text_MeteorFallsSign'), 1: ('sign', 'Route114_Text_FossilManiacsHouseSign'),
+         8: ('sign', 'Route114_Text_LanettesHouse')}),
+    'Route115': (EMERALD, {
+        1: ('trainer', ('TRAINER_HOENN_TIMOTHY', 'Route115_Text_TimothyIntro', 'Route115_Text_TimothyDefeat', 'Route115_Text_TimothyPostBattle'), ''),
+        2: ('trainer', ('TRAINER_HOENN_NOB', 'Route115_Text_NobIntro', 'Route115_Text_NobDefeat', 'Route115_Text_NobPostBattle'), ''),
+        6: ('trainer', ('TRAINER_HOENN_CYNDY', 'Route115_Text_CyndyIntro', 'Route115_Text_CyndyDefeat', 'Route115_Text_CyndyPostBattle'), ''),
+        7: ('trainer', ('TRAINER_HOENN_KOICHI', 'Route115_Text_KoichiIntro', 'Route115_Text_KoichiDefeat', 'Route115_Text_KoichiPostBattle'), ''),
+        8: ('trainer', ('TRAINER_HOENN_HECTOR', 'Route115_Text_HectorIntro', 'Route115_Text_HectorDefeat', 'Route115_Text_HectorPostBattle'), ''),
+        16: ('trainer', ('TRAINER_HOENN_KYRA', 'Route115_Text_KyraIntro', 'Route115_Text_KyraDefeat', 'Route115_Text_KyraPostBattle'), ''),
+        17: ('trainer', ('TRAINER_HOENN_JAIDEN', 'Route115_Text_JaidenIntro', 'Route115_Text_JaidenDefeat', 'Route115_Text_JaidenPostBattle'), ''),
+        18: ('trainer', ('TRAINER_HOENN_HELENE', 'Route115_Text_HeleneIntro', 'Route115_Text_HeleneDefeat', 'Route115_Text_HelenePostBattle'), ''),
+        19: ('trainer', ('TRAINER_HOENN_ALIX', 'Route115_Text_AlixIntro', 'Route115_Text_AlixDefeat', 'Route115_Text_AlixPostBattle'), ''),
+        20: ('trainer', ('TRAINER_HOENN_MARLENE', 'Route115_Text_MarleneIntro', 'Route115_Text_MarleneDefeat', 'Route115_Text_MarlenePostBattle'), ''),
+        0: ('npc', 'Route115_Text_NeverKnowWhenCavePokemonWillAppear', ''),
+        9: ('itemflag', None, 'Super Potion'), 10: ('itemflag', None, 'TM01 Focus Punch'), 11: ('itemflag', None, 'Iron'),
+        15: ('itemflag', None, 'Great Ball'), 21: ('itemflag', None, 'PP Up'), 22: ('itemflag', None, 'Heal Powder')},
+        {2: ('sign', 'Route115_Text_RouteSignRustboro'), 3: ('sign', 'Route115_Text_MeteorFallsSign')}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -801,8 +836,21 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route27', 6): ('ITEM_MOON_STONE', 'FLAG_HIDE_JOHTO_ROUTE27_MOON_STONE', 'FLAG_0x104'),
               ('Route27', 18): ('ITEM_TM22', 'FLAG_HIDE_JOHTO_ROUTE27_TM_SOLAR_BEAM', 'FLAG_0x105'),
               ('Route27', 19): ('ITEM_REVIVE', 'FLAG_HIDE_JOHTO_ROUTE27_REVIVE', 'FLAG_0x106'),
+              ('Route114', 8): ('ITEM_RARE_CANDY', 'FLAG_HIDE_HOENN_ROUTE114_RARE_CANDY', 'FLAG_0x107'),
+              ('Route114', 9): ('ITEM_PROTEIN', 'FLAG_HIDE_HOENN_ROUTE114_PROTEIN', 'FLAG_0x108'),
+              ('Route114', 25): ('ITEM_ENERGY_POWDER', 'FLAG_HIDE_HOENN_ROUTE114_ENERGY_POWDER', 'FLAG_0x109'),
+              ('Route115', 9): ('ITEM_SUPER_POTION', 'FLAG_HIDE_HOENN_ROUTE115_SUPER_POTION', 'FLAG_0x10A'),
+              ('Route115', 10): ('ITEM_TM01', 'FLAG_HIDE_HOENN_ROUTE115_TM_FOCUS_PUNCH', 'FLAG_0x10B'),
+              ('Route115', 11): ('ITEM_IRON', 'FLAG_HIDE_HOENN_ROUTE115_IRON', 'FLAG_0x10C'),
+              ('Route115', 15): ('ITEM_GREAT_BALL', 'FLAG_HIDE_HOENN_ROUTE115_GREAT_BALL', 'FLAG_0x10D'),
+              ('Route115', 21): ('ITEM_PP_UP', 'FLAG_HIDE_HOENN_ROUTE115_PP_UP', 'FLAG_0x10E'),
+              ('Route115', 22): ('ITEM_HEAL_POWDER', 'FLAG_HIDE_HOENN_ROUTE115_HEAL_POWDER', 'FLAG_0x10F'),
+              ('Route114', 11): ('ITEM_TM05', 'FLAG_GOT_HOENN_TM_ROAR', 'FLAG_0x110'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
+# Objects whose source elevation differs from the cells they stand on (map, index) -> elevation. A wanderer only
+# takes the cell's elevation after its first step, so until then the player could not talk to it.
+ELEVATIONS = {('Route115', 0): 5}  # the woman on the Route 115 plateau (source elevation 3)
 # Emerald movement types FireRed lacks -> the closest FireRed one.
 MOVEMENTS = {'MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_DOWN': 'MOVEMENT_TYPE_WALK_IN_PLACE_DOWN',
              'MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_UP': 'MOVEMENT_TYPE_WALK_IN_PLACE_UP',
@@ -962,7 +1010,7 @@ def main():
                 flag = pilot_story.OBJECTS[source_map][index]
             x, y, movement, placed_by = POSITIONS.get((source_map, index), (o['x'], o['y'], o['movement_type'], None))
             movement = MOVEMENTS.get(movement, movement)
-            obj_events.append({'type': 'object', 'graphics_id': gfx, 'x': x, 'y': y, 'elevation': o['elevation'],
+            obj_events.append({'type': 'object', 'graphics_id': gfx, 'x': x, 'y': y, 'elevation': ELEVATIONS.get((source_map, index), o['elevation']),
                                'movement_type': movement, 'movement_range_x': o['movement_range_x'],
                                'movement_range_y': o['movement_range_y'],
                                'trainer_type': o['trainer_type'] if kind == 'trainer' else 'TRAINER_TYPE_NONE',

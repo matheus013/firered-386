@@ -1,0 +1,30 @@
+{
+  "maps": {
+    "Hoenn_Route114": {
+      "layout": "LAYOUT_HOENN_ROUTE114",
+      "secondary": "gTileset_HoennPilotFallarbor",
+      "music": "MUS_ROUTE11",
+      "warps": 0
+    },
+    "Hoenn_Route115": {
+      "layout": "LAYOUT_HOENN_ROUTE115",
+      "secondary": "gTileset_HoennPilotFallarbor",
+      "music": "MUS_ROUTE24",
+      "warps": 0
+    }
+  },
+  "closed_doors": {
+    "Route114": [
+      "MAP_METEOR_FALLS_1F_1R",
+      "MAP_ROUTE114_FOSSIL_MANIACS_HOUSE",
+      "MAP_ROUTE114_LANETTES_HOUSE",
+      "MAP_TERRA_CAVE_ENTRANCE",
+      "MAP_TERRA_CAVE_ENTRANCE"
+    ],
+    "Route115": [
+      "MAP_METEOR_FALLS_1F_1R",
+      "MAP_TERRA_CAVE_ENTRANCE",
+      "MAP_TERRA_CAVE_ENTRANCE"
+    ]
+  }
+}

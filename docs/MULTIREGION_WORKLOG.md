@@ -2326,3 +2326,38 @@ Bark ganhou a conexão leste, mas essa borda é só água: o caminho para a Rout
 - a Victory Road.
 
 **Resultado:** 1142 casos aprovados (eram 1116), com as 191 batalhas de rota vencidas. A caminhada nova cruza Route 27 → Route 26. Essa rodada do teste levou cerca de 30 minutos, contra uns 10 das anteriores.
+
+## Hoenn, lote 10: Routes 114 e 115
+
+**Mapas novos:** a Route 114, a oeste de Fallarbor, e a Route 115, ao norte de Rustboro. Rustboro
+ganhou a conexão norte, e Fallarbor a oeste.
+
+- **Tileset:** as duas rotas usam o secundário de Fallarbor. Convertido para os quatro mapas, ele
+  sai idêntico (os mesmos 248 tiles), então não foi preciso reconverter. Os mapas foram preparados
+  com `prepare_region_pilot.py`.
+- **Regra nova:** `MB_WATERFALL` tem o mesmo nome no FireRed (a cachoeira da Route 114).
+- **Caminho:** as pedras de Rock Smash ficaram de fora, então os caminhos ficam abertos.
+- **Treinadores (22, IDs 903–924):**
+  - Route 114: Lenny, Lucas, Shane, Nancy, Steve, Nolan, Claude, Bernie, Tyra & Ivy (batalha
+    dupla), Charlotte, Angelina e Kai;
+  - Route 115: Timothy, Nob, Cyndy, Koichi, Hector, Kyra, Jaiden, Helene, Alix e Marlene.
+- **Eventos:**
+  - nove itens (Rare Candy, Protein, Energy Powder, Super Potion, TM01 Focus Punch, Iron, Great
+    Ball, PP Up e Heal Powder), com as flags 0x107–0x10F;
+  - o senhor do Roar dá a TM05 uma vez (flag 0x110);
+  - a moça da Route 115;
+  - as placas;
+  - 79 textos traduzidos para PT-BR.
+- **Elevação:** no Emerald, a moça da Route 115 tem elevação 3 e está num planalto de elevação 5.
+  Ela só passa para 5 depois do primeiro passo, e até lá não dá para falar com ela (no teste, que
+  congela os NPCs, nunca). O instalador ganhou a tabela `ELEVATIONS`, que a põe direto em 5.
+- **Pokémon selvagens:** grama, água e pesca nas duas rotas, iguais às tabelas do Emerald (o Rock
+  Smash da Route 114 ficou de fora).
+
+**Fica para depois:**
+
+- as Meteor Falls e a Terra Cave;
+- as casas do Maníaco por Fósseis e da Lanette;
+- o Poochyena, o homem do Berry Crush, as árvores de berry, as bases secretas e os itens escondidos.
+
+**Resultado:** 1205 casos aprovados (eram 1142), com as 213 batalhas de rota vencidas, incluindo a dupla Tyra & Ivy. As caminhadas novas cruzam Fallarbor → Route 114 e Rustboro → Route 115.

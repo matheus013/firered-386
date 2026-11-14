@@ -5337,6 +5337,509 @@
           0
         ]
       ]
+    },
+    "TRAINER_HOENN_LENNY": {
+      "new": true,
+      "party": "sParty_HoennLenny",
+      "name": "LENNY",
+      "source": "TRAINER_LENNY",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GEODUDE",
+          18,
+          0
+        ],
+        [
+          "SPECIES_MACHOP",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_LUCAS": {
+      "new": true,
+      "party": "sParty_HoennLucas",
+      "name": "LUCAS",
+      "source": "TRAINER_LUCAS_1",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_HIKER",
+      "trainer_pic": "TRAINER_PIC_HIKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_GEODUDE",
+          18,
+          0
+        ],
+        [
+          "SPECIES_NUMEL",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_SHANE": {
+      "new": true,
+      "party": "sParty_HoennShane",
+      "name": "SHANE",
+      "source": "TRAINER_SHANE",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_RS_CAMPER",
+      "trainer_pic": "TRAINER_PIC_RS_CAMPER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SANDSHREW",
+          18,
+          0
+        ],
+        [
+          "SPECIES_NUZLEAF",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_NANCY": {
+      "new": true,
+      "party": "sParty_HoennNancy",
+      "name": "NANCY",
+      "source": "TRAINER_NANCY",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_RS_PICNICKER",
+      "trainer_pic": "TRAINER_PIC_RS_PICNICKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_GIRL",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MARILL",
+          18,
+          0
+        ],
+        [
+          "SPECIES_LOMBRE",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_STEVE": {
+      "new": true,
+      "party": "sParty_HoennSteve",
+      "name": "STEVE",
+      "source": "TRAINER_STEVE_1",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_RS_POKEMANIAC",
+      "trainer_pic": "TRAINER_PIC_RS_POKEMANIAC",
+      "music": "TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_ARON",
+          19,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_NOLAN": {
+      "new": true,
+      "party": "sParty_HoennNolan",
+      "name": "NOLAN",
+      "source": "TRAINER_NOLAN",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_FISHERMAN",
+      "trainer_pic": "TRAINER_PIC_FISHERMAN",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_BARBOACH",
+          19,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_CLAUDE": {
+      "new": true,
+      "party": "sParty_HoennClaude",
+      "name": "CLAUDE",
+      "source": "TRAINER_CLAUDE",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_FISHERMAN",
+      "trainer_pic": "TRAINER_PIC_FISHERMAN",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MAGIKARP",
+          16,
+          0
+        ],
+        [
+          "SPECIES_GOLDEEN",
+          17,
+          0
+        ],
+        [
+          "SPECIES_BARBOACH",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_BERNIE": {
+      "new": true,
+      "party": "sParty_HoennBernie",
+      "name": "BERNIE",
+      "source": "TRAINER_BERNIE_1",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_KINDLER",
+      "trainer_pic": "TRAINER_PIC_KINDLER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SLUGMA",
+          18,
+          0
+        ],
+        [
+          "SPECIES_WINGULL",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_TYRA_AND_IVY": {
+      "new": true,
+      "party": "sParty_HoennTyraAndIvy",
+      "name": "TYRA & IVY",
+      "source": "TRAINER_TYRA_AND_IVY",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_SR_AND_JR",
+      "trainer_pic": "TRAINER_PIC_SR_AND_JR",
+      "music": "TRAINER_ENCOUNTER_MUSIC_TWINS",
+      "level_offset": 60,
+      "double": true,
+      "team": [
+        [
+          "SPECIES_ROSELIA",
+          18,
+          0
+        ],
+        [
+          "SPECIES_GRAVELER",
+          20,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_CHARLOTTE": {
+      "new": true,
+      "party": "sParty_HoennCharlotte",
+      "name": "CHARLOTTE",
+      "source": "TRAINER_CHARLOTTE",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_RS_PICNICKER",
+      "trainer_pic": "TRAINER_PIC_RS_PICNICKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_GIRL",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_NUZLEAF",
+          19,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_ANGELINA": {
+      "new": true,
+      "party": "sParty_HoennAngelina",
+      "name": "ANGELINA",
+      "source": "TRAINER_ANGELINA",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_RS_PICNICKER",
+      "trainer_pic": "TRAINER_PIC_RS_PICNICKER",
+      "music": "TRAINER_ENCOUNTER_MUSIC_GIRL",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_LOMBRE",
+          18,
+          0
+        ],
+        [
+          "SPECIES_MARILL",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_KAI": {
+      "new": true,
+      "party": "sParty_HoennKai",
+      "name": "KAI",
+      "source": "TRAINER_KAI",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_FISHERMAN",
+      "trainer_pic": "TRAINER_PIC_FISHERMAN",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_BARBOACH",
+          19,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_TIMOTHY": {
+      "new": true,
+      "party": "sParty_HoennTimothy",
+      "name": "TIMOTHY",
+      "source": "TRAINER_TIMOTHY_1",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_EXPERT",
+      "trainer_pic": "TRAINER_PIC_EXPERT_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_INTENSE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_HARIYAMA",
+          27,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_NOB": {
+      "new": true,
+      "party": "sParty_HoennNob",
+      "name": "NOB",
+      "source": "TRAINER_NOB_1",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_RS_BLACK_BELT",
+      "trainer_pic": "TRAINER_PIC_RS_BLACK_BELT",
+      "music": "TRAINER_ENCOUNTER_MUSIC_INTENSE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MACHOP",
+          19,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_CYNDY": {
+      "new": true,
+      "party": "sParty_HoennCyndy",
+      "name": "CYNDY",
+      "source": "TRAINER_CYNDY_1",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_BATTLE_GIRL",
+      "trainer_pic": "TRAINER_PIC_BATTLE_GIRL",
+      "music": "TRAINER_ENCOUNTER_MUSIC_INTENSE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MEDITITE",
+          18,
+          0
+        ],
+        [
+          "SPECIES_MAKUHITA",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_KOICHI": {
+      "new": true,
+      "party": "sParty_HoennKoichi",
+      "name": "KOICHI",
+      "source": "TRAINER_KOICHI",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_RS_BLACK_BELT",
+      "trainer_pic": "TRAINER_PIC_RS_BLACK_BELT",
+      "music": "TRAINER_ENCOUNTER_MUSIC_INTENSE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MACHOP",
+          24,
+          0
+        ],
+        [
+          "SPECIES_MACHOKE",
+          28,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_HECTOR": {
+      "new": true,
+      "party": "sParty_HoennHector",
+      "name": "HECTOR",
+      "source": "TRAINER_HECTOR",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_COLLECTOR",
+      "trainer_pic": "TRAINER_PIC_COLLECTOR",
+      "music": "TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_ZANGOOSE",
+          18,
+          0
+        ],
+        [
+          "SPECIES_SEVIPER",
+          18,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_KYRA": {
+      "new": true,
+      "party": "sParty_HoennKyra",
+      "name": "KYRA",
+      "source": "TRAINER_KYRA",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_TRIATHLETE",
+      "trainer_pic": "TRAINER_PIC_RUNNING_TRIATHLETE_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_DODUO",
+          26,
+          0
+        ],
+        [
+          "SPECIES_DODRIO",
+          26,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_JAIDEN": {
+      "new": true,
+      "party": "sParty_HoennJaiden",
+      "name": "JAIDEN",
+      "source": "TRAINER_JAIDEN",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_NINJA_BOY",
+      "trainer_pic": "TRAINER_PIC_NINJA_BOY",
+      "music": "TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_NINJASK",
+          26,
+          0
+        ],
+        [
+          "SPECIES_GULPIN",
+          26,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_HELENE": {
+      "new": true,
+      "party": "sParty_HoennHelene",
+      "name": "HELENE",
+      "source": "TRAINER_HELENE",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_BATTLE_GIRL",
+      "trainer_pic": "TRAINER_PIC_BATTLE_GIRL",
+      "music": "TRAINER_ENCOUNTER_MUSIC_INTENSE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MEDITITE",
+          26,
+          0
+        ],
+        [
+          "SPECIES_MAKUHITA",
+          26,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_ALIX": {
+      "new": true,
+      "party": "sParty_HoennAlix",
+      "name": "ALIX",
+      "source": "TRAINER_ALIX",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_RS_PSYCHIC",
+      "trainer_pic": "TRAINER_PIC_RS_PSYCHIC_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_INTENSE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_KADABRA",
+          26,
+          0
+        ],
+        [
+          "SPECIES_KIRLIA",
+          26,
+          0
+        ]
+      ]
+    },
+    "TRAINER_HOENN_MARLENE": {
+      "new": true,
+      "party": "sParty_HoennMarlene",
+      "name": "MARLENE",
+      "source": "TRAINER_MARLENE",
+      "source_repo": "pokeemerald",
+      "trainer_class": "TRAINER_CLASS_RS_PSYCHIC",
+      "trainer_pic": "TRAINER_PIC_RS_PSYCHIC_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_INTENSE",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_MEDITITE",
+          18,
+          0
+        ],
+        [
+          "SPECIES_SPOINK",
+          18,
+          0
+        ]
+      ]
     }
   }
 }

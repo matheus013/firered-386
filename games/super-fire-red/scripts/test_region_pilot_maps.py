@@ -104,6 +104,9 @@ for _m,_x,_y,_steps,_want in (
   (HOENN+'FALLARBOR_TOWN',19,9,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_HOENN_ROUTE113',{(0,9)}),('MAP_HOENN_FALLARBOR_TOWN',{(19,9)})]),
   (HOENN+'FALLARBOR_TOWN',14,8,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_FALLARBOR_TOWN_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_FALLARBOR_TOWN',{(14,8)})]),
   (HOENN+'FALLARBOR_TOWN',15,16,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_FALLARBOR_TOWN_MART',{(4,7)}),('MAP_HOENN_FALLARBOR_TOWN',{(15,16)})]),
+  # Hoenn batch 10: Fallarbor west into Route 114, Rustboro north into Route 115.
+  (HOENN+'FALLARBOR_TOWN',0,10,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_HOENN_ROUTE114',{(39,10)}),('MAP_HOENN_FALLARBOR_TOWN',{(0,10)})]),
+  (HOENN+'RUSTBORO_CITY',20,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_ROUTE115',{(20,79)}),('MAP_HOENN_RUSTBORO_CITY',{(20,0)})]),
   # Johto batch 1: Route 29 west into Cherrygrove, north to Routes 30 and 31, and the Pokemon Center/Mart doors.
   (JOHTO+'ROUTE29',0,16,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY',{(64,10)}),('MAP_JOHTO_ROUTE29',{(0,16)})]),
   (JOHTO+'CHERRYGROVE_CITY',34,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE30',{(25,57)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(34,0)})]),

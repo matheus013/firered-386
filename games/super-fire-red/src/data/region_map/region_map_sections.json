@@ -226,14 +226,16 @@
       "hoenn_x": 1,
       "hoenn_y": 0,
       "hoenn_width": 2,
-      "hoenn_height": 3
+      "hoenn_height": 3,
+      "hoenn_name": "ROUTE 114"
     },
     {
       "id": "MAPSEC_ROUTE_115",
       "hoenn_x": 0,
       "hoenn_y": 2,
       "hoenn_width": 1,
-      "hoenn_height": 3
+      "hoenn_height": 3,
+      "hoenn_name": "ROUTE 115"
     },
     {
       "id": "MAPSEC_ROUTE_116",

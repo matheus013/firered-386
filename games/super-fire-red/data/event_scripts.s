@@ -556,6 +556,8 @@ gStdScriptsEnd::
 	.include "data/maps/Hoenn_FallarborTown/scripts.inc"
 	.include "data/maps/Hoenn_FallarborTown_PokemonCenter_1F/scripts.inc"
 	.include "data/maps/Hoenn_FallarborTown_Mart/scripts.inc"
+	.include "data/maps/Hoenn_Route114/scripts.inc"
+	.include "data/maps/Hoenn_Route115/scripts.inc"
 	.include "data/maps/Johto_NewBarkTown/scripts.inc"
 	.include "data/maps/Johto_Route29/scripts.inc"
 	.include "data/maps/Johto_NewBarkTown_PlayersHouse_1F/scripts.inc"

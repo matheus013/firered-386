@@ -4857,6 +4857,332 @@
     },
     {
       "source": {
+        "repository": "pokeemerald",
+        "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+        "label": "gRoute114",
+        "map": "MAP_ROUTE114",
+        "note": "Emerald tables; Rock Smash left out"
+      },
+      "row": {
+        "map": "MAP_HOENN_ROUTE114",
+        "base_label": "gHoennRoute114_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 16,
+              "max_level": 16,
+              "species": "SPECIES_SWABLU"
+            },
+            {
+              "min_level": 16,
+              "max_level": 16,
+              "species": "SPECIES_LOTAD"
+            },
+            {
+              "min_level": 17,
+              "max_level": 17,
+              "species": "SPECIES_SWABLU"
+            },
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_SWABLU"
+            },
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_LOTAD"
+            },
+            {
+              "min_level": 16,
+              "max_level": 16,
+              "species": "SPECIES_LOMBRE"
+            },
+            {
+              "min_level": 16,
+              "max_level": 16,
+              "species": "SPECIES_LOMBRE"
+            },
+            {
+              "min_level": 18,
+              "max_level": 18,
+              "species": "SPECIES_LOMBRE"
+            },
+            {
+              "min_level": 17,
+              "max_level": 17,
+              "species": "SPECIES_SEVIPER"
+            },
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_SEVIPER"
+            },
+            {
+              "min_level": 17,
+              "max_level": 17,
+              "species": "SPECIES_SEVIPER"
+            },
+            {
+              "min_level": 15,
+              "max_level": 15,
+              "species": "SPECIES_NUZLEAF"
+            }
+          ]
+        },
+        "water_mons": {
+          "encounter_rate": 4,
+          "mons": [
+            {
+              "min_level": 20,
+              "max_level": 30,
+              "species": "SPECIES_MARILL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 20,
+              "species": "SPECIES_MARILL"
+            },
+            {
+              "min_level": 30,
+              "max_level": 35,
+              "species": "SPECIES_MARILL"
+            },
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_MARILL"
+            },
+            {
+              "min_level": 20,
+              "max_level": 30,
+              "species": "SPECIES_GOLDEEN"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_BARBOACH"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_BARBOACH"
+            },
+            {
+              "min_level": 30,
+              "max_level": 35,
+              "species": "SPECIES_BARBOACH"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_BARBOACH"
+            },
+            {
+              "min_level": 35,
+              "max_level": 40,
+              "species": "SPECIES_BARBOACH"
+            },
+            {
+              "min_level": 40,
+              "max_level": 45,
+              "species": "SPECIES_BARBOACH"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "pokeemerald",
+        "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+        "label": "gRoute115",
+        "map": "MAP_ROUTE115",
+        "note": "Emerald tables unchanged"
+      },
+      "row": {
+        "map": "MAP_HOENN_ROUTE115",
+        "base_label": "gHoennRoute115_Pilot",
+        "land_mons": {
+          "encounter_rate": 20,
+          "mons": [
+            {
+              "min_level": 23,
+              "max_level": 23,
+              "species": "SPECIES_SWABLU"
+            },
+            {
+              "min_level": 23,
+              "max_level": 23,
+              "species": "SPECIES_TAILLOW"
+            },
+            {
+              "min_level": 25,
+              "max_level": 25,
+              "species": "SPECIES_SWABLU"
+            },
+            {
+              "min_level": 24,
+              "max_level": 24,
+              "species": "SPECIES_TAILLOW"
+            },
+            {
+              "min_level": 25,
+              "max_level": 25,
+              "species": "SPECIES_TAILLOW"
+            },
+            {
+              "min_level": 25,
+              "max_level": 25,
+              "species": "SPECIES_SWELLOW"
+            },
+            {
+              "min_level": 24,
+              "max_level": 24,
+              "species": "SPECIES_JIGGLYPUFF"
+            },
+            {
+              "min_level": 25,
+              "max_level": 25,
+              "species": "SPECIES_JIGGLYPUFF"
+            },
+            {
+              "min_level": 24,
+              "max_level": 24,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 24,
+              "max_level": 24,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 26,
+              "max_level": 26,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 25,
+              "max_level": 25,
+              "species": "SPECIES_WINGULL"
+            }
+          ]
+        },
+        "water_mons": {
+          "encounter_rate": 4,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 35,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 15,
+              "max_level": 25,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_PELIPPER"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_PELIPPER"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 30,
+              "max_level": 35,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 35,
+              "max_level": 40,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 40,
+              "max_level": 45,
+              "species": "SPECIES_WAILMER"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
         "repository": "HNS_modern",
         "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
         "label": "gRoute35",

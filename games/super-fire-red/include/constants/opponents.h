@@ -907,6 +907,28 @@
 #define TRAINER_JOHTO_SCOTT                              900  // ids 768+ use EXTRA_TRAINER_FLAGS_START
 #define TRAINER_JOHTO_RICHARD                            901  // ids 768+ use EXTRA_TRAINER_FLAGS_START
 #define TRAINER_JOHTO_GAVEN                              902  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_LENNY                              903  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_LUCAS                              904  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_SHANE                              905  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_NANCY                              906  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_STEVE                              907  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_NOLAN                              908  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_CLAUDE                             909  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_BERNIE                             910  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_TYRA_AND_IVY                       911  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_CHARLOTTE                          912  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_ANGELINA                           913  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_KAI                                914  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_TIMOTHY                            915  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_NOB                                916  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_CYNDY                              917  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_KOICHI                             918  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_HECTOR                             919  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_KYRA                               920  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_JAIDEN                             921  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_HELENE                             922  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_ALIX                               923  // ids 768+ use EXTRA_TRAINER_FLAGS_START
+#define TRAINER_HOENN_MARLENE                            924  // ids 768+ use EXTRA_TRAINER_FLAGS_START
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
@@ -965,7 +987,7 @@
 #define TRAINER_HOENN_DEVAN                              TRAINER_MAGMA_GRUNT_M
 #define TRAINER_HOENN_MIKE                               TRAINER_MAMGA_GRUNT_F
 
-#define NUM_TRAINERS                             903
+#define NUM_TRAINERS                             925
 #define MAX_TRAINERS_COUNT                       768
 // Ids from MAX_TRAINERS_COUNT up keep their flags in EXTRA_TRAINER_FLAGS_START (constants/flags.h); NUM_TRAINERS must fit
 // in MAX_TRAINERS_COUNT + EXTRA_TRAINER_FLAGS_COUNT (216), checked in battle_setup.c.
