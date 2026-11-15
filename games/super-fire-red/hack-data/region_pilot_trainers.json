@@ -6858,6 +6858,123 @@
           0
         ]
       ]
+    },
+    "TRAINER_JOHTO_BETH": {
+      "new": true,
+      "party": "sParty_JohtoBeth",
+      "name": "BETH",
+      "source": "TRAINER_BETH",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_RAPIDASH",
+          45,
+          0
+        ],
+        [
+          "SPECIES_AMPHAROS",
+          45,
+          0
+        ],
+        [
+          "SPECIES_MILTANK",
+          45,
+          0
+        ],
+        [
+          "SPECIES_LANTURN",
+          45,
+          0
+        ],
+        [
+          "SPECIES_GENGAR",
+          45,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_JAKE": {
+      "new": true,
+      "party": "sParty_JohtoJake",
+      "name": "JAKE",
+      "source": "TRAINER_JAKE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_M",
+      "music": "TRAINER_ENCOUNTER_MUSIC_MALE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_CLOYSTER",
+          45,
+          0
+        ],
+        [
+          "SPECIES_PIDGEOT",
+          47,
+          0
+        ],
+        [
+          "SPECIES_ALAKAZAM",
+          45,
+          0
+        ],
+        [
+          "SPECIES_ARCANINE",
+          45,
+          0
+        ],
+        [
+          "SPECIES_JOLTEON",
+          45,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_JOYCE": {
+      "new": true,
+      "party": "sParty_JohtoJoyce",
+      "name": "JOYCE",
+      "source": "TRAINER_JOYCE",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+      "trainer_pic": "TRAINER_PIC_COOLTRAINER_F",
+      "music": "TRAINER_ENCOUNTER_MUSIC_FEMALE",
+      "level_offset": 45,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_BLASTOISE",
+          44,
+          0
+        ],
+        [
+          "SPECIES_RAICHU",
+          46,
+          0
+        ],
+        [
+          "SPECIES_TAUROS",
+          45,
+          0
+        ],
+        [
+          "SPECIES_RHYDON",
+          45,
+          0
+        ],
+        [
+          "SPECIES_JUMPLUFF",
+          45,
+          0
+        ]
+      ]
     }
   }
 }

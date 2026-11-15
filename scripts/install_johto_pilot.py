@@ -55,7 +55,9 @@ MAPS = ['NewBarkTown', 'Route29', 'NewBarkTown_PlayersHouse_1F', 'NewBarkTown_Pl
         # Johto batch 16: Dark Cave, both sides (Route 31, Route 46 and Route 45 entrances)
         'DarkCave_SouthSide', 'DarkCave_NorthSide',
         # Johto batch 17: Ice Path 1F (Route 44 <-> Blackthorn) and Mt. Mortar 1F, both halves (Route 42's entrances)
-        'IcePath_1F', 'MtMortar_1F_South', 'MtMortar_1F_North']
+        'IcePath_1F', 'MtMortar_1F_South', 'MtMortar_1F_North',
+        # Johto batch 18: Tohjo Falls (both Route 27 entrances) and Route 26's north half (Viridian secondary)
+        'TohjoFalls_Cavern', 'Route26North']
 TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animation init)
     'gTileset_Johto_General': ('JohtoPilotGeneral', 'primary/johto_general', 'primary/johto_pilot_general', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_NewBarkTown': ('JohtoPilotNewBarkTown', 'secondary/new_bark_town', 'secondary/johto_pilot_new_bark_town', 'NULL'),
@@ -83,6 +85,7 @@ TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animati
     'gTileset_Blackthorn': ('JohtoPilotBlackthorn', 'secondary/blackthorn', 'secondary/johto_pilot_blackthorn', 'NULL'),
     'gTileset_Cave_Ice': ('JohtoPilotCaveIce', 'secondary/cave_ice', 'secondary/johto_pilot_cave_ice', 'NULL'),
     'gTileset_Cave_Gray': ('JohtoPilotCaveGray', 'secondary/cave_gray', 'secondary/johto_pilot_cave_gray', 'NULL'),
+    'gTileset_ViridianCity': ('JohtoPilotViridianCity', 'secondary/viridian_city', 'secondary/johto_pilot_viridian_city', 'NULL'),
 }
 # FireRed attribute without layer bits: behavior | terrain << 9 | encounter << 24, taken from the pattern
 # FireRed's own tilesets use most for that behavior.

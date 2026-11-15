@@ -1154,3 +1154,13 @@ const struct Tileset gTileset_JohtoPilotCaveGray =
     .metatileAttributes = gMetatileAttributes_JohtoPilotCaveGray,
     .callback = NULL,
 };
+const struct Tileset gTileset_JohtoPilotViridianCity =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotViridianCity,
+    .palettes = gTilesetPalettes_JohtoPilotViridianCity,
+    .metatiles = gMetatiles_JohtoPilotViridianCity,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotViridianCity,
+    .callback = NULL,
+};

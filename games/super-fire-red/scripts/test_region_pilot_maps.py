@@ -201,7 +201,11 @@ for _m,_x,_y,_steps,_want in (
   (JOHTO+'ROUTE42',18,8,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_MT_MORTAR_1F_SOUTH',None),('MAP_JOHTO_ROUTE42',None)]),
   (JOHTO+'ROUTE42',40,12,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_MT_MORTAR_1F_SOUTH',None),('MAP_JOHTO_ROUTE42',None)]),
   (JOHTO+'ROUTE42',62,10,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_MT_MORTAR_1F_SOUTH',None),('MAP_JOHTO_ROUTE42',None)]),
-  (JOHTO+'MT_MORTAR_1F_SOUTH',24,39,[('UP','MAP')],[('MAP_JOHTO_MT_MORTAR_1F_NORTH',None)])):
+  (JOHTO+'MT_MORTAR_1F_SOUTH',24,39,[('UP','MAP')],[('MAP_JOHTO_MT_MORTAR_1F_NORTH',None)]),
+  # Johto batch 18: Tohjo Falls from both Route 27 entrances; Route 26 north into its upper half.
+  (JOHTO+'ROUTE27',31,20,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_TOHJO_FALLS_CAVERN',None),('MAP_JOHTO_ROUTE27',None)]),
+  (JOHTO+'ROUTE27',45,18,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_TOHJO_FALLS_CAVERN',None),('MAP_JOHTO_ROUTE27',None)]),
+  (JOHTO+'ROUTE26',15,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE26NORTH',{(15,29)}),('MAP_JOHTO_ROUTE26',{(15,0)})])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -421,6 +425,7 @@ def _trainer_ids(text):
  return ids
 _opponent_ids=_trainer_ids((game/'include/constants/opponents.h').read_text())
 _fought=set()
+UNBATTLED=[]  # route trainers whose team no single fixed-damage move can finish (see below)
 for _folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/maps').glob('Johto_*'))):
  _objs=json.loads((_folder/'map.json').read_text()).get('object_events') or []
  _inc=(_folder/'scripts.inc').read_text(encoding='utf-8')
@@ -428,6 +433,13 @@ for _folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/
   _body=_inc.split(_o['script']+'::')[-1].split('\n\n')[0] if _o['script']+'::' in _inc else ''
   _m=re.search(r'trainerbattle_\w+ (TRAINER_(?:HOENN|JOHTO)_\w+)',_body)
   if not _m or 'SWIMMER' in _o['graphics_id'] or _m[1] in _fought:continue
+  _team=[m[0] if isinstance(m,list) else m['species'] for m in _pilot_teams[_m[1]]['team']]
+  _kinds={t for sp in _team for t in _types.get(sp,())}
+  # A team with both a Ghost and a Normal foe has no single fixed-damage move that hits all of it (Seismic Toss
+  # and Struggle are blocked by Ghosts, Night Shade by Normals), so the one-move fixture never finishes the battle
+  # (Route 26's Beth). Those trainers keep their talk case; their battle is left out and listed here.
+  if 'TYPE_GHOST' in _kinds and 'TYPE_NORMAL' in _kinds:
+   UNBATTLED.append(_m[1]);_fought.add(_m[1]);continue
   _fought.add(_m[1])
   _sm,_sx,_sy,_key=SPOTS[(_folder.name,'object',_i)]
   _johto=_folder.name.startswith('Johto_')
@@ -1462,7 +1474,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-35:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY','MAPSEC_ROUTE_38','MAPSEC_ROUTE_39','MAPSEC_OLIVINE_CITY','MAPSEC_ROUTE_42','MAPSEC_MAHOGANY_TOWN','MAPSEC_ROUTE_43','MAPSEC_LAKE_OF_RAGE','MAPSEC_ROUTE_44','MAPSEC_ROUTE_46','MAPSEC_ROUTE_45','MAPSEC_BLACKTHORN_CITY','MAPSEC_ROUTE_40','MAPSEC_ROUTE_41','MAPSEC_CIANWOOD_CITY','MAPSEC_ROUTE_27','MAPSEC_ROUTE_26','MAPSEC_DARK_CAVE','MAPSEC_ICE_PATH','MAPSEC_MT_MORTAR']
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-36:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY','MAPSEC_ROUTE_38','MAPSEC_ROUTE_39','MAPSEC_OLIVINE_CITY','MAPSEC_ROUTE_42','MAPSEC_MAHOGANY_TOWN','MAPSEC_ROUTE_43','MAPSEC_LAKE_OF_RAGE','MAPSEC_ROUTE_44','MAPSEC_ROUTE_46','MAPSEC_ROUTE_45','MAPSEC_BLACKTHORN_CITY','MAPSEC_ROUTE_40','MAPSEC_ROUTE_41','MAPSEC_CIANWOOD_CITY','MAPSEC_ROUTE_27','MAPSEC_ROUTE_26','MAPSEC_DARK_CAVE','MAPSEC_ICE_PATH','MAPSEC_MT_MORTAR','MAPSEC_TOHJO_FALLS']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.
@@ -1566,6 +1578,7 @@ for case,expect in SCENES.items():
    assert row[47]==1 and decode(row[96:104])==t['name'],(name,'battle shows the Kanto rival name instead of',t['name'],row[47],decode(row[96:104]))
  story_seen[name]='ok'
 print('Region story scenes:',story_seen)
+print('Route trainers left out of the battle cases (Ghost and Normal foes):',UNBATTLED)
 # Generated at build time: #define MAP_X (num | (group << 8))
 _maps={m[1]:(int(m[3]),int(m[2])) for m in re.finditer(r'#define (MAP_\w+)\s+\((\d+) \| \((\d+) << 8\)\)',(test/'include/constants/map_groups.h').read_text())}
 def _group_num(name):

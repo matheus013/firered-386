@@ -299,3 +299,5 @@ const u32 gMetatileAttributes_JohtoPilotCaveIce[] = INCBIN_U32("data/tilesets/se
 
 const u16 gMetatiles_JohtoPilotCaveGray[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_cave_gray/metatiles.bin");
 const u32 gMetatileAttributes_JohtoPilotCaveGray[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_cave_gray/metatile_attributes.bin");
+const u16 gMetatiles_JohtoPilotViridianCity[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/metatiles.bin");
+const u32 gMetatileAttributes_JohtoPilotViridianCity[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_viridian_city/metatile_attributes.bin");

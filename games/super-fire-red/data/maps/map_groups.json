@@ -680,7 +680,8 @@
     "Hoenn_FortreeCity",
     "Hoenn_Route120",
     "Hoenn_Route121",
-    "Hoenn_LilycoveCity"
+    "Hoenn_LilycoveCity",
+    "Johto_Route26North"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -810,6 +811,8 @@
     "Johto_DarkCave_NorthSide",
     "Johto_IcePath_1F",
     "Johto_MtMortar_1F_South",
-    "Johto_MtMortar_1F_North"
+    "Johto_MtMortar_1F_North",
+    "Johto_TohjoFalls_Cavern",
+    "Johto_Route26North"
   ]
 }

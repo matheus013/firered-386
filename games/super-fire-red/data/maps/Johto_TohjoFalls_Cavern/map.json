@@ -1,0 +1,51 @@
+{
+  "id": "MAP_JOHTO_TOHJO_FALLS_CAVERN",
+  "name": "Johto_TohjoFalls_Cavern",
+  "layout": "LAYOUT_JOHTO_TOHJO_FALLS_CAVERN",
+  "music": "MUS_MT_MOON",
+  "region_map_section": "MAPSEC_TOHJO_FALLS",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 15,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Johto_TohjoFalls_Cavern_EventScript_Object0",
+      "flag": "FLAG_HIDE_JOHTO_TOHJO_FALLS_HEART_SCALE"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 37,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_ROUTE27",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 68,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_ROUTE27",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

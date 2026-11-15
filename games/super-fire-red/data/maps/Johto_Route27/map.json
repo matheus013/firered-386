@@ -195,7 +195,22 @@
       "flag": "FLAG_HIDE_JOHTO_ROUTE27_REVIVE"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 31,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_TOHJO_FALLS_CAVERN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 45,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_TOHJO_FALLS_CAVERN",
+      "dest_warp_id": "1"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {

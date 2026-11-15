@@ -5454,6 +5454,30 @@
       "secondary_tileset": "gTileset_HoennPilotLilycove",
       "border_filepath": "data/layouts/Hoenn_LilycoveCity/border.bin",
       "blockdata_filepath": "data/layouts/Hoenn_LilycoveCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_TOHJO_FALLS_CAVERN",
+      "name": "Johto_TohjoFalls_Cavern_Layout",
+      "width": 78,
+      "height": 30,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotCave",
+      "border_filepath": "data/layouts/Johto_TohjoFalls_Cavern/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_TohjoFalls_Cavern/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_ROUTE26NORTH",
+      "name": "Johto_Route26North_Layout",
+      "width": 39,
+      "height": 30,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotViridianCity",
+      "border_filepath": "data/layouts/Johto_Route26North/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_Route26North/map.bin"
     }
   ]
 }

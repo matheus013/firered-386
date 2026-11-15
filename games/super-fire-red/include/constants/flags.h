@@ -182,6 +182,7 @@
 #define FLAG_HIDE_HOENN_ROUTE121_REVIVE FLAG_0x133 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_HOENN_ROUTE121_ZINC FLAG_0x134 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_HOENN_LILYCOVE_MAX_REPEL FLAG_0x135 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_TOHJO_FALLS_HEART_SCALE FLAG_0x136 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_AIDE_POTION FLAG_0x027 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_GOT_JOHTO_AIDE_BALLS FLAG_0x07F // Region pilot story (scripts/pilot_story.py)

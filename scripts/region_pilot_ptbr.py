@@ -500,6 +500,16 @@ PT = {
     'Hoenn_VerdanturfTown_Text_WandasHouse': 'CASA DA WANDA',
     'Hoenn_VerdanturfTown_Text_BattleTentSign': 'BATTLE TENT DE VERDANTURF\\n“Delicie-se com as batalhas!”',
     'Hoenn_VerdanturfTown_Text_RusturfTunnelSign': 'RUSTURF TUNNEL\\n“Ligando RUSTBORO e VERDANTURF\\p“O projeto do túnel foi cancelado.”',
+    # Johto batch 18 (Tohjo Falls, Route 26 north)
+    'Johto_Route26North_Text_CooltrainerfBethSeen': 'Perdi para um Treinador chamado {RIVAL}.\\pEle era muito forte, mas…\\pEra como se precisasse vencer a qualquer custo.\\pFiquei com pena dos Pokémon dele.',
+    'Johto_Route26North_Text_CooltrainerfBethBeaten': 'Pokémon não são armas de guerra.',
+    'Johto_Route26North_Text_CooltrainerfBethAfter': 'Pokémon são parceiros inestimáveis para a vida toda.',
+    'Johto_Route26North_Text_CooltrainermJakeSeen': 'Estou nos últimos preparativos para a Liga Pokémon.',
+    'Johto_Route26North_Text_CooltrainermJakeBeaten': 'Estraguei tudo!',
+    'Johto_Route26North_Text_CooltrainermJakeAfter': 'Vai ser difícil vencer na Liga.\\pPreciso treinar mais.\\pOuvi dizer que a Elite dos Quatro é mais forte que os Líderes de Ginásio.',
+    'Johto_Route26North_Text_CooltrainerfJoyceSeen': 'Se você chegou até aqui, deve ser bom.\\pVou dar tudo de mim nesta batalha!',
+    'Johto_Route26North_Text_CooltrainerfJoyceBeaten': 'Não! Não acredito!',
+    'Johto_Route26North_Text_CooltrainerfJoyceAfter': 'Derrotei oito Líderes de Ginásio, então estava confiante.\\pVou ter que me esforçar mais da próxima vez.',
     # Johto batch 17 (Ice Path 1F, Mt. Mortar 1F)
     'Johto_MtMortar_1F_North_Text_SupernerdMarkusSeen': 'Ei! Hugh!',
     'Johto_MtMortar_1F_North_Text_SupernerdMarkusBeaten': 'Te confundi com outra pessoa…',

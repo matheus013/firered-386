@@ -2505,3 +2505,30 @@ tiles), convertido também para as Routes 122 e 123, que vêm depois.
 - as Routes 122 e 123 e o Mt. Pyre.
 
 **Resultado:** 1395 casos aprovados (eram 1305), com as 255 batalhas de rota vencidas, incluindo a dupla Kate & Joy. As caminhadas novas cruzam Fortree → Route 120 → Route 121 → Lilycove e entram e saem do Centro de Lilycove. O teste levou 28 minutos.
+
+## Johto, lote 18: Tohjo Falls e metade norte da Route 26
+
+**Mapas novos:** a caverna das Tohjo Falls (Johto General + secundário de caverna), com as duas
+entradas da Route 27, e a metade norte da Route 26 (Johto General + secundário `ViridianCity`, novo
+no Johto), ligada à metade sul pela borda.
+
+- **Fechados:** a sala do Giovanni nas Tohjo Falls e o portão da Victory Road.
+- **Treinadores (3, IDs 967–969):** Beth, Jake e Joyce, na metade norte da Route 26. O Jake e a
+  Joyce ficavam fora do mapa da metade sul no lote 15, e agora entram no lugar certo. Usam +45,
+  como os outros treinadores da Route 26.
+- **Teste de batalha da Beth:** o time dela tem Gengar (Ghost) e Miltank (Normal). O time de teste
+  usa um golpe fixo só, e nenhum atinge os dois: Seismic Toss e Struggle não acertam Ghost, e Night
+  Shade não acerta Normal. A batalha nunca terminava. O harness agora deixa de fora da batalha os
+  times com Ghost e Normal juntos e lista esses treinadores na saída. Por enquanto, só a Beth. Ela
+  continua no teste de conversa.
+- **Eventos:**
+  - a Heart Scale (flag 0x136);
+  - 9 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** chão, água e pesca das Tohjo Falls (tabela do dia).
+
+**Fica para depois:**
+
+- a sala do Giovanni;
+- o portão e a Victory Road.
+
+**Resultado:** 1404 casos aprovados (eram 1395), com as 257 batalhas de rota vencidas; a Beth ficou de fora da batalha, como explicado acima. As caminhadas novas entram nas Tohjo Falls pelas duas entradas da Route 27 e sobem da metade sul da Route 26 para a norte. O teste levou 31 minutos.

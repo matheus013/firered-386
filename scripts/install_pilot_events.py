@@ -737,6 +737,14 @@ EVENTS = {
         0: ('itemflag', None, 'Max Repel'), 1: ('itemflag', None, 'Escape Rope'), 2: ('itemflag', None, 'Ultra Ball'),
         3: ('itemflag', None, 'Nugget'), 4: ('itemflag', None, 'Max Potion'), 5: ('itemflag', None, 'Revive (HNS Full Incense script)'),
         6: ('itemflag', None, "King's Rock")}, {}),
+    # Johto batch 18. Left out: the decorative Pokemon in Tohjo Falls, Giovanni's room, and the Victory Road
+    # reception gate (closed, like Route 26's houses).
+    'TohjoFalls_Cavern': (HNS, {0: ('itemflag', None, 'Heart Scale')}, {}),
+    'Route26North': (HNS, {
+        0: ('trainer', ('TRAINER_JOHTO_BETH', 'Route26_Text_CooltrainerfBethSeen', 'Route26_Text_CooltrainerfBethBeaten', 'Route26_Text_CooltrainerfBethAfter'), ''),
+        1: ('trainer', ('TRAINER_JOHTO_JAKE', 'Route26_Text_CooltrainermJakeSeen', 'Route26_Text_CooltrainermJakeBeaten', 'Route26_Text_CooltrainermJakeAfter'), ''),
+        5: ('trainer', ('TRAINER_JOHTO_JOYCE', 'Route26_Text_CooltrainerfJoyceSeen', 'Route26_Text_CooltrainerfJoyceBeaten', 'Route26_Text_CooltrainerfJoyceAfter'), ''),
+        }, {}),
     'Gate_EcruteakCity_Route42': (HNS, {0: ('npc', 'Route42_Text_EcruteakGateOfficer', '')}, {}),
     'Route42': (HNS, {
         3: ('trainer', ('TRAINER_JOHTO_TULLY', 'Route42_Text_FisherTullySeen', 'Route42_Text_FisherTullyBeaten', 'Route42_Text_FisherTullyAfter'), ''), 4: ('trainer', ('TRAINER_JOHTO_SHANE', 'Route42_Text_PokemaniacShaneSeen', 'Route42_Text_PokemaniacShaneBeaten', 'Route42_Text_PokemaniacShaneAfter'), ''),
@@ -987,6 +995,7 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route121', 27): ('ITEM_REVIVE', 'FLAG_HIDE_HOENN_ROUTE121_REVIVE', 'FLAG_0x133'),
               ('Route121', 28): ('ITEM_ZINC', 'FLAG_HIDE_HOENN_ROUTE121_ZINC', 'FLAG_0x134'),
               ('LilycoveCity', 10): ('ITEM_MAX_REPEL', 'FLAG_HIDE_HOENN_LILYCOVE_MAX_REPEL', 'FLAG_0x135'),
+              ('TohjoFalls_Cavern', 0): ('ITEM_HEART_SCALE', 'FLAG_HIDE_JOHTO_TOHJO_FALLS_HEART_SCALE', 'FLAG_0x136'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Objects whose source elevation differs from the cells they stand on (map, index) -> elevation. A wanderer only

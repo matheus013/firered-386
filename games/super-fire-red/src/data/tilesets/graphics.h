@@ -2119,3 +2119,19 @@ const u16 gTilesetPalettes_JohtoPilotCaveGray[][16] = {
     INCBIN_U16("data/tilesets/secondary/johto_pilot_cave_gray/palettes/11.gbapal"),
     INCBIN_U16("data/tilesets/secondary/johto_pilot_cave_gray/palettes/12.gbapal"),
 };
+const u32 gTilesetTiles_JohtoPilotViridianCity[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_viridian_city/tiles.4bpp.lz");
+const u16 gTilesetPalettes_JohtoPilotViridianCity[][16] = {
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/johto_pilot_viridian_city/palettes/12.gbapal"),
+};

@@ -18,6 +18,11 @@
       "map": "MAP_JOHTO_ROUTE27",
       "offset": 42,
       "direction": "left"
+    },
+    {
+      "map": "MAP_JOHTO_ROUTE26NORTH",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [

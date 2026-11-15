@@ -19047,3 +19047,90 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HoennCristin[] = {
     .species = SPECIES_VIGOROTH,
     }
 };
+
+// Region geography: HNS_modern TRAINER_BETH, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoBeth[] = {
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_RAPIDASH,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_AMPHAROS,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_MILTANK,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_LANTURN,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_GENGAR,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_JAKE, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoJake[] = {
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_CLOYSTER,
+    },
+    {
+    .iv = 0,
+    .lvl = 92,
+    .species = SPECIES_PIDGEOT,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_ALAKAZAM,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_ARCANINE,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_JOLTEON,
+    }
+};
+
+// Region geography: HNS_modern TRAINER_JOYCE, levels +45.
+static const struct TrainerMonNoItemDefaultMoves sParty_JohtoJoyce[] = {
+    {
+    .iv = 0,
+    .lvl = 89,
+    .species = SPECIES_BLASTOISE,
+    },
+    {
+    .iv = 0,
+    .lvl = 91,
+    .species = SPECIES_RAICHU,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_TAUROS,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_RHYDON,
+    },
+    {
+    .iv = 0,
+    .lvl = 90,
+    .species = SPECIES_JUMPLUFF,
+    }
+};

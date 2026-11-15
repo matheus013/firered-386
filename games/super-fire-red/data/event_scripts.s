@@ -638,6 +638,8 @@ gStdScriptsEnd::
 	.include "data/maps/Johto_IcePath_1F/scripts.inc"
 	.include "data/maps/Johto_MtMortar_1F_South/scripts.inc"
 	.include "data/maps/Johto_MtMortar_1F_North/scripts.inc"
+	.include "data/maps/Johto_TohjoFalls_Cavern/scripts.inc"
+	.include "data/maps/Johto_Route26North/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

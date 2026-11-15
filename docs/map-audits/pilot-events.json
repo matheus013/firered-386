@@ -9729,6 +9729,75 @@
         }
       ]
     },
+    "Johto_TohjoFalls_Cavern": {
+      "source": "HNS_modern/TohjoFalls_Cavern",
+      "events": [
+        {
+          "kind": "itemflag",
+          "source_index": 0,
+          "source_script": "TohjoFalls_Cavern_EventScript_HeartScale",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Heart Scale",
+          "x": 15,
+          "y": 11
+        }
+      ]
+    },
+    "Johto_Route26North": {
+      "source": "HNS_modern/Route26North",
+      "events": [
+        {
+          "kind": "trainer",
+          "source_index": 0,
+          "source_script": "Route26_EventScript_Beth",
+          "source_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": [
+            "TRAINER_JOHTO_BETH",
+            "Route26_Text_CooltrainerfBethSeen",
+            "Route26_Text_CooltrainerfBethBeaten",
+            "Route26_Text_CooltrainerfBethAfter"
+          ],
+          "note": "",
+          "x": 26,
+          "y": 24
+        },
+        {
+          "kind": "trainer",
+          "source_index": 1,
+          "source_script": "Route26_EventScript_Jake",
+          "source_sprite": "OBJ_EVENT_GFX_COOLTRAINER_M",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_M",
+          "text": [
+            "TRAINER_JOHTO_JAKE",
+            "Route26_Text_CooltrainermJakeSeen",
+            "Route26_Text_CooltrainermJakeBeaten",
+            "Route26_Text_CooltrainermJakeAfter"
+          ],
+          "note": "",
+          "x": 16,
+          "y": 20
+        },
+        {
+          "kind": "trainer",
+          "source_index": 5,
+          "source_script": "Route26_EventScript_Joyce",
+          "source_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "firered_sprite": "OBJ_EVENT_GFX_COOLTRAINER_F",
+          "text": [
+            "TRAINER_JOHTO_JOYCE",
+            "Route26_Text_CooltrainerfJoyceSeen",
+            "Route26_Text_CooltrainerfJoyceBeaten",
+            "Route26_Text_CooltrainerfJoyceAfter"
+          ],
+          "note": "",
+          "x": 9,
+          "y": 11
+        }
+      ]
+    },
     "Johto_Gate_EcruteakCity_Route42": {
       "source": "HNS_modern/Gate_EcruteakCity_Route42",
       "events": [
