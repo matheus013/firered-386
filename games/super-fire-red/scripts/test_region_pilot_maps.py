@@ -258,6 +258,14 @@ def _pilot_texts(folder):
  return shown
 _ATTRS={name:[v for (v,) in _struct.iter_unpack('<I',(game/path).read_bytes())] for name,path in re.findall(r'const u32 (\w+)\[\] = INCBIN_U32\("([^"]+)"\)',(game/'src/data/tilesets/metatiles.h').read_text())}
 _TILESETS={name:_ATTRS[re.search(r'\.metatileAttributes = (\w+)',body)[1]] for name,body in re.findall(r'const struct Tileset (\w+) =\s*\{(.*?)\};',(game/'src/data/tilesets/headers.h').read_text(),re.S)}
+# Surf starts through the real A-button field script; border cases start on water
+# and let the normal loader select the surfing avatar. No map transition is forced.
+from region_water_cases import water_cases
+WATER_CASES={}
+for _m,_x,_y,_steps,_want,_flags in water_cases(game,LAYOUTS,_TILESETS):
+ CASES.append((_m,_x,_y,0,0,_steps,8))
+ BATCH_WALKS[len(CASES)]=_want
+ WATER_CASES[len(CASES)]=_flags
 MB_COUNTER=0x80
 def _spot(events,collision,behavior,width,height,x,y,north_only,elev=None,want=0):
  """A free cell facing the event; across a counter (MB_COUNTER) the player talks from the far side."""
@@ -282,7 +290,6 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
  targets=[('object',i,o) for i,o in enumerate(objs)]+[('sign',i,b) for i,b in enumerate(bgs)]
  for kind,i,e in targets:
   spot=_spot(objs,cells,behavior,layout['width'],layout['height'],e['x'],e['y'],kind=='sign' and e.get('player_facing_dir')=='BG_EVENT_PLAYER_FACING_NORTH',elevs,(int(e.get('elevation',0)) or elevs[e['y']*layout['width']+e['x']]) if kind=='object' else 0)  # elevation 0 = the tile's
-  if not spot and re.search('SWIMMER|_WATER',e.get('graphics_id','')):continue  # out in the water (Route 109's David): Surf only
   assert spot,(folder.name,kind,i,'no free cell next to this event')
   sx,sy,key=spot
   SPOTS[(folder.name,kind,i)]=(header['id'],sx,sy,key)
@@ -291,7 +298,6 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
   if folder.name=='Johto_NewBarkTown_Lab' and kind=='object' and i in (1,3,4,5):continue  # story cases below
   inc=(folder/'scripts.inc').read_text(encoding='utf-8')
   body_=inc.split(script+'::')[-1].split('\n\n')[0] if script+'::' in inc else ''
-  if re.search('SWIMMER|_WATER',e.get('graphics_id','')):continue  # on water: needs Surf to reach
   if 'trainerbattle' in body_:
    args=re.search(r'(trainerbattle_\w+) \w+, ([^\n]*)',body_)
    # Talk cases start with the region trainers beaten (PilotSetup), so A shows the post-battle line;
@@ -414,7 +420,7 @@ NO_ANSWERS[len(CASES)]=7
 STOP_AFTER_PROMPT[len(CASES)]=3
 # Geography batch trainers: one battle per trainer, from the talk cell, with only that trainer unbeaten
 # (FRESH_TRAINER). The scene presses A through intro, battle and post-battle line; the strong lead wins.
-# Swimmers stand on water (Surf) and are left out, like their talk cases.
+# Swimmers start beside the player in water; the normal loader selects Surf.
 FRESH_TRAINER={}
 # Fixed-damage move for the strong lead (level 100 = 100 HP a hit, no type chart): one move cannot be
 # blocked by every route team otherwise (Dark vs Psychic, Fairy vs Dragon, Water Absorb, Water/Ice vs Ice).
@@ -437,7 +443,7 @@ for _folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/
  for _i,_o in enumerate(_objs):
   _body=_inc.split(_o['script']+'::')[-1].split('\n\n')[0] if _o['script']+'::' in _inc else ''
   _m=re.search(r'trainerbattle_\w+ (TRAINER_(?:HOENN|JOHTO)_\w+)',_body)
-  if not _m or re.search('SWIMMER|_WATER',_o['graphics_id']) or _m[1] in _fought:continue
+  if not _m or _m[1] in _fought:continue
   _team=[m[0] if isinstance(m,list) else m['species'] for m in _pilot_teams[_m[1]]['team']]
   _kinds={t for sp in _team for t in _types.get(sp,())}
   # A team with both a Ghost and a Normal foe has no single fixed-damage move that hits all of it (Seismic Toss
@@ -537,7 +543,7 @@ JOURNEY_SETUP=16384  # region sailor shown (bit 4) + strong team (16|128) are ad
 CASES.append(('MAP_VERMILION_CITY',23,30,0,0,[('NONE','JOURNEY')],4|16|128|JOURNEY_SETUP));JOURNEY_CASE=len(CASES)
 CASES=[c if len(c)==7 else (*c,0) for c in CASES]
 KEYS={'UP':'DPAD_UP','DOWN':'DPAD_DOWN','LEFT':'DPAD_LEFT','RIGHT':'DPAD_RIGHT','NONE':'0'}
-MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6,'SCENE':7,'FLY':8,'SWITCH':9,'CONTINUE':10,'JOURNEY':11}
+MODES={'MAP':0,'POS':1,'HOLD':2,'BATTLE':3,'TOWNMAP':4,'TALK':5,'TRIP':6,'SCENE':7,'FLY':8,'SWITCH':9,'CONTINUE':10,'JOURNEY':11,'SURF':12}
 spawns=',\n    '.join(f'{{MAP_GROUP({m}), MAP_NUM({m}), {x}, {y}, {px}, {py}, {5 if any(mode=="BATTLE" for _,mode in s) else 100}, {setup}, {STORY.get(n,(0,0))[0]}, {STORY.get(n,(0,0))[1]}, {JOHTO_STORY.get(n,(0,0))[0]}, {JOHTO_STORY.get(n,(0,0))[1]}}}' for n,(m,x,y,px,py,s,setup) in enumerate(CASES,1))
 answers=', '.join(str(NO_ANSWERS.get(n,0)) for n in range(1,len(CASES)+1))
 stop_prompts=', '.join(str(STOP_AFTER_PROMPT.get(n,0)) for n in range(1,len(CASES)+1))
@@ -718,6 +724,30 @@ static void PilotWalkCase(void)
     sPilotX = x; sPilotY = y;
     sPilotStepFrames++;
     moved = gSaveBlock1Ptr->location.mapGroup != sPilotStartGroup || gSaveBlock1Ptr->location.mapNum != sPilotStartMap;
+    if (step->mode == 12)
+    {
+        if (sPilotPhase == 0)
+        {
+            if (sPilotIdle < 30) return;
+            sPilotPhase = 1; sPilotStepFrames = 0;
+        }
+        gPilotKeys = sPilotStepFrames < 16 ? step->keys : ((sPilotStepFrames & 15) == 0 ? A_BUTTON : 0);
+        if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && field && sPilotIdle >= 30)
+        {
+            gPilotKeys = 0;
+            r[0] = gSaveBlock1Ptr->location.mapGroup; r[1] = gSaveBlock1Ptr->location.mapNum;
+            r[2] = x - MAP_OFFSET; r[3] = y - MAP_OFFSET;
+            gPilotResult[96 + sPilotStep] = 1;
+            gPilotShot = sPilotStep + 1;
+            sPilotPhase = 0; sPilotIdle = 0; sPilotStepFrames = 0;
+            if (++sPilotStep >= sPilotStepCount[gPilotCase - 1]) gPilotStage = 3;
+        }
+        else if (sPilotStepFrames >= 1800)
+        {
+            gPilotKeys = 0; gPilotResult[127] = 1; gPilotStage = 3;
+        }
+        return;
+    }
     // A wild encounter fills gEnemyParty (zeroed by New Game) before the battle transition.
     if (step->mode == 3 && sPilotPhase == 1 && GetMonData(&gEnemyParty[0], MON_DATA_SPECIES))
     {
@@ -1154,6 +1184,8 @@ static void PilotWalkCase(void)
     {
         r[0] = gSaveBlock1Ptr->location.mapGroup; r[1] = gSaveBlock1Ptr->location.mapNum;
         r[2] = x - MAP_OFFSET; r[3] = y - MAP_OFFSET;
+        if (gPilotSpawn[gPilotCase - 1][7] == 8)
+            gPilotResult[96 + sPilotStep] = TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) != 0;
         gPilotShot = sPilotStep + 1;
         sPilotPhase = 0; sPilotIdle = 0;
         if (++sPilotStep >= sPilotStepCount[gPilotCase - 1])
@@ -1213,6 +1245,12 @@ void PilotSetup(void)
     CalculatePlayerPartyCount();
     if (spawn[6] >= 100)
         VarSet(VAR_REPEL_STEP_COUNT, 250);
+    if (spawn[7] == 8)
+    {
+        u16 move = MOVE_SURF;
+        FlagSet(FLAG_BADGE05_GET);
+        SetMonData(&gPlayerParty[0], MON_DATA_MOVE1, &move);
+    }
     if (spawn[7] & 1)
     {
         u16 hp = 1;
@@ -1592,6 +1630,10 @@ ARRIVAL={'littleroot':((HG,LITTLEROOT),(11,14)),'newbark':((JG,NEWBARK),(24,13))
 for case,(start,dest) in TRIPS.items():
  row=rows[case];where_,cell=ARRIVAL[dest]
  assert row[4]==1 and tuple(row[:2])==where_ and tuple(row[2:4])==cell,(start,'->',dest,'ferry arrival',list(row[:4]),where_,cell)
+for case,flags in WATER_CASES.items():
+ assert not rows[case][127],(case,'Surf activation timed out')
+ assert list(rows[case][96:96+len(flags)])==flags,(case,'surfing avatar flags',list(rows[case][96:98]),flags)
+print('Surf coastal cases:',len(WATER_CASES),'passed')
 print('SEAGALLOP trips:',{f"{s.replace('MAP_','')}->{d}":'ok' for s,d in TRIPS.values()})
 batch_walked={}
 for case,want in BATCH_WALKS.items():

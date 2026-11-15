@@ -2630,3 +2630,77 @@ python3 scripts/test_field_door_native.py
 Mantidos os limites acima: não se validou acesso marítimo a Dewford, combate a
 nadadores nem campanha completa. O pescador de Dewford tem diálogo, mas o presente
 da Old Rod continua fora desta etapa. Main e releases não foram alteradas.
+
+## 15/11/2026 — Cobertura de Surf e conexões marítimas (Codex)
+
+Após fechar o lote 14, foram acrescentados sete cenários ao teste da ROM, sem
+alterar a engine ou os mapas. Consultado o script de referência
+[pret/pokefirered — Surf](https://github.com/pret/pokefirered/blob/master/data/scripts/surf.inc)
+e comparado com o script local.
+
+- Dewford: iniciar em terra, virar para a água, pressionar A, aceitar o diálogo
+  normal de Surf, entrar na água e voltar à terra com o direcional.
+- Conexões nos dois sentidos: Route 104/105, Route 105/106, Route 106/Dewford,
+  Dewford/Route 107, Route 121/122 e Route 122/123.
+- `region_water_cases.py` seleciona células sem colisão/objetos a partir dos
+  layouts instalados e valida que a célula correspondente do destino é água.
+  Correntes, cachoeiras e obstáculos não são tratados como água livre.
+- O caso de ativação prepara um Pokémon com Surf e a insígnia necessária. Não
+  chama diretamente a special ou o efeito de Surf. As travessias começam sobre
+  água; a engine original decide o avatar inicial. Nenhuma transição é forçada.
+- Além de mapa e coordenadas, cada etapa confere se o avatar está surfando ou
+  desembarcou. A ativação tem timeout explícito, que impede aprovação silenciosa.
+
+Validação completa em andamento. Os casos acima não substituem uma viagem
+contínua desde Kanto até Dewford, nem os testes de combate contra nadadores.
+
+### Nadadores e correção de elevação
+
+A revisão de 31 objetos aquáticos encontrou David na Route 109 (objeto de origem
+2, posição 12,36) com elevação 3, cercado por água de elevação 1. A importação agora
+sobrescreve sua elevação para 1 em `ELEVATIONS`, e o mapa foi regenerado. O ajuste
+fica no gerador para não desaparecer numa próxima importação.
+
+Removida a exclusão automática de sprites SWIMMER/_WATER dos testes de conversa
+e batalha. O jogador inicia em uma célula aquática adjacente, e o carregamento
+original ativa o avatar de Surf. Isso testa a interação/combate local, não o caminho
+desde um Centro Pokémon até cada nadador.
+
+Teste regressivo `test_region_swimmers.py`: confere se a elevação dos objetos
+aquáticos coincide com o piso ou usa o valor dinâmico 0. Os 31 objetos passaram;
+38 testes Python de regiões passaram no total.
+
+A primeira execução da ROM terminou os 1.476 cenários, mas a verificação de falas
+falhou porque uma edição deste turno leu o arquivo Python na codificação padrão
+do Windows e danificou os literais de apóstrofo/acentos do comparador. Restaurados
+os dois literais em UTF-8. Essa rodada não foi marcada como aprovada. Inspeção dos
+registros 158–164 confirmou as posições e flags esperadas dos sete casos de Surf.
+A rodada completa seguinte inclui os nadadores e todas as verificações corrigidas.
+
+### Resultado final de Surf/nadadores — 15/11/2026
+
+**1.537/1.537 casos aprovados**, incluindo **307 batalhas de rota vencidas**.
+Em relação ao lote anterior: sete casos de Surf, 31 conversas aquáticas e 30
+batalhas adicionais (a dupla Lisa & Ray conta como uma batalha). David passou na
+interação e batalha depois da correção de elevação. As seis fronteiras marítimas
+foram atravessadas nos dois sentidos; o caso de Dewford ativou Surf por diálogo
+e desembarcou. Capturas desse caso também foram inspecionadas visualmente.
+
+Continuam aprovados o percurso contínuo dos pilotos (245 operações), save/Continue
+em três locais e as demais verificações anteriores. A rodada durou 534 segundos
+(~8min54s) desde a criação da build isolada até o resultado, com oito processos.
+38 testes Python aprovados, incluindo o novo teste regressivo de elevação.
+
+Evidência local (ignorada pelo Git):
+- `games/super-fire-red/output/tests/region-surf-trainers.log`;
+- `games/super-fire-red/output/tests/region-pilot-maps/results.json` (`passed`);
+- `map-case158-step0.png` (Surf) e `map-case158-step1.png` (desembarque), na mesma pasta.
+
+Reproduzir com `REGION_TEST_WORKERS=8 python3 -u games/super-fire-red/scripts/test_region_pilot_maps.py`
+no Ubuntu/WSL. O mesmo comando executa todos os casos, incluindo os novos.
+
+Limites: os nadadores são abordados a partir de uma célula próxima; os casos de
+fronteira começam na água. Não se percorreu toda a costa desde Kanto nem a campanha
+completa. Beth de Johto ainda fica fora da batalha pelo time com Ghost e Normal
+incompatível com o golpe fixo do fixture; sua conversa continua testada. Não foram
+alterados times, dano ou dificuldade para obter vitória nos testes.

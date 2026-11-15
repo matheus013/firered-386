@@ -1064,7 +1064,10 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Objects whose source elevation differs from the cells they stand on (map, index) -> elevation. A wanderer only
 # takes the cell's elevation after its first step, so until then the player could not talk to it.
-ELEVATIONS = {('Route115', 0): 5}  # the woman on the Route 115 plateau (source elevation 3)
+ELEVATIONS = {
+    ('Route115', 0): 5,  # woman on the plateau (source elevation 3)
+    ('Route109', 2): 1,  # David is surrounded by water at elevation 1 (source elevation 3)
+}
 # Emerald movement types FireRed lacks -> the closest FireRed one.
 MOVEMENTS = {'MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_DOWN': 'MOVEMENT_TYPE_WALK_IN_PLACE_DOWN',
              'MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_UP': 'MOVEMENT_TYPE_WALK_IN_PLACE_UP',

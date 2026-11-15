@@ -22,11 +22,12 @@ atualizadas nesta fase. Integração em `main` somente após validação final.
 | Integração multirregional | Balsa, mapas regionais, Fly, cura e save/Continue implementados | Ampliar cobertura das cidades, quest log e saves antigos |
 | Eventos e progressão | Histórias iniciais de Hoenn e Johto implementadas; May e Silver em duplas | Desafios completos e percurso de campanha sem bloqueios |
 
-Validação de 15/11: **1.469 casos instrumentados e 277 batalhas
-de rota vencidas**, mais 37 testes Python e 2 testes nativos de portas. Há também um percurso contínuo dos
+Validação de 15/11: **1.537 casos instrumentados e 307 batalhas
+de rota vencidas**, mais 38 testes Python e 2 testes nativos de portas. Há também um percurso contínuo dos
 pilotos entre Vermilion, Hoenn e Johto com 245 operações de entrada. Os demais casos
-posicionam o jogador no cenário; treinadores aquáticos e a batalha da Beth de Johto
-ainda têm lacunas de cobertura. Isso **não equivale a concluir as campanhas**.
+posicionam o jogador no cenário. Sete casos cobrem Surf/desembarque e seis
+conexões marítimas; as interações locais dos nadadores estão cobertas. A batalha
+da Beth de Johto ainda tem uma lacuna de cobertura. Isso **não equivale a concluir as campanhas**.
 
 [Pesquisa de fontes e roadmap de mapas](docs/MULTIREGION_ROADMAP.md).
 [Diário de implementação e testes](docs/MULTIREGION_WORKLOG.md) ·

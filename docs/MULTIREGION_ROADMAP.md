@@ -416,8 +416,9 @@ acrescenta Dewford, seu Centro Pokémon e Routes 105/106/107: 135 mapas registra
 na expansão. Validação concluída: 1.469 casos e 277 batalhas de rota passaram,
 com execução isolada em oito processos (aproximadamente 8min40s).
 
-Prioridade de validação seguinte: ativar Surf por comandos do jogador, atravessar
-as conexões marítimas e abordar treinadores na água. Atualmente eles são excluídos
-das batalhas automatizadas; a aprovação dos casos terrestres não valida esse fluxo.
+Validação adicional de 15/11: ativação de Surf por comandos, desembarque em Dewford
+e seis conexões marítimas nos dois sentidos passaram. As conversas de 31 objetos
+aquáticos e 30 batalhas de nadadores foram incluídas; 1.537 casos e 307 batalhas de
+rota passaram. Falta a viagem contínua completa pelo mar e a batalha da Beth de Johto.
 O rebalanceamento de todos os treinadores para duplas também segue pendente: os
 lotes geográficos ainda preservam o formato simples/duplo dos times da fonte.
