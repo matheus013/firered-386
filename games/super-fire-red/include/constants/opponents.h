@@ -989,6 +989,23 @@
 #define TRAINER_HOENN_FREDRICK                           982  // ids 768+ use the extra flag blocks
 #define TRAINER_HOENN_JAZMYN                             983  // ids 768+ use the extra flag blocks
 #define TRAINER_HOENN_DAVIS                              984  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_LUIS                               985  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_DOMINIK                            986  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_BEVERLY                            987  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_IMANI                              988  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_FOSTER                             989  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_JOSUE                              990  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_ANDRES                             991  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_DOUGLAS                            992  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_KYLA                               993  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_ELLIOT                             994  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_NED                                995  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_DARRIN                             996  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_TONY                               997  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_DENISE                             998  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_BETH                               999  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_LISA_AND_RAY                       1000  // ids 768+ use the extra flag blocks
+#define TRAINER_HOENN_CAMRON                             1001  // ids 768+ use the extra flag blocks
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
@@ -1047,7 +1064,7 @@
 #define TRAINER_HOENN_DEVAN                              TRAINER_MAGMA_GRUNT_M
 #define TRAINER_HOENN_MIKE                               TRAINER_MAMGA_GRUNT_F
 
-#define NUM_TRAINERS                             985
+#define NUM_TRAINERS                             1002
 #define MAX_TRAINERS_COUNT                       768
 // Ids from MAX_TRAINERS_COUNT up keep their flags in EXTRA_TRAINER_FLAGS_START, then EXTRA_TRAINER_FLAGS_2_START
 // (constants/flags.h); NUM_TRAINERS must fit in MAX_TRAINERS_COUNT + 216 + 67 = 1051, checked in battle_setup.c.

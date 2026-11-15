@@ -2559,3 +2559,74 @@ Route 122 liga a Route 121 à Route 123 pelo mar.
 - a menina da Giga Drain, as árvores de berry, as bases secretas e os itens escondidos.
 
 **Resultado:** 1447 casos aprovados (eram 1404), com as 272 batalhas de rota vencidas, incluindo a dupla Miu & Yuki e o Davis. A batalha do Davis confirmou a flag de vitória no segundo bloco. A caminhada nova cruza Route 118 → Route 123. O teste levou 31 minutos.
+
+## 15/11/2026 — Retomada do lote 14 de Hoenn (Codex)
+
+Estado recebido: commit `7972f8d`, lote 13 concluído com 1.447 casos. As alterações
+locais do Claude já continham Dewford, Routes 105/106/107 e o Centro Pokémon de
+Dewford (cinco mapas), ainda sem resultado de teste registrado. Foram preservadas.
+
+- Conferida a fonte `pret/pokeemerald`, pin
+  `731ad5bfd6e6f265508d0efcca0ba42f9dcf5881`, incluindo as conexões de Dewford.
+- O lote inclui o tileset secundário de Dewford, porta do Centro, ponto de cura,
+  flag de visita/Fly, encontros de água/pesca, 17 treinadores (IDs 985–1001),
+  Iron/Protein (flags 0x13C/0x13D), moradores e placas traduzidos.
+- Permanecem fechados o Ginásio, as casas, o salão de Dewford, Granite Cave e
+  Island Cave. Route 107 termina no limite importado; Route 108 ainda não existe.
+- Total registrado nesta cópia: 61 mapas de Hoenn e 74 de Johto (135).
+
+### Divisão da suíte em processos isolados
+
+O teste anterior levava cerca de 31 minutos. `region_runner.py` distribui os mesmos
+IDs de casos entre processos mGBA, cada um com sua cópia da ROM em diretório próprio.
+Não muda a engine nem os adversários. O runner C aceita início/passo opcionais e
+continua aceitando o comando serial antigo. Resultados duplicados são rejeitados;
+todos os casos precisam estar presentes e passar pelas verificações existentes.
+
+`REGION_TEST_WORKERS=4` é o padrão; use `1` para serial. Esta execução usa `8`.
+Cada processo mantém seu log, inclusive quando falha. Os screenshots conservam IDs
+únicos por caso. Nenhum save de usuário ou build distribuída é usado.
+
+Cinco testes do executor cobrem divisão desigual, mais processos que casos, modo
+serial, rejeição de zero processos e propagação de erro. Com eles, passaram os
+37 testes Python de regiões. Os geradores passaram em `--check`: 9.529 entradas
+traduzidas, nenhum fallback; geração das 636 equipes-base consistente.
+
+README atualizado, pois ainda mostrava 15 mapas/162 casos. A validação completa
+do lote 14 está em andamento; não declarar o lote aprovado até seu resultado.
+
+Limite explícito: os testes atuais não abordam os treinadores aquáticos por Surf,
+nem atravessam as conexões marítimas novas. O caso adicionado pelo lote testa a
+entrada e saída do Centro de Dewford. Essa lacuna permanece mesmo se a suíte passar.
+
+### Resultado do lote 14 e da execução dividida
+
+**Aprovado: 1.469/1.469 casos**, com **277 batalhas de rota vencidas** (eram 272).
+Os cinco treinadores adicionais exercitados são Foster, Josue, Andres, Elliot e
+Ned. Os demais treinadores novos ficam na água e não entram nesses casos.
+Passaram também o percurso contínuo dos pilotos (245 operações), save/Continue,
+portas do Centro de Dewford e regressões anteriores. Oito processos terminaram
+com código zero; todas as verificações consolidadas passaram.
+
+Tempo medido entre `build-path.txt` e `results.json`: 519 segundos (~8min40s),
+incluindo cópia/compilação e testes, contra ~31 minutos registrados no lote anterior.
+Essa comparação envolve lotes diferentes e não é benchmark controlado.
+
+- Build isolada: `/root/.cache/firered-386/region-pilot-rumgvx2k`.
+- Log local: `games/super-fire-red/output/tests/region-batch14-review.log`.
+- Resultados: `games/super-fire-red/output/tests/region-pilot-maps/results.json`
+  (`status: passed`). Logs individuais: `emulator-worker-1.log` até `-8.log`.
+- Mais 37 testes Python e 2 testes nativos de portas aprovados.
+- `git diff --check` sem erros. ROM distribuída conserva data de 31/10/2026.
+
+Reprodução no Ubuntu/WSL, a partir da raiz:
+
+```sh
+REGION_TEST_WORKERS=8 python3 -u games/super-fire-red/scripts/test_region_pilot_maps.py
+python3 -m unittest discover -s scripts -p 'test_*region*.py' -q
+python3 scripts/test_field_door_native.py
+```
+
+Mantidos os limites acima: não se validou acesso marítimo a Dewford, combate a
+nadadores nem campanha completa. O pescador de Dewford tem diálogo, mas o presente
+da Old Rod continua fora desta etapa. Main e releases não foram alteradas.

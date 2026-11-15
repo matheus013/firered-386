@@ -683,7 +683,11 @@
     "Hoenn_LilycoveCity",
     "Johto_Route26North",
     "Hoenn_Route122",
-    "Hoenn_Route123"
+    "Hoenn_Route123",
+    "Hoenn_Route105",
+    "Hoenn_Route106",
+    "Hoenn_DewfordTown",
+    "Hoenn_Route107"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -741,7 +745,12 @@
     "Hoenn_LilycoveCity",
     "Hoenn_LilycoveCity_PokemonCenter_1F",
     "Hoenn_Route122",
-    "Hoenn_Route123"
+    "Hoenn_Route123",
+    "Hoenn_Route105",
+    "Hoenn_Route106",
+    "Hoenn_DewfordTown",
+    "Hoenn_Route107",
+    "Hoenn_DewfordTown_PokemonCenter_1F"
   ],
   "gMapGroup_Johto": [
     "Johto_NewBarkTown",

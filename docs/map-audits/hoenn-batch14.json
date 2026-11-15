@@ -1,0 +1,47 @@
+{
+  "maps": {
+    "Hoenn_Route105": {
+      "layout": "LAYOUT_HOENN_ROUTE105",
+      "secondary": "gTileset_HoennPilotDewford",
+      "music": "MUS_ROUTE24",
+      "warps": 0
+    },
+    "Hoenn_Route106": {
+      "layout": "LAYOUT_HOENN_ROUTE106",
+      "secondary": "gTileset_HoennPilotDewford",
+      "music": "MUS_ROUTE24",
+      "warps": 0
+    },
+    "Hoenn_DewfordTown": {
+      "layout": "LAYOUT_HOENN_DEWFORD_TOWN",
+      "secondary": "gTileset_HoennPilotDewford",
+      "music": "MUS_PALLET",
+      "warps": 1
+    },
+    "Hoenn_Route107": {
+      "layout": "LAYOUT_HOENN_ROUTE107",
+      "secondary": "gTileset_HoennPilotDewford",
+      "music": "MUS_ROUTE24",
+      "warps": 0
+    },
+    "Hoenn_DewfordTown_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "heal_location": "HEAL_LOCATION_DEWFORD_TOWN"
+    }
+  },
+  "closed_doors": {
+    "Route105": [
+      "MAP_ISLAND_CAVE"
+    ],
+    "Route106": [
+      "MAP_GRANITE_CAVE_1F"
+    ],
+    "DewfordTown": [
+      "MAP_DEWFORD_TOWN_HALL",
+      "MAP_DEWFORD_TOWN_GYM",
+      "MAP_DEWFORD_TOWN_HOUSE1",
+      "MAP_DEWFORD_TOWN_HOUSE2"
+    ],
+    "Route107": []
+  }
+}

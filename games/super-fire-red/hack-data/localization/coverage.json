@@ -1,13 +1,13 @@
 {
   "status": "ptbr_beta_reviewed_gameplay_with_machine_draft_dialogue",
-  "catalog_strings": 11054,
-  "translated_entries": 9469,
-  "reviewed_overrides": 2826,
+  "catalog_strings": 11115,
+  "translated_entries": 9529,
+  "reviewed_overrides": 2886,
   "reviewed_move_descriptions": 577,
   "reviewed_item_descriptions": 288,
   "protected_identifiers": 721,
-  "wrapped_map_dialogues": 3515,
-  "fallback_unchanged": 1585,
+  "wrapped_map_dialogues": 3568,
+  "fallback_unchanged": 1586,
   "skipped": [],
   "font_policy": "Unsupported accented glyphs (including a/o with tilde) are transliterated; supported accents, controls and placeholders preserved.",
   "linguistic_review_complete": false

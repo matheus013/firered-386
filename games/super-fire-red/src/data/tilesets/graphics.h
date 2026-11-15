@@ -1982,6 +1982,27 @@ const u16 gTilesetPalettes_HoennPilotLilycove[][16] = {
     INCBIN_U16("data/tilesets/secondary/hoenn_pilot_lilycove/palettes/14.gbapal"),
     INCBIN_U16("data/tilesets/secondary/hoenn_pilot_lilycove/palettes/15.gbapal"),
 };
+
+// Hoenn (scripts/convert_hoenn_tilesets.py): Emerald Dewford, tiles limited to Routes 105-107 and Dewford.
+const u32 gTilesetTiles_HoennPilotDewford[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot_dewford/tiles.4bpp.lz");
+const u16 gTilesetPalettes_HoennPilotDewford[][16] = {
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/12.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/13.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/14.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hoenn_pilot_dewford/palettes/15.gbapal"),
+};
 const u32 gTilesetTiles_JohtoPilotRoute38Farmland[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_route38_farmland/tiles.4bpp.lz");
 const u16 gTilesetPalettes_JohtoPilotRoute38Farmland[][16] = {
     INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/palettes/00.gbapal"),

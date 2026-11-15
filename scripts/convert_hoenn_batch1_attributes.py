@@ -121,6 +121,11 @@ TABLES_12 = [
 ]
 LAYOUTS_13 = ['LAYOUT_HOENN_ROUTE122', 'LAYOUT_HOENN_ROUTE123']
 TABLES_13 = TABLES_12
+LAYOUTS_14 = ['LAYOUT_HOENN_ROUTE105', 'LAYOUT_HOENN_ROUTE106', 'LAYOUT_HOENN_DEWFORD_TOWN', 'LAYOUT_HOENN_ROUTE107']
+TABLES_14 = [
+    (0, 'data/tilesets/primary/general/metatile_attributes.bin', 'data/tilesets/primary/hoenn_pilot/metatile_attributes.bin'),
+    (640, 'data/tilesets/secondary/dewford/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_dewford/metatile_attributes.bin', 'gTileset_HoennPilotDewford'),
+]
 TABLES_3 = [
     (0, 'data/tilesets/primary/general/metatile_attributes.bin', 'data/tilesets/primary/hoenn_pilot/metatile_attributes.bin'),
     (640, 'data/tilesets/secondary/rustboro/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_rustboro/metatile_attributes.bin', 'gTileset_HoennPilotRustboro'),
@@ -140,10 +145,10 @@ TABLES = [  # (offset, source table, installed table)
 def main():
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument('--source', type=Path, required=True)
-    p.add_argument('--batch', type=int, choices=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13), default=1)
+    p.add_argument('--batch', type=int, choices=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14), default=1)
     p.add_argument('--report', type=Path)
     a = p.parse_args()
-    layouts_used, tables = {1: (LAYOUTS, TABLES), 2: (LAYOUTS_2, TABLES_2), 3: (LAYOUTS_3, TABLES_3), 4: (LAYOUTS_4, TABLES_4), 5: (LAYOUTS_5, TABLES_5), 6: (LAYOUTS_6, TABLES_6), 7: (LAYOUTS_7, TABLES_7), 8: (LAYOUTS_8, TABLES_8), 9: (LAYOUTS_9, TABLES_9), 10: (LAYOUTS_10, TABLES_10), 11: (LAYOUTS_11, TABLES_11), 12: (LAYOUTS_12, TABLES_12), 13: (LAYOUTS_13, TABLES_13)}[a.batch]
+    layouts_used, tables = {1: (LAYOUTS, TABLES), 2: (LAYOUTS_2, TABLES_2), 3: (LAYOUTS_3, TABLES_3), 4: (LAYOUTS_4, TABLES_4), 5: (LAYOUTS_5, TABLES_5), 6: (LAYOUTS_6, TABLES_6), 7: (LAYOUTS_7, TABLES_7), 8: (LAYOUTS_8, TABLES_8), 9: (LAYOUTS_9, TABLES_9), 10: (LAYOUTS_10, TABLES_10), 11: (LAYOUTS_11, TABLES_11), 12: (LAYOUTS_12, TABLES_12), 13: (LAYOUTS_13, TABLES_13), 14: (LAYOUTS_14, TABLES_14)}[a.batch]
     report_path = a.report or Path(f'docs/map-audits/hoenn-batch{a.batch}-attributes.json')
     names = behavior_names(a.source / 'include/constants/metatile_behaviors.h')
     layouts = {l['id']: l for l in json.loads((GAME / 'data/layouts/layouts.json').read_text())['layouts'] if 'id' in l}

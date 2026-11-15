@@ -1,11 +1,12 @@
 # FireRed 386
 
-## Prioridade: Kanto + Johto + Hoenn — 08/11/2026
+## Prioridade: Kanto + Johto + Hoenn — 15/11/2026
 
 O único jogo ativo deste repositório é **Super FireRed**. A prioridade inicial é
 integrar os mapas completos de **Johto e Hoenn**, preservando Kanto e as melhorias
-existentes. **15 mapas-piloto estão integrados (7 de Hoenn e 8 de Johto); as
-regiões completas e suas campanhas ainda não estão prontas.**
+existentes. **135 mapas estão registrados na expansão (61 de Hoenn e 74 de
+Johto), incluindo o lote de Dewford validado nos cenários disponíveis. As regiões completas e suas
+campanhas ainda não estão prontas.**
 
 **Branch de expansão:** `codex/firered-johto-hoenn`. ROMs instrumentadas de teste
 são compiladas em cópias isoladas; a ROM distribuída e as releases não são
@@ -15,17 +16,17 @@ atualizadas nesta fase. Integração em `main` somente após validação final.
 |---|---|---|
 | Fontes de mapas | Pesquisadas; arquivos reais conferidos | Selecionar origem, registrar créditos e dependências |
 | Inventário técnico | 518/957 mapas auditados; 13/100 IDs coincidentes | Classificar regiões e resolver dependências antes da importação |
-| Importação piloto | 15 mapas registrados; portas, escadas, conexões, animações e encontros implementados | Completar história, persistência e percurso contínuo sem posicionamento de teste |
-| Johto completa | Pendente | Cidades, rotas, interiores e cavernas conectados e percorríveis |
-| Hoenn completa | Pendente | Cidades, rotas, interiores, cavernas e áreas aquáticas percorríveis |
-| Integração multirregional | Balsa pós-Liga e seções dos pilotos implementadas | Mapa regional próprio, Fly, cura e save/reload entre regiões |
+| Importação piloto | Pilotos e percurso contínuo inicial validados | Ampliar os testes à geografia e campanha completas |
+| Johto completa | 18 lotes; cidades até Blackthorn/Cianwood, cavernas parciais e Tohjo Falls | Completar interiores, andares restantes, eventos e percurso |
+| Hoenn completa | 14 lotes, incluindo Lilycove/Routes 122–123 e Dewford/Routes 105–107 | Completar áreas restantes, interiores, eventos e travessias aquáticas |
+| Integração multirregional | Balsa, mapas regionais, Fly, cura e save/Continue implementados | Ampliar cobertura das cidades, quest log e saves antigos |
 | Eventos e progressão | Histórias iniciais de Hoenn e Johto implementadas; May e Silver em duplas | Desafios completos e percurso de campanha sem bloqueios |
 
-Validação de 08/11: **162 casos instrumentados na ROM, 28 testes Python de regiões
-e 2 testes nativos de portas aprovados**. Inclui escolhas de iniciais, armazenamento
-cheio, May/Silver, derrotas e save/reload do presente de Johto. Cada caso posiciona
-o jogador no cenário que verifica: isso **não equivale a concluir a campanha nem
-a percorrer todas as regiões sem assistência**.
+Validação de 15/11: **1.469 casos instrumentados e 277 batalhas
+de rota vencidas**, mais 37 testes Python e 2 testes nativos de portas. Há também um percurso contínuo dos
+pilotos entre Vermilion, Hoenn e Johto com 245 operações de entrada. Os demais casos
+posicionam o jogador no cenário; treinadores aquáticos e a batalha da Beth de Johto
+ainda têm lacunas de cobertura. Isso **não equivale a concluir as campanhas**.
 
 [Pesquisa de fontes e roadmap de mapas](docs/MULTIREGION_ROADMAP.md).
 [Diário de implementação e testes](docs/MULTIREGION_WORKLOG.md) ·

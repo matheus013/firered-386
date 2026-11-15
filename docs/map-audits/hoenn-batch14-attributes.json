@@ -1,0 +1,208 @@
+{
+  "layouts": [
+    "LAYOUT_HOENN_ROUTE105",
+    "LAYOUT_HOENN_ROUTE106",
+    "LAYOUT_HOENN_DEWFORD_TOWN",
+    "LAYOUT_HOENN_ROUTE107"
+  ],
+  "entries": [
+    {
+      "metatile": "0x283",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x284",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x285",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x286",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x288",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x289",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x290",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x296",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x297",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29a",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x29b",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x29c",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2a0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a5",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x00000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x2a8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b0",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2b1",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2b2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b6",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b7",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2b9",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2ba",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2bb",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2bc",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2bd",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2be",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2bf",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x30f",
+      "source_behavior": "MB_SAND",
+      "attribute": "0x00000021",
+      "reason": "same name"
+    }
+  ]
+}

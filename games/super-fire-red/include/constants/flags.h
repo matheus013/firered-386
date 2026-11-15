@@ -188,6 +188,8 @@
 #define FLAG_HIDE_HOENN_ROUTE123_ELIXIR FLAG_0x139 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_HOENN_ROUTE123_PP_UP FLAG_0x13A // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_HOENN_ROUTE123_REVIVAL_HERB FLAG_0x13B // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE105_IRON FLAG_0x13C // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE106_PROTEIN FLAG_0x13D // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_AIDE_POTION FLAG_0x027 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_GOT_JOHTO_AIDE_BALLS FLAG_0x07F // Region pilot story (scripts/pilot_story.py)
@@ -1634,6 +1636,7 @@
 #define FLAG_WORLD_MAP_VERDANTURF_TOWN                             FLAG_0x8CD
 #define FLAG_WORLD_MAP_OLIVINE_CITY                                FLAG_0x8CE
 #define FLAG_WORLD_MAP_MAUVILLE_CITY                               FLAG_0x8CF
+#define FLAG_WORLD_MAP_DEWFORD_TOWN                                FLAG_0x8D8
 #define FLAG_WORLD_MAP_LILYCOVE_CITY                               FLAG_0x8D7
 #define FLAG_WORLD_MAP_FORTREE_CITY                                FLAG_0x8D6
 #define FLAG_WORLD_MAP_FALLARBOR_TOWN                              FLAG_0x8D5

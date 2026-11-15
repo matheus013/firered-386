@@ -94,11 +94,21 @@ BATCHES = {
           'Route123': ('MUS_ROUTE24', 'gTileset_HoennPilotLilycove')},
          {},
          {'MAPSEC_ROUTE_122': 'ROUTE 122', 'MAPSEC_ROUTE_123': 'ROUTE 123'}),
+    # Batch 14: the sea south of Route 104 (Routes 105 and 106), Dewford Town and Route 107 (Dewford secondary).
+    # Dewford has a Pokemon Center only, as in Emerald; the Gym, town hall, houses, Island Cave and Granite Cave
+    # stay closed.
+    14: ({'Route105': ('MUS_ROUTE24', 'gTileset_HoennPilotDewford'),
+          'Route106': ('MUS_ROUTE24', 'gTileset_HoennPilotDewford'),
+          'DewfordTown': ('MUS_PALLET', 'gTileset_HoennPilotDewford'),
+          'Route107': ('MUS_ROUTE24', 'gTileset_HoennPilotDewford')},
+         {'DewfordTown': ({(2, 10): 'PokemonCenter_1F'}, (2, 11), 'FLAG_0x8D8')},
+         {'MAPSEC_ROUTE_105': 'ROUTE 105', 'MAPSEC_ROUTE_106': 'ROUTE 106', 'MAPSEC_DEWFORD_TOWN': 'DEWFORD TOWN',
+          'MAPSEC_ROUTE_107': 'ROUTE 107'}),
 }
 # Every Hoenn exterior in the expansion, in install order (connections only link the installed ones).
 ALL_EXTERIORS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
                  'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown',
-                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109', 'Route112', 'LavaridgeTown', 'Route113', 'FallarborTown', 'Route114', 'Route115', 'Route119', 'FortreeCity', 'Route120', 'Route121', 'LilycoveCity', 'Route122', 'Route123']
+                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109', 'Route112', 'LavaridgeTown', 'Route113', 'FallarborTown', 'Route114', 'Route115', 'Route119', 'FortreeCity', 'Route120', 'Route121', 'LilycoveCity', 'Route122', 'Route123', 'Route105', 'Route106', 'DewfordTown', 'Route107']
 DOORS = [  # metatile, symbol in hoenn_pilot_doors.h (already defined for the Petalburg pair)
     (0x061, 'PokeCenter', 'DOOR_SOUND_SLIDING'), (0x041, 'PokeMart', 'DOOR_SOUND_SLIDING')]
 

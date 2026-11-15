@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_HEX_MANIAC': 'OBJ_EVENT_GFX_CHANNELER', 'OBJ_EVENT_GFX_GAMEBOY_KID': 'OBJ_EVENT_GFX_GBA_KID', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SWIMMER_F_WATER': 'OBJ_EVENT_GFX_SWIMMER_F_WATER', 'OBJ_EVENT_GFX_SWIMMER_M_WATER': 'OBJ_EVENT_GFX_SWIMMER_M_WATER', 'OBJ_EVENT_GFX_ENGINEER': 'OBJ_EVENT_GFX_WORKER_M', 'OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_TUBER_M': 'OBJ_EVENT_GFX_TUBER_M_LAND', 'OBJ_EVENT_GFX_TUBER_F': 'OBJ_EVENT_GFX_TUBER_F', 'OBJ_EVENT_GFX_OLD_MAN': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_EXPERT_F': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_EXPERT_M': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_MAN_1': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_COOK': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_GIRL_1': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_POKEFAN_F': 'OBJ_EVENT_GFX_WOMAN_2', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_HEX_MANIAC': 'OBJ_EVENT_GFX_CHANNELER', 'OBJ_EVENT_GFX_GAMEBOY_KID': 'OBJ_EVENT_GFX_GBA_KID', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SWIMMER_F_WATER': 'OBJ_EVENT_GFX_SWIMMER_F_WATER', 'OBJ_EVENT_GFX_SWIMMER_M_WATER': 'OBJ_EVENT_GFX_SWIMMER_M_WATER', 'OBJ_EVENT_GFX_ENGINEER': 'OBJ_EVENT_GFX_WORKER_M', 'OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_TUBER_M': 'OBJ_EVENT_GFX_TUBER_M_LAND', 'OBJ_EVENT_GFX_TUBER_M_SWIMMING': 'OBJ_EVENT_GFX_TUBER_M_WATER', 'OBJ_EVENT_GFX_TUBER_F': 'OBJ_EVENT_GFX_TUBER_F', 'OBJ_EVENT_GFX_OLD_MAN': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_EXPERT_F': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_EXPERT_M': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_MAN_1': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_COOK': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_GIRL_1': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_POKEFAN_F': 'OBJ_EVENT_GFX_WOMAN_2', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
     'OBJ_EVENT_GFX_GIRL_2': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_BOY_3': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_MAN_2': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_4': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_5': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_RICH_BOY': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_DEVON_EMPLOYEE': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_LITTLE_GIRL': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
@@ -507,6 +507,38 @@ EVENTS = {
         17: ('cuttree', None, ''), 18: ('cuttree', None, ''), 19: ('cuttree', None, '')},
         {0: ('sign', 'Route123_Text_RouteSignMtPyre'), 3: ('sign', 'Route123_Text_RouteSign'),
          5: ('sign', 'Route123_Text_BerryMastersHouse')}),
+    # Hoenn batch 14. Left out: Island Cave and Granite Cave (closed), Mr. Briney and his boat, the Old Rod
+    # fisherman's gift (FireRed already gives the Old Rod) and the trendy-phrase boy (needs Dewford Hall's phrase).
+    'Route105': (EMERALD, {
+        0: ('trainer', ('TRAINER_HOENN_LUIS', 'Route105_Text_LuisIntro', 'Route105_Text_LuisDefeated', 'Route105_Text_LuisPostBattle'), ''),
+        1: ('trainer', ('TRAINER_HOENN_DOMINIK', 'Route105_Text_DominikIntro', 'Route105_Text_DominikDefeated', 'Route105_Text_DominikPostBattle'), ''),
+        2: ('trainer', ('TRAINER_HOENN_BEVERLY', 'Route105_Text_BeverlyIntro', 'Route105_Text_BeverlyDefeated', 'Route105_Text_PostBattle'), ''),
+        3: ('trainer', ('TRAINER_HOENN_IMANI', 'Route105_Text_ImaniIntro', 'Route105_Text_ImaniDefeated', 'Route105_Text_ImaniPostBattle'), ''),
+        5: ('trainer', ('TRAINER_HOENN_FOSTER', 'Route105_Text_FosterIntro', 'Route105_Text_FosterDefeated', 'Route105_Text_FosterPostBattle'), ''),
+        6: ('trainer', ('TRAINER_HOENN_JOSUE', 'Route105_Text_JosueIntro', 'Route105_Text_JosueDefeated', 'Route105_Text_JosuePostBattle'), ''),
+        7: ('trainer', ('TRAINER_HOENN_ANDRES', 'Route105_Text_AndresIntro', 'Route105_Text_AndresDefeated', 'Route105_Text_AndresPostBattle'), ''),
+        4: ('itemflag', None, 'Iron')}, {}),
+    'Route106': (EMERALD, {
+        0: ('trainer', ('TRAINER_HOENN_DOUGLAS', 'Route106_Text_DouglasIntro', 'Route106_Text_DouglasDefeated', 'Route106_Text_DouglasPostBattle'), ''),
+        1: ('trainer', ('TRAINER_HOENN_KYLA', 'Route106_Text_KylaIntro', 'Route106_Text_KylaDefeated', 'Route106_Text_KylaPostBattle'), ''),
+        2: ('trainer', ('TRAINER_HOENN_ELLIOT', 'Route106_Text_ElliotIntro', 'Route106_Text_ElliotDefeated', 'Route106_Text_ElliotPostBattle'), ''),
+        3: ('trainer', ('TRAINER_HOENN_NED', 'Route106_Text_NedIntro', 'Route106_Text_NedDefeated', 'Route106_Text_NedPostBattle'), ''),
+        4: ('itemflag', None, 'Protein')},
+        {3: ('sign', 'Route106_Text_TrainerTips')}),
+    'DewfordTown': (EMERALD, {
+        0: ('npc', 'DewfordTown_Text_TinyIslandCommunity', ''),
+        2: ('npc', 'DewfordTown_Text_GettingItchToFish', 'Old Rod fisherman: the gift branch is left out')},
+        {0: ('sign', 'DewfordTown_Text_TownSign'), 1: ('sign', 'DewfordTown_Text_GymSign'), 2: ('pcsign', None),
+         3: ('pcsign', None), 4: ('sign', 'DewfordTown_Text_HallSign')}),
+    'Route107': (EMERALD, {
+        0: ('trainer', ('TRAINER_HOENN_DARRIN', 'Route107_Text_DarrinIntro', 'Route107_Text_DarrinDefeated', 'Route107_Text_DarrinPostBattle'), ''),
+        1: ('trainer', ('TRAINER_HOENN_TONY', 'Route107_Text_TonyIntro', 'Route107_Text_TonyDefeated', 'Route107_Text_TonyPostBattle'), ''),
+        2: ('trainer', ('TRAINER_HOENN_DENISE', 'Route107_Text_DeniseIntro', 'Route107_Text_DeniseDefeated', 'Route107_Text_DenisePostBattle'), ''),
+        3: ('trainer', ('TRAINER_HOENN_BETH', 'Route107_Text_BethIntro', 'Route107_Text_BethDefeated', 'Route107_Text_BethPostBattle'), ''),
+        4: ('trainer', ('TRAINER_HOENN_LISA_AND_RAY', 'Route107_Text_LisaIntro', 'Route107_Text_LisaDefeated', 'Route107_Text_LisaPostBattle', 'Route107_Text_LisaNotEnoughPokemon'), 'double battle'),
+        5: ('trainer', ('TRAINER_HOENN_LISA_AND_RAY', 'Route107_Text_RayIntro', 'Route107_Text_RayDefeated', 'Route107_Text_RayPostBattle', 'Route107_Text_RayNotEnoughPokemon'), 'double battle'),
+        6: ('trainer', ('TRAINER_HOENN_CAMRON', 'Route107_Text_CamronIntro', 'Route107_Text_CamronDefeated', 'Route107_Text_CamronPostBattle'), ''),
+        }, {}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -883,7 +915,8 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'CianwoodCity': 'FLAG_WORLD_MAP_CIANWOOD_CITY',
                    'FallarborTown': 'FLAG_WORLD_MAP_FALLARBOR_TOWN',
                    'FortreeCity': 'FLAG_WORLD_MAP_FORTREE_CITY',
-                   'LilycoveCity': 'FLAG_WORLD_MAP_LILYCOVE_CITY'}
+                   'LilycoveCity': 'FLAG_WORLD_MAP_LILYCOVE_CITY',
+                   'DewfordTown': 'FLAG_WORLD_MAP_DEWFORD_TOWN'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -1025,6 +1058,8 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route123', 32): ('ITEM_ELIXIR', 'FLAG_HIDE_HOENN_ROUTE123_ELIXIR', 'FLAG_0x139'),
               ('Route123', 39): ('ITEM_PP_UP', 'FLAG_HIDE_HOENN_ROUTE123_PP_UP', 'FLAG_0x13A'),
               ('Route123', 42): ('ITEM_REVIVAL_HERB', 'FLAG_HIDE_HOENN_ROUTE123_REVIVAL_HERB', 'FLAG_0x13B'),
+              ('Route105', 4): ('ITEM_IRON', 'FLAG_HIDE_HOENN_ROUTE105_IRON', 'FLAG_0x13C'),
+              ('Route106', 4): ('ITEM_PROTEIN', 'FLAG_HIDE_HOENN_ROUTE106_PROTEIN', 'FLAG_0x13D'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Objects whose source elevation differs from the cells they stand on (map, index) -> elevation. A wanderer only

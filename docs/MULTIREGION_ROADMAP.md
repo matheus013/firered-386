@@ -49,7 +49,7 @@ significa licença irrestrita. Nenhum desses recursos foi incorporado nesta etap
 | M1 | Inventário técnico, classificação regional e matriz de dependências | Iniciado: inventário técnico gerado; classificação e scripts pendentes |
 | M2 | Conversão piloto de New Bark/Route29 e Littleroot/Route101 | Concluído na engine: Hoenn (Littleroot, Route 101, 5 interiores; grupo 43) e Johto (New Bark, Route 29, 6 interiores; grupo 44), testados andando na ROM (build isolada), com encontros selvagens nas duas rotas e na água de New Bark e seções com nome. Faltam eventos e o resto do M5 |
 | M3 | Geografia completa de Johto, incluindo interiores/cavernas | Em andamento (lote 1: Cherrygrove, Routes 30/31; lote 2: Violet City e portão da Route 31; lote 3: Route 32 e seu Centro Pokémon; lote 4: Union Cave 1F, Route 33 e Azalea Town; lote 5: Ilex Forest e Route 34; lote 6: Goldenrod City; lote 7: Routes 35 e 36, anel de Johto fechado; lote 8: Route 37 e Ecruteak; lote 9: Routes 38/39 e Olivine; lote 10: Route 42 e Mahogany; lote 11: Route 43 e Lake of Rage; lote 12: Routes 44 e 46; lote 13: Route 45 e Blackthorn; lote 14: Routes 40/41 e Cianwood; lote 15: Routes 27 e 26; lote 16: Dark Cave; lote 17: Ice Path 1F e Mt. Mortar 1F; lote 18: Tohjo Falls e Route 26 norte) |
-| M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Em andamento (lote 1: Oldale, Routes 102/103, Petalburg; lote 2: Route 104, Petalburg Woods, Rustboro; lote 3: Route 116, Rusturf Tunnel, Verdanturf; lote 4: Route 117 e Mauville; lote 5: Route 110 e Slateport; lote 6: Routes 118 e 111; lote 7: Route 109; lote 8: Route 112 e Lavaridge; lote 9: Route 113 e Fallarbor; lote 10: Routes 114 e 115; lote 11: Route 119 e Fortree; lote 12: Routes 120/121 e Lilycove; lote 13: Routes 122 e 123) |
+| M4 | Geografia completa de Hoenn, incluindo interiores/cavernas | Em andamento (lote 1: Oldale, Routes 102/103, Petalburg; lote 2: Route 104, Petalburg Woods, Rustboro; lote 3: Route 116, Rusturf Tunnel, Verdanturf; lote 4: Route 117 e Mauville; lote 5: Route 110 e Slateport; lote 6: Routes 118 e 111; lote 7: Route 109; lote 8: Route 112 e Lavaridge; lote 9: Route 113 e Fallarbor; lote 10: Routes 114 e 115; lote 11: Route 119 e Fortree; lote 12: Routes 120/121 e Lilycove; lote 13: Routes 122 e 123; lote 14: Routes 105–107 e Dewford) |
 | M5 | Transporte, Fly, cura, mapa regional, IDs e save compatíveis | Parcial: SEAGALLOP pós-Liga; seções com nome; mapa regional com páginas roláveis de Hoenn/Johto (arte original), menu de troca em duas colunas e Fly para Littleroot/New Bark. save e Continuar testados em Hoenn e Johto. Pendente: demais cidades, quest log e saves antigos |
 | M6 | Eventos, encontros, desafios e progressão interligados | Parcial: ambiente, personagens, resgate de Birch/May e pedido de Elm/iniciais/Silver nos pilotos; demais eventos e campanhas pendentes |
 | M7 | Builds locais isoladas e percurso completo sem teleportes | Parcial: percurso contínuo dos pilotos testado na ROM (Vermilion → Hoenn → Vermilion → Johto → Vermilion só com comandos simulados, 245 operações). Pendente: o mesmo para a geografia completa e uma campanha desde o início |
@@ -407,3 +407,17 @@ rolam para os lados e abrem na região do jogador. Hoenn e Johto entram no menu 
 ter duas colunas depois que uma dessas regiões é visitada. O Fly pousa em Littleroot e New Bark e,
 como em Kanto e Sevii, só voa dentro da região onde o jogador está. Detalhes no
 [diário](MULTIREGION_WORKLOG.md).
+
+
+## Retomada de 15/11: lote de Dewford
+
+O lote 13 está concluído (1.447 casos). O lote 14 recebido em alterações locais
+acrescenta Dewford, seu Centro Pokémon e Routes 105/106/107: 135 mapas registrados
+na expansão. Validação concluída: 1.469 casos e 277 batalhas de rota passaram,
+com execução isolada em oito processos (aproximadamente 8min40s).
+
+Prioridade de validação seguinte: ativar Surf por comandos do jogador, atravessar
+as conexões marítimas e abordar treinadores na água. Atualmente eles são excluídos
+das batalhas automatizadas; a aprovação dos casos terrestres não valida esse fluxo.
+O rebalanceamento de todos os treinadores para duplas também segue pendente: os
+lotes geográficos ainda preservam o formato simples/duplo dos times da fonte.

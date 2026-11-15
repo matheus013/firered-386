@@ -156,6 +156,15 @@ TABLES = [
      'MAP_HOENN_ROUTE121', 'gHoennRoute121_Pilot', ['land_mons', 'water_mons', 'fishing_mons'], 'Emerald tables unchanged'),
     ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gLilycoveCity', 'MAP_LILYCOVE_CITY',
      'MAP_HOENN_LILYCOVE_CITY', 'gHoennLilycoveCity_Pilot', ['water_mons', 'fishing_mons'], 'Emerald tables unchanged'),
+    # Hoenn batch 14
+    ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gRoute105', 'MAP_ROUTE105',
+     'MAP_HOENN_ROUTE105', 'gHoennRoute105_Pilot', ['water_mons', 'fishing_mons'], 'Emerald tables unchanged'),
+    ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gRoute106', 'MAP_ROUTE106',
+     'MAP_HOENN_ROUTE106', 'gHoennRoute106_Pilot', ['water_mons', 'fishing_mons'], 'Emerald tables unchanged'),
+    ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gDewfordTown', 'MAP_DEWFORD_TOWN',
+     'MAP_HOENN_DEWFORD_TOWN', 'gHoennDewfordTown_Pilot', ['water_mons', 'fishing_mons'], 'Emerald tables unchanged'),
+    ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gRoute107', 'MAP_ROUTE107',
+     'MAP_HOENN_ROUTE107', 'gHoennRoute107_Pilot', ['water_mons', 'fishing_mons'], 'Emerald tables unchanged'),
     # Hoenn batch 13
     ('pokeemerald', '731ad5bfd6e6f265508d0efcca0ba42f9dcf5881', 'gRoute122', 'MAP_ROUTE122',
      'MAP_HOENN_ROUTE122', 'gHoennRoute122_Pilot', ['water_mons', 'fishing_mons'], 'Emerald tables unchanged'),

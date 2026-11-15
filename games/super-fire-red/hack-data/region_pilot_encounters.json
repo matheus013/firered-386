@@ -6665,6 +6665,398 @@
       "source": {
         "repository": "pokeemerald",
         "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+        "label": "gRoute105",
+        "map": "MAP_ROUTE105",
+        "note": "Emerald tables unchanged"
+      },
+      "row": {
+        "map": "MAP_HOENN_ROUTE105",
+        "base_label": "gHoennRoute105_Pilot",
+        "water_mons": {
+          "encounter_rate": 4,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 35,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 15,
+              "max_level": 25,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_PELIPPER"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_PELIPPER"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 30,
+              "max_level": 35,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 35,
+              "max_level": 40,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 40,
+              "max_level": 45,
+              "species": "SPECIES_WAILMER"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "pokeemerald",
+        "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+        "label": "gRoute106",
+        "map": "MAP_ROUTE106",
+        "note": "Emerald tables unchanged"
+      },
+      "row": {
+        "map": "MAP_HOENN_ROUTE106",
+        "base_label": "gHoennRoute106_Pilot",
+        "water_mons": {
+          "encounter_rate": 4,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 35,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 15,
+              "max_level": 25,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_PELIPPER"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_PELIPPER"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 30,
+              "max_level": 35,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 35,
+              "max_level": 40,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 40,
+              "max_level": 45,
+              "species": "SPECIES_WAILMER"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "pokeemerald",
+        "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+        "label": "gDewfordTown",
+        "map": "MAP_DEWFORD_TOWN",
+        "note": "Emerald tables unchanged"
+      },
+      "row": {
+        "map": "MAP_HOENN_DEWFORD_TOWN",
+        "base_label": "gHoennDewfordTown_Pilot",
+        "water_mons": {
+          "encounter_rate": 4,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 35,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 15,
+              "max_level": 25,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_PELIPPER"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_PELIPPER"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 10,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 30,
+              "max_level": 35,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 35,
+              "max_level": 40,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 40,
+              "max_level": 45,
+              "species": "SPECIES_WAILMER"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "pokeemerald",
+        "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
+        "label": "gRoute107",
+        "map": "MAP_ROUTE107",
+        "note": "Emerald tables unchanged"
+      },
+      "row": {
+        "map": "MAP_HOENN_ROUTE107",
+        "base_label": "gHoennRoute107_Pilot",
+        "water_mons": {
+          "encounter_rate": 4,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 35,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 15,
+              "max_level": 25,
+              "species": "SPECIES_WINGULL"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_PELIPPER"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_PELIPPER"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 10,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_TENTACOOL"
+            },
+            {
+              "min_level": 10,
+              "max_level": 30,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 25,
+              "max_level": 30,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 30,
+              "max_level": 35,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 20,
+              "max_level": 25,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 35,
+              "max_level": 40,
+              "species": "SPECIES_WAILMER"
+            },
+            {
+              "min_level": 40,
+              "max_level": 45,
+              "species": "SPECIES_WAILMER"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "pokeemerald",
+        "commit": "731ad5bfd6e6f265508d0efcca0ba42f9dcf5881",
         "label": "gRoute122",
         "map": "MAP_ROUTE122",
         "note": "Emerald tables unchanged"

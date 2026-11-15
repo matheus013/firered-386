@@ -8,6 +8,7 @@ around the Hoenn bedroom cell that blocks north/south only.
 """
 from pathlib import Path
 import json,os,re,subprocess,tempfile
+from region_runner import run_cases
 root=Path(__file__).resolve().parents[3];game=root/'games/super-fire-red'
 out=game/'output/tests/region-pilot-maps';out.mkdir(parents=True,exist_ok=True)
 (out/'results.json').write_text(json.dumps({'status':'running','note':'No passing result for this run until every assertion finishes.'})+'\n')
@@ -119,6 +120,8 @@ for _m,_x,_y,_steps,_want in (
   (HOENN+'LILYCOVE_CITY',24,15,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_LILYCOVE_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_LILYCOVE_CITY',{(24,15)})]),
   # Hoenn batch 13: Route 118 east into Route 123 (Route 122 is open sea).
   (HOENN+'ROUTE118',79,11,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_HOENN_ROUTE123',{(0,11)}),('MAP_HOENN_ROUTE118',{(79,11)})]),
+  # Hoenn batch 14: Dewford's Pokemon Center (Routes 105-107 and Dewford's edges are sea: Surf only).
+  (HOENN+'DEWFORD_TOWN',2,11,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_DEWFORD_TOWN_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_DEWFORD_TOWN',{(2,11)})]),
   # Johto batch 1: Route 29 west into Cherrygrove, north to Routes 30 and 31, and the Pokemon Center/Mart doors.
   (JOHTO+'ROUTE29',0,16,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY',{(64,10)}),('MAP_JOHTO_ROUTE29',{(0,16)})]),
   (JOHTO+'CHERRYGROVE_CITY',34,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE30',{(25,57)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(34,0)})]),
@@ -279,7 +282,7 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
  targets=[('object',i,o) for i,o in enumerate(objs)]+[('sign',i,b) for i,b in enumerate(bgs)]
  for kind,i,e in targets:
   spot=_spot(objs,cells,behavior,layout['width'],layout['height'],e['x'],e['y'],kind=='sign' and e.get('player_facing_dir')=='BG_EVENT_PLAYER_FACING_NORTH',elevs,(int(e.get('elevation',0)) or elevs[e['y']*layout['width']+e['x']]) if kind=='object' else 0)  # elevation 0 = the tile's
-  if not spot and 'SWIMMER' in e.get('graphics_id',''):continue  # out in the water (Route 109's David): Surf only
+  if not spot and re.search('SWIMMER|_WATER',e.get('graphics_id','')):continue  # out in the water (Route 109's David): Surf only
   assert spot,(folder.name,kind,i,'no free cell next to this event')
   sx,sy,key=spot
   SPOTS[(folder.name,kind,i)]=(header['id'],sx,sy,key)
@@ -288,7 +291,7 @@ for folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/m
   if folder.name=='Johto_NewBarkTown_Lab' and kind=='object' and i in (1,3,4,5):continue  # story cases below
   inc=(folder/'scripts.inc').read_text(encoding='utf-8')
   body_=inc.split(script+'::')[-1].split('\n\n')[0] if script+'::' in inc else ''
-  if 'SWIMMER' in e.get('graphics_id',''):continue  # on water: needs Surf to reach
+  if re.search('SWIMMER|_WATER',e.get('graphics_id','')):continue  # on water: needs Surf to reach
   if 'trainerbattle' in body_:
    args=re.search(r'(trainerbattle_\w+) \w+, ([^\n]*)',body_)
    # Talk cases start with the region trainers beaten (PilotSetup), so A shows the post-battle line;
@@ -434,7 +437,7 @@ for _folder in sorted(list((game/'data/maps').glob('Hoenn_*'))+list((game/'data/
  for _i,_o in enumerate(_objs):
   _body=_inc.split(_o['script']+'::')[-1].split('\n\n')[0] if _o['script']+'::' in _inc else ''
   _m=re.search(r'trainerbattle_\w+ (TRAINER_(?:HOENN|JOHTO)_\w+)',_body)
-  if not _m or 'SWIMMER' in _o['graphics_id'] or _m[1] in _fought:continue
+  if not _m or re.search('SWIMMER|_WATER',_o['graphics_id']) or _m[1] in _fought:continue
   _team=[m[0] if isinstance(m,list) else m['species'] for m in _pilot_teams[_m[1]]['team']]
   _kinds={t for sp in _team for t in _types.get(sp,())}
   # A team with both a Ghost and a Normal foe has no single fixed-damage move that hits all of it (Seismic Toss
@@ -1350,13 +1353,13 @@ symbols={p[2]:p[0] for line in subprocess.check_output(['arm-none-eabi-nm','poke
 constants=dict(re.findall(r'#define (MAP_\w+|LAYOUT_\w+) +\(?(\d+[^)\n]*)',(test/'include/constants/maps.h').read_text()+(test/'include/constants/layouts.h').read_text()))
 runner=test/'region-pilot-smoke'
 subprocess.run(['gcc','-O2','-Wall','-Wextra',str(game/'scripts/region_pilot_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
-result=subprocess.run([str(runner),str(test/'pokefirered.gba'),str(out/'map'),str(len(CASES)),
+emulator_output=run_cases([str(runner),str(test/'pokefirered.gba'),str(out/'map'),str(len(CASES)),
                        *['0x'+symbols[s] for s in ('gPilotCase','gPilotStage','gPilotResult','gPilotKeys','gPilotShot')]],
-                      capture_output=True,text=True,timeout=5400)  # ~1300 cases ran past 30 min
-(out/'emulator.log').write_text(result.stdout+result.stderr);assert result.returncode==0,(result.returncode,result.stdout,result.stderr[-2000:])
+                      int(os.environ.get('REGION_TEST_WORKERS', '4')), out)
 rows={}
-for m in re.finditer(r'case=(\d+) stage=(\d+) text=([0-9a-f]+)',result.stdout):
+for m in re.finditer(r'case=(\d+) stage=(\d+) text=([0-9a-f]+)',emulator_output):
  assert int(m[2])==3,(m[1],'case did not finish',m[2])
+ assert int(m[1]) not in rows,('duplicate case',m[1])
  rows[int(m[1])]=bytes.fromhex(m[3])
 assert len(rows)==len(CASES),rows.keys()
 

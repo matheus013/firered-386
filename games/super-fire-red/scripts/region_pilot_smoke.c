@@ -5,7 +5,7 @@
 #include <assert.h>
 int main(int argc, char **argv)
 {
-    assert(argc == 9);
+    assert(argc == 9 || argc == 11);
     color_t *pixels;
     struct mCore *core = OpenTestCore(argv[1], &pixels); assert(core);
     static struct mLogger logger = {.log = TestLog};
@@ -13,7 +13,10 @@ int main(int argc, char **argv)
     unsigned cases = strtoul(argv[3], 0, 0);
     uint32_t addrCase = strtoul(argv[4], 0, 0), addrStage = strtoul(argv[5], 0, 0), addrResult = strtoul(argv[6], 0, 0);
     uint32_t addrKeys = strtoul(argv[7], 0, 0), addrShot = strtoul(argv[8], 0, 0);
-    for (unsigned test = 1; test <= cases; test++) {
+    unsigned first = argc == 11 ? strtoul(argv[9], 0, 0) : 1;
+    unsigned stride = argc == 11 ? strtoul(argv[10], 0, 0) : 1;
+    assert(first >= 1 && first <= cases && stride >= 1);
+    for (unsigned test = first; test <= cases; test += stride) {
         core->reset(core); for (int i = 0; i < 400; i++) core->runFrame(core);
         core->busWrite32(core, addrCase, test);
         unsigned stage = 0;
@@ -31,6 +34,7 @@ int main(int argc, char **argv)
         printf("case=%u stage=%u text=", test, stage);
         for (unsigned i = 0; i < 128; i++) printf("%02x", core->busRead8(core, addrResult + i));
         printf("\n");
+        fflush(stdout);
     }
     core->deinit(core); free(pixels); return 0;
 }

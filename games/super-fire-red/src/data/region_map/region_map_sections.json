@@ -21,7 +21,8 @@
       "hoenn_x": 2,
       "hoenn_y": 14,
       "hoenn_width": 1,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "DEWFORD TOWN"
     },
     {
       "id": "MAPSEC_LAVARIDGE_TOWN",
@@ -160,21 +161,24 @@
       "hoenn_x": 0,
       "hoenn_y": 10,
       "hoenn_width": 1,
-      "hoenn_height": 3
+      "hoenn_height": 3,
+      "hoenn_name": "ROUTE 105"
     },
     {
       "id": "MAPSEC_ROUTE_106",
       "hoenn_x": 0,
       "hoenn_y": 13,
       "hoenn_width": 3,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "ROUTE 106"
     },
     {
       "id": "MAPSEC_ROUTE_107",
       "hoenn_x": 3,
       "hoenn_y": 14,
       "hoenn_width": 3,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "ROUTE 107"
     },
     {
       "id": "MAPSEC_ROUTE_108",
