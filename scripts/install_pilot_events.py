@@ -45,7 +45,7 @@ SPRITES = {
     'OBJ_EVENT_GFX_FISHER': 'OBJ_EVENT_GFX_FISHER', 'OBJ_EVENT_GFX_BATTLE_GIRL': 'OBJ_EVENT_GFX_COOLTRAINER_F',
     'OBJ_EVENT_GFX_BALDING_MAN': 'OBJ_EVENT_GFX_BALDING_MAN', 'OBJ_EVENT_GFX_PICNICKER': 'OBJ_EVENT_GFX_PICNICKER',
     'OBJ_EVENT_GFX_CAMPER': 'OBJ_EVENT_GFX_CAMPER', 'OBJ_EVENT_GFX_ROCKER': 'OBJ_EVENT_GFX_ROCKER', 'OBJ_EVENT_GFX_HIKER': 'OBJ_EVENT_GFX_HIKER', 'OBJ_EVENT_GFX_OLD_MAN_1': 'OBJ_EVENT_GFX_OLD_MAN_1',
-    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_SWIMMER_F_WATER': 'OBJ_EVENT_GFX_SWIMMER_F_WATER', 'OBJ_EVENT_GFX_SWIMMER_M_WATER': 'OBJ_EVENT_GFX_SWIMMER_M_WATER', 'OBJ_EVENT_GFX_ENGINEER': 'OBJ_EVENT_GFX_WORKER_M', 'OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_TUBER_M': 'OBJ_EVENT_GFX_TUBER_M_LAND', 'OBJ_EVENT_GFX_TUBER_F': 'OBJ_EVENT_GFX_TUBER_F', 'OBJ_EVENT_GFX_OLD_MAN': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_EXPERT_F': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_EXPERT_M': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_MAN_1': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_COOK': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_GIRL_1': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_POKEFAN_F': 'OBJ_EVENT_GFX_WOMAN_2', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
+    'OBJ_EVENT_GFX_FIREBREATHER': 'OBJ_EVENT_GFX_BIKER', 'OBJ_EVENT_GFX_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_BEAUTY': 'OBJ_EVENT_GFX_BEAUTY', 'OBJ_EVENT_GFX_GAMEBOY_KID': 'OBJ_EVENT_GFX_GBA_KID', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SWIMMER_F_WATER': 'OBJ_EVENT_GFX_SWIMMER_F_WATER', 'OBJ_EVENT_GFX_SWIMMER_M_WATER': 'OBJ_EVENT_GFX_SWIMMER_M_WATER', 'OBJ_EVENT_GFX_ENGINEER': 'OBJ_EVENT_GFX_WORKER_M', 'OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_TUBER_M': 'OBJ_EVENT_GFX_TUBER_M_LAND', 'OBJ_EVENT_GFX_TUBER_F': 'OBJ_EVENT_GFX_TUBER_F', 'OBJ_EVENT_GFX_OLD_MAN': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_EXPERT_F': 'OBJ_EVENT_GFX_OLD_WOMAN', 'OBJ_EVENT_GFX_EXPERT_M': 'OBJ_EVENT_GFX_OLD_MAN_1', 'OBJ_EVENT_GFX_MAN_1': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_COOK': 'OBJ_EVENT_GFX_FAT_MAN', 'OBJ_EVENT_GFX_GIRL_1': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_POKEFAN_F': 'OBJ_EVENT_GFX_WOMAN_2', 'OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_SCHOOL_KID_M': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_SAILOR': 'OBJ_EVENT_GFX_SAILOR', 'OBJ_EVENT_GFX_SAGE': 'OBJ_EVENT_GFX_OLD_MAN_2',
     'OBJ_EVENT_GFX_GIRL_2': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_BOY_3': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_MAN_2': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_MAN_4': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_5': 'OBJ_EVENT_GFX_WOMAN_3', 'OBJ_EVENT_GFX_RICH_BOY': 'OBJ_EVENT_GFX_BOY', 'OBJ_EVENT_GFX_DEVON_EMPLOYEE': 'OBJ_EVENT_GFX_SCIENTIST', 'OBJ_EVENT_GFX_LITTLE_GIRL': 'OBJ_EVENT_GFX_LITTLE_GIRL', 'OBJ_EVENT_GFX_JUGGLER': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_PSYCHIC_M': 'OBJ_EVENT_GFX_MAN', 'OBJ_EVENT_GFX_WOMAN_3': 'OBJ_EVENT_GFX_WOMAN_3',
     'OBJ_EVENT_GFX_COOLTRAINER_F': 'OBJ_EVENT_GFX_COOLTRAINER_F', 'OBJ_EVENT_GFX_COOLTRAINER_M': 'OBJ_EVENT_GFX_COOLTRAINER_M', 'OBJ_EVENT_GFX_SUPER_NERD': 'OBJ_EVENT_GFX_POKE_MANIAC',
     # Phase 3: Birch rescue
@@ -399,6 +399,40 @@ EVENTS = {
         9: ('itemflag', None, 'Super Potion'), 10: ('itemflag', None, 'TM01 Focus Punch'), 11: ('itemflag', None, 'Iron'),
         15: ('itemflag', None, 'Great Ball'), 21: ('itemflag', None, 'PP Up'), 22: ('itemflag', None, 'Heal Powder')},
         {2: ('sign', 'Route115_Text_RouteSignRustboro'), 3: ('sign', 'Route115_Text_MeteorFallsSign')}),
+    # Hoenn batch 11. Left out: Team Aqua on the bridge, the rival, Scott, the Kecleon blocking Fortree's Gym
+    # (the Gym itself stays closed), berry trees, secret bases, hidden items, the Weather Institute and the houses.
+    'Route119': (EMERALD, {
+        3: ('trainer', ('TRAINER_HOENN_GREG', 'Route119_Text_GregIntro', 'Route119_Text_GregDefeat', 'Route119_Text_GregPostBattle'), ''),
+        4: ('trainer', ('TRAINER_HOENN_TAYLOR', 'Route119_Text_TaylorIntro', 'Route119_Text_TaylorDefeat', 'Route119_Text_TaylorPostBattle'), ''),
+        5: ('trainer', ('TRAINER_HOENN_DONALD', 'Route119_Text_DonaldIntro', 'Route119_Text_DonaldDefeat', 'Route119_Text_DonaldPostBattle'), ''),
+        6: ('trainer', ('TRAINER_HOENN_JACKSON', 'Route119_Text_JacksonIntro', 'Route119_Text_JacksonDefeat', 'Route119_Text_JacksonPostBattle'), ''),
+        7: ('trainer', ('TRAINER_HOENN_BRENT', 'Route119_Text_BrentIntro', 'Route119_Text_BrentDefeat', 'Route119_Text_BrentPostBattle'), ''),
+        8: ('trainer', ('TRAINER_HOENN_CATHERINE', 'Route119_Text_CatherineIntro', 'Route119_Text_CatherineDefeat', 'Route119_Text_CatherinePostBattle'), ''),
+        9: ('trainer', ('TRAINER_HOENN_DOUG', 'Route119_Text_DougIntro', 'Route119_Text_DougDefeat', 'Route119_Text_DougPostBattle'), ''),
+        10: ('trainer', ('TRAINER_HOENN_KENT', 'Route119_Text_KentIntro', 'Route119_Text_KentDefeat', 'Route119_Text_KentPostBattle'), ''),
+        11: ('trainer', ('TRAINER_HOENN_YASU', 'Route119_Text_YasuIntro', 'Route119_Text_YasuDefeat', 'Route119_Text_YasuPostBattle'), ''),
+        12: ('trainer', ('TRAINER_HOENN_TAKASHI', 'Route119_Text_TakashiIntro', 'Route119_Text_TakashiDefeat', 'Route119_Text_TakashiPostBattle'), ''),
+        13: ('trainer', ('TRAINER_HOENN_HUGH', 'Route119_Text_HughIntro', 'Route119_Text_HughDefeat', 'Route119_Text_HughPostBattle'), ''),
+        14: ('trainer', ('TRAINER_HOENN_PHIL', 'Route119_Text_PhilIntro', 'Route119_Text_PhilDefeat', 'Route119_Text_PhilPostBattle'), ''),
+        33: ('trainer', ('TRAINER_HOENN_HIDEO', 'Route119_Text_HideoIntro', 'Route119_Text_HideoDefeat', 'Route119_Text_HideoPostBattle'), ''),
+        36: ('trainer', ('TRAINER_HOENN_CHRIS', 'Route119_Text_ChrisIntro', 'Route119_Text_ChrisDefeat', 'Route119_Text_ChrisPostBattle'), ''),
+        37: ('trainer', ('TRAINER_HOENN_RACHEL', 'Route119_Text_RachelIntro', 'Route119_Text_RachelDefeat', 'Route119_Text_RachelPostBattle'), ''),
+        38: ('trainer', ('TRAINER_HOENN_DAYTON', 'Route119_Text_DaytonIntro', 'Route119_Text_DaytonDefeat', 'Route119_Text_DaytonPostBattle'), ''),
+        39: ('trainer', ('TRAINER_HOENN_FABIAN', 'Route119_Text_FabianIntro', 'Route119_Text_FabianDefeat', 'Route119_Text_FabianPostBattle'), ''),
+        25: ('npc', 'Route119_Text_ThoughtFlyByCatchingBirdMons', ''), 30: ('npc', 'Route119_Text_TallGrassSnaresBikeTires', ''),
+        32: ('npc', 'Route119_Text_CanYourMonMakeSecretBase', ''),
+        16: ('itemflag', None, 'Super Repel'), 17: ('itemflag', None, 'Zinc'), 18: ('itemflag', None, 'Elixir'),
+        19: ('itemflag', None, 'Leaf Stone'), 20: ('itemflag', None, 'Rare Candy'), 21: ('itemflag', None, 'Hyper Potion'),
+        31: ('itemflag', None, 'Hyper Potion'), 40: ('itemflag', None, 'Nugget'), 41: ('itemflag', None, 'Elixir')},
+        {0: ('sign', 'Route119_Text_WeatherInstitute'), 1: ('sign', 'Route119_Text_RouteSignFortree'),
+         19: ('sign', 'Route119_Text_TrainerTipsDecoration')}),
+    'FortreeCity': (EMERALD, {
+        0: ('npc', 'FortreeCity_Text_SawGiganticPokemonInSky', ''), 1: ('npc', 'FortreeCity_Text_TreesGrowByDrinkingRainwater', ''),
+        2: ('npc', 'FortreeCity_Text_ThisTimeIllBeatWinona', 'text after the Kecleon left'),
+        3: ('npc', 'FortreeCity_Text_BugPokemonComeThroughWindow', ''), 4: ('npc', 'FortreeCity_Text_EveryoneHealthyAndLively', ''),
+        5: ('npc', 'FortreeCity_Text_PokemonThatEvolveWhenTraded', '')},
+        {0: ('sign', 'FortreeCity_Text_CitySign'), 1: ('pcsign', None), 2: ('martsign', None),
+         3: ('sign', 'FortreeCity_Text_GymSign'), 4: ('pcsign', None), 5: ('martsign', None)}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -754,7 +788,8 @@ WORLD_MAP_FLAGS = {'LittlerootTown': 'FLAG_WORLD_MAP_LITTLEROOT_TOWN', 'NewBarkT
                    'BlackthornCity': 'FLAG_WORLD_MAP_BLACKTHORN_CITY',
                    'LavaridgeTown': 'FLAG_WORLD_MAP_LAVARIDGE_TOWN',
                    'CianwoodCity': 'FLAG_WORLD_MAP_CIANWOOD_CITY',
-                   'FallarborTown': 'FLAG_WORLD_MAP_FALLARBOR_TOWN'}
+                   'FallarborTown': 'FLAG_WORLD_MAP_FALLARBOR_TOWN',
+                   'FortreeCity': 'FLAG_WORLD_MAP_FORTREE_CITY'}
 # Items picked up once: map -> {source object index: (item, flag alias, free flag)}.
 ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION', 'FLAG_0x0AF'),
               ('Route103', 12): ('ITEM_GUARD_SPEC', 'FLAG_HIDE_HOENN_ROUTE103_GUARD_SPEC', 'FLAG_0x0B0'),
@@ -860,6 +895,15 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('DarkCave_NorthSide', 0): ('ITEM_BLACK_FLUTE', 'FLAG_HIDE_JOHTO_DARK_CAVE_BLACK_FLUTE', 'FLAG_0x115'),
               ('DarkCave_NorthSide', 1): ('ITEM_STAR_PIECE', 'FLAG_HIDE_JOHTO_DARK_CAVE_STAR_PIECE', 'FLAG_0x116'),
               ('DarkCave_NorthSide', 2): ('ITEM_BLACK_GLASSES', 'FLAG_GOT_JOHTO_BLACK_GLASSES', 'FLAG_0x117'),
+              ('Route119', 16): ('ITEM_SUPER_REPEL', 'FLAG_HIDE_HOENN_ROUTE119_SUPER_REPEL', 'FLAG_0x118'),
+              ('Route119', 17): ('ITEM_ZINC', 'FLAG_HIDE_HOENN_ROUTE119_ZINC', 'FLAG_0x119'),
+              ('Route119', 18): ('ITEM_ELIXIR', 'FLAG_HIDE_HOENN_ROUTE119_ELIXIR_1', 'FLAG_0x11A'),
+              ('Route119', 19): ('ITEM_LEAF_STONE', 'FLAG_HIDE_HOENN_ROUTE119_LEAF_STONE', 'FLAG_0x11B'),
+              ('Route119', 20): ('ITEM_RARE_CANDY', 'FLAG_HIDE_HOENN_ROUTE119_RARE_CANDY', 'FLAG_0x11C'),
+              ('Route119', 21): ('ITEM_HYPER_POTION', 'FLAG_HIDE_HOENN_ROUTE119_HYPER_POTION_1', 'FLAG_0x11D'),
+              ('Route119', 31): ('ITEM_HYPER_POTION', 'FLAG_HIDE_HOENN_ROUTE119_HYPER_POTION_2', 'FLAG_0x11E'),
+              ('Route119', 40): ('ITEM_NUGGET', 'FLAG_HIDE_HOENN_ROUTE119_NUGGET', 'FLAG_0x11F'),
+              ('Route119', 41): ('ITEM_ELIXIR', 'FLAG_HIDE_HOENN_ROUTE119_ELIXIR_2', 'FLAG_0x120'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Objects whose source elevation differs from the cells they stand on (map, index) -> elevation. A wanderer only

@@ -91,7 +91,8 @@
       "hoenn_x": 12,
       "hoenn_y": 0,
       "hoenn_width": 1,
-      "hoenn_height": 1
+      "hoenn_height": 1,
+      "hoenn_name": "FORTREE CITY"
     },
     {
       "id": "MAPSEC_LILYCOVE_CITY",
@@ -266,7 +267,8 @@
       "hoenn_x": 11,
       "hoenn_y": 0,
       "hoenn_width": 1,
-      "hoenn_height": 6
+      "hoenn_height": 6,
+      "hoenn_name": "ROUTE 119"
     },
     {
       "id": "MAPSEC_ROUTE_120",

@@ -73,11 +73,17 @@ BATCHES = {
           'Route115': ('MUS_ROUTE24', 'gTileset_HoennPilotFallarbor')},
          {},
          {'MAPSEC_ROUTE_114': 'ROUTE 114', 'MAPSEC_ROUTE_115': 'ROUTE 115'}),
+    # Batch 11: Route 119 north of Route 118 and Fortree City (Fortree secondary; its metatiles fit, only the tiles
+    # are limited). The Weather Institute, the Route 119 house, Fortree's Gym, houses and decoration shop stay closed.
+    11: ({'Route119': ('MUS_ROUTE11', 'gTileset_HoennPilotFortree'),
+          'FortreeCity': ('MUS_PALLET', 'gTileset_HoennPilotFortree')},
+         {'FortreeCity': ({(5, 6): 'PokemonCenter_1F', (4, 14): 'Mart'}, (5, 7), 'FLAG_0x8D6')},
+         {'MAPSEC_ROUTE_119': 'ROUTE 119', 'MAPSEC_FORTREE_CITY': 'FORTREE CITY'}),
 }
 # Every Hoenn exterior in the expansion, in install order (connections only link the installed ones).
 ALL_EXTERIORS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
                  'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown',
-                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109', 'Route112', 'LavaridgeTown', 'Route113', 'FallarborTown', 'Route114', 'Route115']
+                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109', 'Route112', 'LavaridgeTown', 'Route113', 'FallarborTown', 'Route114', 'Route115', 'Route119', 'FortreeCity']
 DOORS = [  # metatile, symbol in hoenn_pilot_doors.h (already defined for the Petalburg pair)
     (0x061, 'PokeCenter', 'DOOR_SOUND_SLIDING'), (0x041, 'PokeMart', 'DOOR_SOUND_SLIDING')]
 

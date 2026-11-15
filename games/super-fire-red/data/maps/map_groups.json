@@ -675,7 +675,9 @@
     "Johto_Route27",
     "Johto_Route26",
     "Hoenn_Route114",
-    "Hoenn_Route115"
+    "Hoenn_Route115",
+    "Hoenn_Route119",
+    "Hoenn_FortreeCity"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -723,7 +725,11 @@
     "Hoenn_FallarborTown_PokemonCenter_1F",
     "Hoenn_FallarborTown_Mart",
     "Hoenn_Route114",
-    "Hoenn_Route115"
+    "Hoenn_Route115",
+    "Hoenn_Route119",
+    "Hoenn_FortreeCity",
+    "Hoenn_FortreeCity_PokemonCenter_1F",
+    "Hoenn_FortreeCity_Mart"
   ],
   "gMapGroup_Johto": [
     "Johto_NewBarkTown",

@@ -1,0 +1,536 @@
+{
+  "layouts": [
+    "LAYOUT_HOENN_ROUTE119",
+    "LAYOUT_HOENN_FORTREE_CITY"
+  ],
+  "entries": [
+    {
+      "metatile": "0x013",
+      "source_behavior": "MB_SECRET_BASE_WALL",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x015",
+      "source_behavior": "MB_LONG_GRASS",
+      "attribute": "0x01000202",
+      "reason": "batch 11: Route 119; FireRed has no long grass: tall grass with land encounters"
+    },
+    {
+      "metatile": "0x026",
+      "source_behavior": "MB_SECRET_BASE_SPOT_TREE_LEFT",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x027",
+      "source_behavior": "MB_SECRET_BASE_SPOT_TREE_RIGHT",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x0e8",
+      "source_behavior": "MB_MUDDY_SLOPE",
+      "attribute": "0x00000000",
+      "reason": "batch 6: four Route 111 tiles; FireRed has no Mach Bike slope"
+    },
+    {
+      "metatile": "0x0ec",
+      "source_behavior": "MB_VERTICAL_RAIL",
+      "attribute": "0x20000000",
+      "reason": "batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable"
+    },
+    {
+      "metatile": "0x0ed",
+      "source_behavior": "MB_ISOLATED_HORIZONTAL_RAIL",
+      "attribute": "0x20000000",
+      "reason": "batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable"
+    },
+    {
+      "metatile": "0x0f0",
+      "source_behavior": "MB_HORIZONTAL_RAIL",
+      "attribute": "0x20000000",
+      "reason": "batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable"
+    },
+    {
+      "metatile": "0x0f1",
+      "source_behavior": "MB_HORIZONTAL_RAIL",
+      "attribute": "0x20000000",
+      "reason": "batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable"
+    },
+    {
+      "metatile": "0x0f2",
+      "source_behavior": "MB_HORIZONTAL_RAIL",
+      "attribute": "0x20000000",
+      "reason": "batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable"
+    },
+    {
+      "metatile": "0x0f3",
+      "source_behavior": "MB_ISOLATED_VERTICAL_RAIL",
+      "attribute": "0x20000000",
+      "reason": "batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable"
+    },
+    {
+      "metatile": "0x0f4",
+      "source_behavior": "MB_VERTICAL_RAIL",
+      "attribute": "0x20000000",
+      "reason": "batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable"
+    },
+    {
+      "metatile": "0x0f5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0f7",
+      "source_behavior": "MB_VERTICAL_RAIL",
+      "attribute": "0x20000000",
+      "reason": "batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable"
+    },
+    {
+      "metatile": "0x0f8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0f9",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0fa",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0fb",
+      "source_behavior": "MB_HORIZONTAL_RAIL",
+      "attribute": "0x20000000",
+      "reason": "batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable"
+    },
+    {
+      "metatile": "0x0fc",
+      "source_behavior": "MB_VERTICAL_RAIL",
+      "attribute": "0x20000000",
+      "reason": "batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable"
+    },
+    {
+      "metatile": "0x0fd",
+      "source_behavior": "MB_HORIZONTAL_RAIL",
+      "attribute": "0x20000000",
+      "reason": "batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable"
+    },
+    {
+      "metatile": "0x14c",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x191",
+      "source_behavior": "MB_MOUNTAIN_TOP",
+      "attribute": "0x0000000c",
+      "reason": "FR MB_MOUNTAIN_TOP"
+    },
+    {
+      "metatile": "0x1b0",
+      "source_behavior": "MB_SECRET_BASE_SPOT_BLUE_CAVE",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x286",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x287",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x40000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x288",
+      "source_behavior": "MB_LONG_GRASS_SOUTH_EDGE",
+      "attribute": "0x01000202",
+      "reason": "batch 11: Route 119; FireRed has no long grass: tall grass with land encounters"
+    },
+    {
+      "metatile": "0x28f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x290",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x296",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x297",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x298",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x29e",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x29f",
+      "source_behavior": "MB_BRIDGE_OVER_OCEAN",
+      "attribute": "0x00000000",
+      "reason": "batch 5: Route 110 Cycling Road deck; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2ab",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x20000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2af",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x20000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2b3",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x20000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2b5",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x00000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x2b7",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x20000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2bb",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x20000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2bc",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x00000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2bd",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x00000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2be",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x00000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2bf",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x20000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2c5",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x20000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2cd",
+      "source_behavior": "MB_NO_RUNNING",
+      "attribute": "0x20000000",
+      "reason": "batch 8: two Lavaridge tiles; FireRed has no no-running behavior"
+    },
+    {
+      "metatile": "0x2ce",
+      "source_behavior": "MB_FORTREE_BRIDGE",
+      "attribute": "0x00000000",
+      "reason": "batch 11: Fortree plank bridges; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2d0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d6",
+      "source_behavior": "MB_FORTREE_BRIDGE",
+      "attribute": "0x00000000",
+      "reason": "batch 11: Fortree plank bridges; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x2dd",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2e6",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2e7",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2f0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2f1",
+      "source_behavior": "MB_SECRET_BASE_SPOT_SHRUB",
+      "attribute": "0x20000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x2f2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2f3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x301",
+      "source_behavior": "MB_LONG_GRASS_SOUTH_EDGE",
+      "attribute": "0x01000202",
+      "reason": "batch 11: Route 119; FireRed has no long grass: tall grass with land encounters"
+    },
+    {
+      "metatile": "0x302",
+      "source_behavior": "MB_LONG_GRASS_SOUTH_EDGE",
+      "attribute": "0x01000202",
+      "reason": "batch 11: Route 119; FireRed has no long grass: tall grass with land encounters"
+    },
+    {
+      "metatile": "0x303",
+      "source_behavior": "MB_LONG_GRASS_SOUTH_EDGE",
+      "attribute": "0x01000202",
+      "reason": "batch 11: Route 119; FireRed has no long grass: tall grass with land encounters"
+    },
+    {
+      "metatile": "0x30b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x30c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x313",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x314",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x33b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x343",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x348",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x349",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x34a",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x20000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x34c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x34d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x34e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x350",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x351",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x352",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x354",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x355",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x356",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x364",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x365",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x36c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x36d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x37e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x381",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x382",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x386",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x38a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    }
+  ]
+}

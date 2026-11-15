@@ -152,6 +152,15 @@
 #define FLAG_HIDE_JOHTO_DARK_CAVE_BLACK_FLUTE FLAG_0x115 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_DARK_CAVE_STAR_PIECE FLAG_0x116 // Region item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_BLACK_GLASSES FLAG_0x117 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE119_SUPER_REPEL FLAG_0x118 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE119_ZINC FLAG_0x119 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE119_ELIXIR_1 FLAG_0x11A // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE119_LEAF_STONE FLAG_0x11B // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE119_RARE_CANDY FLAG_0x11C // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE119_HYPER_POTION_1 FLAG_0x11D // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE119_HYPER_POTION_2 FLAG_0x11E // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE119_NUGGET FLAG_0x11F // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE119_ELIXIR_2 FLAG_0x120 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_AIDE_POTION FLAG_0x027 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_GOT_JOHTO_AIDE_BALLS FLAG_0x07F // Region pilot story (scripts/pilot_story.py)
@@ -1594,6 +1603,7 @@
 #define FLAG_WORLD_MAP_VERDANTURF_TOWN                             FLAG_0x8CD
 #define FLAG_WORLD_MAP_OLIVINE_CITY                                FLAG_0x8CE
 #define FLAG_WORLD_MAP_MAUVILLE_CITY                               FLAG_0x8CF
+#define FLAG_WORLD_MAP_FORTREE_CITY                                FLAG_0x8D6
 #define FLAG_WORLD_MAP_FALLARBOR_TOWN                              FLAG_0x8D5
 #define FLAG_WORLD_MAP_CIANWOOD_CITY                               FLAG_0x8D4
 #define FLAG_WORLD_MAP_LAVARIDGE_TOWN                              FLAG_0x8D3

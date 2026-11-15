@@ -107,6 +107,11 @@ for _m,_x,_y,_steps,_want in (
   # Hoenn batch 10: Fallarbor west into Route 114, Rustboro north into Route 115.
   (HOENN+'FALLARBOR_TOWN',0,10,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_HOENN_ROUTE114',{(39,10)}),('MAP_HOENN_FALLARBOR_TOWN',{(0,10)})]),
   (HOENN+'RUSTBORO_CITY',20,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_ROUTE115',{(20,79)}),('MAP_HOENN_RUSTBORO_CITY',{(20,0)})]),
+  # Hoenn batch 11: Route 118 north into Route 119, Route 119 east into Fortree, Fortree's doors.
+  (HOENN+'ROUTE118',57,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_ROUTE119',{(17,139)}),('MAP_HOENN_ROUTE118',{(57,0)})]),
+  (HOENN+'ROUTE119',39,8,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_HOENN_FORTREE_CITY',{(0,8)}),('MAP_HOENN_ROUTE119',{(39,8)})]),
+  (HOENN+'FORTREE_CITY',5,7,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_FORTREE_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_FORTREE_CITY',{(5,7)})]),
+  (HOENN+'FORTREE_CITY',4,15,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_FORTREE_CITY_MART',{(4,7)}),('MAP_HOENN_FORTREE_CITY',{(4,15)})]),
   # Johto batch 1: Route 29 west into Cherrygrove, north to Routes 30 and 31, and the Pokemon Center/Mart doors.
   (JOHTO+'ROUTE29',0,16,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY',{(64,10)}),('MAP_JOHTO_ROUTE29',{(0,16)})]),
   (JOHTO+'CHERRYGROVE_CITY',34,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE30',{(25,57)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(34,0)})]),

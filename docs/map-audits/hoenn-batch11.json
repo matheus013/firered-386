@@ -1,0 +1,50 @@
+{
+  "maps": {
+    "Hoenn_Route119": {
+      "layout": "LAYOUT_HOENN_ROUTE119",
+      "secondary": "gTileset_HoennPilotFortree",
+      "music": "MUS_ROUTE11",
+      "warps": 0
+    },
+    "Hoenn_FortreeCity": {
+      "layout": "LAYOUT_HOENN_FORTREE_CITY",
+      "secondary": "gTileset_HoennPilotFortree",
+      "music": "MUS_PALLET",
+      "warps": 2
+    },
+    "Hoenn_FortreeCity_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "heal_location": "HEAL_LOCATION_FORTREE_CITY"
+    },
+    "Hoenn_FortreeCity_Mart": {
+      "layout": "LAYOUT_MART",
+      "items": [
+        "ITEM_GREAT_BALL",
+        "ITEM_ULTRA_BALL",
+        "ITEM_SUPER_POTION",
+        "ITEM_HYPER_POTION",
+        "ITEM_ANTIDOTE",
+        "ITEM_PARALYZE_HEAL",
+        "ITEM_AWAKENING",
+        "ITEM_REVIVE",
+        "ITEM_SUPER_REPEL",
+        "ITEM_WOOD_MAIL"
+      ]
+    }
+  },
+  "closed_doors": {
+    "Route119": [
+      "MAP_ROUTE119_WEATHER_INSTITUTE_1F",
+      "MAP_ROUTE119_HOUSE"
+    ],
+    "FortreeCity": [
+      "MAP_FORTREE_CITY_HOUSE1",
+      "MAP_FORTREE_CITY_GYM",
+      "MAP_FORTREE_CITY_HOUSE2",
+      "MAP_FORTREE_CITY_HOUSE3",
+      "MAP_FORTREE_CITY_HOUSE4",
+      "MAP_FORTREE_CITY_HOUSE5",
+      "MAP_FORTREE_CITY_DECORATION_SHOP"
+    ]
+  }
+}

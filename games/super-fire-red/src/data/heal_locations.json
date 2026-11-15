@@ -319,6 +319,14 @@
       "y": 8,
       "respawn_map": "MAP_HOENN_FALLARBOR_TOWN_POKEMON_CENTER_1F",
       "respawn_npc": 1
+    },
+    {
+      "id": "HEAL_LOCATION_FORTREE_CITY",
+      "map": "MAP_HOENN_FORTREE_CITY",
+      "x": 5,
+      "y": 7,
+      "respawn_map": "MAP_HOENN_FORTREE_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": 1
     }
   ]
 }

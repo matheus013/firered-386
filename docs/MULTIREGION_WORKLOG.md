@@ -2382,3 +2382,40 @@ Route 46 → lado sul e Route 45 → lado norte. Os dois lados também se ligam 
 rotas.
 
 **Resultado:** 1216 casos aprovados (eram 1205), com as 213 batalhas de rota vencidas. As caminhadas novas entram na caverna pelas Routes 31, 46 e 45 e passam do lado sul para o norte.
+
+## Hoenn, lote 11: Route 119 e Fortree City
+
+**Mapas novos:** a Route 119, ao norte da Route 118, e Fortree City.
+
+- **Tileset:** novo secundário `hoenn_pilot_fortree` (181 tiles, limitados aos dois mapas). Os
+  metatiles cabem sem compactar, e os mapas foram preparados com `prepare_region_pilot.py`.
+- **Regras novas:**
+  - `MB_LONG_GRASS` e `MB_LONG_GRASS_SOUTH_EDGE` viram grama alta com encontros, como no Johto;
+  - `MB_FORTREE_BRIDGE` (as passarelas de Fortree) vira normal. A elevação e a colisão continuam
+    valendo;
+  - os trilhos da Acro Bike (`MB_*_RAIL`) viram normais. O FireRed não tem Acro Bike, então dá
+    para andar por eles.
+- **Fortree:** Centro Pokémon e Mart do FireRed, com a lista do Emerald. A flag é
+  `FLAG_WORLD_MAP_FORTREE_CITY` (0x8D6), e a cidade é destino de Fly. O Kecleon que bloqueia o
+  Ginásio ficou de fora; o Ginásio continua fechado.
+- **Treinadores (17, IDs 925–941):** Greg, Taylor, Donald, Jackson, Brent, Catherine, Doug, Kent,
+  Yasu, Takashi, Hugh, Phil, Hideo, Chris, Rachel, Dayton e Fabian.
+- **Sprites:** o menino do Game Boy usa `GBA_KID`, e o ciclista usa `COOLTRAINER_M`.
+- **Eventos:**
+  - nove itens, com as flags 0x118–0x120;
+  - três pessoas na Route 119 e seis moradores de Fortree. A moça do Ginásio usa o texto de depois
+    que o Kecleon sai;
+  - as placas;
+  - 65 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama, água e pesca da Route 119, iguais às tabelas do Emerald.
+- **Limite de treinadores:** com este lote são 942 IDs. O bloco extra de flags comporta até 984,
+  então sobram 42 vagas. Antes de passar disso, vai ser preciso ampliar o bloco.
+
+**Fica para depois:**
+
+- a Equipe Aqua, o rival e o Scott;
+- o Instituto do Clima e a casa da Route 119;
+- o Kecleon, o Ginásio da Winona, as casas e a loja de decoração;
+- as árvores de berry, as bases secretas e os itens escondidos.
+
+**Resultado:** 1283 casos aprovados (eram 1216), com as 230 batalhas de rota vencidas. As caminhadas novas cruzam Route 118 → Route 119 → Fortree e entram e saem do Centro e do Mart de Fortree.
