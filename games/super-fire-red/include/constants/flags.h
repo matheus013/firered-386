@@ -161,6 +161,18 @@
 #define FLAG_HIDE_HOENN_ROUTE119_HYPER_POTION_2 FLAG_0x11E // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_HOENN_ROUTE119_NUGGET FLAG_0x11F // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_HOENN_ROUTE119_ELIXIR_2 FLAG_0x120 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_ICE_PATH_PP_UP FLAG_0x121 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_ICE_PATH_HM_WATERFALL FLAG_0x122 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_ICE_PATH_PROTEIN FLAG_0x123 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_MT_MORTAR_ELIXIR FLAG_0x124 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_MT_MORTAR_REVIVE FLAG_0x125 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_MT_MORTAR_MAX_REPEL FLAG_0x126 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_MT_MORTAR_ESCAPE_ROPE FLAG_0x127 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_MT_MORTAR_ULTRA_BALL FLAG_0x128 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_MT_MORTAR_NUGGET FLAG_0x129 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_MT_MORTAR_MAX_POTION FLAG_0x12A // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_MT_MORTAR_REVIVE_2 FLAG_0x12B // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_JOHTO_MT_MORTAR_KINGS_ROCK FLAG_0x12C // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_AIDE_POTION FLAG_0x027 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_GOT_JOHTO_AIDE_BALLS FLAG_0x07F // Region pilot story (scripts/pilot_story.py)
@@ -1447,6 +1459,10 @@
 // trainer and system flag layout of existing saves does not move (see GetTrainerFlagId in battle_setup.c).
 #define EXTRA_TRAINER_FLAGS_START 0x300
 #define EXTRA_TRAINER_FLAGS_COUNT 216
+// A second block for the ids that do not fit in the first: the unnamed flags 0x4BD-0x4FF, right before
+// TRAINER_FLAGS_START (nothing in data/ or src/ uses them).
+#define EXTRA_TRAINER_FLAGS_2_START 0x4BD
+#define EXTRA_TRAINER_FLAGS_2_COUNT 67
 
 // SYSTEM FLAGS
 

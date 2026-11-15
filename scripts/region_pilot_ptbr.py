@@ -500,6 +500,13 @@ PT = {
     'Hoenn_VerdanturfTown_Text_WandasHouse': 'CASA DA WANDA',
     'Hoenn_VerdanturfTown_Text_BattleTentSign': 'BATTLE TENT DE VERDANTURF\\n“Delicie-se com as batalhas!”',
     'Hoenn_VerdanturfTown_Text_RusturfTunnelSign': 'RUSTURF TUNNEL\\n“Ligando RUSTBORO e VERDANTURF\\p“O projeto do túnel foi cancelado.”',
+    # Johto batch 17 (Ice Path 1F, Mt. Mortar 1F)
+    'Johto_MtMortar_1F_North_Text_SupernerdMarkusSeen': 'Ei! Hugh!',
+    'Johto_MtMortar_1F_North_Text_SupernerdMarkusBeaten': 'Te confundi com outra pessoa…',
+    'Johto_MtMortar_1F_North_Text_SupernerdMarkusAfter': 'Vim explorar o Mt. Mortar, mas me separei do meu parceiro…\\pVocê viu um Treinador com um Seadra que sabe Waterfall?',
+    'Johto_MtMortar_1F_North_Text_PokemaniacMillerSeen': 'Desta vez eu não perco!',
+    'Johto_MtMortar_1F_North_Text_PokemaniacMillerBeaten': 'Perdi para uma criança…?',
+    'Johto_MtMortar_1F_North_Text_PokemaniacMillerAfter': 'Um tempo atrás, um cara do caratê quis batalhar.\\pEle era absurdamente bom. Acabou com a gente.\\pEle foi mais para o fundo, dizendo que era para treinar.\\pComo será que ele está?',
     # Johto batch 16 (Dark Cave)
     'Johto_DarkCave_NorthSide_Text_Nerd': 'Uou! Você me assustou!\\pEu estava com meus Black Glasses, então nem te vi.\\pO que estou fazendo aqui?\\pEi, não se preocupe com isso.\\pVou te dar um par de Black Glasses, então esquece que me viu, tá?',
     'Johto_DarkCave_NorthSide_Text_Nerd2': 'Os Black Glasses aumentam o poder dos golpes do tipo Sombrio.',

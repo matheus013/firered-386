@@ -800,6 +800,9 @@
     "Johto_Route27",
     "Johto_Route26",
     "Johto_DarkCave_SouthSide",
-    "Johto_DarkCave_NorthSide"
+    "Johto_DarkCave_NorthSide",
+    "Johto_IcePath_1F",
+    "Johto_MtMortar_1F_South",
+    "Johto_MtMortar_1F_North"
   ]
 }

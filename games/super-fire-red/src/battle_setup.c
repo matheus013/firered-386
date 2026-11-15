@@ -685,13 +685,16 @@ static u8 TrainerBattleLoadArg8(const u8 *ptr)
 
 // The "defeated" flag of a trainer: FireRed's block for ids below MAX_TRAINERS_COUNT, the region expansion's
 // extra block (EXTRA_TRAINER_FLAGS_START) above it.
-STATIC_ASSERT(NUM_TRAINERS <= MAX_TRAINERS_COUNT + EXTRA_TRAINER_FLAGS_COUNT, StaticAssertTrainerFlags);
+STATIC_ASSERT(NUM_TRAINERS <= MAX_TRAINERS_COUNT + EXTRA_TRAINER_FLAGS_COUNT + EXTRA_TRAINER_FLAGS_2_COUNT, StaticAssertTrainerFlags);
 
 u16 GetTrainerFlagId(u16 trainerId)
 {
     if (trainerId < MAX_TRAINERS_COUNT)
         return TRAINER_FLAGS_START + trainerId;
-    return EXTRA_TRAINER_FLAGS_START + trainerId - MAX_TRAINERS_COUNT;
+    trainerId -= MAX_TRAINERS_COUNT;
+    if (trainerId < EXTRA_TRAINER_FLAGS_COUNT)
+        return EXTRA_TRAINER_FLAGS_START + trainerId;
+    return EXTRA_TRAINER_FLAGS_2_START + trainerId - EXTRA_TRAINER_FLAGS_COUNT;
 }
 
 static u16 GetTrainerAFlag(void)

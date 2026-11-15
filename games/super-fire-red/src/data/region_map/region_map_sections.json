@@ -1654,6 +1654,22 @@
       "y": 4,
       "width": 3,
       "height": 2
+    },
+    {
+      "id": "MAPSEC_ICE_PATH",
+      "name": "ICE PATH",
+      "x": 17,
+      "y": 1,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_MT_MORTAR",
+      "name": "MT. MORTAR",
+      "x": 12,
+      "y": 1,
+      "width": 1,
+      "height": 1
     }
   ]
 }

@@ -1122,3 +1122,24 @@ const struct Tileset gTileset_JohtoPilotBlackthorn =
     .metatileAttributes = gMetatileAttributes_JohtoPilotBlackthorn,
     .callback = NULL,
 };
+const struct Tileset gTileset_JohtoPilotCaveIce =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotCaveIce,
+    .palettes = gTilesetPalettes_JohtoPilotCaveIce,
+    .metatiles = gMetatiles_JohtoPilotCaveIce,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotCaveIce,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_JohtoPilotCaveGray =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JohtoPilotCaveGray,
+    .palettes = gTilesetPalettes_JohtoPilotCaveGray,
+    .metatiles = gMetatiles_JohtoPilotCaveGray,
+    .metatileAttributes = gMetatileAttributes_JohtoPilotCaveGray,
+    .callback = NULL,
+};

@@ -189,7 +189,14 @@ for _m,_x,_y,_steps,_want in (
   (JOHTO+'ROUTE31',48,10,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_DARK_CAVE_SOUTH_SIDE',None),('MAP_JOHTO_ROUTE31',None)]),
   (JOHTO+'ROUTE46',20,12,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_DARK_CAVE_SOUTH_SIDE',None),('MAP_JOHTO_ROUTE46',None)]),
   (JOHTO+'ROUTE45',14,5,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_DARK_CAVE_NORTH_SIDE',None),('MAP_JOHTO_ROUTE45',None)]),
-  (JOHTO+'DARK_CAVE_SOUTH_SIDE',34,7,[('UP','MAP')],[('MAP_JOHTO_DARK_CAVE_NORTH_SIDE',None)])):
+  (JOHTO+'DARK_CAVE_SOUTH_SIDE',34,7,[('UP','MAP')],[('MAP_JOHTO_DARK_CAVE_NORTH_SIDE',None)]),
+  # Johto batch 17: Ice Path 1F from Route 44 and Blackthorn; Mt. Mortar 1F from Route 42's three entrances.
+  (JOHTO+'ROUTE44',68,13,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ICE_PATH_1F',None),('MAP_JOHTO_ROUTE44',None)]),
+  (JOHTO+'BLACKTHORN_CITY',42,23,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ICE_PATH_1F',None),('MAP_JOHTO_BLACKTHORN_CITY',None)]),
+  (JOHTO+'ROUTE42',18,8,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_MT_MORTAR_1F_SOUTH',None),('MAP_JOHTO_ROUTE42',None)]),
+  (JOHTO+'ROUTE42',40,12,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_MT_MORTAR_1F_SOUTH',None),('MAP_JOHTO_ROUTE42',None)]),
+  (JOHTO+'ROUTE42',62,10,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_MT_MORTAR_1F_SOUTH',None),('MAP_JOHTO_ROUTE42',None)]),
+  (JOHTO+'MT_MORTAR_1F_SOUTH',24,39,[('UP','MAP')],[('MAP_JOHTO_MT_MORTAR_1F_NORTH',None)])):
  CASES.append((_m,_x,_y,0,0,_steps));BATCH_WALKS[len(CASES)]=_want
 # Region map pages scroll: hold RIGHT on Hoenn (opens at column 0) and LEFT on Johto (opens at its last).
 PAGE_SCROLL={}
@@ -1326,7 +1333,7 @@ runner=test/'region-pilot-smoke'
 subprocess.run(['gcc','-O2','-Wall','-Wextra',str(game/'scripts/region_pilot_smoke.c'),'-o',str(runner),'-lmgba','-lpng'],check=True)
 result=subprocess.run([str(runner),str(test/'pokefirered.gba'),str(out/'map'),str(len(CASES)),
                        *['0x'+symbols[s] for s in ('gPilotCase','gPilotStage','gPilotResult','gPilotKeys','gPilotShot')]],
-                      capture_output=True,text=True,timeout=1800)
+                      capture_output=True,text=True,timeout=5400)  # ~1300 cases ran past 30 min
 (out/'emulator.log').write_text(result.stdout+result.stderr);assert result.returncode==0,(result.returncode,result.stdout,result.stderr[-2000:])
 rows={}
 for m in re.finditer(r'case=(\d+) stage=(\d+) text=([0-9a-f]+)',result.stdout):
@@ -1450,7 +1457,7 @@ for name,row,section,label in (('Littleroot',little,'MAPSEC_LITTLEROOT_TOWN','LI
  if name!='Pallet':assert row[37]==1,(name,'pilot exteriors show the map name popup')
  sections[name]={'id':row[38],'name':shown}
 # Existing IDs keep their place: the Johto sections come after the last FireRed one.
-assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-33:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY','MAPSEC_ROUTE_38','MAPSEC_ROUTE_39','MAPSEC_OLIVINE_CITY','MAPSEC_ROUTE_42','MAPSEC_MAHOGANY_TOWN','MAPSEC_ROUTE_43','MAPSEC_LAKE_OF_RAGE','MAPSEC_ROUTE_44','MAPSEC_ROUTE_46','MAPSEC_ROUTE_45','MAPSEC_BLACKTHORN_CITY','MAPSEC_ROUTE_40','MAPSEC_ROUTE_41','MAPSEC_CIANWOOD_CITY','MAPSEC_ROUTE_27','MAPSEC_ROUTE_26','MAPSEC_DARK_CAVE']
+assert order.index('MAPSEC_NEW_BARK_TOWN')==order.index('MAPSEC_SPECIAL_AREA')+1 and order[-35:]==['MAPSEC_ROUTE_29','MAPSEC_CHERRYGROVE_CITY','MAPSEC_ROUTE_30','MAPSEC_ROUTE_31','MAPSEC_VIOLET_CITY','MAPSEC_ROUTE_32','MAPSEC_ROUTE_33','MAPSEC_AZALEA_TOWN','MAPSEC_UNION_CAVE','MAPSEC_ILEX_FOREST','MAPSEC_ROUTE_34','MAPSEC_GOLDENROD_CITY','MAPSEC_ROUTE_35','MAPSEC_ROUTE_36','MAPSEC_ROUTE_37','MAPSEC_ECRUTEAK_CITY','MAPSEC_ROUTE_38','MAPSEC_ROUTE_39','MAPSEC_OLIVINE_CITY','MAPSEC_ROUTE_42','MAPSEC_MAHOGANY_TOWN','MAPSEC_ROUTE_43','MAPSEC_LAKE_OF_RAGE','MAPSEC_ROUTE_44','MAPSEC_ROUTE_46','MAPSEC_ROUTE_45','MAPSEC_BLACKTHORN_CITY','MAPSEC_ROUTE_40','MAPSEC_ROUTE_41','MAPSEC_CIANWOOD_CITY','MAPSEC_ROUTE_27','MAPSEC_ROUTE_26','MAPSEC_DARK_CAVE','MAPSEC_ICE_PATH','MAPSEC_MT_MORTAR']
 for case in (24,25,26,*PAGE_SCROLL):
  assert rows[case][0]==1 and rows[case][1]==1,(CASES[case-1][0],'Town Map did not open and settle',rows[case][:2].hex())
 # Page scroll: screen tile (10,12) shows page tile (scroll + 10, 12) of the page tilemap.

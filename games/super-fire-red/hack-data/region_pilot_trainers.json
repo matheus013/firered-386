@@ -6233,6 +6233,49 @@
           0
         ]
       ]
+    },
+    "TRAINER_JOHTO_MARKUS": {
+      "new": true,
+      "party": "sParty_JohtoMarkus",
+      "name": "MARKUS",
+      "source": "TRAINER_MARKUS",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_SUPER_NERD",
+      "trainer_pic": "TRAINER_PIC_SUPER_NERD",
+      "music": "TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_SLOWPOKE",
+          19,
+          0
+        ]
+      ]
+    },
+    "TRAINER_JOHTO_MILLER": {
+      "new": true,
+      "party": "sParty_JohtoMiller",
+      "name": "MILLER",
+      "source": "TRAINER_MILLER",
+      "source_repo": "HNS_modern",
+      "trainer_class": "TRAINER_CLASS_POKEMANIAC",
+      "trainer_pic": "TRAINER_PIC_POKEMANIAC",
+      "music": "TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS",
+      "level_offset": 60,
+      "double": false,
+      "team": [
+        [
+          "SPECIES_NIDOKING",
+          20,
+          0
+        ],
+        [
+          "SPECIES_NIDOQUEEN",
+          20,
+          0
+        ]
+      ]
     }
   }
 }

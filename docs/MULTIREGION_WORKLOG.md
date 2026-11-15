@@ -2419,3 +2419,48 @@ rotas.
 - as árvores de berry, as bases secretas e os itens escondidos.
 
 **Resultado:** 1283 casos aprovados (eram 1216), com as 230 batalhas de rota vencidas. As caminhadas novas cruzam Route 118 → Route 119 → Fortree e entram e saem do Centro e do Mart de Fortree.
+
+## Treinadores: segundo bloco extra de flags
+
+Com o lote 11 de Hoenn, os IDs chegaram a 942, perto do limite de 984 do primeiro bloco extra.
+Agora existe um segundo bloco, com as 67 flags sem nome de 0x4BD a 0x4FF. Elas ficam logo antes de
+`TRAINER_FLAGS_START`, e nada em `data/` ou `src/` as usa (conferido por busca).
+
+- `GetTrainerFlagId` passa para o segundo bloco quando o primeiro acaba.
+- O `STATIC_ASSERT` agora soma os dois blocos, e o limite passa a ser 1051 treinadores.
+- Os saves continuam compatíveis: as flags de treinador e de sistema não mudaram de lugar.
+- Nenhum treinador usa o segundo bloco ainda (o primeiro vai até o ID 983). As batalhas de teste vão
+  conferir a flag de vitória nesse bloco quando os IDs passarem de 983.
+
+## Johto, lote 17: Ice Path 1F e Mt. Mortar 1F
+
+**Mapas novos:**
+
+- o 1F do Ice Path (Johto General + secundário `Cave_Ice`), que liga a Route 44 a Blackthorn;
+- as duas metades do 1F do Mt. Mortar (secundário `Cave_Gray`), com as três entradas da Route 42.
+
+Os andares de baixo do Ice Path e o 2F e o B1F do Mt. Mortar continuam fechados. Blackthorn ganhou
+o warp do Ice Path, e o Centro e o Mart foram renumerados junto.
+
+- **Regras novas:**
+  - `MB_ICE` tem o mesmo nome no FireRed, com o deslize das Seafoam. Ganhou encontros como o chão
+    de caverna;
+  - `MB_MOUNTAIN_TOP` tem o mesmo nome;
+  - `MB_NORTHWARD_CURRENT` é a correnteza do FireRed, na água;
+  - `MB_WATERFALL` tem o mesmo nome.
+- **Treinadores (2, IDs 942–943):** Markus e Miller, no Mt. Mortar. Eles ainda cabem no primeiro
+  bloco, que vai até o ID 983; o segundo começa no 984.
+- **Eventos:**
+  - 12 itens, entre eles a HM07 Waterfall e a King's Rock, com as flags 0x121–0x12C. O script
+    "Full Incense" do HNS dá um Revive, e o item segue o script;
+  - 6 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** chão do Ice Path e chão, água e pesca do Mt. Mortar (tabelas do dia).
+
+**Fica para depois:**
+
+- os andares de baixo do Ice Path, com a Kimono Girl;
+- o 2F e o B1F do Mt. Mortar, com a pedra de Strength do 1F North.
+
+**Resultado:** 1305 casos aprovados (eram 1283), com as 232 batalhas de rota vencidas. As caminhadas novas entram no Ice Path pela Route 44 e por Blackthorn, no Mt. Mortar pelas três entradas da Route 42, e passam da metade sul para a norte.
+
+**Tempo do teste:** a primeira rodada estourou o limite de 30 minutos que o harness dá ao emulador. A segunda levou 26 minutos no total. O limite passou para 90 minutos, mas vale dividir o teste antes que ele cresça muito mais.

@@ -1,0 +1,100 @@
+{
+  "id": "MAP_JOHTO_MT_MORTAR_1F_SOUTH",
+  "name": "Johto_MtMortar_1F_South",
+  "layout": "LAYOUT_JOHTO_MT_MORTAR_1F_SOUTH",
+  "music": "MUS_MT_MOON",
+  "region_map_section": "MAPSEC_MT_MORTAR",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 41,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Johto_MtMortar_1F_South_EventScript_Object0",
+      "flag": "FLAG_HIDE_JOHTO_MT_MORTAR_ELIXIR"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 24,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Johto_MtMortar_1F_South_EventScript_Object1",
+      "flag": "FLAG_HIDE_JOHTO_MT_MORTAR_REVIVE"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 16,
+      "y": 50,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_ROUTE42",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 30,
+      "y": 50,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_ROUTE42",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 50,
+      "y": 50,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_ROUTE42",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 24,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_MT_MORTAR_1F_NORTH",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 41,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_MT_MORTAR_1F_NORTH",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 46,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_MT_MORTAR_1F_NORTH",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 19,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_MT_MORTAR_1F_NORTH",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

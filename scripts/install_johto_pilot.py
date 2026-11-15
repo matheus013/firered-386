@@ -53,7 +53,9 @@ MAPS = ['NewBarkTown', 'Route29', 'NewBarkTown_PlayersHouse_1F', 'NewBarkTown_Pl
         # Johto batch 15: east of New Bark, Route 27 and Route 26 (south part, toward Victory Road)
         'Route27', 'Route26',
         # Johto batch 16: Dark Cave, both sides (Route 31, Route 46 and Route 45 entrances)
-        'DarkCave_SouthSide', 'DarkCave_NorthSide']
+        'DarkCave_SouthSide', 'DarkCave_NorthSide',
+        # Johto batch 17: Ice Path 1F (Route 44 <-> Blackthorn) and Mt. Mortar 1F, both halves (Route 42's entrances)
+        'IcePath_1F', 'MtMortar_1F_South', 'MtMortar_1F_North']
 TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animation init)
     'gTileset_Johto_General': ('JohtoPilotGeneral', 'primary/johto_general', 'primary/johto_pilot_general', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_NewBarkTown': ('JohtoPilotNewBarkTown', 'secondary/new_bark_town', 'secondary/johto_pilot_new_bark_town', 'NULL'),
@@ -79,6 +81,8 @@ TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animati
     'gTileset_MahoganyTown': ('JohtoPilotMahoganyTown', 'secondary/mahogany_town', 'secondary/johto_pilot_mahogany_town', 'NULL'),
     'gTileset_CianwoodCity': ('JohtoPilotCianwoodCity', 'secondary/cianwood_city', 'secondary/johto_pilot_cianwood_city', 'NULL'),
     'gTileset_Blackthorn': ('JohtoPilotBlackthorn', 'secondary/blackthorn', 'secondary/johto_pilot_blackthorn', 'NULL'),
+    'gTileset_Cave_Ice': ('JohtoPilotCaveIce', 'secondary/cave_ice', 'secondary/johto_pilot_cave_ice', 'NULL'),
+    'gTileset_Cave_Gray': ('JohtoPilotCaveGray', 'secondary/cave_gray', 'secondary/johto_pilot_cave_gray', 'NULL'),
 }
 # FireRed attribute without layer bits: behavior | terrain << 9 | encounter << 24, taken from the pattern
 # FireRed's own tilesets use most for that behavior.
@@ -126,6 +130,10 @@ RULES = {
     'MB_WATER_NORTH_ARROW_WARP': (0x02000415, 'FireRed has no water arrow warp; ocean water (Route 40 <-> 41 also connect)'),
     'MB_CABLE_BOX_RESULTS_1': (0x00000000, 'one Cianwood decoration tile; no FireRed behavior'),
     'MB_BRIDGE_OVER_POND_MED': (0x00000000, 'Route 27 bridge; FireRed has no bridge behavior (elevation and collision stay)'),
+    'MB_ICE': (0x01000023, 'same name (Ice Path slides, as in Seafoam), with land encounters like the cave floor'),
+    'MB_MOUNTAIN_TOP': (0x0000000C, 'same name'),
+    'MB_NORTHWARD_CURRENT': (0x02000452, 'same name (water current), water terrain and encounters'),
+    'MB_WATERFALL': (0x02000413, 'same name (Waterfall), water terrain and encounters'),
     'MB_SIDEWAYS_STAIRS_LEFT_SIDE_TOP': (0x00000000, 'FireRed has no sideways stairs; walks straight'),
 }
 MUSIC = {'MUS_HG_NEW_BARK': 'MUS_PALLET', 'MUS_HG_ROUTE29': 'MUS_ROUTE1', 'MUS_HG_ELM_LAB': 'MUS_OAK_LAB',

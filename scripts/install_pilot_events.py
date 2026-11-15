@@ -676,6 +676,17 @@ EVENTS = {
     'DarkCave_NorthSide': (HNS, {
         0: ('itemflag', None, 'Black Flute'), 1: ('itemflag', None, 'Star Piece'),
         2: ('gift', ('ITEM_BLACK_GLASSES', 'DarkCave2_Text_Nerd', 'DarkCave2_Text_Nerd2', False), 'Black Glasses')}, {}),
+    # Johto batch 17. Left out: the Strength boulder in Mt. Mortar 1F North, the Kimono Girl in Ice Path 1F and the
+    # decorative Pokemon. Mt. Mortar's 2F and B1F and Ice Path's lower floors stay closed.
+    'IcePath_1F': (HNS, {
+        0: ('itemflag', None, 'PP Up'), 1: ('itemflag', None, 'HM07 Waterfall'), 2: ('itemflag', None, 'Protein')}, {}),
+    'MtMortar_1F_South': (HNS, {0: ('itemflag', None, 'Elixir'), 1: ('itemflag', None, 'Revive')}, {}),
+    'MtMortar_1F_North': (HNS, {
+        7: ('trainer', ('TRAINER_JOHTO_MARKUS', 'MountMortar2_Text_SupernerdMarkusSeen', 'MountMortar2_Text_SupernerdMarkusBeaten', 'MountMortar2_Text_SupernerdMarkusAfter'), ''),
+        8: ('trainer', ('TRAINER_JOHTO_MILLER', 'MountMortar2_Text_PokemaniacMillerSeen', 'MountMortar2_Text_PokemaniacMillerBeaten', 'MountMortar2_Text_PokemaniacMillerAfter'), ''),
+        0: ('itemflag', None, 'Max Repel'), 1: ('itemflag', None, 'Escape Rope'), 2: ('itemflag', None, 'Ultra Ball'),
+        3: ('itemflag', None, 'Nugget'), 4: ('itemflag', None, 'Max Potion'), 5: ('itemflag', None, 'Revive (HNS Full Incense script)'),
+        6: ('itemflag', None, "King's Rock")}, {}),
     'Gate_EcruteakCity_Route42': (HNS, {0: ('npc', 'Route42_Text_EcruteakGateOfficer', '')}, {}),
     'Route42': (HNS, {
         3: ('trainer', ('TRAINER_JOHTO_TULLY', 'Route42_Text_FisherTullySeen', 'Route42_Text_FisherTullyBeaten', 'Route42_Text_FisherTullyAfter'), ''), 4: ('trainer', ('TRAINER_JOHTO_SHANE', 'Route42_Text_PokemaniacShaneSeen', 'Route42_Text_PokemaniacShaneBeaten', 'Route42_Text_PokemaniacShaneAfter'), ''),
@@ -904,6 +915,18 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route119', 31): ('ITEM_HYPER_POTION', 'FLAG_HIDE_HOENN_ROUTE119_HYPER_POTION_2', 'FLAG_0x11E'),
               ('Route119', 40): ('ITEM_NUGGET', 'FLAG_HIDE_HOENN_ROUTE119_NUGGET', 'FLAG_0x11F'),
               ('Route119', 41): ('ITEM_ELIXIR', 'FLAG_HIDE_HOENN_ROUTE119_ELIXIR_2', 'FLAG_0x120'),
+              ('IcePath_1F', 0): ('ITEM_PP_UP', 'FLAG_HIDE_JOHTO_ICE_PATH_PP_UP', 'FLAG_0x121'),
+              ('IcePath_1F', 1): ('ITEM_HM07', 'FLAG_HIDE_JOHTO_ICE_PATH_HM_WATERFALL', 'FLAG_0x122'),
+              ('IcePath_1F', 2): ('ITEM_PROTEIN', 'FLAG_HIDE_JOHTO_ICE_PATH_PROTEIN', 'FLAG_0x123'),
+              ('MtMortar_1F_South', 0): ('ITEM_ELIXIR', 'FLAG_HIDE_JOHTO_MT_MORTAR_ELIXIR', 'FLAG_0x124'),
+              ('MtMortar_1F_South', 1): ('ITEM_REVIVE', 'FLAG_HIDE_JOHTO_MT_MORTAR_REVIVE', 'FLAG_0x125'),
+              ('MtMortar_1F_North', 0): ('ITEM_MAX_REPEL', 'FLAG_HIDE_JOHTO_MT_MORTAR_MAX_REPEL', 'FLAG_0x126'),
+              ('MtMortar_1F_North', 1): ('ITEM_ESCAPE_ROPE', 'FLAG_HIDE_JOHTO_MT_MORTAR_ESCAPE_ROPE', 'FLAG_0x127'),
+              ('MtMortar_1F_North', 2): ('ITEM_ULTRA_BALL', 'FLAG_HIDE_JOHTO_MT_MORTAR_ULTRA_BALL', 'FLAG_0x128'),
+              ('MtMortar_1F_North', 3): ('ITEM_NUGGET', 'FLAG_HIDE_JOHTO_MT_MORTAR_NUGGET', 'FLAG_0x129'),
+              ('MtMortar_1F_North', 4): ('ITEM_MAX_POTION', 'FLAG_HIDE_JOHTO_MT_MORTAR_MAX_POTION', 'FLAG_0x12A'),
+              ('MtMortar_1F_North', 5): ('ITEM_REVIVE', 'FLAG_HIDE_JOHTO_MT_MORTAR_REVIVE_2', 'FLAG_0x12B'),
+              ('MtMortar_1F_North', 6): ('ITEM_KINGS_ROCK', 'FLAG_HIDE_JOHTO_MT_MORTAR_KINGS_ROCK', 'FLAG_0x12C'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Objects whose source elevation differs from the cells they stand on (map, index) -> elevation. A wanderer only

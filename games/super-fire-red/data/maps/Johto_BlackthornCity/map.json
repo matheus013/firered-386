@@ -85,6 +85,13 @@
   ],
   "warp_events": [
     {
+      "x": 42,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_JOHTO_ICE_PATH_1F",
+      "dest_warp_id": "1"
+    },
+    {
       "x": 27,
       "y": 48,
       "elevation": 0,

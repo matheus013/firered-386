@@ -8770,6 +8770,185 @@
         }
       ]
     },
+    "Johto_IcePath_1F": {
+      "source": "HNS_modern/IcePath_1F",
+      "events": [
+        {
+          "kind": "itemflag",
+          "source_index": 0,
+          "source_script": "IcePath_1F_EventScript_Item_PpUp",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "PP Up",
+          "x": 48,
+          "y": 14
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 1,
+          "source_script": "IcePath_1F_EventScript_Item_HM_Waterfall",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "HM07 Waterfall",
+          "x": 41,
+          "y": 12
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 2,
+          "source_script": "IcePath_1F_EventScript_Item_Protein",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Protein",
+          "x": 47,
+          "y": 29
+        }
+      ]
+    },
+    "Johto_MtMortar_1F_South": {
+      "source": "HNS_modern/MtMortar_1F_South",
+      "events": [
+        {
+          "kind": "itemflag",
+          "source_index": 0,
+          "source_script": "MtMortar_1F_South_EventScript_Item_Elixir",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Elixir",
+          "x": 41,
+          "y": 33
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 1,
+          "source_script": "MtMortar_1F_South_EventScript_Item_Revive",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Revive",
+          "x": 24,
+          "y": 33
+        }
+      ]
+    },
+    "Johto_MtMortar_1F_North": {
+      "source": "HNS_modern/MtMortar_1F_North",
+      "events": [
+        {
+          "kind": "itemflag",
+          "source_index": 0,
+          "source_script": "MtMortar_1F_North_EventScript_Item_MaxRepel",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Max Repel",
+          "x": 16,
+          "y": 10
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 1,
+          "source_script": "MtMortar_1F_North_EventScript_Item_EscapeRope",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Escape Rope",
+          "x": 35,
+          "y": 19
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 2,
+          "source_script": "MtMortar_1F_North_EventScript_Item_UltraBall",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Ultra Ball",
+          "x": 22,
+          "y": 20
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 3,
+          "source_script": "MtMortar_1F_North_EventScript_Item_Nugget",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Nugget",
+          "x": 16,
+          "y": 17
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 4,
+          "source_script": "MtMortar_1F_North_EventScript_Item_MaxPotion",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Max Potion",
+          "x": 8,
+          "y": 16
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 5,
+          "source_script": "MtMortar_1F_North_EventScript_Item_FullIncense",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Revive (HNS Full Incense script)",
+          "x": 11,
+          "y": 27
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 6,
+          "source_script": "MtMortar_1F_North_EventScript_Item_KingsRock",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "King's Rock",
+          "x": 35,
+          "y": 38
+        },
+        {
+          "kind": "trainer",
+          "source_index": 7,
+          "source_script": "MtMortar_1F_North_EventScript_Markus",
+          "source_sprite": "OBJ_EVENT_GFX_SUPER_NERD",
+          "firered_sprite": "OBJ_EVENT_GFX_POKE_MANIAC",
+          "text": [
+            "TRAINER_JOHTO_MARKUS",
+            "MountMortar2_Text_SupernerdMarkusSeen",
+            "MountMortar2_Text_SupernerdMarkusBeaten",
+            "MountMortar2_Text_SupernerdMarkusAfter"
+          ],
+          "note": "",
+          "x": 23,
+          "y": 27
+        },
+        {
+          "kind": "trainer",
+          "source_index": 8,
+          "source_script": "MtMortar_1F_North_EventScript_Miller",
+          "source_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "text": [
+            "TRAINER_JOHTO_MILLER",
+            "MountMortar2_Text_PokemaniacMillerSeen",
+            "MountMortar2_Text_PokemaniacMillerBeaten",
+            "MountMortar2_Text_PokemaniacMillerAfter"
+          ],
+          "note": "",
+          "x": 34,
+          "y": 44
+        }
+      ]
+    },
     "Johto_Gate_EcruteakCity_Route42": {
       "source": "HNS_modern/Gate_EcruteakCity_Route42",
       "events": [
