@@ -8126,6 +8126,98 @@
         }
       ]
     },
+    "Johto_DarkCave_SouthSide": {
+      "source": "HNS_modern/DarkCave_SouthSide",
+      "events": [
+        {
+          "kind": "itemflag",
+          "source_index": 0,
+          "source_script": "DarkCave1_EventScript_Item_Potion",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Potion",
+          "x": 10,
+          "y": 7
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 5,
+          "source_script": "DarkCave1_EventScript_Item_Revive",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Revive",
+          "x": 45,
+          "y": 8
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 6,
+          "source_script": "DarkCave1_EventScript_Item_MaxRevive",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Max Revive",
+          "x": 51,
+          "y": 41
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 7,
+          "source_script": "DarkCave1_EventScript_Item_Elixir",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Elixir",
+          "x": 59,
+          "y": 47
+        }
+      ]
+    },
+    "Johto_DarkCave_NorthSide": {
+      "source": "HNS_modern/DarkCave_NorthSide",
+      "events": [
+        {
+          "kind": "itemflag",
+          "source_index": 0,
+          "source_script": "DarkCave2_EventScript_Item_BlackFlute",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Black Flute",
+          "x": 13,
+          "y": 33
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 1,
+          "source_script": "DarkCave2_EventScript_Item_StarPiece",
+          "source_sprite": "OBJ_EVENT_GFX_POKE_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Star Piece",
+          "x": 31,
+          "y": 31
+        },
+        {
+          "kind": "gift",
+          "source_index": 2,
+          "source_script": "DarkCave2_EventScript_BlackGlasses",
+          "source_sprite": "OBJ_EVENT_GFX_SUPER_NERD",
+          "firered_sprite": "OBJ_EVENT_GFX_POKE_MANIAC",
+          "text": [
+            "ITEM_BLACK_GLASSES",
+            "DarkCave2_Text_Nerd",
+            "DarkCave2_Text_Nerd2",
+            false
+          ],
+          "note": "Black Glasses",
+          "x": 8,
+          "y": 5
+        }
+      ]
+    },
     "Johto_Gate_EcruteakCity_Route42": {
       "source": "HNS_modern/Gate_EcruteakCity_Route42",
       "events": [

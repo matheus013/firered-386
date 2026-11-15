@@ -2361,3 +2361,24 @@ ganhou a conexão norte, e Fallarbor a oeste.
 - o Poochyena, o homem do Berry Crush, as árvores de berry, as bases secretas e os itens escondidos.
 
 **Resultado:** 1205 casos aprovados (eram 1142), com as 213 batalhas de rota vencidas, incluindo a dupla Tyra & Ivy. As caminhadas novas cruzam Fallarbor → Route 114 e Rustboro → Route 115.
+
+## Johto, lote 16: Dark Cave
+
+**Mapas novos:** os dois lados da Dark Cave (Johto General + secundário de caverna, que já existia
+desde a Union Cave). Com eles voltam três entradas que estavam fechadas: Route 31 → lado sul,
+Route 46 → lado sul e Route 45 → lado norte. Os dois lados também se ligam por dentro.
+
+- **Escuridão:** como no HNS, a caverna exige Flash (`requires_flash`).
+- **Música:** `MUS_HG_ICE_PATH` vira `MUS_MT_MOON`. A checagem do instalador avisa quando falta essa
+  troca.
+- **Caminho:** as pedras de Rock Smash ficaram de fora, então os caminhos ficam abertos.
+- **Eventos:**
+  - Potion, Revive, Max Revive, Elixir, Black Flute e Star Piece, com as flags 0x111–0x116;
+  - o rapaz dos Black Glasses dá o item uma vez (flag 0x117);
+  - 2 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** chão, água e pesca dos dois lados (no lado norte, a tabela do dia).
+
+**Fica para depois:** nada no mapa da caverna; as pedras de Rock Smash continuam fora, como nas
+rotas.
+
+**Resultado:** 1216 casos aprovados (eram 1205), com as 213 batalhas de rota vencidas. As caminhadas novas entram na caverna pelas Routes 31, 46 e 45 e passam do lado sul para o norte.

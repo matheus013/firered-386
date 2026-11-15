@@ -5334,6 +5334,30 @@
       "secondary_tileset": "gTileset_HoennPilotFallarbor",
       "border_filepath": "data/layouts/Hoenn_Route115/border.bin",
       "blockdata_filepath": "data/layouts/Hoenn_Route115/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_DARK_CAVE_SOUTH_SIDE",
+      "name": "Johto_DarkCave_SouthSide_Layout",
+      "width": 78,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotCave",
+      "border_filepath": "data/layouts/Johto_DarkCave_SouthSide/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_DarkCave_SouthSide/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_DARK_CAVE_NORTH_SIDE",
+      "name": "Johto_DarkCave_NorthSide_Layout",
+      "width": 57,
+      "height": 44,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_JohtoPilotGeneral",
+      "secondary_tileset": "gTileset_JohtoPilotCave",
+      "border_filepath": "data/layouts/Johto_DarkCave_NorthSide/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_DarkCave_NorthSide/map.bin"
     }
   ]
 }

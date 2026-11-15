@@ -51,7 +51,9 @@ MAPS = ['NewBarkTown', 'Route29', 'NewBarkTown_PlayersHouse_1F', 'NewBarkTown_Pl
         # Johto batch 14: the sea west of Olivine (Routes 40 and 41) and Cianwood City
         'Route40', 'Route41', 'CianwoodCity',
         # Johto batch 15: east of New Bark, Route 27 and Route 26 (south part, toward Victory Road)
-        'Route27', 'Route26']
+        'Route27', 'Route26',
+        # Johto batch 16: Dark Cave, both sides (Route 31, Route 46 and Route 45 entrances)
+        'DarkCave_SouthSide', 'DarkCave_NorthSide']
 TILESETS = {  # HNS symbol -> (FireRed name, HNS folder, FireRed folder, animation init)
     'gTileset_Johto_General': ('JohtoPilotGeneral', 'primary/johto_general', 'primary/johto_pilot_general', 'InitTilesetAnim_JohtoPilot'),
     'gTileset_NewBarkTown': ('JohtoPilotNewBarkTown', 'secondary/new_bark_town', 'secondary/johto_pilot_new_bark_town', 'NULL'),
@@ -130,7 +132,8 @@ MUSIC = {'MUS_HG_NEW_BARK': 'MUS_PALLET', 'MUS_HG_ROUTE29': 'MUS_ROUTE1', 'MUS_H
          'MUS_HG_CHERRYGROVE': 'MUS_VERMILLION', 'MUS_HG_ROUTE30': 'MUS_ROUTE24',
          'MUS_HG_VIOLET': 'MUS_FUCHSIA', 'MUS_HG_AZALEA': 'MUS_CINNABAR', 'MUS_HG_UNION_CAVE': 'MUS_MT_MOON', 'MUS_HG_ROUTE34': 'MUS_ROUTE11',
          'MUS_HG_GOLDENROD': 'MUS_CELADON', 'MUS_HG_ECRUTEAK': 'MUS_LAVENDER', 'MUS_HG_ROUTE38': 'MUS_ROUTE3', 'MUS_HG_ROUTE42': 'MUS_ROUTE11',
-         'MUS_HG_CIANWOOD': 'MUS_CINNABAR', 'MUS_HG_ROUTE26': 'MUS_ROUTE24'}
+         'MUS_HG_CIANWOOD': 'MUS_CINNABAR', 'MUS_HG_ROUTE26': 'MUS_ROUTE24',
+         'MUS_HG_ICE_PATH': 'MUS_MT_MOON'}
 DOORS = [  # metatile, HNS door image, FireRed name, palette (all 8 entries), sound, secondary tileset
     (0x2CB, 'cerulean.png', 'new_bark_blue', 7, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),
     (0x309, 'NewBarkTown_Door_Yellow.png', 'new_bark_yellow', 5, 'DOOR_SOUND_NORMAL', 'NewBarkTown'),

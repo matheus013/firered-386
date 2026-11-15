@@ -211,19 +211,22 @@
     },
     "gTileset_Cave_Default": {
       "firered": "gTileset_JohtoPilotCave",
-      "metatiles_converted": 67,
+      "metatiles_converted": 92,
       "behaviors": {
         "MB_CAVE": 19,
-        "MB_NORMAL": 33,
+        "MB_NORMAL": 48,
         "MB_ROCK_STAIRS": 1,
         "MB_LADDER": 1,
         "MB_SOUTH_ARROW_WARP": 1,
-        "MB_OCEAN_WATER": 12
+        "MB_NON_ANIMATED_DOOR": 1,
+        "MB_JUMP_WEST": 3,
+        "MB_JUMP_SOUTH": 4,
+        "MB_OCEAN_WATER": 14
       },
       "sha256": {
         "tiles.png": "6d1426f0f69ae026f0fd41b6268b3a032f496688cf21fe4188725f6ef476b269",
         "metatiles.bin": "8ecd81c653ea0d312934554794912046734d002518345efd1b8d0feda0999a25",
-        "metatile_attributes.bin": "4660bc55d0f75c65c5dd25c0273b26d04c3ceaf7fdd481af0e50248502e05647"
+        "metatile_attributes.bin": "f1861a7eda820d464f4c1a059007dffe4deef6fd75c85fa9d757f407ccae4de0"
       }
     },
     "gTileset_IlexForest": {
@@ -489,13 +492,6 @@
       "x": 35,
       "y": 4,
       "destination": "MAP_ROUTE30_MR_POKEMONS_HOUSE"
-    },
-    {
-      "map": "Route31",
-      "index": 0,
-      "x": 48,
-      "y": 9,
-      "destination": "MAP_DARK_CAVE_SOUTH_SIDE"
     },
     {
       "map": "VioletCity",
@@ -986,20 +982,6 @@
       "x": 68,
       "y": 12,
       "destination": "MAP_ICE_PATH_1F"
-    },
-    {
-      "map": "Route46",
-      "index": 2,
-      "x": 20,
-      "y": 11,
-      "destination": "MAP_DARK_CAVE_SOUTH_SIDE"
-    },
-    {
-      "map": "Route45",
-      "index": 0,
-      "x": 14,
-      "y": 4,
-      "destination": "MAP_DARK_CAVE_NORTH_SIDE"
     },
     {
       "map": "BlackthornCity",
@@ -1595,6 +1577,14 @@
     "Johto_Route26": {
       "id": "MAP_JOHTO_ROUTE26",
       "number": 47
+    },
+    "Johto_DarkCave_SouthSide": {
+      "id": "MAP_JOHTO_DARK_CAVE_SOUTH_SIDE",
+      "number": 48
+    },
+    "Johto_DarkCave_NorthSide": {
+      "id": "MAP_JOHTO_DARK_CAVE_NORTH_SIDE",
+      "number": 49
     }
   }
 }

@@ -1644,6 +1644,14 @@
       "y": 6,
       "width": 1,
       "height": 5
+    },
+    {
+      "id": "MAPSEC_DARK_CAVE",
+      "name": "DARK CAVE",
+      "x": 15,
+      "y": 4,
+      "width": 3,
+      "height": 2
     }
   ]
 }

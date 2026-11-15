@@ -625,6 +625,8 @@ gStdScriptsEnd::
 	.include "data/maps/Johto_CianwoodCity_Mart/scripts.inc"
 	.include "data/maps/Johto_Route27/scripts.inc"
 	.include "data/maps/Johto_Route26/scripts.inc"
+	.include "data/maps/Johto_DarkCave_SouthSide/scripts.inc"
+	.include "data/maps/Johto_DarkCave_NorthSide/scripts.inc"
 
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"

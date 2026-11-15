@@ -500,6 +500,9 @@ PT = {
     'Hoenn_VerdanturfTown_Text_WandasHouse': 'CASA DA WANDA',
     'Hoenn_VerdanturfTown_Text_BattleTentSign': 'BATTLE TENT DE VERDANTURF\\n“Delicie-se com as batalhas!”',
     'Hoenn_VerdanturfTown_Text_RusturfTunnelSign': 'RUSTURF TUNNEL\\n“Ligando RUSTBORO e VERDANTURF\\p“O projeto do túnel foi cancelado.”',
+    # Johto batch 16 (Dark Cave)
+    'Johto_DarkCave_NorthSide_Text_Nerd': 'Uou! Você me assustou!\\pEu estava com meus Black Glasses, então nem te vi.\\pO que estou fazendo aqui?\\pEi, não se preocupe com isso.\\pVou te dar um par de Black Glasses, então esquece que me viu, tá?',
+    'Johto_DarkCave_NorthSide_Text_Nerd2': 'Os Black Glasses aumentam o poder dos golpes do tipo Sombrio.',
     # Johto batch 15 (Routes 27 and 26)
     'Johto_Route27_Text_CooltrainerfMeganSeen': 'É raro ver alguém por aqui.\\pEstá treinando sozinho?',
     'Johto_Route27_Text_CooltrainerfMeganBeaten': 'Oh! Você é forte mesmo!',

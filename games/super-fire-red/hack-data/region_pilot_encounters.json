@@ -1876,6 +1876,332 @@
       "source": {
         "repository": "HNS_modern",
         "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gDarkCave_SouthSide",
+        "map": "MAP_DARK_CAVE_SOUTH_SIDE",
+        "note": "HNS table"
+      },
+      "row": {
+        "map": "MAP_JOHTO_DARK_CAVE_SOUTH_SIDE",
+        "base_label": "gJohtoDarkCaveSouthSide_Pilot",
+        "land_mons": {
+          "encounter_rate": 5,
+          "mons": [
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_ZUBAT"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_ZUBAT"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_TEDDIURSA"
+            },
+            {
+              "min_level": 3,
+              "max_level": 4,
+              "species": "SPECIES_GEODUDE"
+            },
+            {
+              "min_level": 3,
+              "max_level": 4,
+              "species": "SPECIES_GEODUDE"
+            },
+            {
+              "min_level": 3,
+              "max_level": 4,
+              "species": "SPECIES_GEODUDE"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_DUNSPARCE"
+            },
+            {
+              "min_level": 3,
+              "max_level": 4,
+              "species": "SPECIES_ZUBAT"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_TEDDIURSA"
+            },
+            {
+              "min_level": 2,
+              "max_level": 2,
+              "species": "SPECIES_LARVITAR"
+            },
+            {
+              "min_level": 4,
+              "max_level": 4,
+              "species": "SPECIES_LARVITAR"
+            },
+            {
+              "min_level": 4,
+              "max_level": 4,
+              "species": "SPECIES_DUNSPARCE"
+            }
+          ]
+        },
+        "water_mons": {
+          "encounter_rate": 7,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 19,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 19,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 19,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 19,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 19,
+              "species": "SPECIES_MAGIKARP"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_SEAKING"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_GOLDEEN"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
+        "label": "gDarkCave2",
+        "map": "MAP_DARK_CAVE_NORTH_SIDE",
+        "note": "day table"
+      },
+      "row": {
+        "map": "MAP_JOHTO_DARK_CAVE_NORTH_SIDE",
+        "base_label": "gJohtoDarkCaveNorthSide_Pilot",
+        "land_mons": {
+          "encounter_rate": 5,
+          "mons": [
+            {
+              "min_level": 33,
+              "max_level": 33,
+              "species": "SPECIES_GEODUDE"
+            },
+            {
+              "min_level": 33,
+              "max_level": 33,
+              "species": "SPECIES_ZUBAT"
+            },
+            {
+              "min_level": 35,
+              "max_level": 35,
+              "species": "SPECIES_GRAVELER"
+            },
+            {
+              "min_level": 35,
+              "max_level": 35,
+              "species": "SPECIES_URSARING"
+            },
+            {
+              "min_level": 33,
+              "max_level": 33,
+              "species": "SPECIES_GEODUDE"
+            },
+            {
+              "min_level": 33,
+              "max_level": 33,
+              "species": "SPECIES_ZUBAT"
+            },
+            {
+              "min_level": 35,
+              "max_level": 35,
+              "species": "SPECIES_GRAVELER"
+            },
+            {
+              "min_level": 30,
+              "max_level": 35,
+              "species": "SPECIES_URSARING"
+            },
+            {
+              "min_level": 33,
+              "max_level": 33,
+              "species": "SPECIES_GOLBAT"
+            },
+            {
+              "min_level": 33,
+              "max_level": 33,
+              "species": "SPECIES_GOLBAT"
+            },
+            {
+              "min_level": 35,
+              "max_level": 35,
+              "species": "SPECIES_URSARING"
+            },
+            {
+              "min_level": 33,
+              "max_level": 33,
+              "species": "SPECIES_GOLBAT"
+            }
+          ]
+        },
+        "water_mons": {
+          "encounter_rate": 7,
+          "mons": [
+            {
+              "min_level": 5,
+              "max_level": 19,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 19,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 19,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 19,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 5,
+              "max_level": 19,
+              "species": "SPECIES_MAGIKARP"
+            }
+          ]
+        },
+        "fishing_mons": {
+          "encounter_rate": 30,
+          "mons": [
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 10,
+              "max_level": 10,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 20,
+              "max_level": 20,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_SEAKING"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_GOLDEEN"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_MAGIKARP"
+            },
+            {
+              "min_level": 40,
+              "max_level": 40,
+              "species": "SPECIES_GOLDEEN"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": {
+        "repository": "HNS_modern",
+        "commit": "bf25b6ecd23c009b899da570d62a210f35e01809",
         "label": "gRoute27",
         "map": "MAP_ROUTE27",
         "note": "day table; Rock Smash left out"

@@ -635,6 +635,13 @@ EVENTS = {
         0: ('trainer', ('TRAINER_JOHTO_RICHARD', 'Route26_Text_PsychicRichardSeen', 'Route26_Text_PsychicRichardBeaten', 'Route26_Text_PsychicRichardAfter'), ''),
         14: ('trainer', ('TRAINER_JOHTO_GAVEN', 'Route26_Text_CooltrainermGavenSeen', 'Route26_Text_CooltrainermGavenBeaten', 'Route26_Text_CooltrainermGavenAfter'), ''),
         }, {}),
+    # Johto batch 16. The Rock Smash boulders are left out (the paths stay open, as on Hoenn's routes).
+    'DarkCave_SouthSide': (HNS, {
+        0: ('itemflag', None, 'Potion'), 5: ('itemflag', None, 'Revive'), 6: ('itemflag', None, 'Max Revive'),
+        7: ('itemflag', None, 'Elixir')}, {}),
+    'DarkCave_NorthSide': (HNS, {
+        0: ('itemflag', None, 'Black Flute'), 1: ('itemflag', None, 'Star Piece'),
+        2: ('gift', ('ITEM_BLACK_GLASSES', 'DarkCave2_Text_Nerd', 'DarkCave2_Text_Nerd2', False), 'Black Glasses')}, {}),
     'Gate_EcruteakCity_Route42': (HNS, {0: ('npc', 'Route42_Text_EcruteakGateOfficer', '')}, {}),
     'Route42': (HNS, {
         3: ('trainer', ('TRAINER_JOHTO_TULLY', 'Route42_Text_FisherTullySeen', 'Route42_Text_FisherTullyBeaten', 'Route42_Text_FisherTullyAfter'), ''), 4: ('trainer', ('TRAINER_JOHTO_SHANE', 'Route42_Text_PokemaniacShaneSeen', 'Route42_Text_PokemaniacShaneBeaten', 'Route42_Text_PokemaniacShaneAfter'), ''),
@@ -846,6 +853,13 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route115', 21): ('ITEM_PP_UP', 'FLAG_HIDE_HOENN_ROUTE115_PP_UP', 'FLAG_0x10E'),
               ('Route115', 22): ('ITEM_HEAL_POWDER', 'FLAG_HIDE_HOENN_ROUTE115_HEAL_POWDER', 'FLAG_0x10F'),
               ('Route114', 11): ('ITEM_TM05', 'FLAG_GOT_HOENN_TM_ROAR', 'FLAG_0x110'),
+              ('DarkCave_SouthSide', 0): ('ITEM_POTION', 'FLAG_HIDE_JOHTO_DARK_CAVE_POTION', 'FLAG_0x111'),
+              ('DarkCave_SouthSide', 5): ('ITEM_REVIVE', 'FLAG_HIDE_JOHTO_DARK_CAVE_REVIVE', 'FLAG_0x112'),
+              ('DarkCave_SouthSide', 6): ('ITEM_MAX_REVIVE', 'FLAG_HIDE_JOHTO_DARK_CAVE_MAX_REVIVE', 'FLAG_0x113'),
+              ('DarkCave_SouthSide', 7): ('ITEM_ELIXIR', 'FLAG_HIDE_JOHTO_DARK_CAVE_ELIXIR', 'FLAG_0x114'),
+              ('DarkCave_NorthSide', 0): ('ITEM_BLACK_FLUTE', 'FLAG_HIDE_JOHTO_DARK_CAVE_BLACK_FLUTE', 'FLAG_0x115'),
+              ('DarkCave_NorthSide', 1): ('ITEM_STAR_PIECE', 'FLAG_HIDE_JOHTO_DARK_CAVE_STAR_PIECE', 'FLAG_0x116'),
+              ('DarkCave_NorthSide', 2): ('ITEM_BLACK_GLASSES', 'FLAG_GOT_JOHTO_BLACK_GLASSES', 'FLAG_0x117'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Objects whose source elevation differs from the cells they stand on (map, index) -> elevation. A wanderer only
