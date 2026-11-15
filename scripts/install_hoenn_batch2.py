@@ -79,11 +79,20 @@ BATCHES = {
           'FortreeCity': ('MUS_PALLET', 'gTileset_HoennPilotFortree')},
          {'FortreeCity': ({(5, 6): 'PokemonCenter_1F', (4, 14): 'Mart'}, (5, 7), 'FLAG_0x8D6')},
          {'MAPSEC_ROUTE_119': 'ROUTE 119', 'MAPSEC_FORTREE_CITY': 'FORTREE CITY'}),
+    # Batch 12: Route 120 east of Fortree (Fortree secondary), Route 121 and Lilycove City (Lilycove secondary; the
+    # tiles are limited to Routes 121-123 and Lilycove). Lilycove gets its Pokemon Center only: the Department Store,
+    # museum, contest hall, motel, harbor, houses and the Aqua hideout stay closed; so do the Safari Zone, the
+    # Ancient Tomb and the Scorched Slab.
+    12: ({'Route120': ('MUS_ROUTE11', 'gTileset_HoennPilotFortree'),
+          'Route121': ('MUS_ROUTE11', 'gTileset_HoennPilotLilycove'),
+          'LilycoveCity': ('MUS_VERMILLION', 'gTileset_HoennPilotLilycove')},
+         {'LilycoveCity': ({(24, 14): 'PokemonCenter_1F'}, (24, 15), 'FLAG_0x8D7')},
+         {'MAPSEC_ROUTE_120': 'ROUTE 120', 'MAPSEC_ROUTE_121': 'ROUTE 121', 'MAPSEC_LILYCOVE_CITY': 'LILYCOVE CITY'}),
 }
 # Every Hoenn exterior in the expansion, in install order (connections only link the installed ones).
 ALL_EXTERIORS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
                  'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown',
-                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109', 'Route112', 'LavaridgeTown', 'Route113', 'FallarborTown', 'Route114', 'Route115', 'Route119', 'FortreeCity']
+                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109', 'Route112', 'LavaridgeTown', 'Route113', 'FallarborTown', 'Route114', 'Route115', 'Route119', 'FortreeCity', 'Route120', 'Route121', 'LilycoveCity']
 DOORS = [  # metatile, symbol in hoenn_pilot_doors.h (already defined for the Petalburg pair)
     (0x061, 'PokeCenter', 'DOOR_SOUND_SLIDING'), (0x041, 'PokeMart', 'DOOR_SOUND_SLIDING')]
 
@@ -199,9 +208,11 @@ def main():
     for town, (doors, heal, flag_slot) in TOWNS.items():
         ext, ext_id = 'Hoenn_' + town, mid(town)
         door_index = {kind: next(i for i, w in enumerate(kept[town]) if (w['x'], w['y']) == cell) for cell, kind in doors.items()}
-        mart_block = (em / f'data/maps/{town}_Mart/scripts.inc').read_text(encoding='utf-8')
-        label = f'{town}_Mart_Pokemart_Expanded:' if f'{town}_Mart_Pokemart_Expanded:' in mart_block else f'{town}_Mart_Pokemart:'
-        items = re.findall(r'\.2byte (ITEM_\w+)', mart_block.split(label)[1].split('pokemartlistend')[0])
+        items = []
+        if 'Mart' in doors.values():  # Lilycove has no Mart (its Department Store stays closed)
+            mart_block = (em / f'data/maps/{town}_Mart/scripts.inc').read_text(encoding='utf-8')
+            label = f'{town}_Mart_Pokemart_Expanded:' if f'{town}_Mart_Pokemart_Expanded:' in mart_block else f'{town}_Mart_Pokemart:'
+            items = re.findall(r'\.2byte (ITEM_\w+)', mart_block.split(label)[1].split('pokemartlistend')[0])
         heal_id = 'HEAL_LOCATION_' + snake(town)
         section = headers[town]['region_map_section']
         for kind in doors.values():

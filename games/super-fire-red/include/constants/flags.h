@@ -173,6 +173,15 @@
 #define FLAG_HIDE_JOHTO_MT_MORTAR_MAX_POTION FLAG_0x12A // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_MT_MORTAR_REVIVE_2 FLAG_0x12B // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_MT_MORTAR_KINGS_ROCK FLAG_0x12C // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE120_NUGGET FLAG_0x12D // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE120_FULL_HEAL FLAG_0x12E // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE120_NEST_BALL FLAG_0x12F // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE120_HYPER_POTION FLAG_0x130 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE120_REVIVE FLAG_0x131 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE121_CARBOS FLAG_0x132 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE121_REVIVE FLAG_0x133 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_ROUTE121_ZINC FLAG_0x134 // Region item (scripts/install_pilot_events.py)
+#define FLAG_HIDE_HOENN_LILYCOVE_MAX_REPEL FLAG_0x135 // Region item (scripts/install_pilot_events.py)
 #define FLAG_HIDE_JOHTO_ROUTE29_POTION FLAG_0x077 // Region pilot item (scripts/install_pilot_events.py)
 #define FLAG_GOT_JOHTO_AIDE_POTION FLAG_0x027 // Region pilot story (scripts/pilot_story.py)
 #define FLAG_GOT_JOHTO_AIDE_BALLS FLAG_0x07F // Region pilot story (scripts/pilot_story.py)
@@ -1619,6 +1628,7 @@
 #define FLAG_WORLD_MAP_VERDANTURF_TOWN                             FLAG_0x8CD
 #define FLAG_WORLD_MAP_OLIVINE_CITY                                FLAG_0x8CE
 #define FLAG_WORLD_MAP_MAUVILLE_CITY                               FLAG_0x8CF
+#define FLAG_WORLD_MAP_LILYCOVE_CITY                               FLAG_0x8D7
 #define FLAG_WORLD_MAP_FORTREE_CITY                                FLAG_0x8D6
 #define FLAG_WORLD_MAP_FALLARBOR_TOWN                              FLAG_0x8D5
 #define FLAG_WORLD_MAP_CIANWOOD_CITY                               FLAG_0x8D4

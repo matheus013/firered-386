@@ -278,6 +278,8 @@ const u16 gMetatiles_HoennPilotFallarbor[] = INCBIN_U16("data/tilesets/secondary
 const u32 gMetatileAttributes_HoennPilotFallarbor[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot_fallarbor/metatile_attributes.bin");
 const u16 gMetatiles_HoennPilotFortree[] = INCBIN_U16("data/tilesets/secondary/hoenn_pilot_fortree/metatiles.bin");
 const u32 gMetatileAttributes_HoennPilotFortree[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot_fortree/metatile_attributes.bin");
+const u16 gMetatiles_HoennPilotLilycove[] = INCBIN_U16("data/tilesets/secondary/hoenn_pilot_lilycove/metatiles.bin");
+const u32 gMetatileAttributes_HoennPilotLilycove[] = INCBIN_U32("data/tilesets/secondary/hoenn_pilot_lilycove/metatile_attributes.bin");
 const u16 gMetatiles_JohtoPilotRoute38Farmland[] = INCBIN_U16("data/tilesets/secondary/johto_pilot_route38_farmland/metatiles.bin");
 const u32 gMetatileAttributes_JohtoPilotRoute38Farmland[] = INCBIN_U32("data/tilesets/secondary/johto_pilot_route38_farmland/metatile_attributes.bin");
 

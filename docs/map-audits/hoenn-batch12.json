@@ -1,0 +1,50 @@
+{
+  "maps": {
+    "Hoenn_Route120": {
+      "layout": "LAYOUT_HOENN_ROUTE120",
+      "secondary": "gTileset_HoennPilotFortree",
+      "music": "MUS_ROUTE11",
+      "warps": 0
+    },
+    "Hoenn_Route121": {
+      "layout": "LAYOUT_HOENN_ROUTE121",
+      "secondary": "gTileset_HoennPilotLilycove",
+      "music": "MUS_ROUTE11",
+      "warps": 0
+    },
+    "Hoenn_LilycoveCity": {
+      "layout": "LAYOUT_HOENN_LILYCOVE_CITY",
+      "secondary": "gTileset_HoennPilotLilycove",
+      "music": "MUS_VERMILLION",
+      "warps": 1
+    },
+    "Hoenn_LilycoveCity_PokemonCenter_1F": {
+      "layout": "LAYOUT_POKEMON_CENTER_1F",
+      "heal_location": "HEAL_LOCATION_LILYCOVE_CITY"
+    }
+  },
+  "closed_doors": {
+    "Route120": [
+      "MAP_ANCIENT_TOMB",
+      "MAP_SCORCHED_SLAB"
+    ],
+    "Route121": [
+      "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE"
+    ],
+    "LilycoveCity": [
+      "MAP_LILYCOVE_CITY_DEPARTMENT_STORE_1F",
+      "MAP_LILYCOVE_CITY_COVE_LILY_MOTEL_1F",
+      "MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_1F",
+      "MAP_LILYCOVE_CITY_CONTEST_LOBBY",
+      "MAP_LILYCOVE_CITY_POKEMON_TRAINER_FAN_CLUB",
+      "MAP_AQUA_HIDEOUT_1F",
+      "MAP_LILYCOVE_CITY_MOVE_DELETERS_HOUSE",
+      "MAP_LILYCOVE_CITY_HOUSE1",
+      "MAP_LILYCOVE_CITY_HOUSE2",
+      "MAP_LILYCOVE_CITY_HOUSE3",
+      "MAP_LILYCOVE_CITY_HOUSE4",
+      "MAP_LILYCOVE_CITY_HARBOR",
+      "MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_1F"
+    ]
+  }
+}

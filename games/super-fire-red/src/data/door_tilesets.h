@@ -7,6 +7,7 @@ extern const struct Tileset gTileset_HoennPilotSlateport;
 extern const struct Tileset gTileset_HoennPilotLavaridge;
 extern const struct Tileset gTileset_HoennPilotFallarbor;
 extern const struct Tileset gTileset_HoennPilotFortree;
+extern const struct Tileset gTileset_HoennPilotLilycove;
 #include "hoenn_pilot_doors.h"
 extern const struct Tileset gTileset_JohtoPilotGeneral;
 extern const struct Tileset gTileset_JohtoPilotNewBarkTown;
@@ -43,5 +44,6 @@ static const struct DoorTilesetBinding sDoorTilesetBindings[] = {
     {&gTileset_JohtoPilotNorthEast, &gTileset_JohtoPilotCianwoodCity, sJohtoPilotDoors_Cianwood},
     {&gTileset_HoennPilotGeneral, &gTileset_HoennPilotFallarbor, sHoennPilotDoors_Fallarbor},
     {&gTileset_HoennPilotGeneral, &gTileset_HoennPilotFortree, sHoennPilotDoors_Fortree},
+    {&gTileset_HoennPilotGeneral, &gTileset_HoennPilotLilycove, sHoennPilotDoors_Lilycove},
     {NULL, NULL, NULL}
 };

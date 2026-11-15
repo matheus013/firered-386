@@ -47,7 +47,15 @@ RULES = {
     'MB_WATERFALL': (0x02000413, 'batch 10: Route 114 waterfall; same name in FireRed (Waterfall), water terrain and encounters'),
     'MB_LONG_GRASS': (0x01000202, 'batch 11: Route 119; FireRed has no long grass: tall grass with land encounters'),
     'MB_LONG_GRASS_SOUTH_EDGE': (0x01000202, 'batch 11: Route 119; FireRed has no long grass: tall grass with land encounters'),
+    'MB_SHALLOW_WATER': (0x00000017, 'batch 12: Lilycove shore; same name in FireRed (walkable, splash)'),
+    'MB_WATER_DOOR': (0x02000415, 'batch 12: water entrance (Aqua Hideout, Ancient Tomb area); closed here, ocean water'),
     # No FireRed counterpart: left as normal terrain (their cells keep the map's collision).
+    'MB_BRIDGE_OVER_POND_HIGH': (0, 'batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)'),
+    'MB_BRIDGE_OVER_POND_MED': (0, 'batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)'),
+    'MB_BRIDGE_OVER_POND_HIGH_EDGE_1': (0, 'batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)'),
+    'MB_BRIDGE_OVER_POND_HIGH_EDGE_2': (0, 'batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)'),
+    'MB_BRIDGE_OVER_POND_MED_EDGE_1': (0, 'batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)'),
+    'MB_BRIDGE_OVER_POND_MED_EDGE_2': (0, 'batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)'),
     'MB_FORTREE_BRIDGE': (0, 'batch 11: Fortree plank bridges; FireRed has no bridge behavior (elevation and collision stay)'),
     'MB_HORIZONTAL_RAIL': (0, 'batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable'),
     'MB_VERTICAL_RAIL': (0, 'batch 11: Route 119 Acro Bike rail; FireRed has no Acro Bike, so it is walkable'),
@@ -105,6 +113,12 @@ TABLES_11 = [
     (0, 'data/tilesets/primary/general/metatile_attributes.bin', 'data/tilesets/primary/hoenn_pilot/metatile_attributes.bin'),
     (640, 'data/tilesets/secondary/fortree/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_fortree/metatile_attributes.bin', 'gTileset_HoennPilotFortree'),
 ]
+LAYOUTS_12 = ['LAYOUT_HOENN_ROUTE120', 'LAYOUT_HOENN_ROUTE121', 'LAYOUT_HOENN_LILYCOVE_CITY']
+TABLES_12 = [
+    (0, 'data/tilesets/primary/general/metatile_attributes.bin', 'data/tilesets/primary/hoenn_pilot/metatile_attributes.bin'),
+    (640, 'data/tilesets/secondary/fortree/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_fortree/metatile_attributes.bin', 'gTileset_HoennPilotFortree'),
+    (640, 'data/tilesets/secondary/lilycove/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_lilycove/metatile_attributes.bin', 'gTileset_HoennPilotLilycove'),
+]
 TABLES_3 = [
     (0, 'data/tilesets/primary/general/metatile_attributes.bin', 'data/tilesets/primary/hoenn_pilot/metatile_attributes.bin'),
     (640, 'data/tilesets/secondary/rustboro/metatile_attributes.bin', 'data/tilesets/secondary/hoenn_pilot_rustboro/metatile_attributes.bin', 'gTileset_HoennPilotRustboro'),
@@ -124,10 +138,10 @@ TABLES = [  # (offset, source table, installed table)
 def main():
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument('--source', type=Path, required=True)
-    p.add_argument('--batch', type=int, choices=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11), default=1)
+    p.add_argument('--batch', type=int, choices=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12), default=1)
     p.add_argument('--report', type=Path)
     a = p.parse_args()
-    layouts_used, tables = {1: (LAYOUTS, TABLES), 2: (LAYOUTS_2, TABLES_2), 3: (LAYOUTS_3, TABLES_3), 4: (LAYOUTS_4, TABLES_4), 5: (LAYOUTS_5, TABLES_5), 6: (LAYOUTS_6, TABLES_6), 7: (LAYOUTS_7, TABLES_7), 8: (LAYOUTS_8, TABLES_8), 9: (LAYOUTS_9, TABLES_9), 10: (LAYOUTS_10, TABLES_10), 11: (LAYOUTS_11, TABLES_11)}[a.batch]
+    layouts_used, tables = {1: (LAYOUTS, TABLES), 2: (LAYOUTS_2, TABLES_2), 3: (LAYOUTS_3, TABLES_3), 4: (LAYOUTS_4, TABLES_4), 5: (LAYOUTS_5, TABLES_5), 6: (LAYOUTS_6, TABLES_6), 7: (LAYOUTS_7, TABLES_7), 8: (LAYOUTS_8, TABLES_8), 9: (LAYOUTS_9, TABLES_9), 10: (LAYOUTS_10, TABLES_10), 11: (LAYOUTS_11, TABLES_11), 12: (LAYOUTS_12, TABLES_12)}[a.batch]
     report_path = a.report or Path(f'docs/map-audits/hoenn-batch{a.batch}-attributes.json')
     names = behavior_names(a.source / 'include/constants/metatile_behaviors.h')
     layouts = {l['id']: l for l in json.loads((GAME / 'data/layouts/layouts.json').read_text())['layouts'] if 'id' in l}

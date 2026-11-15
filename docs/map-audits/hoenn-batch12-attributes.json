@@ -1,0 +1,1149 @@
+{
+  "layouts": [
+    "LAYOUT_HOENN_ROUTE120",
+    "LAYOUT_HOENN_ROUTE121",
+    "LAYOUT_HOENN_LILYCOVE_CITY"
+  ],
+  "entries": [
+    {
+      "metatile": "0x026",
+      "source_behavior": "MB_SECRET_BASE_SPOT_TREE_LEFT",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x027",
+      "source_behavior": "MB_SECRET_BASE_SPOT_TREE_RIGHT",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x098",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x42000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x099",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x42000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x09a",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x42000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x0a0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0a8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0aa",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x0c9",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x20000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x0cb",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x14c",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x15e",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x15f",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x166",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x167",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x168",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x169",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x16e",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x16f",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x185",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x186",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x18d",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x18e",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x194",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x195",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x196",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x197",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x19b",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x19c",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x19d",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x19e",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x00000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x19f",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x1a0",
+      "source_behavior": "MB_SECRET_BASE_SPOT_RED_CAVE",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x1a4",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x1a5",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x1a6",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x1a7",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x20000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x1ad",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x1ae",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x00000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x1af",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x1b0",
+      "source_behavior": "MB_SECRET_BASE_SPOT_BLUE_CAVE",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x1b5",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x1b7",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x1bd",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x1be",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x1bf",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x1db",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x00000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x1fa",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x00000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x1fb",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x00000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x283",
+      "source_behavior": "MB_JUMP_EAST",
+      "attribute": "0x00000038",
+      "reason": "east ledge"
+    },
+    {
+      "metatile": "0x284",
+      "source_behavior": "MB_JUMP_SOUTH",
+      "attribute": "0x0000003b",
+      "reason": "south ledge"
+    },
+    {
+      "metatile": "0x285",
+      "source_behavior": "MB_JUMP_SOUTH",
+      "attribute": "0x0000003b",
+      "reason": "south ledge"
+    },
+    {
+      "metatile": "0x289",
+      "source_behavior": "MB_JUMP_SOUTH",
+      "attribute": "0x0000003b",
+      "reason": "south ledge"
+    },
+    {
+      "metatile": "0x28b",
+      "source_behavior": "MB_JUMP_SOUTHEAST",
+      "attribute": "0x00000000",
+      "reason": "source has no movement for diagonal jumps"
+    },
+    {
+      "metatile": "0x2ee",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2ef",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2f4",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x20000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2f5",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x20000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2f7",
+      "source_behavior": "MB_POND_WATER",
+      "attribute": "0x22000410",
+      "reason": "FR pond water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2fc",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x20000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x2fd",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x20000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x305",
+      "source_behavior": "MB_BRIDGE_OVER_POND_MED",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x306",
+      "source_behavior": "MB_BRIDGE_OVER_POND_MED",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x307",
+      "source_behavior": "MB_BRIDGE_OVER_POND_MED",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x308",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x00000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x30a",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x00000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x30d",
+      "source_behavior": "MB_BRIDGE_OVER_POND_MED",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x30e",
+      "source_behavior": "MB_BRIDGE_OVER_POND_MED",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x30f",
+      "source_behavior": "MB_BRIDGE_OVER_POND_MED",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x310",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x00000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x311",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x00000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x312",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x00000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x313",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x314",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x315",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x316",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x317",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x318",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x00000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x319",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x00000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x31a",
+      "source_behavior": "MB_PUDDLE",
+      "attribute": "0x00000016",
+      "reason": "same name"
+    },
+    {
+      "metatile": "0x31d",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x31e",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x31f",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x32f",
+      "source_behavior": "MB_WATER_DOOR",
+      "attribute": "0x02000415",
+      "reason": "batch 12: water entrance (Aqua Hideout, Ancient Tomb area); closed here, ocean water"
+    },
+    {
+      "metatile": "0x36f",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH",
+      "attribute": "0x20000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x374",
+      "source_behavior": "MB_BRIDGE_OVER_POND_MED",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x377",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH",
+      "attribute": "0x20000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x37b",
+      "source_behavior": "MB_BRIDGE_OVER_POND_MED_EDGE_1",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x37c",
+      "source_behavior": "MB_BRIDGE_OVER_POND_MED_EDGE_2",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x383",
+      "source_behavior": "MB_BRIDGE_OVER_POND_MED_EDGE_1",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x384",
+      "source_behavior": "MB_BRIDGE_OVER_POND_MED_EDGE_2",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x38b",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH_EDGE_1",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x38c",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH_EDGE_1",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x393",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH_EDGE_2",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x394",
+      "source_behavior": "MB_BRIDGE_OVER_POND_HIGH_EDGE_2",
+      "attribute": "0x00000000",
+      "reason": "batch 12: Route 120 bridge; FireRed has no bridge behavior (elevation and collision stay)"
+    },
+    {
+      "metatile": "0x280",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x281",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x284",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x285",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x286",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x287",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x288",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x289",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28a",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x00000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x28b",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x00000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x28c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x28f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x291",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x292",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x293",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x294",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x295",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x296",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x297",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x299",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29a",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x29f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2a6",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c0",
+      "source_behavior": "MB_SHALLOW_WATER",
+      "attribute": "0x00000017",
+      "reason": "batch 12: Lilycove shore; same name in FireRed (walkable, splash)"
+    },
+    {
+      "metatile": "0x2c2",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2c5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2c6",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x2c7",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2cb",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2cc",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d0",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2d8",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2da",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x2f3",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x2f5",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x30e",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x00000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x322",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x32b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x331",
+      "source_behavior": "MB_WATER_DOOR",
+      "attribute": "0x02000415",
+      "reason": "batch 12: water entrance (Aqua Hideout, Ancient Tomb area); closed here, ocean water"
+    },
+    {
+      "metatile": "0x333",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x334",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x335",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x34b",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x356",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x357",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x35d",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x360",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x361",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x362",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x363",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x364",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x367",
+      "source_behavior": "MB_NON_ANIMATED_DOOR",
+      "attribute": "0x00000060",
+      "reason": "FR MB_CAVE_DOOR (Petalburg Woods entrances)"
+    },
+    {
+      "metatile": "0x36d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x36e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x375",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x376",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x37c",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x37d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x37e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x37f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x383",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x384",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x386",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x387",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x38b",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x38c",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x38d",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x38e",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x38f",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3a4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3ad",
+      "source_behavior": "MB_ANIMATED_DOOR",
+      "attribute": "0x20000069",
+      "reason": "FR MB_WARP_DOOR"
+    },
+    {
+      "metatile": "0x3c1",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3c2",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3c3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3c4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3c5",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3d3",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3d4",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3d6",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3dd",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    },
+    {
+      "metatile": "0x3de",
+      "source_behavior": "MB_NORMAL",
+      "attribute": "0x20000000",
+      "reason": "layer type only"
+    }
+  ]
+}

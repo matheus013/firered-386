@@ -5666,6 +5666,786 @@
         }
       ]
     },
+    "Hoenn_Route120": {
+      "source": "pokeemerald/Route120",
+      "events": [
+        {
+          "kind": "trainer",
+          "source_index": 10,
+          "source_script": "Route120_EventScript_Colin",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_ROCKER",
+          "text": [
+            "TRAINER_HOENN_COLIN",
+            "Route120_Text_ColinIntro",
+            "Route120_Text_ColinDefeat",
+            "Route120_Text_ColinPostBattle"
+          ],
+          "note": "",
+          "x": 5,
+          "y": 22
+        },
+        {
+          "kind": "trainer",
+          "source_index": 11,
+          "source_script": "Route120_EventScript_Robert",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_ROCKER",
+          "text": [
+            "TRAINER_HOENN_ROBERT",
+            "Route120_Text_RobertIntro",
+            "Route120_Text_RobertDefeat",
+            "Route120_Text_RobertPostBattle"
+          ],
+          "note": "",
+          "x": 32,
+          "y": 14
+        },
+        {
+          "kind": "trainer",
+          "source_index": 12,
+          "source_script": "Route120_EventScript_Lorenzo",
+          "source_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "firered_sprite": "OBJ_EVENT_GFX_CAMPER",
+          "text": [
+            "TRAINER_HOENN_LORENZO",
+            "Route120_Text_LorenzoIntro",
+            "Route120_Text_LorenzoDefeat",
+            "Route120_Text_LorenzoPostBattle"
+          ],
+          "note": "",
+          "x": 27,
+          "y": 51
+        },
+        {
+          "kind": "trainer",
+          "source_index": 13,
+          "source_script": "Route120_EventScript_Jenna",
+          "source_sprite": "OBJ_EVENT_GFX_PICNICKER",
+          "firered_sprite": "OBJ_EVENT_GFX_PICNICKER",
+          "text": [
+            "TRAINER_HOENN_JENNA",
+            "Route120_Text_JennaIntro",
+            "Route120_Text_JennaDefeat",
+            "Route120_Text_JennaPostBattle"
+          ],
+          "note": "",
+          "x": 36,
+          "y": 45
+        },
+        {
+          "kind": "trainer",
+          "source_index": 14,
+          "source_script": "Route120_EventScript_Jeffrey",
+          "source_sprite": "OBJ_EVENT_GFX_MANIAC",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": [
+            "TRAINER_HOENN_JEFFREY",
+            "Route120_Text_JeffreyIntro",
+            "Route120_Text_JeffreyDefeat",
+            "Route120_Text_JeffreyPostBattle"
+          ],
+          "note": "",
+          "x": 19,
+          "y": 80
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 15,
+          "source_script": "Route120_EventScript_ItemNugget",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Nugget",
+          "x": 20,
+          "y": 55
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 20,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 35,
+          "y": 32
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 21,
+          "source_script": "Route120_EventScript_ItemFullHeal",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Full Heal",
+          "x": 7,
+          "y": 89
+        },
+        {
+          "kind": "trainer",
+          "source_index": 23,
+          "source_script": "Route120_EventScript_Jennifer",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_3",
+          "text": [
+            "TRAINER_HOENN_JENNIFER",
+            "Route120_Text_JenniferIntro",
+            "Route120_Text_JenniferDefeat",
+            "Route120_Text_JenniferPostBattle"
+          ],
+          "note": "",
+          "x": 31,
+          "y": 37
+        },
+        {
+          "kind": "trainer",
+          "source_index": 24,
+          "source_script": "Route120_EventScript_Chip",
+          "source_sprite": "OBJ_EVENT_GFX_HIKER",
+          "firered_sprite": "OBJ_EVENT_GFX_HIKER",
+          "text": [
+            "TRAINER_HOENN_CHIP",
+            "Route120_Text_ChipIntro",
+            "Route120_Text_ChipDefeat",
+            "Route120_Text_ChipPostBattle"
+          ],
+          "note": "",
+          "x": 9,
+          "y": 60
+        },
+        {
+          "kind": "trainer",
+          "source_index": 25,
+          "source_script": "Route120_EventScript_Clarissa",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_3",
+          "text": [
+            "TRAINER_HOENN_CLARISSA",
+            "Route120_Text_ClarissaIntro",
+            "Route120_Text_ClarissaDefeat",
+            "Route120_Text_ClarissaPostBattle"
+          ],
+          "note": "",
+          "x": 16,
+          "y": 6
+        },
+        {
+          "kind": "trainer",
+          "source_index": 26,
+          "source_script": "Route120_EventScript_Angelica",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_3",
+          "text": [
+            "TRAINER_HOENN_ANGELICA",
+            "Route120_Text_AngelicaIntro",
+            "Route120_Text_AngelicaDefeat",
+            "Route120_Text_AngelicaPostBattle"
+          ],
+          "note": "",
+          "x": 18,
+          "y": 34
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 27,
+          "source_script": "Route120_EventScript_ItemNestBall",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Nest Ball",
+          "x": 22,
+          "y": 13
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 28,
+          "source_script": "Route120_EventScript_ItemHyperPotion",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Hyper Potion",
+          "x": 23,
+          "y": 82
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 31,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 20,
+          "y": 1
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 32,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 15,
+          "y": 1
+        },
+        {
+          "kind": "trainer",
+          "source_index": 33,
+          "source_script": "Route120_EventScript_Keigo",
+          "source_sprite": "OBJ_EVENT_GFX_NINJA_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_NINJA_BOY",
+          "text": [
+            "TRAINER_HOENN_KEIGO",
+            "Route120_Text_KeigoIntro",
+            "Route120_Text_KeigoDefeat",
+            "Route120_Text_KeigoPostBattle"
+          ],
+          "note": "",
+          "x": 10,
+          "y": 72
+        },
+        {
+          "kind": "trainer",
+          "source_index": 34,
+          "source_script": "Route120_EventScript_Riley",
+          "source_sprite": "OBJ_EVENT_GFX_NINJA_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_NINJA_BOY",
+          "text": [
+            "TRAINER_HOENN_RILEY",
+            "Route120_Text_RileyIntro",
+            "Route120_Text_RileyDefeat",
+            "Route120_Text_RileyPostBattle"
+          ],
+          "note": "",
+          "x": 19,
+          "y": 28
+        },
+        {
+          "kind": "trainer",
+          "source_index": 41,
+          "source_script": "Route120_EventScript_Callie",
+          "source_sprite": "OBJ_EVENT_GFX_GIRL_3",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_CALLIE",
+            "Route120_Text_CallieIntro",
+            "Route120_Text_CallieDefeat",
+            "Route120_Text_CalliePostBattle"
+          ],
+          "note": "",
+          "x": 19,
+          "y": 32
+        },
+        {
+          "kind": "trainer",
+          "source_index": 42,
+          "source_script": "Route120_EventScript_Leonel",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_3",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": [
+            "TRAINER_HOENN_LEONEL",
+            "Route120_Text_LeonelIntro",
+            "Route120_Text_LeonelDefeat",
+            "Route120_Text_LeonelPostBattle"
+          ],
+          "note": "",
+          "x": 14,
+          "y": 34
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 43,
+          "source_script": "Route120_EventScript_ItemRevive",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Revive",
+          "x": 24,
+          "y": 33
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route120_EventScript_RouteSignFortree",
+          "text": "Route120_Text_RouteSignFortree",
+          "x": 27,
+          "y": 3
+        },
+        {
+          "kind": "sign",
+          "source_index": 1,
+          "source_script": "Route120_EventScript_RouteSign121",
+          "text": "Route120_Text_RouteSign121",
+          "x": 38,
+          "y": 88
+        }
+      ]
+    },
+    "Hoenn_Route121": {
+      "source": "pokeemerald/Route121",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 0,
+          "source_script": "Route121_EventScript_Woman",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_3",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_3",
+          "text": "Route121_Text_AheadLoomsMtPyre",
+          "note": "",
+          "x": 29,
+          "y": 14
+        },
+        {
+          "kind": "trainer",
+          "source_index": 9,
+          "source_script": "Route121_EventScript_Kate",
+          "source_sprite": "OBJ_EVENT_GFX_LASS",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_KATE_AND_JOY",
+            "Route121_Text_KateIntro",
+            "Route121_Text_KateDefeat",
+            "Route121_Text_KatePostBattle",
+            "Route121_Text_KateNotEnoughMons"
+          ],
+          "note": "double battle",
+          "x": 39,
+          "y": 9
+        },
+        {
+          "kind": "trainer",
+          "source_index": 10,
+          "source_script": "Route121_EventScript_Joy",
+          "source_sprite": "OBJ_EVENT_GFX_LASS",
+          "firered_sprite": "OBJ_EVENT_GFX_LASS",
+          "text": [
+            "TRAINER_HOENN_KATE_AND_JOY",
+            "Route121_Text_JoyIntro",
+            "Route121_Text_JoyDefeat",
+            "Route121_Text_JoyPostBattle",
+            "Route121_Text_JoyNotEnoughMons"
+          ],
+          "note": "double battle",
+          "x": 40,
+          "y": 9
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 14,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 32,
+          "y": 5
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 15,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 65,
+          "y": 4
+        },
+        {
+          "kind": "trainer",
+          "source_index": 16,
+          "source_script": "Route121_EventScript_Vanessa",
+          "source_sprite": "OBJ_EVENT_GFX_POKEFAN_F",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": [
+            "TRAINER_HOENN_VANESSA",
+            "Route121_Text_VanessaIntro",
+            "Route121_Text_VanessaDefeat",
+            "Route121_Text_VanessaPostBattle"
+          ],
+          "note": "",
+          "x": 63,
+          "y": 5
+        },
+        {
+          "kind": "trainer",
+          "source_index": 17,
+          "source_script": "Route121_EventScript_Walter",
+          "source_sprite": "OBJ_EVENT_GFX_GENTLEMAN",
+          "firered_sprite": "OBJ_EVENT_GFX_GENTLEMAN",
+          "text": [
+            "TRAINER_HOENN_WALTER",
+            "Route121_Text_WalterIntro",
+            "Route121_Text_WalterDefeat",
+            "Route121_Text_WalterPostBattle"
+          ],
+          "note": "",
+          "x": 55,
+          "y": 8
+        },
+        {
+          "kind": "trainer",
+          "source_index": 18,
+          "source_script": "Route121_EventScript_Tammy",
+          "source_sprite": "OBJ_EVENT_GFX_HEX_MANIAC",
+          "firered_sprite": "OBJ_EVENT_GFX_CHANNELER",
+          "text": [
+            "TRAINER_HOENN_TAMMY",
+            "Route121_Text_TammyIntro",
+            "Route121_Text_TammyDefeat",
+            "Route121_Text_TammyPostBattle"
+          ],
+          "note": "",
+          "x": 11,
+          "y": 11
+        },
+        {
+          "kind": "trainer",
+          "source_index": 19,
+          "source_script": "Route121_EventScript_Jessica",
+          "source_sprite": "OBJ_EVENT_GFX_BEAUTY",
+          "firered_sprite": "OBJ_EVENT_GFX_BEAUTY",
+          "text": [
+            "TRAINER_HOENN_JESSICA",
+            "Route121_Text_JessicaIntro",
+            "Route121_Text_JessicaDefeat",
+            "Route121_Text_JessicaPostBattle"
+          ],
+          "note": "",
+          "x": 22,
+          "y": 5
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 20,
+          "source_script": "Route121_EventScript_ItemCarbos",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Carbos",
+          "x": 55,
+          "y": 10
+        },
+        {
+          "kind": "cuttree",
+          "source_index": 21,
+          "source_script": "EventScript_CutTree",
+          "source_sprite": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+          "firered_sprite": "OBJ_EVENT_GFX_CUT_TREE",
+          "text": null,
+          "note": "",
+          "x": 26,
+          "y": 12
+        },
+        {
+          "kind": "trainer",
+          "source_index": 22,
+          "source_script": "Route121_EventScript_Cale",
+          "source_sprite": "OBJ_EVENT_GFX_MANIAC",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": [
+            "TRAINER_HOENN_CALE",
+            "Route121_Text_CaleIntro",
+            "Route121_Text_CaleDefeat",
+            "Route121_Text_CalePostBattle"
+          ],
+          "note": "",
+          "x": 11,
+          "y": 6
+        },
+        {
+          "kind": "trainer",
+          "source_index": 23,
+          "source_script": "Route121_EventScript_Myles",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_4",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": [
+            "TRAINER_HOENN_MYLES",
+            "Route121_Text_MylesIntro",
+            "Route121_Text_MylesDefeat",
+            "Route121_Text_MylesPostBattle"
+          ],
+          "note": "",
+          "x": 59,
+          "y": 8
+        },
+        {
+          "kind": "trainer",
+          "source_index": 24,
+          "source_script": "Route121_EventScript_Pat",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_2",
+          "text": [
+            "TRAINER_HOENN_PAT",
+            "Route121_Text_PatIntro",
+            "Route121_Text_PatDefeat",
+            "Route121_Text_PatPostBattle"
+          ],
+          "note": "",
+          "x": 59,
+          "y": 13
+        },
+        {
+          "kind": "trainer",
+          "source_index": 25,
+          "source_script": "Route121_EventScript_Marcel",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_3",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": [
+            "TRAINER_HOENN_MARCEL",
+            "Route121_Text_MarcelIntro",
+            "Route121_Text_MarcelDefeat",
+            "Route121_Text_MarcelPostBattle"
+          ],
+          "note": "",
+          "x": 65,
+          "y": 9
+        },
+        {
+          "kind": "trainer",
+          "source_index": 26,
+          "source_script": "Route121_EventScript_Cristin",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_5",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_3",
+          "text": [
+            "TRAINER_HOENN_CRISTIN",
+            "Route121_Text_CristinIntro",
+            "Route121_Text_CristinDefeat",
+            "Route121_Text_CristinPostBattle"
+          ],
+          "note": "",
+          "x": 72,
+          "y": 9
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 27,
+          "source_script": "Route121_EventScript_ItemRevive",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Revive",
+          "x": 60,
+          "y": 10
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 28,
+          "source_script": "Route121_EventScript_ItemZinc",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Zinc",
+          "x": 38,
+          "y": 13
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "Route121_EventScript_MtPyrePierSign",
+          "text": "Route121_Text_MtPyrePierSign",
+          "x": 32,
+          "y": 14
+        },
+        {
+          "kind": "sign",
+          "source_index": 5,
+          "source_script": "Route121_EventScript_SafariZoneSign",
+          "text": "Route121_Text_SafariZoneSign",
+          "x": 39,
+          "y": 6
+        }
+      ]
+    },
+    "Hoenn_LilycoveCity": {
+      "source": "pokeemerald/LilycoveCity",
+      "events": [
+        {
+          "kind": "npc",
+          "source_index": 2,
+          "source_script": "LilycoveCity_EventScript_Man3",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_1",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "LilycoveCity_Text_ContestHallInTown",
+          "note": "",
+          "x": 28,
+          "y": 28
+        },
+        {
+          "kind": "npc",
+          "source_index": 3,
+          "source_script": "LilycoveCity_EventScript_RichBoy",
+          "source_sprite": "OBJ_EVENT_GFX_RICH_BOY",
+          "firered_sprite": "OBJ_EVENT_GFX_BOY",
+          "text": "LilycoveCity_Text_ImFromKanto",
+          "note": "",
+          "x": 21,
+          "y": 15
+        },
+        {
+          "kind": "npc",
+          "source_index": 4,
+          "source_script": "LilycoveCity_EventScript_Man2",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "LilycoveCity_Text_ImArtDealer",
+          "note": "",
+          "x": 16,
+          "y": 9
+        },
+        {
+          "kind": "npc",
+          "source_index": 6,
+          "source_script": "LilycoveCity_EventScript_ExpertM1",
+          "source_sprite": "OBJ_EVENT_GFX_EXPERT_M",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_MAN_1",
+          "text": "LilycoveCity_Text_SeaRemainsForeverYoung",
+          "note": "",
+          "x": 35,
+          "y": 37
+        },
+        {
+          "kind": "npc",
+          "source_index": 7,
+          "source_script": "LilycoveCity_EventScript_ExpertF",
+          "source_sprite": "OBJ_EVENT_GFX_EXPERT_F",
+          "firered_sprite": "OBJ_EVENT_GFX_OLD_WOMAN",
+          "text": "LilycoveCity_Text_SixtyYearsAgoHusbandProposed",
+          "note": "",
+          "x": 34,
+          "y": 37
+        },
+        {
+          "kind": "itemflag",
+          "source_index": 10,
+          "source_script": "LilycoveCity_EventScript_ItemMaxRepel",
+          "source_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "firered_sprite": "OBJ_EVENT_GFX_ITEM_BALL",
+          "text": null,
+          "note": "Max Repel",
+          "x": 61,
+          "y": 36
+        },
+        {
+          "kind": "npc",
+          "source_index": 18,
+          "source_script": "LilycoveCity_EventScript_Woman1",
+          "source_sprite": "OBJ_EVENT_GFX_WOMAN_3",
+          "firered_sprite": "OBJ_EVENT_GFX_WOMAN_3",
+          "text": "LilycoveCity_Text_HoneymoonVowToSeeRarePokemon",
+          "note": "",
+          "x": 41,
+          "y": 25
+        },
+        {
+          "kind": "npc",
+          "source_index": 19,
+          "source_script": "LilycoveCity_EventScript_Man1",
+          "source_sprite": "OBJ_EVENT_GFX_MAN_2",
+          "firered_sprite": "OBJ_EVENT_GFX_MAN",
+          "text": "LilycoveCity_Text_JustArrivedAndSawRarePokemon",
+          "note": "",
+          "x": 40,
+          "y": 25
+        },
+        {
+          "kind": "npc",
+          "source_index": 20,
+          "source_script": "LilycoveCity_EventScript_Sailor1",
+          "source_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "firered_sprite": "OBJ_EVENT_GFX_SAILOR",
+          "text": "LilycoveCity_Text_HeardTowerCalledSkyPillar",
+          "note": "",
+          "x": 16,
+          "y": 34
+        },
+        {
+          "kind": "npc",
+          "source_index": 21,
+          "source_script": "LilycoveCity_EventScript_FatMan",
+          "source_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "firered_sprite": "OBJ_EVENT_GFX_FAT_MAN",
+          "text": "LilycoveCity_Text_SawTallTowerOnRoute131",
+          "note": "",
+          "x": 16,
+          "y": 35
+        },
+        {
+          "kind": "sign",
+          "source_index": 0,
+          "source_script": "LilycoveCity_EventScript_MuseumSign",
+          "text": "LilycoveCity_Text_MuseumSign",
+          "x": 19,
+          "y": 7
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 1,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 25,
+          "y": 14
+        },
+        {
+          "kind": "sign",
+          "source_index": 2,
+          "source_script": "LilycoveCity_EventScript_DepartmentStoreSign",
+          "text": "LilycoveCity_Text_DepartmentStoreSign",
+          "x": 29,
+          "y": 7
+        },
+        {
+          "kind": "pcsign",
+          "source_index": 3,
+          "source_script": "Common_EventScript_ShowPokemonCenterSign",
+          "text": null,
+          "x": 26,
+          "y": 14
+        },
+        {
+          "kind": "sign",
+          "source_index": 4,
+          "source_script": "LilycoveCity_EventScript_CitySign",
+          "text": "LilycoveCity_Text_CitySign",
+          "x": 6,
+          "y": 15
+        },
+        {
+          "kind": "sign",
+          "source_index": 5,
+          "source_script": "LilycoveCity_EventScript_ContestHallSign",
+          "text": "LilycoveCity_Text_ContestHallSign",
+          "x": 29,
+          "y": 24
+        },
+        {
+          "kind": "sign",
+          "source_index": 6,
+          "source_script": "LilycoveCity_EventScript_MotelSign",
+          "text": "LilycoveCity_Text_MotelSign",
+          "x": 35,
+          "y": 24
+        },
+        {
+          "kind": "sign",
+          "source_index": 8,
+          "source_script": "LilycoveCity_EventScript_TrainerFanClubSign",
+          "text": "LilycoveCity_Text_TrainerFanClubSign",
+          "x": 36,
+          "y": 14
+        },
+        {
+          "kind": "sign",
+          "source_index": 9,
+          "source_script": "LilycoveCity_EventScript_MoveDeletersHouseSign",
+          "text": "LilycoveCity_Text_MoveDeletersHouseSign",
+          "x": 34,
+          "y": 6
+        }
+      ]
+    },
     "Johto_NewBarkTown": {
       "source": "HNS_modern/NewBarkTown",
       "events": [

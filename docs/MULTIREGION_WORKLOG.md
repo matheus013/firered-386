@@ -2464,3 +2464,44 @@ o warp do Ice Path, e o Centro e o Mart foram renumerados junto.
 **Resultado:** 1305 casos aprovados (eram 1283), com as 232 batalhas de rota vencidas. As caminhadas novas entram no Ice Path pela Route 44 e por Blackthorn, no Mt. Mortar pelas três entradas da Route 42, e passam da metade sul para a norte.
 
 **Tempo do teste:** a primeira rodada estourou o limite de 30 minutos que o harness dá ao emulador. A segunda levou 26 minutos no total. O limite passou para 90 minutos, mas vale dividir o teste antes que ele cresça muito mais.
+
+## Hoenn, lote 12: Routes 120 e 121 e Lilycove City
+
+**Mapas novos:** a Route 120, a leste de Fortree (secundário de Fortree, que já cobria a rota); a
+Route 121; e Lilycove City. As duas últimas usam o secundário novo `hoenn_pilot_lilycove` (254
+tiles), convertido também para as Routes 122 e 123, que vêm depois.
+
+- **Lilycove só com Centro Pokémon:** o Mart de Lilycove é a Loja de Departamentos, que tem porta
+  animada própria. Ela fica fechada por enquanto. O instalador passou a aceitar
+  cidade sem Mart.
+- **Regras novas:**
+  - `MB_SHALLOW_WATER` (a praia de Lilycove) tem o mesmo nome no FireRed;
+  - `MB_WATER_DOOR` (entradas na água, como o esconderijo da Aqua) vira água do mar, porque essas
+    entradas ficam fechadas;
+  - as seis variações de `MB_BRIDGE_OVER_POND_*` (a ponte da Route 120) viram normais.
+- **Lilycove:** Centro Pokémon do FireRed. A flag é `FLAG_WORLD_MAP_LILYCOVE_CITY` (0x8D7), e a
+  cidade é destino de Fly.
+- **Treinadores (23, IDs 944–966):**
+  - Route 120: Colin, Robert, Lorenzo, Jenna, Jeffrey, Jennifer, Chip, Clarissa, Angelica, Keigo,
+    Riley, Callie e Leonel;
+  - Route 121: Kate & Joy (batalha dupla), Vanessa, Walter, Tammy, Jessica, Cale, Myles, Pat,
+    Marcel e Cristin.
+- **Sprite:** a Hex Maniac usa `CHANNELER`.
+- **Eventos:**
+  - nove itens, com as flags 0x12D–0x135;
+  - seis árvores de Cut;
+  - a moça do Mt. Pyre e nove moradores de Lilycove;
+  - as placas;
+  - 95 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** grama, água e pesca das duas rotas, e água e pesca em Lilycove, iguais às
+  tabelas do Emerald.
+
+**Fica para depois:**
+
+- a Loja de Departamentos, o Museu, o Salão de Concursos, o motel, o porto, o Fã-Clube e as casas;
+- a Equipe Aqua e o esconderijo, o rival e os moradores com ramos de história;
+- a Gabby e o Ty, o Steven e os Kecleon da Route 120;
+- a Safari Zone, a Ancient Tomb e a Scorched Slab;
+- as Routes 122 e 123 e o Mt. Pyre.
+
+**Resultado:** 1395 casos aprovados (eram 1305), com as 255 batalhas de rota vencidas, incluindo a dupla Kate & Joy. As caminhadas novas cruzam Fortree → Route 120 → Route 121 → Lilycove e entram e saem do Centro de Lilycove. O teste levou 28 minutos.

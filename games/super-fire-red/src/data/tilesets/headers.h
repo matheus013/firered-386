@@ -1060,6 +1060,17 @@ const struct Tileset gTileset_HoennPilotFortree =
     .metatileAttributes = gMetatileAttributes_HoennPilotFortree,
     .callback = InitTilesetAnim_HoennPetalburgPilot,  // static
 };
+
+const struct Tileset gTileset_HoennPilotLilycove =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HoennPilotLilycove,
+    .palettes = gTilesetPalettes_HoennPilotLilycove,
+    .metatiles = gMetatiles_HoennPilotLilycove,
+    .metatileAttributes = gMetatileAttributes_HoennPilotLilycove,
+    .callback = InitTilesetAnim_HoennPetalburgPilot,  // static
+};
 const struct Tileset gTileset_JohtoPilotRoute38Farmland =
 {
     .isCompressed = TRUE,

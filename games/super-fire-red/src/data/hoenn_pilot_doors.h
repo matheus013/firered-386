@@ -44,3 +44,8 @@ static const struct DoorGraphics sHoennPilotDoors_Fortree[] = {
     {0x041, DOOR_SOUND_SLIDING, DOOR_SIZE_1x2, sHoennDoorTiles_PokeMart, sHoennDoorPalettes_PokeMart},
     {}
 };
+static const struct DoorGraphics sHoennPilotDoors_Lilycove[] = {
+    {0x061, DOOR_SOUND_SLIDING, DOOR_SIZE_1x2, sHoennDoorTiles_PokeCenter, sHoennDoorPalettes_PokeCenter},
+    {0x041, DOOR_SOUND_SLIDING, DOOR_SIZE_1x2, sHoennDoorTiles_PokeMart, sHoennDoorPalettes_PokeMart},
+    {}
+};
