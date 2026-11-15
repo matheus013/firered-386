@@ -483,6 +483,30 @@ EVENTS = {
          3: ('pcsign', None), 4: ('sign', 'LilycoveCity_Text_CitySign'), 5: ('sign', 'LilycoveCity_Text_ContestHallSign'),
          6: ('sign', 'LilycoveCity_Text_MotelSign'), 8: ('sign', 'LilycoveCity_Text_TrainerFanClubSign'),
          9: ('sign', 'LilycoveCity_Text_MoveDeletersHouseSign')}),
+    # Hoenn batch 13. Route 122 has no events. Left out on Route 123: the Giga Drain girl (gift tied to a Grass-type
+    # check), berry trees, secret bases, hidden items and the Berry Master's house.
+    'Route123': (EMERALD, {
+        7: ('trainer', ('TRAINER_HOENN_WENDY', 'Route123_Text_WendyIntro', 'Route123_Text_WendyDefeat', 'Route123_Text_WendyPostBattle'), ''),
+        8: ('trainer', ('TRAINER_HOENN_BRAXTON', 'Route123_Text_BraxtonIntro', 'Route123_Text_BraxtonDefeat', 'Route123_Text_BraxtonPostBattle'), ''),
+        25: ('trainer', ('TRAINER_HOENN_VIOLET', 'Route123_Text_VioletIntro', 'Route123_Text_VioletDefeat', 'Route123_Text_VioletPostBattle'), ''),
+        26: ('trainer', ('TRAINER_HOENN_MIU_AND_YUKI', 'Route123_Text_YukiIntro', 'Route123_Text_YukiDefeat', 'Route123_Text_YukiPostBattle', 'Route123_Text_YukiNotEnoughMons'), 'double battle'),
+        27: ('trainer', ('TRAINER_HOENN_MIU_AND_YUKI', 'Route123_Text_MiuIntro', 'Route123_Text_MiuDefeat', 'Route123_Text_MiuPostBattle', 'Route123_Text_MiuNotEnoughMons'), 'double battle'),
+        28: ('trainer', ('TRAINER_HOENN_CAMERON', 'Route123_Text_CameronIntro', 'Route123_Text_CameronDefeat', 'Route123_Text_CameronPostBattle'), ''),
+        29: ('trainer', ('TRAINER_HOENN_JACKI', 'Route123_Text_JackiIntro', 'Route123_Text_JackiDefeat', 'Route123_Text_JackiPostBattle'), ''),
+        30: ('trainer', ('TRAINER_HOENN_KINDRA', 'Route123_Text_KindraIntro', 'Route123_Text_KindraDefeat', 'Route123_Text_KindraPostBattle'), ''),
+        33: ('trainer', ('TRAINER_HOENN_JONAS', 'Route123_Text_JonasIntro', 'Route123_Text_JonasDefeat', 'Route123_Text_JonasPostBattle'), ''),
+        34: ('trainer', ('TRAINER_HOENN_KAYLEY', 'Route123_Text_KayleyIntro', 'Route123_Text_KayleyDefeat', 'Route123_Text_KayleyPostBattle'), ''),
+        35: ('trainer', ('TRAINER_HOENN_ED', 'Route123_Text_EdIntro', 'Route123_Text_EdDefeat', 'Route123_Text_EdPostBattle'), ''),
+        36: ('trainer', ('TRAINER_HOENN_FERNANDO', 'Route123_Text_FernandoIntro', 'Route123_Text_FernandoDefeat', 'Route123_Text_FernandoPostBattle'), ''),
+        37: ('trainer', ('TRAINER_HOENN_ALBERTO', 'Route123_Text_AlbertoIntro', 'Route123_Text_AlbertoDefeat', 'Route123_Text_AlbertoPostBattle'), ''),
+        38: ('trainer', ('TRAINER_HOENN_FREDRICK', 'Route123_Text_FrederickIntro', 'Route123_Text_FrederickDefeat', 'Route123_Text_FrederickPostBattle'), ''),
+        40: ('trainer', ('TRAINER_HOENN_JAZMYN', 'Route123_Text_JazmynIntro', 'Route123_Text_JazmynDefeat', 'Route123_Text_JazmynPostBattle'), ''),
+        41: ('trainer', ('TRAINER_HOENN_DAVIS', 'Route123_Text_DavisIntro', 'Route123_Text_DavisDefeat', 'Route123_Text_DavisPostBattle'), ''),
+        20: ('itemflag', None, 'Calcium'), 31: ('itemflag', None, 'Ultra Ball'), 32: ('itemflag', None, 'Elixir'),
+        39: ('itemflag', None, 'PP Up'), 42: ('itemflag', None, 'Revival Herb'),
+        17: ('cuttree', None, ''), 18: ('cuttree', None, ''), 19: ('cuttree', None, '')},
+        {0: ('sign', 'Route123_Text_RouteSignMtPyre'), 3: ('sign', 'Route123_Text_RouteSign'),
+         5: ('sign', 'Route123_Text_BerryMastersHouse')}),
     'NewBarkTown': (HNS, {
         0: ('npc', 'NewBarkTown_Text_FatManState3', 'default branch'),
         1: ('npc', 'NewBarkTown_Text_LassState3', 'branch for a player who already has Pokemon'),
@@ -996,6 +1020,11 @@ ITEM_FLAGS = {('Route102', 5): ('ITEM_POTION', 'FLAG_HIDE_HOENN_ROUTE102_POTION'
               ('Route121', 28): ('ITEM_ZINC', 'FLAG_HIDE_HOENN_ROUTE121_ZINC', 'FLAG_0x134'),
               ('LilycoveCity', 10): ('ITEM_MAX_REPEL', 'FLAG_HIDE_HOENN_LILYCOVE_MAX_REPEL', 'FLAG_0x135'),
               ('TohjoFalls_Cavern', 0): ('ITEM_HEART_SCALE', 'FLAG_HIDE_JOHTO_TOHJO_FALLS_HEART_SCALE', 'FLAG_0x136'),
+              ('Route123', 20): ('ITEM_CALCIUM', 'FLAG_HIDE_HOENN_ROUTE123_CALCIUM', 'FLAG_0x137'),
+              ('Route123', 31): ('ITEM_ULTRA_BALL', 'FLAG_HIDE_HOENN_ROUTE123_ULTRA_BALL', 'FLAG_0x138'),
+              ('Route123', 32): ('ITEM_ELIXIR', 'FLAG_HIDE_HOENN_ROUTE123_ELIXIR', 'FLAG_0x139'),
+              ('Route123', 39): ('ITEM_PP_UP', 'FLAG_HIDE_HOENN_ROUTE123_PP_UP', 'FLAG_0x13A'),
+              ('Route123', 42): ('ITEM_REVIVAL_HERB', 'FLAG_HIDE_HOENN_ROUTE123_REVIVAL_HERB', 'FLAG_0x13B'),
               # one-time gifts (kind 'gift'): the flag marks the item as given
               ('CherrygroveCity', 1): ('ITEM_MYSTIC_WATER', 'FLAG_GOT_JOHTO_MYSTIC_WATER', 'FLAG_0x0B6')}
 # Objects whose source elevation differs from the cells they stand on (map, index) -> elevation. A wanderer only

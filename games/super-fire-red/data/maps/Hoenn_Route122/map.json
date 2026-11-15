@@ -1,0 +1,32 @@
+{
+  "id": "MAP_HOENN_ROUTE122",
+  "name": "Hoenn_Route122",
+  "layout": "LAYOUT_HOENN_ROUTE122",
+  "music": "MUS_ROUTE24",
+  "region_map_section": "MAPSEC_ROUTE_122",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_HOENN_ROUTE121",
+      "offset": -20,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_HOENN_ROUTE123",
+      "offset": -100,
+      "direction": "down"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "floor_number": 0
+}

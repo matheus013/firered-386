@@ -117,6 +117,8 @@ for _m,_x,_y,_steps,_want in (
   (HOENN+'ROUTE120',39,88,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_HOENN_ROUTE121',{(0,8)}),('MAP_HOENN_ROUTE120',{(39,88)})]),
   (HOENN+'ROUTE121',79,6,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_HOENN_LILYCOVE_CITY',{(0,16)}),('MAP_HOENN_ROUTE121',{(79,6)})]),
   (HOENN+'LILYCOVE_CITY',24,15,[('UP','MAP'),('DOWN','MAP')],[('MAP_HOENN_LILYCOVE_CITY_POKEMON_CENTER_1F',{(7,8)}),('MAP_HOENN_LILYCOVE_CITY',{(24,15)})]),
+  # Hoenn batch 13: Route 118 east into Route 123 (Route 122 is open sea).
+  (HOENN+'ROUTE118',79,11,[('RIGHT','MAP'),('LEFT','MAP')],[('MAP_HOENN_ROUTE123',{(0,11)}),('MAP_HOENN_ROUTE118',{(79,11)})]),
   # Johto batch 1: Route 29 west into Cherrygrove, north to Routes 30 and 31, and the Pokemon Center/Mart doors.
   (JOHTO+'ROUTE29',0,16,[('LEFT','MAP'),('RIGHT','MAP')],[('MAP_JOHTO_CHERRYGROVE_CITY',{(64,10)}),('MAP_JOHTO_ROUTE29',{(0,16)})]),
   (JOHTO+'CHERRYGROVE_CITY',34,0,[('UP','MAP'),('DOWN','MAP')],[('MAP_JOHTO_ROUTE30',{(25,57)}),('MAP_JOHTO_CHERRYGROVE_CITY',{(34,0)})]),

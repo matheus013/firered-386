@@ -566,6 +566,8 @@ gStdScriptsEnd::
 	.include "data/maps/Hoenn_Route121/scripts.inc"
 	.include "data/maps/Hoenn_LilycoveCity/scripts.inc"
 	.include "data/maps/Hoenn_LilycoveCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Hoenn_Route122/scripts.inc"
+	.include "data/maps/Hoenn_Route123/scripts.inc"
 	.include "data/maps/Johto_NewBarkTown/scripts.inc"
 	.include "data/maps/Johto_Route29/scripts.inc"
 	.include "data/maps/Johto_NewBarkTown_PlayersHouse_1F/scripts.inc"

@@ -2532,3 +2532,30 @@ no Johto), ligada à metade sul pela borda.
 - o portão e a Victory Road.
 
 **Resultado:** 1404 casos aprovados (eram 1395), com as 257 batalhas de rota vencidas; a Beth ficou de fora da batalha, como explicado acima. As caminhadas novas entram nas Tohjo Falls pelas duas entradas da Route 27 e sobem da metade sul da Route 26 para a norte. O teste levou 31 minutos.
+
+## Hoenn, lote 13: Routes 122 e 123
+
+**Mapas novos:** a Route 122 (o mar em volta do Mt. Pyre, sem eventos) e a Route 123, a leste da
+Route 118. As duas usam o secundário de Lilycove, que já cobria estas rotas desde o lote 12. A
+Route 122 liga a Route 121 à Route 123 pelo mar.
+
+- **Fechados:** o Mt. Pyre e a casa do Mestre das Berries.
+- **Treinadores (15, IDs 970–984):** Wendy, Braxton, Violet, Miu & Yuki (batalha dupla), Cameron,
+  Jacki, Kindra, Jonas, Kayley, Ed, Fernando, Alberto, Fredrick, Jazmyn e Davis.
+  - O Davis (ID 984) é o primeiro treinador no segundo bloco de flags (0x4BD). A batalha de teste
+    dele confere a flag de vitória nesse bloco.
+  - A Jazmyn é `COOLTRAINER_2` no Emerald e usa a classe `RS_COOLTRAINER`.
+- **Eventos:**
+  - Calcium, Ultra Ball, Elixir, PP Up e Revival Herb, com as flags 0x137–0x13B;
+  - três árvores de Cut;
+  - as placas;
+  - 53 textos traduzidos para PT-BR.
+- **Pokémon selvagens:** água e pesca na Route 122, e grama, água e pesca na Route 123, iguais às
+  tabelas do Emerald.
+
+**Fica para depois:**
+
+- o Mt. Pyre e a casa do Mestre das Berries;
+- a menina da Giga Drain, as árvores de berry, as bases secretas e os itens escondidos.
+
+**Resultado:** 1447 casos aprovados (eram 1404), com as 272 batalhas de rota vencidas, incluindo a dupla Miu & Yuki e o Davis. A batalha do Davis confirmou a flag de vitória no segundo bloco. A caminhada nova cruza Route 118 → Route 123. O teste levou 31 minutos.

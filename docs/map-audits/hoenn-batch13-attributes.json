@@ -1,0 +1,86 @@
+{
+  "layouts": [
+    "LAYOUT_HOENN_ROUTE122",
+    "LAYOUT_HOENN_ROUTE123"
+  ],
+  "entries": [
+    {
+      "metatile": "0x013",
+      "source_behavior": "MB_SECRET_BASE_WALL",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x106",
+      "source_behavior": "MB_JUMP_WEST",
+      "attribute": "0x20000039",
+      "reason": "west ledge"
+    },
+    {
+      "metatile": "0x14c",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x1a0",
+      "source_behavior": "MB_SECRET_BASE_SPOT_RED_CAVE",
+      "attribute": "0x00000000",
+      "reason": "FireRed has no secret bases"
+    },
+    {
+      "metatile": "0x2a0",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2a8",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2a9",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2b0",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2b1",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2b8",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2b9",
+      "source_behavior": "MB_OCEAN_WATER",
+      "attribute": "0x22000415",
+      "reason": "FR ocean water: surfable, water encounters"
+    },
+    {
+      "metatile": "0x2f3",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    },
+    {
+      "metatile": "0x2f5",
+      "source_behavior": "MB_BERRY_TREE_SOIL",
+      "attribute": "0x00000000",
+      "reason": "berry trees are left out of batch 1"
+    }
+  ]
+}

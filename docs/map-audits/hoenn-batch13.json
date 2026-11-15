@@ -1,0 +1,24 @@
+{
+  "maps": {
+    "Hoenn_Route122": {
+      "layout": "LAYOUT_HOENN_ROUTE122",
+      "secondary": "gTileset_HoennPilotLilycove",
+      "music": "MUS_ROUTE24",
+      "warps": 0
+    },
+    "Hoenn_Route123": {
+      "layout": "LAYOUT_HOENN_ROUTE123",
+      "secondary": "gTileset_HoennPilotLilycove",
+      "music": "MUS_ROUTE24",
+      "warps": 0
+    }
+  },
+  "closed_doors": {
+    "Route122": [
+      "MAP_MT_PYRE_1F"
+    ],
+    "Route123": [
+      "MAP_ROUTE123_BERRY_MASTERS_HOUSE"
+    ]
+  }
+}

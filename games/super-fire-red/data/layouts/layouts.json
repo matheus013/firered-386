@@ -5478,6 +5478,30 @@
       "secondary_tileset": "gTileset_JohtoPilotViridianCity",
       "border_filepath": "data/layouts/Johto_Route26North/border.bin",
       "blockdata_filepath": "data/layouts/Johto_Route26North/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_ROUTE122",
+      "name": "Hoenn_Route122_Layout",
+      "width": 40,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotLilycove",
+      "border_filepath": "data/layouts/Hoenn_Route122/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_Route122/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOENN_ROUTE123",
+      "name": "Hoenn_Route123_Layout",
+      "width": 140,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_HoennPilotGeneral",
+      "secondary_tileset": "gTileset_HoennPilotLilycove",
+      "border_filepath": "data/layouts/Hoenn_Route123/border.bin",
+      "blockdata_filepath": "data/layouts/Hoenn_Route123/map.bin"
     }
   ]
 }

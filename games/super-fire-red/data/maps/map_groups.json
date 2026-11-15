@@ -681,7 +681,9 @@
     "Hoenn_Route120",
     "Hoenn_Route121",
     "Hoenn_LilycoveCity",
-    "Johto_Route26North"
+    "Johto_Route26North",
+    "Hoenn_Route122",
+    "Hoenn_Route123"
   ],
   "gMapGroup_Hoenn": [
     "Hoenn_LittlerootTown",
@@ -737,7 +739,9 @@
     "Hoenn_Route120",
     "Hoenn_Route121",
     "Hoenn_LilycoveCity",
-    "Hoenn_LilycoveCity_PokemonCenter_1F"
+    "Hoenn_LilycoveCity_PokemonCenter_1F",
+    "Hoenn_Route122",
+    "Hoenn_Route123"
   ],
   "gMapGroup_Johto": [
     "Johto_NewBarkTown",

@@ -88,11 +88,17 @@ BATCHES = {
           'LilycoveCity': ('MUS_VERMILLION', 'gTileset_HoennPilotLilycove')},
          {'LilycoveCity': ({(24, 14): 'PokemonCenter_1F'}, (24, 15), 'FLAG_0x8D7')},
          {'MAPSEC_ROUTE_120': 'ROUTE 120', 'MAPSEC_ROUTE_121': 'ROUTE 121', 'MAPSEC_LILYCOVE_CITY': 'LILYCOVE CITY'}),
+    # Batch 13: Route 122 (the sea around Mt. Pyre) and Route 123 east of Route 118 (Lilycove secondary, whose tiles
+    # already cover both). Mt. Pyre and the Berry Master's house stay closed.
+    13: ({'Route122': ('MUS_ROUTE24', 'gTileset_HoennPilotLilycove'),
+          'Route123': ('MUS_ROUTE24', 'gTileset_HoennPilotLilycove')},
+         {},
+         {'MAPSEC_ROUTE_122': 'ROUTE 122', 'MAPSEC_ROUTE_123': 'ROUTE 123'}),
 }
 # Every Hoenn exterior in the expansion, in install order (connections only link the installed ones).
 ALL_EXTERIORS = ['LittlerootTown', 'Route101', 'OldaleTown', 'Route102', 'Route103', 'PetalburgCity',
                  'Route104', 'PetalburgWoods', 'RustboroCity', 'Route116', 'RusturfTunnel', 'VerdanturfTown',
-                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109', 'Route112', 'LavaridgeTown', 'Route113', 'FallarborTown', 'Route114', 'Route115', 'Route119', 'FortreeCity', 'Route120', 'Route121', 'LilycoveCity']
+                 'Route117', 'MauvilleCity', 'Route110', 'SlateportCity', 'Route118', 'Route111', 'Route109', 'Route112', 'LavaridgeTown', 'Route113', 'FallarborTown', 'Route114', 'Route115', 'Route119', 'FortreeCity', 'Route120', 'Route121', 'LilycoveCity', 'Route122', 'Route123']
 DOORS = [  # metatile, symbol in hoenn_pilot_doors.h (already defined for the Petalburg pair)
     (0x061, 'PokeCenter', 'DOOR_SOUND_SLIDING'), (0x041, 'PokeMart', 'DOOR_SOUND_SLIDING')]
 
